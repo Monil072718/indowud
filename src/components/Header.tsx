@@ -1,8 +1,58 @@
-import { Facebook, Twitter, Youtube, Instagram, Linkedin } from 'lucide-react';
+import { useState } from 'react';
+import { Facebook, Twitter, Youtube, Instagram, Linkedin, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Header() {
-  const navItems = ['Home', 'Corporate', 'NFC', 'Media', 'Contact Us'];
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(null);
+
+  const navItems = [
+    { label: 'Home', path: '#' },
+    { 
+      label: 'Corporate', 
+      path: '#',
+      dropdown: [
+        { label: 'Chairman Message', path: '#' },
+        { label: 'Mission & Vision', path: '#' },
+        { label: 'Our Team', path: '#' },
+        { label: 'Certifications', path: '#' },
+      ]
+    },
+    { 
+      label: 'NFC', 
+      path: '#',
+      dropdown: [
+        { label: 'Products', path: '#' },
+        { label: 'Manufacturing Process', path: '#' },
+        { label: 'Applications', path: '#' },
+        { label: 'Features', path: '#' },
+        { label: 'Sustainability & Green Rating', path: '#' },
+        { label: 'Important Suggestions', path: '#' },
+        { label: 'Thermoforming', path: '#' },
+        {
+          label: 'Why NFC?',
+          path: '#',
+          hasSubmenu: true,
+          submenu: [
+            { label: 'Test Results', path: '#' },
+            { label: 'Comparative Study', path: '#' },
+            { label: 'Fire Test', path: '#' },
+          ],
+        },
+        { label: 'FAQs', path: '#' },
+      ]
+    },
+    { 
+      label: 'Media', 
+      path: '#',
+      dropdown: [
+        { label: 'Videos', path: '#' },
+        { label: 'Blog', path: '#' },
+        { label: 'News', path: '#' },
+      ]
+    },
+    { label: 'Contact Us', path: '#' }
+  ];
 
   return (
     <motion.header
@@ -32,27 +82,85 @@ export default function Header() {
 
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item, index) => (
-              <motion.a
-                key={item}
-                href="#"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + index * 0.1, duration: 0.4 }}
-                whileHover={{ y: -2, transition: { duration: 0.2 } }}
-                className={`text-sm font-medium transition-colors relative group ${
-                  item === 'Home'
-                    ? 'text-rose-600'
-                    : 'text-gray-700 hover:text-rose-600'
-                }`}
+              <div
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => item.dropdown && setActiveDropdown(item.label)}
+                onMouseLeave={() => {
+                  setActiveDropdown(null);
+                  setActiveSubDropdown(null);
+                }}
               >
-                {item}
-                {item === 'Home' && (
+                <motion.a
+                  href={item.path}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1, duration: 0.4 }}
+                  whileHover={{ y: -2, transition: { duration: 0.2 } }}
+                  className={`text-sm font-medium transition-colors relative group py-2 ${
+                    item.label === 'Home'
+                      ? 'text-rose-600'
+                      : 'text-gray-700 hover:text-rose-600'
+                  }`}
+                >
+                  {item.label}
+                  {item.label === 'Home' && (
+                    <motion.div
+                      layoutId="underline"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-teal-500"
+                    />
+                  )}
+                </motion.a>
+
+                {item.dropdown && activeDropdown === item.label && (
                   <motion.div
-                    layoutId="underline"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-teal-500"
-                  />
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="absolute top-full left-0 mt-0 w-64 bg-white shadow-2xl rounded-b-lg overflow-hidden"
+                  >
+                    {item.dropdown.map((dropdownItem, dropdownIndex) => (
+                      <div
+                        key={dropdownIndex}
+                        className="relative"
+                        onMouseEnter={() =>
+                          dropdownItem.hasSubmenu && setActiveSubDropdown(dropdownItem.label)
+                        }
+                        onMouseLeave={() => !dropdownItem.hasSubmenu && setActiveSubDropdown(null)}
+                      >
+                        <a
+                          href={dropdownItem.path}
+                          className="flex items-center justify-between px-6 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-teal-500 hover:to-teal-600 hover:text-white transition-all duration-200 border-b border-gray-100 last:border-b-0"
+                        >
+                          <span>{dropdownItem.label}</span>
+                          {dropdownItem.hasSubmenu && (
+                            <ChevronRight className="w-4 h-4" />
+                          )}
+                        </a>
+
+                        {dropdownItem.hasSubmenu &&
+                          activeSubDropdown === dropdownItem.label &&
+                          dropdownItem.submenu && (
+                            <motion.div
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              className="absolute left-full top-0 w-64 bg-white shadow-2xl rounded-r-lg overflow-hidden"
+                            >
+                              {dropdownItem.submenu.map((subItem, subIndex) => (
+                                <a
+                                  key={subIndex}
+                                  href={subItem.path}
+                                  className="block px-6 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-pink-500 hover:to-pink-600 hover:text-white transition-all duration-200 border-b border-gray-100 last:border-b-0"
+                                >
+                                  {subItem.label}
+                                </a>
+                              ))}
+                            </motion.div>
+                          )}
+                      </div>
+                    ))}
+                  </motion.div>
                 )}
-              </motion.a>
+              </div>
             ))}
           </nav>
 
