@@ -1,57 +1,60 @@
-import { useState } from 'react';
-import { Facebook, Twitter, Youtube, Instagram, Linkedin, ChevronRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { Facebook, Twitter, Youtube, Instagram, Linkedin, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(null);
 
   const navItems = [
-    { label: 'Home', path: '#' },
-    { 
-      label: 'Corporate', 
-      path: '#',
+    { label: "Home", path: "/" },
+    {
+      label: "Corporate",
+      path: "#",
       dropdown: [
-        { label: 'Chairman Message', path: '#' },
-        { label: 'Mission & Vision', path: '#' },
-        { label: 'Our Team', path: '#' },
-        { label: 'Certifications', path: '#' },
+        { label: "Chairman Message", path: "#" },
+        { label: "Mission & Vision", path: "#" },
+        { label: "Our Team", path: "#" },
+        { label: "Certifications", path: "#" }
       ]
     },
-    { 
-      label: 'NFC', 
-      path: '#',
+    {
+      label: "NFC",
+      path: "#",
       dropdown: [
-        { label: 'Products', path: '#' },
-        { label: 'Manufacturing Process', path: '#' },
-        { label: 'Applications', path: '#' },
-        { label: 'Features', path: '#' },
-        { label: 'Sustainability & Green Rating', path: '#' },
-        { label: 'Important Suggestions', path: '#' },
-        { label: 'Thermoforming', path: '#' },
+        { label: "Products", path: "#" },
+        { label: "Manufacturing Process", path: "#" },
+        { label: "Applications", path: "#" },
+        { label: "Features", path: "#" },
+        { label: "Sustainability & Green Rating", path: "#" },
+        { label: "Important Suggestions", path: "#" },
+        { label: "Thermoforming", path: "#" },
         {
-          label: 'Why NFC?',
-          path: '#',
+          label: "Why NFC?",
+          path: "#",
           hasSubmenu: true,
           submenu: [
-            { label: 'Test Results', path: '#' },
-            { label: 'Comparative Study', path: '#' },
-            { label: 'Fire Test', path: '#' },
-          ],
+            { label: "Test Results", path: "#" },
+            { label: "Comparative Study", path: "#" },
+            { label: "Fire Test", path: "#" }
+          ]
         },
-        { label: 'FAQs', path: '#' },
+        { label: "FAQs", path: "#" }
       ]
     },
-    { 
-      label: 'Media', 
-      path: '#',
+    {
+      label: "Media",
+      path: "#",
       dropdown: [
-        { label: 'Videos', path: '#' },
-        { label: 'Blog', path: '#' },
-        { label: 'News', path: '#' },
+        { label: "Videos", path: "#" },
+        { label: "Blog", path: "#" },
+        { label: "News", path: "#" }
       ]
     },
-    { label: 'Contact Us', path: '#' }
+    { label: "Contact Us", path: "/contact" }
   ];
 
   return (
@@ -69,7 +72,7 @@ export default function Header() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="flex-shrink-0"
           >
-            <div className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
               <div className="w-10 h-10 bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center">
                 <div className="w-6 h-6 border-2 border-white transform rotate-45"></div>
               </div>
@@ -77,7 +80,7 @@ export default function Header() {
                 <div className="text-xl font-bold text-rose-600 tracking-wide">INDOWUD</div>
                 <div className="text-xs text-gray-600 tracking-wider">DESIGN TECHNOLOGY</div>
               </div>
-            </div>
+            </Link>
           </motion.div>
 
           <nav className="hidden md:flex items-center space-x-8">
@@ -91,26 +94,24 @@ export default function Header() {
                   setActiveSubDropdown(null);
                 }}
               >
-                <motion.a
-                  href={item.path}
+                <motion.div
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + index * 0.1, duration: 0.4 }}
                   whileHover={{ y: -2, transition: { duration: 0.2 } }}
-                  className={`text-sm font-medium transition-colors relative group py-2 ${
-                    item.label === 'Home'
-                      ? 'text-rose-600'
-                      : 'text-gray-700 hover:text-rose-600'
-                  }`}
                 >
-                  {item.label}
-                  {item.label === 'Home' && (
-                    <motion.div
-                      layoutId="underline"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-teal-500"
-                    />
-                  )}
-                </motion.a>
+                  <Link
+                    href={item.path}
+                    className={`text-sm font-medium transition-colors relative group py-2 ${
+                      item.label === "Home" ? "text-rose-600" : "text-gray-700 hover:text-rose-600"
+                    }`}
+                  >
+                    {item.label}
+                    {item.label === "Home" && (
+                      <motion.div layoutId="underline" className="absolute -bottom-1 left-0 right-0 h-0.5 bg-teal-500" />
+                    )}
+                  </Link>
+                </motion.div>
 
                 {item.dropdown && activeDropdown === item.label && (
                   <motion.div
@@ -123,36 +124,34 @@ export default function Header() {
                         key={dropdownIndex}
                         className="relative"
                         onMouseEnter={() =>
-                          dropdownItem.hasSubmenu && setActiveSubDropdown(dropdownItem.label)
+                          (dropdownItem as any).hasSubmenu && setActiveSubDropdown(dropdownItem.label)
                         }
-                        onMouseLeave={() => !dropdownItem.hasSubmenu && setActiveSubDropdown(null)}
+                        onMouseLeave={() => !(dropdownItem as any).hasSubmenu && setActiveSubDropdown(null)}
                       >
-                        <a
+                        <Link
                           href={dropdownItem.path}
                           className="flex items-center justify-between px-6 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-teal-500 hover:to-teal-600 hover:text-white transition-all duration-200 border-b border-gray-100 last:border-b-0"
                         >
                           <span>{dropdownItem.label}</span>
-                          {dropdownItem.hasSubmenu && (
-                            <ChevronRight className="w-4 h-4" />
-                          )}
-                        </a>
+                          {(dropdownItem as any).hasSubmenu && <ChevronRight className="w-4 h-4" />}
+                        </Link>
 
-                        {dropdownItem.hasSubmenu &&
+                        {(dropdownItem as any).hasSubmenu &&
                           activeSubDropdown === dropdownItem.label &&
-                          dropdownItem.submenu && (
+                          (dropdownItem as any).submenu && (
                             <motion.div
                               initial={{ opacity: 0, x: -10 }}
                               animate={{ opacity: 1, x: 0 }}
                               className="absolute left-full top-0 w-64 bg-white shadow-2xl rounded-r-lg overflow-hidden"
                             >
-                              {dropdownItem.submenu.map((subItem, subIndex) => (
-                                <a
+                              {(dropdownItem as any).submenu.map((subItem: any, subIndex: number) => (
+                                <Link
                                   key={subIndex}
                                   href={subItem.path}
                                   className="block px-6 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-pink-500 hover:to-pink-600 hover:text-white transition-all duration-200 border-b border-gray-100 last:border-b-0"
                                 >
                                   {subItem.label}
-                                </a>
+                                </Link>
                               ))}
                             </motion.div>
                           )}
@@ -183,11 +182,11 @@ export default function Header() {
               className="hidden lg:flex items-center gap-3"
             >
               {[
-                { icon: Facebook, href: '#' },
-                { icon: Twitter, href: '#' },
-                { icon: Youtube, href: '#' },
-                { icon: Instagram, href: '#' },
-                { icon: Linkedin, href: '#' }
+                { icon: Facebook, href: "#" },
+                { icon: Twitter, href: "#" },
+                { icon: Youtube, href: "#" },
+                { icon: Instagram, href: "#" },
+                { icon: Linkedin, href: "#" }
               ].map((social, index) => (
                 <motion.a
                   key={index}
