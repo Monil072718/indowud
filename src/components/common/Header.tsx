@@ -28,9 +28,9 @@ export default function Header() {
         { label: "Products", path: "#" },
         { label: "Manufacturing Process", path: "/nfc/manufacturing-process" },
         { label: "Applications", path: "/nfc/applications" },
-        { label: "Features", path: "#" },
-        { label: "Sustainability & Green Rating", path: "#" },
-        { label: "Important Suggestions", path: "#" },
+        { label: "Features", path: "/nfc/features" },
+        { label: "Sustainability & Green Rating", path: "/nfc/sustainability" },
+        { label: "Important Suggestions", path: "/nfc/suggestions" },
         { label: "Thermoforming", path: "#" },
         {
           label: "Why NFC?",
