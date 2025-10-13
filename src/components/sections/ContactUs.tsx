@@ -1,7 +1,23 @@
 "use client";
 
-import { Mail, Phone, MapPin, Building } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Building,
+  Send,
+  Upload,
+  ArrowRight,
+  Globe,
+  LocateFixed,
+  MessageSquareText,
+  Clock,
+  User2,
+  Briefcase,
+  
+} from "lucide-react";
 
 interface FormData {
   name: string;
@@ -31,11 +47,12 @@ export default function ContactUs() {
     city: "",
     country: "",
     subject: "Mr",
-    message: ""
+    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [attachmentName, setAttachmentName] = useState<string>("No file chosen");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -57,8 +74,9 @@ export default function ContactUs() {
         city: "",
         country: "",
         subject: "Mr",
-        message: ""
+        message: "",
       });
+      setAttachmentName("No file chosen");
       setTimeout(() => setSubmitStatus("idle"), 5000);
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -69,224 +87,532 @@ export default function ContactUs() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="relative bg-gradient-to-r from-teal-600 via-cyan-500 to-rose-500 text-white py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjEiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-6 text-center">
-          <h1 className="text-6xl font-bold mb-4 tracking-tight">Contact Us</h1>
-          <div className="flex items-center justify-center space-x-2 text-teal-50 text-sm tracking-widest">
-            <span>HOME</span><span>/</span><span>CONTACT US</span>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
+      {/* Top hero band */}
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(20,184,166,.25),transparent_40%),radial-gradient(circle_at_80%_0%,rgba(244,63,94,.22),transparent_35%)]" />
+        <div className="relative max-w-7xl mx-auto px-6 py-20">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+              <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-gray-900">
+                Let’s talk
+              </h1>
+              <p className="mt-3 text-gray-600 max-w-2xl">
+                Tell us a bit about yourself and what you’re looking for. Our team will get back
+                to you shortly.
+              </p>
+            </div>
+
+            {/* Quick actions */}
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="tel:+914442105060"
+                className="inline-flex items-center gap-2 rounded-full bg-teal-600 text-white px-5 py-2.5 text-sm font-semibold hover:bg-teal-700 transition"
+              >
+                <Phone className="w-4 h-4" />
+                Call us
+              </a>
+              <a
+                href="mailto:info@indowud.com"
+                className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition"
+              >
+                <Mail className="w-4 h-4" />
+                Email
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <div>
-            <div className="mb-8">
-              <span className="text-teal-600 font-semibold text-sm tracking-wider uppercase">Get In Touch</span>
-              <h2 className="text-4xl font-bold text-gray-800 mt-2 mb-6 italic">Send Us A Message</h2>
-            </div>
-
-            <form onSubmit={handleSubmit} className="space-y-5">
-              {submitStatus === "success" && (
-                <div className="bg-green-50 border-l-4 border-green-500 text-green-700 px-4 py-3 rounded">
-                  <p className="font-semibold">Success!</p>
-                  <p className="text-sm">Thank you for contacting us. We'll get back to you soon.</p>
-                </div>
-              )}
-              {submitStatus === "error" && (
-                <div className="bg-red-50 border-l-4 border-red-500 text-red-700 px-4 py-3 rounded">
-                  <p className="font-semibold">Error</p>
-                  <p className="text-sm">Something went wrong. Please try again.</p>
-                </div>
-              )}
-
-              <div className="grid md:grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Salutation*</label>
-                  <select name="subject" required value={formData.subject} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-white">
-                    <option value="Mr">Mr</option><option value="Mrs">Mrs</option><option value="Ms">Ms</option><option value="Dr">Dr</option>
-                  </select>
+      {/* Content grid */}
+      <div className="max-w-7xl mx-auto px-6 pb-20 mt-20">
+        <div className="grid lg:grid-cols-3 gap-10">
+          {/* FORM CARD */}
+          <motion.div
+            initial={{ y: 16, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.35 }}
+            className="lg:col-span-2"
+          >
+            <div className="relative rounded-3xl border border-gray-200/70 bg-white/70 backdrop-blur-xl shadow-xl ring-1 ring-gray-900/5">
+              {/* Card header */}
+              <div className="flex items-center gap-3 px-6 sm:px-8 py-5 border-b border-gray-100">
+                <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-500 grid place-items-center">
+                  <MessageSquareText className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Name*</label>
-                  <input type="text" name="name" required value={formData.name} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all" placeholder="Your name" />
+                  <p className="text-xs uppercase tracking-widest text-teal-600 font-semibold">
+                    Contact form
+                  </p>
+                  <h2 className="text-lg font-bold text-gray-900">Send us a message</h2>
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-5">
+              <form onSubmit={handleSubmit} className="px-6 sm:px-8 py-8 space-y-7">
+                {/* alerts */}
+                {submitStatus === "success" && (
+                  <div className="rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-green-800">
+                    <p className="font-semibold">Message sent!</p>
+                    <p className="text-sm">Thanks for reaching out—we’ll get back to you soon.</p>
+                  </div>
+                )}
+                {submitStatus === "error" && (
+                  <div className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-rose-800">
+                    <p className="font-semibold">Something went wrong</p>
+                    <p className="text-sm">Please try again.</p>
+                  </div>
+                )}
+
+                {/* Row 1 */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  {/* Salutation */}
+                  <div>
+                    <Label>Salutation*</Label>
+                    <Select
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      required
+                      icon={<User2 className="w-4 h-4" />}
+                      options={["Mr", "Mrs", "Ms", "Dr"]}
+                    />
+                  </div>
+                  {/* Name */}
+                  <div>
+                    <Label>Name*</Label>
+                    <Input
+                      name="name"
+                      placeholder="Your full name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      icon={<User2 className="w-4 h-4" />}
+                    />
+                  </div>
+                </div>
+
+                {/* Row 2 */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <Label>Company</Label>
+                    {/* <Input
+                      name="companyName"
+                      placeholder="Your company"
+                      value={formData.companyName}
+                      onChange={handleChange}
+                      icon={<Apartment className="w-4 h-4" />}
+                    /> */}
+                  </div>
+                  <div>
+                    <Label>Email*</Label>
+                    <Input
+                      type="email"
+                      name="email"
+                      placeholder="your@email.com"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      icon={<Mail className="w-4 h-4" />}
+                    />
+                  </div>
+                </div>
+
+                {/* Row 3 */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
-                  <input type="text" name="companyName" value={formData.companyName} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all" placeholder="Your company" />
+                  <Label>Occupation*</Label>
+                  <Select
+                    name="occupation"
+                    value={formData.occupation}
+                    onChange={handleChange}
+                    required
+                    icon={<Briefcase className="w-4 h-4" />}
+                    options={[
+                      "Architect",
+                      "Interior Designer",
+                      "Builder",
+                      "Contractor",
+                      "Business Owner",
+                      "Engineer",
+                      "Other",
+                    ]}
+                    placeholder="Architect / Interior designer"
+                  />
                 </div>
+
+                {/* Row 4 */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <Label>Phone (Landline)</Label>
+                    <Input
+                      type="tel"
+                      name="phone"
+                      placeholder="Include STD code"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      icon={<Phone className="w-4 h-4" />}
+                    />
+                  </div>
+                  <div>
+                    <Label>Mobile Number*</Label>
+                    <Input
+                      type="tel"
+                      name="phone"
+                      placeholder="Your mobile number"
+                      required
+                      value={formData.phone}
+                      onChange={handleChange}
+                      icon={<Phone className="w-4 h-4" />}
+                    />
+                  </div>
+                </div>
+
+                {/* Row 5 */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email*</label>
-                  <input type="email" name="email" required value={formData.email} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all" placeholder="your@email.com" />
+                  <Label>Address Line 1</Label>
+                  <Input
+                    name="address"
+                    placeholder="Street address"
+                    value={formData.address}
+                    onChange={handleChange}
+                    icon={<MapPin className="w-4 h-4" />}
+                  />
                 </div>
-              </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Occupation*</label>
-                <select name="occupation" required value={formData.occupation} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-white">
-                  <option value="">Architect / Interior designer</option>
-                  <option value="Architect">Architect</option>
-                  <option value="Interior Designer">Interior Designer</option>
-                  <option value="Builder">Builder</option>
-                  <option value="Contractor">Contractor</option>
-                  <option value="Business Owner">Business Owner</option>
-                  <option value="Engineer">Engineer</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
+                {/* Row 6 */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <Label>Pincode</Label>
+                    <Input
+                      name="pincode"
+                      placeholder="600001"
+                      value={formData.pincode}
+                      onChange={handleChange}
+                      icon={<LocateFixed className="w-4 h-4" />}
+                    />
+                  </div>
+                  <div>
+                    <Label>Country*</Label>
+                    <Select
+                      name="country"
+                      required
+                      value={formData.country}
+                      onChange={handleChange}
+                      icon={<Globe className="w-4 h-4" />}
+                      options={["India", "USA", "UK", "Australia", "Canada", "Other"]}
+                      placeholder="Select Country"
+                    />
+                  </div>
+                </div>
 
-              <div className="grid md:grid-cols-2 gap-5">
+                {/* Row 7 */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <Label>State*</Label>
+                    <Select
+                      name="state"
+                      required
+                      value={formData.state}
+                      onChange={handleChange}
+                      options={["Tamil Nadu", "Karnataka", "Maharashtra", "Delhi", "Other"]}
+                    />
+                  </div>
+                  <div>
+                    <Label>City*</Label>
+                    <Select
+                      name="city"
+                      required
+                      value={formData.city}
+                      onChange={handleChange}
+                      options={["Chennai", "Mumbai", "Bangalore", "Delhi", "Other"]}
+                    />
+                  </div>
+                </div>
+
+                {/* Attachments */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone No.</label>
-                  <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all" placeholder="Please put the STD code for landline" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Mobile Number*</label>
-                  <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all" placeholder="Mobile number" />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Address Line1</label>
-                <input type="text" name="address" value={formData.address} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all" placeholder="Street address" />
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Pincode</label>
-                  <input type="text" name="pincode" value={formData.pincode} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all" placeholder="600001" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Country*</label>
-                  <select name="country" required value={formData.country} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-white">
-                    <option value="">Select Country</option>
-                    <option value="India">India</option>
-                    <option value="USA">USA</option>
-                    <option value="UK">UK</option>
-                    <option value="Australia">Australia</option>
-                    <option value="Canada">Canada</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">State*</label>
-                  <select name="state" required value={formData.state} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-white">
-                    <option value="">Select State</option>
-                    <option value="Tamil Nadu">Tamil Nadu</option>
-                    <option value="Karnataka">Karnataka</option>
-                    <option value="Maharashtra">Maharashtra</option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">City*</label>
-                  <select name="city" required value={formData.city} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-white">
-                    <option value="">Select City</option>
-                    <option value="Chennai">Chennai</option>
-                    <option value="Mumbai">Mumbai</option>
-                    <option value="Bangalore">Bangalore</option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Attachments</label>
-                <div className="flex items-center space-x-2">
-                  <button type="button" className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors text-sm">Choose file</button>
-                  <span className="text-sm text-gray-500">No file chosen</span>
-                </div>
-                <p className="text-xs text-gray-500 mt-1">Attaching your business card shortens supplier response time</p>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Your Message* (minimum 50 characters)</label>
-                <textarea name="message" required value={formData.message} onChange={handleChange} rows={4} minLength={50} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all resize-none" placeholder="Tell us about your inquiry..."></textarea>
-              </div>
-
-              <button type="submit" disabled={isSubmitting} className="bg-teal-600 text-white px-10 py-3 rounded-lg font-semibold hover:bg-teal-700 transition-all duration-300 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed uppercase tracking-wide">
-                {isSubmitting ? "SUBMITTING..." : "SUBMIT"}
-              </button>
-            </form>
-          </div>
-
-          <div>
-            <div className="bg-gradient-to-br from-teal-600 to-cyan-600 rounded-3xl p-10 text-white shadow-2xl sticky top-24">
-              <h2 className="text-3xl font-bold mb-8 text-center italic">Contact Info</h2>
-
-              <div className="space-y-8">
-                <div className="flex flex-col items-center text-center pb-8 border-b border-white/20">
-                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4"><MapPin className="w-6 h-6" /></div>
-                  <h3 className="font-semibold text-xl mb-2 italic">Address</h3>
-                  <p className="text-teal-50 leading-relaxed text-sm">
-                    Indowud NFC Private Limited<br />
-                    First Floor, New No. 36,<br />
-                    First Main Road (East),<br />
-                    Shenoy Nagar,<br />
-                    Chennai – 600 030, India
+                  <Label>Attachments</Label>
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                    <label className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 transition cursor-pointer">
+                      <Upload className="w-4 h-4" />
+                      <span className="text-sm font-medium">Choose file</span>
+                      <input
+                        type="file"
+                        className="hidden"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          setAttachmentName(file ? file.name : "No file chosen");
+                        }}
+                      />
+                    </label>
+                    <span className="text-sm text-gray-500">{attachmentName}</span>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-1">
+                    Attaching your business card shortens supplier response time.
                   </p>
                 </div>
 
-                <div className="flex flex-col items-center text-center pb-8 border-b border-white/20">
-                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4"><Phone className="w-6 h-6" /></div>
-                  <h3 className="font-semibold text-xl mb-2 italic">Phone Number</h3>
-                  <p className="text-teal-50">+91 44 4210 5060</p>
+                {/* Message */}
+                <div>
+                  <Label>Your Message* (min 50 chars)</Label>
+                  <TextArea
+                    name="message"
+                    minLength={50}
+                    required
+                    placeholder="Tell us about your inquiry…"
+                    value={formData.message}
+                    onChange={handleChange}
+                  />
                 </div>
 
-                <div className="flex flex-col items-center text-center pb-8 border-b border-white/20">
-                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4"><Mail className="w-6 h-6" /></div>
-                  <h3 className="font-semibold text-xl mb-2 italic">Sales & Marketing</h3>
-                  <p className="text-teal-50 text-sm">sales@indowud.com</p>
-                </div>
+                {/* Submit */}
+                <div className="flex items-center gap-4 pt-2">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-white font-semibold shadow-lg shadow-teal-600/20 hover:bg-teal-700 disabled:opacity-60 disabled:cursor-not-allowed transition"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+                          <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" className="opacity-25" />
+                          <path d="M4 12a8 8 0 018-8" stroke="currentColor" strokeWidth="4" className="opacity-75" />
+                        </svg>
+                        Submitting…
+                      </>
+                    ) : (
+                      <>
+                        Send message <Send className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
 
-                <div className="flex flex-col items-center text-center pb-8 border-b border-white/20">
-                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4"><Mail className="w-6 h-6" /></div>
-                  <h3 className="font-semibold text-xl mb-2 italic">For Any Other Information</h3>
-                  <p className="text-teal-50 text-sm">info@indowud.com</p>
+                  <p className="text-xs text-gray-500 flex items-center gap-2">
+                    <Clock className="w-3.5 h-3.5" />
+                    Average response time: <span className="font-semibold">24–48 hrs</span>
+                  </p>
                 </div>
+              </form>
+            </div>
+          </motion.div>
 
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4"><Building className="w-6 h-6" /></div>
-                  <h3 className="font-semibold text-xl mb-2 italic">For Job Enquiry</h3>
-                  <p className="text-teal-50 text-xs mb-2">Please send your resume at:</p>
-                  <p className="text-teal-50 text-sm font-semibold mb-2">hr@indowud.com</p>
-                  <p className="text-teal-50 text-xs">Please mention the job profile that you work in the subject.</p>
+          {/* INFO SIDEBAR */}
+          <motion.aside
+            initial={{ y: 16, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.35, delay: 0.05 }}
+            className="space-y-6"
+          >
+            {/* Company card */}
+            <div className="rounded-3xl border border-gray-200/70 bg-white/70 backdrop-blur-xl shadow-xl ring-1 ring-gray-900/5 p-6">
+              <div className="flex items-center gap-3">
+                <div className="h-11 w-11 rounded-xl bg-gradient-to-br from-rose-500 to-pink-500 grid place-items-center">
+                  <Building className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-rose-600 font-semibold">
+                    Head office
+                  </p>
+                  <h3 className="font-bold text-gray-900">INDOWUD NFC Pvt. Ltd.</h3>
                 </div>
               </div>
+
+              <div className="mt-5 space-y-4 text-sm text-gray-700">
+                <p className="leading-relaxed">
+                  Indowud NFC Private Limited<br />
+                  First Floor, New No. 36,<br />
+                  First Main Road (East), Shenoy Nagar,<br />
+                  Chennai – 600 030, India
+                </p>
+
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-teal-600" />
+                  <a className="hover:underline" href="tel:+914442105060">
+                    +91 44 4210 5060
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-teal-600" />
+                  <a className="hover:underline" href="mailto:info@indowud.com">
+                    info@indowud.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="mt-6 grid grid-cols-2 gap-3">
+                <a
+                  href="mailto:sales@indowud.com"
+                  className="rounded-xl border border-gray-200 px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition"
+                >
+                  Sales & Marketing
+                </a>
+                <a
+                  href="mailto:hr@indowud.com"
+                  className="rounded-xl border border-gray-200 px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition"
+                >
+                  Careers
+                </a>
+              </div>
+            </div>
+
+            {/* Small cards */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-6">
+              <InfoCard
+                icon={<MapPin className="w-5 h-5 text-teal-600" />}
+                title="Find us"
+                text="We’re centrally located in Shenoy Nagar, Chennai."
+                cta={{ label: "Open in Maps", href: "#map" }}
+              />
+              <InfoCard
+                icon={<Clock className="w-5 h-5 text-rose-600" />}
+                title="Working hours"
+                text="Mon–Fri, 9:30am–6:00pm (IST)"
+                subtle="Response times may vary on weekends and holidays."
+              />
+            </div>
+          </motion.aside>
+        </div>
+      </div>
+
+      {/* Map section */}
+      <div id="map" className="relative">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(13,148,136,.08),transparent_60%)] pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-6 pb-20">
+          <div className="overflow-hidden rounded-3xl border border-gray-200 shadow-xl">
+            <div className="h-[420px] relative">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.3928!2d80.2265!3d13.0389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267!2zMTPCsDAyJzIwLjAiTiA4MMKwMTMnMzUuNCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Indowud NFC Location"
+              ></iframe>
+
+              {/* Map top ribbon */}
+              <div className="pointer-events-none absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-white to-transparent" />
+              <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent" />
+            </div>
+            <div className="flex items-center justify-between gap-4 px-5 py-4 bg-white border-t border-gray-100">
+              <div className="text-sm text-gray-600">
+                Need directions? Tap below to open in your maps app.
+              </div>
+              <a
+                href="https://maps.google.com/?q=Indowud+NFC+Private+Limited+Chennai"
+                target="_blank"
+                className="inline-flex items-center gap-2 rounded-lg bg-teal-600 px-4 py-2 text-white text-sm font-semibold hover:bg-teal-700 transition"
+              >
+                Open Maps <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>
-
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-          <div className="h-96">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.3928!2d80.2265!3d13.0389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267!2zMTPCsDAyJzIwLjAiTiA4MMKwMTMnMzUuNCJF!5e0!3m2!1sen!2sin!4v1234567890"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Indowud NFC Location"
-            ></iframe>
-          </div>
-        </div>
       </div>
+    </div>
+  );
+}
+
+/* ---------- small UI helpers ---------- */
+
+function Label({ children }: { children: React.ReactNode }) {
+  return <label className="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-2">{children}</label>;
+}
+
+function Input({
+  icon,
+  className,
+  ...props
+}: React.InputHTMLAttributes<HTMLInputElement> & { icon?: React.ReactNode }) {
+  return (
+    <div className={`relative ${className || ""}`}>
+      {icon && <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">{icon}</span>}
+      <input
+        {...props}
+        className="w-full rounded-xl border border-gray-300 bg-white px-3 py-3 pl-10 text-sm shadow-sm outline-none ring-0 transition placeholder:text-gray-400 focus:border-teal-500"
+      />
+    </div>
+  );
+}
+
+function TextArea({
+  className,
+  ...props
+}: React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
+  return (
+    <textarea
+      {...props}
+      className={`w-full rounded-xl border border-gray-300 bg-white px-3 py-3 text-sm shadow-sm outline-none ring-0 transition placeholder:text-gray-400 focus:border-teal-500 ${className || ""}`}
+      rows={props.rows || 5}
+    />
+  );
+}
+
+function Select({
+  options,
+  placeholder,
+  icon,
+  className,
+  ...props
+}: React.SelectHTMLAttributes<HTMLSelectElement> & {
+  options: string[];
+  placeholder?: string;
+  icon?: React.ReactNode;
+}) {
+  return (
+    <div className={`relative ${className || ""}`}>
+      {icon && <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">{icon}</span>}
+      <select
+        {...props}
+        className="w-full rounded-xl border border-gray-300 bg-white px-3 py-3 pl-10 text-sm shadow-sm outline-none focus:border-teal-500"
+      >
+        {placeholder && <option value="">{placeholder}</option>}
+        {options.map((opt) => (
+          <option key={opt} value={opt}>
+            {opt}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+function InfoCard({
+  icon,
+  title,
+  text,
+  subtle,
+  cta,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  text: string;
+  subtle?: string;
+  cta?: { label: string; href: string };
+}) {
+  return (
+    <div className="rounded-3xl border border-gray-200/70 bg-white/70 backdrop-blur-xl shadow-xl ring-1 ring-gray-900/5 p-6">
+      <div className="flex items-center gap-3">
+        <div className="h-10 w-10 rounded-xl bg-gray-100 grid place-items-center">{icon}</div>
+        <h4 className="font-semibold text-gray-900">{title}</h4>
+      </div>
+      <p className="mt-3 text-sm text-gray-700">{text}</p>
+      {subtle && <p className="mt-1 text-xs text-gray-500">{subtle}</p>}
+      {cta && (
+        <a
+          href={cta.href}
+          className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-teal-700 hover:text-teal-900"
+        >
+          {cta.label} <ArrowRight className="w-4 h-4" />
+        </a>
+      )}
     </div>
   );
 }

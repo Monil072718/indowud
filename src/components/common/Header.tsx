@@ -15,11 +15,11 @@ export default function Header() {
       label: "Corporate",
       path: "#",
       dropdown: [
-        { label: "Chairman Message", path: "#" },
-        { label: "Mission & Vision", path: "#" },
-        { label: "Our Team", path: "#" },
-        { label: "Certifications", path: "#" }
-      ]
+      { label: "Chairman Message", path: "/corporate/chairman-message" },
+      { label: "Mission & Vision", path: "/corporate/mission-vision" },
+      { label: "Our Team", path: "/corporate/our-team" },
+      { label: "Certifications", path: "/corporate/certifications" },
+    ],
     },
     {
       label: "NFC",
