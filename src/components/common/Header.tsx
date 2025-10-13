@@ -27,7 +27,7 @@ export default function Header() {
       dropdown: [
         { label: "Products", path: "#" },
         { label: "Manufacturing Process", path: "/nfc/manufacturing-process" },
-        { label: "Applications", path: "#" },
+        { label: "Applications", path: "/nfc/applications" },
         { label: "Features", path: "#" },
         { label: "Sustainability & Green Rating", path: "#" },
         { label: "Important Suggestions", path: "#" },
