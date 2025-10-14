@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-// import Link from "next/link"; // <- unused, removing avoids lint warning
 import RelatedPosts from "../RelatedPosts";
 import type { BlogCardPost } from "@/components/sections/blog/BlogCard";
+import type { Metadata } from "next";
 
 /* ---------------- MOCK FETCHERS (swap with WP REST) ---------------- */
 async function getPostBySlug(slug: string) {
@@ -85,12 +85,25 @@ async function getRelatedPosts(
     .slice(0, 3);
 }
 
-/* ------------------------------- PAGE ------------------------------- */
+/* ------------------------------- TYPES ------------------------------- */
 type Params = { slug: string };
 type PageProps = { params: Params | Promise<Params> };
 
+/* ----------------------- generateMetadata (Next 15) ----------------------- */
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params; // params can be a Promise in Next 15
+  return {
+    title: `Blog | ${slug}`,
+    // Add more SEO fields if needed:
+    // description: "...",
+    // openGraph: { ... },
+    // twitter: { ... },
+  };
+}
+
+/* --------------------------------- PAGE --------------------------------- */
 export default async function BlogPostPage({ params }: PageProps) {
-  const { slug } = await params; // 👈 Next 15: params may be a Promise
+  const { slug } = await params; // normalize Params | Promise<Params>
 
   const post = await getPostBySlug(slug);
   const related = await getRelatedPosts(slug, post.tags ?? []);
