@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/link";
+// import Link from "next/link"; // <- unused, removing avoids lint warning
 import RelatedPosts from "../RelatedPosts";
 import type { BlogCardPost } from "@/components/sections/blog/BlogCard";
 
@@ -86,13 +86,14 @@ async function getRelatedPosts(
 }
 
 /* ------------------------------- PAGE ------------------------------- */
-export default async function BlogPostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const post = await getPostBySlug(params.slug);
-  const related = await getRelatedPosts(params.slug, post.tags ?? []);
+type Params = { slug: string };
+type PageProps = { params: Params | Promise<Params> };
+
+export default async function BlogPostPage({ params }: PageProps) {
+  const { slug } = await params; // 👈 Next 15: params may be a Promise
+
+  const post = await getPostBySlug(slug);
+  const related = await getRelatedPosts(slug, post.tags ?? []);
 
   return (
     <div className="mx-auto max-w-[1200px] px-4 pb-16 pt-8 md:pt-12">
