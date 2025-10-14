@@ -31,7 +31,7 @@ export default function Header() {
         { label: "Features", path: "/nfc/features" },
         { label: "Sustainability & Green Rating", path: "/nfc/sustainability" },
         { label: "Important Suggestions", path: "/nfc/suggestions" },
-        { label: "Thermoforming", path: "#" },
+        { label: "Thermoforming", path: "/nfc/thermoforming" },
         {
           label: "Why NFC?",
           path: "#",
@@ -49,8 +49,8 @@ export default function Header() {
       label: "Media",
       path: "#",
       dropdown: [
-        { label: "Videos", path: "#" },
-        { label: "Blog", path: "#" },
+        { label: "Videos", path: "/media/video" },
+        { label: "Blog", path: "/media/blog" },
         { label: "News", path: "#" }
       ]
     },

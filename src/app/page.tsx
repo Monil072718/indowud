@@ -8,10 +8,10 @@ export default function HomePage() {
   return (
     <>
       <HeroSlider />
+      <FeaturesSection />
       <BenefitsSection />
       <BrandSection />
       <CertificationsSection />
-      <FeaturesSection />
     </>
   );
 }
