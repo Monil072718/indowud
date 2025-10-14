@@ -5,21 +5,33 @@ import Link from "next/link";
 import { Facebook, Twitter, Youtube, Instagram, Linkedin, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 
+/* ---------- Types (removes all `any`) ---------- */
+type SubNavItem = { label: string; path: string };
+type DropdownItem = SubNavItem & {
+  hasSubmenu?: boolean;
+  submenu?: SubNavItem[];
+};
+type NavItem = {
+  label: string;
+  path: string;
+  dropdown?: DropdownItem[];
+};
+
 export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(null);
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { label: "Home", path: "/" },
     {
       label: "Corporate",
       path: "#",
       dropdown: [
-      { label: "Chairman Message", path: "/corporate/chairman-message" },
-      { label: "Mission & Vision", path: "/corporate/mission-vision" },
-      { label: "Our Team", path: "/corporate/our-team" },
-      { label: "Certifications", path: "/corporate/certifications" },
-    ],
+        { label: "Chairman Message", path: "/corporate/chairman-message" },
+        { label: "Mission & Vision", path: "/corporate/mission-vision" },
+        { label: "Our Team", path: "/corporate/our-team" },
+        { label: "Certifications", path: "/corporate/certifications" },
+      ],
     },
     {
       label: "NFC",
@@ -39,11 +51,11 @@ export default function Header() {
           submenu: [
             { label: "Test Results", path: "#" },
             { label: "Comparative Study", path: "#" },
-            { label: "Fire Test", path: "#" }
-          ]
+            { label: "Fire Test", path: "#" },
+          ],
         },
-        { label: "FAQs", path: "#" }
-      ]
+        { label: "FAQs", path: "#" },
+      ],
     },
     {
       label: "Media",
@@ -51,10 +63,10 @@ export default function Header() {
       dropdown: [
         { label: "Videos", path: "/media/video" },
         { label: "Blog", path: "/media/blog" },
-        { label: "News", path: "#" }
-      ]
+        { label: "News", path: "#" },
+      ],
     },
-    { label: "Contact Us", path: "/contact" }
+    { label: "Contact Us", path: "/contact" },
   ];
 
   return (
@@ -83,16 +95,18 @@ export default function Header() {
             </Link>
           </motion.div>
 
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav
+            className="hidden md:flex items-center space-x-8"
+            onMouseLeave={() => {
+              setActiveDropdown(null);
+              setActiveSubDropdown(null);
+            }}
+          >
             {navItems.map((item, index) => (
               <div
                 key={item.label}
                 className="relative"
                 onMouseEnter={() => item.dropdown && setActiveDropdown(item.label)}
-                onMouseLeave={() => {
-                  setActiveDropdown(null);
-                  setActiveSubDropdown(null);
-                }}
               >
                 <motion.div
                   initial={{ opacity: 0, y: -20 }}
@@ -108,7 +122,10 @@ export default function Header() {
                   >
                     {item.label}
                     {item.label === "Home" && (
-                      <motion.div layoutId="underline" className="absolute -bottom-1 left-0 right-0 h-0.5 bg-teal-500" />
+                      <motion.div
+                        layoutId="underline"
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-teal-500"
+                      />
                     )}
                   </Link>
                 </motion.div>
@@ -119,34 +136,36 @@ export default function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     className="absolute top-full left-0 mt-0 w-64 bg-white shadow-2xl rounded-b-lg overflow-hidden"
                   >
-                    {item.dropdown.map((dropdownItem, dropdownIndex) => (
+                    {item.dropdown.map((dropdownItem) => (
                       <div
-                        key={dropdownIndex}
+                        key={dropdownItem.label}
                         className="relative"
-                        onMouseEnter={() =>
-                          (dropdownItem as any).hasSubmenu && setActiveSubDropdown(dropdownItem.label)
-                        }
-                        onMouseLeave={() => !(dropdownItem as any).hasSubmenu && setActiveSubDropdown(null)}
+                        onMouseEnter={() => {
+                          if (dropdownItem.hasSubmenu) setActiveSubDropdown(dropdownItem.label);
+                        }}
+                        onMouseLeave={() => {
+                          if (dropdownItem.hasSubmenu) setActiveSubDropdown(null);
+                        }}
                       >
                         <Link
                           href={dropdownItem.path}
                           className="flex items-center justify-between px-6 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-teal-500 hover:to-teal-600 hover:text-white transition-all duration-200 border-b border-gray-100 last:border-b-0"
                         >
                           <span>{dropdownItem.label}</span>
-                          {(dropdownItem as any).hasSubmenu && <ChevronRight className="w-4 h-4" />}
+                          {dropdownItem.hasSubmenu && <ChevronRight className="w-4 h-4" />}
                         </Link>
 
-                        {(dropdownItem as any).hasSubmenu &&
+                        {dropdownItem.hasSubmenu &&
                           activeSubDropdown === dropdownItem.label &&
-                          (dropdownItem as any).submenu && (
+                          dropdownItem.submenu && (
                             <motion.div
                               initial={{ opacity: 0, x: -10 }}
                               animate={{ opacity: 1, x: 0 }}
                               className="absolute left-full top-0 w-64 bg-white shadow-2xl rounded-r-lg overflow-hidden"
                             >
-                              {(dropdownItem as any).submenu.map((subItem: any, subIndex: number) => (
+                              {dropdownItem.submenu.map((subItem) => (
                                 <Link
-                                  key={subIndex}
+                                  key={subItem.label}
                                   href={subItem.path}
                                   className="block px-6 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-pink-500 hover:to-pink-600 hover:text-white transition-all duration-200 border-b border-gray-100 last:border-b-0"
                                 >
@@ -186,7 +205,7 @@ export default function Header() {
                 { icon: Twitter, href: "#" },
                 { icon: Youtube, href: "#" },
                 { icon: Instagram, href: "#" },
-                { icon: Linkedin, href: "#" }
+                { icon: Linkedin, href: "#" },
               ].map((social, index) => (
                 <motion.a
                   key={index}
