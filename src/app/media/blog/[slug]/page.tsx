@@ -87,14 +87,13 @@ async function getRelatedPosts(
 
 /* ------------------------------- TYPES ------------------------------- */
 type Params = { slug: string };
-type PageProps = { params: Params | Promise<Params> };
+type PageProps = { params: Promise<Params> }; // 👈 Next 15 expects Promise here
 
 /* ----------------------- generateMetadata (Next 15) ----------------------- */
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params; // params can be a Promise in Next 15
+  const { slug } = await params; // params is a Promise<Params>
   return {
     title: `Blog | ${slug}`,
-    // Add more SEO fields if needed:
     // description: "...",
     // openGraph: { ... },
     // twitter: { ... },
@@ -103,7 +102,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 /* --------------------------------- PAGE --------------------------------- */
 export default async function BlogPostPage({ params }: PageProps) {
-  const { slug } = await params; // normalize Params | Promise<Params>
+  const { slug } = await params; // 👈 await the promise
 
   const post = await getPostBySlug(slug);
   const related = await getRelatedPosts(slug, post.tags ?? []);
@@ -135,7 +134,6 @@ export default async function BlogPostPage({ params }: PageProps) {
       <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-10 lg:grid-cols-[1fr_280px]">
         {/* main content */}
         <article className="prose prose-slate max-w-none prose-h2:mt-10 prose-h2:scroll-mt-24 prose-img:rounded-xl">
-          {/* eslint-disable-next-line react/no-danger */}
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
 
