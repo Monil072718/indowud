@@ -1,9 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import RelatedPosts from "../RelatedPosts";
+import type { BlogCardPost } from "@/components/sections/blog/BlogCard";
 
-// Replace with your WP fetcher (by slug)
+/* ---------------- MOCK FETCHERS (swap with WP REST) ---------------- */
 async function getPostBySlug(slug: string) {
   return {
+    slug,
     title: "Rice Husk Boards: The Future of Eco-Friendly Furniture",
     cover:
       "https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=1600",
@@ -26,19 +29,70 @@ async function getPostBySlug(slug: string) {
       <h2 id="conclusion">Conclusion</h2>
       <p>For durable, sustainable interiors, rice husk boards are a smart default.</p>
     `,
-    related: [
-      { slug: "termite-proof-boards", title: "Termite-Proof Boards vs Plywood" },
-      { slug: "waterproof-kitchen-bath", title: "Boards for Kitchens & Bathrooms" },
-    ],
   };
 }
 
+/** Example related finder: filter by shared tags (replace with WP query) */
+async function getRelatedPosts(
+  currentSlug: string,
+  tags: string[]
+): Promise<BlogCardPost[]> {
+  const all: BlogCardPost[] = [
+    {
+      id: "2",
+      slug: "termite-proof-boards",
+      title: "Termite-Proof Boards vs Plywood",
+      excerpt: "Why engineered boards beat termites without toxic treatments.",
+      cover:
+        "https://images.pexels.com/photos/667838/pexels-photo-667838.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      date: "2025-09-25",
+      readMins: 5,
+      tags: ["Termite Proof", "NFC"],
+    },
+    {
+      id: "3",
+      slug: "waterproof-kitchen-bath",
+      title: "Boards for Kitchens & Bathrooms",
+      excerpt:
+        "High performance in wet zones without swelling or warping.",
+      cover:
+        "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      date: "2025-09-20",
+      readMins: 7,
+      tags: ["Moisture", "Sustainability"],
+    },
+    {
+      id: "4",
+      slug: "husk-vs-wood",
+      title: "Husk Panels vs Wood Panels: Which Should You Choose?",
+      excerpt:
+        "Cost, stability, maintenance, and sustainability compared.",
+      cover:
+        "https://images.pexels.com/photos/164010/pexels-photo-164010.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      date: "2025-09-12",
+      readMins: 8,
+      tags: ["Comparison", "NFC"],
+    },
+  ];
+
+  const tagset = new Set(tags);
+  return all
+    .filter(
+      (p) =>
+        p.slug !== currentSlug &&
+        (p.tags ?? []).some((t) => tagset.has(t))
+    )
+    .slice(0, 3);
+}
+
+/* ------------------------------- PAGE ------------------------------- */
 export default async function BlogPostPage({
   params,
 }: {
   params: { slug: string };
 }) {
   const post = await getPostBySlug(params.slug);
+  const related = await getRelatedPosts(params.slug, post.tags ?? []);
 
   return (
     <div className="mx-auto max-w-[1200px] px-4 pb-16 pt-8 md:pt-12">
@@ -71,9 +125,8 @@ export default async function BlogPostPage({
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
 
-        {/* sidebar */}
+        {/* sidebar (Tags) */}
         <aside className="space-y-6">
-          {/* tags */}
           {post.tags?.length ? (
             <div className="rounded-xl border border-slate-200 bg-white p-4">
               <h3 className="mb-3 text-sm font-semibold text-slate-700">Tags</h3>
@@ -89,30 +142,13 @@ export default async function BlogPostPage({
               </div>
             </div>
           ) : null}
-
-          {/* related */}
-          {post.related?.length ? (
-            <div className="rounded-xl border border-slate-200 bg-white p-4">
-              <h3 className="mb-3 text-sm font-semibold text-slate-700">Related</h3>
-              <ul className="space-y-2">
-                {post.related.map((r) => (
-                  <li key={r.slug}>
-                    <Link
-                      href={`/media/blog/${r.slug}`}
-                      className="text-sm font-medium text-slate-800 hover:underline"
-                    >
-                      {r.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
         </aside>
       </div>
 
-      {/* back / next */}
-      
+      {/* Related posts grid (3 cards) */}
+      <div className="mx-auto max-w-5xl">
+        <RelatedPosts items={related} />
+      </div>
     </div>
   );
 }
