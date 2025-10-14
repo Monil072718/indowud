@@ -4,6 +4,12 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { ReactNode } from "react";
 
+/* ---------- page (no props!) ---------- */
+export default function Page() {
+  return <FeaturesSection />;
+}
+
+/* ---------- types ---------- */
 type Feature = {
   id: string;
   title: string;
@@ -11,7 +17,8 @@ type Feature = {
   icon?: ReactNode;
 };
 
-export default function FeaturesSection({
+/* ---------- section (can accept props, but not the page default) ---------- */
+export function FeaturesSection({
   heading = "Built for the real world",
   sub = "Engineered to perform. Designed to last.",
   heroImage = "/hero-wood.jpg",
@@ -82,12 +89,10 @@ export default function FeaturesSection({
               transition={{ duration: 0.5 }}
               className="p-8 md:p-12"
             >
-              <h3 className="text-2xl font-semibold text-[#003a36] md:text-3xl">
-                Indowud NFC
-              </h3>
+              <h3 className="text-2xl font-semibold text-[#003a36] md:text-3xl">Indowud NFC</h3>
               <p className="mt-3 text-slate-600">
-                A high-performance wood alternative, fortified for durability.
-                Precision-made panels that thrive in harsh conditions and look great while doing it.
+                A high-performance wood alternative, fortified for durability. Precision-made panels that thrive in
+                harsh conditions and look great while doing it.
               </p>
 
               <ul className="mt-6 space-y-3 text-slate-900">
@@ -118,12 +123,7 @@ export default function FeaturesSection({
                 transition={{ type: "spring", stiffness: 250, damping: 18 }}
                 className="relative mx-auto my-8 aspect-[16/9] w-11/12"
               >
-                <Image
-                  src={heroImage}
-                  alt="Indowud NFC"
-                  fill
-                  className="rounded-2xl object-cover shadow-2xl"
-                />
+                <Image src={heroImage} alt="Indowud NFC" fill className="rounded-2xl object-cover shadow-2xl" />
                 {/* brand tint */}
                 <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-tr from-transparent via-transparent to-[#00d5be]/15" />
               </motion.div>
@@ -154,6 +154,7 @@ export default function FeaturesSection({
   );
 }
 
+/* ---------- cards & helpers ---------- */
 function FeatureCard({ title, desc, icon }: Feature) {
   return (
     <motion.div
