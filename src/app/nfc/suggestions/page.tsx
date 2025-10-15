@@ -15,12 +15,23 @@ type Guide = {
   body: ReactNode;
 };
 
-/* ────────────────── Page (default export) ────────────────── */
+type Row = {
+  id: string;
+  title: string;
+  body: ReactNode;
+};
+
+/* ────────────────── Default Page ────────────────── */
 export default function Page() {
-  return <SuggestionsSection />;
+  return (
+    <>
+      <SuggestionsSection />
+      <SustainabilitySection />
+    </>
+  );
 }
 
-/* ────────────────── Named component (can take props) ────────────────── */
+/* ────────────────── Suggestions Section ────────────────── */
 function SuggestionsSection({
   heading = "Important Suggestions",
   videoId = "dQw4w9WgXcQ", // replace with real YouTube id
@@ -34,9 +45,6 @@ function SuggestionsSection({
   grids?: { columns: string[]; rows: GridRow[]; note?: string };
   guides?: Guide[];
 }) {
-  // If you don't use lang anywhere, remove this state to avoid lint warnings.
-  const [/* lang */, /* setLang */] = useState<"en" | "hi">("en");
-
   const grid =
     grids ??
     {
@@ -104,7 +112,7 @@ function SuggestionsSection({
     ];
 
   return (
-    <section className="relative overflow-hidden">
+    <section id="suggestions" className="relative overflow-hidden">
       {/* Hero band */}
       <div className="bg-gradient-to-r from-[#00d5be] via-[#00b9a7] to-[#008e81]">
         <div className="mx-auto max-w-7xl px-6 py-14 text-white">
@@ -257,8 +265,100 @@ function SuggestionsSection({
   );
 }
 
-/* ────────────────── Atoms ────────────────── */
+/* ────────────────── Sustainability Section ────────────────── */
+function SustainabilitySection({
+  heading = "Sustainability at Indowud",
+  intro = "Engineered from agri-residue with long service life, Indowud NFC reduces timber dependence and supports circular design.",
+  rows,
+}: {
+  heading?: string;
+  intro?: string;
+  rows?: Row[];
+}) {
+  const items: Row[] =
+    rows ??
+    [
+      {
+        id: "material",
+        title: "Material circularity",
+        body:
+          "Uses agricultural by-products and is designed for extended life cycles, minimizing virgin resource use.",
+      },
+      {
+        id: "emissions",
+        title: "Low maintenance & emissions",
+        body:
+          "Durable surfaces reduce repainting/refinishing frequency, lowering embodied emissions over the product lifespan.",
+      },
+      {
+        id: "water",
+        title: "Moisture resilience",
+        body:
+          "Dimensional stability helps reduce replacements in humid zones, cutting waste generation at end-of-life.",
+      },
+      {
+        id: "reuse",
+        title: "Repair, reuse, retrofit",
+        body:
+          "Panels can be refitted or repurposed in interior upgrades, improving utilization and reducing disposal.",
+      },
+    ];
 
+  return (
+    <section id="sustainability" className="relative overflow-hidden">
+      {/* Hero */}
+      <div className="bg-gradient-to-r from-[#00d5be] via-[#00b9a7] to-[#008e81]">
+        <div className="mx-auto max-w-7xl px-6 py-14 text-white">
+          <motion.h1
+            initial={{ y: 18, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            className="text-3xl md:text-5xl font-semibold tracking-tight"
+          >
+            {heading}
+          </motion.h1>
+          <p className="mt-3 max-w-3xl text-white/90">{intro}</p>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="mx-auto max-w-7xl px-6 py-16">
+        <div className="grid gap-4 md:grid-cols-2">
+          {items.map((r) => (
+            <motion.article
+              key={r.id}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35 }}
+              className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+            >
+              <h3 className="text-lg font-semibold text-[#003a36]">{r.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">{r.body}</p>
+            </motion.article>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="mt-10 rounded-2xl bg-[#00d5be]/10 px-5 py-4 ring-1 ring-[#00d5be]/20"
+        >
+          <p className="text-sm text-slate-700">
+            Want the full sustainability brief (material data, durability metrics, care & maintenance)?
+            Contact our technical team for the latest dossier.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ────────────────── Atom ────────────────── */
 function Accordion({ title, children }: { title: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   return (
