@@ -17,8 +17,8 @@ type Feature = {
   icon?: ReactNode;
 };
 
-/* ---------- section (can accept props, but not the page default) ---------- */
-export function FeaturesSection({
+/* ---------- section (internal to this file) ---------- */
+function FeaturesSection({
   heading = "Built for the real world",
   sub = "Engineered to perform. Designed to last.",
   heroImage = "/hero-wood.jpg",
@@ -30,8 +30,7 @@ export function FeaturesSection({
   items?: Feature[];
 }) {
   const features: Feature[] =
-    items ??
-    [
+    items ?? [
       { id: "termite", title: "Termite proof", desc: "Zero cavity, zero compromise.", icon: <Emoji>🪲</Emoji> },
       { id: "water", title: "Water proof", desc: "No swelling, no delamination.", icon: <Emoji>💧</Emoji> },
       { id: "flame", title: "Flame retardant", desc: "Meets class 1 norms.", icon: <Emoji>🔥</Emoji> },
