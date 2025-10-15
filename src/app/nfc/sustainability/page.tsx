@@ -24,49 +24,39 @@ type Row = {
   rating: 1 | 2 | 3 | 4 | 5;
 };
 
-export default function SustainabilitySectionAlt({
-  heading = "Sustainability & Green Rating",
-  intro = "Indowud NFC is a GreenPro certified product and adds merit to projects with Green Rating.",
-  rows,
-}: {
-  heading?: string;
-  intro?: string;
-  rows?: Row[];
-}) {
-  const data: Row[] =
-    rows ?? [
-      {
-        id: "recycled",
-        title: "Materials with recycled content",
-        rating: 5,
-        points: ["Resource efficiency", "Lower embodied energy"],
-      },
-      {
-        id: "fsc",
-        title:
-          "Wood based material with FSC certification and/or rapidly renewable",
-        rating: 5,
-        points: ["Responsibly sourced", "Traceable supply chain"],
-      },
-      {
-        id: "local",
-        title: "Local Materials",
-        rating: 4,
-        points: ["Reduced transport emissions", "Supports local economy"],
-      },
-      {
-        id: "green",
-        title: "Use of Certified Green Building Materials",
-        rating: 4,
-        points: ["Verified environmental performance", "Credible labels"],
-      },
-      {
-        id: "no-uf",
-        title: "Composite wood with no urea formaldehyde",
-        rating: 4,
-        points: ["Low VOC", "Health-first interiors"],
-      },
-    ];
+export default function SustainabilityPage() {
+  const data: Row[] = [
+    {
+      id: "recycled",
+      title: "Materials with recycled content",
+      rating: 5,
+      points: ["Resource efficiency", "Lower embodied energy"],
+    },
+    {
+      id: "fsc",
+      title: "Wood based material with FSC certification and/or rapidly renewable",
+      rating: 5,
+      points: ["Responsibly sourced", "Traceable supply chain"],
+    },
+    {
+      id: "local",
+      title: "Local Materials",
+      rating: 4,
+      points: ["Reduced transport emissions", "Supports local economy"],
+    },
+    {
+      id: "green",
+      title: "Use of Certified Green Building Materials",
+      rating: 4,
+      points: ["Verified environmental performance", "Credible labels"],
+    },
+    {
+      id: "no-uf",
+      title: "Composite wood with no urea formaldehyde",
+      rating: 4,
+      points: ["Low VOC", "Health-first interiors"],
+    },
+  ];
 
   const [open, setOpen] = useState<string | null>(data[0]?.id ?? null);
 
@@ -82,7 +72,7 @@ export default function SustainabilitySectionAlt({
             transition={{ duration: 0.45 }}
             className="text-3xl md:text-5xl font-semibold tracking-tight text-white"
           >
-            {heading}
+            Sustainability & Green Rating
           </motion.h2>
         </div>
       </div>
@@ -96,7 +86,7 @@ export default function SustainabilitySectionAlt({
           transition={{ duration: 0.45, delay: 0.05 }}
           className="mx-auto mt-10 mb-8 max-w-3xl text-center text-lg text-[#003a36]"
         >
-          {intro}
+          Indowud NFC is a GreenPro certified product and adds merit to projects with Green Rating.
           <span className="mx-auto mt-3 block h-1 w-16 rounded-full bg-[#00d5be]" />
         </motion.p>
 
@@ -119,7 +109,6 @@ export default function SustainabilitySectionAlt({
                 >
                   <div className="flex items-center gap-3 text-left">
                     <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#00d5be]/20 text-[#008e81]">
-                      {/* caret */}
                       <svg
                         viewBox="0 0 24 24"
                         className={`h-4 w-4 transition-transform ${
