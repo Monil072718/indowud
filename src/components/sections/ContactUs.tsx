@@ -23,7 +23,7 @@ import { Country, State, City } from "country-state-city";
 type Option = { label: string; value: string };
 
 interface FormData {
-  salutation: string; 
+  salutation: string;
   name: string;
   email: string;
 
@@ -36,11 +36,11 @@ interface FormData {
   address: string;
   pincode: string;
 
-  country: string;     
-  countryCode: string; 
-  state: string;       
-  stateCode: string;   
-  city: string;        
+  country: string;
+  countryCode: string;
+  state: string;
+  stateCode: string;
+  city: string;
 
   message: string;
 }
@@ -58,7 +58,7 @@ export default function ContactUs() {
     pincode: "",
 
     country: "",
-    countryCode: "", 
+    countryCode: "",
     state: "",
     stateCode: "",
     city: "",
@@ -73,7 +73,7 @@ export default function ContactUs() {
   const countryOptions: Option[] = useMemo(
     () =>
       Country.getAllCountries().map((c) => ({
-        value: c.isoCode, 
+        value: c.isoCode,
         label: c.name,
       })),
     [],
@@ -89,19 +89,18 @@ export default function ContactUs() {
 
   const cityOptions: Option[] = useMemo(() => {
     if (!formData.countryCode) return [];
-    // If country has states and a state is selected → cities of state
+
+    // If the country has states and one is selected → cities of that state
     if (stateOptions.length && formData.stateCode) {
-      return City.getCitiesOfState(formData.countryCode, formData.stateCode).map((ct) => ({
-        value: ct.name,
-        label: ct.name,
-      }));
+      const list = City.getCitiesOfState(formData.countryCode, formData.stateCode) ?? [];
+      return list.map((ct) => ({ value: ct.name, label: ct.name }));
     }
-    // Some countries have no states → cities of country
-    return City.getCitiesOfCountry(formData.countryCode).map((ct) => ({
-      value: ct.name,
-      label: ct.name,
-    }));
+
+    // Some countries don’t have states → cities of the country
+    const list = City.getCitiesOfCountry(formData.countryCode) ?? [];
+    return list.map((ct) => ({ value: ct.name, label: ct.name }));
   }, [formData.countryCode, formData.stateCode, stateOptions.length]);
+
 
   /* ---------- dependent resets when user changes country/state ---------- */
   const handleCountryChange = (iso2: string) => {
