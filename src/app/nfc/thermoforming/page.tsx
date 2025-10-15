@@ -1,27 +1,11 @@
 "use client";
 
-import React, { type ReactNode, useId } from "react";
+import React, { useId } from "react";
 import { motion, Variants } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-
-/* ----------------------------- types ----------------------------- */
-type SpecRow = { label: string; value: string };
-type GalleryItem = { src: string; alt?: string };
-
-type ThermoformingProps = {
-  title?: string;
-  subtitle?: string | ReactNode;
-  noteItems?: string[];
-  /** Paragraph shown under the numbered notes */
-  processNote?: string | ReactNode;
-  youtubeId?: string; // only the ID, e.g. "dQw4w9WgXcQ"
-  specs?: SpecRow[];
-  gallery?: GalleryItem[];
-  langToggle?: { current: "en" | "hi"; onSwitch?: (to: "en" | "hi") => void };
-};
 
 /* --------------------------- animations -------------------------- */
 const container: Variants = {
@@ -44,38 +28,38 @@ const item: Variants = {
 };
 
 /* --------------------------- component --------------------------- */
-export default function ThermoformingSection({
-  title = "Thermoforming",
-  subtitle = (
+export default function ThermoformingPage() {
+  const uid = useId(); // unique suffix for selector-based nav
+
+  // Move all default values inside the component
+  const title = "Thermoforming";
+  const subtitle = (
     <>
       Effortless thermoforming without compromising on strength. The high content
       of natural fibres in Indowud <span className="font-semibold">NFC</span>
       &nbsp;ensures dimensional stability post forming.
     </>
-  ),
-  noteItems = [
+  );
+  const noteItems = [
     "The panel may shrink while heating and giving a shape.",
     "Suggested time may vary depending on the design.",
-  ],
-  processNote = (
+  ];
+  const processNote = (
     <>
       Effortless thermoforming without any compromises on the strength is a
       unique feature of Indowud nfc. The high content of natural fibres makes
       sure that the density and dimensional stability is uncompromised post
       thermoforming.
     </>
-  ),
-  youtubeId = "dQw4w9WgXcQ",
-  specs = [
+  );
+  const youtubeId = "dQw4w9WgXcQ";
+  const specs = [
     { label: "Heating Temperature", value: "140°–170° C" },
     { label: "Heating Time", value: "1–2 min / mm of board thickness" },
     { label: "Locking (desired shape)", value: "≈ 5 minutes" },
     { label: "Cooling Time", value: "1–2 minutes / mm of thickness" },
-  ],
-  gallery = [],
-  langToggle,
-}: ThermoformingProps) {
-  const uid = useId(); // unique suffix for selector-based nav
+  ];
+  const gallery: { src: string; alt?: string }[] = []; // Empty gallery for now
 
   return (
     <section className="relative isolate">
@@ -87,48 +71,18 @@ export default function ThermoformingSection({
       />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-        {/* title + language */}
-        <div className="flex items-start justify-between gap-4">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.45 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
-              {title}
-            </h2>
-            <p className="mt-2 max-w-3xl text-slate-600">{subtitle}</p>
-          </motion.div>
-
-          {langToggle && (
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-semibold uppercase text-slate-500">
-                Read in:
-              </span>
-              <button
-                onClick={() => langToggle.onSwitch?.("en")}
-                className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
-                  langToggle.current === "en"
-                    ? "bg-slate-900 text-white"
-                    : "bg-white text-slate-700 border border-slate-300 hover:bg-slate-50"
-                }`}
-              >
-                English
-              </button>
-              <button
-                onClick={() => langToggle.onSwitch?.("hi")}
-                className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
-                  langToggle.current === "hi"
-                    ? "bg-emerald-600 text-white"
-                    : "bg-white text-slate-700 border border-slate-300 hover:bg-slate-50"
-                }`}
-              >
-                हिंदी
-              </button>
-            </div>
-          )}
-        </div>
+        {/* title */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.45 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
+            {title}
+          </h2>
+          <p className="mt-2 max-w-3xl text-slate-600">{subtitle}</p>
+        </motion.div>
 
         {/* FULL-WIDTH VIDEO */}
         <motion.div
