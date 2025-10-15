@@ -24,10 +24,7 @@ type Row = {
   rating: 1 | 2 | 3 | 4 | 5;
 };
 
-/** ─────────────────────────────────────────────────────────────
- *  Your reusable component (named export) — can accept props
- *  ────────────────────────────────────────────────────────────*/
-export function SustainabilitySectionAlt({
+export default function SustainabilitySectionAlt({
   heading = "Sustainability & Green Rating",
   intro = "Indowud NFC is a GreenPro certified product and adds merit to projects with Green Rating.",
   rows,
@@ -37,8 +34,7 @@ export function SustainabilitySectionAlt({
   rows?: Row[];
 }) {
   const data: Row[] =
-    rows ??
-    [
+    rows ?? [
       {
         id: "recycled",
         title: "Materials with recycled content",
@@ -75,12 +71,7 @@ export function SustainabilitySectionAlt({
   const [open, setOpen] = useState<string | null>(data[0]?.id ?? null);
 
   return (
-    <section
-      className="
-        relative overflow-hidden
-        bg-[radial-gradient(1100px_520px_at_12%_-10%,rgba(0,213,190,.07),transparent_60%),#fafafa]
-      "
-    >
+    <section className="relative overflow-hidden bg-[radial-gradient(1100px_520px_at_12%_-10%,rgba(0,213,190,.07),transparent_60%),#fafafa]">
       {/* Brand band */}
       <div className="bg-gradient-to-r from-[#00d5be] via-[#00b9a7] to-[#008e81]">
         <div className="mx-auto max-w-7xl px-6 py-14">
@@ -122,15 +113,10 @@ export function SustainabilitySectionAlt({
                 {/* Row header */}
                 <button
                   onClick={() => setOpen(isOpen ? null : r.id)}
-                  className="
-                    flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-4
-                    bg-[#00d5be]/10 hover:bg-[#00d5be]/15 transition
-                    ring-1 ring-[#00d5be]/20
-                  "
+                  className="flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-4 bg-[#00d5be]/10 hover:bg-[#00d5be]/15 transition ring-1 ring-[#00d5be]/20"
                 >
                   <div className="flex items-center gap-3 text-left">
                     <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#00d5be]/20 text-[#008e81]">
-                      {/* caret */}
                       <svg
                         viewBox="0 0 24 24"
                         className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
@@ -198,7 +184,7 @@ export function SustainabilitySectionAlt({
         >
           <div className="rounded-2xl bg-white/80 p-4 shadow-lg ring-1 ring-black/5">
             <Image
-              src="/epd-verified.png" // ensure file exists in /public
+              src="/epd-verified.png"
               alt="ECO Platform EPD Verified"
               width={360}
               height={160}
@@ -224,12 +210,4 @@ export function SustainabilitySectionAlt({
       </div>
     </section>
   );
-}
-
-/** ─────────────────────────────────────────────────────────────
- *  Next.js page wrapper (default export) — NO props allowed
- *  ────────────────────────────────────────────────────────────*/
-export default function Page() {
-  // If you want to pass custom rows, prepare them here and pass to the component.
-  return <SustainabilitySectionAlt />;
 }
