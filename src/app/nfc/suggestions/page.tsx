@@ -1,10 +1,9 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ReactNode } from "react";
-import { useState ,  } from "react";
+import { useState, type ReactNode } from "react";
 
-
+/* ────────────────── Types ────────────────── */
 type GridRow = {
   label: string; // e.g. "Crota (6 mm)"
   values: (number | "-")[]; // per column
@@ -13,11 +12,16 @@ type GridRow = {
 type Guide = {
   id: string;
   title: string;
-  body: ReactNode; // ← was string | JSX.Element
+  body: ReactNode;
 };
 
+/* ────────────────── Page (default export) ────────────────── */
+export default function Page() {
+  return <SuggestionsSection />;
+}
 
-export default function SuggestionsSection({
+/* ────────────────── Named component (can take props) ────────────────── */
+function SuggestionsSection({
   heading = "Important Suggestions",
   videoId = "dQw4w9WgXcQ", // replace with real YouTube id
   brochureHref = "/brochures/technical-suggestions.pdf",
@@ -30,18 +34,21 @@ export default function SuggestionsSection({
   grids?: { columns: string[]; rows: GridRow[]; note?: string };
   guides?: Guide[];
 }) {
-  const [lang, setLang] = useState<"en" | "hi">("en");
+  // If you don't use lang anywhere, remove this state to avoid lint warnings.
+  const [/* lang */, /* setLang */] = useState<"en" | "hi">("en");
 
-  const grid = grids ?? {
-    columns: ["6", "8", "12", "15", "16", "18", "20", "25"],
-    rows: [
-      { label: "Neo (6 mm) • 625–650 kg/m³", values: [150, 200, 250, 300, 320, 350, 380, 420] },
-      { label: "Crota (8 mm) • 725+ kg/m³", values: [200, 250, 300, 350, 370, 400, 430, 550] },
-      { label: "Build (10 mm) • 825+ kg/m³", values: [250, 350, 420, 550, 580, 600, 650, 750] },
-    ],
-    note:
-      "For ceiling: 12 mm or higher thickness board with suggested grid: 300 mm for crota or build, 200 mm for neo.",
-  };
+  const grid =
+    grids ??
+    {
+      columns: ["6", "8", "12", "15", "16", "18", "20", "25"],
+      rows: [
+        { label: "Neo (6 mm) • 625–650 kg/m³", values: [150, 200, 250, 300, 320, 350, 380, 420] },
+        { label: "Crota (8 mm) • 725+ kg/m³", values: [200, 250, 300, 350, 370, 400, 430, 550] },
+        { label: "Build (10 mm) • 825+ kg/m³", values: [250, 350, 420, 550, 580, 600, 650, 750] },
+      ],
+      note:
+        "For ceiling: 12 mm or higher thickness board with suggested grid: 300 mm for crota or build, 200 mm for neo.",
+    };
 
   const sections: Guide[] =
     guides ??
@@ -117,7 +124,7 @@ export default function SuggestionsSection({
       </div>
 
       <div className="mx-auto max-w-7xl px-6 pb-20">
-        {/* Language toggle + Video */}
+        {/* Video */}
         <div className="flex flex-col items-center gap-6 py-10">
           <motion.div
             whileHover={{ y: -4, scale: 1.01 }}
@@ -171,7 +178,6 @@ export default function SuggestionsSection({
               <span className="text-[13px] text-slate-600">Maximum support distance</span>
             </div>
 
-            {/* table */}
             <div className="w-full overflow-x-auto">
               <table className="w-full text-left">
                 <thead className="sticky top-0 bg-white/95 backdrop-blur">
@@ -210,7 +216,7 @@ export default function SuggestionsSection({
           </motion.div>
         </div>
 
-        {/* Guidelines (accordions) */}
+        {/* Guidelines */}
         <div className="mx-auto mt-12 max-w-5xl">
           <div className="grid gap-3 md:grid-cols-2">
             {sections.map((g) => (
@@ -251,29 +257,7 @@ export default function SuggestionsSection({
   );
 }
 
-/* ---------- tiny atoms ---------- */
-
-function LangChip({
-  active,
-  onClick,
-  children,
-}: {
-  active?: boolean;
-  onClick?: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      onClick={onClick}
-      className={`rounded-full px-4 py-1.5 text-sm font-medium transition
-        ${active
-          ? "bg-[#00d5be] text-white shadow ring-1 ring-black/5"
-          : "bg-white text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50"}`}
-    >
-      {children}
-    </button>
-  );
-}
+/* ────────────────── Atoms ────────────────── */
 
 function Accordion({ title, children }: { title: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
