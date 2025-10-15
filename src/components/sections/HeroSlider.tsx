@@ -7,19 +7,22 @@ const slides = [
   {
     title: "If you love something it will work",
     subtitle: "That's the real design mantra",
-    image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    image:
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1920",
     accent: "#10b981",
   },
   {
     title: "Innovation meets elegance",
     subtitle: "Creating tomorrow's designs today",
-    image: "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    image:
+      "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=1920",
     accent: "#f59e0b",
   },
   {
     title: "Where creativity comes alive",
     subtitle: "Designing the future of spaces",
-    image: "https://images.pexels.com/photos/1647776/pexels-photo-1647776.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    image:
+      "https://images.pexels.com/photos/1647776/pexels-photo-1647776.jpeg?auto=compress&cs=tinysrgb&w=1920",
     accent: "#ec4899",
   },
 ];
@@ -32,12 +35,12 @@ export default function HeroSlider() {
 
   const next = () => {
     setDirection("next");
-    setIndex((i) => (i + 1) % slides.length);
+    setIndex(i => (i + 1) % slides.length);
   };
 
   const prev = () => {
     setDirection("prev");
-    setIndex((i) => (i - 1 + slides.length) % slides.length);
+    setIndex(i => (i - 1 + slides.length) % slides.length);
   };
 
   const goTo = (i: number) => {
@@ -62,7 +65,8 @@ export default function HeroSlider() {
               className={`absolute inset-0 transition-all duration-1000 ease-out ${
                 i === index
                   ? "opacity-100 scale-100"
-                  : i === (index - 1 + slides.length) % slides.length && direction === "next"
+                  : i === (index - 1 + slides.length) % slides.length &&
+                    direction === "next"
                   ? "opacity-0 scale-110"
                   : i === (index + 1) % slides.length && direction === "prev"
                   ? "opacity-0 scale-110"
@@ -72,12 +76,17 @@ export default function HeroSlider() {
                 clipPath: "polygon(0 0, 100% 0, 85% 100%, 0 100%)",
               }}
             >
-              <img src={slide.image} alt={slide.title} className="w-full h-full object-cover" />
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full h-full object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
             </div>
           ))}
 
-          {/* Geometric Accent Lines */}
+          {/* Geometric Accent Lines (REMOVED) */}
+          {/* 
           <div className="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-white/0 via-white/80 to-white/0" />
           <div
             className="absolute top-0 right-4 w-1 h-full transition-all duration-700"
@@ -85,6 +94,7 @@ export default function HeroSlider() {
               background: `linear-gradient(to bottom, transparent, ${slides[index].accent}, transparent)`,
             }}
           />
+          */}
         </div>
 
         {/* Right Side - Content */}
@@ -104,19 +114,33 @@ export default function HeroSlider() {
               <div
                 key={i}
                 className={`transition-all duration-700 ${
-                  i === index ? "opacity-100 translate-x-0" : direction === "next" ? "opacity-0 -translate-x-12 absolute" : "opacity-0 translate-x-12 absolute"
+                  i === index
+                    ? "opacity-100 translate-x-0"
+                    : direction === "next"
+                    ? "opacity-0 -translate-x-12 absolute"
+                    : "opacity-0 translate-x-12 absolute"
                 }`}
               >
                 <div className="mb-6 flex items-center gap-4">
-                  <div className="h-1 w-20 transition-all duration-700" style={{ backgroundColor: slide.accent }} />
-                  <span className="text-sm font-bold tracking-widest" style={{ color: slide.accent }}>
+                  <div
+                    className="h-1 w-20 transition-all duration-700"
+                    style={{ backgroundColor: slide.accent }}
+                  />
+                  <span
+                    className="text-sm font-bold tracking-widest"
+                    style={{ color: slide.accent }}
+                  >
                     0{i + 1}
                   </span>
                 </div>
 
-                <h1 className="text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight">{slide.title}</h1>
+                <h1 className="text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight">
+                  {slide.title}
+                </h1>
 
-                <p className="text-xl text-gray-400 mb-8 leading-relaxed">{slide.subtitle}</p>
+                <p className="text-xl text-gray-400 mb-8 leading-relaxed">
+                  {slide.subtitle}
+                </p>
 
                 <button
                   className="group relative px-8 py-4 bg-white text-black font-semibold overflow-hidden transition-all duration-300 hover:scale-105"
@@ -138,15 +162,30 @@ export default function HeroSlider() {
       <div className="lg:hidden absolute inset-0 flex items-end pb-32 px-8">
         <div className="w-full">
           {slides.map((slide, i) => (
-            <div key={i} className={`transition-all duration-700 ${i === index ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 absolute"}`}>
+            <div
+              key={i}
+              className={`transition-all duration-700 ${
+                i === index
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8 absolute"
+              }`}
+            >
               <div className="mb-4 flex items-center gap-3">
-                <div className="h-1 w-16" style={{ backgroundColor: slide.accent }} />
-                <span className="text-sm font-bold" style={{ color: slide.accent }}>
+                <div
+                  className="h-1 w-16"
+                  style={{ backgroundColor: slide.accent }}
+                />
+                <span
+                  className="text-sm font-bold"
+                  style={{ color: slide.accent }}
+                >
                   0{i + 1}
                 </span>
               </div>
 
-              <h1 className="text-4xl font-bold text-white mb-4 leading-tight">{slide.title}</h1>
+              <h1 className="text-4xl font-bold text-white mb-4 leading-tight">
+                {slide.title}
+              </h1>
 
               <p className="text-lg text-gray-300 mb-6">{slide.subtitle}</p>
             </div>
@@ -176,11 +215,22 @@ export default function HeroSlider() {
       {/* Vertical Progress Indicators */}
       <div className="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-20">
         {slides.map((slide, i) => (
-          <button key={i} onClick={() => goTo(i)} className="group relative" aria-label={`Go to slide ${i + 1}`}>
-            <div className={`w-1 transition-all duration-300 ${i === index ? "h-16 bg-white" : "h-8 bg-white/30 group-hover:bg-white/50"}`} />
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            className="group relative"
+            aria-label={`Go to slide ${i + 1}`}
+          >
+            <div
+              className={`w-1 transition-all duration-300 ${
+                i === index
+                  ? "h-16 bg-white"
+                  : "h-8 bg-white/30 group-hover:bg-white/50"
+              }`}
+            />
             {i === index && (
               <div
-                className="absolute top-0 left-0 w-1 bg-gradient-to-b from-transparent to-white origin-top"
+                className="absolute top:0 left-0 w-1 bg-gradient-to-b from-transparent to-white origin-top"
                 style={{
                   animation: `slideDown ${AUTO_MS}ms linear`,
                   height: "100%",
@@ -193,9 +243,13 @@ export default function HeroSlider() {
 
       {/* Slide Counter */}
       <div className="absolute top-8 right-8 text-white font-mono text-sm z-20">
-        <span className="text-3xl font-bold">{String(index + 1).padStart(2, "0")}</span>
+        <span className="text-3xl font-bold">
+          {String(index + 1).padStart(2, "0")}
+        </span>
         <span className="text-white/40 mx-2">/</span>
-        <span className="text-white/60">{String(slides.length).padStart(2, "0")}</span>
+        <span className="text-white/60">
+          {String(slides.length).padStart(2, "0")}
+        </span>
       </div>
 
       <style>{`
