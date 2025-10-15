@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 
-import { useMemo } from "react";
+import { useMemo, Suspense } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import BlogCard, { BlogCardPost } from "@/components/sections/blog/BlogCard";
@@ -84,8 +84,8 @@ function Pagination({
   );
 }
 
-/* --------------------------------- Page --------------------------------- */
-export default function BlogListPage() {
+/* --------------------------------- Blog Content Component --------------------------------- */
+function BlogContent() {
   const posts = useMemo(fetchBlogs, []);
   const [featured, ...rest] = posts;
 
@@ -159,5 +159,26 @@ export default function BlogListPage() {
       {/* pagination controls */}
       <Pagination page={page} totalPages={totalPages} onChange={setPage} />
     </div>
+  );
+}
+
+/* --------------------------------- Page Component --------------------------------- */
+export default function BlogListPage() {
+  return (
+    <Suspense fallback={
+      <div className="mx-auto max-w-[1200px] px-4 py-10 md:py-14">
+        <div className="mb-8 md:mb-10">
+          <div className="h-10 w-64 bg-slate-200 rounded animate-pulse mb-2"></div>
+          <div className="h-4 w-96 bg-slate-200 rounded animate-pulse"></div>
+        </div>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="bg-slate-200 rounded-2xl h-80 animate-pulse"></div>
+          ))}
+        </div>
+      </div>
+    }>
+      <BlogContent />
+    </Suspense>
   );
 }
