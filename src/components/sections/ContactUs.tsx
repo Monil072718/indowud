@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -16,37 +16,53 @@ import {
   Clock,
   User2,
   Briefcase,
-  
 } from "lucide-react";
 
+import { Country, State, City } from "country-state-city";
+
+type Option = { label: string; value: string };
+
 interface FormData {
+  salutation: string; 
   name: string;
   email: string;
-  phone: string;
+
+  phoneLandline: string;
+  phoneMobile: string;
+
   companyName: string;
   occupation: string;
+
   address: string;
   pincode: string;
-  state: string;
-  city: string;
-  country: string;
-  subject: string;
+
+  country: string;     
+  countryCode: string; 
+  state: string;       
+  stateCode: string;   
+  city: string;        
+
   message: string;
 }
 
 export default function ContactUs() {
   const [formData, setFormData] = useState<FormData>({
+    salutation: "Mr",
     name: "",
     email: "",
-    phone: "",
+    phoneLandline: "",
+    phoneMobile: "",
     companyName: "",
     occupation: "",
     address: "",
     pincode: "",
-    state: "",
-    city: "",
+
     country: "",
-    subject: "Mr",
+    countryCode: "", 
+    state: "",
+    stateCode: "",
+    city: "",
+
     message: "",
   });
 
@@ -54,26 +70,94 @@ export default function ContactUs() {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [attachmentName, setAttachmentName] = useState<string>("No file chosen");
 
+  const countryOptions: Option[] = useMemo(
+    () =>
+      Country.getAllCountries().map((c) => ({
+        value: c.isoCode, 
+        label: c.name,
+      })),
+    [],
+  );
+
+  const stateOptions: Option[] = useMemo(() => {
+    if (!formData.countryCode) return [];
+    return State.getStatesOfCountry(formData.countryCode).map((s) => ({
+      value: s.isoCode, // state code (varies by country)
+      label: s.name,
+    }));
+  }, [formData.countryCode]);
+
+  const cityOptions: Option[] = useMemo(() => {
+    if (!formData.countryCode) return [];
+    // If country has states and a state is selected → cities of state
+    if (stateOptions.length && formData.stateCode) {
+      return City.getCitiesOfState(formData.countryCode, formData.stateCode).map((ct) => ({
+        value: ct.name,
+        label: ct.name,
+      }));
+    }
+    // Some countries have no states → cities of country
+    return City.getCitiesOfCountry(formData.countryCode).map((ct) => ({
+      value: ct.name,
+      label: ct.name,
+    }));
+  }, [formData.countryCode, formData.stateCode, stateOptions.length]);
+
+  /* ---------- dependent resets when user changes country/state ---------- */
+  const handleCountryChange = (iso2: string) => {
+    const c = Country.getAllCountries().find((x) => x.isoCode === iso2);
+    setFormData((prev) => ({
+      ...prev,
+      countryCode: iso2,
+      country: c?.name || "",
+      // reset children
+      state: "",
+      stateCode: "",
+      city: "",
+    }));
+  };
+
+  const handleStateChange = (stCode: string) => {
+    const st = State.getStatesOfCountry(formData.countryCode).find((x) => x.isoCode === stCode);
+    setFormData((prev) => ({
+      ...prev,
+      stateCode: stCode,
+      state: st?.name || "",
+      // reset city
+      city: "",
+    }));
+  };
+
+  const handleCityChange = (cityName: string) => {
+    setFormData((prev) => ({ ...prev, city: cityName }));
+  };
+
+  /* ----------------------------- submit ----------------------------- */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
     try {
+      // You can send `formData` to your API here
       console.log("Contact form submitted:", formData);
+
       setSubmitStatus("success");
       setFormData({
+        salutation: "Mr",
         name: "",
         email: "",
-        phone: "",
+        phoneLandline: "",
+        phoneMobile: "",
         companyName: "",
         occupation: "",
         address: "",
         pincode: "",
-        state: "",
-        city: "",
         country: "",
-        subject: "Mr",
+        countryCode: "",
+        state: "",
+        stateCode: "",
+        city: "",
         message: "",
       });
       setAttachmentName("No file chosen");
@@ -87,12 +171,7 @@ export default function ContactUs() {
     }
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
+  /* ----------------------------- render ----------------------------- */
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
       {/* Top hero band */}
@@ -176,12 +255,16 @@ export default function ContactUs() {
                   <div>
                     <Label>Salutation*</Label>
                     <Select
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
+                      value={formData.salutation}
+                      onValueChange={(v) => setFormData((p) => ({ ...p, salutation: v }))}
                       required
                       icon={<User2 className="w-4 h-4" />}
-                      options={["Mr", "Mrs", "Ms", "Dr"]}
+                      options={[
+                        { label: "Mr", value: "Mr" },
+                        { label: "Mrs", value: "Mrs" },
+                        { label: "Ms", value: "Ms" },
+                        { label: "Dr", value: "Dr" },
+                      ]}
                     />
                   </div>
                   {/* Name */}
@@ -192,7 +275,7 @@ export default function ContactUs() {
                       placeholder="Your full name"
                       required
                       value={formData.name}
-                      onChange={handleChange}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       icon={<User2 className="w-4 h-4" />}
                     />
                   </div>
@@ -202,13 +285,13 @@ export default function ContactUs() {
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <Label>Company</Label>
-                    {/* <Input
+                    <Input
                       name="companyName"
                       placeholder="Your company"
                       value={formData.companyName}
-                      onChange={handleChange}
-                      icon={<Apartment className="w-4 h-4" />}
-                    /> */}
+                      onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                      icon={<Building className="w-4 h-4" />}
+                    />
                   </div>
                   <div>
                     <Label>Email*</Label>
@@ -218,7 +301,7 @@ export default function ContactUs() {
                       placeholder="your@email.com"
                       required
                       value={formData.email}
-                      onChange={handleChange}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       icon={<Mail className="w-4 h-4" />}
                     />
                   </div>
@@ -228,21 +311,20 @@ export default function ContactUs() {
                 <div>
                   <Label>Occupation*</Label>
                   <Select
-                    name="occupation"
                     value={formData.occupation}
-                    onChange={handleChange}
+                    onValueChange={(v) => setFormData((p) => ({ ...p, occupation: v }))}
                     required
                     icon={<Briefcase className="w-4 h-4" />}
+                    placeholder="Select an occupation"
                     options={[
-                      "Architect",
-                      "Interior Designer",
-                      "Builder",
-                      "Contractor",
-                      "Business Owner",
-                      "Engineer",
-                      "Other",
+                      { label: "Architect", value: "Architect" },
+                      { label: "Interior Designer", value: "Interior Designer" },
+                      { label: "Builder", value: "Builder" },
+                      { label: "Contractor", value: "Contractor" },
+                      { label: "Business Owner", value: "Business Owner" },
+                      { label: "Engineer", value: "Engineer" },
+                      { label: "Other", value: "Other" },
                     ]}
-                    placeholder="Architect / Interior designer"
                   />
                 </div>
 
@@ -252,10 +334,10 @@ export default function ContactUs() {
                     <Label>Phone (Landline)</Label>
                     <Input
                       type="tel"
-                      name="phone"
+                      name="phoneLandline"
                       placeholder="Include STD code"
-                      value={formData.phone}
-                      onChange={handleChange}
+                      value={formData.phoneLandline}
+                      onChange={(e) => setFormData({ ...formData, phoneLandline: e.target.value })}
                       icon={<Phone className="w-4 h-4" />}
                     />
                   </div>
@@ -263,11 +345,11 @@ export default function ContactUs() {
                     <Label>Mobile Number*</Label>
                     <Input
                       type="tel"
-                      name="phone"
+                      name="phoneMobile"
                       placeholder="Your mobile number"
                       required
-                      value={formData.phone}
-                      onChange={handleChange}
+                      value={formData.phoneMobile}
+                      onChange={(e) => setFormData({ ...formData, phoneMobile: e.target.value })}
                       icon={<Phone className="w-4 h-4" />}
                     />
                   </div>
@@ -280,7 +362,7 @@ export default function ContactUs() {
                     name="address"
                     placeholder="Street address"
                     value={formData.address}
-                    onChange={handleChange}
+                    onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                     icon={<MapPin className="w-4 h-4" />}
                   />
                 </div>
@@ -293,20 +375,19 @@ export default function ContactUs() {
                       name="pincode"
                       placeholder="600001"
                       value={formData.pincode}
-                      onChange={handleChange}
+                      onChange={(e) => setFormData({ ...formData, pincode: e.target.value })}
                       icon={<LocateFixed className="w-4 h-4" />}
                     />
                   </div>
                   <div>
                     <Label>Country*</Label>
                     <Select
-                      name="country"
+                      value={formData.countryCode}
+                      onValueChange={(iso2) => handleCountryChange(iso2)}
                       required
-                      value={formData.country}
-                      onChange={handleChange}
                       icon={<Globe className="w-4 h-4" />}
-                      options={["India", "USA", "UK", "Australia", "Canada", "Other"]}
                       placeholder="Select Country"
+                      options={countryOptions}
                     />
                   </div>
                 </div>
@@ -314,23 +395,35 @@ export default function ContactUs() {
                 {/* Row 7 */}
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <Label>State*</Label>
+                    <Label>State/Province{stateOptions.length ? "*" : ""}</Label>
                     <Select
-                      name="state"
-                      required
-                      value={formData.state}
-                      onChange={handleChange}
-                      options={["Tamil Nadu", "Karnataka", "Maharashtra", "Delhi", "Other"]}
+                      value={formData.stateCode}
+                      onValueChange={(v) => handleStateChange(v)}
+                      placeholder={
+                        formData.countryCode
+                          ? stateOptions.length
+                            ? "Select State/Province"
+                            : "N/A for this country"
+                          : "Select country first"
+                      }
+                      options={stateOptions}
+                      disabled={!formData.countryCode || stateOptions.length === 0}
                     />
                   </div>
                   <div>
-                    <Label>City*</Label>
+                    <Label>City{cityOptions.length ? "*" : ""}</Label>
                     <Select
-                      name="city"
-                      required
                       value={formData.city}
-                      onChange={handleChange}
-                      options={["Chennai", "Mumbai", "Bangalore", "Delhi", "Other"]}
+                      onValueChange={(v) => handleCityChange(v)}
+                      placeholder={
+                        formData.countryCode
+                          ? cityOptions.length
+                            ? "Select City"
+                            : "No cities in dataset"
+                          : "Select country (and state) first"
+                      }
+                      options={cityOptions}
+                      disabled={!formData.countryCode || cityOptions.length === 0}
                     />
                   </div>
                 </div>
@@ -367,7 +460,7 @@ export default function ContactUs() {
                     required
                     placeholder="Tell us about your inquiry…"
                     value={formData.message}
-                    onChange={handleChange}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   />
                 </div>
 
@@ -381,8 +474,21 @@ export default function ContactUs() {
                     {isSubmitting ? (
                       <>
                         <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
-                          <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" className="opacity-25" />
-                          <path d="M4 12a8 8 0 018-8" stroke="currentColor" strokeWidth="4" className="opacity-75" />
+                          <circle
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                            fill="none"
+                            className="opacity-25"
+                          />
+                          <path
+                            d="M4 12a8 8 0 018-8"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                            className="opacity-75"
+                          />
                         </svg>
                         Submitting…
                       </>
@@ -523,7 +629,11 @@ export default function ContactUs() {
 /* ---------- small UI helpers ---------- */
 
 function Label({ children }: { children: React.ReactNode }) {
-  return <label className="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-2">{children}</label>;
+  return (
+    <label className="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-2">
+      {children}
+    </label>
+  );
 }
 
 function Input({
@@ -533,7 +643,9 @@ function Input({
 }: React.InputHTMLAttributes<HTMLInputElement> & { icon?: React.ReactNode }) {
   return (
     <div className={`relative ${className || ""}`}>
-      {icon && <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">{icon}</span>}
+      {icon && (
+        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">{icon}</span>
+      )}
       <input
         {...props}
         className="w-full rounded-xl border border-gray-300 bg-white px-3 py-3 pl-10 text-sm shadow-sm outline-none ring-0 transition placeholder:text-gray-400 focus:border-teal-500"
@@ -555,28 +667,44 @@ function TextArea({
   );
 }
 
+/** Enhanced Select that supports {label,value} options */
 function Select({
   options,
   placeholder,
   icon,
   className,
+  value,
+  onValueChange,
+  disabled,
+  required,
   ...props
-}: React.SelectHTMLAttributes<HTMLSelectElement> & {
-  options: string[];
+}: {
+  options: Option[];
   placeholder?: string;
   icon?: React.ReactNode;
-}) {
+  className?: string;
+  value?: string;
+  onValueChange?: (v: string) => void;
+  disabled?: boolean;
+  required?: boolean;
+} & Omit<React.SelectHTMLAttributes<HTMLSelectElement>, "onChange" | "value">) {
   return (
     <div className={`relative ${className || ""}`}>
-      {icon && <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">{icon}</span>}
+      {icon && (
+        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">{icon}</span>
+      )}
       <select
+        value={value ?? ""}
+        onChange={(e) => onValueChange?.(e.target.value)}
+        disabled={disabled}
+        required={required}
+        className="w-full rounded-xl border border-gray-300 bg-white px-3 py-3 pl-10 text-sm shadow-sm outline-none focus:border-teal-500 disabled:bg-gray-50 disabled:text-gray-400"
         {...props}
-        className="w-full rounded-xl border border-gray-300 bg-white px-3 py-3 pl-10 text-sm shadow-sm outline-none focus:border-teal-500"
       >
-        {placeholder && <option value="">{placeholder}</option>}
+        <option value="">{placeholder || "Select an option"}</option>
         {options.map((opt) => (
-          <option key={opt} value={opt}>
-            {opt}
+          <option key={opt.value + opt.label} value={opt.value}>
+            {opt.label}
           </option>
         ))}
       </select>
