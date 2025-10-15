@@ -20,11 +20,14 @@ function Star({ filled }: { filled?: boolean }) {
 type Row = {
   id: string;
   title: string;
-  points?: string[]; // optional expanded bullets
+  points?: string[];
   rating: 1 | 2 | 3 | 4 | 5;
 };
 
-export default function SustainabilitySectionAlt({
+/** ─────────────────────────────────────────────────────────────
+ *  Your reusable component (named export) — can accept props
+ *  ────────────────────────────────────────────────────────────*/
+export function SustainabilitySectionAlt({
   heading = "Sustainability & Green Rating",
   intro = "Indowud NFC is a GreenPro certified product and adds merit to projects with Green Rating.",
   rows,
@@ -114,9 +117,7 @@ export default function SustainabilitySectionAlt({
               <motion.div
                 key={r.id}
                 initial={false}
-                className={`group relative rounded-2xl transition ${
-                  idx !== data.length - 1 ? "mb-2" : ""
-                }`}
+                className={`group relative rounded-2xl transition ${idx !== data.length - 1 ? "mb-2" : ""}`}
               >
                 {/* Row header */}
                 <button
@@ -132,9 +133,7 @@ export default function SustainabilitySectionAlt({
                       {/* caret */}
                       <svg
                         viewBox="0 0 24 24"
-                        className={`h-4 w-4 transition-transform ${
-                          isOpen ? "rotate-180" : ""
-                        }`}
+                        className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
                         fill="currentColor"
                       >
                         <path d="M7 10l5 5 5-5H7z" />
@@ -178,9 +177,7 @@ export default function SustainabilitySectionAlt({
                             ))}
                           </ul>
                         ) : (
-                          <p className="text-sm text-slate-600">
-                            Details coming soon.
-                          </p>
+                          <p className="text-sm text-slate-600">Details coming soon.</p>
                         )}
                       </div>
                     </motion.div>
@@ -201,7 +198,7 @@ export default function SustainabilitySectionAlt({
         >
           <div className="rounded-2xl bg-white/80 p-4 shadow-lg ring-1 ring-black/5">
             <Image
-              src="/epd-verified.png"   // put the file in /public
+              src="/epd-verified.png" // ensure file exists in /public
               alt="ECO Platform EPD Verified"
               width={360}
               height={160}
@@ -221,11 +218,18 @@ export default function SustainabilitySectionAlt({
         >
           An Environmental Product Declaration (EPD) is a Type III environmental
           declaration that quantifies environmental information about the life
-          cycle of a product. It is generally done to understand the
-          environmental impact of the product and demonstrate a commitment to
-          limiting environmental impacts.
+          cycle of a product. It is generally done to understand the environmental
+          impact of the product and demonstrate a commitment to limiting environmental impacts.
         </motion.p>
       </div>
     </section>
   );
+}
+
+/** ─────────────────────────────────────────────────────────────
+ *  Next.js page wrapper (default export) — NO props allowed
+ *  ────────────────────────────────────────────────────────────*/
+export default function Page() {
+  // If you want to pass custom rows, prepare them here and pass to the component.
+  return <SustainabilitySectionAlt />;
 }
