@@ -82,11 +82,6 @@ export default function FeaturesSection() {
         </div>
       </div>
 
-      <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1, duration: 1 }} className="absolute bottom-0 left-0 w-48 h-48 opacity-10">
-        <svg viewBox="0 0 200 200" className="w-full h-full text-rose-300">
-          <path fill="currentColor" d="M100,20 L120,60 L160,70 L130,100 L140,140 L100,120 L60,140 L70,100 L40,70 L80,60 Z" />
-        </svg>
-      </motion.div>
     </section>
   );
 }
