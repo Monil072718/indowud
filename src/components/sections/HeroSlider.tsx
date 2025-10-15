@@ -1,26 +1,26 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
     title: "If you love something it will work",
     subtitle: "That's the real design mantra",
-    image:
-      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    accent: "#10b981",
   },
   {
     title: "Innovation meets elegance",
     subtitle: "Creating tomorrow's designs today",
-    image:
-      "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    image: "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    accent: "#f59e0b",
   },
   {
     title: "Where creativity comes alive",
     subtitle: "Designing the future of spaces",
-    image:
-      "https://images.pexels.com/photos/1647776/pexels-photo-1647776.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    image: "https://images.pexels.com/photos/1647776/pexels-photo-1647776.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    accent: "#ec4899",
   },
 ];
 
@@ -28,181 +28,182 @@ const AUTO_MS = 5000;
 
 export default function HeroSlider() {
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const [progressKey, setProgressKey] = useState(0);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const touchStartX = useRef<number | null>(null);
+  const [direction, setDirection] = useState<"next" | "prev">("next");
 
-  const next = () => setIndex((i) => (i + 1) % slides.length);
-  const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
+  const next = () => {
+    setDirection("next");
+    setIndex((i) => (i + 1) % slides.length);
+  };
 
-  // autoplay
+  const prev = () => {
+    setDirection("prev");
+    setIndex((i) => (i - 1 + slides.length) % slides.length);
+  };
+
+  const goTo = (i: number) => {
+    setDirection(i > index ? "next" : "prev");
+    setIndex(i);
+  };
+
   useEffect(() => {
-    if (paused) return;
-    const t = setInterval(() => setIndex((i) => (i + 1) % slides.length), AUTO_MS);
+    const t = setInterval(next, AUTO_MS);
     return () => clearInterval(t);
-  }, [paused]);
-
-  // restart progress bar on slide change
-  useEffect(() => {
-    setProgressKey((k) => k + 1);
   }, [index]);
 
-  // keyboard nav
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight") next();
-      if (e.key === "ArrowLeft") prev();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
-
-  // basic swipe (mobile)
-  const onTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-  const onTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current == null) return;
-    const dx = e.changedTouches[0].clientX - touchStartX.current;
-    if (Math.abs(dx) > 50) {
-      dx < 0 ? next() : prev();
-    }
-    touchStartX.current = null;
-  };
-
   return (
-    <div
-      ref={containerRef}
-      className="relative h-[90vh] md:h-screen w-full overflow-hidden"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onTouchStart={onTouchStart}
-      onTouchEnd={onTouchEnd}
-      aria-roledescription="carousel"
-    >
-      {/* Slides */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={index}
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          {/* Background image with Ken Burns */}
-          <motion.div
-            className="absolute inset-0"
-            initial={{ scale: 1.08 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: AUTO_MS / 1000, ease: "easeOut" }}
+    <div className="relative h-screen w-full bg-black overflow-hidden">
+      {/* Split Screen Design */}
+      <div className="absolute inset-0 flex">
+        {/* Left Side - Image with Clip Path */}
+        <div className="relative w-full lg:w-3/5 h-full overflow-hidden">
+          {slides.map((slide, i) => (
+            <div
+              key={i}
+              className={`absolute inset-0 transition-all duration-1000 ease-out ${
+                i === index
+                  ? "opacity-100 scale-100"
+                  : i === (index - 1 + slides.length) % slides.length && direction === "next"
+                  ? "opacity-0 scale-110"
+                  : i === (index + 1) % slides.length && direction === "prev"
+                  ? "opacity-0 scale-110"
+                  : "opacity-0 scale-95"
+              }`}
+              style={{
+                clipPath: "polygon(0 0, 100% 0, 85% 100%, 0 100%)",
+              }}
+            >
+              <img src={slide.image} alt={slide.title} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+            </div>
+          ))}
+
+          {/* Geometric Accent Lines */}
+          <div className="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-white/0 via-white/80 to-white/0" />
+          <div
+            className="absolute top-0 right-4 w-1 h-full transition-all duration-700"
             style={{
-              backgroundImage: `url(${slides[index].image})`,
+              background: `linear-gradient(to bottom, transparent, ${slides[index].accent}, transparent)`,
             }}
-          >
-            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `inherit` }} />
-          </motion.div>
+          />
+        </div>
 
-          {/* Gradient overlays for legibility */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-black/60 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/20 pointer-events-none" />
+        {/* Right Side - Content */}
+        <div className="hidden lg:flex w-2/5 h-full items-center justify-center px-16 relative">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900" />
 
-          {/* Caption card */}
-          <motion.div
-            className="absolute left-6 right-6 bottom-28 md:left-12 md:right-auto md:max-w-2xl"
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.15, duration: 0.6, ease: "easeOut" }}
-          >
-            <div className="backdrop-blur-md bg-white/10 border border-white/15 rounded-2xl p-5 md:p-7 shadow-2xl">
-              <h2 className="text-white font-bold text-3xl md:text-5xl leading-tight tracking-tight">
-                {slides[index].title}
-              </h2>
-              <p className="mt-2 md:mt-3 text-white/90 text-lg md:text-2xl">
-                {slides[index].subtitle}
-              </p>
+          {/* Animated Background Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div
+              className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full blur-3xl animate-pulse"
+              style={{ backgroundColor: slides[index].accent }}
+            />
+          </div>
 
-              <div className="mt-5 flex items-center gap-3">
+          <div className="relative z-10 w-full">
+            {slides.map((slide, i) => (
+              <div
+                key={i}
+                className={`transition-all duration-700 ${
+                  i === index ? "opacity-100 translate-x-0" : direction === "next" ? "opacity-0 -translate-x-12 absolute" : "opacity-0 translate-x-12 absolute"
+                }`}
+              >
+                <div className="mb-6 flex items-center gap-4">
+                  <div className="h-1 w-20 transition-all duration-700" style={{ backgroundColor: slide.accent }} />
+                  <span className="text-sm font-bold tracking-widest" style={{ color: slide.accent }}>
+                    0{i + 1}
+                  </span>
+                </div>
+
+                <h1 className="text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight">{slide.title}</h1>
+
+                <p className="text-xl text-gray-400 mb-8 leading-relaxed">{slide.subtitle}</p>
+
                 <button
-                  onClick={prev}
-                  aria-label="Previous slide"
-                  className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-white/15 hover:bg-white/25 border border-white/20 transition"
+                  className="group relative px-8 py-4 bg-white text-black font-semibold overflow-hidden transition-all duration-300 hover:scale-105"
+                  style={{ borderLeft: `4px solid ${slide.accent}` }}
                 >
-                  {/* Left chevron */}
-                  <svg viewBox="0 0 24 24" className="h-5 w-5 text-white" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M15 18l-6-6 6-6" />
-                  </svg>
-                </button>
-                <button
-                  onClick={next}
-                  aria-label="Next slide"
-                  className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-white/15 hover:bg-white/25 border border-white/20 transition"
-                >
-                  {/* Right chevron */}
-                  <svg viewBox="0 0 24 24" className="h-5 w-5 text-white" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M9 6l6 6-6 6" />
-                  </svg>
+                  <span className="relative z-10">Explore More</span>
+                  <div
+                    className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+                    style={{ backgroundColor: slide.accent }}
+                  />
                 </button>
               </div>
-            </div>
-          </motion.div>
-
-          {/* Slide counter (top-right) */}
-          <div className="absolute top-6 right-6 md:top-8 md:right-10">
-            <span className="px-3 py-1 rounded-full text-xs md:text-sm font-medium bg-white/15 text-white border border-white/20 backdrop-blur">
-              {String(index + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
-            </span>
+            ))}
           </div>
+        </div>
+      </div>
 
-          {/* Bottom controls: progress + dots */}
-          <div className="absolute left-6 right-6 bottom-6 md:left-12 md:right-12">
-            {/* Progress bar */}
-            <div className="h-1.5 w-full bg-white/20 rounded-full overflow-hidden">
-              <motion.div
-                key={progressKey}
-                className="h-full bg-white"
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                transition={{ duration: paused ? 0 : AUTO_MS / 1000, ease: "linear" }}
+      {/* Mobile Content Overlay */}
+      <div className="lg:hidden absolute inset-0 flex items-end pb-32 px-8">
+        <div className="w-full">
+          {slides.map((slide, i) => (
+            <div key={i} className={`transition-all duration-700 ${i === index ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 absolute"}`}>
+              <div className="mb-4 flex items-center gap-3">
+                <div className="h-1 w-16" style={{ backgroundColor: slide.accent }} />
+                <span className="text-sm font-bold" style={{ color: slide.accent }}>
+                  0{i + 1}
+                </span>
+              </div>
+
+              <h1 className="text-4xl font-bold text-white mb-4 leading-tight">{slide.title}</h1>
+
+              <p className="text-lg text-gray-300 mb-6">{slide.subtitle}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Navigation Controls (Prev/Next only) */}
+      <div className="absolute bottom-8 left-8 flex items-center gap-4 z-20">
+        <button
+          onClick={prev}
+          className="p-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 border border-white/20"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-6 h-6 text-white" />
+        </button>
+
+        <button
+          onClick={next}
+          className="p-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 border border-white/20"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-6 h-6 text-white" />
+        </button>
+      </div>
+
+      {/* Vertical Progress Indicators */}
+      <div className="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-20">
+        {slides.map((slide, i) => (
+          <button key={i} onClick={() => goTo(i)} className="group relative" aria-label={`Go to slide ${i + 1}`}>
+            <div className={`w-1 transition-all duration-300 ${i === index ? "h-16 bg-white" : "h-8 bg-white/30 group-hover:bg-white/50"}`} />
+            {i === index && (
+              <div
+                className="absolute top-0 left-0 w-1 bg-gradient-to-b from-transparent to-white origin-top"
+                style={{
+                  animation: `slideDown ${AUTO_MS}ms linear`,
+                  height: "100%",
+                }}
               />
-            </div>
+            )}
+          </button>
+        ))}
+      </div>
 
-            {/* Dots */}
-            <div className="mt-4 flex items-center gap-2">
-              {slides.map((s, i) => (
-                <button
-                  key={i}
-                  onClick={() => setIndex(i)}
-                  aria-label={`Go to slide ${i + 1}`}
-                  className={`h-2.5 rounded-full transition-all ${
-                    i === index ? "w-8 bg-white" : "w-2.5 bg-white/40 hover:bg-white/70"
-                  }`}
-                  title={s.title}
-                />
-              ))}
-              {/* Play/Pause */}
-              <button
-                onClick={() => setPaused((p) => !p)}
-                aria-label={paused ? "Play" : "Pause"}
-                className="ml-3 inline-flex items-center justify-center h-8 w-8 rounded-full bg-white/15 hover:bg-white/25 border border-white/20 transition"
-              >
-                {paused ? (
-                  // Play icon
-                  <svg viewBox="0 0 24 24" className="h-4 w-4 text-white" fill="currentColor">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                ) : (
-                  // Pause icon
-                  <svg viewBox="0 0 24 24" className="h-4 w-4 text-white" fill="currentColor">
-                    <path d="M6 5h4v14H6zM14 5h4v14h-4z" />
-                  </svg>
-                )}
-              </button>
-            </div>
-          </div>
-        </motion.div>
-      </AnimatePresence>
+      {/* Slide Counter */}
+      <div className="absolute top-8 right-8 text-white font-mono text-sm z-20">
+        <span className="text-3xl font-bold">{String(index + 1).padStart(2, "0")}</span>
+        <span className="text-white/40 mx-2">/</span>
+        <span className="text-white/60">{String(slides.length).padStart(2, "0")}</span>
+      </div>
+
+      <style>{`
+        @keyframes slideDown {
+          from { transform: scaleY(0); }
+          to { transform: scaleY(1); }
+        }
+      `}</style>
     </div>
   );
 }
