@@ -54,7 +54,7 @@ export default function Header() {
             { label: "Fire Test", path: "/nfc/fire-test" },
           ],
         },
-        { label: "FAQs", path: "#" },
+        { label: "FAQs", path: "/nfc/faqs" },
       ],
     },
     {
