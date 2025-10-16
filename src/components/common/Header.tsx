@@ -46,12 +46,12 @@ export default function Header() {
         { label: "Thermoforming", path: "/nfc/thermoforming" },
         {
           label: "Why NFC?",
-          path: "nfc/whynfc",
+          path: "/nfc/whynfc", // ← fixed leading slash
           hasSubmenu: true,
           submenu: [
-            { label: "Test Results", path: "#" },
-            { label: "Comparative Study", path: "#" },
-            { label: "Fire Test", path: "#" },
+            { label: "Test Results", path: "/nfc/test-results" },
+            { label: "Comparative Study", path: "/nfc/comparative-study" },
+            { label: "Fire Test", path: "/nfc/fire-test" },
           ],
         },
         { label: "FAQs", path: "#" },
@@ -134,12 +134,13 @@ export default function Header() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="absolute top-full left-0 mt-0 w-64 bg-white shadow-2xl rounded-b-lg overflow-hidden"
+                    className="absolute top-full left-0 mt-0 w-64 bg-white shadow-2xl rounded-b-lg overflow-visible z-40" // ← overflow-visible + z-index
                   >
                     {item.dropdown.map((dropdownItem) => (
                       <div
                         key={dropdownItem.label}
                         className="relative"
+                        // Keep submenu open while hovering either the item or its submenu
                         onMouseEnter={() => {
                           if (dropdownItem.hasSubmenu) setActiveSubDropdown(dropdownItem.label);
                         }}
@@ -161,7 +162,7 @@ export default function Header() {
                             <motion.div
                               initial={{ opacity: 0, x: -10 }}
                               animate={{ opacity: 1, x: 0 }}
-                              className="absolute left-full top-0 w-64 bg-white shadow-2xl rounded-r-lg overflow-hidden"
+                              className="absolute left-full top-0 w-64 bg-white shadow-2xl rounded-r-lg z-50" // ← ensure it renders above
                             >
                               {dropdownItem.submenu.map((subItem) => (
                                 <Link
