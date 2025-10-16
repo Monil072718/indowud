@@ -109,11 +109,6 @@ export default function ComparativeStudyPage() {
             </table>
           </div>
 
-          {/* Legend */}
-          <div className="flex items-center gap-4 px-6 py-4 text-xs text-zinc-600">
-            <span className="inline-flex items-center gap-1"><Tick /> denotes “Yes / Advantage”</span>
-            <span className="inline-flex items-center gap-1"><Cross /> denotes “No / Not Preferred”</span>
-          </div>
         </div>
       </section>
     </main>
