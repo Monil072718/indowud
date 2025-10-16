@@ -46,7 +46,7 @@ export default function Header() {
         { label: "Thermoforming", path: "/nfc/thermoforming" },
         {
           label: "Why NFC?",
-          path: "#",
+          path: "nfc/whynfc",
           hasSubmenu: true,
           submenu: [
             { label: "Test Results", path: "#" },
