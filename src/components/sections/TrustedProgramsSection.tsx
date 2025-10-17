@@ -18,17 +18,33 @@ const logosBottom = [
   { src: "https://dummyimage.com/220x110/ffffff/22c55e&text=GreenPro", alt: "GreenPro" },
 ]
 
-/* --------- card --------- */
+/* --------- card (📱 bigger only on mobile) --------- */
 function LogoPill({ src, alt }: { src: string; alt: string }) {
   return (
     <div
-      className="shrink-0 rounded-xl border border-gray-200 bg-white px-3 py-2 sm:px-4 sm:py-3 md:px-5 md:py-4 lg:px-6 lg:py-4 shadow-sm grid place-items-center
-                 h-16 sm:h-20 md:h-24 lg:h-28 min-w-[120px] sm:min-w-[140px] md:min-w-[160px] lg:min-w-[184px]"
+      className="
+        shrink-0 rounded-xl border border-gray-200 bg-white
+        px-5 py-4            /* mobile: more padding */
+        sm:px-4 sm:py-3      /* ≥640px back to previous */
+        md:px-5 md:py-4 lg:px-6 lg:py-4
+        shadow-sm grid place-items-center
+        h-24                 /* 📱 taller on mobile */
+        sm:h-20              /* tablets back to normal */
+        md:h-24 lg:h-28
+        min-w-[170px]        /* 📱 wider on mobile */
+        sm:min-w-[140px]
+        md:min-w-[160px] lg:min-w-[184px]
+      "
     >
       <img
         src={src || "/placeholder.svg"}
         alt={alt}
-        className="h-8 sm:h-10 md:h-12 lg:h-16 w-auto object-contain"
+        className="
+          h-14                /* 📱 larger logo image */
+          sm:h-10
+          md:h-12 lg:h-16
+          w-auto object-contain
+        "
         loading="lazy"
       />
     </div>
@@ -54,7 +70,7 @@ function MarqueeRow({
       <div className="lg:hidden overflow-hidden">
         {reduceMotion ? (
           <div
-            className="flex gap-2 sm:gap-3 md:gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none]"
+            className="flex gap-3 sm:gap-3 md:gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none]"
             style={{ WebkitOverflowScrolling: "touch" }}
           >
             <style>{`div::-webkit-scrollbar { display: none; }`}</style>
@@ -66,7 +82,7 @@ function MarqueeRow({
           </div>
         ) : (
           <motion.div
-            className="flex gap-2 sm:gap-3 md:gap-4"
+            className="flex gap-3 sm:gap-3 md:gap-4"
             animate={{ x: reverse ? ["0%", "-50%"] : ["-50%", "0%"] }}
             transition={{ duration: speed / 1000, ease: "linear", repeat: Number.POSITIVE_INFINITY }}
             role="list"
