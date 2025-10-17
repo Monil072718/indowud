@@ -6,12 +6,12 @@ import { Facebook, Twitter, Youtube, Instagram, Linkedin, Phone, Mail } from "lu
 export default function Footer() {
   const footerLinks = [
     { title: "Home", href: "/" },
-    { title: "Corporate", href: "#" },
-    { title: "NFC", href: "#" },
-    { title: "Media", href: "#" },
+    { title: "Corporate", href: "/corporate/chairman-message" },
+    { title: "NFC", href: "/nfc/whynfc" },
+    { title: "Media", href: "/media/video" },
     { title: "Contact Us", href: "/contact" },
     { title: "Downloads", href: "#" },
-    { title: "Privacy Policy", href: "#" },
+    { title: "Privacy Policy", href: "/quick-links/privacy-policy" },
     { title: "Legal Note", href: "#" },
     { title: "Warranty", href: "#" }
   ];
