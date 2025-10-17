@@ -12,7 +12,7 @@ export default function Footer() {
     { title: "Contact Us", href: "/contact" },
     { title: "Downloads", href: "#" },
     { title: "Privacy Policy", href: "/quick-links/privacy-policy" },
-    { title: "Legal Note", href: "#" },
+    { title: "Legal Note", href: "/quick-links/legal-note" },
     { title: "Warranty", href: "#" }
   ];
 
