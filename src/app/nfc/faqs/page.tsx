@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
+import Link from "next/link";
 
 /* ----------------------------- Data (from screenshot) ----------------------------- */
 type FAQ = { q: string; a?: string };
@@ -66,7 +67,7 @@ const Minus = () => (
 /* ----------------------------- Page ----------------------------- */
 export default function FAQPage() {
   const [query, setQuery] = useState("");
-  const [openIdx, setOpenIdx] = useState<number | null>(0); // first item open (has answer)
+  const [openIdx, setOpenIdx] = useState<number | null>(0); // first item open
   const filtered = useMemo(
     () =>
       FAQS.filter(({ q }) =>
@@ -89,7 +90,7 @@ export default function FAQPage() {
             </h1>
             <nav className="mt-3 text-center text-xs sm:text-sm font-semibold tracking-wide">
               <ol className="inline-flex items-center gap-2 text-white/90">
-                <li><a href="/" className="hover:underline">HOME</a></li>
+                <li><Link href="/" className="hover:underline">HOME</Link></li>
                 <li className="opacity-80">/</li>
                 <li className="text-white">FAQS</li>
               </ol>
@@ -97,8 +98,26 @@ export default function FAQPage() {
           </div>
         </div>
       </header>
-      {/* Accordion */}
+
+      {/* Controls + Accordion */}
       <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-16">
+        <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search questions…"
+            className="w-full sm:w-64 rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-teal-500"
+          />
+          <div className="flex items-center gap-2">
+            <button onClick={expandAll} className="rounded-md border px-3 py-1.5 text-xs font-semibold hover:bg-zinc-50">
+              Expand all
+            </button>
+            <button onClick={collapseAll} className="rounded-md border px-3 py-1.5 text-xs font-semibold hover:bg-zinc-50">
+              Collapse all
+            </button>
+          </div>
+        </div>
+
         <div className="space-y-3">
           {filtered.map((item, idx) => {
             const isOpen = openIdx === -1 || openIdx === idx;
