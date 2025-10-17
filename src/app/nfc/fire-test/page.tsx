@@ -1,5 +1,5 @@
-// app/(site)/fire-test/page.tsx
 import React from "react";
+import Link from "next/link";
 
 type Row = { test: string; method: string; unit: string; result: string };
 
@@ -22,7 +22,7 @@ export default function FireTestPage() {
             </h1>
             <nav className="mt-3 text-center text-xs sm:text-sm font-semibold tracking-wide">
               <ol className="inline-flex items-center gap-2 text-white/90">
-                <li><a href="/" className="hover:underline">HOME</a></li>
+                <li><Link href="/" className="hover:underline">HOME</Link></li>
                 <li className="opacity-80">/</li>
                 <li className="text-white">FIRE TEST</li>
               </ol>
