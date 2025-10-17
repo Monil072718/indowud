@@ -1,8 +1,7 @@
-import React from "react";
-import Link from "next/link";
+import Link from "next/link"
 
 /* ---------------- data from your screenshot ---------------- */
-type TestRow = { test: string; unit: string; method: string; result: string };
+type TestRow = { test: string; unit: string; method: string; result: string }
 
 const MAIN_ROWS: TestRow[] = [
   { test: "DENSITY", unit: "Kg/CBM", method: "ASTM D792", result: "800.349" },
@@ -25,9 +24,9 @@ const MAIN_ROWS: TestRow[] = [
   { test: "TEST FOR TERMITE RESISTANCE", unit: "", method: "IS 4833", result: "No sign of termite attack" },
   { test: "TEST FOR FUNGAL RESISTANCE", unit: "", method: "IS 4873", result: "No sign of fungal attack" },
   { test: "TEST FOR BORER RESISTANCE", unit: "", method: "IS 4873", result: "No sign of borer attack" },
-];
+]
 
-type SoundRow = { freq: string; coeff: string; loss: string };
+type SoundRow = { freq: string; coeff: string; loss: string }
 const SOUND_ROWS: SoundRow[] = [
   { freq: "125", coeff: "0.02", loss: "26.19" },
   { freq: "250", coeff: "0.03", loss: "22.53" },
@@ -40,7 +39,7 @@ const SOUND_ROWS: SoundRow[] = [
   { freq: "3500", coeff: "0.08", loss: "46.6" },
   { freq: "3800", coeff: "0.08", loss: "47.16" },
   { freq: "4000", coeff: "0.10", loss: "47.56" },
-];
+]
 
 /* ---------------- UI ---------------- */
 export default function TestResultsPage() {
@@ -55,7 +54,11 @@ export default function TestResultsPage() {
             </h1>
             <nav className="mt-3 text-center text-xs sm:text-sm font-semibold tracking-wide">
               <ol className="inline-flex items-center gap-2 text-white/90">
-                <li><Link href="/" className="hover:underline">HOME</Link></li>
+                <li>
+                  <Link href="/" className="hover:underline">
+                    HOME
+                  </Link>
+                </li>
                 <li className="opacity-80">/</li>
                 <li className="text-white">TEST RESULTS</li>
               </ol>
@@ -70,8 +73,8 @@ export default function TestResultsPage() {
           nfc Boards with High Fibre Content
         </h2>
         <p className="mt-3 text-center text-[13px] leading-6 text-zinc-600">
-          The following tests were carried out on the samples of Indowud NFC board by the National Test House,
-          Central Institute of Plastic Engineering &amp; Technology (CIPET) and Indian Plywood Industries Research &amp;
+          The following tests were carried out on the samples of Indowud NFC board by the National Test House, Central
+          Institute of Plastic Engineering &amp; Technology (CIPET) and Indian Plywood Industries Research &amp;
           Training Institute (IPIRTI), Spectro Labs and SGS Labs
         </p>
       </section>
@@ -81,7 +84,35 @@ export default function TestResultsPage() {
         <div className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
           {/* accented title strip */}
           <div className="bg-gradient-to-r from-teal-600 via-fuchsia-500 to-pink-500 h-1.5 w-full" />
-          <div className="overflow-auto">
+
+          {/* Mobile Card View */}
+          <div className="md:hidden space-y-3 p-3 sm:p-4">
+            {MAIN_ROWS.map((r, idx) => (
+              <div
+                key={idx}
+                className="border border-zinc-200 rounded-lg p-3 sm:p-4 bg-zinc-50 hover:bg-teal-50/60 transition"
+              >
+                <div className="font-semibold text-sm text-teal-700 mb-2">{r.test}</div>
+                <div className="grid grid-cols-3 gap-2 text-xs">
+                  <div>
+                    <div className="text-zinc-500 font-medium">Unit</div>
+                    <div className="text-zinc-900">{r.unit || "-"}</div>
+                  </div>
+                  <div>
+                    <div className="text-zinc-500 font-medium">Method</div>
+                    <div className="text-zinc-900">{r.method}</div>
+                  </div>
+                  <div>
+                    <div className="text-zinc-500 font-medium">Result</div>
+                    <div className="font-semibold text-zinc-900">{r.result}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop Table View */}
+          <div className="hidden md:block overflow-auto">
             <table className="min-w-[920px] w-full border-separate border-spacing-0">
               <thead>
                 <tr>
@@ -90,7 +121,7 @@ export default function TestResultsPage() {
                       key={h}
                       className={[
                         "sticky top-0 z-20 bg-zinc-50/95 backdrop-blur supports-[backdrop-filter]:bg-zinc-50/75",
-                        "text-left text-[13px] font-semibold uppercase tracking-wide text-zinc-700",
+                        "text-left text-[13px] sm:text-sm font-semibold uppercase tracking-wide text-zinc-700",
                         "border-b border-zinc-200",
                         i === 0 ? "sticky left-0 z-30 min-w-[320px]" : "min-w-[180px]",
                         "px-4 py-3",
@@ -122,13 +153,35 @@ export default function TestResultsPage() {
 
       {/* Sound Test */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-14">
-        <h3 className="text-center text-xl sm:text-2xl font-extrabold text-rose-600 mb-4">
-          Sound Test
-        </h3>
+        <h3 className="text-center text-xl sm:text-2xl font-extrabold text-rose-600 mb-4">Sound Test</h3>
 
         <div className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
           <div className="bg-rose-600 h-1.5 w-full" />
-          <div className="overflow-auto">
+
+          {/* Mobile Card View */}
+          <div className="md:hidden space-y-3 p-3 sm:p-4">
+            {SOUND_ROWS.map((r, idx) => (
+              <div
+                key={idx}
+                className="border border-rose-200 rounded-lg p-3 sm:p-4 bg-rose-50/40 hover:bg-rose-50 transition"
+              >
+                <div className="font-semibold text-sm text-rose-700 mb-2">Frequency: {r.freq} Hz</div>
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  <div>
+                    <div className="text-rose-600 font-medium">Absorption Co-eff</div>
+                    <div className="text-zinc-900">{r.coeff}</div>
+                  </div>
+                  <div>
+                    <div className="text-rose-600 font-medium">Transmission Loss</div>
+                    <div className="font-semibold text-zinc-900">{r.loss} dB</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop Table View */}
+          <div className="hidden md:block overflow-auto">
             <table className="min-w-[760px] w-full border-separate border-spacing-0">
               <thead>
                 <tr>
@@ -137,7 +190,7 @@ export default function TestResultsPage() {
                       key={h}
                       className={[
                         "sticky top-0 z-20 bg-rose-50/95 backdrop-blur supports-[backdrop-filter]:bg-rose-50/80",
-                        "text-left text-[13px] font-semibold uppercase tracking-wide text-rose-800",
+                        "text-left text-[13px] sm:text-sm font-semibold uppercase tracking-wide text-rose-800",
                         "border-b border-rose-200",
                         i === 0 ? "sticky left-0 z-30 min-w-[220px]" : "min-w-[240px]",
                         "px-4 py-3",
@@ -155,9 +208,7 @@ export default function TestResultsPage() {
                       {r.freq}
                     </td>
                     <td className="border-b border-rose-200 px-4 py-3 text-sm text-zinc-700">{r.coeff}</td>
-                    <td className="border-b border-rose-200 px-4 py-3 text-sm font-semibold text-zinc-900">
-                      {r.loss}
-                    </td>
+                    <td className="border-b border-rose-200 px-4 py-3 text-sm font-semibold text-zinc-900">{r.loss}</td>
                   </tr>
                 ))}
               </tbody>
@@ -166,5 +217,5 @@ export default function TestResultsPage() {
         </div>
       </section>
     </main>
-  );
+  )
 }

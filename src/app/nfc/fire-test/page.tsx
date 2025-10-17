@@ -1,14 +1,13 @@
-import React from "react";
-import Link from "next/link";
+import Link from "next/link"
 
-type Row = { test: string; method: string; unit: string; result: string };
+type Row = { test: string; method: string; unit: string; result: string }
 
 const ROWS: Row[] = [
   { test: "FIRE RESISTANCE", method: "APPENDIX 11 of UIC 564-2", unit: "", result: "CLASS A" },
   { test: "FLAMMABILITY", method: "UL-94", unit: "", result: "V0 RATING" },
   { test: "FLAME SPREAD INDEX", method: "ASTM E84 : 2020", unit: "0 – 25 CLASS 1 OR A", result: "6 CLASS 1 OR A" },
   { test: "SMOKE DEVELOPED INDEX", method: "ASTM E84 : 2020", unit: "450", result: "100" },
-];
+]
 
 export default function FireTestPage() {
   return (
@@ -22,7 +21,11 @@ export default function FireTestPage() {
             </h1>
             <nav className="mt-3 text-center text-xs sm:text-sm font-semibold tracking-wide">
               <ol className="inline-flex items-center gap-2 text-white/90">
-                <li><Link href="/" className="hover:underline">HOME</Link></li>
+                <li>
+                  <Link href="/" className="hover:underline">
+                    HOME
+                  </Link>
+                </li>
                 <li className="opacity-80">/</li>
                 <li className="text-white">FIRE TEST</li>
               </ol>
@@ -40,15 +43,16 @@ export default function FireTestPage() {
           the specimen.
         </p>
         <p>
-          UL-94 is a flammability standard by the Underwriters Laboratories of the United States of America. The standard
-          determines the material’s tendency to either extinguish or spread the flame once the specimen is ignited. V0
-          rating means – burning stops within 10 seconds.
+          UL-94 is a flammability standard by the Underwriters Laboratories of the United States of America. The
+          standard determines the material's tendency to either extinguish or spread the flame once the specimen is
+          ignited. V0 rating means – burning stops within 10 seconds.
         </p>
         <p>
           ASTM E84 is an American test standard for assessing the surface burning characteristics of building products.
-          The purpose of this test is to observe the flame spread in order to determine the relative burning behaviour of
-          material. Flame spread index is the measurement for the speed at which the flames progress across the interior
-          surface of a building, while the smoke developed index measures the amount of smoke the product emits as it burns.
+          The purpose of this test is to observe the flame spread in order to determine the relative burning behaviour
+          of material. Flame spread index is the measurement for the speed at which the flames progress across the
+          interior surface of a building, while the smoke developed index measures the amount of smoke the product emits
+          as it burns.
         </p>
       </section>
 
@@ -69,7 +73,35 @@ export default function FireTestPage() {
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-14">
         <div className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
           <div className="bg-rose-600 h-1.5 w-full" />
-          <div className="overflow-auto">
+
+          {/* Mobile Card View */}
+          <div className="md:hidden space-y-3 p-3 sm:p-4">
+            {ROWS.map((r, idx) => (
+              <div
+                key={idx}
+                className="border border-rose-200 rounded-lg p-3 sm:p-4 bg-rose-50/40 hover:bg-rose-50 transition"
+              >
+                <div className="font-semibold text-sm text-rose-700 mb-2">{r.test}</div>
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  <div>
+                    <div className="text-rose-600 font-medium">Method</div>
+                    <div className="text-zinc-900">{r.method}</div>
+                  </div>
+                  <div>
+                    <div className="text-rose-600 font-medium">Unit</div>
+                    <div className="text-zinc-900">{r.unit || "-"}</div>
+                  </div>
+                </div>
+                <div className="mt-2 pt-2 border-t border-rose-200">
+                  <div className="text-rose-600 font-medium text-xs mb-1">Result</div>
+                  <div className="font-semibold text-zinc-900">{r.result}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop Table View */}
+          <div className="hidden md:block overflow-auto">
             <table className="min-w-[820px] w-full border-separate border-spacing-0">
               <thead>
                 <tr>
@@ -104,12 +136,14 @@ export default function FireTestPage() {
                 ))}
               </tbody>
               <tfoot>
-                <tr><td colSpan={4} className="h-3" /></tr>
+                <tr>
+                  <td colSpan={4} className="h-3" />
+                </tr>
               </tfoot>
             </table>
           </div>
         </div>
       </section>
     </main>
-  );
+  )
 }

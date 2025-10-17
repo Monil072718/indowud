@@ -1,25 +1,27 @@
-"use client";
+"use client"
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, type ReactNode } from "react";
+import type React from "react"
+
+import { motion, AnimatePresence } from "framer-motion"
+import { useState, type ReactNode } from "react"
 
 /* ────────────────── Types ────────────────── */
 type GridRow = {
-  label: string; // e.g. "Crota (6 mm)"
-  values: (number | "-")[]; // per column
-};
+  label: string
+  values: (number | "-")[]
+}
 
 type Guide = {
-  id: string;
-  title: string;
-  body: ReactNode;
-};
+  id: string
+  title: string
+  body: ReactNode
+}
 
 type Row = {
-  id: string;
-  title: string;
-  body: ReactNode;
-};
+  id: string
+  title: string
+  body: ReactNode
+}
 
 /* ────────────────── Default Page ────────────────── */
 export default function Page() {
@@ -28,116 +30,103 @@ export default function Page() {
       <SuggestionsSection />
       <SustainabilitySection />
     </>
-  );
+  )
 }
 
 /* ────────────────── Suggestions Section ────────────────── */
 function SuggestionsSection({
   heading = "Important Suggestions",
-  videoId = "dQw4w9WgXcQ", // replace with real YouTube id
+  videoId = "dQw4w9WgXcQ",
   brochureHref = "/brochures/technical-suggestions.pdf",
   grids,
   guides,
 }: {
-  heading?: string;
-  videoId?: string;
-  brochureHref?: string;
-  grids?: { columns: string[]; rows: GridRow[]; note?: string };
-  guides?: Guide[];
+  heading?: string
+  videoId?: string
+  brochureHref?: string
+  grids?: { columns: string[]; rows: GridRow[]; note?: string }
+  guides?: Guide[]
 }) {
-  const grid =
-    grids ??
-    {
-      columns: ["6", "8", "12", "15", "16", "18", "20", "25"],
-      rows: [
-        { label: "Neo (6 mm) • 625–650 kg/m³", values: [150, 200, 250, 300, 320, 350, 380, 420] },
-        { label: "Crota (8 mm) • 725+ kg/m³", values: [200, 250, 300, 350, 370, 400, 430, 550] },
-        { label: "Build (10 mm) • 825+ kg/m³", values: [250, 350, 420, 550, 580, 600, 650, 750] },
-      ],
-      note:
-        "For ceiling: 12 mm or higher thickness board with suggested grid: 300 mm for crota or build, 200 mm for neo.",
-    };
+  const grid = grids ?? {
+    columns: ["6", "8", "12", "15", "16", "18", "20", "25"],
+    rows: [
+      { label: "Neo (6 mm) • 625–650 kg/m³", values: [150, 200, 250, 300, 320, 350, 380, 420] },
+      { label: "Crota (8 mm) • 725+ kg/m³", values: [200, 250, 300, 350, 370, 400, 430, 550] },
+      { label: "Build (10 mm) • 825+ kg/m³", values: [250, 350, 420, 550, 580, 600, 650, 750] },
+    ],
+    note: "For ceiling: 12 mm or higher thickness board with suggested grid: 300 mm for crota or build, 200 mm for neo.",
+  }
 
-  const sections: Guide[] =
-    guides ??
-    [
-      {
-        id: "paint",
-        title: "PU paint & polish",
-        body:
-          "Use only NC putty. Ensure the micro pores are sealed. Avoid water-based filler on raw board before the micro pores are sealed.",
-      },
-      {
-        id: "shutters",
-        title: "Wardrobe / Cabinet shutters",
-        body:
-          "Reinforce laminates on both sides before fixing shutter. Use suitable lipping. Provide proper balancing & uniform support.",
-      },
-      {
-        id: "adhesive",
-        title: "Suggested adhesive",
-        body:
-          "INDOBLUE PVA, PFE, WP1; ProBond; Merstik; Helen. Drying time may vary—follow manufacturer’s guidance.",
-      },
-      {
-        id: "paneling",
-        title: "Paneling",
-        body:
-          "Leave 1–2 mm gap between wall & board for breathing. Allow 3 mm gap per 1 m span between two boards.",
-      },
-      {
-        id: "screwing",
-        title: "Screwing",
-        body:
-          "Use mild steel fully threaded. For better strength, drilling or joinery is suggested. Avoid hammering.",
-      },
-      {
-        id: "ceiling",
-        title: "Ceiling",
-        body:
-          "Follow advanced installation guidelines: adequate structural support, correct fasteners, and movement joints.",
-      },
-      {
-        id: "thermal",
-        title: "Thermal management for outdoor applications",
-        body:
-          "Use heat-resistant paint/coating; create thermal breaks; add airflow gaps to minimize heat conduction.",
-      },
-      {
-        id: "substrate",
-        title: "Normal supports",
-        body:
-          "Use adequate support frames sized to board thickness & weight. Keep spans as per suggested grid.",
-      },
-    ];
+  const sections: Guide[] = guides ?? [
+    {
+      id: "paint",
+      title: "PU paint & polish",
+      body: "Use only NC putty. Ensure the micro pores are sealed. Avoid water-based filler on raw board before the micro pores are sealed.",
+    },
+    {
+      id: "shutters",
+      title: "Wardrobe / Cabinet shutters",
+      body: "Reinforce laminates on both sides before fixing shutter. Use suitable lipping. Provide proper balancing & uniform support.",
+    },
+    {
+      id: "adhesive",
+      title: "Suggested adhesive",
+      body: "INDOBLUE PVA, PFE, WP1; ProBond; Merstik; Helen. Drying time may vary—follow manufacturer's guidance.",
+    },
+    {
+      id: "paneling",
+      title: "Paneling",
+      body: "Leave 1–2 mm gap between wall & board for breathing. Allow 3 mm gap per 1 m span between two boards.",
+    },
+    {
+      id: "screwing",
+      title: "Screwing",
+      body: "Use mild steel fully threaded. For better strength, drilling or joinery is suggested. Avoid hammering.",
+    },
+    {
+      id: "ceiling",
+      title: "Ceiling",
+      body: "Follow advanced installation guidelines: adequate structural support, correct fasteners, and movement joints.",
+    },
+    {
+      id: "thermal",
+      title: "Thermal management for outdoor applications",
+      body: "Use heat-resistant paint/coating; create thermal breaks; add airflow gaps to minimize heat conduction.",
+    },
+    {
+      id: "substrate",
+      title: "Normal supports",
+      body: "Use adequate support frames sized to board thickness & weight. Keep spans as per suggested grid.",
+    },
+  ]
 
   return (
     <section id="suggestions" className="relative overflow-hidden">
       {/* Hero band */}
       <div className="bg-gradient-to-r from-[#00d5be] via-[#00b9a7] to-[#008e81]">
-        <div className="mx-auto max-w-7xl px-6 py-14 text-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-14 text-white">
           <motion.h1
             initial={{ y: 18, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="text-3xl md:text-5xl font-semibold tracking-tight"
+            className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight"
           >
             {heading}
           </motion.h1>
-          <p className="mt-2 text-white/90">
+          <p className="mt-2 text-sm sm:text-base text-white/90">
             Zero-defect furniture starts with the right workflow & installation.
           </p>
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 pb-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 pb-12 sm:pb-20">
         {/* Video */}
-        <div className="flex flex-col items-center gap-6 py-10">
+        <div className="flex flex-col items-center gap-4 sm:gap-6 py-8 sm:py-10">
           <motion.div
             whileHover={{ y: -4, scale: 1.01 }}
             transition={{ type: "spring", stiffness: 240, damping: 18 }}
-            className="relative w-full max-w-3xl overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5"
+            className="relative w-full max-w-3xl overflow-hidden rounded-lg sm:rounded-2xl shadow-xl ring-1 ring-black/5"
           >
             <div className="aspect-video">
               <iframe
@@ -155,7 +144,8 @@ function SuggestionsSection({
           <a
             href={brochureHref}
             target="_blank"
-            className="inline-flex items-center gap-2 rounded-full bg-[#00d5be] px-5 py-2.5 font-medium text-white shadow-md ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-[#00c7b1]"
+            className="inline-flex items-center gap-2 rounded-full bg-[#00d5be] px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base font-medium text-white shadow-md ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-[#00c7b1]"
+            rel="noreferrer"
           >
             Request Technical Suggestions Brochure
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
@@ -165,9 +155,9 @@ function SuggestionsSection({
         </div>
 
         {/* Blurb */}
-        <p className="mx-auto mb-8 max-w-4xl text-center text-[15px] text-slate-600">
-          Indowud NFC is a homogeneous product and hence requires proper constructive grid support
-          (frames, channels, sub-frame) to avoid deformations. Follow the grid & fastening guidance below.
+        <p className="mx-auto mb-6 sm:mb-8 max-w-4xl text-center text-xs sm:text-sm text-slate-600">
+          Indowud NFC is a homogeneous product and hence requires proper constructive grid support (frames, channels,
+          sub-frame) to avoid deformations. Follow the grid & fastening guidance below.
         </p>
 
         {/* Grid table */}
@@ -177,36 +167,41 @@ function SuggestionsSection({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl"
+            className="overflow-hidden rounded-xl sm:rounded-2xl border border-slate-200 bg-white shadow-lg"
           >
-            <div className="flex items-center justify-between border-b border-slate-200 bg-[#00d5be]/10 px-5 py-3">
-              <h3 className="text-[17px] font-semibold text-[#003a36]">
-                Suggested grid spacing for panelling (mm)
-              </h3>
-              <span className="text-[13px] text-slate-600">Maximum support distance</span>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-slate-200 bg-gradient-to-r from-[#00d5be]/15 to-[#00d5be]/5 px-4 sm:px-6 py-4 sm:py-5 gap-2">
+              <div className="flex items-center gap-3">
+                <div className="h-1 w-1 rounded-full bg-[#00d5be]" />
+                <h3 className="text-sm sm:text-base font-bold text-[#003a36]">
+                  Suggested grid spacing for panelling (mm)
+                </h3>
+              </div>
+              <span className="text-xs sm:text-sm font-medium text-slate-500">Maximum support distance</span>
             </div>
 
             <div className="w-full overflow-x-auto">
-              <table className="w-full text-left">
-                <thead className="sticky top-0 bg-white/95 backdrop-blur">
-                  <tr className="[&>th]:px-4 [&>th]:py-3 [&>th]:text-sm [&>th]:font-semibold [&>th]:text-slate-700">
-                    <th>Thickness / Variant</th>
+              <table className="w-full text-left text-xs sm:text-sm">
+                <thead className="sticky top-0 bg-slate-50/95 backdrop-blur">
+                  <tr className="[&>th]:px-3 sm:[&>th]:px-5 [&>th]:py-4 [&>th]:font-bold [&>th]:text-slate-700 [&>th]:border-b [&>th]:border-slate-200">
+                    <th className="whitespace-nowrap text-left">Thickness / Variant</th>
                     {grid.columns.map((c) => (
-                      <th key={c} className="text-center">
+                      <th key={c} className="text-center whitespace-nowrap">
                         {c}
                       </th>
                     ))}
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
-                  {grid.rows.map((r) => (
+                  {grid.rows.map((r, idx) => (
                     <tr
                       key={r.label}
-                      className="transition hover:bg-[#00d5be]/5 [&>td]:px-4 [&>td]:py-3"
+                      className={`transition-all duration-200 hover:bg-[#00d5be]/8 hover:shadow-sm ${
+                        idx % 2 === 0 ? "bg-white" : "bg-slate-50/50"
+                      } [&>td]:px-3 sm:[&>td]:px-5 [&>td]:py-4`}
                     >
-                      <td className="text-[15px] font-medium text-slate-800">{r.label}</td>
+                      <td className="font-semibold text-slate-800 whitespace-nowrap">{r.label}</td>
                       {r.values.map((v, i) => (
-                        <td key={i} className="text-center text-slate-700">
+                        <td key={i} className="text-center text-slate-700 whitespace-nowrap font-medium">
                           {v}
                         </td>
                       ))}
@@ -217,19 +212,22 @@ function SuggestionsSection({
             </div>
 
             {grid.note && (
-              <div className="border-t border-slate-200 bg-slate-50 px-5 py-3 text-[13px] text-slate-600">
-                {grid.note}
+              <div className="border-t border-slate-200 bg-slate-50/80 px-4 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-slate-600 font-medium">
+                <div className="flex gap-2">
+                  <span className="text-[#00d5be] font-bold">•</span>
+                  <span>{grid.note}</span>
+                </div>
               </div>
             )}
           </motion.div>
         </div>
 
         {/* Guidelines */}
-        <div className="mx-auto mt-12 max-w-5xl">
-          <div className="grid gap-3 md:grid-cols-2">
+        <div className="mx-auto mt-8 sm:mt-12 max-w-5xl">
+          <div className="grid gap-3 grid-cols-1 sm:grid-cols-2">
             {sections.map((g) => (
               <Accordion key={g.id} title={g.title}>
-                <p className="text-sm leading-relaxed text-slate-600">{g.body}</p>
+                <p className="text-xs sm:text-sm leading-relaxed text-slate-600">{g.body}</p>
               </Accordion>
             ))}
           </div>
@@ -241,18 +239,19 @@ function SuggestionsSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="mx-auto mt-12 flex max-w-5xl items-center justify-between gap-4 rounded-2xl
-                     bg-[#00d5be]/10 px-5 py-4 ring-1 ring-[#00d5be]/20"
+          className="mx-auto mt-8 sm:mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 rounded-lg sm:rounded-2xl
+                     bg-[#00d5be]/10 px-3 sm:px-5 py-3 sm:py-4 ring-1 ring-[#00d5be]/20"
         >
-          <p className="text-sm text-slate-700">
-            For deeper details on installation, spacing, fasteners and finishes, refer to our
-            “technical suggestions brochure”.
+          <p className="text-xs sm:text-sm text-slate-700">
+            For deeper details on installation, spacing, fasteners and finishes, refer to our "technical suggestions
+            brochure".
           </p>
           <a
             href={brochureHref}
             target="_blank"
-            className="inline-flex items-center gap-2 rounded-full bg-[#00d5be] px-4 py-2 text-sm font-medium text-white
-                       shadow-sm transition hover:-translate-y-0.5 hover:bg-[#00c7b1]"
+            className="inline-flex items-center gap-2 rounded-full bg-[#00d5be] px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-white
+                       shadow-sm transition hover:-translate-y-0.5 hover:bg-[#00c7b1] whitespace-nowrap"
+            rel="noreferrer"
           >
             Open brochure
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
@@ -262,7 +261,7 @@ function SuggestionsSection({
         </motion.div>
       </div>
     </section>
-  );
+  )
 }
 
 /* ────────────────── Sustainability Section ────────────────── */
@@ -271,60 +270,54 @@ function SustainabilitySection({
   intro = "Engineered from agri-residue with long service life, Indowud NFC reduces timber dependence and supports circular design.",
   rows,
 }: {
-  heading?: string;
-  intro?: string;
-  rows?: Row[];
+  heading?: string
+  intro?: string
+  rows?: Row[]
 }) {
-  const items: Row[] =
-    rows ??
-    [
-      {
-        id: "material",
-        title: "Material circularity",
-        body:
-          "Uses agricultural by-products and is designed for extended life cycles, minimizing virgin resource use.",
-      },
-      {
-        id: "emissions",
-        title: "Low maintenance & emissions",
-        body:
-          "Durable surfaces reduce repainting/refinishing frequency, lowering embodied emissions over the product lifespan.",
-      },
-      {
-        id: "water",
-        title: "Moisture resilience",
-        body:
-          "Dimensional stability helps reduce replacements in humid zones, cutting waste generation at end-of-life.",
-      },
-      {
-        id: "reuse",
-        title: "Repair, reuse, retrofit",
-        body:
-          "Panels can be refitted or repurposed in interior upgrades, improving utilization and reducing disposal.",
-      },
-    ];
+  const items: Row[] = rows ?? [
+    {
+      id: "material",
+      title: "Material circularity",
+      body: "Uses agricultural by-products and is designed for extended life cycles, minimizing virgin resource use.",
+    },
+    {
+      id: "emissions",
+      title: "Low maintenance & emissions",
+      body: "Durable surfaces reduce repainting/refinishing frequency, lowering embodied emissions over the product lifespan.",
+    },
+    {
+      id: "water",
+      title: "Moisture resilience",
+      body: "Dimensional stability helps reduce replacements in humid zones, cutting waste generation at end-of-life.",
+    },
+    {
+      id: "reuse",
+      title: "Repair, reuse, retrofit",
+      body: "Panels can be refitted or repurposed in interior upgrades, improving utilization and reducing disposal.",
+    },
+  ]
 
   return (
     <section id="sustainability" className="relative overflow-hidden">
       {/* Hero */}
       <div className="bg-gradient-to-r from-[#00d5be] via-[#00b9a7] to-[#008e81]">
-        <div className="mx-auto max-w-7xl px-6 py-14 text-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-14 text-white">
           <motion.h1
             initial={{ y: 18, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="text-3xl md:text-5xl font-semibold tracking-tight"
+            className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight"
           >
             {heading}
           </motion.h1>
-          <p className="mt-3 max-w-3xl text-white/90">{intro}</p>
+          <p className="mt-2 sm:mt-3 max-w-3xl text-sm sm:text-base text-white/90">{intro}</p>
         </div>
       </div>
 
       {/* Content */}
-      <div className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-4 md:grid-cols-2">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16">
+        <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2">
           {items.map((r) => (
             <motion.article
               key={r.id}
@@ -332,10 +325,10 @@ function SustainabilitySection({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35 }}
-              className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+              className="rounded-lg sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm"
             >
-              <h3 className="text-lg font-semibold text-[#003a36]">{r.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{r.body}</p>
+              <h3 className="text-base sm:text-lg font-semibold text-[#003a36]">{r.title}</h3>
+              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600">{r.body}</p>
             </motion.article>
           ))}
         </div>
@@ -346,37 +339,37 @@ function SustainabilitySection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="mt-10 rounded-2xl bg-[#00d5be]/10 px-5 py-4 ring-1 ring-[#00d5be]/20"
+          className="mt-8 sm:mt-10 rounded-lg sm:rounded-2xl bg-[#00d5be]/10 px-3 sm:px-5 py-3 sm:py-4 ring-1 ring-[#00d5be]/20"
         >
-          <p className="text-sm text-slate-700">
-            Want the full sustainability brief (material data, durability metrics, care & maintenance)?
-            Contact our technical team for the latest dossier.
+          <p className="text-xs sm:text-sm text-slate-700">
+            Want the full sustainability brief (material data, durability metrics, care & maintenance)? Contact our
+            technical team for the latest dossier.
           </p>
         </motion.div>
       </div>
     </section>
-  );
+  )
 }
 
 /* ────────────────── Atom ────────────────── */
 function Accordion({ title, children }: { title: string; children: React.ReactNode }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
   return (
     <motion.div
       initial={{ opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.35 }}
-      className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+      className="overflow-hidden rounded-lg sm:rounded-2xl border border-slate-200 bg-white shadow-sm"
     >
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left"
+        className="flex w-full items-center justify-between gap-3 px-3 sm:px-4 py-2 sm:py-3 text-left"
       >
-        <span className="text-[15px] font-semibold text-[#003a36]">{title}</span>
+        <span className="text-sm sm:text-base font-semibold text-[#003a36]">{title}</span>
         <svg
           viewBox="0 0 24 24"
-          className={`h-5 w-5 text-[#008e81] transition-transform ${open ? "rotate-180" : ""}`}
+          className={`h-5 w-5 text-[#008e81] transition-transform flex-shrink-0 ${open ? "rotate-180" : ""}`}
           fill="currentColor"
         >
           <path d="M7 10l5 5 5-5H7z" />
@@ -393,10 +386,10 @@ function Accordion({ title, children }: { title: string; children: React.ReactNo
             transition={{ duration: 0.25 }}
             className="overflow-hidden"
           >
-            <div className="px-4 pb-4 pt-1">{children}</div>
+            <div className="px-3 sm:px-4 pb-3 sm:pb-4 pt-1">{children}</div>
           </motion.div>
         )}
       </AnimatePresence>
     </motion.div>
-  );
+  )
 }

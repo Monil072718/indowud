@@ -383,16 +383,16 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden w-full bg-white border-t border-gray-200 absolute top-full left-0 right-0 z-40 shadow-lg"
+              className="md:hidden w-full bg-white border-t border-gray-200 fixed top-14 sm:top-16 left-0 right-0 z-40 shadow-lg"
             >
-              <div className="w-full px-4 py-2 max-h-[calc(100vh-5rem)] overflow-y-auto">
+              <div className="w-full px-3 xs:px-4 sm:px-6 py-3 max-h-[calc(100vh-3.5rem)] sm:max-h-[calc(100vh-4rem)] overflow-y-auto">
                 {navItems.map((item) => {
                   const hasDropdown = !!item.dropdown?.length
                   const open = mobileOpenTop === item.label
 
                   return (
-                    <div key={item.label} className="py-1 border-b border-gray-100 last:border-b-0">
-                      <div className="w-full flex items-center justify-between py-2.5">
+                    <div key={item.label} className="border-b border-gray-100 last:border-b-0">
+                      <div className="w-full flex items-center justify-between py-3">
                         <Link
                           href={item.path}
                           onClick={(e) => {
@@ -404,7 +404,7 @@ export default function Header() {
                               setMobileOpen(false)
                             }
                           }}
-                          className={`text-[15px] font-medium flex-1 ${
+                          className={`text-base font-medium flex-1 ${
                             item.label === "Home" ? "text-rose-600" : "text-gray-800"
                           }`}
                         >
@@ -417,10 +417,10 @@ export default function Header() {
                               setMobileOpenTop(open ? null : item.label)
                               setMobileOpenSub(null)
                             }}
-                            className="p-2 rounded hover:bg-gray-100 transition-colors duration-200 ml-2"
+                            className="p-1.5 rounded hover:bg-gray-100 transition-colors duration-200 ml-3 flex-shrink-0"
                           >
                             <ChevronRight
-                              className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${
+                              className={`w-5 h-5 text-gray-600 transition-transform duration-300 ${
                                 open ? "rotate-90" : ""
                               }`}
                             />
@@ -436,15 +436,15 @@ export default function Header() {
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.2 }}
-                            className="pl-4 border-l-2 border-gray-200 ml-2"
+                            className="pl-4 border-l-2 border-teal-400 ml-2 bg-gray-50/50"
                           >
                             {item.dropdown!.map((d) => {
                               const hasSub = !!(d.hasSubmenu && d.submenu?.length)
                               const subOpen = mobileOpenSub === d.label
 
                               return (
-                                <div key={d.label} className="py-1.5 border-b border-gray-100 last:border-b-0">
-                                  <div className="w-full flex items-center justify-between">
+                                <div key={d.label} className="border-b border-gray-100 last:border-b-0">
+                                  <div className="w-full flex items-center justify-between py-2.5">
                                     <Link
                                       href={d.path}
                                       onClick={(e) => {
@@ -455,7 +455,7 @@ export default function Header() {
                                           setMobileOpen(false)
                                         }
                                       }}
-                                      className="text-sm text-gray-700 py-1.5 flex-1"
+                                      className="text-sm text-gray-700 flex-1"
                                     >
                                       {d.label}
                                     </Link>
@@ -463,10 +463,10 @@ export default function Header() {
                                       <button
                                         aria-label="Toggle submenu"
                                         onClick={() => setMobileOpenSub(subOpen ? null : d.label)}
-                                        className="p-2 rounded hover:bg-gray-100 transition-colors duration-200 ml-2"
+                                        className="p-1.5 rounded hover:bg-gray-200 transition-colors duration-200 ml-2 flex-shrink-0"
                                       >
                                         <ChevronRight
-                                          className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${
+                                          className={`w-4 h-4 text-gray-600 transition-transform duration-300 ${
                                             subOpen ? "rotate-90" : ""
                                           }`}
                                         />
@@ -482,14 +482,14 @@ export default function Header() {
                                         animate={{ height: "auto", opacity: 1 }}
                                         exit={{ height: 0, opacity: 0 }}
                                         transition={{ duration: 0.18 }}
-                                        className="pl-4 border-l-2 border-gray-200 ml-2"
+                                        className="pl-4 border-l-2 border-pink-300 ml-2 bg-gray-50/30"
                                       >
                                         {d.submenu!.map((s) => (
                                           <Link
                                             key={s.label}
                                             href={s.path}
                                             onClick={() => setMobileOpen(false)}
-                                            className="block text-sm text-gray-600 py-2 hover:text-rose-600 transition-colors duration-200 border-b border-gray-100 last:border-b-0"
+                                            className="block text-xs text-gray-600 py-2 px-2 hover:text-rose-600 hover:bg-white transition-colors duration-200 border-b border-gray-100 last:border-b-0 rounded"
                                           >
                                             {s.label}
                                           </Link>
