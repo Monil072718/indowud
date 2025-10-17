@@ -1,5 +1,5 @@
-// app/(site)/comparative-study/page.tsx
 import React from "react";
+import Link from "next/link";
 
 /* ----------------------- small UI bits ----------------------- */
 const Tick = () => (
@@ -15,16 +15,37 @@ const Cross = () => (
 
 /* ----------------------- data (from image) ----------------------- */
 const HEAD = ["No", "Properties", "NFC", "PVC/WPC Foam Board", "Plywood", "MDF"] as const;
-type Row = { no: number; prop: string; nfc: React.ReactNode; pvcwpc: React.ReactNode; plywood: React.ReactNode; mdf: React.ReactNode; };
+type Row = {
+  no: number;
+  prop: string;
+  nfc: React.ReactNode;
+  pvcwpc: React.ReactNode;
+  plywood: React.ReactNode;
+  mdf: React.ReactNode;
+};
 const ROWS: Row[] = [
   { no: 1, prop: "Density (kg/cbm)", nfc: "700 – 800", pvcwpc: "400 – 600", plywood: "650 – 750", mdf: "600 – 700" },
-  { no: 2, prop: "Raw Material", nfc: "Natural fibers and thermoplastics", pvcwpc: "PVC and filler materials", plywood: "Medium/softwood, Urea/Phenol Formaldehyde", mdf: "Medium/softwood, Urea Formaldehyde" },
+  {
+    no: 2,
+    prop: "Raw Material",
+    nfc: "Natural fibers and thermoplastics",
+    pvcwpc: "PVC and filler materials",
+    plywood: "Medium/softwood, Urea/Phenol Formaldehyde",
+    mdf: "Medium/softwood, Urea Formaldehyde",
+  },
   { no: 3, prop: "Termite Proof", nfc: <Tick />, pvcwpc: "Not always", plywood: <Cross />, mdf: <Cross /> },
   { no: 4, prop: "Water Proof", nfc: <Tick />, pvcwpc: <Tick />, plywood: "For sometime", mdf: <Cross /> },
   { no: 5, prop: "Screw Holding", nfc: "Above par", pvcwpc: "Below par", plywood: "Above par", mdf: "Below par" },
   { no: 6, prop: "Conventional Tools", nfc: <Tick />, pvcwpc: <Tick />, plywood: <Tick />, mdf: <Tick /> },
   { no: 7, prop: "Overlay Laminate/Veneer", nfc: <Tick />, pvcwpc: "Not Always", plywood: <Tick />, mdf: <Tick /> },
-  { no: 8, prop: "Outdoor and Indoor Applications", nfc: "Both indoor and outdoor", pvcwpc: "Preferably indoor", plywood: "Indoor", mdf: "Only indoor" },
+  {
+    no: 8,
+    prop: "Outdoor and Indoor Applications",
+    nfc: "Both indoor and outdoor",
+    pvcwpc: "Preferably indoor",
+    plywood: "Indoor",
+    mdf: "Only indoor",
+  },
   { no: 9, prop: "Shrinking and Swelling", nfc: <Cross />, pvcwpc: <Cross />, plywood: <Tick />, mdf: <Tick /> },
   { no: 10, prop: "Weather and Ageing Resistant", nfc: <Tick />, pvcwpc: <Tick />, plywood: <Cross />, mdf: <Cross /> },
   { no: 11, prop: "Flame Retardant", nfc: <Tick />, pvcwpc: "Not Known", plywood: <Cross />, mdf: <Cross /> },
@@ -45,7 +66,7 @@ export default function ComparativeStudyPage() {
             <nav className="mt-3 text-center text-xs sm:text-sm font-semibold tracking-wide">
               <ol className="inline-flex items-center gap-2 text-white/90">
                 <li>
-                  <a href="/" className="hover:underline">HOME</a>
+                  <Link href="/" className="hover:underline">HOME</Link>
                 </li>
                 <li className="opacity-80">/</li>
                 <li className="text-white">COMPARITIVE STUDY</li>
@@ -108,7 +129,6 @@ export default function ComparativeStudyPage() {
               </tfoot>
             </table>
           </div>
-
         </div>
       </section>
     </main>
