@@ -63,7 +63,7 @@ export default function Header() {
       dropdown: [
         { label: "Videos", path: "/media/video" },
         { label: "Blog", path: "/media/blog" },
-        { label: "News", path: "#" },
+        { label: "News", path: "/media/news" },
       ],
     },
     { label: "Contact Us", path: "/contact" },
