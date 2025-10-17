@@ -97,38 +97,8 @@ export default function FAQPage() {
           </div>
         </div>
       </header>
-
-      {/* Controls */}
-      <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-6">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <div className="relative w-full sm:max-w-md">
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search questions…"
-              className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm shadow-sm outline-none ring-0 focus:border-teal-500"
-            />
-            <span className="pointer-events-none absolute right-3 top-2.5 text-zinc-400">⌘K</span>
-          </div>
-          <div className="flex gap-2">
-            <button
-              onClick={expandAll}
-              className="rounded-lg bg-teal-600 px-3 py-2 text-xs font-semibold text-white hover:bg-teal-700"
-            >
-              Expand all
-            </button>
-            <button
-              onClick={collapseAll}
-              className="rounded-lg border border-zinc-300 bg-white px-3 py-2 text-xs font-semibold text-zinc-700 hover:bg-zinc-50"
-            >
-              Collapse all
-            </button>
-          </div>
-        </div>
-      </section>
-
       {/* Accordion */}
-      <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pb-16">
+      <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="space-y-3">
           {filtered.map((item, idx) => {
             const isOpen = openIdx === -1 || openIdx === idx;
