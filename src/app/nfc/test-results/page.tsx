@@ -1,5 +1,5 @@
-// app/(site)/test-results/page.tsx
 import React from "react";
+import Link from "next/link";
 
 /* ---------------- data from your screenshot ---------------- */
 type TestRow = { test: string; unit: string; method: string; result: string };
@@ -55,7 +55,7 @@ export default function TestResultsPage() {
             </h1>
             <nav className="mt-3 text-center text-xs sm:text-sm font-semibold tracking-wide">
               <ol className="inline-flex items-center gap-2 text-white/90">
-                <li><a href="/" className="hover:underline">HOME</a></li>
+                <li><Link href="/" className="hover:underline">HOME</Link></li>
                 <li className="opacity-80">/</li>
                 <li className="text-white">TEST RESULTS</li>
               </ol>
