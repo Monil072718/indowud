@@ -5,9 +5,10 @@ import { motion, useReducedMotion } from "framer-motion";
 export default function BenefitsSection() {
   const reduce = useReducedMotion();
 
+  // Content copied from the provided image
   const copy = [
     {
-      t: "Natural wood-like appearance allows it to print, paint, stain, varnish, overlay veneer/laminate, CNC routing, etc. The high content of natural fibres gives better physical and mechanical properties like product density, strength and screw holding.",
+      t: "Natural wood-like appearance allows it to print, paint, stain, varnish, overlay veneer/ laminate, CNC routing, etc. The high content of natural fibres gives better physical and mechanical properties like product density, strength and screw holding.",
     },
     {
       t: "Its thermoforming ability creates opportunities for the Architects, Designers and furniture factories to convert imaginations from drawing boards to realities.",
@@ -78,7 +79,7 @@ export default function BenefitsSection() {
                 ))}
               </div>
 
-              {/* quick badges */}
+              {/* quick badges (left as-is; remove if you want a 1:1 match with the image) */}
               <div className="mt-6 flex flex-wrap gap-2">
                 {["Print • Paint • Stain", "Thermoform Ready", "High Screw Holding", "Zero Wood"].map(
                   (b) => (
