@@ -63,9 +63,9 @@ export default function ChairmanMessagePage() {
             <p className="font-semibold">Sincerely,</p>
             <p>B L BENGANI</p>
             <img
-              src="https://dummyimage.com/160x60/ffffff/999&text=Signature"
+              src="/sign.png"
               alt="signature"
-              className="mt-2 inline-block opacity-70"
+              className="mt-2 inline-block h-16 w-auto opacity-80"
             />
           </div>
         </div>
