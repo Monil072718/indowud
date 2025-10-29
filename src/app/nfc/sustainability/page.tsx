@@ -20,7 +20,11 @@ function Star({ filled }: { filled?: boolean }) {
 type Row = {
   id: string
   title: string
-  points?: string[]
+  module: string
+  credit: string
+  compliance: string
+  points: string[]
+  indowudEdge: string[]
   rating: 1 | 2 | 3 | 4 | 5
 }
 
@@ -29,32 +33,72 @@ export default function SustainabilityPage() {
     {
       id: "recycled",
       title: "Materials with recycled content",
-      rating: 5,
-      points: ["Resource efficiency", "Lower embodied energy"],
+      module: "Building Materials and Resources",
+      credit: "BMR1 - Sustainable Building Materials",
+      compliance: "Materials with recycled content",
+      points: [
+        "Recycled materials with upto 10% of overall component - 1 point",
+        "Recycled materials with upto 20% of overall component - 2 points",
+        "Additional 1 point (Exemplary performance) for over 20% Indowud Edge",
+        "Indowud has over 30% of recycled content",
+      ],
+      indowudEdge: ["Indowud has over 30% of recycled content"],
+      rating: 3,
     },
     {
       id: "fsc",
       title: "Wood based material with FSC certification and/or rapidly renewable",
-      rating: 5,
-      points: ["Responsibly sourced", "Traceable supply chain"],
+      module: "Building Materials and Resources",
+      credit: "BMR1 - Sustainable Building Materials",
+      compliance: "Wood based material with FSC certification and/or rapidly renewable (Within 5 years)",
+      points: [
+        "Materials upto 50% used - 1 point",
+        "Materials upto 75% used - 2 points",
+        "Additional 1 point (Exemplary performance) for over 95%",
+      ],
+      indowudEdge: [
+        "Does not require FSC certification as it is a zero wood product",
+        "Since the primary raw material is agri-residues, which is a rapidly cultivated can help awarding of points",
+      ],
+      rating: 3,
     },
     {
       id: "local",
       title: "Local Materials",
-      rating: 4,
-      points: ["Reduced transport emissions", "Supports local economy"],
+      module: "Building Materials and Resources",
+      credit: "BMR1 - Sustainable Building Materials",
+      compliance: "Local Materials - Sourcing of materials within 400Kms",
+      points: [
+        "Upto 20% of materials - 1 point",
+        "Upto 40% of materials - 2 points",
+        "Additional 1 point (Exemplary performance) for over 60%",
+      ],
+      indowudEdge: ["Projects within 400km radius from its factory in Chennai"],
+      rating: 3,
     },
     {
       id: "green",
       title: "Use of Certified Green Building Materials",
-      rating: 4,
-      points: ["Verified environmental performance", "Credible labels"],
+      module: "Building Materials and Resources",
+      credit: "BMR4 - Sustainable Building Materials",
+      compliance: "Use of Certified Green Building Materials",
+      points: ["Using GreenPro certified products, each product would give 1 points with a maximum of 5 points"],
+      indowudEdge: ["Green Pro Certified"],
+      rating: 1,
     },
     {
       id: "no-uf",
       title: "Composite wood with no urea formaldehyde",
-      rating: 4,
-      points: ["Low VOC", "Health-first interiors"],
+      module: "Indoor environmental Quality",
+      credit: "IEQ 5 - Low emitting Materials",
+      compliance: "Composite wood with no urea formaldehyde",
+      points: [],
+      indowudEdge: [
+        "No Urea Formaldehyde",
+        "No Formaldehyde emissions",
+        "No VOC emissions",
+      ],
+      rating: 1,
     },
   ]
 
@@ -120,11 +164,19 @@ export default function SustainabilityPage() {
                     <span className="text-sm sm:text-base font-semibold text-[#003a36]">{r.title}</span>
                   </div>
 
-                  {/* stars */}
-                  <div className="flex items-center gap-0.5 sm:gap-1 flex-shrink-0">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} filled={i < r.rating} />
-                    ))}
+                  <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
+                    {/* POINTS */}
+                    <div className="flex flex-col items-end">
+                      <span className="text-xs font-medium text-slate-500 uppercase">POINTS</span>
+                      <span className="text-lg sm:text-xl font-bold text-[#00d5be]">{r.rating}</span>
+                    </div>
+
+                    {/* stars */}
+                    <div className="flex items-center gap-0.5 sm:gap-1">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star key={i} filled={i < r.rating} />
+                      ))}
+                    </div>
                   </div>
                 </button>
 
@@ -142,18 +194,53 @@ export default function SustainabilityPage() {
                       transition={{ duration: 0.25 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-3 sm:px-5 pb-3 sm:pb-4 pt-2 sm:pt-3">
-                        {r.points?.length ? (
-                          <ul className="grid gap-2 grid-cols-1 sm:grid-cols-2">
-                            {r.points.map((p, i) => (
-                              <li key={i} className="flex items-start gap-2">
-                                <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#00d5be] flex-shrink-0" />
-                                <p className="text-xs sm:text-sm text-slate-600">{p}</p>
-                              </li>
-                            ))}
-                          </ul>
-                        ) : (
-                          <p className="text-xs sm:text-sm text-slate-600">Details coming soon.</p>
+                      <div className="px-3 sm:px-5 pb-3 sm:pb-4 pt-2 sm:pt-3 space-y-4">
+                        {/* Module and Credit */}
+                        <div className="space-y-2">
+                          <div>
+                            <span className="text-xs sm:text-sm font-semibold text-[#003a36]">Module:</span>
+                            <p className="text-xs sm:text-sm text-slate-600">{r.module}</p>
+                          </div>
+                          <div>
+                            <span className="text-xs sm:text-sm font-semibold text-[#003a36]">Credit:</span>
+                            <p className="text-xs sm:text-sm text-slate-600">{r.credit}</p>
+                          </div>
+                        </div>
+
+                        {/* Compliance */}
+                        <div>
+                          <span className="text-xs sm:text-sm font-semibold text-[#003a36]">Compliance:</span>
+                          <p className="text-xs sm:text-sm text-slate-600">{r.compliance}</p>
+                        </div>
+
+                        {/* Points */}
+                        {r.points?.length > 0 && (
+                          <div>
+                            <span className="text-xs sm:text-sm font-semibold text-[#003a36]">Points:</span>
+                            <ul className="mt-1 space-y-1">
+                              {r.points.map((p, i) => (
+                                <li key={i} className="flex items-start gap-2">
+                                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#00d5be] flex-shrink-0" />
+                                  <p className="text-xs sm:text-sm text-slate-600">{p}</p>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+
+                        {/* Indowud Edge */}
+                        {r.indowudEdge?.length > 0 && (
+                          <div className="bg-[#00d5be]/5 p-3 rounded-lg">
+                            <span className="text-xs sm:text-sm font-semibold text-[#003a36]">Indowud Edge:</span>
+                            <ul className="mt-1 space-y-1">
+                              {r.indowudEdge.map((edge, i) => (
+                                <li key={i} className="flex items-start gap-2">
+                                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#00d5be] flex-shrink-0" />
+                                  <p className="text-xs sm:text-sm text-slate-600">{edge}</p>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         )}
                       </div>
                     </motion.div>

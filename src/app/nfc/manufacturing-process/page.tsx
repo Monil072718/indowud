@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 
-import { motion , type Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 export const dynamic = "force-static";
 
@@ -171,12 +171,16 @@ export default function ManufacturingProcessPage() {
           className="aspect-video w-full overflow-hidden rounded-2xl border border-gray-200 shadow-lg"
         >
           <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
+            src="https://www.youtube-nocookie.com/embed/Nkel1DsLYKA?rel=0&modestbranding=1&playsinline=1&color=white&iv_load_policy=3"
             title="Indowud NFC – Corporate Video"
-            className="h-full w-full"
+            className="h-full w-full rounded-2xl shadow-xl ring-1 ring-black/5"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
+            loading="lazy"
           />
+
+
         </motion.div>
       </section>
 
