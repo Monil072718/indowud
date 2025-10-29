@@ -797,7 +797,7 @@ function LazyMapIframe() {
           style={{ border: 0 }}
           allowFullScreen
           loading="lazy"
-          referrerPolicy="no-referrer-when-cross-origin"
+          referrerPolicy="strict-origin-when-cross-origin"
           title="Indowud NFC Location"
         />
       ) : (
