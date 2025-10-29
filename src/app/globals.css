@@ -24,3 +24,33 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Performance optimizations */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, picture, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Reduce layout shift */
+[data-nextjs-scroll-focus-boundary] {
+  contain: layout style paint;
+}
+
+/* Optimize animations - use GPU acceleration */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    will-change: auto;
+  }
+}
+
+/* Reduce repaints */
+.animate-spin,
+.animate-pulse {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}

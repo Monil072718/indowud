@@ -147,7 +147,13 @@ function BlogContent() {
         <motion.article initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0, transition: { duration: 0.4 } }} className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
           <div className="relative">
             <div className="aspect-[21/9] w-full overflow-hidden">
-              <img src={featured.cover} alt={featured.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <img 
+                src={featured.cover} 
+                alt={featured.title} 
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" 
+              />
             </div>
             <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-600" />
           </div>
@@ -193,12 +199,12 @@ export default function BlogListPage() {
     <Suspense fallback={
       <div className="mx-auto max-w-[1200px] px-4 py-10 md:py-14">
         <div className="mb-8 md:mb-10">
-          <div className="h-10 w-64 bg-slate-200 rounded animate-pulse mb-2"></div>
-          <div className="h-4 w-96 bg-slate-200 rounded animate-pulse"></div>
+          <div className="h-10 w-64 bg-slate-200 rounded mb-2"></div>
+          <div className="h-4 w-96 bg-slate-200 rounded"></div>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="bg-slate-200 rounded-2xl h-80 animate-pulse"></div>
+            <div key={i} className="bg-slate-200 rounded-2xl h-80"></div>
           ))}
         </div>
       </div>

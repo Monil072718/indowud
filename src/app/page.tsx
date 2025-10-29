@@ -1,6 +1,13 @@
 import dynamic from "next/dynamic";
 import type { Metadata } from "next";
-import HeroSlider from "@/components/sections/HeroSlider";
+
+// Lazy load HeroSlider to reduce initial bundle size
+const HeroSlider = dynamic(() => import("@/components/sections/HeroSlider"), {
+  loading: () => (
+    <div className="relative h-screen w-full bg-gradient-to-br from-teal-50 via-[#00d5be] to-teal-100" />
+  ),
+  ssr: true, // Keep SSR for SEO
+});
 
 export const metadata: Metadata = {
   title: "Indowud NFC – Premium Eco-Friendly Board Solutions | Design Technology",
@@ -46,23 +53,28 @@ export const metadata: Metadata = {
 
 // Lazy load components below the fold for better initial load performance
 const FeaturesSection = dynamic(() => import("@/components/sections/FeaturesSection"), {
-  loading: () => <div className="h-96 bg-gray-50 animate-pulse" />,
+  loading: () => <div className="h-96 bg-gray-50" />,
+  ssr: true,
 });
 
 const BenefitsSection = dynamic(() => import("@/components/sections/BenefitsSection"), {
-  loading: () => <div className="h-96 bg-gray-50 animate-pulse" />,
+  loading: () => <div className="h-96 bg-gray-50" />,
+  ssr: true,
 });
 
 const TrustedProgramsSection = dynamic(() => import("@/components/sections/TrustedProgramsSection"), {
-  loading: () => <div className="h-64 bg-gray-50 animate-pulse" />,
+  loading: () => <div className="h-64 bg-gray-50" />,
+  ssr: true,
 });
 
 const BrandSection = dynamic(() => import("@/components/sections/BrandSection"), {
-  loading: () => <div className="h-96 bg-gray-50 animate-pulse" />,
+  loading: () => <div className="h-96 bg-gray-50" />,
+  ssr: true,
 });
 
 const CertificationsSection = dynamic(() => import("@/components/sections/CertificationsSection"), {
-  loading: () => <div className="h-96 bg-gray-50 animate-pulse" />,
+  loading: () => <div className="h-96 bg-gray-50" />,
+  ssr: true,
 });
 
 export default function HomePage() {

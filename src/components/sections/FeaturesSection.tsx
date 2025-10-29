@@ -41,7 +41,7 @@ export default function FeaturesSection() {
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "url(https://images.pexels.com/photos/164537/pexels-photo-164537.jpeg?auto=compress&cs=tinysrgb&w=1920)",
+              "url(https://images.pexels.com/photos/164537/pexels-photo-164537.jpeg?auto=compress&cs=tinysrgb&w=800)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

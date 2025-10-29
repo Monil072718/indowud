@@ -56,7 +56,7 @@ const SwiperSlider = dynamic(
     };
   }),
   {
-    loading: () => <div className="h-[280px] sm:h-[320px] lg:h-[360px] bg-gray-100 animate-pulse rounded-2xl" />,
+    loading: () => <div className="h-[280px] sm:h-[320px] lg:h-[360px] bg-gray-100 rounded-2xl" />,
     ssr: false,
   }
 );
@@ -256,7 +256,7 @@ export default function ThermoformingPage() {
 
         {/* GALLERY SLIDER */}
         {gallery.length > 0 && (
-          <Suspense fallback={<div className="mt-10 h-[280px] bg-gray-100 animate-pulse rounded-2xl" />}>
+          <Suspense fallback={<div className="mt-10 h-[280px] bg-gray-100 rounded-2xl" />}>
             <motion.div
               variants={container}
               initial="hidden"

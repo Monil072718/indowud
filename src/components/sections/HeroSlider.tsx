@@ -8,21 +8,21 @@ const slides = [
     title: "If you love something it will work",
     subtitle: "That's the real design mantra",
     image:
-      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1920",
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
     accent: "#10b981",
   },
   {
     title: "Innovation meets elegance",
     subtitle: "Creating tomorrow's designs today",
     image:
-      "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=1920",
+      "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
     accent: "#f59e0b",
   },
   {
     title: "Where creativity comes alive",
     subtitle: "Designing the future of spaces",
     image:
-      "https://images.pexels.com/photos/1647776/pexels-photo-1647776.jpeg?auto=compress&cs=tinysrgb&w=1920",
+      "https://images.pexels.com/photos/1647776/pexels-photo-1647776.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
     accent: "#ec4899",
   },
 ];
@@ -51,7 +51,8 @@ export default function HeroSlider() {
   useEffect(() => {
     const t = setInterval(next, AUTO_MS);
     return () => clearInterval(t);
-  }, [index]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="relative h-screen w-full bg-gradient-to-br from-teal-50 via-\[#00d5be\] to-teal-100 overflow-hidden">
@@ -87,8 +88,11 @@ export default function HeroSlider() {
                 alt={slide.title}
                 loading={i === 0 ? "eager" : "lazy"}
                 decoding="async"
-                fetchPriority={i === 0 ? "high" : "low"}
+                fetchPriority={i === 0 ? "high" : "auto"}
+                width={1200}
+                height={800}
                 className="w-full h-full object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 1200px"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-\[#00d5be\]/60 via-\[#00d5be\]/30 to-transparent" />
             </div>
