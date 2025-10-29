@@ -63,20 +63,21 @@ export default function BrandSection() {
               key={index}
               initial={{ opacity: 0, y: 100, rotateX: -90 }}
               whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              whileHover={{ y: -8, scale: 1.05 }}
               viewport={{ once: true }}
               transition={{
                 delay: index * 0.1,
                 duration: 0.6,
                 type: "spring",
-                stiffness: 100,
+                stiffness: 400,
+                damping: 10,
               }}
-              whileHover={{ y: -20, rotateY: 360, scale: 1.1 }}
               onHoverStart={() => setHovered(index)}
               onHoverEnd={() => setHovered((n) => (n === index ? null : n))}
               onFocus={() => setHovered(index)}
               onBlur={() => setHovered((n) => (n === index ? null : n))}
               tabIndex={0}
-              className="relative group outline-none"
+              className="relative group outline-none will-change-transform"
             >
               {/* Letter tile */}
               <motion.div
@@ -87,27 +88,33 @@ export default function BrandSection() {
                   delay: index * 0.2,
                   ease: "easeInOut",
                 }}
-                className="bg-white w-24 h-32 md:w-32 md:h-40 flex items-center justify-center shadow-2xl group-hover:shadow-rose-300/50 transition-shadow rounded"
+                className="relative bg-white w-24 h-32 md:w-32 md:h-40 flex items-center justify-center shadow-2xl group-hover:shadow-rose-300/50 transition-all duration-300 rounded overflow-hidden"
               >
-                <span className="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-amber-700 to-amber-900">
+                {/* Shimmer effect on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-transparent via-white to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                
+                {/* Glowing border */}
+                <div className="absolute inset-0 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ boxShadow: 'inset 0 0 20px rgba(244, 63, 94, 0.3)' }} />
+                
+                <span className="relative z-10 text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-amber-700 to-amber-900">
                   {item.letter}
                 </span>
               </motion.div>
 
-              {/* pink underline */}
+              {/* pink underline with glow effect */}
               <motion.div
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 + 0.5, duration: 0.4 }}
-                className="absolute -bottom-2 left-0 right-0 h-2 bg-gradient-to-r from-rose-500 to-rose-600 origin-left rounded"
+                className="absolute -bottom-2 left-0 right-0 h-2 bg-gradient-to-r from-rose-500 to-rose-600 origin-left rounded group-hover:shadow-lg group-hover:shadow-rose-500/50 transition-all duration-300"
               />
 
               {/* orbit ring */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -top-4 -right-4 w-8 h-8 border-2 border-teal-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                className="absolute -top-4 -right-4 w-8 h-8 border-2 border-teal-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               />
 
               {/* Tooltip on hover/focus */}
@@ -120,25 +127,26 @@ export default function BrandSection() {
             key="last-A"
             initial={{ opacity: 0, y: 100, rotateX: -90 }}
             whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+            whileHover={{ y: -8, scale: 1.05 }}
             viewport={{ once: true }}
             transition={{
               delay: AHIMSA.length * 0.1,
               duration: 0.6,
               type: "spring",
-              stiffness: 100,
+              stiffness: 400,
+              damping: 10,
             }}
-            whileHover={{ y: -20, rotateY: 360, scale: 1.1 }}
             onHoverStart={() => setHovered(99)}
             onHoverEnd={() => setHovered((n) => (n === 99 ? null : n))}
             onFocus={() => setHovered(99)}
             onBlur={() => setHovered((n) => (n === 99 ? null : n))}
             tabIndex={0}
-            className="relative group outline-none"
+            className="relative group outline-none will-change-transform"
           >
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 2, repeat: Infinity, delay: 0.2, ease: "easeInOut" }}
-              className="bg-white w-24 h-32 md:w-32 md:h-40 flex items-center justify-center shadow-2xl group-hover:shadow-rose-300/50 transition-shadow rounded"
+              className="bg-white w-24 h-32 md:w-32 md:h-40 flex items-center justify-center shadow-2xl group-hover:shadow-rose-300/50 transition-shadow duration-300 rounded"
             >
               <span className="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-amber-700 to-amber-900">
                 A
@@ -155,7 +163,7 @@ export default function BrandSection() {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute -top-4 -right-4 w-8 h-8 border-2 border-teal-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+              className="absolute -top-4 -right-4 w-8 h-8 border-2 border-teal-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             />
 
             {hovered === 99 && <Tooltip text={LAST_A_MEANING} />}

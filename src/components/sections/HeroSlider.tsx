@@ -54,7 +54,13 @@ export default function HeroSlider() {
   }, [index]);
 
   return (
-    <div className="relative h-screen w-full bg-black overflow-hidden">
+    <div className="relative h-screen w-full bg-gradient-to-br from-teal-50 via-\[#00d5be\] to-teal-100 overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-400 rounded-full blur-3xl" />
+      </div>
+      
       {/* Split Screen Design */}
       <div className="absolute inset-0 flex">
         {/* Left Side - Image with Clip Path */}
@@ -81,7 +87,7 @@ export default function HeroSlider() {
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-\[#00d5be\]/60 via-\[#00d5be\]/30 to-transparent" />
             </div>
           ))}
 
@@ -99,13 +105,20 @@ export default function HeroSlider() {
 
         {/* Right Side - Content */}
         <div className="hidden lg:flex w-2/5 h-full items-center justify-center px-16 relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900" />
-
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-\[#00d5be\]/10 to-teal-50" />
+          
+          {/* Subtle grid pattern */}
+          <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle, #00d5be 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
+          
           {/* Animated Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div
               className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full blur-3xl animate-pulse"
               style={{ backgroundColor: slides[index].accent }}
+            />
+            <div
+              className="absolute bottom-1/3 right-1/3 w-48 h-48 rounded-full blur-3xl animate-pulse"
+              style={{ backgroundColor: slides[index].accent, animationDelay: '1s' }}
             />
           </div>
 
@@ -134,17 +147,17 @@ export default function HeroSlider() {
                   </span>
                 </div>
 
-                <h1 className="text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight">
+                <h1 className="text-5xl xl:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                   {slide.title}
                 </h1>
 
-                <p className="text-xl text-gray-400 mb-8 leading-relaxed">
+                <p className="text-xl text-gray-700 mb-8 leading-relaxed">
                   {slide.subtitle}
                 </p>
 
                 <button
-                  className="group relative px-8 py-4 bg-white text-black font-semibold overflow-hidden transition-all duration-300 hover:scale-105"
-                  style={{ borderLeft: `4px solid ${slide.accent}` }}
+                  className="group relative px-8 py-4 bg-white text-black font-semibold overflow-hidden transition-all duration-300 hover:scale-105 border-2"
+                  style={{ borderColor: slide.accent }}
                 >
                   <span className="relative z-10">Explore More</span>
                   <div
@@ -183,11 +196,11 @@ export default function HeroSlider() {
                 </span>
               </div>
 
-              <h1 className="text-4xl font-bold text-white mb-4 leading-tight">
+              <h1 className="text-4xl font-bold text-gray-900 mb-4 leading-tight">
                 {slide.title}
               </h1>
 
-              <p className="text-lg text-gray-300 mb-6">{slide.subtitle}</p>
+              <p className="text-lg text-gray-700 mb-6">{slide.subtitle}</p>
             </div>
           ))}
         </div>
