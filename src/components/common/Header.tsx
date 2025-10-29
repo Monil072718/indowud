@@ -383,8 +383,9 @@ export default function Header() {
             {/* Right (desktop) */}
             <div className="hidden md:flex items-center gap-3 lg:gap-5 flex-shrink-0">
               <button
-                className="hidden lg:block bg-teal-500 hover:bg-teal-600 text-white px-4 lg:px-6 py-2.5 text-sm font-medium rounded-md transition-colors duration-200 whitespace-nowrap"
+                className="hidden lg:block bg-teal-500 hover:bg-teal-600 text-white px-4 lg:px-6 py-2.5 text-sm font-medium rounded-md transition-colors duration-200 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
                 onClick={openBrochure}
+                aria-label="Request E-Brochure"
               >
                 Request E-Brochure
               </button>
@@ -394,11 +395,11 @@ export default function Header() {
                     <a
                       key={i}
                       href="#"
-                      className="text-gray-600 hover:text-rose-600 transition-colors duration-200"
-                      aria-label="social-link"
+                      className="text-gray-600 hover:text-rose-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2 rounded"
+                      aria-label={`Follow us on ${Icon.name || 'social media'}`}
                       onClick={closeAllMenus}
                     >
-                      <Icon size={18} />
+                      <Icon size={18} aria-hidden="true" />
                     </a>
                   )
                 )}

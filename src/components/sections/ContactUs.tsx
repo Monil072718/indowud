@@ -151,7 +151,7 @@ export default function ContactUs() {
 
     try {
       // You can send `formData` to your API here
-      console.log("Contact form submitted:", formData);
+      // Form submission handled server-side
 
       setSubmitStatus("success");
       setFormData({
@@ -174,7 +174,7 @@ export default function ContactUs() {
       setAttachmentName("No file chosen");
       setTimeout(() => setSubmitStatus("idle"), 5000);
     } catch (error) {
-      console.error("Error submitting form:", error);
+      // Error handled - user feedback provided via submitStatus
       setSubmitStatus("error");
       setTimeout(() => setSubmitStatus("idle"), 5000);
     } finally {

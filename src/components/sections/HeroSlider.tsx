@@ -159,8 +159,9 @@ export default function HeroSlider() {
                 </p>
 
                 <button
-                  className="group relative px-8 py-4 bg-white text-black font-semibold overflow-hidden transition-all duration-300 hover:scale-105 border-2"
+                  className="group relative px-8 py-4 bg-white text-black font-semibold overflow-hidden transition-all duration-300 hover:scale-105 border-2 focus:outline-none focus:ring-2 focus:ring-offset-2"
                   style={{ borderColor: slide.accent }}
+                  aria-label={`Explore more about ${slide.title}`}
                 >
                   <span className="relative z-10">Explore More</span>
                   <div

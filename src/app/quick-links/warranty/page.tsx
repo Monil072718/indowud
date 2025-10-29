@@ -18,12 +18,11 @@ export default function WarrantyPage() {
         link.href = pdfPath;
         link.target = '_blank';
         link.click();
-        console.log("Popup was blocked or failed, using fallback method.");
-      } else {
-        console.log("PDF opened in a new tab successfully.");
+        // Popup blocked - using fallback method
       }
+      // PDF opened successfully
     } catch (error) {
-      console.error('Failed to open PDF:', error);
+      // Handle error silently with user feedback
       alert('Unable to open warranty document. Please check your browser settings.');
     }
 

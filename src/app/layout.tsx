@@ -71,10 +71,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <OrganizationSchema />
         <WebsiteSchema />
+        {/* Resource hints for performance */}
+        <link rel="preconnect" href="https://images.pexels.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.google.com" />
+        <link rel="dns-prefetch" href="https://www.youtube.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
       </head>
       <body>
         <Header />
-        <main className="pt-20">{children}</main>
+        <main className="pt-20" id="main-content">{children}</main>
         <Footer />
       </body>
     </html>

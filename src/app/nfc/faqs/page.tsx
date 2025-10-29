@@ -138,7 +138,10 @@ export default function FAQPage() {
               >
                 <button
                   onClick={() => setOpenIdx(isOpen && openIdx !== -1 ? null : idx)}
-                  className="flex w-full items-center justify-between gap-4 px-4 py-3 text-left"
+                  className="flex w-full items-center justify-between gap-4 px-4 py-3 text-left focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-inset"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${idx}`}
+                  id={`faq-question-${idx}`}
                 >
                   <span className="text-sm font-semibold text-zinc-900">
                     {item.q}
@@ -150,7 +153,12 @@ export default function FAQPage() {
 
                 {/* answer (only where available) */}
                 {isOpen && item.a && (
-                  <div className="border-t border-zinc-200 bg-teal-50/60 px-4 py-3 text-[13px] leading-6 text-zinc-700">
+                  <div 
+                    id={`faq-answer-${idx}`}
+                    role="region"
+                    aria-labelledby={`faq-question-${idx}`}
+                    className="border-t border-zinc-200 bg-teal-50/60 px-4 py-3 text-[13px] leading-6 text-zinc-700"
+                  >
                     {item.a}
                   </div>
                 )}
