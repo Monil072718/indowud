@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import React, { useMemo, useState, memo } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* ----------------------------- Types & Data ----------------------------- */
@@ -116,15 +117,28 @@ export default function NewsPage() {
               <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
                 News & Media
               </h1>
+              {/* Breadcrumb */}
+              <nav className="mt-3 text-xs md:text-sm tracking-widest text-gray-500 uppercase" aria-label="Breadcrumb">
+                <ol className="flex items-center">
+                  <li>
+                    <Link href="/" className="hover:text-gray-700 transition-colors">
+                      HOME
+                    </Link>
+                  </li>
+                  <li aria-hidden="true" className="mx-1">/</li>
+                  <li>
+                    <Link href="/media" className="hover:text-gray-700 transition-colors">
+                      MEDIA
+                    </Link>
+                  </li>
+                  <li aria-hidden="true" className="mx-1">/</li>
+                  <li>NEWS</li>
+                </ol>
+              </nav>
               <p className="mt-1 text-slate-600">
                 Media mentions, videos, and articles about Indowud.
               </p>
             </div>
-            <nav className="text-sm text-slate-500">
-              <span className="hover:text-slate-700 cursor-pointer">Home</span>
-              <span className="mx-2">/</span>
-              <span className="text-slate-900">News</span>
-            </nav>
           </div>
         </div>
       </header>
@@ -188,12 +202,11 @@ export default function NewsPage() {
 }
 
 /* ----------------------------- Card ----------------------------- */
-function Card({ item, onPlay }: { item: NewsItem; onPlay: () => void }) {
+const Card = React.memo(function Card({ item, onPlay }: { item: NewsItem; onPlay: () => void }) {
   const isVideo = item.kind === "video" || item.kind === "short";
 
   return (
-    <motion.article
-      layout
+      <motion.article
       initial={{ opacity: 0, y: 10, scale: 0.98 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -205,8 +218,9 @@ function Card({ item, onPlay }: { item: NewsItem; onPlay: () => void }) {
         <img
           src={item.thumb}
           alt={item.title}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         {isVideo && (
           <button
@@ -272,7 +286,7 @@ function Card({ item, onPlay }: { item: NewsItem; onPlay: () => void }) {
       </div>
     </motion.article>
   );
-}
+});
 
 /* ----------------------------- Lightbox ----------------------------- */
 function Lightbox({

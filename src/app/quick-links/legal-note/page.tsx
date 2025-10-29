@@ -18,13 +18,13 @@ export default function LegalNotePage() {
           <h1 className="text-3xl sm:text-4xl font-serif italic font-bold text-white text-center">
             Legal Note
           </h1>
-          <nav className="mt-3 text-sm text-white/90">
-            <ol className="flex items-center justify-center gap-2">
+          <nav className="mt-3 text-xs md:text-sm tracking-widest text-white/90 uppercase">
+            <ol className="flex items-center justify-center">
               <li>
-                <Link href="/" className="hover:underline">HOME</Link>
+                <Link href="/" className="hover:text-white transition-colors">HOME</Link>
               </li>
-              <li aria-hidden="true">/</li>
-              <li className="text-white/90">LEGAL NOTE</li>
+              <li aria-hidden="true" className="mx-1">/</li>
+              <li>LEGAL NOTE</li>
             </ol>
           </nav>
         </div>

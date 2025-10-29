@@ -17,13 +17,13 @@ export default function PrivacyPolicyPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-rose-500 via-fuchsia-500 to-cyan-500 opacity-80" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">Privacy Policy</h1>
-          <nav className="mt-3 text-sm text-white/90">
-            <ol className="flex flex-wrap items-center gap-2">
+          <nav className="mt-3 text-xs md:text-sm tracking-widest text-white/90 uppercase">
+            <ol className="flex flex-wrap items-center">
               <li>
-                <Link href="/" className="hover:underline">Home</Link>
+                <Link href="/" className="hover:text-white transition-colors">HOME</Link>
               </li>
-              <li aria-hidden="true">/</li>
-              <li className="text-white/90">Privacy Policy</li>
+              <li aria-hidden="true" className="mx-1">/</li>
+              <li>PRIVACY POLICY</li>
             </ol>
           </nav>
         </div>

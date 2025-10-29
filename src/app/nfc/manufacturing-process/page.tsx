@@ -1,6 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 
+import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
 
 export const dynamic = "force-static";
@@ -102,15 +103,30 @@ export default function ManufacturingProcessPage() {
             >
               Manufacturing Process
             </motion.h1>
-            <motion.p
+            <motion.nav
               variants={fadeUp}
               custom={1}
               initial="hidden"
               animate="show"
-              className="mt-2 text-sm md:text-base tracking-widest text-gray-500 uppercase"
+              className="mt-3 text-xs md:text-sm tracking-widest text-gray-500 uppercase"
+              aria-label="Breadcrumb"
             >
-              Home / NFC / Manufacturing Process
-            </motion.p>
+              <ol className="flex items-center">
+                <li>
+                  <Link href="/" className="hover:text-gray-700 transition-colors">
+                    HOME
+                  </Link>
+                </li>
+                <li aria-hidden="true" className="mx-1">/</li>
+                <li>
+                  <Link href="/nfc" className="hover:text-gray-700 transition-colors">
+                    NFC
+                  </Link>
+                </li>
+                <li aria-hidden="true" className="mx-1">/</li>
+                <li>MANUFACTURING PROCESS</li>
+              </ol>
+            </motion.nav>
           </div>
         </div>
       </section>
@@ -153,6 +169,8 @@ export default function ManufacturingProcessPage() {
               <img
                 src={g.src}
                 alt={g.alt}
+                loading="lazy"
+                decoding="async"
                 className="h-40 md:h-48 w-full object-cover transition duration-300 group-hover:scale-105"
               />
             </motion.div>

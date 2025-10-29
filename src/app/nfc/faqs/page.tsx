@@ -88,10 +88,20 @@ export default function FAQPage() {
             <h1 className="text-center text-3xl sm:text-5xl font-serif italic font-semibold text-white drop-shadow">
               FAQs
             </h1>
-            <nav className="mt-3 text-center text-xs sm:text-sm font-semibold tracking-wide">
-              <ol className="inline-flex items-center gap-2 text-white/90">
-                <li><Link href="/" className="hover:underline">HOME</Link></li>
-                <li className="opacity-80">/</li>
+            <nav className="mt-3 text-center text-xs md:text-sm tracking-widest text-white/90 uppercase">
+              <ol className="inline-flex items-center">
+                <li>
+                  <Link href="/" className="hover:text-white transition-colors">
+                    HOME
+                  </Link>
+                </li>
+                <li aria-hidden="true" className="mx-1">/</li>
+                <li>
+                  <Link href="/nfc" className="hover:text-white transition-colors">
+                    NFC
+                  </Link>
+                </li>
+                <li aria-hidden="true" className="mx-1">/</li>
                 <li className="text-white">FAQS</li>
               </ol>
             </nav>

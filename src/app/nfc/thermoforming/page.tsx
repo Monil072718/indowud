@@ -1,11 +1,65 @@
 "use client";
 
-import React, { useId } from "react";
+import React, { useId, Suspense, memo } from "react";
+import Link from "next/link";
 import { motion, Variants } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
+import dynamic from "next/dynamic";
+
+// Lazy load Swiper for better performance - only load when needed
+const SwiperSlider = dynamic(
+  () => import("swiper/react").then((mod) => {
+    const { Swiper, SwiperSlide } = mod;
+    const { Navigation, Autoplay } = require("swiper/modules");
+    require("swiper/css");
+    require("swiper/css/navigation");
+    
+    return function SwiperSliderComponent({ gallery, uid }: { gallery: { src: string; alt?: string }[]; uid: string }) {
+      return (
+        <Swiper
+          modules={[Navigation, Autoplay]}
+          navigation={{
+            prevEl: `.thermo-prev-${uid}`,
+            nextEl: `.thermo-next-${uid}`,
+          }}
+          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          loop
+          speed={600}
+          spaceBetween={16}
+          slidesPerView={1}
+          breakpoints={{
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 24 },
+          }}
+          className="rounded-2xl ring-1 ring-slate-200 bg-white/30"
+        >
+          {gallery.map((g, i) => (
+            <SwiperSlide key={i}>
+              <figure className="group relative overflow-hidden h-[280px] sm:h-[320px] lg:h-[360px]">
+                <img
+                  src={g.src}
+                  alt={g.alt ?? "Thermoformed example"}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 to-transparent px-4 py-3 text-white flex items-center justify-between">
+                  <span className="text-sm font-medium">
+                    {g.alt ?? "Project"}
+                  </span>
+                  <span className="text-xs opacity-90">Hover to view</span>
+                </figcaption>
+              </figure>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      );
+    };
+  }),
+  {
+    loading: () => <div className="h-[280px] sm:h-[320px] lg:h-[360px] bg-gray-100 animate-pulse rounded-2xl" />,
+    ssr: false,
+  }
+);
 
 /* --------------------------- animations -------------------------- */
 const container: Variants = {
@@ -81,6 +135,31 @@ export default function ThermoformingPage() {
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
             {title}
           </h2>
+          {/* breadcrumb */}
+          <motion.nav
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.4 }}
+            className="mt-3 text-xs md:text-sm tracking-widest text-gray-500 uppercase"
+            aria-label="Breadcrumb"
+          >
+            <ol className="flex items-center">
+              <li>
+                <Link href="/" className="hover:text-gray-700 transition-colors">
+                  HOME
+                </Link>
+              </li>
+              <li aria-hidden="true" className="mx-1">/</li>
+              <li>
+                <Link href="/nfc" className="hover:text-gray-700 transition-colors">
+                  NFC
+                </Link>
+              </li>
+              <li aria-hidden="true" className="mx-1">/</li>
+              <li>THERMOFORMING</li>
+            </ol>
+          </motion.nav>
           <p className="mt-2 max-w-3xl text-slate-600">{subtitle}</p>
         </motion.div>
 
@@ -99,11 +178,13 @@ export default function ThermoformingPage() {
             <div className="relative w-full aspect-video">
               <iframe
                 className="absolute inset-0 w-full h-full"
-                src={`https://www.youtube-nocookie.com/embed/${youtubeId}`}
-                title="Thermoforming process"
+                src="https://www.youtube.com/embed/FoYk07hXn4w?si=srWX2H-lr1_XwWIk"
+                title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               />
+
             </div>
           </motion.div>
         </motion.div>
@@ -175,65 +256,31 @@ export default function ThermoformingPage() {
 
         {/* GALLERY SLIDER */}
         {gallery.length > 0 && (
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-            className="mt-10"
-          >
-            <div className="relative">
-              {/* nav buttons (selector-based to avoid ref/TS issues) */}
-              <button
-                aria-label="Previous"
-                className={`thermo-prev-${uid} absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 shadow ring-1 ring-slate-200 px-3 py-2 hover:bg-white`}
-              >
-                ‹
-              </button>
-              <button
-                aria-label="Next"
-                className={`thermo-next-${uid} absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 shadow ring-1 ring-slate-200 px-3 py-2 hover:bg-white`}
-              >
-                ›
-              </button>
-
-              <Swiper
-                modules={[Navigation, Autoplay]}
-                navigation={{
-                  prevEl: `.thermo-prev-${uid}`,
-                  nextEl: `.thermo-next-${uid}`,
-                }}
-                autoplay={{ delay: 3500, disableOnInteraction: false }}
-                loop
-                speed={600}
-                spaceBetween={16}
-                slidesPerView={1}
-                breakpoints={{
-                  640: { slidesPerView: 2, spaceBetween: 20 },
-                  1024: { slidesPerView: 3, spaceBetween: 24 },
-                }}
-                className="rounded-2xl ring-1 ring-slate-200 bg-white/30"
-              >
-                {gallery.map((g, i) => (
-                  <SwiperSlide key={i}>
-                    <figure className="group relative overflow-hidden h-[280px] sm:h-[320px] lg:h-[360px]">
-                      <img
-                        src={g.src}
-                        alt={g.alt ?? "Thermoformed example"}
-                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                      />
-                      <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 to-transparent px-4 py-3 text-white flex items-center justify-between">
-                        <span className="text-sm font-medium">
-                          {g.alt ?? "Project"}
-                        </span>
-                        <span className="text-xs opacity-90">Hover to view</span>
-                      </figcaption>
-                    </figure>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-          </motion.div>
+          <Suspense fallback={<div className="mt-10 h-[280px] bg-gray-100 animate-pulse rounded-2xl" />}>
+            <motion.div
+              variants={container}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              className="mt-10"
+            >
+              <div className="relative">
+                <button
+                  aria-label="Previous"
+                  className={`thermo-prev-${uid} absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 shadow ring-1 ring-slate-200 px-3 py-2 hover:bg-white`}
+                >
+                  ‹
+                </button>
+                <button
+                  aria-label="Next"
+                  className={`thermo-next-${uid} absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 shadow ring-1 ring-slate-200 px-3 py-2 hover:bg-white`}
+                >
+                  ›
+                </button>
+                <SwiperSlider gallery={gallery} uid={uid} />
+              </div>
+            </motion.div>
+          </Suspense>
         )}
       </div>
     </section>

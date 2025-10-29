@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { ReactNode } from "react";
 
 /* ---------- page (no props!) ---------- */
@@ -64,6 +65,31 @@ function FeaturesSection({
           >
             {heading}
           </motion.h2>
+          {/* breadcrumb */}
+          <motion.nav
+            initial={{ y: 18, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mt-3 text-xs md:text-sm tracking-widest text-white/90 uppercase"
+            aria-label="Breadcrumb"
+          >
+            <ol className="flex items-center">
+              <li>
+                <Link href="/" className="hover:text-white transition-colors">
+                  HOME
+                </Link>
+              </li>
+              <li aria-hidden="true" className="mx-1">/</li>
+              <li>
+                <Link href="/nfc" className="hover:text-white transition-colors">
+                  NFC
+                </Link>
+              </li>
+              <li aria-hidden="true" className="mx-1">/</li>
+              <li>FEATURES</li>
+            </ol>
+          </motion.nav>
           <motion.p
             initial={{ y: 18, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}

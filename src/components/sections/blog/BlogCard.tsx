@@ -1,6 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 
+import { memo } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -24,7 +25,7 @@ const fade = {
   }),
 };
 
-export default function BlogCard({
+function BlogCard({
   post,
   i = 0,
   variant = "default",
@@ -61,6 +62,8 @@ export default function BlogCard({
             <img
               src={post.cover}
               alt={post.title}
+              loading="lazy"
+              decoding="async"
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>
@@ -127,3 +130,5 @@ export default function BlogCard({
     </motion.article>
   );
 }
+
+export default memo(BlogCard);

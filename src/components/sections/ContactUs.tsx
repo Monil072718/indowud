@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, memo } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import dynamic from "next/dynamic";
 import {
   Mail,
   Phone,
@@ -18,7 +20,8 @@ import {
   Briefcase,
 } from "lucide-react";
 
-import { Country, State, City } from "country-state-city";
+// Lazy load country-state-city to reduce initial bundle size
+const loadCountryStateCity = () => import("country-state-city");
 
 type Option = { label: string; value: string };
 
@@ -70,41 +73,49 @@ export default function ContactUs() {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [attachmentName, setAttachmentName] = useState<string>("No file chosen");
 
+  const [cscModule, setCscModule] = useState<{ Country: typeof import("country-state-city").Country; State: typeof import("country-state-city").State; City: typeof import("country-state-city").City } | null>(null);
+
+  // Lazy load country-state-city when component mounts
+  useEffect(() => {
+    loadCountryStateCity().then((mod) => setCscModule({ Country: mod.Country, State: mod.State, City: mod.City }));
+  }, []);
+
   const countryOptions: Option[] = useMemo(
     () =>
-      Country.getAllCountries().map((c) => ({
+      cscModule?.Country.getAllCountries().map((c) => ({
         value: c.isoCode,
         label: c.name,
-      })),
-    [],
+      })) ?? [],
+    [cscModule],
   );
 
   const stateOptions: Option[] = useMemo(() => {
-    if (!formData.countryCode) return [];
-    return State.getStatesOfCountry(formData.countryCode).map((s) => ({
-      value: s.isoCode, // state code (varies by country)
+    if (!formData.countryCode || !cscModule) return [];
+    return cscModule.State.getStatesOfCountry(formData.countryCode).map((s) => ({
+      value: s.isoCode,
       label: s.name,
     }));
-  }, [formData.countryCode]);
+  }, [formData.countryCode, cscModule]);
 
   const cityOptions: Option[] = useMemo(() => {
-    if (!formData.countryCode) return [];
+    if (!formData.countryCode || !cscModule) return [];
 
     // If the country has states and one is selected → cities of that state
     if (stateOptions.length && formData.stateCode) {
-      const list = City.getCitiesOfState(formData.countryCode, formData.stateCode) ?? [];
+      const list = cscModule.City.getCitiesOfState(formData.countryCode, formData.stateCode) ?? [];
       return list.map((ct) => ({ value: ct.name, label: ct.name }));
     }
 
-    // Some countries don’t have states → cities of the country
-    const list = City.getCitiesOfCountry(formData.countryCode) ?? [];
+    // Some countries don't have states → cities of the country
+    const list = cscModule.City.getCitiesOfCountry(formData.countryCode) ?? [];
     return list.map((ct) => ({ value: ct.name, label: ct.name }));
-  }, [formData.countryCode, formData.stateCode, stateOptions.length]);
+  }, [formData.countryCode, formData.stateCode, stateOptions.length, cscModule]);
 
 
   /* ---------- dependent resets when user changes country/state ---------- */
   const handleCountryChange = (iso2: string) => {
-    const c = Country.getAllCountries().find((x) => x.isoCode === iso2);
+    if (!cscModule) return;
+    const c = cscModule.Country.getAllCountries().find((x) => x.isoCode === iso2);
     setFormData((prev) => ({
       ...prev,
       countryCode: iso2,
@@ -117,7 +128,8 @@ export default function ContactUs() {
   };
 
   const handleStateChange = (stCode: string) => {
-    const st = State.getStatesOfCountry(formData.countryCode).find((x) => x.isoCode === stCode);
+    if (!cscModule || !formData.countryCode) return;
+    const st = cscModule.State.getStatesOfCountry(formData.countryCode).find((x) => x.isoCode === stCode);
     setFormData((prev) => ({
       ...prev,
       stateCode: stCode,
@@ -180,10 +192,28 @@ export default function ContactUs() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
               <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-gray-900">
-                Let’s talk
+                Let's talk
               </h1>
+              {/* Breadcrumb */}
+              <motion.nav
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="mt-3 text-xs md:text-sm tracking-widest text-gray-500 uppercase"
+                aria-label="Breadcrumb"
+              >
+                <ol className="flex items-center">
+                  <li>
+                    <Link href="/" className="hover:text-gray-700 transition-colors">
+                      HOME
+                    </Link>
+                  </li>
+                  <li aria-hidden="true" className="mx-1">/</li>
+                  <li>CONTACT US</li>
+                </ol>
+              </motion.nav>
               <p className="mt-3 text-gray-600 max-w-2xl">
-                Tell us a bit about yourself and what you’re looking for. Our team will get back
+                Tell us a bit about yourself and what you're looking for. Our team will get back
                 to you shortly.
               </p>
             </div>
@@ -585,22 +615,13 @@ export default function ContactUs() {
         </div>
       </div>
 
-      {/* Map section */}
+      {/* Map section - lazy load when in viewport */}
       <div id="map" className="relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(13,148,136,.08),transparent_60%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 pb-20">
           <div className="overflow-hidden rounded-3xl border border-gray-200 shadow-xl">
             <div className="h-[420px] relative">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.3928!2d80.2265!3d13.0389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267!2zMTPCsDAyJzIwLjAiTiA4MMKwMTMnMzUuNCJF!5e0!3m2!1sen!2sin!4v1234567890"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Indowud NFC Location"
-              ></iframe>
+              <LazyMapIframe />
 
               {/* Map top ribbon */}
               <div className="pointer-events-none absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-white to-transparent" />
@@ -739,6 +760,53 @@ function InfoCard({
         >
           {cta.label} <ArrowRight className="w-4 h-4" />
         </a>
+      )}
+    </div>
+  );
+}
+
+// Lazy load map iframe - only load when in viewport
+function LazyMapIframe() {
+  const [isInView, setIsInView] = useState(false);
+  const mapRef = React.useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!mapRef.current) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "100px" }
+    );
+    
+    observer.observe(mapRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={mapRef} className="h-full w-full relative">
+      {isInView ? (
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.3928!2d80.2265!3d13.0389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267!2zMTPCsDAyJzIwLjAiTiA4MMKwMTMnMzUuNCJF!5e0!3m2!1sen!2sin!4v1234567890"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-cross-origin"
+          title="Indowud NFC Location"
+        />
+      ) : (
+        <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
+          <div className="text-center">
+            <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-2" />
+            <p className="text-sm text-gray-500">Loading map...</p>
+          </div>
+        </div>
       )}
     </div>
   );

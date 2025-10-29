@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 
 export default function WarrantyPage() {
   useEffect(() => {
@@ -34,7 +35,23 @@ export default function WarrantyPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex flex-col items-center justify-center px-4">
+      <div className="w-full max-w-4xl mb-8 self-start">
+        <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">Warranty</h1>
+        {/* Breadcrumb */}
+        <nav className="mt-3 text-xs md:text-sm tracking-widest text-gray-500 uppercase" aria-label="Breadcrumb">
+          <ol className="flex items-center">
+            <li>
+              <Link href="/" className="hover:text-gray-700 transition-colors">
+                HOME
+              </Link>
+            </li>
+            <li aria-hidden="true" className="mx-1">/</li>
+            <li>WARRANTY</li>
+          </ol>
+        </nav>
+      </div>
+
       <div className="text-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600 mx-auto mb-4"></div>
         <p className="text-gray-600">Opening warranty document...</p>

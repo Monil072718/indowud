@@ -4,6 +4,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, type Variants } from "framer-motion";
 import { Wand2, Leaf, Hammer, Drill, PaintBucket, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export const dynamic = "force-static";
 
@@ -216,7 +217,9 @@ function Slider({
             <img
               src={src}
               alt={`slide ${i + 1}`}
-              loading="lazy"
+              loading={i === index ? "eager" : "lazy"}
+              decoding="async"
+              fetchPriority={i === index ? "high" : "low"}
               className={`${aspect} w-full object-cover ${rounded} transition-transform duration-700 group-hover:scale-[1.03]`}
               draggable={false}
             />
@@ -265,24 +268,40 @@ export default function ApplicationsPage() {
         <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp} initial="hidden" animate="show">
-              <motion.p
-                variants={fadeUp}
-                custom={1}
-                initial="hidden"
-                animate="show"
-                className="text-xs md:text-sm tracking-widest text-gray-500 uppercase mb-4"
-              >
-                Home / NFC / Applications
-              </motion.p>
               <motion.h1
                 variants={fadeUp}
-                custom={2}
+                custom={1}
                 initial="hidden"
                 animate="show"
                 className="text-4xl md:text-6xl font-bold text-teal-600 leading-tight"
               >
                 Transform Your Spaces with Premium Interior Panels & Exterior Panels
               </motion.h1>
+              {/* breadcrumb */}
+              <motion.nav
+                variants={fadeUp}
+                custom={2}
+                initial="hidden"
+                animate="show"
+                className="mt-3 text-xs md:text-sm tracking-widest text-gray-500 uppercase"
+                aria-label="Breadcrumb"
+              >
+                <ol className="flex items-center">
+                  <li>
+                    <Link href="/" className="hover:text-gray-700 transition-colors">
+                      HOME
+                    </Link>
+                  </li>
+                  <li aria-hidden="true" className="mx-1">/</li>
+                  <li>
+                    <Link href="/nfc" className="hover:text-gray-700 transition-colors">
+                      NFC
+                    </Link>
+                  </li>
+                  <li aria-hidden="true" className="mx-1">/</li>
+                  <li>APPLICATIONS</li>
+                </ol>
+              </motion.nav>
               <motion.div
                 variants={fadeUp}
                 custom={3}

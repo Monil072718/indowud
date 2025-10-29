@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 type YT = { id: string; title: string; tag?: string };
@@ -70,6 +71,30 @@ export default function VideosPage() {
         <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
           Videos
         </h1>
+        {/* Breadcrumb */}
+        <motion.nav
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="mt-3 text-xs md:text-sm tracking-widest text-gray-500 uppercase"
+          aria-label="Breadcrumb"
+        >
+          <ol className="flex items-center">
+            <li>
+              <Link href="/" className="hover:text-gray-700 transition-colors">
+                HOME
+              </Link>
+            </li>
+            <li aria-hidden="true" className="mx-1">/</li>
+            <li>
+              <Link href="/media" className="hover:text-gray-700 transition-colors">
+                MEDIA
+              </Link>
+            </li>
+            <li aria-hidden="true" className="mx-1">/</li>
+            <li>VIDEOS</li>
+          </ol>
+        </motion.nav>
         <p className="mt-2 max-w-2xl text-slate-600">
           Explore stories, comparisons, and features about Indowud NFC.
         </p>

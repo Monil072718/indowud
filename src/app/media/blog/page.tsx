@@ -3,6 +3,7 @@
 
 import { useMemo, Suspense } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import BlogCard, { BlogCardPost } from "@/components/sections/blog/BlogCard";
 
@@ -114,6 +115,30 @@ function BlogContent() {
       {/* header */}
       <motion.header initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0, transition: { duration: 0.45 } }} className="mb-8 md:mb-10">
         <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 md:text-5xl">Blog</h1>
+        {/* Breadcrumb */}
+        <motion.nav
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="mt-3 text-xs md:text-sm tracking-widest text-gray-500 uppercase"
+          aria-label="Breadcrumb"
+        >
+          <ol className="flex items-center">
+            <li>
+              <Link href="/" className="hover:text-gray-700 transition-colors">
+                HOME
+              </Link>
+            </li>
+            <li aria-hidden="true" className="mx-1">/</li>
+            <li>
+              <Link href="/media" className="hover:text-gray-700 transition-colors">
+                MEDIA
+              </Link>
+            </li>
+            <li aria-hidden="true" className="mx-1">/</li>
+            <li>BLOG</li>
+          </ol>
+        </motion.nav>
         <p className="mt-2 max-w-2xl text-slate-600">Stories, comparisons, and how-tos from Indowud NFC.</p>
       </motion.header>
 
