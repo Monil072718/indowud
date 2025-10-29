@@ -4,27 +4,33 @@ import { useEffect } from "react";
 
 export default function WarrantyPage() {
   useEffect(() => {
-    // Open the warranty PDF directly
+    // Path to the PDF in the public folder
     const pdfPath = '/Warranty-Card_Indowud.pdf';
-    
+
     try {
+      // Attempt to open the PDF in a new tab
       const newWindow = window.open(pdfPath, '_blank');
-      if (!newWindow) {
-        // If popup was blocked, try alternative method
+      
+      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+        // If popup is blocked or failed to open, try the fallback method
         const link = document.createElement('a');
         link.href = pdfPath;
         link.target = '_blank';
         link.click();
+        console.log("Popup was blocked or failed, using fallback method.");
+      } else {
+        console.log("PDF opened in a new tab successfully.");
       }
     } catch (error) {
       console.error('Failed to open PDF:', error);
       alert('Unable to open warranty document. Please check your browser settings.');
     }
-    
-    // Redirect back to home page after opening PDF
+
+    // Redirect back to home page after opening PDF (with longer delay)
     setTimeout(() => {
       window.location.href = '/';
-    }, 1500);
+    }, 3000);  // Increased timeout to ensure PDF opens first
+
   }, []);
 
   return (
