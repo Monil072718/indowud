@@ -4,6 +4,7 @@ import type React from "react"
 
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, type ReactNode } from "react"
+import { X } from "lucide-react"
 
 /* ────────────────── Types ────────────────── */
 type GridRow = {
@@ -47,6 +48,7 @@ function SuggestionsSection({
   grids?: { columns: string[]; rows: GridRow[]; note?: string }
   guides?: Guide[]
 }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const grid = grids ?? {
     columns: ["6", "8", "12", "15", "16", "18", "20", "25"],
     rows: [
@@ -131,27 +133,26 @@ function SuggestionsSection({
             <div className="aspect-video">
               <iframe
                 className="h-full w-full"
-                src={`https://www.youtube.com/embed/${videoId}`}
-                title="Technical suggestions"
+                src="https://www.youtube.com/embed/MwGAWcENTGI?si=-txgTwmr472t8Q5E"
+                title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               />
+
             </div>
           </motion.div>
 
           {/* Brochure CTA */}
-          <a
-            href={brochureHref}
-            target="_blank"
+          <button
+            onClick={() => setIsModalOpen(true)}
             className="inline-flex items-center gap-2 rounded-full bg-[#00d5be] px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base font-medium text-white shadow-md ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-[#00c7b1]"
-            rel="noreferrer"
           >
-            Request Technical Suggestions Brochure
+            Request Technical Guidelines (English)
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
               <path d="M13 5l7 7-7 7v-4H4v-6h9V5z" />
             </svg>
-          </a>
+          </button>
         </div>
 
         {/* Blurb */}
@@ -195,9 +196,8 @@ function SuggestionsSection({
                   {grid.rows.map((r, idx) => (
                     <tr
                       key={r.label}
-                      className={`transition-all duration-200 hover:bg-[#00d5be]/8 hover:shadow-sm ${
-                        idx % 2 === 0 ? "bg-white" : "bg-slate-50/50"
-                      } [&>td]:px-3 sm:[&>td]:px-5 [&>td]:py-4`}
+                      className={`transition-all duration-200 hover:bg-[#00d5be]/8 hover:shadow-sm ${idx % 2 === 0 ? "bg-white" : "bg-slate-50/50"
+                        } [&>td]:px-3 sm:[&>td]:px-5 [&>td]:py-4`}
                     >
                       <td className="font-semibold text-slate-800 whitespace-nowrap">{r.label}</td>
                       {r.values.map((v, i) => (
@@ -260,6 +260,13 @@ function SuggestionsSection({
           </a>
         </motion.div>
       </div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <BrochureModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        )}
+      </AnimatePresence>
     </section>
   )
 }
@@ -392,4 +399,291 @@ function Accordion({ title, children }: { title: string; children: React.ReactNo
       </AnimatePresence>
     </motion.div>
   )
+}
+
+/* ────────────────── Brochure Modal ────────────────── */
+function BrochureModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  const [formData, setFormData] = useState({
+    name: "",
+    companyName: "",
+    phoneNumber: "",
+    email: "",
+    occupation: "",
+    pincode: "",
+    country: "",
+    state: "",
+    city: ""
+  });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // Send email with brochure
+      const response = await fetch('/api/send-brochure', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert('Brochure sent successfully to your email!');
+        onClose();
+        setFormData({
+          name: "",
+          companyName: "",
+          phoneNumber: "",
+          email: "",
+          occupation: "",
+          pincode: "",
+          country: "",
+          state: "",
+          city: ""
+        });
+      } else {
+        alert('Failed to send brochure. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to send brochure. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <>
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="fixed inset-0 bg-black/50 z-50"
+          />
+
+          {/* Modal */}
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="bg-white rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between p-4 border-b border-gray-200">
+                <h2 className="text-xl font-semibold text-gray-900">
+                  Request Technical Guidelines (English)
+                </h2>
+                <button
+                  onClick={onClose}
+                  className="text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              {/* Form */}
+              <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Name */}
+                  <div className="md:col-span-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                    />
+                  </div>
+
+                  {/* Company Name */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Company Name
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.companyName}
+                      onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                    />
+                    <p className="text-xs text-gray-500 mt-1">
+                      NOTE: Please put the STD code for landline
+                    </p>
+                  </div>
+
+                  {/* Phone Number */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      value={formData.phoneNumber}
+                      onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                    />
+                  </div>
+
+                  {/* Occupation */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Occupation *
+                    </label>
+                    <select
+                      required
+                      value={formData.occupation}
+                      onChange={(e) => setFormData({ ...formData, occupation: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                    >
+                      <option value="">Select Occupation</option>
+                      <option value="architect">Architect / Interior Designer</option>
+                      <option value="contractor">Contractor</option>
+                      <option value="dealer">Dealer</option>
+                      <option value="end-user">End User</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+
+                  {/* Pincode */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Pincode
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.pincode}
+                      onChange={(e) => setFormData({ ...formData, pincode: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                    />
+                  </div>
+
+                  {/* Country */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Country *
+                    </label>
+                    <select
+                      required
+                      value={formData.country}
+                      onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                    >
+                      <option value="">Select Country</option>
+                      <option value="India">India</option>
+                      <option value="USA">USA</option>
+                      <option value="UK">UK</option>
+                      <option value="Canada">Canada</option>
+                      <option value="Australia">Australia</option>
+                    </select>
+                  </div>
+
+                  {/* State */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      State *
+                    </label>
+                    <select
+                      required
+                      value={formData.state}
+                      onChange={(e) => setFormData({ ...formData, state: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                    >
+                      <option value="">Select State</option>
+                      <option value="Tamil Nadu">Tamil Nadu</option>
+                      <option value="Karnataka">Karnataka</option>
+                      <option value="Maharashtra">Maharashtra</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Gujarat">Gujarat</option>
+                    </select>
+                  </div>
+
+                  {/* City */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      City *
+                    </label>
+                    <select
+                      required
+                      value={formData.city}
+                      onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                    >
+                      <option value="">Select City</option>
+                      <option value="Chennai">Chennai</option>
+                      <option value="Bangalore">Bangalore</option>
+                      <option value="Mumbai">Mumbai</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Ahmedabad">Ahmedabad</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* reCAPTCHA placeholder */}
+                <div className="mt-6 mb-4">
+                  <div className="flex items-start gap-3">
+                    <input
+                      type="checkbox"
+                      required
+                      className="mt-1 h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded"
+                    />
+                    <span className="text-sm text-gray-700">I'm not a robot</span>
+                  </div>
+                  <div className="mt-2 text-xs text-gray-500">
+                    reCAPTCHA - Privacy - Terms
+                  </div>
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold px-6 py-3 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed mb-3"
+                >
+                  {isSubmitting ? 'Sending...' : 'Request Technical Guidelines (English)'}
+                </button>
+
+                {/* Info Text */}
+                <p className="text-xs text-gray-600 text-center">
+                  Please fill the details to receive the brochure on your mailbox
+                </p>
+
+                {/* Close Button */}
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="mt-4 w-full bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-md transition-colors"
+                >
+                  Close
+                </button>
+              </form>
+            </motion.div>
+          </div>
+        </>
+      )}
+    </AnimatePresence>
+  );
 }
