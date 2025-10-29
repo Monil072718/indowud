@@ -731,7 +731,7 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
     setForm((f) => ({ ...f, city: "" }))
   }, [form.country, form.state])
 
-  const setField = (key: keyof typeof form, val: string) => {
+  const setField = (key: keyof typeof form, val: string | boolean) => {
     setForm((f) => ({ ...f, [key]: val }))
     if (errors[key]) setErrors((e) => ({ ...e, [key]: "" }))
   }
