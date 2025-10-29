@@ -13,7 +13,7 @@ export default function Footer() {
     { title: "Downloads", href: "#" },
     { title: "Privacy Policy", href: "/quick-links/privacy-policy" },
     { title: "Legal Note", href: "/quick-links/legal-note" },
-    { title: "Warranty", href: "#" }
+    { title: "Warranty", href: "/quick-links/warranty" }
   ];
 
   const socialIcons = [

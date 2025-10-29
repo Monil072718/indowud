@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 type AhimsaCard = {
@@ -60,7 +60,11 @@ export default function BrandSection() {
               key={index}
               initial={{ opacity: 0, y: 100, rotateX: -90 }}
               whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              whileHover={{ y: -8, scale: 1.05, rotate: [-2, 2, -2, 0] }}
+              whileHover={{
+                y: -8,
+                scale: 1.05,
+                rotate: 2,  // Fixed rotate animation
+              }}
               viewport={{ once: true }}
               transition={{
                 delay: index * 0.1,
@@ -69,9 +73,8 @@ export default function BrandSection() {
                 stiffness: 400,
                 damping: 10,
               }}
-              // ✅ Use mouse enter/leave + keep tooltip area inside the wrapper
               onMouseEnter={() => setHovered(index)}
-              onMouseLeave={() => setHovered((n) => (n === index ? null : n))}
+              onMouseLeave={() => setHovered(null)}
               tabIndex={0}
               className="relative group outline-none will-change-transform overflow-visible pb-16"
             >
@@ -119,10 +122,8 @@ export default function BrandSection() {
                 className="absolute -top-6 -left-6 w-6 h-6 border border-rose-300 rounded-full opacity-0 group-hover:opacity-60 transition-opacity duration-300 z-0"
               />
 
-              {/* ✅ Tooltip (inside wrapper bounds) */}
-              <AnimatePresence>
-                {hovered === index && <Tooltip text={item.meaning} />}
-              </AnimatePresence>
+              {/* Tooltip (conditionally rendered) */}
+              {hovered === index && <Tooltip text={item.meaning} />}
             </motion.div>
           ))}
 
@@ -131,7 +132,11 @@ export default function BrandSection() {
             key="last-A"
             initial={{ opacity: 0, y: 100, rotateX: -90 }}
             whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-            whileHover={{ y: -8, scale: 1.05, rotate: [-2, 2, -2, 0] }}
+            whileHover={{
+              y: -8,
+              scale: 1.05,
+              rotate: 2,  // Fixed rotate animation
+            }}
             viewport={{ once: true }}
             transition={{
               delay: AHIMSA.length * 0.1,
@@ -141,13 +146,18 @@ export default function BrandSection() {
               damping: 10,
             }}
             onMouseEnter={() => setHovered(99)}
-            onMouseLeave={() => setHovered((n) => (n === 99 ? null : n))}
+            onMouseLeave={() => setHovered(null)}
             tabIndex={0}
             className="relative group outline-none will-change-transform overflow-visible pb-16"
           >
             <motion.div
               animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 2, repeat: Infinity, delay: 0.2, ease: "easeInOut" }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                delay: 0.2,
+                ease: "easeInOut",
+              }}
               className="relative bg-white w-24 h-32 md:w-32 md:h-40 flex items-center justify-center shadow-2xl group-hover:shadow-rose-300/50 transition-all duration-300 rounded overflow-hidden z-10"
             >
               <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-transparent via-white to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
@@ -178,9 +188,8 @@ export default function BrandSection() {
               className="absolute -top-6 -left-6 w-6 h-6 border border-rose-300 rounded-full opacity-0 group-hover:opacity-60 transition-opacity duration-300 z-0"
             />
 
-            <AnimatePresence>
-              {hovered === 99 && <Tooltip text={LAST_A_MEANING} />}
-            </AnimatePresence>
+            {/* Tooltip (conditionally rendered for last A) */}
+            {hovered === 99 && <Tooltip text={LAST_A_MEANING} />}
           </motion.div>
         </div>
 
