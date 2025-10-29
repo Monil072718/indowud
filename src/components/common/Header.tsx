@@ -80,13 +80,31 @@ export default function Header() {
   }
 
   const handleSubEnter = (label: string) => {
-    clearAll()
-    tSubOpen.current = setTimeout(() => setOpenSub(label), 60)
+    // Clear any close timer
+    if (tSubClose.current) {
+      clearTimeout(tSubClose.current)
+      tSubClose.current = null
+    }
+    // Clear open timer and open immediately
+    if (tSubOpen.current) {
+      clearTimeout(tSubOpen.current)
+      tSubOpen.current = null
+    }
+    // Open immediately for better UX
+    setOpenSub(label)
   }
 
   const handleSubLeave = () => {
-    clearAll()
-    tSubClose.current = setTimeout(() => setOpenSub(null), 140)
+    // Clear any open timer
+    if (tSubOpen.current) {
+      clearTimeout(tSubOpen.current)
+      tSubOpen.current = null
+    }
+    // Add delay before closing to allow moving to submenu
+    if (tSubClose.current) clearTimeout(tSubClose.current)
+    tSubClose.current = setTimeout(() => {
+      setOpenSub(null)
+    }, 150)
   }
 
   const navItems: NavItem[] = [
@@ -282,12 +300,12 @@ export default function Header() {
                           initial="hidden"
                           animate="show"
                           exit="exit"
-                          className="absolute top-full left-0 mt-1 w-72 bg-white shadow-2xl rounded-xl z-50 ring-1 ring-black/5 overflow-hidden"
+                          className="absolute top-full left-0 mt-1 w-72 bg-white shadow-2xl rounded-xl z-50 ring-1 ring-black/5"
                           style={{ transformOrigin: "top left" }}
                           onMouseEnter={() => handleTopEnter(item.label)}
                           onMouseLeave={handleTopLeave}
                         >
-                          <div className="py-2">
+                          <div className="py-2 overflow-visible">
                             {item.dropdown!.map((d, i) => {
                               const hasSub = !!(
                                 d.hasSubmenu && d.submenu?.length
@@ -302,20 +320,24 @@ export default function Header() {
                                   initial="hidden"
                                   animate="show"
                                   exit="exit"
-                                  className="relative"
-                                  onMouseEnter={() =>
-                                    hasSub
-                                      ? handleSubEnter(d.label)
-                                      : undefined
-                                  }
-                                  onMouseLeave={() =>
-                                    hasSub ? handleSubLeave() : undefined
-                                  }
+                                  className="relative group"
+                                  onMouseEnter={() => {
+                                    if (hasSub) {
+                                      handleSubEnter(d.label)
+                                    }
+                                  }}
+                                  onMouseLeave={() => {
+                                    if (hasSub) {
+                                      // Don't close immediately, let submenu handle it
+                                      handleSubLeave()
+                                    }
+                                  }}
                                 >
                                   {/* Row */}
                                   {hasSub ? (
                                     <button
                                       onClick={preventNav}
+                                      onMouseEnter={() => handleSubEnter(d.label)}
                                       className="w-full flex items-center justify-between px-5 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-teal-500 hover:to-teal-600 hover:text-white transition-all duration-200"
                                     >
                                       <span>{d.label}</span>
@@ -340,11 +362,19 @@ export default function Header() {
                                         initial="hidden"
                                         animate="show"
                                         exit="exit"
-                                        className="absolute left-full top-0 w-72 bg-white shadow-2xl rounded-r-xl z-50 ring-1 ring-black/5 overflow-hidden"
+                                        className="absolute left-full top-0 ml-1 w-72 bg-white shadow-2xl rounded-r-xl z-[60] ring-1 ring-black/5 overflow-hidden"
                                         style={{ transformOrigin: "top left" }}
+                                        onMouseEnter={() => {
+                                          handleSubEnter(d.label)
+                                        }}
+                                        onMouseLeave={handleSubLeave}
                                       >
-                                        {/* Hover bridge */}
-                                        <div className="absolute -left-3 top-0 h-full w-6" />
+                                        {/* Hover bridge - invisible area to prevent gaps */}
+                                        <div 
+                                          className="absolute -left-6 top-0 h-full w-6"
+                                          onMouseEnter={() => handleSubEnter(d.label)}
+                                          aria-hidden="true"
+                                        />
                                         <div className="py-2">
                                           {d.submenu!.map((s, si) => (
                                             <motion.div
