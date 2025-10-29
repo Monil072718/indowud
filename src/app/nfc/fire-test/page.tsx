@@ -50,7 +50,7 @@ export default function FireTestPage() {
         </p>
         <p>
           UL-94 is a flammability standard by the Underwriters Laboratories of the United States of America. The
-          standard determines the material's tendency to either extinguish or spread the flame once the specimen is
+          standard determines the material&apos;s tendency to either extinguish or spread the flame once the specimen is
           ignited. V0 rating means – burning stops within 10 seconds.
         </p>
         <p>

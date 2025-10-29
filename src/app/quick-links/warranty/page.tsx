@@ -54,7 +54,7 @@ export default function WarrantyPage() {
       <div className="text-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600 mx-auto mb-4"></div>
         <p className="text-gray-600">Opening warranty document...</p>
-        <p className="text-sm text-gray-500 mt-2">If the document doesn't open, please check your popup blocker settings.</p>
+        <p className="text-sm text-gray-500 mt-2">If the document doesn&apos;t open, please check your popup blocker settings.</p>
       </div>
     </div>
   );

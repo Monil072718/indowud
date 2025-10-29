@@ -731,7 +731,7 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
     setForm((f) => ({ ...f, city: "" }))
   }, [form.country, form.state])
 
-  const setField = (key: keyof typeof form, val: any) => {
+  const setField = (key: keyof typeof form, val: string) => {
     setForm((f) => ({ ...f, [key]: val }))
     if (errors[key]) setErrors((e) => ({ ...e, [key]: "" }))
   }
@@ -1004,7 +1004,7 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
                   onChange={(e) => setField("captcha", e.target.checked)}
                   className="h-5 w-5 border-gray-300"
                 />
-                <span className="text-sm text-gray-700">I'm not a robot</span>
+                <span className="text-sm text-gray-700">I&apos;m not a robot</span>
                 <div className="ml-auto text-[10px] text-gray-500 leading-tight text-right">
                   reCAPTCHA
                   <div className="text-[9px]">Privacy • Terms</div>

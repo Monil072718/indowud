@@ -268,8 +268,8 @@ function SuggestionsSection({
                      bg-[#00d5be]/10 px-3 sm:px-5 py-3 sm:py-4 ring-1 ring-[#00d5be]/20"
         >
           <p className="text-xs sm:text-sm text-slate-700">
-            For deeper details on installation, spacing, fasteners and finishes, refer to our "technical suggestions
-            brochure".
+            For deeper details on installation, spacing, fasteners and finishes, refer to our &quot;technical suggestions
+            brochure&quot;.
           </p>
           <a
             href={brochureHref}
@@ -675,7 +675,7 @@ function BrochureModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
                       required
                       className="mt-1 h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded"
                     />
-                    <span className="text-sm text-gray-700">I'm not a robot</span>
+                    <span className="text-sm text-gray-700">I&apos;m not a robot</span>
                   </div>
                   <div className="mt-2 text-xs text-gray-500">
                     reCAPTCHA - Privacy - Terms

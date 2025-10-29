@@ -192,7 +192,7 @@ export default function ContactUs() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
               <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-gray-900">
-                Let's talk
+                Let&apos;s talk
               </h1>
               {/* Breadcrumb */}
               <motion.nav
@@ -213,7 +213,7 @@ export default function ContactUs() {
                 </ol>
               </motion.nav>
               <p className="mt-3 text-gray-600 max-w-2xl">
-                Tell us a bit about yourself and what you're looking for. Our team will get back
+                Tell us a bit about yourself and what you&apos;re looking for. Our team will get back
                 to you shortly.
               </p>
             </div>

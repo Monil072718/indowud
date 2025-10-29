@@ -5,13 +5,18 @@ import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import dynamic from "next/dynamic";
 
+// Import Swiper CSS at module level
+import "swiper/css";
+import "swiper/css/navigation";
+
 // Lazy load Swiper for better performance - only load when needed
 const SwiperSlider = dynamic(
-  () => import("swiper/react").then((mod) => {
-    const { Swiper, SwiperSlide } = mod;
-    const { Navigation, Autoplay } = require("swiper/modules");
-    require("swiper/css");
-    require("swiper/css/navigation");
+  () => Promise.all([
+    import("swiper/react"),
+    import("swiper/modules")
+  ]).then(([swiperMod, modulesMod]) => {
+    const { Swiper, SwiperSlide } = swiperMod;
+    const { Navigation, Autoplay } = modulesMod;
     
     return function SwiperSliderComponent({ gallery, uid }: { gallery: { src: string; alt?: string }[]; uid: string }) {
       return (

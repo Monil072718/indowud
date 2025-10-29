@@ -26,9 +26,6 @@ const nextConfig: NextConfig = {
   // Compression
   compress: true,
   
-  // Optimize production builds
-  swcMinify: true,
-  
   // Performance optimizations
   poweredByHeader: false,
   
