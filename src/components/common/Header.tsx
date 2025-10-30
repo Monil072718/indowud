@@ -49,7 +49,7 @@ export default function Header() {
 
   /* Brochure modal state */
   const [brochureOpen, setBrochureOpen] = useState(false)
-  // Social links for header icons
+
   const headerSocial = [
     { Icon: Facebook, href: "https://www.facebook.com/indowud" },
     { Icon: Twitter, href: "https://x.com/indowud" },
@@ -88,27 +88,22 @@ export default function Header() {
   }
 
   const handleSubEnter = (label: string) => {
-    // Clear any close timer
     if (tSubClose.current) {
       clearTimeout(tSubClose.current)
       tSubClose.current = null
     }
-    // Clear open timer and open immediately
     if (tSubOpen.current) {
       clearTimeout(tSubOpen.current)
       tSubOpen.current = null
     }
-    // Open immediately for better UX
     setOpenSub(label)
   }
 
   const handleSubLeave = () => {
-    // Clear any open timer
     if (tSubOpen.current) {
       clearTimeout(tSubOpen.current)
       tSubOpen.current = null
     }
-    // Add delay before closing to allow moving to submenu
     if (tSubClose.current) clearTimeout(tSubClose.current)
     tSubClose.current = setTimeout(() => {
       setOpenSub(null)
@@ -196,7 +191,6 @@ export default function Header() {
     exit: { opacity: 0, x: -4, scale: 0.98, transition: { duration: 0.14 } },
   }
 
-  /* Prevent navigation for togglers */
   const preventNav = (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
@@ -210,7 +204,6 @@ export default function Header() {
     setMobileOpenSub(null)
   }
 
-  /* ---------- Modal UX: Escape + body scroll lock ---------- */
   useEffect(() => {
     if (brochureOpen) {
       const prev = document.body.style.overflow
@@ -233,7 +226,6 @@ export default function Header() {
 
   return (
     <>
-      {/* ====== HEADER ====== */}
       <motion.header
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -273,7 +265,6 @@ export default function Header() {
                     onMouseEnter={() => hasDropdown && handleTopEnter(item.label)}
                     onMouseLeave={handleTopLeave}
                   >
-                    {/* Label / Toggler */}
                     {hasDropdown ? (
                       <button
                         onClick={preventNav}
@@ -299,7 +290,6 @@ export default function Header() {
                       </Link>
                     )}
 
-                    {/* Dropdown */}
                     <AnimatePresence>
                       {hasDropdown && openTop === item.label && (
                         <motion.div
@@ -336,12 +326,10 @@ export default function Header() {
                                   }}
                                   onMouseLeave={() => {
                                     if (hasSub) {
-                                      // Don't close immediately, let submenu handle it
                                       handleSubLeave()
                                     }
                                   }}
                                 >
-                                  {/* Row */}
                                   {hasSub ? (
                                     <button
                                       onClick={preventNav}
@@ -361,7 +349,6 @@ export default function Header() {
                                     </Link>
                                   )}
 
-                                  {/* Submenu */}
                                   <AnimatePresence>
                                     {hasSub && subOpen && (
                                       <motion.div
@@ -377,8 +364,7 @@ export default function Header() {
                                         }}
                                         onMouseLeave={handleSubLeave}
                                       >
-                                        {/* Hover bridge - invisible area to prevent gaps */}
-                                        <div 
+                                        <div
                                           className="absolute -left-6 top-0 h-full w-6"
                                           onMouseEnter={() => handleSubEnter(d.label)}
                                           aria-hidden="true"
@@ -435,7 +421,6 @@ export default function Header() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 hover:text-rose-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2 rounded"
-                    aria-label={`Follow us on ${Icon.name || 'social media'}`}
                     onClick={closeAllMenus}
                   >
                     <Icon size={18} aria-hidden={true} />
@@ -467,7 +452,6 @@ export default function Header() {
       <AnimatePresence>
         {mobileOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -476,7 +460,6 @@ export default function Header() {
               onClick={() => setMobileOpen(false)}
             />
 
-            {/* Drawer */}
             <motion.div
               key="mobile-menu"
               initial={{ opacity: 0, y: -10 }}
@@ -533,7 +516,6 @@ export default function Header() {
                         )}
                       </div>
 
-                      {/* Level 1 accordion */}
                       <AnimatePresence>
                         {hasDropdown && open && (
                           <motion.div
@@ -590,7 +572,6 @@ export default function Header() {
                                     )}
                                   </div>
 
-                                  {/* Level 2 accordion */}
                                   <AnimatePresence>
                                     {hasSub && subOpen && (
                                       <motion.div
@@ -653,11 +634,10 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      {/* ---------- Request E-Brochure Modal (validated + CSC + text occupation) ---------- */}
+      {/* ---------- Request E-Brochure Modal ---------- */}
       <AnimatePresence>
         {brochureOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               key="modal-backdrop"
               initial={{ opacity: 0 }}
@@ -668,7 +648,6 @@ export default function Header() {
               onClick={() => setBrochureOpen(false)}
             />
 
-            {/* Dialog */}
             <motion.div
               key="modal-dialog"
               role="dialog"
@@ -690,16 +669,18 @@ export default function Header() {
   )
 }
 
-/* ---------- Brochure Form Card (encapsulated) ---------- */
+/* ---------- Brochure Form Card ---------- */
 function BrochureFormCard({ onClose }: { onClose: () => void }) {
   const [confirmOpen, setConfirmOpen] = useState(false)
+
+  // keep name same as in /public
+  const BROCHURE_PATH = "/Indowud-nfc-eBrochure.pdf"
 
   // Country / State / City
   const [countries] = useState<ICountry[]>(Country.getAllCountries())
   const [states, setStates] = useState<IState[]>([])
   const [cities, setCities] = useState<ICity[]>([])
 
-  // form
   const [form, setForm] = useState({
     name: "",
     company: "",
@@ -707,14 +688,13 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
     email: "",
     occupation: "",
     pincode: "",
-    country: "", // ISO2
-    state: "", // ISO
+    country: "",
+    state: "",
     city: "",
     captcha: false,
   })
   const [errors, setErrors] = useState<Record<string, string>>({})
 
-  // derive states/cities
   useEffect(() => {
     if (!form.country) {
       setStates([])
@@ -744,7 +724,6 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
     if (errors[key]) setErrors((e) => ({ ...e, [key]: "" }))
   }
 
-  // validators
   const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   const phoneRx = /^[0-9+\-()\s]{7,15}$/
   const indiaPincodeRx = /^\d{6}$/
@@ -769,12 +748,6 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!validate()) return
-    // TODO: call your API with `form` + names if needed:
-    // const payload = {
-    //   ...form,
-    //   countryName: Country.getCountryByCode(form.country)?.name,
-    //   stateName: State.getStatesOfCountry(form.country).find(s => s.isoCode === form.state)?.name,
-    // }
     setConfirmOpen(true)
   }
 
@@ -786,7 +759,6 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
   return (
     <>
       <div className="w-full max-w-3xl bg-white rounded-xl shadow-2xl ring-1 ring-black/10 overflow-hidden">
-        {/* Header — matches screenshot */}
         <div className="px-6 py-4 border-b">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold text-gray-900">
@@ -802,7 +774,6 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
           </div>
         </div>
 
-        {/* Body */}
         <div className="px-6 pt-5 pb-2">
           <p className="text-xs text-gray-500 mb-4">
             Please fill the details to download the e-brochure
@@ -810,7 +781,7 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
 
           <form onSubmit={handleSubmit} noValidate>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Name */}
+              {/* fields ... (same as before) */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Name<span className="text-rose-600">*</span>
@@ -827,7 +798,6 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
                 <FieldError name="name" />
               </div>
 
-              {/* Company */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Company Name
@@ -841,7 +811,6 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
                 />
               </div>
 
-              {/* Phone */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Phone Number
@@ -861,7 +830,6 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
                 <FieldError name="phone" />
               </div>
 
-              {/* Email */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Email<span className="text-rose-600">*</span>
@@ -878,7 +846,6 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
                 <FieldError name="email" />
               </div>
 
-              {/* Occupation (TEXT) */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Occupation<span className="text-rose-600">*</span>
@@ -895,7 +862,6 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
                 <FieldError name="occupation" />
               </div>
 
-              {/* Pincode */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Pincode
@@ -912,7 +878,6 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
                 <FieldError name="pincode" />
               </div>
 
-              {/* Country */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Country<span className="text-rose-600">*</span>
@@ -939,7 +904,6 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
                 <FieldError name="country" />
               </div>
 
-              {/* State */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   State<span className="text-rose-600">*</span>
@@ -967,7 +931,6 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
                 <FieldError name="state" />
               </div>
 
-              {/* City */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   City<span className="text-rose-600">*</span>
@@ -999,7 +962,6 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
               </div>
             </div>
 
-            {/* CAPTCHA (placeholder) */}
             <div className="mt-4">
               <div
                 className={`w-[300px] max-w-full h-[78px] border rounded-md bg-gray-50 flex items-center gap-3 px-3 ${
@@ -1021,7 +983,6 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
               <FieldError name="captcha" />
             </div>
 
-            {/* Actions */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-between mt-6">
               <button
                 type="submit"
@@ -1048,7 +1009,7 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
         </div>
       </div>
 
-      {/* ---------- Success / Download Modal (second modal) ---------- */}
+      {/* ---------- Success / Download Modal ---------- */}
       <AnimatePresence>
         {confirmOpen && (
           <>
@@ -1091,7 +1052,30 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
                     <button
                       className="flex-1 rounded-md bg-teal-500 hover:bg-teal-600 text-white text-sm py-2.5"
                       onClick={() => {
-                        // TODO: trigger download
+                        // make full URL so it also works on Vercel / custom domains
+                        const origin =
+                          typeof window !== "undefined"
+                            ? window.location.origin
+                            : ""
+                        const pdfUrl = `${origin}${BROCHURE_PATH}`
+
+                        // try open in new tab first
+                        const win = window.open(pdfUrl, "_blank")
+                        if (!win) {
+                          // blocked → create a hidden <a>
+                          const a = document.createElement("a")
+                          a.href = pdfUrl
+                          a.download = "Indowud-nfc-eBrochure.pdf"
+                          a.target = "_blank"
+                          a.rel = "noopener"
+                          document.body.appendChild(a)
+                          a.click()
+                          document.body.removeChild(a)
+                        }
+
+                        // for debugging – you'll see the exact URL in console
+                        console.log("Brochure download URL:", pdfUrl)
+
                         setConfirmOpen(false)
                         onClose()
                       }}
