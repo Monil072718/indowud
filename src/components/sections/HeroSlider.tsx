@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+// ✅ top-level import — NOT /dist/esm/... (this is what fixes the error)
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
@@ -35,12 +36,12 @@ export default function HeroSlider() {
 
   const next = () => {
     setDirection("next");
-    setIndex(i => (i + 1) % slides.length);
+    setIndex((i) => (i + 1) % slides.length);
   };
 
   const prev = () => {
     setDirection("prev");
-    setIndex(i => (i - 1 + slides.length) % slides.length);
+    setIndex((i) => (i - 1 + slides.length) % slides.length);
   };
 
   const goTo = (i: number) => {
@@ -55,16 +56,16 @@ export default function HeroSlider() {
   }, []);
 
   return (
-    <div className="relative h-screen w-full bg-gradient-to-br from-teal-50 via-\[#00d5be\] to-teal-100 overflow-hidden">
+    <div className="relative h-screen w-full bg-gradient-to-br from-teal-50 via-[#00d5be] to-teal-100 overflow-hidden">
       {/* Decorative Background Elements */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-400 rounded-full blur-3xl" />
       </div>
-      
+
       {/* Split Screen Design */}
       <div className="absolute inset-0 flex">
-        {/* Left Side - Image with Clip Path */}
+        {/* Left Side - Image */}
         <div className="relative w-full lg:w-3/5 h-full overflow-hidden">
           {slides.map((slide, i) => (
             <div
@@ -80,7 +81,8 @@ export default function HeroSlider() {
                   : "opacity-0 scale-95"
               }`}
               style={{
-                clipPath: "polygon(0 0, 100% 0, 85% 100%, 0 100%)",
+                // mobile: no diagonal cut → no white gap
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
               }}
             >
               <img
@@ -94,29 +96,24 @@ export default function HeroSlider() {
                 className="w-full h-full object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 1200px"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-\[#00d5be\]/60 via-\[#00d5be\]/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00d5be]/60 via-[#00d5be]/30 to-transparent lg:to-transparent" />
             </div>
           ))}
-
-          {/* Geometric Accent Lines (REMOVED) */}
-          {/* 
-          <div className="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-white/0 via-white/80 to-white/0" />
-          <div
-            className="absolute top-0 right-4 w-1 h-full transition-all duration-700"
-            style={{
-              background: `linear-gradient(to bottom, transparent, ${slides[index].accent}, transparent)`,
-            }}
-          />
-          */}
         </div>
 
-        {/* Right Side - Content */}
+        {/* Right Side - Content (desktop only) */}
         <div className="hidden lg:flex w-2/5 h-full items-center justify-center px-16 relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-\[#00d5be\]/10 to-teal-50" />
-          
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-[#00d5be]/10 to-teal-50" />
+
           {/* Subtle grid pattern */}
-          <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle, #00d5be 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
-          
+          <div
+            className="absolute inset-0 opacity-5"
+            style={{
+              backgroundImage: "radial-gradient(circle, #00d5be 1px, transparent 1px)",
+              backgroundSize: "50px 50px",
+            }}
+          />
+
           {/* Animated Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div
@@ -125,7 +122,7 @@ export default function HeroSlider() {
             />
             <div
               className="absolute bottom-1/3 right-1/3 w-48 h-48 rounded-full blur-3xl animate-pulse"
-              style={{ backgroundColor: slides[index].accent, animationDelay: '1s' }}
+              style={{ backgroundColor: slides[index].accent, animationDelay: "1s" }}
             />
           </div>
 
@@ -161,27 +158,15 @@ export default function HeroSlider() {
                 <p className="text-xl text-gray-700 mb-8 leading-relaxed">
                   {slide.subtitle}
                 </p>
-
-                <button
-                  className="group relative px-8 py-4 bg-white text-black font-semibold overflow-hidden transition-all duration-300 hover:scale-105 border-2 focus:outline-none focus:ring-2 focus:ring-offset-2"
-                  style={{ borderColor: slide.accent }}
-                  aria-label={`Explore more about ${slide.title}`}
-                >
-                  <span className="relative z-10">Explore More</span>
-                  <div
-                    className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
-                    style={{ backgroundColor: slide.accent }}
-                  />
-                </button>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Mobile Content Overlay */}
-      <div className="lg:hidden absolute inset-0 flex items-end pb-32 px-8">
-        <div className="w-full">
+      {/* Mobile Content Overlay — tightened bottom padding to kill empty white space */}
+      <div className="lg:hidden absolute inset-0 flex items-end pb-10 px-6 pointer-events-none">
+        <div className="w-full pointer-events-auto">
           {slides.map((slide, i) => (
             <div
               key={i}
@@ -204,38 +189,21 @@ export default function HeroSlider() {
                 </span>
               </div>
 
-              <h1 className="text-4xl font-bold text-gray-900 mb-4 leading-tight">
+              <h1 className="text-4xl font-bold text-gray-900 mb-3 leading-tight drop-shadow-sm">
                 {slide.title}
               </h1>
 
-              <p className="text-lg text-gray-700 mb-6">{slide.subtitle}</p>
+              <p className="text-lg text-gray-800 mb-2 drop-shadow-sm">
+                {slide.subtitle}
+              </p>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Navigation Controls (Prev/Next only) */}
-      <div className="absolute bottom-8 left-8 flex items-center gap-4 z-20">
-        <button
-          onClick={prev}
-          className="p-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 border border-white/20"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="w-6 h-6 text-white" />
-        </button>
-
-        <button
-          onClick={next}
-          className="p-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 border border-white/20"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="w-6 h-6 text-white" />
-        </button>
-      </div>
-
-      {/* Vertical Progress Indicators */}
-      <div className="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-20">
-        {slides.map((slide, i) => (
+      {/* Vertical Progress Indicators – desktop only */}
+      <div className="hidden lg:flex absolute right-8 top-1/2 -translate-y-1/2 flex-col gap-6 z-20">
+        {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
@@ -262,12 +230,30 @@ export default function HeroSlider() {
         ))}
       </div>
 
+      {/* Prev/Next buttons — show on desktop, small on mobile */}
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4 z-30">
+        <button
+          onClick={prev}
+          className="flex items-center justify-center h-10 w-10 rounded-full bg-white/90 text-gray-900 shadow-md hover:bg-white transition lg:h-12 lg:w-12"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="h-5 w-5" />
+        </button>
+        <button
+          onClick={next}
+          className="flex items-center justify-center h-10 w-10 rounded-full bg-white/90 text-gray-900 shadow-md hover:bg-white transition lg:h-12 lg:w-12"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </button>
+      </div>
+
       {/* Slide Counter */}
-      <div className="absolute top-8 right-8 text-white font-mono text-sm z-20">
-        <span className="text-3xl font-bold">
+      <div className="absolute top-6 right-6 text-white font-mono text-sm z-20 drop-shadow">
+        <span className="text-2xl font-bold">
           {String(index + 1).padStart(2, "0")}
         </span>
-        <span className="text-white/40 mx-2">/</span>
+        <span className="text-white/40 mx-1">/</span>
         <span className="text-white/60">
           {String(slides.length).padStart(2, "0")}
         </span>

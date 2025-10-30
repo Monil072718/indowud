@@ -49,6 +49,14 @@ export default function Header() {
 
   /* Brochure modal state */
   const [brochureOpen, setBrochureOpen] = useState(false)
+  // Social links for header icons
+  const headerSocial = [
+    { Icon: Facebook, href: "https://www.facebook.com/indowud" },
+    { Icon: Twitter, href: "https://x.com/indowud" },
+    { Icon: Youtube, href: "https://www.youtube.com/channel/UC7akg1w5159gl0i0fubvYWw/videos" },
+    { Icon: Instagram, href: "https://www.instagram.com/indowud/" },
+    { Icon: Linkedin, href: "https://www.linkedin.com/company/indowud/" },
+  ]
 
   /* Hover intent timers */
   const tOpen = useRef<NodeJS.Timeout | null>(null)
@@ -420,19 +428,19 @@ export default function Header() {
                 Request E-Brochure
               </button>
               <div className="hidden lg:flex items-center gap-3">
-                {[Facebook, Twitter, Youtube, Instagram, Linkedin].map(
-                  (Icon, i) => (
-                    <a
-                      key={i}
-                      href="#"
-                      className="text-gray-600 hover:text-rose-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2 rounded"
-                      aria-label={`Follow us on ${Icon.name || 'social media'}`}
-                      onClick={closeAllMenus}
-                    >
-                      <Icon size={18} aria-hidden="true" />
-                    </a>
-                  )
-                )}
+                {headerSocial.map(({ Icon, href }, i) => (
+                  <a
+                    key={i}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-rose-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2 rounded"
+                    aria-label={`Follow us on ${Icon.name || 'social media'}`}
+                    onClick={closeAllMenus}
+                  >
+                    <Icon size={18} aria-hidden={true} />
+                  </a>
+                ))}
               </div>
             </div>
 

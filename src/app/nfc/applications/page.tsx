@@ -311,14 +311,14 @@ export default function ApplicationsPage() {
               >
                 <a
                   href="/nfc/products"
-                  className="inline-flex items-center gap-2 rounded-lg bg-rose-500 px-6 py-3 text-white font-semibold hover:bg-rose-600 transition"
+                  className="inline-flex items-center gap-2 rounded-lg bg-rose-500 px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base text-white font-semibold hover:bg-rose-600 transition"
                 >
                   <Wand2 className="w-5 h-5" />
                   Explore Products
                 </a>
                 <a
                   href="/contact"
-                  className="inline-flex items-center gap-2 rounded-lg border-2 border-teal-600 bg-white px-6 py-3 font-semibold text-teal-600 hover:bg-teal-50 transition"
+                  className="inline-flex items-center gap-2 rounded-lg border-2 border-teal-600 bg-white px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold text-teal-600 hover:bg-teal-50 transition"
                 >
                   Contact Us
                   <ArrowRight className="w-5 h-5" />
@@ -602,13 +602,13 @@ export default function ApplicationsPage() {
             <div className="flex gap-3 md:justify-end">
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-teal-600 px-5 py-3 text-white font-semibold hover:bg-teal-700 transition"
+                className="inline-flex items-center gap-2 rounded-lg bg-teal-600 px-4 py-2 text-sm sm:px-5 sm:py-3 sm:text-base text-white font-semibold hover:bg-teal-700 transition"
               >
                 Talk to us <ArrowRight className="w-4 h-4" />
               </a>
               <a
                 href="/nfc/features"
-                className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-5 py-3 font-semibold text-gray-700 hover:bg-gray-50 transition"
+                className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm sm:px-5 sm:py-3 sm:text-base font-semibold text-gray-700 hover:bg-gray-50 transition"
               >
                 See Features
               </a>

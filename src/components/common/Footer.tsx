@@ -17,11 +17,11 @@ export default function Footer() {
   ];
 
   const socialIcons = [
-    { icon: Facebook, href: "#", color: "hover:bg-blue-600" },
-    { icon: Twitter, href: "#", color: "hover:bg-sky-500" },
-    { icon: Youtube, href: "#", color: "hover:bg-red-600" },
-    { icon: Instagram, href: "#", color: "hover:bg-pink-600" },
-    { icon: Linkedin, href: "#", color: "hover:bg-blue-700" }
+    { icon: Facebook, href: "https://www.facebook.com/indowud", color: "hover:bg-blue-600" },
+    { icon: Twitter, href: "https://x.com/indowud", color: "hover:bg-sky-500" },
+    { icon: Youtube, href: "https://www.youtube.com/channel/UC7akg1w5159gl0i0fubvYWw/videos", color: "hover:bg-red-600" },
+    { icon: Instagram, href: "https://www.instagram.com/indowud/", color: "hover:bg-pink-600" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/indowud/", color: "hover:bg-blue-700" }
   ];
 
   return (
@@ -95,6 +95,8 @@ export default function Footer() {
               <a
                 key={index}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-all ${social.color} hover:text-white group`}
               >
                 <social.icon className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors" />

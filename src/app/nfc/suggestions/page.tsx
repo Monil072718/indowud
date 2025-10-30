@@ -686,7 +686,7 @@ function BrochureModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold px-6 py-3 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed mb-3"
+                  className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed mb-3"
                 >
                   {isSubmitting ? 'Sending...' : 'Request Technical Guidelines (English)'}
                 </button>
@@ -700,7 +700,7 @@ function BrochureModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
                 <button
                   type="button"
                   onClick={onClose}
-                  className="mt-4 w-full bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-md transition-colors"
+                  className="mt-4 w-full bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base rounded-md transition-colors"
                 >
                   Close
                 </button>
