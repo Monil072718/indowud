@@ -1,388 +1,330 @@
 "use client";
-/* eslint-disable @next/next/no-img-element */
 
-import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, type Variants } from "framer-motion";
-import { Wand2, Leaf, Hammer, Drill, PaintBucket, ArrowRight } from "lucide-react";
-import Link from "next/link";
-
-export const dynamic = "force-static";
+import Image from "next/image";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 /* ---------- animations ---------- */
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 22 },
-  show: (i: number = 0) => ({
+  hidden: { opacity: 0, y: 28 },
+  show: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: 0.08 * i, ease: [0.16, 1, 0.3, 1] },
+    transition: {
+      duration: 0.6,
+      delay: 0.08 * i,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+    },
   }),
 };
 
-const scaleIn: Variants = {
-  hidden: { opacity: 0, scale: 0.94 },
-  show: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
+const fade = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.35 } },
+  exit: { opacity: 0, y: -10, transition: { duration: 0.25 } },
 };
 
-/* ---------- data ---------- */
-const features = [
-  {
-    icon: PaintBucket,
-    title: "Custom Finishes",
-    text:
-      "Paint, stain, veneer or laminate — panels accept most finishes beautifully.",
-  },
-  { icon: Leaf, title: "Eco-Smart", text: "Agri-fibre based boards, low emissions." },
-  { icon: Drill, title: "CNC Friendly", text: "Great machinability for patterns and routing." },
-  { icon: Hammer, title: "Built Tough", text: "Impact resistant with excellent screw holding." },
-];
-
-const sections = [
-  {
-    key: "interiors",
-    eyebrow: "INTERIORS",
-    title: "Create warm, modern spaces",
-    text:
-      "Use Indowud panels for wardrobes, kitchens, wall cladding, false ceilings and acoustic elements. Thermoform curves or keep clean modern lines.",
-    images: [
-      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1920",
-      "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1920",
-      "https://images.pexels.com/photos/2724748/pexels-photo-2724748.jpeg?auto=compress&cs=tinysrgb&w=1920",
-    ],
-  },
-  {
-    key: "exteriors",
-    eyebrow: "EXTERIORS",
-    title: "Panels that brave the outdoors",
-    text:
-      "Weather-resistant boards for facade screens, outdoor furniture, pergolas and gate cladding. Stable in humid and coastal conditions.",
-    images: [
-      "https://images.pexels.com/photos/3945320/pexels-photo-3945320.jpeg?auto=compress&cs=tinysrgb&w=1920",
-      "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1920",
-      "https://images.pexels.com/photos/210604/pexels-photo-210604.jpeg?auto=compress&cs=tinysrgb&w=1920",
-    ],
-  },
-];
-
-const useCases = [
-  {
-    title: "Wardrobes",
-    img:
-      "https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=1920",
-  },
-  {
-    title: "Kitchen Shutters",
-    img:
-      "https://images.pexels.com/photos/3637738/pexels-photo-3637738.jpeg?auto=compress&cs=tinysrgb&w=1920",
-  },
-  {
-    title: "Wall Cladding",
-    img:
-      "https://images.pexels.com/photos/1658386/pexels-photo-1658386.jpeg?auto=compress&cs=tinysrgb&w=1920",
-  },
-  {
-    title: "Vanities",
-    img:
-      "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1920",
-  },
-  {
-    title: "Outdoor Seating",
-    img:
-      "https://images.pexels.com/photos/210604/pexels-photo-210604.jpeg?auto=compress&cs=tinysrgb&w=1920",
-  },
-  {
-    title: "Pergolas",
-    img:
-      "https://images.pexels.com/photos/373893/pexels-photo-373893.jpeg?auto=compress&cs=tinysrgb&w=1920",
-  },
-];
-
-/* =============================================================================
-   PROFESSIONAL SLIDER (arrows + counter removed; swipe, autoplay, dots, progress)
-============================================================================= */
-function Slider({
-  images,
-  aspect = "h-48 md:h-56",
-  auto = true,
-  interval = 5000,
-  rounded = "rounded-2xl",
-}: {
-  images: string[];
-  aspect?: string;
-  auto?: boolean;
-  interval?: number;
-  rounded?: string;
-}) {
-  const [index, setIndex] = useState(0);
-  const [isHover, setIsHover] = useState(false);
-  const [isFocus, setIsFocus] = useState(false);
-  const [isInView, setIsInView] = useState(true);
-
-  const len = images.length;
-  const wrap = (n: number) => (n + len) % len;
-
-  useEffect(() => {
-    const onVis = () => setIsInView(document.visibilityState === "visible");
-    document.addEventListener("visibilitychange", onVis);
-    return () => document.removeEventListener("visibilitychange", onVis);
-  }, []);
-
-  const hostRef = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    if (!hostRef.current) return;
-    const io = new IntersectionObserver(
-      (entries) => setIsInView(entries[0]?.isIntersecting ?? true),
-      { threshold: 0.25 }
-    );
-    io.observe(hostRef.current);
-    return () => io.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!auto || isHover || isFocus || !isInView) return;
-    const t = setInterval(() => setIndex((i) => wrap(i + 1)), interval);
-    return () => clearInterval(t);
-  }, [auto, isHover, isFocus, isInView, interval, len]);
-
-  // swipe/drag
-  const startX = useRef<number | null>(null);
-  const deltaX = useRef(0);
-  const trackRef = useRef<HTMLDivElement | null>(null);
-  const [isDragging, setIsDragging] = useState(false);
-
-  const onPointerDown = (e: React.PointerEvent) => {
-    (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
-    startX.current = e.clientX;
-    deltaX.current = 0;
-    setIsDragging(true);
-  };
-  const onPointerMove = (e: React.PointerEvent) => {
-    if (startX.current == null) return;
-    deltaX.current = e.clientX - startX.current;
-    if (trackRef.current) {
-      const percent = (deltaX.current / (trackRef.current.clientWidth / len)) * 100;
-      trackRef.current.style.transform = `translate3d(calc(${-index * 100}% + ${percent}%), 0, 0)`;
-      trackRef.current.style.transition = "none";
-    }
-  };
-  const endDrag = () => {
-    if (trackRef.current) {
-      trackRef.current.style.transition = "";
-      trackRef.current.style.transform = "";
-    }
-    if (startX.current != null) {
-      const threshold = 50;
-      if (deltaX.current < -threshold) setIndex((i) => wrap(i + 1));
-      else if (deltaX.current > threshold) setIndex((i) => wrap(i - 1));
-    }
-    startX.current = null;
-    deltaX.current = 0;
-    setIsDragging(false);
-  };
-
-  const x = useMemo(() => `translate3d(${-index * 100}%,0,0)`, [index]);
-
-  return (
-    <div
-      ref={hostRef}
-      className={`relative ${rounded} overflow-hidden bg-white`}
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
-      onFocus={() => setIsFocus(true)}
-      onBlur={() => setIsFocus(false)}
-      tabIndex={0}
-      aria-roledescription="carousel"
-      aria-label="Image slider"
-    >
-      {/* Edge fade masks */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-20" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent z-20" />
-
-      {/* Track */}
-      <div
-        ref={trackRef}
-        className="flex w-full will-change-transform"
-        style={{
-          width: `${len * 100}%`,
-          transform: x,
-          transition: isDragging ? "none" : "transform 600ms cubic-bezier(.22,1,.36,1)",
-        }}
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={endDrag}
-        onPointerCancel={endDrag}
-        onPointerLeave={endDrag}
-      >
-        {images.map((src, i) => (
-          <div key={i} className="w-full shrink-0 relative group">
-            <img
-              src={src}
-              alt={`slide ${i + 1}`}
-              loading={i === index ? "eager" : "lazy"}
-              decoding="async"
-              fetchPriority={i === index ? "high" : "low"}
-              className={`${aspect} w-full object-cover ${rounded} transition-transform duration-700 group-hover:scale-[1.03]`}
-              draggable={false}
-            />
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </div>
-        ))}
-      </div>
-
-      {/* Dots + progress */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full z-30">
-        {auto && (
-          <div className="relative h-1 w-24 overflow-hidden rounded bg-gray-200/80">
-            <motion.div
-              key={index}
-              className="absolute left-0 top-0 h-full bg-gradient-to-r from-teal-500 to-teal-600"
-              initial={{ width: 0 }}
-              animate={{ width: "100%" }}
-              transition={{ duration: interval / 1000, ease: "linear" }}
-            />
-          </div>
-        )}
-        <div className="flex items-center gap-2">
-          {images.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIndex(i)}
-              aria-label={`Go to slide ${i + 1}`}
-              className={`h-2 rounded-full transition-all duration-300 ${index === i ? "w-6 bg-gray-900" : "w-2 bg-gray-400 hover:bg-gray-500"
-                }`}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+/* ---------- static panel cards ---------- */
+type PanelKey = "interior" | "exterior" | "furniture" | "partition";
+interface Panel {
+  key: PanelKey;
+  title: string;
+  img: string;
+  desc: string;
+  long: string;
 }
 
-/* ============================== PAGE ============================== */
+const panels: Panel[] = [
+  {
+    key: "interior",
+    title: "Interior Panels",
+    img: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    desc: `Transform your living and work spaces with Indowud Interior Panels. The perfect blend of elegance, durability, and sustainability.`,
+    long: `Made from natural fiber composites, our panels are termite-proof, waterproof, flame-retardant, and free from formaldehyde emissions, ensuring a safe and long-lasting interior solution.`,
+  },
+  {
+    key: "exterior",
+    title: "Exterior Panels",
+    img: "https://images.pexels.com/photos/3637738/pexels-photo-3637738.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    desc: `Enhance your building’s façade with Indowud Exterior Panels, engineered for strength, beauty, and sustainability.`,
+    long: `Crafted from high natural fiber composites, our panels are waterproof, termite-proof, flame-retardant, and weather-resistant — ideal for all outdoor applications.`,
+  },
+  {
+    key: "furniture",
+    title: "Furniture Boards",
+    img: "https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    desc: `Create furniture that lasts with Indowud Furniture Boards, designed for durability, versatility, and style.`,
+    long: `Perfect for cabinets, wardrobes, tables, and modular furniture. Superior screw-holding strength, smooth finish, and easy machinability.`,
+  },
+  {
+    key: "partition",
+    title: "Partition Boards",
+    img: "https://images.pexels.com/photos/403571/pexels-photo-403571.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    desc: `Redefine your interiors with Indowud Partition Boards, crafted for strength, style, and sustainability.`,
+    long: `Lightweight yet sturdy, they provide excellent sound absorption and design flexibility — ideal for healthy indoor environments.`,
+  },
+];
+
+/* ---------- slider data (first / existing) ---------- */
+const slides = [
+  {
+    title: "nfc create & Neo",
+    subtitle: "for interior Panels",
+    images: [
+      "https://images.pexels.com/photos/447592/pexels-photo-447592.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    ],
+  },
+  {
+    title: "nfc Build",
+    subtitle: "for exterior Panels and interior panels",
+    images: [
+      "https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/3637738/pexels-photo-3637738.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    ],
+  },
+  {
+    title: "nfc Deco",
+    subtitle: "for furniture & partitions",
+    images: [
+      "https://images.pexels.com/photos/157382/office-windows-house-architecture-157382.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/37347/office-windows-modern-exterior-buildings.jpg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/3586362/pexels-photo-3586362.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    ],
+  },
+];
+
+/* ---------- slider data (second / new, 3-images layout) ---------- */
+const showcaseSlides = [
+  {
+    title: "nfc Build",
+    subtitle: "for exterior Panels and interior panels",
+    images: [
+      "https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://images.pexels.com/photos/210265/pexels-photo-210265.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    ],
+  },
+  {
+    title: "Outdoor & Garden",
+    subtitle: "Decking • Pergolas • Fencing",
+    images: [
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://images.pexels.com/photos/273822/pexels-photo-273822.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    ],
+  },
+  {
+    title: "Resort Style",
+    subtitle: "Pool decks and sit-outs",
+    images: [
+      "https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://images.pexels.com/photos/259682/pexels-photo-259682.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    ],
+  },
+];
 
 export default function ApplicationsPage() {
-  return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-teal-50 via-white to-rose-50">
-        <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div variants={fadeUp} initial="hidden" animate="show">
-              <motion.h1
-                variants={fadeUp}
-                custom={1}
-                initial="hidden"
-                animate="show"
-                className="text-4xl md:text-6xl font-bold text-teal-600 leading-tight"
-              >
-                Transform Your Spaces with Premium Interior Panels & Exterior Panels
-              </motion.h1>
-              {/* breadcrumb */}
-              <motion.nav
-                variants={fadeUp}
-                custom={2}
-                initial="hidden"
-                animate="show"
-                className="mt-3 text-xs md:text-sm tracking-widest text-gray-500 uppercase"
-                aria-label="Breadcrumb"
-              >
-                <ol className="flex items-center">
-                  <li>
-                    <Link href="/" className="hover:text-gray-700 transition-colors">
-                      HOME
-                    </Link>
-                  </li>
-                  <li aria-hidden="true" className="mx-1">/</li>
-                  <li>
-                    <Link href="/nfc" className="hover:text-gray-700 transition-colors">
-                      NFC
-                    </Link>
-                  </li>
-                  <li aria-hidden="true" className="mx-1">/</li>
-                  <li>APPLICATIONS</li>
-                </ol>
-              </motion.nav>
-              <motion.div
-                variants={fadeUp}
-                custom={3}
-                initial="hidden"
-                animate="show"
-                className="mt-8 flex gap-4"
-              >
-                <a
-                  href="/nfc/products"
-                  className="inline-flex items-center gap-2 rounded-lg bg-rose-500 px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base text-white font-semibold hover:bg-rose-600 transition"
-                >
-                  <Wand2 className="w-5 h-5" />
-                  Explore Products
-                </a>
-                <a
-                  href="/contact"
-                  className="inline-flex items-center gap-2 rounded-lg border-2 border-teal-600 bg-white px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold text-teal-600 hover:bg-teal-50 transition"
-                >
-                  Contact Us
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-              </motion.div>
-            </motion.div>
+  /* ---------- states ---------- */
+  const [activePanel, setActivePanel] = useState<PanelKey>("interior");
+  const activePanelData =
+    panels.find((p) => p.key === activePanel) ?? panels[0];
 
-            <motion.div variants={scaleIn} initial="hidden" animate="show" className="relative">
-              <img
-                src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1920"
-                alt="Modern living room with wooden panels"
-                className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-xl"
-              />
-            </motion.div>
-          </div>
+  // first slider
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const current = slides[currentSlide];
+  const [activeImage, setActiveImage] = useState(0);
+  const imgCount = current.images.length;
+
+  const goNextImage = () => {
+    setActiveImage((prev) => {
+      const next = (prev + 1) % imgCount;
+      return next;
+    });
+  };
+
+  const goPrevImage = () => {
+    setActiveImage((prev) => {
+      const next = (prev - 1 + imgCount) % imgCount;
+      return next;
+    });
+  };
+
+  const goToSlide = (idx: number) => {
+    setCurrentSlide(idx);
+    setActiveImage(0);
+  };
+
+  // second (new) slider
+  const [showcaseIndex, setShowcaseIndex] = useState(0);
+  const showcase = showcaseSlides[showcaseIndex];
+
+  const goShowcasePrev = () => {
+    setShowcaseIndex((p) =>
+      p === 0 ? showcaseSlides.length - 1 : p - 1
+    );
+  };
+  const goShowcaseNext = () => {
+    setShowcaseIndex((p) =>
+      p === showcaseSlides.length - 1 ? 0 : p + 1
+    );
+  };
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* top color band */}
+      <div className="h-16 bg-gradient-to-r from-[#008B8B] via-[#AE236B] to-[#E5006D] flex items-center px-4 md:px-10 text-white text-sm justify-between">
+        <p className="uppercase tracking-[0.3em] text-xs md:text-sm font-semibold">
+          Applications
+        </p>
+        <div className="flex items-center gap-2 text-xs">
+          <span className="opacity-70">Home</span>
+          <span>/</span>
+          <span className="font-medium">Applications</span>
+        </div>
+      </div>
+
+      {/* hero */}
+      <section className="w-full bg-gradient-to-r from-[#F2FFFD] via-[#FDFEFE] to-[#FFEFF5] py-12 md:py-14">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
+          {/* left */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="space-y-6 md:space-y-7"
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.05] text-[#008B8B] tracking-tight">
+              Transform Your
+              <br />
+              Spaces with
+              <br />
+              Premium Interior
+              <br />
+              Panels &amp; Exterior
+              <br />
+              Panels
+            </h1>
+
+            {/* breadcrumb */}
+            <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-gray-500">
+              Home / NFC / Applications
+            </p>
+
+            {/* buttons */}
+            <div className="flex flex-wrap gap-4">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.99 }}
+                className="inline-flex items-center gap-2 bg-[#E5006D] text-white px-7 py-3 rounded-xl text-sm font-semibold shadow-[0_15px_35px_rgba(229,0,109,0.35)]"
+              >
+                <span className="inline-flex h-5 w-5 items-center justify-center rounded-md bg-white/15">
+                  ✦
+                </span>
+                Explore Products
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.99 }}
+                className="inline-flex items-center gap-2 bg-white text-[#008B8B] px-7 py-3 rounded-xl text-sm font-semibold border border-[#008B8B]"
+              >
+                Contact Us
+                <span aria-hidden="true">→</span>
+              </motion.button>
+            </div>
+          </motion.div>
+
+          {/* right card */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="flex justify-center lg:justify-end"
+          >
+            <div className="relative w-full max-w-[520px] bg-white rounded-[32px] overflow-hidden shadow-[0_20px_80px_rgba(229,0,109,0.12)] border border-white/60">
+              <div className="relative h-[240px] sm:h-[300px] md:h-[360px]">
+                <Image
+                  src="https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  alt="Modern interior"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* WHY INDOWUD SECTION */}
-      <section className="max-w-7xl mx-auto px-6 mt-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      {/* Why section */}
+      <section className="w-full bg-gradient-to-r from-[#FDFEFE] via-white to-[#FFEFF5] py-12 md:py-14">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
+          {/* LEFT IMAGE CARD */}
           <motion.div
-            variants={scaleIn}
+            variants={fadeUp}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="overflow-hidden rounded-3xl border border-gray-200 shadow-lg"
+            viewport={{ once: true }}
+            className="bg-white rounded-[34px] shadow-[0_20px_60px_rgba(0,0,0,0.03)] overflow-hidden border border-white/40"
           >
-            <img
-              src="https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=1920"
-              alt="Indowud interior with wooden panels"
-              className="w-full h-[400px] object-cover"
-            />
+            <div className="relative h-[220px] sm:h-[260px] md:h-[320px] lg:h-[340px]">
+              <Image
+                src="https://images.pexels.com/photos/90317/pexels-photo-90317.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Indowud interior"
+                fill
+                className="object-cover"
+              />
+            </div>
           </motion.div>
 
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-            <h2 className="text-3xl md:text-4xl font-bold text-teal-600 leading-tight mb-8">
-              Why Indowud Panels Are the Perfect Choice
+          {/* RIGHT TEXT */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-[#008B8B]">
+              Why Indowud Panels Are the
+              <br />
+              Perfect Choice
             </h2>
-            <ul className="space-y-6 text-gray-800 text-lg">
-              <li className="flex items-start gap-4">
-                <span className="mt-2 h-2 w-2 rounded-full bg-gray-800 shrink-0" />
-                <p className="leading-relaxed">
-                  Durable <strong>interior panels</strong> that enhance aesthetics and longevity.
+
+            <ul className="space-y-4 text-[15px] text-gray-800">
+              <li className="flex gap-3">
+                <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[#222]" />
+                <p>
+                  Durable <strong>interior panels</strong> that enhance
+                  aesthetics and longevity.
                 </p>
               </li>
-
-              <li className="flex items-start gap-4">
-                <span className="mt-2 h-2 w-2 rounded-full bg-gray-800 shrink-0" />
-                <p className="leading-relaxed">
-                  Stylish and sustainable <strong>exterior panels</strong> resistant to weather and wear.
+              <li className="flex gap-3">
+                <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[#222]" />
+                <p>
+                  Stylish and sustainable <strong>exterior panels</strong>{" "}
+                  resistant to weather and wear.
                 </p>
               </li>
-
-              <li className="flex items-start gap-4">
-                <span className="mt-2 h-2 w-2 rounded-full bg-gray-800 shrink-0" />
-                <p className="leading-relaxed">
-                  Versatile <strong>furniture boards</strong> for custom cabinets, wardrobes, and desks.
+              <li className="flex gap-3">
+                <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[#222]" />
+                <p>
+                  Versatile <strong>furniture boards</strong> for custom
+                  cabinets, wardrobes, and desks.
                 </p>
               </li>
-
-              <li className="flex items-start gap-4">
-                <span className="mt-2 h-2 w-2 rounded-full bg-gray-800 shrink-0" />
-                <p className="leading-relaxed">
-                  Smart <strong>partition boards</strong> for office and home spaces, maximising utility.
+              <li className="flex gap-3">
+                <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[#222]" />
+                <p>
+                  Smart <strong>partition boards</strong> for office and home
+                  spaces, maximising utility.
                 </p>
               </li>
             </ul>
@@ -390,261 +332,295 @@ export default function ApplicationsPage() {
         </div>
       </section>
 
-      {/* BUILT FOR QUALITY SECTION */}
-      <section className="max-w-7xl mx-auto px-6 mt-20">
-        <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="text-center text-3xl md:text-4xl font-bold italic text-rose-600 mb-12"
-        >
-          Built for Quality, Designed for You
-        </motion.h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((f, i) => (
-            <motion.div
-              key={f.title}
-              variants={fadeUp}
-              custom={i}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              whileHover={{ y: -8, scale: 1.05 }}
-              className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 shadow-lg hover:shadow-xl transition-all"
-            >
-              <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-teal-500/60 to-transparent" />
-              <div className="text-center">
-                <div className="h-16 w-16 rounded-2xl bg-teal-100 grid place-items-center mx-auto mb-4">
-                  <f.icon className="w-8 h-8 text-teal-600" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{f.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{f.text}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* PRODUCT CATEGORIES */}
-      <section className="max-w-7xl mx-auto px-6 mt-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Interior Panels */}
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="group">
-            <div className="overflow-hidden rounded-2xl shadow-lg">
-              <img
-                src="https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=1920"
-                alt="Interior Panels"
-                className="w-full h-[300px] object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="mt-6">
-              <h3 className="text-2xl font-bold text-rose-600 mb-4">Interior Panels</h3>
-              <p className="text-gray-700 leading-relaxed">
-                Transform your indoor spaces with our premium interior panels. <strong>Termite-proof, waterproof, flame-retardant, and free from formaldehyde emissions</strong>. Perfect for wall cladding, wardrobes, kitchen shutters, and decorative elements that enhance both aesthetics and functionality.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Exterior Panels */}
+      {/* product cards */}
+      <section className="w-full bg-white py-12 md:py-16">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
+          {/* heading */}
           <motion.div
             variants={fadeUp}
-            custom={1}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="group"
+            className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8"
           >
-            <div className="overflow-hidden rounded-2xl shadow-lg">
-              <img
-                src="https://images.pexels.com/photos/3945320/pexels-photo-3945320.jpeg?auto=compress&cs=tinysrgb&w=1920"
-                alt="Exterior Panels"
-                className="w-full h-[300px] object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="mt-6">
-              <h3 className="text-2xl font-bold text-rose-600 mb-4">Exterior Panels</h3>
-              <p className="text-gray-700 leading-relaxed">
-                Brave the elements with our <strong>weather-resistant</strong> exterior panels. Designed to withstand harsh outdoor conditions while maintaining their structural integrity and aesthetic appeal. Ideal for facade screens, outdoor furniture, pergolas, and gate cladding.
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-[#E5006D] mb-1">
+                Our Panel Range
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C1217]">
+                Interior, Exterior, Furniture &amp; Partition
+              </h2>
+              <p className="text-sm text-gray-500 mt-2 max-w-xl">
+                Choose the ideal panel for your application — each one
+                waterproof, termite-proof, and made for long life.
               </p>
             </div>
           </motion.div>
 
-          {/* Furniture Boards */}
-          <motion.div variants={fadeUp} custom={2} initial="hidden" whileInView="show" viewport={{ once: true }} className="group">
-            <div className="overflow-hidden rounded-2xl shadow-lg">
-              <img
-                src="https://images.pexels.com/photos/3637738/pexels-photo-3637738.jpeg?auto=compress&cs=tinysrgb&w=1920"
-                alt="Furniture Boards"
-                className="w-full h-[120px] sm:h-[160px] md:h-[240px] lg:h-[300px] object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="mt-6">
-              <h3 className="text-2xl font-bold text-rose-600 mb-4">Furniture Boards</h3>
-              <p className="text-gray-700 leading-relaxed">
-                Create stunning furniture pieces with our versatile furniture boards. <strong>Termite-proof, waterproof, flame-retardant, and free from formaldehyde emissions</strong>. Perfect for cabinets, wardrobes, desks, and custom furniture that combines durability with elegant design.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Partition Boards */}
-          <motion.div variants={fadeUp} custom={3} initial="hidden" whileInView="show" viewport={{ once: true }} className="group">
-            <div className="overflow-hidden rounded-2xl shadow-lg">
-              <img
-                src="https://images.pexels.com/photos/1658386/pexels-photo-1658386.jpeg?auto=compress&cs=tinysrgb&w=1920"
-                alt="Partition Boards"
-                className="w-full h-[300px] object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="mt-6">
-              <h3 className="text-2xl font-bold text-rose-600 mb-4">Partition Boards</h3>
-              <p className="text-gray-700 leading-relaxed">
-                Design flexible spaces with our smart partition boards. <strong>Termite-proof, waterproof, flame-retardant, and free from formaldehyde emissions</strong>. Ideal for office spaces, home divisions, and modular designs that adapt to your changing needs.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* NFC CREATE & NEO SECTION */}
-      <section className="max-w-7xl mx-auto px-6 mt-20 no-shadow-all">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-rose-600 mb-4">
-            NFC Create &amp; Neo for Interior Panels
-          </h2>
-          <div className="w-24 h-1 bg-green-500 mx-auto rounded-full"></div>
-        </motion.div>
-
-        <motion.div
-          variants={scaleIn}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="shadow-none"
-        >
-          <Slider images={sections[0].images} aspect="h-64 md:h-80" />
-        </motion.div>
-      </section>
-
-      {/* NFC BUILD SECTION */}
-      <section className="max-w-7xl mx-auto px-6 mt-20 no-shadow-all">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-rose-600 mb-4">
-            NFC Build for Exterior Panels and Interior Panels
-          </h2>
-          <div className="w-24 h-1 bg-green-500 mx-auto rounded-full"></div>
-        </motion.div>
-
-        <motion.div
-          variants={scaleIn}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="shadow-none"
-        >
-          <div className="h-52 sm:h-60 md:h-72 lg:h-80">
-            <Slider images={sections[1].images} />
-          </div>
-        </motion.div>
-      </section>
-
-
-
-
-
-      {/* USE-CASE GALLERY */}
-      <section className="max-w-7xl mx-auto px-6 mt-16">
-        <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="text-center text-2xl md:text-3xl font-bold italic text-gray-900"
-        >
-          Popular Applications
-        </motion.h2>
-
-        <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {useCases.map((u, i) => (
-            <motion.article
-              key={u.title}
+          <div className="grid gap-8 lg:grid-cols-[0.33fr,0.67fr]">
+            {/* left selector */}
+            <motion.div
               variants={fadeUp}
-              custom={i}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
-              className="rounded-3xl overflow-hidden border border-gray-200 bg-white shadow-sm"
+              className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible pb-2"
             >
-              <div className="overflow-hidden">
-                <img
-                  src={u.img}
-                  alt={u.title}
-                  className="h-48 w-full object-cover transition duration-300 hover:scale-105"
+              {panels.map((panel) => {
+                const isActive = panel.key === activePanel;
+                return (
+                  <button
+                    key={panel.key}
+                    onClick={() => setActivePanel(panel.key)}
+                    className={`flex-1 lg:flex-none text-left rounded-2xl border px-4 py-3 transition-all min-w-[190px] ${
+                      isActive
+                        ? "bg-[#008B8B] text-white border-transparent shadow-md"
+                        : "bg-white text-[#0C1217] border-gray-200 hover:border-[#008B8B]/50"
+                    }`}
+                  >
+                    <p className="text-sm font-semibold">{panel.title}</p>
+                    <p
+                      className={`text-xs mt-1 ${
+                        isActive ? "text-white/80" : "text-gray-500"
+                      }`}
+                    >
+                      {panel.desc}
+                    </p>
+                  </button>
+                );
+              })}
+            </motion.div>
+
+            {/* right content */}
+            <motion.div
+              key={activePanelData.key}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="bg-white rounded-3xl border border-gray-100/60 shadow-[0_18px_60px_rgba(0,0,0,0.03)] overflow-hidden"
+            >
+              <div className="relative h-[210px] sm:h-[220px] md:h-[260px] lg:h-[300px]">
+                <Image
+                  src={activePanelData.img}
+                  alt={activePanelData.title}
+                  fill
+                  className="object-cover"
                 />
+                <div className="absolute top-4 left-4 bg-white/80 rounded-full px-4 py-1.5 text-xs font-semibold text-[#008B8B]">
+                  {activePanelData.title}
+                </div>
               </div>
-              <div className="p-5">
-                <h3 className="font-semibold text-gray-900">{u.title}</h3>
-                <p className="mt-1.5 text-sm text-gray-600">
-                  Durable, easy-to-finish boards that elevate the look and extend the life of your project.
+              <div className="p-6 md:p-8 space-y-3">
+                <h3 className="text-lg md:text-xl font-bold text-[#0C1217]">
+                  {activePanelData.title}
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  {activePanelData.desc}
                 </p>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  {activePanelData.long}
+                </p>
+                <button className="inline-flex items-center gap-1 text-[#E5006D] text-sm font-semibold hover:gap-2 transition-all mt-3">
+                  View specifications
+                  <span aria-hidden="true">→</span>
+                </button>
               </div>
-            </motion.article>
-          ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="max-w-6xl mx-auto px-6 mt-16 mb-20">
-        <motion.div
-          variants={scaleIn}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="rounded-3xl border border-gray-200 bg-gradient-to-r from-teal-50 via-white to-rose-50 p-8 md:p-10"
-        >
-          <div className="grid md:grid-cols-2 gap-6 items-center">
-            <div>
-              <p className="text-teal-700 font-semibold uppercase tracking-widest text-xs">
-                Ready to build
-              </p>
-              <h3 className="text-2xl md:text-3xl font-bold italic text-gray-900">
-                Let’s plan your next application
-              </h3>
-              <p className="mt-2 text-gray-700">
-                Share drawings and sizes — we’ll help you pick panel thickness, finishes and machining steps.
-              </p>
-            </div>
-            <div className="flex gap-3 md:justify-end">
-              <a
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-teal-600 px-4 py-2 text-sm sm:px-5 sm:py-3 sm:text-base text-white font-semibold hover:bg-teal-700 transition"
-              >
-                Talk to us <ArrowRight className="w-4 h-4" />
-              </a>
-              <a
-                href="/nfc/features"
-                className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm sm:px-5 sm:py-3 sm:text-base font-semibold text-gray-700 hover:bg-gray-50 transition"
-              >
-                See Features
-              </a>
+      {/* Slider section (bottom) - EXISTING */}
+      <section className="w-full">
+        {/* top teal strip */}
+        <div className="w-full bg-[#33A2A2] py-3">
+          <p className="max-w-6xl mx-auto text-center text-white italic text-sm md:text-base px-4">
+            Explore Our Panel Range interior panels, exterior panels, furniture
+            boards, and partition boards to suit every design need.
+          </p>
+        </div>
+
+        {/* body */}
+        <div className="bg-[#EFE8E2] py-10 md:py-12">
+          <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 relative">
+            <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] border border-white/70 px-4 sm:px-6 md:px-8 py-6 md:py-8 overflow-hidden">
+              {/* header row */}
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
+                <div className="text-center md:text-left w-full">
+                  <p className="text-[#008B8B] italic text-lg md:text-xl font-medium">
+                    {current.title}
+                  </p>
+                  <p className="text-[#008B8B] text-sm md:text-base italic inline-block relative mt-1">
+                    {current.subtitle}
+                    <span className="absolute left-0 -bottom-1 h-[3px] w-full bg-[#E5006D]" />
+                  </p>
+                </div>
+
+                {/* arrows (desktop) */}
+                <div className="hidden md:flex gap-2">
+                  <button
+                    onClick={goPrevImage}
+                    aria-label="Previous image"
+                    className="h-8 w-8 flex items-center justify-center bg-[#008B8B] text-white rounded-md hover:bg-[#006d6d] transition-colors"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+                  <button
+                    onClick={goNextImage}
+                    aria-label="Next image"
+                    className="h-8 w-8 flex items-center justify-center bg-[#008B8B] text-white rounded-md hover:bg-[#006d6d] transition-colors"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+                </div>
+              </div>
+
+              {/* image track */}
+              <div className="relative w-full overflow-hidden rounded-2xl">
+                <div
+                  className="flex transition-transform duration-500 ease-out"
+                  style={{ transform: `translateX(-${activeImage * 100}%)` }}
+                >
+                  {current.images.map((image, i) => (
+                    <div key={i} className="w-full shrink-0 flex gap-4 md:gap-6">
+                      {/* left small */}
+                      <div className="hidden lg:block w-1/4 bg-[#F5F5F5] rounded-2xl overflow-hidden h-[200px] md:h-[210px]">
+                        <img
+                          src={image}
+                          alt={`${current.title} - view ${i + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+
+                      {/* main */}
+                      <div className="flex-1 bg-[#F5F5F5] rounded-2xl overflow-hidden h-[180px] sm:h-[200px] md:h-[230px] lg:h-[260px]">
+                        <img
+                          src={current.images[(i + 1) % imgCount]}
+                          alt={`${current.title} - main view`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+
+                      {/* right small */}
+                      <div className="hidden lg:block w-1/4 bg-[#F5F5F5] rounded-2xl overflow-hidden h-[200px] md:h-[210px]">
+                        <img
+                          src={current.images[(i + 2) % imgCount]}
+                          alt={`${current.title} - view ${i + 3}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* mobile arrows */}
+              <div className="flex md:hidden justify-center gap-2 mt-5">
+                <button
+                  onClick={goPrevImage}
+                  aria-label="Previous image"
+                  className="h-7 w-7 flex items-center justify-center bg-[#008B8B] text-white rounded-sm hover:bg-[#006d6d] transition-colors"
+                >
+                  <ChevronLeft size={16} />
+                </button>
+                <button
+                  onClick={goNextImage}
+                  aria-label="Next image"
+                  className="h-7 w-7 flex items-center justify-center bg-[#008B8B] text-white rounded-sm hover:bg-[#006d6d] transition-colors"
+                >
+                  <ChevronRight size={16} />
+                </button>
+              </div>
+
+              {/* dots */}
+              <div className="flex justify-center gap-2 mt-6">
+                {current.images.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveImage(i)}
+                    aria-label={`Go to image ${i + 1}`}
+                    className={`h-2 rounded-full transition-all ${
+                      i === activeImage
+                        ? "w-7 bg-[#E5006D]"
+                        : "w-3 bg-[#008B8B]/30 hover:bg-[#008B8B]/50"
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </section>
-    </main>
+
+      {/* Showcase slider (NEW, like your screenshot) */}
+      <section className="w-full bg-[#F6F1EC] py-10 md:py-14">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
+          {/* heading like image */}
+          <div className="text-center mb-6 md:mb-8 relative">
+            <p className="text-[#008B8B] italic text-xl md:text-2xl font-medium">
+              {showcase.title}
+            </p>
+            <p className="text-[#008B8B] italic text-sm md:text-base inline-block relative mt-1">
+              {showcase.subtitle}
+              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#E5006D]" />
+            </p>
+
+            {/* optional corner flower icon (as in screenshot) */}
+            <div className="hidden md:block absolute right-0 -top-6 h-14 w-14 opacity-60 pointer-events-none">
+              {/* you can place your svg here */}
+            </div>
+          </div>
+
+          {/* images row */}
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-8">
+            {showcase.images.map((img, idx) => (
+              <div
+                key={idx}
+                className="flex-1 rounded-2xl overflow-hidden bg-white shadow-sm border border-white/70 h-[180px] sm:h-[200px] md:h-[230px] lg:h-[250px]"
+              >
+                <img
+                  src={img}
+                  alt={`Showcase ${idx + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* bottom nav */}
+          <div className="flex items-center justify-center gap-3 mt-6">
+            <button
+              onClick={goShowcasePrev}
+              className="h-7 w-7 flex items-center justify-center bg-[#008B8B] text-white rounded-sm hover:bg-[#006d6d] transition-colors"
+            >
+              <ChevronLeft size={16} />
+            </button>
+
+            <div className="flex gap-2">
+              {showcaseSlides.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setShowcaseIndex(i)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    i === showcaseIndex
+                      ? "bg-[#008B8B]"
+                      : "bg-[#008B8B]/35 hover:bg-[#008B8B]/60"
+                  }`}
+                  aria-label={`Go to showcase slide ${i + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={goShowcaseNext}
+              className="h-7 w-7 flex items-center justify-center bg-[#008B8B] text-white rounded-sm hover:bg-[#006d6d] transition-colors"
+            >
+              <ChevronRight size={16} />
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
