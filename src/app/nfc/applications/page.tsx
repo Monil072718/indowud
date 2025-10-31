@@ -372,17 +372,15 @@ export default function ApplicationsPage() {
                   <button
                     key={panel.key}
                     onClick={() => setActivePanel(panel.key)}
-                    className={`flex-1 lg:flex-none text-left rounded-2xl border px-4 py-3 transition-all min-w-[190px] ${
-                      isActive
-                        ? "bg-[#008B8B] text-white border-transparent shadow-md"
-                        : "bg-white text-[#0C1217] border-gray-200 hover:border-[#008B8B]/50"
-                    }`}
+                    className={`flex-1 lg:flex-none text-left rounded-2xl border px-4 py-3 transition-all min-w-[190px] ${isActive
+                      ? "bg-[#008B8B] text-white border-transparent shadow-md"
+                      : "bg-white text-[#0C1217] border-gray-200 hover:border-[#008B8B]/50"
+                      }`}
                   >
                     <p className="text-sm font-semibold">{panel.title}</p>
                     <p
-                      className={`text-xs mt-1 ${
-                        isActive ? "text-white/80" : "text-gray-500"
-                      }`}
+                      className={`text-xs mt-1 ${isActive ? "text-white/80" : "text-gray-500"
+                        }`}
                     >
                       {panel.desc}
                     </p>
@@ -483,8 +481,12 @@ export default function ApplicationsPage() {
                   style={{ transform: `translateX(-${activeImage * 100}%)` }}
                 >
                   {current.images.map((image, i) => (
-                    <div key={i} className="w-full shrink-0 flex gap-4 md:gap-6">
-                      {/* left small */}
+                    // 👇 mobile: block, lg: flex 3-column
+                    <div
+                      key={i}
+                      className="w-full shrink-0 lg:flex lg:gap-6"
+                    >
+                      {/* left small (lg only) */}
                       <div className="hidden lg:block w-1/4 bg-[#F5F5F5] rounded-2xl overflow-hidden h-[200px] md:h-[210px]">
                         <img
                           src={image}
@@ -494,7 +496,7 @@ export default function ApplicationsPage() {
                       </div>
 
                       {/* main */}
-                      <div className="flex-1 bg-[#F5F5F5] rounded-2xl overflow-hidden h-[180px] sm:h-[200px] md:h-[230px] lg:h-[260px]">
+                      <div className="w-full lg:flex-1 bg-[#F5F5F5] rounded-2xl overflow-hidden h-[190px] sm:h-[210px] md:h-[230px] lg:h-[260px]">
                         <img
                           src={current.images[(i + 1) % imgCount]}
                           alt={`${current.title} - main view`}
@@ -502,7 +504,7 @@ export default function ApplicationsPage() {
                         />
                       </div>
 
-                      {/* right small */}
+                      {/* right small (lg only) */}
                       <div className="hidden lg:block w-1/4 bg-[#F5F5F5] rounded-2xl overflow-hidden h-[200px] md:h-[210px]">
                         <img
                           src={current.images[(i + 2) % imgCount]}
@@ -540,11 +542,10 @@ export default function ApplicationsPage() {
                     key={i}
                     onClick={() => setActiveImage(i)}
                     aria-label={`Go to image ${i + 1}`}
-                    className={`h-2 rounded-full transition-all ${
-                      i === activeImage
-                        ? "w-7 bg-[#E5006D]"
-                        : "w-3 bg-[#008B8B]/30 hover:bg-[#008B8B]/50"
-                    }`}
+                    className={`h-2 rounded-full transition-all ${i === activeImage
+                      ? "w-7 bg-[#E5006D]"
+                      : "w-3 bg-[#008B8B]/30 hover:bg-[#008B8B]/50"
+                      }`}
                   />
                 ))}
               </div>
@@ -553,10 +554,11 @@ export default function ApplicationsPage() {
         </div>
       </section>
 
+
       {/* Showcase slider (NEW, like your screenshot) */}
       <section className="w-full bg-[#F6F1EC] py-10 md:py-14">
         <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
-          {/* heading like image */}
+          {/* heading */}
           <div className="text-center mb-6 md:mb-8 relative">
             <p className="text-[#008B8B] italic text-xl md:text-2xl font-medium">
               {showcase.title}
@@ -565,24 +567,36 @@ export default function ApplicationsPage() {
               {showcase.subtitle}
               <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#E5006D]" />
             </p>
-
-            {/* optional corner flower icon (as in screenshot) */}
-            <div className="hidden md:block absolute right-0 -top-6 h-14 w-14 opacity-60 pointer-events-none">
-              {/* you can place your svg here */}
-            </div>
           </div>
 
           {/* images row */}
-          <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-8">
+          <div
+            className="
+        flex gap-4
+        overflow-x-auto
+        snap-x snap-mandatory
+        md:overflow-visible md:flex-row md:gap-6 lg:gap-8
+      "
+          >
             {showcase.images.map((img, idx) => (
               <div
                 key={idx}
-                className="flex-1 rounded-2xl overflow-hidden bg-white shadow-sm border border-white/70 h-[180px] sm:h-[200px] md:h-[230px] lg:h-[250px]"
+                className="
+            flex-none
+            w-[70%]             /* mobile: show 1 + part of 2nd */
+            xs:w-[60%]          /* if you have xs: even better */
+            sm:w-[55%]
+            md:flex-1 md:w-auto
+            rounded-2xl overflow-hidden bg-white shadow-sm border border-white/70
+            h-[180px] sm:h-[200px] md:h-[230px] lg:h-[250px]
+            snap-start
+          "
               >
                 <img
                   src={img}
                   alt={`Showcase ${idx + 1}`}
-                  className="w-full h-full object-cover"
+                  className="w-full object-cover"
+                  style={{ height: "100%", display: "block" }}
                 />
               </div>
             ))}
@@ -592,7 +606,7 @@ export default function ApplicationsPage() {
           <div className="flex items-center justify-center gap-3 mt-6">
             <button
               onClick={goShowcasePrev}
-              className="h-7 w-7 flex items-center justify-center bg-[#008B8B] text-white rounded-sm hover:bg-[#006d6d] transition-colors"
+              className="h-8 w-8 flex items-center justify-center bg-[#008B8B] text-white rounded-md hover:bg-[#006d6d] transition-colors"
             >
               <ChevronLeft size={16} />
             </button>
@@ -602,11 +616,10 @@ export default function ApplicationsPage() {
                 <button
                   key={i}
                   onClick={() => setShowcaseIndex(i)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    i === showcaseIndex
+                  className={`w-3 h-3 rounded-full transition-all ${i === showcaseIndex
                       ? "bg-[#008B8B]"
                       : "bg-[#008B8B]/35 hover:bg-[#008B8B]/60"
-                  }`}
+                    }`}
                   aria-label={`Go to showcase slide ${i + 1}`}
                 />
               ))}
@@ -614,13 +627,16 @@ export default function ApplicationsPage() {
 
             <button
               onClick={goShowcaseNext}
-              className="h-7 w-7 flex items-center justify-center bg-[#008B8B] text-white rounded-sm hover:bg-[#006d6d] transition-colors"
+              className="h-8 w-8 flex items-center justify-center bg-[#008B8B] text-white rounded-md hover:bg-[#006d6d] transition-colors"
             >
               <ChevronRight size={16} />
             </button>
           </div>
         </div>
       </section>
+
+
+
     </div>
   );
 }
