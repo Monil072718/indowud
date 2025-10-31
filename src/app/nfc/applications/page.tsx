@@ -184,7 +184,7 @@ function Slider({
   return (
     <div
       ref={hostRef}
-      className={`relative ${rounded} overflow-hidden bg-white shadow-2xl ring-1 ring-gray-200/60`}
+      className={`relative ${rounded} overflow-hidden bg-white`}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       onFocus={() => setIsFocus(true)}
@@ -229,7 +229,7 @@ function Slider({
       </div>
 
       {/* Dots + progress */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg z-30">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full z-30">
         {auto && (
           <div className="relative h-1 w-24 overflow-hidden rounded bg-gray-200/80">
             <motion.div
@@ -247,9 +247,8 @@ function Slider({
               key={i}
               onClick={() => setIndex(i)}
               aria-label={`Go to slide ${i + 1}`}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                index === i ? "w-6 bg-gray-900" : "w-2 bg-gray-400 hover:bg-gray-500"
-              }`}
+              className={`h-2 rounded-full transition-all duration-300 ${index === i ? "w-6 bg-gray-900" : "w-2 bg-gray-400 hover:bg-gray-500"
+                }`}
             />
           ))}
         </div>
@@ -478,7 +477,7 @@ export default function ApplicationsPage() {
               <img
                 src="https://images.pexels.com/photos/3637738/pexels-photo-3637738.jpeg?auto=compress&cs=tinysrgb&w=1920"
                 alt="Furniture Boards"
-                className="w-full h-[300px] object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-[120px] sm:h-[160px] md:h-[240px] lg:h-[300px] object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="mt-6">
@@ -509,32 +508,62 @@ export default function ApplicationsPage() {
       </section>
 
       {/* NFC CREATE & NEO SECTION */}
-      <section className="max-w-7xl mx-auto px-6 mt-20">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-12">
+      <section className="max-w-7xl mx-auto px-6 mt-20 no-shadow-all">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-rose-600 mb-4">
-            NFC Create & Neo for Interior Panels
+            NFC Create &amp; Neo for Interior Panels
           </h2>
           <div className="w-24 h-1 bg-green-500 mx-auto rounded-full"></div>
         </motion.div>
 
-        <motion.div variants={scaleIn} initial="hidden" whileInView="show" viewport={{ once: true }}>
+        <motion.div
+          variants={scaleIn}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="shadow-none"
+        >
           <Slider images={sections[0].images} aspect="h-64 md:h-80" />
         </motion.div>
       </section>
 
       {/* NFC BUILD SECTION */}
-      <section className="max-w-7xl mx-auto px-6 mt-20">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-12">
+      <section className="max-w-7xl mx-auto px-6 mt-20 no-shadow-all">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-rose-600 mb-4">
             NFC Build for Exterior Panels and Interior Panels
           </h2>
           <div className="w-24 h-1 bg-green-500 mx-auto rounded-full"></div>
         </motion.div>
 
-        <motion.div variants={scaleIn} initial="hidden" whileInView="show" viewport={{ once: true }}>
-          <Slider images={sections[1].images} aspect="h-64 md:h-80" />
+        <motion.div
+          variants={scaleIn}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="shadow-none"
+        >
+          <div className="h-52 sm:h-60 md:h-72 lg:h-80">
+            <Slider images={sections[1].images} />
+          </div>
         </motion.div>
       </section>
+
+
+
+
 
       {/* USE-CASE GALLERY */}
       <section className="max-w-7xl mx-auto px-6 mt-16">
