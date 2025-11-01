@@ -23,7 +23,6 @@ import {
   type ICity,
 } from "country-state-city"
 
-/* ---------- Types ---------- */
 type SubNavItem = { label: string; path: string }
 type DropdownItem = {
   label: string
@@ -38,19 +37,15 @@ type NavItem = {
 }
 
 export default function Header() {
-  /* Desktop state */
   const [openTop, setOpenTop] = useState<string | null>(null)
   const [openSub, setOpenSub] = useState<string | null>(null)
 
-  /* Mobile state */
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileOpenTop, setMobileOpenTop] = useState<string | null>(null)
   const [mobileOpenSub, setMobileOpenSub] = useState<string | null>(null)
 
-  /* Brochure modal state */
   const [brochureOpen, setBrochureOpen] = useState(false)
 
-  /* detect touch / no-hover devices (tablets) */
   const [isTouchDesktop, setIsTouchDesktop] = useState(false)
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -68,7 +63,6 @@ export default function Header() {
     { Icon: Linkedin, href: "https://www.linkedin.com/company/indowud/" },
   ]
 
-  /* Hover intent timers */
   const tOpen = useRef<NodeJS.Timeout | null>(null)
   const tClose = useRef<NodeJS.Timeout | null>(null)
   const tSubOpen = useRef<NodeJS.Timeout | null>(null)
@@ -81,7 +75,6 @@ export default function Header() {
     if (tSubClose.current) clearTimeout(tSubClose.current)
   }, [])
 
-  /* ---------- DESKTOP HOVER HANDLERS ---------- */
   const handleTopEnter = (label: string) => {
     clearAll()
     tOpen.current = setTimeout(() => {
@@ -169,7 +162,6 @@ export default function Header() {
     { label: "Contact Us", path: "/contact" },
   ]
 
-  /* Motion variants */
   const dropdownPanel: Variants = {
     hidden: { opacity: 0, y: 8, scale: 0.98 },
     show: {
@@ -191,7 +183,6 @@ export default function Header() {
     exit: { opacity: 0, x: -4, transition: { duration: 0.1 } },
   }
 
-  /* 🔧 submenu panel variant (unchanged) */
   const submenuPanel: Variants = {
     hidden: { opacity: 0, x: -6, scale: 0.98 },
     show: {
@@ -246,7 +237,6 @@ export default function Header() {
       >
         <div className="w-full max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-14 sm:h-16 md:h-20 w-full">
-            {/* Brand */}
             <Link
               href="/"
               className="flex items-center gap-2.5 flex-shrink-0"
@@ -265,7 +255,6 @@ export default function Header() {
               </div>
             </Link>
 
-            {/* Desktop / Tablet Nav */}
             <nav className="hidden md:flex items-center gap-4 lg:gap-7 xl:gap-8 flex-shrink-0">
               {navItems.map((item) => {
                 const hasDropdown = !!item.dropdown?.length
@@ -344,30 +333,6 @@ export default function Header() {
                               const hasSub = !!(d.hasSubmenu && d.submenu?.length)
                               const subOpen = openSub === d.label
 
-                              const subProps = isTouchDesktop
-                                ? {
-                                    onClick: (e: React.MouseEvent) => {
-                                      if (hasSub) {
-                                        e.preventDefault()
-                                        setOpenSub(subOpen ? null : d.label)
-                                      } else {
-                                        closeAllMenus()
-                                      }
-                                    },
-                                  }
-                                : {
-                                    onMouseEnter: () => {
-                                      if (hasSub) {
-                                        handleSubEnter(d.label)
-                                      }
-                                    },
-                                    onMouseLeave: () => {
-                                      if (hasSub) {
-                                        handleSubLeave()
-                                      }
-                                    },
-                                  }
-
                               return (
                                 <motion.div
                                   key={d.label}
@@ -377,11 +342,24 @@ export default function Header() {
                                   animate="show"
                                   exit="exit"
                                   className="relative group"
-                                  {...(!isTouchDesktop ? subProps : {})}
+                                  {...(!isTouchDesktop && hasSub
+                                    ? {
+                                        onMouseEnter: () => handleSubEnter(d.label),
+                                        onMouseLeave: handleSubLeave,
+                                      }
+                                    : {})}
                                 >
                                   {hasSub ? (
                                     <button
-                                      onClick={isTouchDesktop ? subProps.onClick : preventNav}
+                                      onClick={(e) => {
+                                        if (isTouchDesktop) {
+                                          e.preventDefault()
+                                          e.stopPropagation()
+                                          setOpenSub(subOpen ? null : d.label)
+                                        } else {
+                                          preventNav(e)
+                                        }
+                                      }}
                                       className="w-full flex items-center justify-between px-5 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-teal-500 hover:to-teal-600 hover:text-white transition-all duration-200"
                                     >
                                       <span>{d.label}</span>
@@ -405,8 +383,7 @@ export default function Header() {
                                         initial="hidden"
                                         animate="show"
                                         exit="exit"
-                                        /* 🔧 FIXED POSITIONING */
-                                        className="absolute left-full -top-2 ml-0.5 w-72 bg-white shadow-2xl rounded-xl z-[60] ring-1 ring-black/5 max-h-[70vh] overflow-y-auto"
+                                        className="absolute left-full top-0 ml-0.5 w-72 bg-white shadow-2xl rounded-xl z-[60] ring-1 ring-black/5 max-h-[70vh] overflow-y-auto"
                                         style={{ transformOrigin: "top left" }}
                                         {...(!isTouchDesktop
                                           ? {
@@ -450,7 +427,6 @@ export default function Header() {
               })}
             </nav>
 
-            {/* Right (desktop) */}
             <div className="hidden md:flex items-center gap-3 lg:gap-5 flex-shrink-0">
               <button
                 className="hidden lg:block bg-teal-500 hover:bg-teal-600 text-white px-4 lg:px-6 py-2.5 text-sm font-medium rounded-md transition-colors duration-200 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
@@ -475,7 +451,6 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Mobile Hamburger */}
             <button
               className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded hover:bg-gray-100 transition-colors duration-200 flex-shrink-0"
               aria-label="Toggle menu"
@@ -494,7 +469,6 @@ export default function Header() {
         </div>
       </motion.header>
 
-      {/* ---------- Mobile Drawer ---------- */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -644,7 +618,6 @@ export default function Header() {
                   )
                 })}
 
-                {/* CTA + Socials (mobile) */}
                 <div className="py-4 mt-2 border-t border-gray-200">
                   <button
                     onClick={openBrochure}
@@ -674,7 +647,6 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      {/* ---------- Request E-Brochure Modal ---------- */}
       <AnimatePresence>
         {brochureOpen && (
           <>
@@ -709,7 +681,6 @@ export default function Header() {
   )
 }
 
-/* ---------- Brochure Form Card ---------- */
 function BrochureFormCard({ onClose }: { onClose: () => void }) {
   const [confirmOpen, setConfirmOpen] = useState(false)
 
@@ -1046,7 +1017,6 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
         </div>
       </div>
 
-      {/* ---------- Success / Download Modal ---------- */}
       <AnimatePresence>
         {confirmOpen && (
           <>
@@ -1106,8 +1076,6 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
                           a.click()
                           document.body.removeChild(a)
                         }
-
-                        console.log("Brochure download URL:", pdfUrl)
 
                         setConfirmOpen(false)
                         onClose()
