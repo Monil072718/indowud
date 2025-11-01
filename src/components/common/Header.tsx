@@ -191,6 +191,7 @@ export default function Header() {
     exit: { opacity: 0, x: -4, transition: { duration: 0.1 } },
   }
 
+  /* 🔧 submenu panel variant (unchanged) */
   const submenuPanel: Variants = {
     hidden: { opacity: 0, x: -6, scale: 0.98 },
     show: {
@@ -404,7 +405,8 @@ export default function Header() {
                                         initial="hidden"
                                         animate="show"
                                         exit="exit"
-                                        className="absolute left-full top-0 ml-1 w-72 bg-white shadow-2xl rounded-r-xl z-[60] ring-1 ring-black/5 max-h-[70vh] overflow-y-auto"
+                                        /* 🔧 FIXED POSITIONING */
+                                        className="absolute left-full -top-2 ml-0.5 w-72 bg-white shadow-2xl rounded-xl z-[60] ring-1 ring-black/5 max-h-[70vh] overflow-y-auto"
                                         style={{ transformOrigin: "top left" }}
                                         {...(!isTouchDesktop
                                           ? {
