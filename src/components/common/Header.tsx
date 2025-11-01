@@ -50,11 +50,10 @@ export default function Header() {
   /* Brochure modal state */
   const [brochureOpen, setBrochureOpen] = useState(false)
 
-  /* 👇 detect if device is touch / does NOT support hover (iPad, Android tab) */
+  /* detect touch / no-hover devices (tablets) */
   const [isTouchDesktop, setIsTouchDesktop] = useState(false)
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // if device can't hover → it's touch
       const noHover = window.matchMedia("(hover: none)").matches
       const coarse = window.matchMedia("(pointer: coarse)").matches
       setIsTouchDesktop(noHover || coarse)
@@ -82,7 +81,7 @@ export default function Header() {
     if (tSubClose.current) clearTimeout(tSubClose.current)
   }, [])
 
-  /* ---------- DESKTOP HOVER HANDLERS (for real desktop) ---------- */
+  /* ---------- DESKTOP HOVER HANDLERS ---------- */
   const handleTopEnter = (label: string) => {
     clearAll()
     tOpen.current = setTimeout(() => {
@@ -271,7 +270,6 @@ export default function Header() {
                 const hasDropdown = !!item.dropdown?.length
                 const isOpen = openTop === item.label
 
-                // handlers for desktop-vs-tablet
                 const commonProps = isTouchDesktop
                   ? {
                       onClick: (e: React.MouseEvent) => {
@@ -293,7 +291,12 @@ export default function Header() {
                   <div
                     key={item.label}
                     className="relative"
-                    {...(!isTouchDesktop ? { onMouseEnter: commonProps.onMouseEnter, onMouseLeave: commonProps.onMouseLeave } : {})}
+                    {...(!isTouchDesktop
+                      ? {
+                          onMouseEnter: commonProps.onMouseEnter,
+                          onMouseLeave: commonProps.onMouseLeave,
+                        }
+                      : {})}
                   >
                     {hasDropdown ? (
                       <button
@@ -326,7 +329,7 @@ export default function Header() {
                           initial="hidden"
                           animate="show"
                           exit="exit"
-                          className="absolute top-full left-0 mt-1 w-72 bg-white shadow-2xl rounded-xl z-50 ring-1 ring-black/5"
+                          className="absolute top-full left-0 mt-1 w-72 bg-white shadow-2xl rounded-xl z-50 ring-1 ring-black/5 max-h-[70vh] overflow-y-auto"
                           style={{ transformOrigin: "top left" }}
                           {...(!isTouchDesktop
                             ? {
@@ -335,12 +338,11 @@ export default function Header() {
                               }
                             : {})}
                         >
-                          <div className="py-2 overflow-visible">
+                          <div className="py-2">
                             {item.dropdown!.map((d, i) => {
                               const hasSub = !!(d.hasSubmenu && d.submenu?.length)
                               const subOpen = openSub === d.label
 
-                              // for touch desktop/tablet: click to open sub
                               const subProps = isTouchDesktop
                                 ? {
                                     onClick: (e: React.MouseEvent) => {
@@ -402,7 +404,7 @@ export default function Header() {
                                         initial="hidden"
                                         animate="show"
                                         exit="exit"
-                                        className="absolute left-full top-0 ml-1 w-72 bg-white shadow-2xl rounded-r-xl z-[60] ring-1 ring-black/5 overflow-hidden"
+                                        className="absolute left-full top-0 ml-1 w-72 bg-white shadow-2xl rounded-r-xl z-[60] ring-1 ring-black/5 max-h-[70vh] overflow-y-auto"
                                         style={{ transformOrigin: "top left" }}
                                         {...(!isTouchDesktop
                                           ? {
@@ -582,9 +584,7 @@ export default function Header() {
                                       onClick={(e) => {
                                         if (hasSub) {
                                           e.preventDefault()
-                                          setMobileOpenSub(
-                                            subOpen ? null : d.label
-                                          )
+                                          setMobileOpenSub(subOpen ? null : d.label)
                                         } else {
                                           setMobileOpen(false)
                                         }
@@ -597,9 +597,7 @@ export default function Header() {
                                       <button
                                         aria-label="Toggle submenu"
                                         onClick={() =>
-                                          setMobileOpenSub(
-                                            subOpen ? null : d.label
-                                          )
+                                          setMobileOpenSub(subOpen ? null : d.label)
                                         }
                                         className="p-1.5 rounded hover:bg-gray-200 transition-colors duration-200 ml-2 flex-shrink-0"
                                       >
@@ -713,10 +711,8 @@ export default function Header() {
 function BrochureFormCard({ onClose }: { onClose: () => void }) {
   const [confirmOpen, setConfirmOpen] = useState(false)
 
-  // keep name same as in /public
   const BROCHURE_PATH = "/Indowud-nfc-eBrochure.pdf"
 
-  // Country / State / City
   const [countries] = useState<ICountry[]>(Country.getAllCountries())
   const [states, setStates] = useState<IState[]>([])
   const [cities, setCities] = useState<ICity[]>([])
