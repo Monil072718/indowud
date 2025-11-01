@@ -46,6 +46,7 @@ export default function Header() {
 
   const [brochureOpen, setBrochureOpen] = useState(false)
 
+  // detect touch/pen desktop so we can switch to click behavior
   const [isTouchDesktop, setIsTouchDesktop] = useState(false)
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -63,6 +64,7 @@ export default function Header() {
     { Icon: Linkedin, href: "https://www.linkedin.com/company/indowud/" },
   ]
 
+  // timers for smooth open/close
   const tOpen = useRef<NodeJS.Timeout | null>(null)
   const tClose = useRef<NodeJS.Timeout | null>(null)
   const tSubOpen = useRef<NodeJS.Timeout | null>(null)
@@ -207,6 +209,7 @@ export default function Header() {
     setMobileOpenSub(null)
   }
 
+  // modal scroll lock
   useEffect(() => {
     if (brochureOpen) {
       const prev = document.body.style.overflow
@@ -233,10 +236,11 @@ export default function Header() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="bg-white/90 backdrop-blur shadow-sm fixed inset-x-0 top-0 z-50 w-full"
+        className="bg-white/90 backdrop-blur shadow-sm fixed inset-x-0 top-0 z-50 w-full overflow-visible"
       >
         <div className="w-full max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-14 sm:h-16 md:h-20 w-full">
+          <div className="flex justify-between items-center h-14 sm:h-16 md:h-20 w-full overflow-visible">
+            {/* logo */}
             <Link
               href="/"
               className="flex items-center gap-2.5 flex-shrink-0"
@@ -255,7 +259,8 @@ export default function Header() {
               </div>
             </Link>
 
-            <nav className="hidden md:flex items-center gap-4 lg:gap-7 xl:gap-8 flex-shrink-0">
+            {/* DESKTOP NAV - now ONLY from lg and up */}
+            <nav className="hidden lg:flex items-center gap-4 lg:gap-7 xl:gap-8 flex-shrink-0 overflow-visible">
               {navItems.map((item) => {
                 const hasDropdown = !!item.dropdown?.length
                 const isOpen = openTop === item.label
@@ -280,7 +285,7 @@ export default function Header() {
                 return (
                   <div
                     key={item.label}
-                    className="relative"
+                    className="relative overflow-visible"
                     {...(!isTouchDesktop
                       ? {
                           onMouseEnter: commonProps.onMouseEnter,
@@ -319,7 +324,7 @@ export default function Header() {
                           initial="hidden"
                           animate="show"
                           exit="exit"
-                          className="absolute top-full left-0 mt-1 w-72 bg-white shadow-2xl rounded-xl z-50 ring-1 ring-black/5 max-h-[70vh] overflow-y-auto"
+                          className="absolute top-full left-0 mt-1 w-72 bg-white shadow-2xl rounded-xl z-50 ring-1 ring-black/5 overflow-visible"
                           style={{ transformOrigin: "top left" }}
                           {...(!isTouchDesktop
                             ? {
@@ -341,7 +346,7 @@ export default function Header() {
                                   initial="hidden"
                                   animate="show"
                                   exit="exit"
-                                  className="relative group"
+                                  className="relative group overflow-visible"
                                   {...(!isTouchDesktop && hasSub
                                     ? {
                                         onMouseEnter: () => handleSubEnter(d.label),
@@ -383,7 +388,7 @@ export default function Header() {
                                         initial="hidden"
                                         animate="show"
                                         exit="exit"
-                                        className="absolute left-full top-0 ml-0.5 w-72 bg-white shadow-2xl rounded-xl z-[60] ring-1 ring-black/5 max-h-[70vh] overflow-y-auto"
+                                        className="absolute left-full top-0 ml-0.5 w-72 bg-white shadow-2xl rounded-xl z-[60] ring-1 ring-black/5 overflow-visible"
                                         style={{ transformOrigin: "top left" }}
                                         {...(!isTouchDesktop
                                           ? {
@@ -427,15 +432,16 @@ export default function Header() {
               })}
             </nav>
 
-            <div className="hidden md:flex items-center gap-3 lg:gap-5 flex-shrink-0">
+            {/* right side buttons */}
+            <div className="hidden lg:flex items-center gap-3 lg:gap-5 flex-shrink-0">
               <button
-                className="hidden lg:block bg-teal-500 hover:bg-teal-600 text-white px-4 lg:px-6 py-2.5 text-sm font-medium rounded-md transition-colors duration-200 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+                className="hidden xl:block bg-teal-500 hover:bg-teal-600 text-white px-4 xl:px-6 py-2.5 text-sm font-medium rounded-md transition-colors duration-200 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
                 onClick={openBrochure}
                 aria-label="Request E-Brochure"
               >
                 Request E-Brochure
               </button>
-              <div className="hidden lg:flex items-center gap-3">
+              <div className="hidden xl:flex items-center gap-3">
                 {headerSocial.map(({ Icon, href }, i) => (
                   <a
                     key={i}
@@ -451,8 +457,9 @@ export default function Header() {
               </div>
             </div>
 
+            {/* mobile / tablet toggle (now shown up to < lg) */}
             <button
-              className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded hover:bg-gray-100 transition-colors duration-200 flex-shrink-0"
+              className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded hover:bg-gray-100 transition-colors duration-200 flex-shrink-0"
               aria-label="Toggle menu"
               onClick={() => {
                 const next = !mobileOpen
@@ -469,6 +476,7 @@ export default function Header() {
         </div>
       </motion.header>
 
+      {/* MOBILE / TABLET MENU */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -476,7 +484,7 @@ export default function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/20 z-40 md:hidden"
+              className="fixed inset-0 bg-black/20 z-40 lg:hidden"
               onClick={() => setMobileOpen(false)}
             />
 
@@ -486,7 +494,7 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden w-full bg-white border-t border-gray-200 fixed top-14 sm:top-16 left-0 right-0 z-40 shadow-lg"
+              className="lg:hidden w-full bg-white border-t border-gray-200 fixed top-14 sm:top-16 left-0 right-0 z-40 shadow-lg"
             >
               <div className="w-full px-3 xs:px-4 sm:px-6 py-3 max-h-[calc(100vh-3.5rem)] sm:max-h-[calc(100vh-4rem)] overflow-y-auto">
                 {navItems.map((item) => {
@@ -647,6 +655,7 @@ export default function Header() {
         )}
       </AnimatePresence>
 
+      {/* BROCHURE MODAL */}
       <AnimatePresence>
         {brochureOpen && (
           <>
@@ -1060,9 +1069,7 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
                       className="flex-1 rounded-md bg-teal-500 hover:bg-teal-600 text-white text-sm py-2.5"
                       onClick={() => {
                         const origin =
-                          typeof window !== "undefined"
-                            ? window.location.origin
-                            : ""
+                          typeof window !== "undefined" ? window.location.origin : ""
                         const pdfUrl = `${origin}${BROCHURE_PATH}`
 
                         const win = window.open(pdfUrl, "_blank")
