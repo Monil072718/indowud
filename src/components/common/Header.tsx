@@ -50,6 +50,17 @@ export default function Header() {
   /* Brochure modal state */
   const [brochureOpen, setBrochureOpen] = useState(false)
 
+  /* 👇 detect if device is touch / does NOT support hover (iPad, Android tab) */
+  const [isTouchDesktop, setIsTouchDesktop] = useState(false)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // if device can't hover → it's touch
+      const noHover = window.matchMedia("(hover: none)").matches
+      const coarse = window.matchMedia("(pointer: coarse)").matches
+      setIsTouchDesktop(noHover || coarse)
+    }
+  }, [])
+
   const headerSocial = [
     { Icon: Facebook, href: "https://www.facebook.com/indowud" },
     { Icon: Twitter, href: "https://x.com/indowud" },
@@ -71,6 +82,7 @@ export default function Header() {
     if (tSubClose.current) clearTimeout(tSubClose.current)
   }, [])
 
+  /* ---------- DESKTOP HOVER HANDLERS (for real desktop) ---------- */
   const handleTopEnter = (label: string) => {
     clearAll()
     tOpen.current = setTimeout(() => {
@@ -253,25 +265,41 @@ export default function Header() {
               </div>
             </Link>
 
-            {/* Desktop Nav */}
+            {/* Desktop / Tablet Nav */}
             <nav className="hidden md:flex items-center gap-4 lg:gap-7 xl:gap-8 flex-shrink-0">
               {navItems.map((item) => {
                 const hasDropdown = !!item.dropdown?.length
+                const isOpen = openTop === item.label
+
+                // handlers for desktop-vs-tablet
+                const commonProps = isTouchDesktop
+                  ? {
+                      onClick: (e: React.MouseEvent) => {
+                        if (hasDropdown) {
+                          e.preventDefault()
+                          setOpenTop(isOpen ? null : item.label)
+                          setOpenSub(null)
+                        } else {
+                          closeAllMenus()
+                        }
+                      },
+                    }
+                  : {
+                      onMouseEnter: () => hasDropdown && handleTopEnter(item.label),
+                      onMouseLeave: handleTopLeave,
+                    }
 
                 return (
                   <div
                     key={item.label}
                     className="relative"
-                    onMouseEnter={() => hasDropdown && handleTopEnter(item.label)}
-                    onMouseLeave={handleTopLeave}
+                    {...(!isTouchDesktop ? { onMouseEnter: commonProps.onMouseEnter, onMouseLeave: commonProps.onMouseLeave } : {})}
                   >
                     {hasDropdown ? (
                       <button
-                        onClick={preventNav}
+                        onClick={isTouchDesktop ? commonProps.onClick : preventNav}
                         className={`text-[13px] lg:text-sm font-medium py-2 px-1 transition-colors whitespace-nowrap ${
-                          openTop === item.label
-                            ? "text-rose-600"
-                            : "text-gray-700 hover:text-rose-600"
+                          isOpen ? "text-rose-600" : "text-gray-700 hover:text-rose-600"
                         }`}
                       >
                         {item.label}
@@ -279,19 +307,19 @@ export default function Header() {
                     ) : (
                       <Link
                         href={item.path}
+                        onClick={closeAllMenus}
                         className={`text-[13px] lg:text-sm font-medium py-2 px-1 transition-colors whitespace-nowrap ${
                           item.label === "Home"
                             ? "text-rose-600"
                             : "text-gray-700 hover:text-rose-600"
                         }`}
-                        onClick={closeAllMenus}
                       >
                         {item.label}
                       </Link>
                     )}
 
                     <AnimatePresence>
-                      {hasDropdown && openTop === item.label && (
+                      {hasDropdown && isOpen && (
                         <motion.div
                           key={`${item.label}-dd`}
                           variants={dropdownPanel}
@@ -300,15 +328,42 @@ export default function Header() {
                           exit="exit"
                           className="absolute top-full left-0 mt-1 w-72 bg-white shadow-2xl rounded-xl z-50 ring-1 ring-black/5"
                           style={{ transformOrigin: "top left" }}
-                          onMouseEnter={() => handleTopEnter(item.label)}
-                          onMouseLeave={handleTopLeave}
+                          {...(!isTouchDesktop
+                            ? {
+                                onMouseEnter: () => handleTopEnter(item.label),
+                                onMouseLeave: handleTopLeave,
+                              }
+                            : {})}
                         >
                           <div className="py-2 overflow-visible">
                             {item.dropdown!.map((d, i) => {
-                              const hasSub = !!(
-                                d.hasSubmenu && d.submenu?.length
-                              )
+                              const hasSub = !!(d.hasSubmenu && d.submenu?.length)
                               const subOpen = openSub === d.label
+
+                              // for touch desktop/tablet: click to open sub
+                              const subProps = isTouchDesktop
+                                ? {
+                                    onClick: (e: React.MouseEvent) => {
+                                      if (hasSub) {
+                                        e.preventDefault()
+                                        setOpenSub(subOpen ? null : d.label)
+                                      } else {
+                                        closeAllMenus()
+                                      }
+                                    },
+                                  }
+                                : {
+                                    onMouseEnter: () => {
+                                      if (hasSub) {
+                                        handleSubEnter(d.label)
+                                      }
+                                    },
+                                    onMouseLeave: () => {
+                                      if (hasSub) {
+                                        handleSubLeave()
+                                      }
+                                    },
+                                  }
 
                               return (
                                 <motion.div
@@ -319,21 +374,11 @@ export default function Header() {
                                   animate="show"
                                   exit="exit"
                                   className="relative group"
-                                  onMouseEnter={() => {
-                                    if (hasSub) {
-                                      handleSubEnter(d.label)
-                                    }
-                                  }}
-                                  onMouseLeave={() => {
-                                    if (hasSub) {
-                                      handleSubLeave()
-                                    }
-                                  }}
+                                  {...(!isTouchDesktop ? subProps : {})}
                                 >
                                   {hasSub ? (
                                     <button
-                                      onClick={preventNav}
-                                      onMouseEnter={() => handleSubEnter(d.label)}
+                                      onClick={isTouchDesktop ? subProps.onClick : preventNav}
                                       className="w-full flex items-center justify-between px-5 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-teal-500 hover:to-teal-600 hover:text-white transition-all duration-200"
                                     >
                                       <span>{d.label}</span>
@@ -359,16 +404,13 @@ export default function Header() {
                                         exit="exit"
                                         className="absolute left-full top-0 ml-1 w-72 bg-white shadow-2xl rounded-r-xl z-[60] ring-1 ring-black/5 overflow-hidden"
                                         style={{ transformOrigin: "top left" }}
-                                        onMouseEnter={() => {
-                                          handleSubEnter(d.label)
-                                        }}
-                                        onMouseLeave={handleSubLeave}
+                                        {...(!isTouchDesktop
+                                          ? {
+                                              onMouseEnter: () => handleSubEnter(d.label),
+                                              onMouseLeave: handleSubLeave,
+                                            }
+                                          : {})}
                                       >
-                                        <div
-                                          className="absolute -left-6 top-0 h-full w-6"
-                                          onMouseEnter={() => handleSubEnter(d.label)}
-                                          aria-hidden="true"
-                                        />
                                         <div className="py-2">
                                           {d.submenu!.map((s, si) => (
                                             <motion.div
@@ -526,9 +568,7 @@ export default function Header() {
                             className="pl-4 border-l-2 border-teal-400 ml-2 bg-gray-50/50"
                           >
                             {item.dropdown!.map((d) => {
-                              const hasSub = !!(
-                                d.hasSubmenu && d.submenu?.length
-                              )
+                              const hasSub = !!(d.hasSubmenu && d.submenu?.length)
                               const subOpen = mobileOpenSub === d.label
 
                               return (
@@ -781,7 +821,6 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
 
           <form onSubmit={handleSubmit} noValidate>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* fields ... (same as before) */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Name<span className="text-rose-600">*</span>
@@ -1052,17 +1091,14 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
                     <button
                       className="flex-1 rounded-md bg-teal-500 hover:bg-teal-600 text-white text-sm py-2.5"
                       onClick={() => {
-                        // make full URL so it also works on Vercel / custom domains
                         const origin =
                           typeof window !== "undefined"
                             ? window.location.origin
                             : ""
                         const pdfUrl = `${origin}${BROCHURE_PATH}`
 
-                        // try open in new tab first
                         const win = window.open(pdfUrl, "_blank")
                         if (!win) {
-                          // blocked → create a hidden <a>
                           const a = document.createElement("a")
                           a.href = pdfUrl
                           a.download = "Indowud-nfc-eBrochure.pdf"
@@ -1073,7 +1109,6 @@ function BrochureFormCard({ onClose }: { onClose: () => void }) {
                           document.body.removeChild(a)
                         }
 
-                        // for debugging – you'll see the exact URL in console
                         console.log("Brochure download URL:", pdfUrl)
 
                         setConfirmOpen(false)
