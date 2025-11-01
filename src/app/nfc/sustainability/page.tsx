@@ -94,11 +94,7 @@ export default function SustainabilityPage() {
       credit: "IEQ 5 - Low emitting Materials",
       compliance: "Composite wood with no urea formaldehyde",
       points: [],
-      indowudEdge: [
-        "No Urea Formaldehyde",
-        "No Formaldehyde emissions",
-        "No VOC emissions",
-      ],
+      indowudEdge: ["No Urea Formaldehyde", "No Formaldehyde emissions", "No VOC emissions"],
       rating: 1,
     },
   ]
@@ -134,13 +130,17 @@ export default function SustainabilityPage() {
                   HOME
                 </Link>
               </li>
-              <li aria-hidden="true" className="mx-1">/</li>
+              <li aria-hidden="true" className="mx-1">
+                /
+              </li>
               <li>
                 <Link href="/nfc" className="hover:text-white transition-colors">
                   NFC
                 </Link>
               </li>
-              <li aria-hidden="true" className="mx-1">/</li>
+              <li aria-hidden="true" className="mx-1">
+                /
+              </li>
               <li>SUSTAINABILITY</li>
             </ol>
           </motion.nav>
@@ -190,18 +190,21 @@ export default function SustainabilityPage() {
                     <span className="text-sm sm:text-base font-semibold text-[#003a36]">{r.title}</span>
                   </div>
 
+                  {/* RIGHT SIDE (mobile all-in-one line) */}
                   <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
-                    {/* POINTS */}
-                    <div className="flex flex-col items-end">
+                    {/* mobile: row | sm+: column */}
+                    <div className="flex items-center gap-2 sm:flex-col sm:items-end sm:gap-1">
                       <span className="text-xs font-medium text-slate-500 uppercase">POINTS</span>
-                      <span className="text-lg sm:text-xl font-bold text-[#00d5be]">{r.rating}</span>
-                    </div>
 
-                    {/* stars */}
-                    <div className="flex items-center gap-0.5 sm:gap-1">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star key={i} filled={i < r.rating} />
-                      ))}
+                      <div className="flex items-center gap-2 sm:gap-1">
+                        <span className="text-lg sm:text-xl font-bold text-[#00d5be]">{r.rating}</span>
+
+                        <div className="flex items-center gap-0.5 sm:gap-1">
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <Star key={i} filled={i < r.rating} />
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </button>
