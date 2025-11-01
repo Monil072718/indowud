@@ -341,76 +341,79 @@ export default function ApplicationsPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8"
+            className="mb-8 text-center md:text-left"
           >
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-[#E5006D] mb-1">
-                Our Panel Range
-              </p>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0C1217]">
-                Interior, Exterior, Furniture &amp; Partition
-              </h2>
-              <p className="text-sm text-gray-500 mt-2 max-w-xl">
-                Choose the ideal panel for your application — each one
-                waterproof, termite-proof, and made for long life.
-              </p>
-            </div>
+            <p className="text-xs uppercase tracking-[0.3em] text-[#E5006D] mb-1">
+              Our Panel Range
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#0C1217]">
+              Interior, Exterior, Furniture &amp; Partition
+            </h2>
+            <p className="text-sm text-gray-500 mt-2 max-w-2xl md:max-w-xl mx-auto md:mx-0">
+              Select a panel type to see where to use it and what makes it different.
+            </p>
           </motion.div>
 
-          <div className="grid gap-8 lg:grid-cols-[0.33fr,0.67fr]">
-            {/* left selector */}
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible pb-2"
-            >
+          {/* desktop layout */}
+          <div className="hidden lg:grid lg:grid-cols-[0.34fr,0.66fr] gap-8">
+            {/* left: cards as list */}
+            <div className="space-y-4">
               {panels.map((panel) => {
                 const isActive = panel.key === activePanel;
                 return (
                   <button
                     key={panel.key}
                     onClick={() => setActivePanel(panel.key)}
-                    className={`flex-1 lg:flex-none text-left rounded-2xl border px-4 py-3 transition-all min-w-[190px] ${isActive
-                      ? "bg-[#008B8B] text-white border-transparent shadow-md"
-                      : "bg-white text-[#0C1217] border-gray-200 hover:border-[#008B8B]/50"
+                    className={`w-full flex items-start gap-3 rounded-2xl border px-4 py-4 transition-all text-left ${isActive
+                        ? "bg-[#ECFFFE] border-[#008B8B] shadow-sm"
+                        : "bg-white border-gray-200 hover:border-[#008B8B]/50"
                       }`}
                   >
-                    <p className="text-sm font-semibold">{panel.title}</p>
-                    <p
-                      className={`text-xs mt-1 ${isActive ? "text-white/80" : "text-gray-500"
+                    <div
+                      className={`h-10 w-1.5 rounded-full mt-1 ${isActive ? "bg-[#008B8B]" : "bg-gray-200"
                         }`}
-                    >
-                      {panel.desc}
-                    </p>
+                    />
+                    <div className="flex-1">
+                      <p
+                        className={`text-sm font-semibold ${isActive ? "text-[#008B8B]" : "text-slate-900"
+                          }`}
+                      >
+                        {panel.title}
+                      </p>
+                      <p
+                        className={`text-[11px] mt-1 ${isActive ? "text-[#008B8B]/70" : "text-gray-500"
+                          }`}
+                      >
+                        {panel.desc}
+                      </p>
+                    </div>
                   </button>
                 );
               })}
-            </motion.div>
+            </div>
 
-            {/* right content */}
+            {/* right: main card */}
             <motion.div
               key={activePanelData.key}
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="bg-white rounded-3xl border border-gray-100/60 shadow-[0_18px_60px_rgba(0,0,0,0.03)] overflow-hidden"
+              className="bg-white rounded-3xl border border-gray-100/70 shadow-[0_20px_50px_rgba(0,0,0,0.02)] overflow-hidden"
             >
-              <div className="relative h-[210px] sm:h-[220px] md:h-[260px] lg:h-[300px]">
+              <div className="relative h-[300px]">
                 <Image
                   src={activePanelData.img}
                   alt={activePanelData.title}
                   fill
                   className="object-cover"
                 />
-                <div className="absolute top-4 left-4 bg-white/80 rounded-full px-4 py-1.5 text-xs font-semibold text-[#008B8B]">
+                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-4 py-1.5 text-xs font-semibold text-[#008B8B]">
                   {activePanelData.title}
                 </div>
               </div>
-              <div className="p-6 md:p-8 space-y-3">
-                <h3 className="text-lg md:text-xl font-bold text-[#0C1217]">
+              <div className="p-7 space-y-3">
+                <h3 className="text-xl font-semibold text-slate-900">
                   {activePanelData.title}
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
@@ -419,15 +422,99 @@ export default function ApplicationsPage() {
                 <p className="text-sm text-gray-700 leading-relaxed">
                   {activePanelData.long}
                 </p>
-                <button className="inline-flex items-center gap-1 text-[#E5006D] text-sm font-semibold hover:gap-2 transition-all mt-3">
-                  View specifications
-                  <span aria-hidden="true">→</span>
-                </button>
+                <div className="pt-2 flex gap-3 flex-wrap">
+                  <button className="inline-flex items-center gap-2 bg-[#008B8B] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#006c6c] transition-all">
+                    View specifications
+                    <span aria-hidden="true">→</span>
+                  </button>
+                  <button className="inline-flex items-center gap-1 text-[#E5006D] text-sm font-medium hover:gap-2 transition-all">
+                    Download brochure
+                    <span aria-hidden="true">↓</span>
+                  </button>
+                </div>
               </div>
             </motion.div>
           </div>
+
+          {/* mobile / tablet layout: cards */}
+          <div className="lg:hidden space-y-5">
+            {panels.map((panel) => {
+              const isActive = panel.key === activePanel;
+              const isCurrent = panel.key === activePanelData.key;
+              return (
+                <motion.div
+                  key={panel.key}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  className={`rounded-2xl border ${isActive ? "border-[#008B8B]" : "border-gray-200"
+                    } bg-white shadow-sm overflow-hidden`}
+                >
+                  {/* top row */}
+                  <button
+                    onClick={() => setActivePanel(panel.key)}
+                    className="w-full flex items-center gap-3 px-4 py-3"
+                  >
+                    <div
+                      className={`h-9 w-9 rounded-full flex items-center justify-center text-xs font-bold ${isActive ? "bg-[#008B8B] text-white" : "bg-slate-100 text-slate-700"
+                        }`}
+                    >
+                      {panel.title.split(" ")[0].charAt(0)}
+                    </div>
+                    <div className="flex-1 text-left">
+                      <p
+                        className={`text-sm font-semibold ${isActive ? "text-[#008B8B]" : "text-slate-900"
+                          }`}
+                      >
+                        {panel.title}
+                      </p>
+                      <p className="text-[11px] text-gray-500 line-clamp-2">
+                        {panel.desc}
+                      </p>
+                    </div>
+                    <span
+                      className={`text-xs px-2 py-1 rounded-full ${isActive
+                          ? "bg-[#ECFFFE] text-[#008B8B]"
+                          : "bg-slate-100 text-slate-500"
+                        }`}
+                    >
+                      {isActive ? "Selected" : "View"}
+                    </span>
+                  </button>
+
+                  {/* expanded part for active card */}
+                  {isCurrent && (
+                    <div className="pt-2">
+                      <div className="relative h-[180px]">
+                        <Image
+                          src={panel.img}
+                          alt={panel.title}
+                          fill
+                          className="object-cover"
+                        />
+                        <div className="absolute top-3 left-3 bg-white/90 rounded-full px-4 py-1 text-[10px] font-medium text-[#008B8B]">
+                          {panel.title}
+                        </div>
+                      </div>
+                      <div className="p-4 space-y-2">
+                        <p className="text-sm text-gray-600">{panel.desc}</p>
+                        <p className="text-sm text-gray-700">{panel.long}</p>
+                        <button className="inline-flex items-center gap-1 text-[#E5006D] text-sm font-semibold hover:gap-2 transition-all mt-1">
+                          View specifications
+                          <span aria-hidden="true">→</span>
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
+
+
 
       {/* Slider section (bottom) - EXISTING */}
       <section className="w-full">
@@ -617,8 +704,8 @@ export default function ApplicationsPage() {
                   key={i}
                   onClick={() => setShowcaseIndex(i)}
                   className={`w-3 h-3 rounded-full transition-all ${i === showcaseIndex
-                      ? "bg-[#008B8B]"
-                      : "bg-[#008B8B]/35 hover:bg-[#008B8B]/60"
+                    ? "bg-[#008B8B]"
+                    : "bg-[#008B8B]/35 hover:bg-[#008B8B]/60"
                     }`}
                   aria-label={`Go to showcase slide ${i + 1}`}
                 />
