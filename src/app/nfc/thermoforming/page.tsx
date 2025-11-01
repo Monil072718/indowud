@@ -1,72 +1,80 @@
 "use client";
 
-import React, { useId, Suspense, memo } from "react";
+import React, { useId, Suspense } from "react";
 import Link from "next/link";
-import { motion, Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import dynamic from "next/dynamic";
 
-// Import Swiper CSS at module level
+// Swiper CSS
 import "swiper/css";
 import "swiper/css/navigation";
 
-// Lazy load Swiper for better performance - only load when needed
+// lazy swiper
 const SwiperSlider = dynamic(
-  () => Promise.all([
-    import("swiper/react"),
-    import("swiper/modules")
-  ]).then(([swiperMod, modulesMod]) => {
-    const { Swiper, SwiperSlide } = swiperMod;
-    const { Navigation, Autoplay } = modulesMod;
-    
-    return function SwiperSliderComponent({ gallery, uid }: { gallery: { src: string; alt?: string }[]; uid: string }) {
-      return (
-        <Swiper
-          modules={[Navigation, Autoplay]}
-          navigation={{
-            prevEl: `.thermo-prev-${uid}`,
-            nextEl: `.thermo-next-${uid}`,
-          }}
-          autoplay={{ delay: 3500, disableOnInteraction: false }}
-          loop
-          speed={600}
-          spaceBetween={16}
-          slidesPerView={1}
-          breakpoints={{
-            640: { slidesPerView: 2, spaceBetween: 20 },
-            1024: { slidesPerView: 3, spaceBetween: 24 },
-          }}
-          className="rounded-2xl ring-1 ring-slate-200 bg-white/30"
-        >
-          {gallery.map((g, i) => (
-            <SwiperSlide key={i}>
-              <figure className="group relative overflow-hidden h-[280px] sm:h-[320px] lg:h-[360px]">
-                <img
-                  src={g.src}
-                  alt={g.alt ?? "Thermoformed example"}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                />
-                <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 to-transparent px-4 py-3 text-white flex items-center justify-between">
-                  <span className="text-sm font-medium">
-                    {g.alt ?? "Project"}
-                  </span>
-                  <span className="text-xs opacity-90">Hover to view</span>
-                </figcaption>
-              </figure>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      );
-    };
-  }),
+  () =>
+    Promise.all([import("swiper/react"), import("swiper/modules")]).then(
+      ([swiperMod, modulesMod]) => {
+        const { Swiper, SwiperSlide } = swiperMod;
+        const { Navigation, Autoplay } = modulesMod;
+
+        return function SwiperSliderComponent({
+          gallery,
+          uid,
+        }: {
+          gallery: { src: string; alt?: string }[];
+          uid: string;
+        }) {
+          return (
+            <Swiper
+              modules={[Navigation, Autoplay]}
+              navigation={{
+                prevEl: `.thermo-prev-${uid}`,
+                nextEl: `.thermo-next-${uid}`,
+              }}
+              autoplay={{ delay: 3500, disableOnInteraction: false }}
+              loop
+              speed={600}
+              spaceBetween={16}
+              slidesPerView={1}
+              breakpoints={{
+                640: { slidesPerView: 2, spaceBetween: 20 },
+                1024: { slidesPerView: 3, spaceBetween: 24 },
+              }}
+              className="rounded-2xl ring-1 ring-slate-200 bg-white/30"
+            >
+              {gallery.map((g, i) => (
+                <SwiperSlide key={i}>
+                  <figure className="group relative overflow-hidden h-[280px] sm:h-[320px] lg:h-[360px]">
+                    <img
+                      src={g.src}
+                      alt={g.alt ?? "Thermoformed example"}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 to-transparent px-4 py-3 text-white flex items-center justify-between">
+                      <span className="text-sm font-medium">
+                        {g.alt ?? "Project"}
+                      </span>
+                      <span className="text-xs opacity-90">Hover to view</span>
+                    </figcaption>
+                  </figure>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          );
+        };
+      }
+    ),
   {
-    loading: () => <div className="h-[280px] sm:h-[320px] lg:h-[360px] bg-gray-100 rounded-2xl" />,
+    loading: () => (
+      <div className="h-[280px] sm:h-[320px] lg:h-[360px] bg-gray-100 rounded-2xl" />
+    ),
     ssr: false,
   }
 );
 
-/* --------------------------- animations -------------------------- */
+/* ---------- animations ---------- */
 const container: Variants = {
   hidden: { opacity: 0, y: 16 },
   show: {
@@ -86,16 +94,14 @@ const item: Variants = {
   },
 };
 
-/* --------------------------- component --------------------------- */
 export default function ThermoformingPage() {
-  const uid = useId(); // unique suffix for selector-based nav
+  const uid = useId();
 
-  // Move all default values inside the component
   const title = "Thermoforming";
   const subtitle = (
     <>
-      Effortless thermoforming without compromising on strength. The high content
-      of natural fibres in Indowud <span className="font-semibold">NFC</span>
+      Effortless thermoforming without compromising on strength. The high
+      content of natural fibres in Indowud <span className="font-semibold">NFC</span>
       &nbsp;ensures dimensional stability post forming.
     </>
   );
@@ -111,26 +117,30 @@ export default function ThermoformingPage() {
       thermoforming.
     </>
   );
-  const youtubeId = "dQw4w9WgXcQ";
   const specs = [
     { label: "Heating Temperature", value: "140°–170° C" },
     { label: "Heating Time", value: "1–2 min / mm of board thickness" },
     { label: "Locking (desired shape)", value: "≈ 5 minutes" },
     { label: "Cooling Time", value: "1–2 minutes / mm of thickness" },
   ];
-  const gallery: { src: string; alt?: string }[] = []; // Empty gallery for now
+  // empty for now
+  const gallery: { src: string; alt?: string }[] = [];
 
   return (
     <section className="relative isolate">
-      {/* angled header band */}
+      {/* angled header band – behind content, overdraw on left, no white gap */}
       <div
-        className="absolute inset-x-0 -top-20 h-40 bg-gradient-to-r from-emerald-100 via-teal-100 to-cyan-100"
-        style={{ clipPath: "polygon(0 60%, 100% 0, 100% 100%, 0 100%)" }}
+        className="pointer-events-none absolute inset-x-0 -top-28 h-48 bg-gradient-to-r from-emerald-100 via-teal-100 to-cyan-100 -z-10"
+        style={{
+          // -4% makes it start off-screen to the left -> fixes white triangle
+          clipPath: "polygon(-4% 30%, 100% 0, 100% 100%, -4% 100%)",
+        }}
         aria-hidden
       />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-        {/* title */}
+      {/* content in front */}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 md:pt-24 md:pb-20">
+        {/* title + breadcrumb */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -140,7 +150,7 @@ export default function ThermoformingPage() {
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
             {title}
           </h2>
-          {/* breadcrumb */}
+
           <motion.nav
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -149,26 +159,27 @@ export default function ThermoformingPage() {
             className="mt-3 text-xs md:text-sm tracking-widest text-gray-500 uppercase"
             aria-label="Breadcrumb"
           >
-            <ol className="flex items-center">
+            <ol className="flex items-center gap-1 flex-wrap">
               <li>
                 <Link href="/" className="hover:text-gray-700 transition-colors">
                   HOME
                 </Link>
               </li>
-              <li aria-hidden="true" className="mx-1">/</li>
+              <li aria-hidden="true">/</li>
               <li>
                 <Link href="/nfc" className="hover:text-gray-700 transition-colors">
                   NFC
                 </Link>
               </li>
-              <li aria-hidden="true" className="mx-1">/</li>
+              <li aria-hidden="true">/</li>
               <li>THERMOFORMING</li>
             </ol>
           </motion.nav>
+
           <p className="mt-2 max-w-3xl text-slate-600">{subtitle}</p>
         </motion.div>
 
-        {/* FULL-WIDTH VIDEO */}
+        {/* video */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -189,7 +200,6 @@ export default function ThermoformingPage() {
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               />
-
             </div>
           </motion.div>
         </motion.div>
@@ -259,9 +269,11 @@ export default function ThermoformingPage() {
           </div>
         </motion.div>
 
-        {/* GALLERY SLIDER */}
+        {/* GALLERY SLIDER (only if gallery has items) */}
         {gallery.length > 0 && (
-          <Suspense fallback={<div className="mt-10 h-[280px] bg-gray-100 rounded-2xl" />}>
+          <Suspense
+            fallback={<div className="mt-10 h-[280px] bg-gray-100 rounded-2xl" />}
+          >
             <motion.div
               variants={container}
               initial="hidden"
