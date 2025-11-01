@@ -249,7 +249,8 @@ function SuggestionsSection({
 
         {/* Guidelines */}
         <div className="mx-auto mt-8 sm:mt-12 max-w-5xl">
-          <div className="grid gap-3 grid-cols-1 sm:grid-cols-2">
+          {/* SAME UI — just added items-start so grid cards don’t stretch */}
+          <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 items-start">
             {sections.map((g) => (
               <Accordion key={g.id} title={g.title}>
                 <p className="text-xs sm:text-sm leading-relaxed text-slate-600">{g.body}</p>
