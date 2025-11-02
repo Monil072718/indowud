@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useEffect, useMemo, useState, memo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import {
   Mail,
   Phone,
@@ -73,11 +72,17 @@ export default function ContactUs() {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [attachmentName, setAttachmentName] = useState<string>("No file chosen");
 
-  const [cscModule, setCscModule] = useState<{ Country: typeof import("country-state-city").Country; State: typeof import("country-state-city").State; City: typeof import("country-state-city").City } | null>(null);
+  const [cscModule, setCscModule] = useState<{
+    Country: typeof import("country-state-city").Country;
+    State: typeof import("country-state-city").State;
+    City: typeof import("country-state-city").City;
+  } | null>(null);
 
   // Lazy load country-state-city when component mounts
   useEffect(() => {
-    loadCountryStateCity().then((mod) => setCscModule({ Country: mod.Country, State: mod.State, City: mod.City }));
+    loadCountryStateCity().then((mod) =>
+      setCscModule({ Country: mod.Country, State: mod.State, City: mod.City }),
+    );
   }, []);
 
   const countryOptions: Option[] = useMemo(
@@ -111,7 +116,6 @@ export default function ContactUs() {
     return list.map((ct) => ({ value: ct.name, label: ct.name }));
   }, [formData.countryCode, formData.stateCode, stateOptions.length, cscModule]);
 
-
   /* ---------- dependent resets when user changes country/state ---------- */
   const handleCountryChange = (iso2: string) => {
     if (!cscModule) return;
@@ -129,7 +133,9 @@ export default function ContactUs() {
 
   const handleStateChange = (stCode: string) => {
     if (!cscModule || !formData.countryCode) return;
-    const st = cscModule.State.getStatesOfCountry(formData.countryCode).find((x) => x.isoCode === stCode);
+    const st = cscModule.State.getStatesOfCountry(formData.countryCode).find(
+      (x) => x.isoCode === stCode,
+    );
     setFormData((prev) => ({
       ...prev,
       stateCode: stCode,
@@ -150,8 +156,7 @@ export default function ContactUs() {
     setSubmitStatus("idle");
 
     try {
-      // You can send `formData` to your API here
-      // Form submission handled server-side
+      // submit to API here
 
       setSubmitStatus("success");
       setFormData({
@@ -174,7 +179,6 @@ export default function ContactUs() {
       setAttachmentName("No file chosen");
       setTimeout(() => setSubmitStatus("idle"), 5000);
     } catch (error) {
-      // Error handled - user feedback provided via submitStatus
       setSubmitStatus("error");
       setTimeout(() => setSubmitStatus("idle"), 5000);
     } finally {
@@ -186,9 +190,10 @@ export default function ContactUs() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
       {/* Top hero band */}
-      <div className="relative overflow-hidden">
+      {/* pulled up a bit to remove the white strip at the top */}
+      <div className="relative overflow-hidden -mt-4 md:mt-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(20,184,166,.25),transparent_40%),radial-gradient(circle_at_80%_0%,rgba(244,63,94,.22),transparent_35%)]" />
-        <div className="relative max-w-7xl mx-auto px-6 py-20">
+        <div className="relative max-w-7xl mx-auto px-6 pt-16 pb-14 md:py-20">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
               <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-gray-900">
@@ -208,13 +213,15 @@ export default function ContactUs() {
                       HOME
                     </Link>
                   </li>
-                  <li aria-hidden="true" className="mx-1">/</li>
+                  <li aria-hidden="true" className="mx-1">
+                    /
+                  </li>
                   <li>CONTACT US</li>
                 </ol>
               </motion.nav>
               <p className="mt-3 text-gray-600 max-w-2xl">
-                Tell us a bit about yourself and what you&apos;re looking for. Our team will get back
-                to you shortly.
+                Tell us a bit about yourself and what you&apos;re looking for. Our team will get
+                back to you shortly.
               </p>
             </div>
 
@@ -240,7 +247,8 @@ export default function ContactUs() {
       </div>
 
       {/* Content grid */}
-      <div className="max-w-7xl mx-auto px-6 pb-20 mt-20">
+      {/* reduced mt so form sits closer to hero */}
+      <div className="max-w-7xl mx-auto px-6 pb-20 mt-10 md:mt-14">
         <div className="grid lg:grid-cols-3 gap-10">
           {/* FORM CARD */}
           <motion.div
@@ -560,9 +568,12 @@ export default function ContactUs() {
 
               <div className="mt-5 space-y-4 text-sm text-gray-700">
                 <p className="leading-relaxed">
-                  Indowud NFC Private Limited<br />
-                  First Floor, New No. 36,<br />
-                  First Main Road (East), Shenoy Nagar,<br />
+                  Indowud NFC Private Limited
+                  <br />
+                  First Floor, New No. 36,
+                  <br />
+                  First Main Road (East), Shenoy Nagar,
+                  <br />
                   Chennai – 600 030, India
                 </p>
 
@@ -674,14 +685,13 @@ function Input({
   );
 }
 
-function TextArea({
-  className,
-  ...props
-}: React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
+function TextArea({ className, ...props }: React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
   return (
     <textarea
       {...props}
-      className={`w-full rounded-xl border border-gray-300 bg-white px-3 py-3 text-sm shadow-sm outline-none ring-0 transition placeholder:text-gray-400 focus:border-teal-500 ${className || ""}`}
+      className={`w-full rounded-xl border border-gray-300 bg-white px-3 py-3 text-sm shadow-sm outline-none ring-0 transition placeholder:text-gray-400 focus:border-teal-500 ${
+        className || ""
+      }`}
       rows={props.rows || 5}
     />
   );
@@ -772,7 +782,7 @@ function LazyMapIframe() {
 
   useEffect(() => {
     if (!mapRef.current) return;
-    
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -780,9 +790,9 @@ function LazyMapIframe() {
           observer.disconnect();
         }
       },
-      { rootMargin: "100px" }
+      { rootMargin: "100px" },
     );
-    
+
     observer.observe(mapRef.current);
     return () => observer.disconnect();
   }, []);
