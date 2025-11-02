@@ -46,7 +46,7 @@ export default function Header() {
 
   const [brochureOpen, setBrochureOpen] = useState(false)
 
-  // detect touch/pen desktop so we can switch to click behavior
+  // detect touch/pen desktop (we keep it but we go with hover for desktop)
   const [isTouchDesktop, setIsTouchDesktop] = useState(false)
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -64,7 +64,7 @@ export default function Header() {
     { Icon: Linkedin, href: "https://www.linkedin.com/company/indowud/" },
   ]
 
-  // timers for smooth open/close
+  // timers (kept as in your code)
   const tOpen = useRef<NodeJS.Timeout | null>(null)
   const tClose = useRef<NodeJS.Timeout | null>(null)
   const tSubOpen = useRef<NodeJS.Timeout | null>(null)
@@ -259,43 +259,26 @@ export default function Header() {
               </div>
             </Link>
 
-            {/* DESKTOP NAV - now ONLY from lg and up */}
+            {/* DESKTOP NAV - hover to open */}
             <nav className="hidden lg:flex items-center gap-4 lg:gap-7 xl:gap-8 flex-shrink-0 overflow-visible">
               {navItems.map((item) => {
                 const hasDropdown = !!item.dropdown?.length
                 const isOpen = openTop === item.label
 
-                const commonProps = isTouchDesktop
-                  ? {
-                      onClick: (e: React.MouseEvent) => {
-                        if (hasDropdown) {
-                          e.preventDefault()
-                          setOpenTop(isOpen ? null : item.label)
-                          setOpenSub(null)
-                        } else {
-                          closeAllMenus()
-                        }
-                      },
-                    }
-                  : {
-                      onMouseEnter: () => hasDropdown && handleTopEnter(item.label),
-                      onMouseLeave: handleTopLeave,
-                    }
-
                 return (
                   <div
                     key={item.label}
                     className="relative overflow-visible"
-                    {...(!isTouchDesktop
-                      ? {
-                          onMouseEnter: commonProps.onMouseEnter,
-                          onMouseLeave: commonProps.onMouseLeave,
-                        }
-                      : {})}
+                    onMouseEnter={() => {
+                      if (hasDropdown) {
+                        handleTopEnter(item.label)
+                      }
+                    }}
+                    onMouseLeave={handleTopLeave}
                   >
                     {hasDropdown ? (
                       <button
-                        onClick={isTouchDesktop ? commonProps.onClick : preventNav}
+                        onClick={preventNav}
                         className={`text-[13px] lg:text-sm font-medium py-2 px-1 transition-colors whitespace-nowrap ${
                           isOpen ? "text-rose-600" : "text-gray-700 hover:text-rose-600"
                         }`}
@@ -326,12 +309,8 @@ export default function Header() {
                           exit="exit"
                           className="absolute top-full left-0 mt-1 w-72 bg-white shadow-2xl rounded-xl z-50 ring-1 ring-black/5 overflow-visible"
                           style={{ transformOrigin: "top left" }}
-                          {...(!isTouchDesktop
-                            ? {
-                                onMouseEnter: () => handleTopEnter(item.label),
-                                onMouseLeave: handleTopLeave,
-                              }
-                            : {})}
+                          onMouseEnter={() => handleTopEnter(item.label)}
+                          onMouseLeave={handleTopLeave}
                         >
                           <div className="py-2">
                             {item.dropdown!.map((d, i) => {
@@ -347,24 +326,20 @@ export default function Header() {
                                   animate="show"
                                   exit="exit"
                                   className="relative group overflow-visible"
-                                  {...(!isTouchDesktop && hasSub
-                                    ? {
-                                        onMouseEnter: () => handleSubEnter(d.label),
-                                        onMouseLeave: handleSubLeave,
-                                      }
-                                    : {})}
+                                  onMouseEnter={() => {
+                                    if (hasSub) {
+                                      handleSubEnter(d.label)
+                                    }
+                                  }}
+                                  onMouseLeave={() => {
+                                    if (hasSub) {
+                                      handleSubLeave()
+                                    }
+                                  }}
                                 >
                                   {hasSub ? (
                                     <button
-                                      onClick={(e) => {
-                                        if (isTouchDesktop) {
-                                          e.preventDefault()
-                                          e.stopPropagation()
-                                          setOpenSub(subOpen ? null : d.label)
-                                        } else {
-                                          preventNav(e)
-                                        }
-                                      }}
+                                      onClick={preventNav}
                                       className="w-full flex items-center justify-between px-5 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-teal-500 hover:to-teal-600 hover:text-white transition-all duration-200"
                                     >
                                       <span>{d.label}</span>
@@ -390,12 +365,8 @@ export default function Header() {
                                         exit="exit"
                                         className="absolute left-full top-0 ml-0.5 w-72 bg-white shadow-2xl rounded-xl z-[60] ring-1 ring-black/5 overflow-visible"
                                         style={{ transformOrigin: "top left" }}
-                                        {...(!isTouchDesktop
-                                          ? {
-                                              onMouseEnter: () => handleSubEnter(d.label),
-                                              onMouseLeave: handleSubLeave,
-                                            }
-                                          : {})}
+                                        onMouseEnter={() => handleSubEnter(d.label)}
+                                        onMouseLeave={handleSubLeave}
                                       >
                                         <div className="py-2">
                                           {d.submenu!.map((s, si) => (
@@ -457,7 +428,7 @@ export default function Header() {
               </div>
             </div>
 
-            {/* mobile / tablet toggle (now shown up to < lg) */}
+            {/* mobile / tablet toggle */}
             <button
               className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded hover:bg-gray-100 transition-colors duration-200 flex-shrink-0"
               aria-label="Toggle menu"
@@ -476,7 +447,7 @@ export default function Header() {
         </div>
       </motion.header>
 
-      {/* MOBILE / TABLET MENU */}
+      {/* MOBILE / TABLET MENU (unchanged) */}
       <AnimatePresence>
         {mobileOpen && (
           <>
