@@ -60,10 +60,10 @@ export default function ComparativeStudyPage() {
       <header className="w-full">
         <div className="bg-gradient-to-b from-teal-700 via-teal-600/70 to-pink-700/80">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-            <h1 className="text-center text-3xl sm:text-5xl font-serif italic font-semibold text-white drop-shadow">
+            <h1 className="text-center text-4xl font-serif italic font-semibold text-white drop-shadow">
               Comparitive Study
             </h1>
-            <nav className="mt-3 text-center text-xs md:text-sm tracking-widest text-white/90 uppercase">
+            <nav className="mt-3 text-center text-xs tracking-widest text-white/90 uppercase">
               <ol className="inline-flex items-center">
                 <li>
                   <Link href="/" className="hover:text-white transition-colors">

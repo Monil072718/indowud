@@ -14,7 +14,7 @@ export default function SectionHeading({
           {eyebrow}
         </p>
       )}
-      <h2 className="text-2xl md:text-3xl font-bold italic text-gray-900">
+      <h2 className="text-3xl font-bold italic text-gray-900">
         {title}
       </h2>
     </div>

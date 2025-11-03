@@ -96,7 +96,7 @@ export default function BrandSection() {
                   className="absolute inset-0 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   style={{ boxShadow: "inset 0 0 20px rgba(244, 63, 94, 0.3)" }}
                 />
-                <span className="relative z-20 text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-amber-700 to-amber-900">
+                <span className="relative z-20 text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-amber-700 to-amber-900">
                   {item.letter}
                 </span>
               </motion.div>
@@ -203,7 +203,7 @@ export default function BrandSection() {
         >
           <motion.p
             whileHover={{ scale: 1.05 }}
-            className="text-2xl md:text-3xl font-light text-gray-600 italic"
+            className="text-2xl font-light text-gray-600 italic"
           >
             Philosophy of non-violence and harmony
           </motion.p>

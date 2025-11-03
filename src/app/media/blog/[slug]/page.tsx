@@ -114,7 +114,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
           Blog • Indowud
         </div>
-        <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
+        <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-slate-900">
           {post.title}
         </h1>
         <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-slate-600">

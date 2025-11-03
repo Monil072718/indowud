@@ -250,10 +250,10 @@ export default function Header() {
                 <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 border-2 border-white rotate-45 rounded-sm" />
               </div>
               <div className="leading-tight">
-                <div className="text-base sm:text-lg md:text-xl font-bold text-rose-600 tracking-wide">
+                <div className="text-lg font-bold text-rose-600 tracking-wide">
                   INDOWUD
                 </div>
-                <div className="text-[9px] sm:text-[10px] md:text-xs text-gray-600 tracking-wider">
+                <div className="text-xs text-gray-600 tracking-wider">
                   DESIGN TECHNOLOGY
                 </div>
               </div>
@@ -279,7 +279,7 @@ export default function Header() {
                     {hasDropdown ? (
                       <button
                         onClick={preventNav}
-                        className={`text-[13px] lg:text-sm font-medium py-2 px-1 transition-colors whitespace-nowrap ${
+                        className={`text-sm font-medium py-2 px-1 transition-colors whitespace-nowrap ${
                           isOpen ? "text-rose-600" : "text-gray-700 hover:text-rose-600"
                         }`}
                       >
@@ -289,7 +289,7 @@ export default function Header() {
                       <Link
                         href={item.path}
                         onClick={closeAllMenus}
-                        className={`text-[13px] lg:text-sm font-medium py-2 px-1 transition-colors whitespace-nowrap ${
+                        className={`text-sm font-medium py-2 px-1 transition-colors whitespace-nowrap ${
                           item.label === "Home"
                             ? "text-rose-600"
                             : "text-gray-700 hover:text-rose-600"

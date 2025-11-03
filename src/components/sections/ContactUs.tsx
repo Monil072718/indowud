@@ -196,7 +196,7 @@ export default function ContactUs() {
         <div className="relative max-w-7xl mx-auto px-6 pt-16 pb-14 md:py-20">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
-              <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-gray-900">
+              <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">
                 Let&apos;s talk
               </h1>
               {/* Breadcrumb */}
@@ -204,7 +204,7 @@ export default function ContactUs() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="mt-3 text-xs md:text-sm tracking-widest text-gray-500 uppercase"
+                className="mt-3 text-xs tracking-widest text-gray-500 uppercase"
                 aria-label="Breadcrumb"
               >
                 <ol className="flex items-center">
@@ -219,7 +219,7 @@ export default function ContactUs() {
                   <li>CONTACT US</li>
                 </ol>
               </motion.nav>
-              <p className="mt-3 text-gray-600 max-w-2xl">
+              <p className="mt-3 text-base text-gray-600 max-w-2xl">
                 Tell us a bit about yourself and what you&apos;re looking for. Our team will get
                 back to you shortly.
               </p>
@@ -267,7 +267,7 @@ export default function ContactUs() {
                   <p className="text-xs uppercase tracking-widest text-teal-600 font-semibold">
                     Contact form
                   </p>
-                  <h2 className="text-lg font-bold text-gray-900">Send us a message</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">Send us a message</h2>
                 </div>
               </div>
 
@@ -506,7 +506,7 @@ export default function ContactUs() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base text-white font-semibold shadow-lg shadow-teal-600/20 hover:bg-teal-700 disabled:opacity-60 disabled:cursor-not-allowed transition"
+                    className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-base text-white font-semibold shadow-lg shadow-teal-600/20 hover:bg-teal-700 disabled:opacity-60 disabled:cursor-not-allowed transition"
                   >
                     {isSubmitting ? (
                       <>

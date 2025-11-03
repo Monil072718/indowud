@@ -119,7 +119,7 @@ function SuggestionsSection({
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight"
+            className="text-4xl font-semibold tracking-tight"
           >
             {heading}
           </motion.h1>
@@ -129,7 +129,7 @@ function SuggestionsSection({
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: 0.05 }}
-            className="mt-3 text-xs md:text-sm tracking-widest text-white/90 uppercase"
+            className="mt-3 text-xs tracking-widest text-white/90 uppercase"
             aria-label="Breadcrumb"
           >
             <ol className="flex items-center">
@@ -148,7 +148,7 @@ function SuggestionsSection({
               <li>SUGGESTIONS</li>
             </ol>
           </motion.nav>
-          <p className="mt-2 text-sm sm:text-base text-white/90">
+          <p className="mt-2 text-base text-white/90">
             Zero-defect furniture starts with the right workflow & installation.
           </p>
         </div>
@@ -198,7 +198,7 @@ function SuggestionsSection({
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-slate-200 bg-gradient-to-r from-[#00d5be]/15 to-[#00d5be]/5 px-4 sm:px-6 py-4 sm:py-5 gap-2">
               <div className="flex items-center gap-3">
                 <div className="h-1 w-1 rounded-full bg-[#00d5be]" />
-                <h3 className="text-sm sm:text-base font-bold text-[#003a36]">
+                <h3 className="text-base font-bold text-[#003a36]">
                   Suggested grid spacing for panelling (mm)
                 </h3>
               </div>
@@ -340,11 +340,11 @@ function SustainabilitySection({
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight"
+            className="text-4xl font-semibold tracking-tight"
           >
             {heading}
           </motion.h1>
-          <p className="mt-2 sm:mt-3 max-w-3xl text-sm sm:text-base text-white/90">{intro}</p>
+          <p className="mt-2 sm:mt-3 max-w-3xl text-base text-white/90">{intro}</p>
         </div>
       </div>
 
@@ -360,8 +360,8 @@ function SustainabilitySection({
               transition={{ duration: 0.35 }}
               className="rounded-lg sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm"
             >
-              <h3 className="text-base sm:text-lg font-semibold text-[#003a36]">{r.title}</h3>
-              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600">{r.body}</p>
+              <h3 className="text-lg font-semibold text-[#003a36]">{r.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">{r.body}</p>
             </motion.article>
           ))}
         </div>

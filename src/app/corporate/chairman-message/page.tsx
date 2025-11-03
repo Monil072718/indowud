@@ -13,7 +13,7 @@ export default function ChairmanMessagePage() {
         {/* Intro */}
         <div className="grid grid-cols-1 md:grid-cols-[1fr,160px] gap-5 md:gap-8 items-center md:items-start">
           <div className="order-2 md:order-1 text-center md:text-left">
-            <p className="text-base sm:text-lg font-medium text-gray-900">
+            <p className="text-base font-medium text-gray-900">
               With over 30 years in the ply industry, Mr. Bengani is respected
               as the founder of Uniply. Today, as the Chairman of Indowud, he
               is pioneering natural fibre composite wood in India and the world.
@@ -28,16 +28,16 @@ export default function ChairmanMessagePage() {
 
         {/* Motto */}
         <div className="mt-8 md:mt-10 rounded-xl bg-gradient-to-r from-rose-50 to-teal-50 border border-gray-200 p-4 md:p-6 text-center">
-          <blockquote className="text-base sm:text-lg text-rose-700 italic font-semibold leading-relaxed">
+          <blockquote className="text-base text-rose-700 italic font-semibold leading-relaxed">
             Quality of the product is determined with performance and customer
-            satisfaction. Customer’s accessibility to promoters provides
+            satisfaction. Customer's accessibility to promoters provides
             confidence in product and ease to decide. This is the mantra I
             follow at Indowud NFC.
           </blockquote>
         </div>
 
         {/* Body */}
-        <div className="mt-8 md:mt-12 space-y-5 md:space-y-6 text-gray-700 leading-7 text-base sm:text-lg">
+        <div className="mt-8 md:mt-12 space-y-5 md:space-y-6 text-gray-700 leading-7 text-base">
           <SectionHeading eyebrow="Message" title="Embracing A Sustainable Future, One NFC Board At A Time" />
           <p>
             In a world grappling with the escalating climate crisis, every

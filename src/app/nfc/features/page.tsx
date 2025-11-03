@@ -61,7 +61,7 @@ function FeaturesSection({
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl font-semibold tracking-tight md:text-5xl"
+            className="text-4xl font-semibold tracking-tight"
           >
             {heading}
           </motion.h2>
@@ -71,7 +71,7 @@ function FeaturesSection({
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-3 text-xs md:text-sm tracking-widest text-white/90 uppercase"
+            className="mt-3 text-xs tracking-widest text-white/90 uppercase"
             aria-label="Breadcrumb"
           >
             <ol className="flex items-center">
@@ -95,7 +95,7 @@ function FeaturesSection({
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-3 text-base/7 md:text-lg/8 text-white/90"
+            className="mt-3 text-base text-white/90"
           >
             {sub}
           </motion.p>
@@ -114,7 +114,7 @@ function FeaturesSection({
               transition={{ duration: 0.5 }}
               className="p-8 md:p-12"
             >
-              <h3 className="text-2xl font-semibold text-[#003a36] md:text-3xl">Indowud NFC</h3>
+              <h3 className="text-2xl font-semibold text-[#003a36]">Indowud NFC</h3>
               <p className="mt-3 text-slate-600">
                 A high-performance wood alternative, fortified for durability. Precision-made panels that thrive in
                 harsh conditions and look great while doing it.

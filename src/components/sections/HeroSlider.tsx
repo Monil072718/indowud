@@ -151,11 +151,11 @@ export default function HeroSlider() {
                   </span>
                 </div>
 
-                <h1 className="text-5xl xl:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                <h1 className="text-4xl font-bold text-gray-900 mb-6 leading-tight">
                   {slide.title}
                 </h1>
 
-                <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+                <p className="text-base text-gray-700 mb-8 leading-relaxed">
                   {slide.subtitle}
                 </p>
               </div>
@@ -193,7 +193,7 @@ export default function HeroSlider() {
                 {slide.title}
               </h1>
 
-              <p className="text-lg text-gray-800 mb-2 drop-shadow-sm">
+              <p className="text-base text-gray-800 mb-2 drop-shadow-sm">
                 {slide.subtitle}
               </p>
             </div>

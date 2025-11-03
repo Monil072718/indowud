@@ -49,7 +49,7 @@ export default function BenefitsSection() {
                 Benefits & Craftability
               </span>
 
-              <h2 className="mt-4 text-3xl md:text-4xl font-bold tracking-tight text-slate-800">
+              <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-800">
                 Designed for{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
                   performance
@@ -70,7 +70,7 @@ export default function BenefitsSection() {
                     transition={{ duration: 0.5, delay: i * 0.08 }}
                     className={[
                       "leading-relaxed text-slate-600",
-                      c.small ? "text-sm text-slate-600/90" : "text-base md:text-lg",
+                      c.small ? "text-sm text-slate-600/90" : "text-base",
                       c.italic ? "italic" : "",
                     ].join(" ")}
                   >

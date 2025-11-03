@@ -114,11 +114,11 @@ export default function NewsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
+              <h1 className="text-4xl font-bold tracking-tight text-slate-900">
                 News & Media
               </h1>
               {/* Breadcrumb */}
-              <nav className="mt-3 text-xs md:text-sm tracking-widest text-gray-500 uppercase" aria-label="Breadcrumb">
+              <nav className="mt-3 text-xs tracking-widest text-gray-500 uppercase" aria-label="Breadcrumb">
                 <ol className="flex items-center">
                   <li>
                     <Link href="/" className="hover:text-gray-700 transition-colors">

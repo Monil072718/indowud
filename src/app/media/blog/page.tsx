@@ -187,7 +187,7 @@ function BlogContent() {
         animate={{ opacity: 1, y: 0, transition: { duration: 0.45 } }}
         className="mb-8 md:mb-10"
       >
-        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
+        <h1 className="text-4xl font-extrabold tracking-tight text-slate-900">
           Blog
         </h1>
         {/* Breadcrumb */}
@@ -195,7 +195,7 @@ function BlogContent() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="mt-3 text-xs md:text-sm tracking-widest text-gray-500 uppercase"
+          className="mt-3 text-xs tracking-widest text-gray-500 uppercase"
           aria-label="Breadcrumb"
         >
           <ol className="flex items-center">
@@ -224,7 +224,7 @@ function BlogContent() {
             <li>BLOG</li>
           </ol>
         </motion.nav>
-        <p className="mt-2 max-w-2xl text-slate-600">
+        <p className="mt-2 text-base max-w-2xl text-slate-600">
           Stories, comparisons, and how-tos from Indowud NFC.
         </p>
       </motion.header>
@@ -264,10 +264,10 @@ function BlogContent() {
               ))}
             </div>
 
-            <h2 className="text-2xl font-extrabold tracking-tight text-slate-900 md:text-3xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
               {featured.title}
             </h2>
-            <p className="mt-2 max-w-3xl text-slate-600">
+            <p className="mt-2 text-base max-w-3xl text-slate-600">
               {featured.excerpt}
             </p>
 

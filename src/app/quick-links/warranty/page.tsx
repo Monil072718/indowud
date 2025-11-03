@@ -36,9 +36,9 @@ export default function WarrantyPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex flex-col items-center justify-center px-4">
       <div className="w-full max-w-4xl mb-8 self-start">
-        <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">Warranty</h1>
+        <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">Warranty</h1>
         {/* Breadcrumb */}
-        <nav className="mt-3 text-xs md:text-sm tracking-widest text-gray-500 uppercase" aria-label="Breadcrumb">
+        <nav className="mt-3 text-xs tracking-widest text-gray-500 uppercase" aria-label="Breadcrumb">
           <ol className="flex items-center">
             <li>
               <Link href="/" className="hover:text-gray-700 transition-colors">

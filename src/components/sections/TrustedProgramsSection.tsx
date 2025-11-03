@@ -137,16 +137,16 @@ export default function TrustedProgramsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 md:gap-10 items-start">
           {/* Left copy */}
           <div className="md:col-span-1 lg:col-span-2">
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-slate-800 text-balance">
+            <h2 className="text-3xl font-bold text-slate-800 text-balance">
               Verified by trusted programs
             </h2>
-            <p className="mt-2 sm:mt-3 md:mt-4 text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
+            <p className="mt-2 sm:mt-3 md:mt-4 text-base text-slate-600 leading-relaxed">
               From ISO standards to sustainability ecolabels, our panels are audited against rigorous benchmarks for
               safety, quality and environmental performance.
             </p>
 
             <div className="mt-4 sm:mt-5 md:mt-6 rounded-lg sm:rounded-xl bg-white border border-emerald-100 p-3 sm:p-4 md:p-5 shadow-sm">
-              <div className="text-xs sm:text-sm md:text-base leading-relaxed">
+              <div className="text-base leading-relaxed">
                 <span className="font-semibold text-emerald-700">GreenPro Ecolabel</span> by CII validates lifecycle
                 excellence and green building contribution.
               </div>

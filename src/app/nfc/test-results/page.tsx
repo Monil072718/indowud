@@ -49,10 +49,10 @@ export default function TestResultsPage() {
       <header className="w-full">
         <div className="bg-gradient-to-b from-teal-700 via-teal-600/70 to-pink-700/80">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-            <h1 className="text-center text-3xl sm:text-5xl font-serif italic font-semibold text-white drop-shadow">
+            <h1 className="text-center text-4xl font-serif italic font-semibold text-white drop-shadow">
               Test Results
             </h1>
-            <nav className="mt-3 text-center text-xs md:text-sm tracking-widest text-white/90 uppercase">
+            <nav className="mt-3 text-center text-xs tracking-widest text-white/90 uppercase">
               <ol className="inline-flex items-center">
                 <li>
                   <Link href="/" className="hover:text-white transition-colors">
@@ -75,7 +75,7 @@ export default function TestResultsPage() {
 
       {/* Intro + Title */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10">
-        <h2 className="text-center text-2xl sm:text-3xl font-extrabold text-teal-700">
+        <h2 className="text-center text-3xl font-extrabold text-teal-700">
           nfc Boards with High Fibre Content
         </h2>
         <p className="mt-3 text-center text-[13px] leading-6 text-zinc-600">
@@ -159,7 +159,7 @@ export default function TestResultsPage() {
 
       {/* Sound Test */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-14">
-        <h3 className="text-center text-xl sm:text-2xl font-extrabold text-rose-600 mb-4">Sound Test</h3>
+        <h3 className="text-center text-2xl font-extrabold text-rose-600 mb-4">Sound Test</h3>
 
         <div className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
           <div className="bg-rose-600 h-1.5 w-full" />

@@ -62,7 +62,7 @@ export default function FeaturesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-800 mb-6 italic"
+            className="text-3xl font-semibold text-gray-800 mb-6 italic"
           >
             A Pioneering Wood That Lets You Breathe Freely
           </motion.h2>
@@ -72,7 +72,7 @@ export default function FeaturesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed"
+            className="text-base text-gray-700 max-w-4xl mx-auto leading-relaxed"
           >
             <span className="font-semibold">
               Indowud nfc is a sustainable eco-friendly panel product for all
@@ -98,7 +98,7 @@ export default function FeaturesSection() {
               <div className="w-20 h-20 mb-3 bg-white rounded-full flex items-center justify-center shadow">
                 <feature.icon className="w-10 h-10 text-gray-700" strokeWidth={1.5} />
               </div>
-              <h3 className="text-[11px] md:text-xs font-semibold text-gray-700 uppercase tracking-wide leading-tight">
+              <h3 className="text-xs font-semibold text-gray-700 uppercase tracking-wide leading-tight">
                 {feature.title}
               </h3>
             </motion.div>
@@ -120,7 +120,7 @@ export default function FeaturesSection() {
               <div className="w-20 h-20 mb-3 bg-white rounded-full flex items-center justify-center shadow">
                 <feature.icon className="w-10 h-10 text-gray-700" strokeWidth={1.5} />
               </div>
-              <h3 className="text-[11px] md:text-xs font-semibold text-gray-700 uppercase tracking-wide leading-tight">
+              <h3 className="text-xs font-semibold text-gray-700 uppercase tracking-wide leading-tight">
                 {feature.title}
               </h3>
             </motion.div>

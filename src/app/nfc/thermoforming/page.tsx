@@ -147,7 +147,7 @@ export default function ThermoformingPage() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.45 }}
         >
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
+          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
             {title}
           </h2>
 
@@ -156,7 +156,7 @@ export default function ThermoformingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.4 }}
-            className="mt-3 text-xs md:text-sm tracking-widest text-gray-500 uppercase"
+            className="mt-3 text-xs tracking-widest text-gray-500 uppercase"
             aria-label="Breadcrumb"
           >
             <ol className="flex items-center gap-1 flex-wrap">
@@ -176,7 +176,7 @@ export default function ThermoformingPage() {
             </ol>
           </motion.nav>
 
-          <p className="mt-2 max-w-3xl text-slate-600">{subtitle}</p>
+          <p className="mt-2 text-base max-w-3xl text-slate-600">{subtitle}</p>
         </motion.div>
 
         {/* video */}

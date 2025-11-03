@@ -56,7 +56,7 @@ export default function CertificationsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-6 italic"
+            className="text-4xl font-bold text-center text-gray-800 mb-6 italic"
           >
             CII has Certified Indowud nfc as Sustainable Green Product
             <br />
@@ -121,7 +121,7 @@ export default function CertificationsSection() {
           </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 mt-16">
+        <div className="grid md:grid-cols-2 gap-12 mt-16 mb-16 md:mb-24">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
