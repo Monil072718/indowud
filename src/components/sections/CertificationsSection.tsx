@@ -167,6 +167,9 @@ export default function CertificationsSection() {
           </motion.div>
         </div>
       </div>
+      
+      {/* Bottom spacing for footer */}
+      <div className="mb-16 md:mb-24"></div>
     </section>
   );
 }
