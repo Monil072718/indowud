@@ -30,7 +30,7 @@ export default function ChairmanMessagePage() {
         <div className="mt-8 md:mt-10 rounded-xl bg-gradient-to-r from-rose-50 to-teal-50 border border-gray-200 p-4 md:p-6 text-center">
           <blockquote className="text-base text-rose-700 italic font-semibold leading-relaxed">
             Quality of the product is determined with performance and customer
-            satisfaction. Customer's accessibility to promoters provides
+            satisfaction. Customer&apos;s accessibility to promoters provides
             confidence in product and ease to decide. This is the mantra I
             follow at Indowud NFC.
           </blockquote>
