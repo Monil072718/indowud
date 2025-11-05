@@ -34,12 +34,12 @@ const slides: Slide[] = [
   },
 ];
 
+// ⏱️ one second per slide
 const AUTO_MS = 5000;
 
 export default function HeroShowcaseSlider() {
   const [index, setIndex] = useState(0);
-  const [playing, setPlaying] = useState(true);
-  const [animKey, setAnimKey] = useState(0); // to restart the progress ring CSS animation
+  const [animKey, setAnimKey] = useState(0); // restart ring anim
   const timerRef = useRef<number | null>(null);
   const touchStartX = useRef(0);
   const touchDeltaX = useRef(0);
@@ -48,57 +48,39 @@ export default function HeroShowcaseSlider() {
     setIndex((i) => (i + 1) % slides.length);
     setAnimKey((k) => k + 1);
   };
-
   const prev = () => {
     setIndex((i) => (i - 1 + slides.length) % slides.length);
     setAnimKey((k) => k + 1);
   };
-
   const goTo = (i: number) => {
     setIndex(i);
     setAnimKey((k) => k + 1);
   };
 
-  // autoplay (pause on hover, visibility change, or explicit pause)
+  // 🔁 always autoplay every second
   useEffect(() => {
-    if (!playing) return;
     timerRef.current = window.setInterval(next, AUTO_MS);
     return () => {
       if (timerRef.current) window.clearInterval(timerRef.current);
     };
-  }, [playing]);
-
-  useEffect(() => {
-    const onVisibility = () => setPlaying((p) => (document.hidden ? false : p));
-    document.addEventListener("visibilitychange", onVisibility);
-    return () => document.removeEventListener("visibilitychange", onVisibility);
   }, []);
 
-  const onMouseEnter = () => setPlaying(false);
-  const onMouseLeave = () => setPlaying(true);
-
-  // mobile swipe
+  // mobile swipe (doesn't pause autoplay)
   const onTouchStart: React.TouchEventHandler = (e) => {
     touchStartX.current = e.touches[0].clientX;
     touchDeltaX.current = 0;
-    setPlaying(false);
   };
   const onTouchMove: React.TouchEventHandler = (e) => {
     touchDeltaX.current = e.touches[0].clientX - touchStartX.current;
   };
   const onTouchEnd: React.TouchEventHandler = () => {
     const dx = touchDeltaX.current;
-    if (Math.abs(dx) > 40) {
-      dx < 0 ? next() : prev();
-    }
-    setPlaying(true);
+    if (Math.abs(dx) > 40) (dx < 0 ? next() : prev());
   };
 
   return (
     <section
       className="relative h-screen w-full overflow-hidden bg-neutral-900"
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
@@ -110,7 +92,7 @@ export default function HeroShowcaseSlider() {
           return (
             <div
               key={i}
-              className={`absolute inset-0 transition-opacity duration-700 ease-out ${
+              className={`absolute inset-0 transition-opacity duration-500 ease-out ${
                 isActive ? "opacity-100" : "opacity-0"
               }`}
             >
@@ -118,14 +100,13 @@ export default function HeroShowcaseSlider() {
                 <img
                   src={s.image}
                   alt={s.title}
-                  className={`h-full w-full object-cover will-change-transform
-                    ${isActive ? "animate-kenburns" : ""}
-                  `}
+                  className={`h-full w-full object-cover will-change-transform ${
+                    isActive ? "animate-kenburns" : ""
+                  }`}
                   loading={i === 0 ? "eager" : "lazy"}
                   decoding="async"
                   fetchPriority={i === 0 ? "high" : "auto"}
                 />
-                {/* subtle gradient scrim for readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
               </div>
             </div>
@@ -176,8 +157,8 @@ export default function HeroShowcaseSlider() {
         </div>
       </div>
 
-      {/* Controls */}
-      <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 z-20 flex justify-between px-4 sm:px-6">
+      {/* Controls — hidden on mobile (unchanged) */}
+      <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 z-20 hidden sm:flex justify-between px-4">
         <button
           onClick={prev}
           aria-label="Previous"
@@ -191,7 +172,7 @@ export default function HeroShowcaseSlider() {
           aria-label="Next"
           className="pointer-events-auto relative grid h-11 w-11 place-items-center rounded-full bg-white/90 text-neutral-900 shadow-md transition hover:bg-white sm:h-12 sm:w-12"
         >
-          {/* progress ring using conic-gradient, restarts via key bump */}
+          {/* progress ring (desktop only) */}
           <span
             key={animKey}
             className="absolute inset-0 rounded-full"
@@ -205,17 +186,6 @@ export default function HeroShowcaseSlider() {
             }}
           />
           <ChevronRight className="h-5 w-5 relative z-10" />
-        </button>
-      </div>
-
-      {/* Play/Pause (bottom-left) */}
-      <div className="absolute left-4 bottom-4 z-20">
-        <button
-          onClick={() => setPlaying((p) => !p)}
-          className="grid h-10 w-10 place-items-center rounded-full bg-white/90 text-neutral-900 shadow-md hover:bg-white"
-          aria-label={playing ? "Pause autoplay" : "Play autoplay"}
-        >
-          {playing ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
         </button>
       </div>
 
@@ -233,48 +203,19 @@ export default function HeroShowcaseSlider() {
         ))}
       </div>
 
-      {/* Desktop thumbnail strip */}
-      <div className="pointer-events-none absolute bottom-6 inset-x-0 z-20 hidden justify-center lg:flex">
-        <div className="flex gap-3 rounded-2xl bg-black/30 p-3 backdrop-blur-md">
-          {slides.map((s, i) => (
-            <button
-              key={i}
-              onClick={() => goTo(i)}
-              className={`pointer-events-auto relative h-14 w-24 overflow-hidden rounded-xl ring-2 transition
-                ${i === index ? "ring-white" : "ring-transparent hover:ring-white/60"}
-              `}
-              aria-label={`Go to slide ${i + 1}`}
-            >
-              <img
-                src={s.image}
-                alt={s.title}
-                className="h-full w-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-              <div
-                className={`absolute inset-0 transition ${
-                  i === index ? "bg-black/0" : "bg-black/25"
-                }`}
-              />
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* small corner counter */}
+      {/* corner counter */}
       <div className="absolute right-4 top-4 z-20 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-neutral-800 shadow-md">
         {String(index + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
       </div>
 
-      {/* Styles */}
       <style>{`
+        /* shorter Ken Burns to fit 1s auto-slide */
         @keyframes kenburns {
-          0%   { transform: scale(1.05) translate3d(0, 0, 0); }
-          100% { transform: scale(1.14) translate3d(0, 0, 0); }
+          0%   { transform: scale(1.03) translate3d(0,0,0); }
+          100% { transform: scale(1.08) translate3d(0,0,0); }
         }
         .animate-kenburns {
-          animation: kenburns ${AUTO_MS + 1500}ms ease-out both;
+          animation: kenburns ${AUTO_MS}ms ease-out both;
           will-change: transform;
         }
         @keyframes ring {
