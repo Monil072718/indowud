@@ -19,11 +19,6 @@ const fadeUp: Variants = {
   }),
 };
 
-const fade = {
-  hidden: { opacity: 0, y: 10 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.35 } },
-  exit: { opacity: 0, y: -10, transition: { duration: 0.25 } },
-};
 
 /* ---------- static panel cards ---------- */
 type PanelKey = "interior" | "exterior" | "furniture" | "partition";
@@ -154,10 +149,6 @@ export default function ApplicationsPage() {
     });
   };
 
-  const goToSlide = (idx: number) => {
-    setCurrentSlide(idx);
-    setActiveImage(0);
-  };
 
   // second (new) slider
   const [showcaseIndex, setShowcaseIndex] = useState(0);
@@ -574,29 +565,35 @@ export default function ApplicationsPage() {
                       className="w-full shrink-0 lg:flex lg:gap-6"
                     >
                       {/* left small (lg only) */}
-                      <div className="hidden lg:block w-1/4 bg-[#F5F5F5] rounded-2xl overflow-hidden h-[200px] md:h-[210px]">
-                        <img
+                      <div className="hidden lg:block w-1/4 bg-[#F5F5F5] rounded-2xl overflow-hidden h-[200px] md:h-[210px] relative">
+                        <Image
                           src={image}
                           alt={`${current.title} - view ${i + 1}`}
-                          className="w-full h-full object-cover"
+                          fill
+                          className="object-cover"
+                          sizes="25vw"
                         />
                       </div>
 
                       {/* main */}
-                      <div className="w-full lg:flex-1 bg-[#F5F5F5] rounded-2xl overflow-hidden h-[190px] sm:h-[210px] md:h-[230px] lg:h-[260px]">
-                        <img
+                      <div className="w-full lg:flex-1 bg-[#F5F5F5] rounded-2xl overflow-hidden h-[190px] sm:h-[210px] md:h-[230px] lg:h-[260px] relative">
+                        <Image
                           src={current.images[(i + 1) % imgCount]}
                           alt={`${current.title} - main view`}
-                          className="w-full h-full object-cover"
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1024px) 100vw, 50vw"
                         />
                       </div>
 
                       {/* right small (lg only) */}
-                      <div className="hidden lg:block w-1/4 bg-[#F5F5F5] rounded-2xl overflow-hidden h-[200px] md:h-[210px]">
-                        <img
+                      <div className="hidden lg:block w-1/4 bg-[#F5F5F5] rounded-2xl overflow-hidden h-[200px] md:h-[210px] relative">
+                        <Image
                           src={current.images[(i + 2) % imgCount]}
                           alt={`${current.title} - view ${i + 3}`}
-                          className="w-full h-full object-cover"
+                          fill
+                          className="object-cover"
+                          sizes="25vw"
                         />
                       </div>
                     </div>
@@ -679,11 +676,12 @@ export default function ApplicationsPage() {
             snap-start
           "
               >
-                <img
+                <Image
                   src={img}
                   alt={`Showcase ${idx + 1}`}
-                  className="w-full object-cover"
-                  style={{ height: "100%", display: "block" }}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 70vw, (max-width: 768px) 60vw, (max-width: 1024px) 55vw, 33vw"
                 />
               </div>
             ))}

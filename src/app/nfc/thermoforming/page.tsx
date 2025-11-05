@@ -45,6 +45,7 @@ const SwiperSlider = dynamic(
               {gallery.map((g, i) => (
                 <SwiperSlide key={i}>
                   <figure className="group relative overflow-hidden h-[280px] sm:h-[320px] lg:h-[360px]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={g.src}
                       alt={g.alt ?? "Thermoformed example"}

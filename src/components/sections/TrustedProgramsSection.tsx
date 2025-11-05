@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion"
 import { useMemo } from "react"
+import Image from "next/image"
 
 /* --------- logos --------- */
 const logosTop = [
@@ -36,16 +37,17 @@ function LogoPill({ src, alt }: { src: string; alt: string }) {
         md:min-w-[160px] lg:min-w-[184px]
       "
     >
-      <img
+      <Image
         src={src || "/placeholder.svg"}
         alt={alt}
+        width={220}
+        height={110}
         className="
           h-14                /* 📱 larger logo image */
           sm:h-10
           md:h-12 lg:h-16
           w-auto object-contain
         "
-        loading="lazy"
       />
     </div>
   )

@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useMemo, useState, memo } from "react";
+import React, { useMemo, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 /* ----------------------------- Types & Data ----------------------------- */
 type NewsKind = "video" | "article" | "short";
@@ -213,14 +214,13 @@ const Card = React.memo(function Card({ item, onPlay }: { item: NewsItem; onPlay
       transition={{ duration: 0.35 }}
       className="group relative overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200"
     >
-      <div className="aspect-video w-full overflow-hidden bg-slate-100">
-        {/* Use <img> to avoid next.config image domains fuss */}
-        <img
+      <div className="aspect-video w-full overflow-hidden bg-slate-100 relative">
+        <Image
           src={item.thumb}
           alt={item.title}
-          loading="lazy"
-          decoding="async"
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         {isVideo && (
           <button

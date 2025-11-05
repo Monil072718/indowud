@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { motion, type Variants } from "framer-motion"
+import Image from "next/image"
 
 export const dynamic = "force-static"
 
@@ -154,15 +155,17 @@ export default function ManufacturingProcessPage() {
               viewport={{ once: true, margin: "0px 0px -80px 0px" }}
               whileHover={{ y: -6, scale: 1.02 }}
               transition={{ duration: 0.28 }}
-              className="group overflow-hidden rounded-lg sm:rounded-xl border border-gray-200 bg-white shadow-sm"
+              className="group overflow-hidden rounded-lg sm:rounded-xl border border-gray-200 bg-white shadow-sm relative"
             >
-              <img
-                src={g.src || "/placeholder.svg"}
-                alt={g.alt}
-                loading="lazy"
-                decoding="async"
-                className="h-24 sm:h-32 md:h-40 lg:h-48 w-full object-cover transition duration-300 group-hover:scale-105"
-              />
+              <div className="h-24 sm:h-32 md:h-40 lg:h-48 relative">
+                <Image
+                  src={g.src || "/placeholder.svg"}
+                  alt={g.alt}
+                  fill
+                  className="object-cover transition duration-300 group-hover:scale-105"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                />
+              </div>
             </motion.div>
           ))}
         </div>
@@ -237,13 +240,17 @@ export default function ManufacturingProcessPage() {
                     >
                       <motion.div
                         whileHover={{ scale: 1.02 }}
-                        className="overflow-hidden rounded-lg sm:rounded-xl border border-gray-200 bg-white shadow-sm"
+                        className="overflow-hidden rounded-lg sm:rounded-xl border border-gray-200 bg-white shadow-sm relative"
                       >
-                        <img
-                          src={s.image || '/placeholder.svg'}
-                          alt={s.title}
-                          className="h-36 sm:h-48 md:h-56 w-full object-cover transition duration-300 hover:scale-105"
-                        />
+                        <div className="h-36 sm:h-48 md:h-56 relative">
+                          <Image
+                            src={s.image || '/placeholder.svg'}
+                            alt={s.title}
+                            fill
+                            className="object-cover transition duration-300 hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                          />
+                        </div>
                       </motion.div>
                       <motion.div
                         whileHover={{ y: -4 }}

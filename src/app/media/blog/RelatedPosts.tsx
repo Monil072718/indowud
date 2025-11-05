@@ -1,5 +1,4 @@
 "use client";
-/* eslint-disable @next/next/no-img-element */
 import BlogCard, { BlogCardPost } from "../../../components/sections/blog/BlogCard";
 import { motion } from "framer-motion";
 

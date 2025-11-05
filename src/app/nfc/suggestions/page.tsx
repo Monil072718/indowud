@@ -44,13 +44,11 @@ function Breadcrumb() {
 /* ────────────────── Suggestions Section ────────────────── */
 function SuggestionsSection({
   heading = "Important Suggestions",
-  videoId = "dQw4w9WgXcQ",
   brochureHref = "/brochures/technical-suggestions.pdf",
   grids,
   guides,
 }: {
   heading?: string
-  videoId?: string
   brochureHref?: string
   grids?: { columns: string[]; rows: GridRow[]; note?: string }
   guides?: Guide[]

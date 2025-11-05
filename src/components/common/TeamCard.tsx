@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function TeamCard({
   name,
   role,
@@ -18,11 +20,15 @@ export default function TeamCard({
       }`}
     >
       <div className="flex md:justify-center">
-        <img
-          src={img}
-          alt={name}
-          className="h-44 w-44 rounded-full object-cover grayscale"
-        />
+        <div className="h-44 w-44 rounded-full overflow-hidden relative grayscale">
+          <Image
+            src={img}
+            alt={name}
+            width={176}
+            height={176}
+            className="object-cover"
+          />
+        </div>
       </div>
 
       <div className="md:col-span-2">

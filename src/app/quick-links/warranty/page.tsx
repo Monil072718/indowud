@@ -21,7 +21,7 @@ export default function WarrantyPage() {
         // Popup blocked - using fallback method
       }
       // PDF opened successfully
-    } catch (error) {
+    } catch {
       // Handle error silently with user feedback
       alert('Unable to open warranty document. Please check your browser settings.');
     }

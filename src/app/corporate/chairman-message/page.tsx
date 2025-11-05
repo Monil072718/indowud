@@ -1,5 +1,6 @@
 import PageHero from "@/components/common/PageHero";
 import SectionHeading from "@/components/common/SectionHeading";
+import Image from "next/image";
 
 export default function ChairmanMessagePage() {
   return (
@@ -19,11 +20,15 @@ export default function ChairmanMessagePage() {
               is pioneering natural fibre composite wood in India and the world.
             </p>
           </div>
-          <img
-            src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt="Chairman"
-            className="order-1 md:order-2 mx-auto md:mx-0 w-32 h-32 md:w-40 md:h-40 rounded-full object-cover grayscale justify-self-end"
-          />
+          <div className="order-1 md:order-2 mx-auto md:mx-0 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden grayscale justify-self-end relative">
+            <Image
+              src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt="Chairman"
+              width={160}
+              height={160}
+              className="object-cover"
+            />
+          </div>
         </div>
 
         {/* Motto */}
@@ -62,11 +67,15 @@ export default function ChairmanMessagePage() {
           <div className="flex flex-col items-end pr-0 sm:pr-1">
             <p className="font-semibold">Sincerely,</p>
             <p>B L BENGANI</p>
-            <img
-              src="/sign.png"
-              alt="signature"
-              className="mt-2 h-16 w-auto opacity-80"
-            />
+            <div className="mt-2 h-16 w-auto relative opacity-80">
+              <Image
+                src="/sign.png"
+                alt="signature"
+                width={200}
+                height={64}
+                className="h-16 w-auto"
+              />
+            </div>
           </div>
         </div>
       </section>

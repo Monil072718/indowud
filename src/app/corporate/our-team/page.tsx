@@ -1,4 +1,5 @@
 import PageHero from "@/components/common/PageHero";
+import Image from "next/image";
 
 type ProfileProps = {
   name: string;
@@ -22,11 +23,13 @@ function Profile({ name, role, img, paragraphs, reverse }: ProfileProps) {
     >
       {/* Photo + Name */}
       <div className="flex flex-col items-center md:items-start">
-        <div className="size-56 md:size-64 shrink-0 rounded-full overflow-hidden ring-2 ring-teal-200 shadow-sm">
-          <img
+        <div className="size-56 md:size-64 shrink-0 rounded-full overflow-hidden ring-2 ring-teal-200 shadow-sm relative">
+          <Image
             src={img}
             alt={name}
-            className="size-full object-cover grayscale hover:grayscale-0 transition duration-300"
+            fill
+            className="object-cover grayscale hover:grayscale-0 transition duration-300"
+            sizes="(max-width: 768px) 224px, 256px"
           />
         </div>
 

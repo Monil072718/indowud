@@ -73,7 +73,7 @@ export default function Footer() {
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2, duration: 0.6 }} className="md:col-span-2">
             <h3 className="text-lg font-semibold text-gray-800 mb-6 uppercase tracking-wide">Quick Links</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {footerLinks.map((link, index) => (
+              {footerLinks.map((link) => (
                 <a
                   key={link.title}
                   href={link.href}

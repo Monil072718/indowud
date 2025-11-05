@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Award, Leaf, Shield, CheckCircle } from "lucide-react";
+import Image from "next/image";
 
 export default function CertificationsSection() {
   const certifications = [
@@ -130,10 +131,12 @@ export default function CertificationsSection() {
             whileHover={{ scale: 1.05 }}
             className="relative h-64"
           >
-            <img
+            <Image
               src="https://images.pexels.com/photos/1268975/pexels-photo-1268975.jpeg?auto=compress&cs=tinysrgb&w=800"
               alt="Nature"
-              className="w-full h-full object-cover shadow-xl"
+              fill
+              className="object-cover shadow-xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
             <motion.div
               initial={{ width: 0 }}
@@ -152,10 +155,12 @@ export default function CertificationsSection() {
             whileHover={{ scale: 1.05 }}
             className="relative h-64"
           >
-            <img
+            <Image
               src="https://images.pexels.com/photos/1227511/pexels-photo-1227511.jpeg?auto=compress&cs=tinysrgb&w=800"
               alt="Craftsmanship"
-              className="w-full h-full object-cover shadow-xl"
+              fill
+              className="object-cover shadow-xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
             <motion.div
               initial={{ width: 0 }}

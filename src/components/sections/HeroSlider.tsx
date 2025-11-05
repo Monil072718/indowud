@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 type Slide = {
   title: string;
@@ -86,15 +87,15 @@ export default function HeroShowcaseSlider() {
               }`}
             >
               <div className="absolute inset-0 overflow-hidden">
-                <img
+                <Image
                   src={s.image}
                   alt={s.title}
-                  className={`h-full w-full object-cover will-change-transform ${
+                  fill
+                  priority={i === 0}
+                  className={`object-cover will-change-transform ${
                     isActive ? "animate-kenburns" : ""
                   }`}
-                  loading={i === 0 ? "eager" : "lazy"}
-                  decoding="async"
-                  fetchPriority={i === 0 ? "high" : "auto"}
+                  sizes="100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
               </div>
@@ -172,12 +173,12 @@ export default function HeroShowcaseSlider() {
               }`}
               aria-label={`Go to slide ${i + 1}`}
             >
-              <img
+              <Image
                 src={s.image}
                 alt={s.title}
-                className="h-full w-full object-cover"
-                loading="lazy"
-                decoding="async"
+                fill
+                className="object-cover"
+                sizes="96px"
               />
               <div
                 className={`absolute inset-0 transition ${

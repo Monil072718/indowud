@@ -178,7 +178,7 @@ export default function ContactUs() {
       });
       setAttachmentName("No file chosen");
       setTimeout(() => setSubmitStatus("idle"), 5000);
-    } catch (error) {
+    } catch {
       setSubmitStatus("error");
       setTimeout(() => setSubmitStatus("idle"), 5000);
     } finally {

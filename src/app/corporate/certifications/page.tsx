@@ -3,6 +3,7 @@
 import PageHero from "@/components/common/PageHero";
 import { motion, type Variants, useReducedMotion } from "framer-motion";
 import { useMemo } from "react";
+import Image from "next/image";
 
 /* ------------------------ data ------------------------ */
 const logosTop = [
@@ -51,7 +52,7 @@ function LogoCard({ src, alt }: { src: string; alt: string }) {
         className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{ boxShadow: "0 0 0 2px rgba(16,185,129,0.12) inset" }}
       />
-      <img src={src} alt={alt} className="h-14 sm:h-16 md:h-20 w-auto max-w-full object-contain" />
+      <Image src={src} alt={alt} width={220} height={110} className="h-14 sm:h-16 md:h-20 w-auto max-w-full object-contain" />
     </motion.div>
   );
 }
@@ -70,11 +71,12 @@ function LogoPill({ src, alt }: { src: string; alt: string }) {
         min-w-[170px] sm:min-w-[140px] md:min-w-[160px] lg:min-w-[184px]
       "
     >
-      <img
+      <Image
         src={src || "/placeholder.svg"}
         alt={alt}
+        width={220}
+        height={110}
         className="h-14 sm:h-10 md:h-12 lg:h-16 w-auto object-contain"
-        loading="lazy"
       />
     </div>
   );

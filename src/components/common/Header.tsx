@@ -46,15 +46,6 @@ export default function Header() {
 
   const [brochureOpen, setBrochureOpen] = useState(false)
 
-  // detect touch/pen desktop (we keep it but we go with hover for desktop)
-  const [isTouchDesktop, setIsTouchDesktop] = useState(false)
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const noHover = window.matchMedia("(hover: none)").matches
-      const coarse = window.matchMedia("(pointer: coarse)").matches
-      setIsTouchDesktop(noHover || coarse)
-    }
-  }, [])
 
   const headerSocial = [
     { Icon: Facebook, href: "https://www.facebook.com/indowud" },
