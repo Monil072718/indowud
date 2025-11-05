@@ -1,270 +1,287 @@
 "use client";
 
-import { useState, useEffect } from "react";
-// ✅ top-level import — NOT /dist/esm/... (this is what fixes the error)
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 
-const slides = [
+type Slide = {
+  title: string;
+  subtitle: string;
+  image: string;
+  accent: string;
+};
+
+const slides: Slide[] = [
   {
-    title: "If you love something it will work",
-    subtitle: "That's the real design mantra",
+    title: "Design with soul",
+    subtitle: "Spaces that breathe and inspire.",
     image:
-      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1000&fit=crop",
     accent: "#10b981",
   },
   {
-    title: "Innovation meets elegance",
-    subtitle: "Creating tomorrow's designs today",
+    title: "Form meets function",
+    subtitle: "Beauty, balance, and purpose.",
     image:
-      "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+      "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1000&fit=crop",
     accent: "#f59e0b",
   },
   {
-    title: "Where creativity comes alive",
-    subtitle: "Designing the future of spaces",
+    title: "Crafted for living",
+    subtitle: "Where ideas turn into homes.",
     image:
-      "https://images.pexels.com/photos/1647776/pexels-photo-1647776.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+      "https://images.pexels.com/photos/1647776/pexels-photo-1647776.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1000&fit=crop",
     accent: "#ec4899",
   },
 ];
 
 const AUTO_MS = 5000;
 
-export default function HeroSlider() {
+export default function HeroShowcaseSlider() {
   const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState<"next" | "prev">("next");
+  const [playing, setPlaying] = useState(true);
+  const [animKey, setAnimKey] = useState(0); // to restart the progress ring CSS animation
+  const timerRef = useRef<number | null>(null);
+  const touchStartX = useRef(0);
+  const touchDeltaX = useRef(0);
 
   const next = () => {
-    setDirection("next");
     setIndex((i) => (i + 1) % slides.length);
+    setAnimKey((k) => k + 1);
   };
 
   const prev = () => {
-    setDirection("prev");
     setIndex((i) => (i - 1 + slides.length) % slides.length);
+    setAnimKey((k) => k + 1);
   };
 
   const goTo = (i: number) => {
-    setDirection(i > index ? "next" : "prev");
     setIndex(i);
+    setAnimKey((k) => k + 1);
   };
 
+  // autoplay (pause on hover, visibility change, or explicit pause)
   useEffect(() => {
-    const t = setInterval(next, AUTO_MS);
-    return () => clearInterval(t);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (!playing) return;
+    timerRef.current = window.setInterval(next, AUTO_MS);
+    return () => {
+      if (timerRef.current) window.clearInterval(timerRef.current);
+    };
+  }, [playing]);
+
+  useEffect(() => {
+    const onVisibility = () => setPlaying((p) => (document.hidden ? false : p));
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => document.removeEventListener("visibilitychange", onVisibility);
   }, []);
 
+  const onMouseEnter = () => setPlaying(false);
+  const onMouseLeave = () => setPlaying(true);
+
+  // mobile swipe
+  const onTouchStart: React.TouchEventHandler = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchDeltaX.current = 0;
+    setPlaying(false);
+  };
+  const onTouchMove: React.TouchEventHandler = (e) => {
+    touchDeltaX.current = e.touches[0].clientX - touchStartX.current;
+  };
+  const onTouchEnd: React.TouchEventHandler = () => {
+    const dx = touchDeltaX.current;
+    if (Math.abs(dx) > 40) {
+      dx < 0 ? next() : prev();
+    }
+    setPlaying(true);
+  };
+
   return (
-    <div className="relative h-screen w-full bg-gradient-to-br from-teal-50 via-[#00d5be] to-teal-100 overflow-hidden">
-      {/* Decorative Background Elements */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-400 rounded-full blur-3xl" />
-      </div>
-
-      {/* Split Screen Design */}
-      <div className="absolute inset-0 flex">
-        {/* Left Side - Image */}
-        <div className="relative w-full lg:w-3/5 h-full overflow-hidden">
-          {slides.map((slide, i) => (
+    <section
+      className="relative h-screen w-full overflow-hidden bg-neutral-900"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
+      {/* Background slides (Ken Burns + crossfade) */}
+      <div className="absolute inset-0">
+        {slides.map((s, i) => {
+          const isActive = i === index;
+          return (
             <div
               key={i}
-              className={`absolute inset-0 transition-all duration-1000 ease-out ${
-                i === index
-                  ? "opacity-100 scale-100"
-                  : i === (index - 1 + slides.length) % slides.length &&
-                    direction === "next"
-                  ? "opacity-0 scale-110"
-                  : i === (index + 1) % slides.length && direction === "prev"
-                  ? "opacity-0 scale-110"
-                  : "opacity-0 scale-95"
-              }`}
-              style={{
-                // mobile: no diagonal cut → no white gap
-                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-              }}
-            >
-              <img
-                src={slide.image}
-                alt={slide.title}
-                loading={i === 0 ? "eager" : "lazy"}
-                decoding="async"
-                fetchPriority={i === 0 ? "high" : "auto"}
-                width={1200}
-                height={800}
-                className="w-full h-full object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 1200px"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#00d5be]/60 via-[#00d5be]/30 to-transparent lg:to-transparent" />
-            </div>
-          ))}
-        </div>
-
-        {/* Right Side - Content (desktop only) */}
-        <div className="hidden lg:flex w-2/5 h-full items-center justify-center px-16 relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-[#00d5be]/10 to-teal-50" />
-
-          {/* Subtle grid pattern */}
-          <div
-            className="absolute inset-0 opacity-5"
-            style={{
-              backgroundImage: "radial-gradient(circle, #00d5be 1px, transparent 1px)",
-              backgroundSize: "50px 50px",
-            }}
-          />
-
-          {/* Animated Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div
-              className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full blur-3xl animate-pulse"
-              style={{ backgroundColor: slides[index].accent }}
-            />
-            <div
-              className="absolute bottom-1/3 right-1/3 w-48 h-48 rounded-full blur-3xl animate-pulse"
-              style={{ backgroundColor: slides[index].accent, animationDelay: "1s" }}
-            />
-          </div>
-
-          <div className="relative z-10 w-full">
-            {slides.map((slide, i) => (
-              <div
-                key={i}
-                className={`transition-all duration-700 ${
-                  i === index
-                    ? "opacity-100 translate-x-0"
-                    : direction === "next"
-                    ? "opacity-0 -translate-x-12 absolute"
-                    : "opacity-0 translate-x-12 absolute"
-                }`}
-              >
-                <div className="mb-6 flex items-center gap-4">
-                  <div
-                    className="h-1 w-20 transition-all duration-700"
-                    style={{ backgroundColor: slide.accent }}
-                  />
-                  <span
-                    className="text-sm font-bold tracking-widest"
-                    style={{ color: slide.accent }}
-                  >
-                    0{i + 1}
-                  </span>
-                </div>
-
-                <h1 className="text-4xl font-bold text-gray-900 mb-6 leading-tight">
-                  {slide.title}
-                </h1>
-
-                <p className="text-base text-gray-700 mb-8 leading-relaxed">
-                  {slide.subtitle}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Content Overlay — tightened bottom padding to kill empty white space */}
-      <div className="lg:hidden absolute inset-0 flex items-end pb-10 px-6 pointer-events-none">
-        <div className="w-full pointer-events-auto">
-          {slides.map((slide, i) => (
-            <div
-              key={i}
-              className={`transition-all duration-700 ${
-                i === index
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8 absolute"
+              className={`absolute inset-0 transition-opacity duration-700 ease-out ${
+                isActive ? "opacity-100" : "opacity-0"
               }`}
             >
-              <div className="mb-4 flex items-center gap-3">
-                <div
-                  className="h-1 w-16"
-                  style={{ backgroundColor: slide.accent }}
+              <div className="absolute inset-0 overflow-hidden">
+                <img
+                  src={s.image}
+                  alt={s.title}
+                  className={`h-full w-full object-cover will-change-transform
+                    ${isActive ? "animate-kenburns" : ""}
+                  `}
+                  loading={i === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  fetchPriority={i === 0 ? "high" : "auto"}
                 />
-                <span
-                  className="text-sm font-bold"
-                  style={{ color: slide.accent }}
-                >
-                  0{i + 1}
-                </span>
+                {/* subtle gradient scrim for readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
               </div>
-
-              <h1 className="text-4xl font-bold text-gray-900 mb-3 leading-tight drop-shadow-sm">
-                {slide.title}
-              </h1>
-
-              <p className="text-base text-gray-800 mb-2 drop-shadow-sm">
-                {slide.subtitle}
-              </p>
             </div>
-          ))}
+          );
+        })}
+      </div>
+
+      {/* Foreground content card */}
+      <div className="relative z-10 h-full flex items-center">
+        <div className="w-full px-6 sm:px-10 lg:px-16">
+          <div className="max-w-2xl rounded-3xl bg-white/80 backdrop-blur-md p-6 sm:p-8 shadow-xl">
+            <div className="mb-4 flex items-center gap-3">
+              <span
+                className="inline-block h-1 w-10 rounded-full"
+                style={{ backgroundColor: slides[index].accent }}
+              />
+              <span
+                className="text-xs font-semibold tracking-widest uppercase"
+                style={{ color: slides[index].accent }}
+              >
+                0{index + 1} / 0{slides.length}
+              </span>
+            </div>
+
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 leading-tight">
+              {slides[index].title}
+            </h1>
+            <p className="mt-3 sm:mt-4 text-neutral-700 text-base sm:text-lg">
+              {slides[index].subtitle}
+            </p>
+
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <a
+                href="#"
+                className="rounded-full px-5 py-2.5 text-white text-sm font-semibold shadow-md transition hover:shadow-lg"
+                style={{ backgroundColor: slides[index].accent }}
+              >
+                Explore Work
+              </a>
+              <a
+                href="#"
+                className="rounded-full px-5 py-2.5 text-sm font-semibold text-neutral-800 bg-white/90 ring-1 ring-black/5 hover:bg-white"
+              >
+                Our Process
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Vertical Progress Indicators – desktop only */}
-      <div className="hidden lg:flex absolute right-8 top-1/2 -translate-y-1/2 flex-col gap-6 z-20">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => goTo(i)}
-            className="group relative"
-            aria-label={`Go to slide ${i + 1}`}
-          >
-            <div
-              className={`w-1 transition-all duration-300 ${
-                i === index
-                  ? "h-16 bg-white"
-                  : "h-8 bg-white/30 group-hover:bg-white/50"
-              }`}
-            />
-            {i === index && (
-              <div
-                className="absolute top:0 left-0 w-1 bg-gradient-to-b from-transparent to-white origin-top"
-                style={{
-                  animation: `slideDown ${AUTO_MS}ms linear`,
-                  height: "100%",
-                }}
-              />
-            )}
-          </button>
-        ))}
-      </div>
-
-      {/* Prev/Next buttons — show on desktop, small on mobile */}
-      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4 z-30">
+      {/* Controls */}
+      <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 z-20 flex justify-between px-4 sm:px-6">
         <button
           onClick={prev}
-          className="flex items-center justify-center h-10 w-10 rounded-full bg-white/90 text-gray-900 shadow-md hover:bg-white transition lg:h-12 lg:w-12"
-          aria-label="Previous slide"
+          aria-label="Previous"
+          className="pointer-events-auto grid h-11 w-11 place-items-center rounded-full bg-white/90 text-neutral-900 shadow-md transition hover:bg-white sm:h-12 sm:w-12"
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
+
         <button
           onClick={next}
-          className="flex items-center justify-center h-10 w-10 rounded-full bg-white/90 text-gray-900 shadow-md hover:bg-white transition lg:h-12 lg:w-12"
-          aria-label="Next slide"
+          aria-label="Next"
+          className="pointer-events-auto relative grid h-11 w-11 place-items-center rounded-full bg-white/90 text-neutral-900 shadow-md transition hover:bg-white sm:h-12 sm:w-12"
         >
-          <ChevronRight className="h-5 w-5" />
+          {/* progress ring using conic-gradient, restarts via key bump */}
+          <span
+            key={animKey}
+            className="absolute inset-0 rounded-full"
+            style={{
+              background:
+                "conic-gradient(#000 0deg, #000 0deg, transparent 0deg 360deg)",
+              WebkitMask:
+                "radial-gradient(farthest-side, transparent 68%, black 69%)",
+              animation: `ring ${AUTO_MS}ms linear`,
+              opacity: 0.25,
+            }}
+          />
+          <ChevronRight className="h-5 w-5 relative z-10" />
         </button>
       </div>
 
-      {/* Slide Counter */}
-      <div className="absolute top-6 right-6 text-white font-mono text-sm z-20 drop-shadow">
-        <span className="text-2xl font-bold">
-          {String(index + 1).padStart(2, "0")}
-        </span>
-        <span className="text-white/40 mx-1">/</span>
-        <span className="text-white/60">
-          {String(slides.length).padStart(2, "0")}
-        </span>
+      {/* Play/Pause (bottom-left) */}
+      <div className="absolute left-4 bottom-4 z-20">
+        <button
+          onClick={() => setPlaying((p) => !p)}
+          className="grid h-10 w-10 place-items-center rounded-full bg-white/90 text-neutral-900 shadow-md hover:bg-white"
+          aria-label={playing ? "Pause autoplay" : "Play autoplay"}
+        >
+          {playing ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+        </button>
       </div>
 
+      {/* Mobile dots */}
+      <div className="absolute bottom-4 inset-x-0 z-20 flex justify-center gap-2 sm:hidden">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            aria-label={`Go to slide ${i + 1}`}
+            onClick={() => goTo(i)}
+            className={`h-2 w-2 rounded-full transition ${
+              i === index ? "bg-white" : "bg-white/40"
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* Desktop thumbnail strip */}
+      <div className="pointer-events-none absolute bottom-6 inset-x-0 z-20 hidden justify-center lg:flex">
+        <div className="flex gap-3 rounded-2xl bg-black/30 p-3 backdrop-blur-md">
+          {slides.map((s, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              className={`pointer-events-auto relative h-14 w-24 overflow-hidden rounded-xl ring-2 transition
+                ${i === index ? "ring-white" : "ring-transparent hover:ring-white/60"}
+              `}
+              aria-label={`Go to slide ${i + 1}`}
+            >
+              <img
+                src={s.image}
+                alt={s.title}
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              <div
+                className={`absolute inset-0 transition ${
+                  i === index ? "bg-black/0" : "bg-black/25"
+                }`}
+              />
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* small corner counter */}
+      <div className="absolute right-4 top-4 z-20 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-neutral-800 shadow-md">
+        {String(index + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
+      </div>
+
+      {/* Styles */}
       <style>{`
-        @keyframes slideDown {
-          from { transform: scaleY(0); }
-          to { transform: scaleY(1); }
+        @keyframes kenburns {
+          0%   { transform: scale(1.05) translate3d(0, 0, 0); }
+          100% { transform: scale(1.14) translate3d(0, 0, 0); }
+        }
+        .animate-kenburns {
+          animation: kenburns ${AUTO_MS + 1500}ms ease-out both;
+          will-change: transform;
+        }
+        @keyframes ring {
+          from { background: conic-gradient(#000 0deg, transparent 0deg 360deg); }
+          to   { background: conic-gradient(#000 360deg, transparent 360deg 360deg); }
         }
       `}</style>
-    </div>
+    </section>
   );
 }
