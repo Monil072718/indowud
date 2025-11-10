@@ -38,7 +38,7 @@ export default function Breadcrumb({
           return (
             <li key={index} className="flex items-center">
               {item.href && !isLast ? (
-                <Link href={item.href} className={`${hoverColor} transition-colors`}>
+                <Link href={item.href} className={`${hoverColor} transition-colors cursor-pointer`}>
                   {item.label}
                 </Link>
               ) : (

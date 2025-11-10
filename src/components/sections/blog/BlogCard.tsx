@@ -53,10 +53,10 @@ function BlogCard({
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
       whileHover={{ y: -6, scale: 1.01 }}
-      className={container}
+      className={`${container} cursor-pointer`}
     >
       {/* cover */}
-      <Link href={href} className="block">
+      <Link href={href} className="block cursor-pointer">
         <div className="relative">
           <div className={`${mediaAspect} w-full overflow-hidden`}>
             <img
@@ -86,7 +86,7 @@ function BlogCard({
         </div>
 
         {/* title + excerpt */}
-        <Link href={href} className="block">
+        <Link href={href} className="block cursor-pointer">
           <h3
             className={`text-slate-900 font-bold ${
               variant === "compact" ? "text-[15px] leading-snug line-clamp-2" : "text-lg line-clamp-2"
@@ -112,7 +112,7 @@ function BlogCard({
         {/* Read more */}
         <Link
           href={href}
-          className="group/button mt-3 inline-flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
+          className="group/button mt-3 inline-flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 cursor-pointer"
         >
           Read more
           <svg

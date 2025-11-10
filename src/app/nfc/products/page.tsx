@@ -200,7 +200,7 @@ function BtnPrimary({
   return (
     <a
       href={href}
-      className="inline-flex items-center justify-center rounded-full px-4 py-2 text-[13px] font-semibold text-white shadow-sm transition duration-200 hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+      className="inline-flex items-center justify-center rounded-full px-4 py-2 text-[13px] font-semibold text-white shadow-sm transition duration-200 hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer"
       style={{ backgroundColor: variant === "teal" ? BRAND.teal : BRAND.magenta }}
     >
       {children}
@@ -222,7 +222,7 @@ function BtnSecondary({
   return (
     <a
       href={href}
-      className={`inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2 text-[13px] font-semibold shadow-sm transition duration-200 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-300 ${textColor} ${hoverText}`}
+      className={`inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2 text-[13px] font-semibold shadow-sm transition duration-200 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-300 cursor-pointer ${textColor} ${hoverText}`}
     >
       {children}
     </a>

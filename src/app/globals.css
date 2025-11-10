@@ -54,3 +54,14 @@ img, picture, video {
   will-change: transform, opacity;
   transform: translateZ(0);
 }
+
+/* Cursor pointer for interactive elements */
+a,
+button,
+[role="button"],
+[onclick],
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+  cursor: pointer;
+}

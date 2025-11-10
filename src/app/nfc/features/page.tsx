@@ -179,7 +179,7 @@ function FeatureCard({ title, desc, icon }: Feature) {
       variants={{ hidden: { y: 18, opacity: 0 }, show: { y: 0, opacity: 1 } }}
       whileHover={{ scale: 1.02 }}
       className="group relative rounded-2xl border border-white/40 bg-white/60 p-5 shadow-lg backdrop-blur-md
-                 ring-1 ring-black/5 transition hover:shadow-2xl hover:ring-[#00d5be]/40"
+                 ring-1 ring-black/5 transition hover:shadow-2xl hover:ring-[#00d5be]/40 cursor-pointer"
     >
       {/* brand glow on hover */}
       <div

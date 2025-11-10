@@ -205,7 +205,7 @@ const Card = React.memo(function Card({ item, onPlay }: { item: NewsItem; onPlay
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.35 }}
-      className="group relative overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200"
+      className="group relative overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 cursor-pointer"
     >
       <div className="aspect-video w-full overflow-hidden bg-slate-100 relative">
         <Image
@@ -218,7 +218,7 @@ const Card = React.memo(function Card({ item, onPlay }: { item: NewsItem; onPlay
         {isVideo && (
           <button
             onClick={onPlay}
-            className="absolute inset-0 m-auto h-14 w-14 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-lg transition group-hover:scale-105"
+            className="absolute inset-0 m-auto h-14 w-14 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-lg transition group-hover:scale-105 cursor-pointer"
             aria-label="Play video"
           >
             <svg viewBox="0 0 24 24" className="h-6 w-6 fill-slate-900">
@@ -254,14 +254,14 @@ const Card = React.memo(function Card({ item, onPlay }: { item: NewsItem; onPlay
               href={item.href}
               target="_blank"
               rel="noreferrer"
-              className="text-sm font-medium text-slate-900 hover:opacity-80"
+              className="text-sm font-medium text-slate-900 hover:opacity-80 cursor-pointer"
             >
               Read article →
             </a>
           ) : (
             <button
               onClick={onPlay}
-              className="text-sm font-medium text-slate-900 hover:opacity-80"
+              className="text-sm font-medium text-slate-900 hover:opacity-80 cursor-pointer"
             >
               Watch video →
             </button>
@@ -271,7 +271,7 @@ const Card = React.memo(function Card({ item, onPlay }: { item: NewsItem; onPlay
             href={item.href}
             target="_blank"
             rel="noreferrer"
-            className="ml-auto text-xs text-slate-500 hover:text-slate-700"
+            className="ml-auto text-xs text-slate-500 hover:text-slate-700 cursor-pointer"
           >
             Open source
           </a>

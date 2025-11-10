@@ -33,7 +33,7 @@ function Card({ v, i }: { v: YT; i: number }) {
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
       whileHover={{ y: -6, scale: 1.01 }}
-      className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+      className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm cursor-pointer"
     >
       <div className="relative">
         <div className="pt-[56.25%]" />

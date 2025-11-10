@@ -204,7 +204,7 @@ function Button({
     return (
       <a
         href={href}
-        className="inline-flex h-10 items-center justify-center rounded-full border border-slate-300 bg-white px-4 text-[13px] font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50"
+        className="inline-flex h-10 items-center justify-center rounded-full border border-slate-300 bg-white px-4 text-[13px] font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50 cursor-pointer"
       >
         {children}
       </a>
@@ -213,7 +213,7 @@ function Button({
   return (
     <a
       href={href}
-      className="inline-flex h-10 items-center justify-center rounded-full bg-teal-600 px-4 text-[13px] font-semibold text-white shadow-sm transition hover:bg-teal-700"
+      className="inline-flex h-10 items-center justify-center rounded-full bg-teal-600 px-4 text-[13px] font-semibold text-white shadow-sm transition hover:bg-teal-700 cursor-pointer"
     >
       {children}
     </a>
@@ -297,7 +297,7 @@ export default function ProductsPage() {
               <article
                 key={p.id}
                 id={p.id}
-                className="scroll-mt-24 rounded-3xl border border-slate-200 bg-white shadow-sm ring-1 ring-black/5"
+                className="scroll-mt-24 rounded-3xl border border-slate-200 bg-white shadow-sm ring-1 ring-black/5 group cursor-pointer"
               >
                 <div
                   className={`grid items-stretch gap-0 md:grid-cols-2 ${
