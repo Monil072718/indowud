@@ -293,13 +293,6 @@ export default function ProductsPage() {
               <div className="mt-5 h-px bg-slate-100" />
               <div className="mt-5 space-y-2 text-sm">
                 <a
-                  href="/nfc/applications"
-                  className="inline-flex items-center rounded-full px-3 py-1 font-medium text-white"
-                  style={{ backgroundColor: BRAND.teal }}
-                >
-                  View Applications
-                </a>
-                <a
                   href="/contact"
                   className="block rounded-md border border-slate-200 px-3 py-2 text-center font-medium text-slate-700 hover:bg-slate-50"
                 >
@@ -311,25 +304,6 @@ export default function ProductsPage() {
 
           {/* Content */}
           <div className="space-y-12">
-            {/* mini search/filter (static visual, no JS) */}
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <div className="text-sm text-slate-600">
-                Showing <b>{PRODUCTS.length}</b> products
-              </div>
-              <div className="flex w-full max-w-lg items-center gap-2 rounded-xl border border-slate-200 bg-white p-2 shadow-sm">
-                <input
-                  aria-label="Search products"
-                  className="w-full rounded-lg bg-transparent px-3 py-2 text-sm outline-none placeholder:text-slate-400"
-                  placeholder="Search (visual only)…"
-                />
-                <span
-                  className="inline-flex shrink-0 items-center rounded-lg px-3 py-2 text-xs font-semibold text-white"
-                  style={{ backgroundColor: BRAND.magenta }}
-                >
-                  Go
-                </span>
-              </div>
-            </div>
 
             {PRODUCTS.map((p, i) => (
               <article
