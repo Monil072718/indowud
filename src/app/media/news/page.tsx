@@ -4,6 +4,7 @@ import React, { useMemo, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Breadcrumb from "@/components/common/Breadcrumb";
 
 /* ----------------------------- Types & Data ----------------------------- */
 type NewsKind = "video" | "article" | "short";
@@ -119,23 +120,15 @@ export default function NewsPage() {
                 News & Media
               </h1>
               {/* Breadcrumb */}
-              <nav className="mt-3 text-xs tracking-widest text-gray-500 uppercase" aria-label="Breadcrumb">
-                <ol className="flex items-center">
-                  <li>
-                    <Link href="/" className="hover:text-gray-700 transition-colors">
-                      HOME
-                    </Link>
-                  </li>
-                  <li aria-hidden="true" className="mx-1">/</li>
-                  <li>
-                    <Link href="/media" className="hover:text-gray-700 transition-colors">
-                      MEDIA
-                    </Link>
-                  </li>
-                  <li aria-hidden="true" className="mx-1">/</li>
-                  <li>NEWS</li>
-                </ol>
-              </nav>
+              <div className="mt-3">
+                <Breadcrumb
+                  items={[
+                    { label: "HOME", href: "/" },
+                    { label: "MEDIA", href: "/media" },
+                    { label: "NEWS" },
+                  ]}
+                />
+              </div>
               <p className="mt-1 text-slate-600">
                 Media mentions, videos, and articles about Indowud.
               </p>

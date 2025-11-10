@@ -271,9 +271,9 @@ export default function ProductsPage() {
       {/* Main */}
       <section className="mx-auto max-w-7xl px-4 pb-16 pt-8 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[240px_1fr]">
-          {/* Left sticky nav */}
+          {/* Left sidebar */}
           <aside className="hidden lg:block">
-            <div className="sticky top-24 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
               <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-700">
                 Categories
               </h3>

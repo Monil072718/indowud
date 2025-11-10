@@ -3,6 +3,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Breadcrumb from "@/components/common/Breadcrumb";
 import {
   Mail,
   Phone,
@@ -200,25 +201,19 @@ export default function ContactUs() {
                 Let&apos;s talk
               </h1>
               {/* Breadcrumb */}
-              <motion.nav
+              <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="mt-3 text-xs tracking-widest text-gray-500 uppercase"
-                aria-label="Breadcrumb"
+                className="mt-3"
               >
-                <ol className="flex items-center">
-                  <li>
-                    <Link href="/" className="hover:text-gray-700 transition-colors">
-                      HOME
-                    </Link>
-                  </li>
-                  <li aria-hidden="true" className="mx-1">
-                    /
-                  </li>
-                  <li>CONTACT US</li>
-                </ol>
-              </motion.nav>
+                <Breadcrumb
+                  items={[
+                    { label: "HOME", href: "/" },
+                    { label: "CONTACT US" },
+                  ]}
+                />
+              </motion.div>
               <p className="mt-3 text-base text-gray-600 max-w-2xl">
                 Tell us a bit about yourself and what you&apos;re looking for. Our team will get
                 back to you shortly.

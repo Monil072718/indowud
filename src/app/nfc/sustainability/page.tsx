@@ -4,6 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
+import Breadcrumb from "@/components/common/Breadcrumb"
 
 /** ★ simple star icon */
 function Star({ filled }: { filled?: boolean }) {
@@ -116,34 +117,22 @@ export default function SustainabilityPage() {
             Sustainability & Green Rating
           </motion.h2>
           {/* Breadcrumb */}
-          <motion.nav
+          <motion.div
             initial={{ y: 12, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: 0.05 }}
-            className="mt-3 text-xs md:text-sm tracking-widest text-white/90 uppercase"
-            aria-label="Breadcrumb"
+            className="mt-3"
           >
-            <ol className="flex items-center">
-              <li>
-                <Link href="/" className="hover:text-white transition-colors">
-                  HOME
-                </Link>
-              </li>
-              <li aria-hidden="true" className="mx-1">
-                /
-              </li>
-              <li>
-                <Link href="/nfc" className="hover:text-white transition-colors">
-                  NFC
-                </Link>
-              </li>
-              <li aria-hidden="true" className="mx-1">
-                /
-              </li>
-              <li>SUSTAINABILITY</li>
-            </ol>
-          </motion.nav>
+            <Breadcrumb
+              items={[
+                { label: "HOME", href: "/" },
+                { label: "NFC", href: "/nfc" },
+                { label: "SUSTAINABILITY" },
+              ]}
+              variant="light"
+            />
+          </motion.div>
         </div>
       </div>
 

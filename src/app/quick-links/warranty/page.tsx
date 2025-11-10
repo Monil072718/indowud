@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import Breadcrumb from "@/components/common/Breadcrumb";
 
 export default function WarrantyPage() {
   useEffect(() => {
@@ -38,17 +39,14 @@ export default function WarrantyPage() {
       <div className="w-full max-w-4xl mb-8 self-start">
         <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">Warranty</h1>
         {/* Breadcrumb */}
-        <nav className="mt-3 text-xs tracking-widest text-gray-500 uppercase" aria-label="Breadcrumb">
-          <ol className="flex items-center">
-            <li>
-              <Link href="/" className="hover:text-gray-700 transition-colors">
-                HOME
-              </Link>
-            </li>
-            <li aria-hidden="true" className="mx-1">/</li>
-            <li>WARRANTY</li>
-          </ol>
-        </nav>
+        <div className="mt-3">
+          <Breadcrumb
+            items={[
+              { label: "HOME", href: "/" },
+              { label: "WARRANTY" },
+            ]}
+          />
+        </div>
       </div>
 
       <div className="text-center">

@@ -6,6 +6,7 @@ import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import BlogCard, { BlogCardPost } from "@/components/sections/blog/BlogCard";
+import Breadcrumb from "@/components/common/Breadcrumb";
 
 /* ----------------------- mock fetcher (unchanged) ----------------------- */
 function fetchBlogs(): BlogCardPost[] {
@@ -191,39 +192,20 @@ function BlogContent() {
           Blog
         </h1>
         {/* Breadcrumb */}
-        <motion.nav
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="mt-3 text-xs tracking-widest text-gray-500 uppercase"
-          aria-label="Breadcrumb"
+          className="mt-3"
         >
-          <ol className="flex items-center">
-            <li>
-              <Link
-                href="/"
-                className="transition-colors hover:text-gray-700"
-              >
-                HOME
-              </Link>
-            </li>
-            <li aria-hidden="true" className="mx-1">
-              /
-            </li>
-            <li>
-              <Link
-                href="/media"
-                className="transition-colors hover:text-gray-700"
-              >
-                MEDIA
-              </Link>
-            </li>
-            <li aria-hidden="true" className="mx-1">
-              /
-            </li>
-            <li>BLOG</li>
-          </ol>
-        </motion.nav>
+          <Breadcrumb
+            items={[
+              { label: "HOME", href: "/" },
+              { label: "MEDIA", href: "/media" },
+              { label: "BLOG" },
+            ]}
+          />
+        </motion.div>
         <p className="mt-2 text-base max-w-2xl text-slate-600">
           Stories, comparisons, and how-tos from Indowud NFC.
         </p>

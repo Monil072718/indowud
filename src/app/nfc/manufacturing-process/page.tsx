@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { motion, type Variants } from "framer-motion"
 import Image from "next/image"
+import Breadcrumb from "@/components/common/Breadcrumb"
 
 export const dynamic = "force-static"
 
@@ -94,30 +95,21 @@ export default function ManufacturingProcessPage() {
             >
               Manufacturing Process
             </motion.h1>
-            <motion.nav
+            <motion.div
               variants={fadeUp}
               custom={1}
               initial="hidden"
               animate="show"
-              className="mt-1 sm:mt-3 text-[10px] sm:text-xs md:text-sm tracking-widest text-gray-500 uppercase"
-              aria-label="Breadcrumb"
+              className="mt-1 sm:mt-3"
             >
-              <ol className="flex items-center flex-wrap gap-1">
-                <li>
-                  <Link href="/" className="hover:text-gray-700 transition-colors">
-                    HOME
-                  </Link>
-                </li>
-                <li aria-hidden="true">/</li>
-                <li>
-                  <Link href="/nfc" className="hover:text-gray-700 transition-colors">
-                    NFC
-                  </Link>
-                </li>
-                <li aria-hidden="true">/</li>
-                <li>MANUFACTURING PROCESS</li>
-              </ol>
-            </motion.nav>
+              <Breadcrumb
+                items={[
+                  { label: "HOME", href: "/" },
+                  { label: "NFC", href: "/nfc" },
+                  { label: "MANUFACTURING PROCESS" },
+                ]}
+              />
+            </motion.div>
           </div>
         </div>
       </section>

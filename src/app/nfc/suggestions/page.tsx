@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef, type ReactNode } from "react";
 import { X } from "lucide-react"
+import Breadcrumb from "@/components/common/Breadcrumb"
 
 /* ────────────────── Types ────────────────── */
 type GridRow = {
@@ -122,30 +123,22 @@ function SuggestionsSection({
             {heading}
           </motion.h1>
           {/* Breadcrumb */}
-          <motion.nav
+          <motion.div
             initial={{ y: 12, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: 0.05 }}
-            className="mt-3 text-xs tracking-widest text-white/90 uppercase"
-            aria-label="Breadcrumb"
+            className="mt-3"
           >
-            <ol className="flex items-center">
-              <li>
-                <Link href="/" className="hover:text-white transition-colors">
-                  HOME
-                </Link>
-              </li>
-              <li aria-hidden="true" className="mx-1">/</li>
-              <li>
-                <Link href="/nfc" className="hover:text-white transition-colors">
-                  NFC
-                </Link>
-              </li>
-              <li aria-hidden="true" className="mx-1">/</li>
-              <li>SUGGESTIONS</li>
-            </ol>
-          </motion.nav>
+            <Breadcrumb
+              items={[
+                { label: "HOME", href: "/" },
+                { label: "NFC", href: "/nfc" },
+                { label: "SUGGESTIONS" },
+              ]}
+              variant="light"
+            />
+          </motion.div>
           <p className="mt-2 text-base text-white/90">
             Zero-defect furniture starts with the right workflow & installation.
           </p>

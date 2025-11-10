@@ -4,6 +4,7 @@ import React, { useId, Suspense } from "react";
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
 import dynamic from "next/dynamic";
+import Breadcrumb from "@/components/common/Breadcrumb";
 
 // Swiper CSS
 import "swiper/css";
@@ -152,30 +153,21 @@ export default function ThermoformingPage() {
             {title}
           </h2>
 
-          <motion.nav
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.4 }}
-            className="mt-3 text-xs tracking-widest text-gray-500 uppercase"
-            aria-label="Breadcrumb"
+            className="mt-3"
           >
-            <ol className="flex items-center gap-1 flex-wrap">
-              <li>
-                <Link href="/" className="hover:text-gray-700 transition-colors">
-                  HOME
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li>
-                <Link href="/nfc" className="hover:text-gray-700 transition-colors">
-                  NFC
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li>THERMOFORMING</li>
-            </ol>
-          </motion.nav>
+            <Breadcrumb
+              items={[
+                { label: "HOME", href: "/" },
+                { label: "NFC", href: "/nfc" },
+                { label: "THERMOFORMING" },
+              ]}
+            />
+          </motion.div>
 
           <p className="mt-2 text-base max-w-3xl text-slate-600">{subtitle}</p>
         </motion.div>

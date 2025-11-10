@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ReactNode } from "react";
+import Breadcrumb from "@/components/common/Breadcrumb";
 
 /* ---------- page (no props!) ---------- */
 export default function Page() {
@@ -66,30 +67,22 @@ function FeaturesSection({
             {heading}
           </motion.h2>
           {/* breadcrumb */}
-          <motion.nav
+          <motion.div
             initial={{ y: 18, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-3 text-xs tracking-widest text-white/90 uppercase"
-            aria-label="Breadcrumb"
+            className="mt-3"
           >
-            <ol className="flex items-center">
-              <li>
-                <Link href="/" className="hover:text-white transition-colors">
-                  HOME
-                </Link>
-              </li>
-              <li aria-hidden="true" className="mx-1">/</li>
-              <li>
-                <Link href="/nfc" className="hover:text-white transition-colors">
-                  NFC
-                </Link>
-              </li>
-              <li aria-hidden="true" className="mx-1">/</li>
-              <li>FEATURES</li>
-            </ol>
-          </motion.nav>
+            <Breadcrumb
+              items={[
+                { label: "HOME", href: "/" },
+                { label: "NFC", href: "/nfc" },
+                { label: "FEATURES" },
+              ]}
+              variant="light"
+            />
+          </motion.div>
           <motion.p
             initial={{ y: 18, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
