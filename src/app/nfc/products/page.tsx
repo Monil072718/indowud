@@ -1,488 +1,393 @@
 import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import PageHero from "@/components/common/PageHero";
-
-type ProductSpec = {
-  label: string;
-  value: string;
-};
-
-type ProductResource = {
-  label: string;
-  href: string;
+const BRAND = {
+  teal: "#0FA5A5",
+  magenta: "#C13584",
 };
 
 type Product = {
   id: string;
   name: string;
-  category: string;
-  tagline: string;
-  description: string;
+  slug: string;
+  tag?: string;
   image: string;
-  imageAlt: string;
-  accent: string;
-  chips: string[];
-  specs: ProductSpec[];
-  features: string[];
-  resources?: ProductResource[];
+  blurb: string;
+  bullets?: string[];
+  cta?: { label: string; href: string }[];
+  specs?: { label: string; value: string }[];
 };
 
-const products: Product[] = [
+const PRODUCTS: Product[] = [
   {
-    id: "zerowud",
-    name: "ZerOwud® NFC Panel",
-    category: "Flagship boards",
-    tagline: "Pure natural fibre composite. Zero fillers. All performance.",
-    description:
-      "Our flagship board is engineered from carefully processed natural fibres bound with high performance resins. The result is a panel that is dimensionally stable, moisture resistant and capable of taking premium finishes without sanding fatigue.",
+    id: "zerowud-nfc",
+    name: "ZeroWud nfc",
+    slug: "zerowud-nfc",
+    tag: "Build green with zero-filler panels",
     image:
-      "https://images.pexels.com/photos/5691609/pexels-photo-5691609.jpeg?auto=compress&cs=tinysrgb&w=800",
-    imageAlt: "Stack of natural fibre composite boards",
-    accent: "#0F766E",
-    chips: ["Exterior & interior", "Fire retardant", "Termite proof"],
+      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/sample.jpg",
+    blurb:
+      "Dense, robust panels engineered for durability and finishing that can withstand moisture, termites and harsh weather—yet friendly to fabrication.",
+    bullets: [
+      "100% wood-free natural fibre composite",
+      "Zero filler — consistent density",
+      "Precision machining & screw holding",
+      "Low maintenance, paint/veneer ready",
+    ],
     specs: [
-      { label: "Standard thickness", value: "6 mm – 25 mm" },
-      { label: "Panel sizes", value: "2440 × 1220 mm | 3050 × 1220 mm" },
-      { label: "Density", value: "650 ± 10 kg/m³" },
+      { label: "Sizes", value: "8×4 ft, 9×6 ft" },
+      { label: "Thickness", value: "6, 12, 18, 25 mm" },
+      { label: "Finish", value: "Sanded, primer ready" },
     ],
-    features: [
-      "Works with conventional woodworking tools and CNC routers.",
-      "Accepts paint, veneer, laminate and textured coatings with minimal prep.",
-      "Stable in humid climates; zero warping and swelling.",
-    ],
-    resources: [
-      {
-        label: "Download ZerOwud® technical sheet",
-        href: "/brochures/technical-suggestions.pdf",
-      },
+    cta: [
+      { label: "Download Brochure", href: "#" },
+      { label: "Talk to Sales", href: "/contact" },
     ],
   },
   {
-    id: "nfc-board",
-    name: "Indowud NFC Board",
-    category: "Performance panels",
-    tagline: "High density boards for millwork, retail and transport interiors.",
-    description:
-      "A versatile panel trusted by architects and joinery teams for partitions, retail fixtures and transport interiors. The consistent core delivers crisp routed edges and superior screw holding strength.",
+    id: "indowud-board",
+    name: "Indowud nfc board",
+    slug: "indowud-nfc-board",
+    tag: "Engineered, application-ready interior/exterior board",
     image:
-      "https://images.pexels.com/photos/6120216/pexels-photo-6120216.jpeg?auto=compress&cs=tinysrgb&w=800",
-    imageAlt: "Composite board leaning on wall",
-    accent: "#2563EB",
-    chips: ["High impact", "Low VOC", "Precision machining"],
+      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/sofa-2.jpg",
+    blurb:
+      "High-strength NFC board for furniture, kitchens, vanities and façades. Stable in humidity, dimensionally true, and easy to edge-band, rout and finish.",
+    bullets: [
+      "Warp-free & termite-resistant",
+      "Excellent screw pull-out strength",
+      "CNC-friendly for intricate routing",
+    ],
     specs: [
-      { label: "Standard thickness", value: "8 mm – 30 mm" },
-      { label: "Fire performance", value: "Meets IS 5509 Class 1" },
-      { label: "Screw withdrawal", value: "1400 N (face) | 1250 N (edge)" },
+      { label: "Sizes", value: "8×4 ft" },
+      { label: "Thickness", value: "8–30 mm" },
     ],
-    features: [
-      "Uniform core ensures chip-free CNC routing and engraving.",
-      "Excellent dimensional stability in air-conditioned spaces.",
-      "Compatible with PU, melamine and water-based coatings.",
-    ],
-    resources: [
-      {
-        label: "Request commercial pricing",
-        href: "/contact",
-      },
-    ],
+    cta: [{ label: "View Applications", href: "/nfc/applications" }],
   },
   {
     id: "nfc-door",
-    name: "NFC Door",
-    category: "Ready-to-install joinery",
-    tagline: "Pre-balanced door shutters for high traffic spaces.",
-    description:
-      "Designed for hospitality, healthcare and contemporary homes, Indowud NFC doors combine a rigid core with factory balanced skins. They resist swelling, warping and termite attack even in coastal humidity.",
+    name: "nfc door",
+    slug: "nfc-door",
+    tag: "The eco-friendly, engineered door",
     image:
-      "https://images.pexels.com/photos/7598019/pexels-photo-7598019.jpeg?auto=compress&cs=tinysrgb&w=800",
-    imageAlt: "Modern engineered door",
-    accent: "#DB2777",
-    chips: ["Ready for hardware", "Water resistant", "Sound dampening"],
+      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/chair.jpg",
+    blurb:
+      "Stable, ready-to-finish door shutters that stay aligned and withstand seasonal changes. Choose skins, paint, veneer or lamination.",
+    bullets: [
+      "Robust, rattle-free core",
+      "Moisture & termite resistance",
+      "Ready for paint or veneer",
+    ],
     specs: [
-      { label: "Shutter thickness", value: "32 mm | 35 mm | 40 mm" },
-      { label: "Max height", value: "2400 mm" },
-      { label: "Core composition", value: "NFC stile & rail with solid infill" },
+      { label: "Standard", value: "32, 35, 38 mm thick" },
+      { label: "Custom", value: "Sizes on request" },
     ],
-    features: [
-      "Factory routed for locks and vision panels on request.",
-      "Skin options include HPL, veneer, paint-ready and textured wraps.",
-      "Delivers up to 28 dB acoustic performance with gasket kit.",
-    ],
-    resources: [
-      {
-        label: "Download door catalogue",
-        href: "/brochures/technical-suggestions.pdf",
-      },
-    ],
+    cta: [{ label: "Get a Quote", href: "/contact" }],
   },
   {
     id: "nfc-frame",
-    name: "NFC Frame & Architrave",
-    category: "Joinery systems",
-    tagline: "Moisture proof frames that stay straight and true.",
-    description:
-      "Forget swelling, termite damage and patchy paint on frames. Our NFC frames arrive factory primed with tight tolerances, making on-site installation faster and cleaner.",
+    name: "nfc frames",
+    slug: "nfc-frames",
+    tag: "Non-warping door/window frames",
     image:
-      "https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=800",
-    imageAlt: "Finished door frame sections",
-    accent: "#059669",
-    chips: ["Factory primed", "Custom profiles", "Quick install"],
-    specs: [
-      { label: "Section sizes", value: "70 × 100 mm | 90 × 120 mm" },
-      { label: "Finish", value: "Primed | Veneer | PVC wrap" },
-      { label: "Installation", value: "Knock-down kit with hardware slots" },
-    ],
-    features: [
-      "Mitred corners with concealed fasteners for a seamless look.",
-      "Accepts screws and concealed hinges without splitting.",
-      "Ideal for wet cores, pools, spas and coastal homes.",
-    ],
-    resources: [
-      {
-        label: "Talk to a specification expert",
-        href: "/contact",
-      },
-    ],
+      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/wood.jpg",
+    blurb:
+      "Dimensionally stable frames and mouldings that look premium and last. Accepts paint, stain or veneers with crisp edges and profiles.",
+    bullets: ["Factory-profiled sections", "Uniform grain-like texture"],
+    cta: [{ label: "Ask for Sections List", href: "#" }],
   },
   {
-    id: "nfc-jali",
-    name: "NFC Jali & Screens",
-    category: "Architectural accents",
-    tagline: "Intricate laser-cut patterns with the strength of solid boards.",
-    description:
-      "Create statement partitions, ceiling baffles or façade accents with custom cut NFC jalis. The dense composite core delivers clean edges and resists outdoor exposure when coated correctly.",
+    id: "nfc-jalli",
+    name: "nfc jalli",
+    slug: "nfc-jalli",
+    tag: "Dress your walls with intricate patterns",
     image:
-      "https://images.pexels.com/photos/5847435/pexels-photo-5847435.jpeg?auto=compress&cs=tinysrgb&w=800",
-    imageAlt: "Decorative screen panels",
-    accent: "#7C3AED",
-    chips: ["CNC + laser ready", "Outdoor friendly", "UV stable coatings"],
-    specs: [
-      { label: "Thickness", value: "12 mm | 16 mm | 18 mm" },
-      { label: "Panel size", value: "Up to 3050 × 1220 mm" },
-      { label: "Finish", value: "Paint | Metallic | Wood grain" },
-    ],
-    features: [
-      "Supports fine perforations without chipping.",
-      "Lightweight compared to metal screens for easier installation.",
-      "Optional backing panels and mounting kits available.",
-    ],
-    resources: [
-      {
-        label: "Explore design library",
-        href: "/nfc/applications",
-      },
-    ],
+      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/architecture.jpg",
+    blurb:
+      "CNC-cut NFC jallis enable ornate façades, screens and partitions that handle the weather without swelling or splitting.",
+    bullets: ["Custom patterns", "Prime & paint ready"],
+    cta: [{ label: "Start a Custom Design", href: "/contact" }],
   },
   {
     id: "nfc-decking",
-    name: "NFC Decking Planks",
-    category: "Outdoor surfaces",
-    tagline: "Warm underfoot, tough against weather.",
-    description:
-      "A reversible profile decking plank for terraces, balconies and pool decks. The natural fibre composite resists UV ageing and can be refreshed with a light sanding and sealer coat.",
+    name: "nfc decking",
+    slug: "nfc-decking",
+    tag: "Long-lasting outdoor composite decking",
     image:
-      "https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg?auto=compress&cs=tinysrgb&w=800",
-    imageAlt: "Decking boards installed outdoors",
-    accent: "#D97706",
-    chips: ["Slip resistant", "Barefoot friendly", "Low maintenance"],
-    specs: [
-      { label: "Profile", value: "145 × 25 mm (hollow) | 138 × 22 mm (solid)" },
-      { label: "Span recommendation", value: "300 mm (center-to-center)" },
-      { label: "Finish palette", value: "Teak | Walnut | Ash | Charcoal" },
-    ],
-    features: [
-      "Hidden fastener system keeps the surface clean.",
-      "Resists fungal growth and splintering.",
-      "Colour stabilised for harsh tropical sunlight.",
-    ],
-    resources: [
-      {
-        label: "Download decking installation guide",
-        href: "/brochures/technical-suggestions.pdf",
-      },
-    ],
+      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/deck.jpg",
+    blurb:
+      "Slip-resistant surface, excellent drainage design and fade-resistant finish for patios, poolsides and walkways.",
+    bullets: ["Hidden fasteners", "Low maintenance"],
+    specs: [{ label: "Section", value: "25×150 mm • 2.4 m" }],
+    cta: [{ label: "See Colour Options", href: "#" }],
   },
   {
-    id: "nfc-trim",
-    name: "NFC Trim & Skirting",
-    category: "Finish profiles",
-    tagline: "Seamless transitions for walls, floors and ceilings.",
-    description:
-      "Complete your project with trims that match your primary panels. We machine custom coves, battens and skirting profiles with a pristine paint-ready surface.",
+    id: "nfc-fluted",
+    name: "nfc fluted profiles",
+    slug: "nfc-fluted-profiles",
+    tag: "Modern wall/ceiling flutes & trims",
     image:
-      "https://images.pexels.com/photos/1573828/pexels-photo-1573828.jpeg?auto=compress&cs=tinysrgb&w=800",
-    imageAlt: "Trim profiles displayed on table",
-    accent: "#DC2626",
-    chips: ["Custom lengths", "Paint ready", "Flexible MOQ"],
-    specs: [
-      { label: "Profiles", value: "20+ standard | fully bespoke on request" },
-      { label: "Finish options", value: "Primer | Veneer wrap | PU topcoat" },
-      { label: "Lead time", value: "10 – 14 working days" },
-    ],
-    features: [
-      "Consistent density avoids nail pops during installation.",
-      "Delivered labelled and shrink wrapped by zone for faster fit-out.",
-      "Ideal for curved surfaces when thermoformed.",
-    ],
+      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/wall.jpg",
+    blurb:
+      "Accent walls that pop — fast to install, easy to repaint, and consistent groove depth for perfect rhythm.",
+    bullets: ["Multiple groove widths", "Impact-resistant"],
+    cta: [{ label: "Explore Profiles", href: "#" }],
   },
   {
-    id: "nfc-ancillary",
-    name: "NFC Ancillary Systems",
-    category: "Accessories",
-    tagline: "Bonding systems and finishes engineered for NFC.",
-    description:
-      "From NFC-Glu® adhesives to UV resistant sealers, we bundle consumables that preserve the performance and warranty of every installation.",
+    id: "nfc-textured",
+    name: "nfc textured panels",
+    slug: "nfc-textured-panels",
+    tag: "Natural textures with craftsman-like detail",
     image:
-      "https://images.pexels.com/photos/5711907/pexels-photo-5711907.jpeg?auto=compress&cs=tinysrgb&w=800",
-    imageAlt: "Adhesive and coating containers",
-    accent: "#0EA5E9",
-    chips: ["Warranty compliant", "Quick curing", "Low smell"],
-    specs: [
-      { label: "Adhesive kit", value: "NFC-Glu® (Part A + Part B)" },
-      { label: "Top coat", value: "NFC Shield™ UV sealer" },
-      { label: "Support", value: "On-site training & application guides" },
-    ],
-    features: [
-      "Optimised open time for tropical weather.",
-      "Non-yellowing topcoat system to protect exterior installations.",
-      "Technical support hotline for applicators.",
-    ],
-    resources: [
-      {
-        label: "Book an applicator workshop",
-        href: "/contact",
-      },
-    ],
+      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/floor.jpg",
+    blurb:
+      "Authentic wood-like textures on durable NFC base for feature walls, cabinetry and façades.",
+    bullets: ["Uniform pattern repeat", "Prime/paint or veneer"],
+  },
+  {
+    id: "nfc-fence",
+    name: "nfc fence",
+    slug: "nfc-fence",
+    tag: "Beauty and sustainability combined",
+    image:
+      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/fence.jpg",
+    blurb:
+      "Weather-resistant pickets and rails that retain looks with minimal upkeep. Safe, splinter-free, child-friendly.",
+    bullets: ["Custom heights & caps", "Colour-coatable"],
+  },
+  {
+    id: "nfg-glu",
+    name: "NFG-GLU",
+    slug: "nfg-glu",
+    tag: "Bonding, when it matters most",
+    image:
+      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/bottle.jpg",
+    blurb:
+      "High-performance adhesive formulated for NFC surfaces and trims, ensuring strong bonds on complex profiles.",
+    bullets: ["Fast set", "High final strength"],
+    cta: [{ label: "Safety Data Sheet", href: "#" }],
   },
 ];
 
-const fadeIn = {
-  hidden: { opacity: 0, y: 24 },
-  show: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: index * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] },
-  }),
+export const metadata = {
+  title: "Products | Indowud NFC",
 };
 
 export default function ProductsPage() {
   return (
-    <>
-      <PageHero
-        title="Product Portfolio"
-        subtitle="Engineered components and systems crafted with natural fibre composites."
-        trail={["Home", "NFC", "Products"]}
-      />
+    <main className="relative">
+      {/* Gradient banner */}
+      <section
+        className="relative overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(135deg, ${BRAND.magenta}, ${BRAND.teal})`,
+        }}
+      >
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <span className="inline-block rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white ring-1 ring-white/30">
+              Natural Fibre Composite
+            </span>
+            <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+              Indowud NFC — Product Range
+            </h1>
+            <p className="mt-3 text-white/90">
+              Doors, frames, panels, trims and specialty profiles designed for
+              performance, finish and the planet.
+            </p>
+          </div>
+        </div>
 
-      <section className="bg-slate-50 py-12 sm:py-16 lg:py-20">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,240px),1fr] xl:grid-cols-[minmax(0,260px),1fr]">
-            <aside className="order-2 space-y-6 rounded-3xl border border-slate-200 bg-white/70 p-6 shadow-sm backdrop-blur lg:order-1 lg:sticky lg:top-28">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
-                  Explore by range
-                </p>
-                <h2 className="mt-2 text-xl font-bold text-slate-900">
-                  Product Navigator
-                </h2>
-              </div>
+        {/* soft wave */}
+        <div className="absolute inset-x-0 bottom-[-1px] h-8 bg-white clip-wave" />
+      </section>
 
-              <div className="space-y-3 text-sm font-medium text-slate-600">
-                {products.map((product) => (
-                  <a
-                    key={product.id}
-                    href={`#${product.id}`}
-                    className="flex items-center gap-3 rounded-xl border border-transparent bg-slate-100/40 px-3 py-2 transition hover:border-slate-200 hover:bg-white hover:shadow-sm"
-                  >
-                    <span
-                      aria-hidden
-                      className="inline-flex size-2 rounded-full"
-                      style={{ backgroundColor: product.accent }}
-                    />
-                    <span className="flex-1">{product.name}</span>
-                  </a>
+      {/* Main */}
+      <section className="mx-auto max-w-7xl px-4 pb-16 pt-8 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[240px_1fr]">
+          {/* Left sticky nav */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-24 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+              <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-700">
+                Categories
+              </h3>
+              <ul className="space-y-1 text-sm">
+                {PRODUCTS.map((p) => (
+                  <li key={p.id}>
+                    <a
+                      href={`#${p.id}`}
+                      className="block rounded-md px-2 py-1.5 text-slate-700 hover:bg-slate-50 hover:text-slate-900"
+                    >
+                      {p.name}
+                    </a>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
-              <div className="rounded-2xl border border-emerald-200 bg-gradient-to-br from-emerald-50 via-white to-cyan-50 p-4 text-sm text-emerald-900 shadow-sm">
-                <p className="font-semibold">Need a custom profile?</p>
-                <p className="mt-1 text-emerald-800/90">
-                  Our design lab prototypes bespoke sections, acoustic panels
-                  and façade systems for architects and OEMs.
-                </p>
-                <Link
+              <div className="mt-5 h-px bg-slate-100" />
+              <div className="mt-5 space-y-2 text-sm">
+                <a
+                  href="/nfc/applications"
+                  className="inline-flex items-center rounded-full px-3 py-1 font-medium text-white"
+                  style={{ backgroundColor: BRAND.teal }}
+                >
+                  View Applications
+                </a>
+                <a
                   href="/contact"
-                  className="mt-3 inline-flex items-center justify-center rounded-full bg-emerald-600 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white shadow hover:bg-emerald-700"
+                  className="block rounded-md border border-slate-200 px-3 py-2 text-center font-medium text-slate-700 hover:bg-slate-50"
                 >
-                  Book a discovery call
-                </Link>
+                  Contact Sales
+                </a>
               </div>
-            </aside>
+            </div>
+          </aside>
 
-            <div className="order-1 space-y-16 lg:order-2">
-              <div className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm backdrop-blur">
-                <div className="grid gap-6 md:grid-cols-[minmax(0,1.2fr),minmax(0,1fr)] md:items-center">
-                  <div>
-                    <h3 className="text-2xl font-bold text-slate-900">
-                      Built for performance. Designed for planet-positive
-                      projects.
-                    </h3>
-                    <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">
-                      Every Indowud NFC product begins with sustainably sourced
-                      agricultural fibres. Our vertically integrated facility
-                      presses panels, machines profiles and finishes components,
-                      giving project teams a complete kit that installs faster
-                      and lasts longer.
-                    </p>
-                  </div>
-                  <div className="grid gap-4 sm:grid-cols-3">
-                    {[
-                      ["30+", "Applications certified"],
-                      ["12", "Standard surface finishes"],
-                      ["100%", "Recycleable offcuts"],
-                    ].map(([stat, label]) => (
-                      <div
-                        key={label}
-                        className="rounded-2xl border border-slate-200 bg-white p-4 text-center shadow-sm"
-                      >
-                        <p className="text-2xl font-semibold text-slate-900">
-                          {stat}
-                        </p>
-                        <p className="mt-1 text-xs font-medium uppercase tracking-wide text-slate-500">
-                          {label}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+          {/* Content */}
+          <div className="space-y-12">
+            {/* mini search/filter (static visual, no JS) */}
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className="text-sm text-slate-600">
+                Showing <b>{PRODUCTS.length}</b> products
               </div>
-
-              {products.map((product, index) => (
-                <motion.article
-                  key={product.id}
-                  id={product.id}
-                  className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white/90 shadow-sm backdrop-blur"
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.25 }}
-                  custom={index}
-                  variants={fadeIn}
+              <div className="flex w-full max-w-lg items-center gap-2 rounded-xl border border-slate-200 bg-white p-2 shadow-sm">
+                <input
+                  aria-label="Search products"
+                  className="w-full rounded-lg bg-transparent px-3 py-2 text-sm outline-none placeholder:text-slate-400"
+                  placeholder="Search (visual only)…"
+                />
+                <span
+                  className="inline-flex shrink-0 items-center rounded-lg px-3 py-2 text-xs font-semibold text-white"
+                  style={{ backgroundColor: BRAND.magenta }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                  <div className="flex flex-col gap-8 p-6 sm:p-8 lg:p-10">
-                    <div className="grid gap-8 lg:grid-cols-[minmax(0,320px),minmax(0,1fr)] lg:items-center">
-                      <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-inner">
-                        <div
-                          className="absolute inset-0 opacity-10"
-                          style={{ backgroundColor: product.accent }}
-                          aria-hidden
-                        />
-                        <div className="relative h-72">
-                          <Image
-                            src={product.image}
-                            alt={product.imageAlt}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 1024px) 100vw, 320px"
-                            priority={index === 0}
-                          />
-                        </div>
-                      </div>
+                  Go
+                </span>
+              </div>
+            </div>
 
-                      <div className="space-y-4">
-                        <div className="flex flex-wrap items-center gap-2">
-                          <span
-                            className="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white"
-                            style={{ backgroundColor: product.accent }}
-                          >
-                            {product.category}
-                          </span>
-                          {product.chips.map((chip) => (
-                            <span
-                              key={chip}
-                              className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600"
+            {PRODUCTS.map((p, i) => (
+              <article
+                key={p.id}
+                id={p.id}
+                className="group rounded-3xl border border-slate-200 bg-white shadow-sm ring-1 ring-black/5"
+              >
+                {/* responsive split */}
+                <div className="grid items-stretch gap-0 md:grid-cols-2">
+                  {/* image */}
+                  <div className="relative overflow-hidden rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none">
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/0 via-black/0 to-black/5" />
+                    <Image
+                      src={p.image}
+                      alt={p.name}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      sizes="(min-width:1024px) 44rem, 100vw"
+                      priority={i < 2}
+                    />
+                  </div>
+
+                  {/* content */}
+                  <div className="flex h-full flex-col justify-between p-6 sm:p-8">
+                    <div>
+                      {p.tag && (
+                        <span
+                          className="inline-block rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white"
+                          style={{ backgroundColor: BRAND.teal }}
+                        >
+                          {p.tag}
+                        </span>
+                      )}
+                      <h2 className="mt-3 text-2xl font-bold text-slate-900">
+                        {p.name}
+                      </h2>
+                      <p className="mt-2 text-slate-700">{p.blurb}</p>
+
+                      {p.bullets && p.bullets.length > 0 && (
+                        <ul className="mt-4 grid list-disc gap-x-6 gap-y-1 pl-5 text-sm text-slate-700 sm:grid-cols-2">
+                          {p.bullets.map((b, idx) => (
+                            <li key={idx}>{b}</li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {p.specs && p.specs.length > 0 && (
+                        <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                          {p.specs.map((s, idx) => (
+                            <div
+                              key={idx}
+                              className="flex items-center justify-between rounded-lg border border-slate-200 px-3 py-2 text-sm"
                             >
-                              {chip}
-                            </span>
+                              <span className="text-slate-500">{s.label}</span>
+                              <span className="font-medium text-slate-800">
+                                {s.value}
+                              </span>
+                            </div>
                           ))}
                         </div>
-                        <div>
-                          <h3 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-                            {product.name}
-                          </h3>
-                          <p className="mt-2 text-sm font-medium uppercase tracking-[0.3em] text-slate-400">
-                            {product.tagline}
-                          </p>
-                        </div>
-                        <p className="text-sm leading-6 text-slate-600 sm:text-base">
-                          {product.description}
-                        </p>
+                      )}
+                    </div>
 
-                        <div className="grid gap-6 sm:grid-cols-2">
-                          <dl className="space-y-3 rounded-2xl border border-slate-200 bg-slate-50/60 p-4 text-sm text-slate-700">
-                            <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                              Technical snapshot
-                            </dt>
-                            {product.specs.map((spec) => (
-                              <div
-                                key={`${product.id}-${spec.label}`}
-                                className="space-y-1 rounded-lg border border-transparent px-3 py-2 transition hover:border-slate-200 hover:bg-white"
-                              >
-                                <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                                  {spec.label}
-                                </dt>
-                                <dd className="text-sm font-medium text-slate-800">
-                                  {spec.value}
-                                </dd>
-                              </div>
-                            ))}
-                          </dl>
-                          <ul className="space-y-3 text-sm text-slate-700">
-                            <li className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                              Why teams choose it
-                            </li>
-                            {product.features.map((feature) => (
-                              <li
-                                key={`${product.id}-${feature}`}
-                                className="flex items-start gap-2 rounded-xl border border-transparent px-3 py-2 leading-6 transition hover:border-slate-200 hover:bg-slate-50"
-                              >
-                                <span
-                                  className="mt-1 inline-flex size-1.5 rounded-full"
-                                  style={{ backgroundColor: product.accent }}
-                                  aria-hidden
-                                />
-                                <span>{feature}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {product.resources?.length ? (
-                          <div className="flex flex-wrap gap-3 pt-2">
-                            {product.resources.map((resource) => (
-                              <Link
-                                key={`${product.id}-${resource.label}`}
-                                href={resource.href}
-                                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-50"
-                              >
-                                <span>⟶</span>
-                                {resource.label}
-                              </Link>
-                            ))}
-                          </div>
-                        ) : null}
-                      </div>
+                    <div className="mt-6 flex flex-wrap gap-3">
+                      <a
+                        href={`#${p.slug}`}
+                        className="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold text-white shadow-sm"
+                        style={{ backgroundColor: BRAND.magenta }}
+                      >
+                        Explore Specs
+                      </a>
+                      {(p.cta ?? []).map((c, idx) => (
+                        <a
+                          key={idx}
+                          href={c.href}
+                          className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+                        >
+                          {c.label}
+                        </a>
+                      ))}
                     </div>
                   </div>
-                </motion.article>
-              ))}
+                </div>
+              </article>
+            ))}
+
+            {/* Bottom CTA */}
+            <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 sm:p-10">
+              <div className="grid gap-6 md:grid-cols-3 md:items-center">
+                <div className="md:col-span-2">
+                  <h3 className="text-2xl font-bold text-slate-900">
+                    Need guidance choosing the right product?
+                  </h3>
+                  <p className="mt-2 text-slate-700">
+                    Share your project details and we’ll recommend the optimal
+                    thickness, finish and profiles for long-term performance.
+                  </p>
+                </div>
+                <div className="flex gap-3 md:justify-end">
+                  <a
+                    href="/contact"
+                    className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-md"
+                    style={{ backgroundColor: BRAND.teal }}
+                  >
+                    Talk to an Expert
+                  </a>
+                  <a
+                    href="/nfc/applications"
+                    className="inline-flex items-center rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+                  >
+                    See Applications
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
-    </>
+
+      {/* style helper: small wave cut under banner */}
+      <style>{`
+        .clip-wave {
+          -webkit-clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);
+        }
+      `}</style>
+    </main>
   );
 }
-
-
