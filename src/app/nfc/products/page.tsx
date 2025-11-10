@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 const BRAND = {
   teal: "#0FA5A5",
   magenta: "#C13584",
@@ -171,6 +172,75 @@ export const metadata = {
   title: "Products | Indowud NFC",
 };
 
+/* ───────────────────────────────── helpers */
+
+function Eyebrow({ children }: { children: React.ReactNode }) {
+  return (
+    <span
+      className="inline-block rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white"
+      style={{ backgroundColor: BRAND.teal }}
+    >
+      {children}
+    </span>
+  );
+}
+
+/* Compact buttons */
+type BtnVariant = "magenta" | "teal";
+
+function BtnPrimary({
+  href,
+  children,
+  variant = "magenta",
+}: {
+  href: string;
+  children: React.ReactNode;
+  variant?: BtnVariant;
+}) {
+  return (
+    <a
+      href={href}
+      className="inline-flex items-center justify-center rounded-full px-4 py-2 text-[13px] font-semibold text-white shadow-sm transition duration-200 hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+      style={{ backgroundColor: variant === "teal" ? BRAND.teal : BRAND.magenta }}
+    >
+      {children}
+    </a>
+  );
+}
+
+function BtnSecondary({
+  href,
+  children,
+  tone = "slate",
+}: {
+  href: string;
+  children: React.ReactNode;
+  tone?: "slate" | "teal";
+}) {
+  const textColor = tone === "teal" ? "text-teal-600" : "text-slate-800";
+  const hoverText = tone === "teal" ? "hover:text-teal-700" : "hover:text-slate-900";
+  return (
+    <a
+      href={href}
+      className={`inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2 text-[13px] font-semibold shadow-sm transition duration-200 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-300 ${textColor} ${hoverText}`}
+    >
+      {children}
+    </a>
+  );
+}
+
+/** Spec pill with tidy label/value layout that wraps nicely */
+function SpecPill({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="grid min-h-[44px] grid-cols-2 items-center gap-x-2 rounded-xl border border-slate-200 bg-white px-4 py-2 shadow-[0_1px_0_rgba(15,23,42,0.02)] sm:grid-cols-[auto_1fr]">
+      <span className="text-[12px] font-medium text-slate-500">{label}</span>
+      <span className="text-[13px] font-semibold text-slate-800 justify-self-end sm:justify-self-start">
+        {value}
+      </span>
+    </div>
+  );
+}
+
 export default function ProductsPage() {
   return (
     <main className="relative">
@@ -195,8 +265,6 @@ export default function ProductsPage() {
             </p>
           </div>
         </div>
-
-        {/* soft wave */}
         <div className="absolute inset-x-0 bottom-[-1px] h-8 bg-white clip-wave" />
       </section>
 
@@ -269,7 +337,7 @@ export default function ProductsPage() {
                 id={p.id}
                 className="group rounded-3xl border border-slate-200 bg-white shadow-sm ring-1 ring-black/5"
               >
-                {/* responsive split */}
+                {/* split */}
                 <div className="grid items-stretch gap-0 md:grid-cols-2">
                   {/* image */}
                   <div className="relative overflow-hidden rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none">
@@ -287,60 +355,37 @@ export default function ProductsPage() {
                   {/* content */}
                   <div className="flex h-full flex-col justify-between p-6 sm:p-8">
                     <div>
-                      {p.tag && (
-                        <span
-                          className="inline-block rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white"
-                          style={{ backgroundColor: BRAND.teal }}
-                        >
-                          {p.tag}
-                        </span>
-                      )}
+                      {p.tag && <Eyebrow>{p.tag}</Eyebrow>}
+
                       <h2 className="mt-3 text-2xl font-bold text-slate-900">
                         {p.name}
                       </h2>
+
                       <p className="mt-2 text-slate-700">{p.blurb}</p>
 
-                      {p.bullets && p.bullets.length > 0 && (
+                      {p.bullets?.length ? (
                         <ul className="mt-4 grid list-disc gap-x-6 gap-y-1 pl-5 text-sm text-slate-700 sm:grid-cols-2">
                           {p.bullets.map((b, idx) => (
                             <li key={idx}>{b}</li>
                           ))}
                         </ul>
-                      )}
+                      ) : null}
 
-                      {p.specs && p.specs.length > 0 && (
+                      {p.specs?.length ? (
                         <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
                           {p.specs.map((s, idx) => (
-                            <div
-                              key={idx}
-                              className="flex items-center justify-between rounded-lg border border-slate-200 px-3 py-2 text-sm"
-                            >
-                              <span className="text-slate-500">{s.label}</span>
-                              <span className="font-medium text-slate-800">
-                                {s.value}
-                              </span>
-                            </div>
+                            <SpecPill key={idx} label={s.label} value={s.value} />
                           ))}
                         </div>
-                      )}
+                      ) : null}
                     </div>
 
                     <div className="mt-6 flex flex-wrap gap-3">
-                      <a
-                        href={`#${p.slug}`}
-                        className="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold text-white shadow-sm"
-                        style={{ backgroundColor: BRAND.magenta }}
-                      >
-                        Explore Specs
-                      </a>
+                      <BtnPrimary href={`#${p.slug}`}>Explore Specs</BtnPrimary>
                       {(p.cta ?? []).map((c, idx) => (
-                        <a
-                          key={idx}
-                          href={c.href}
-                          className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-                        >
+                        <BtnSecondary key={idx} href={c.href} tone="teal">
                           {c.label}
-                        </a>
+                        </BtnSecondary>
                       ))}
                     </div>
                   </div>
@@ -360,20 +405,13 @@ export default function ProductsPage() {
                     thickness, finish and profiles for long-term performance.
                   </p>
                 </div>
-                <div className="flex gap-3 md:justify-end">
-                  <a
-                    href="/contact"
-                    className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-md"
-                    style={{ backgroundColor: BRAND.teal }}
-                  >
+                <div className="flex flex-wrap gap-3 md:justify-end">
+                  <BtnPrimary href="/contact" variant="teal">
                     Talk to an Expert
-                  </a>
-                  <a
-                    href="/nfc/applications"
-                    className="inline-flex items-center rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-                  >
+                  </BtnPrimary>
+                  <BtnSecondary href="/nfc/applications" tone="teal">
                     See Applications
-                  </a>
+                  </BtnSecondary>
                 </div>
               </div>
             </div>
