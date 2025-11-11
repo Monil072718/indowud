@@ -1,8 +1,5 @@
 "use client"
 
-import type React from "react"
-
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef, type ReactNode } from "react";
 import { X } from "lucide-react"
@@ -30,16 +27,11 @@ type Row = {
 export default function Page() {
   return (
     <>
-      <Breadcrumb />
+      {/* Breadcrumb is rendered inside SuggestionsSection */}
       <SuggestionsSection />
       <SustainabilitySection />
     </>
   )
-}
-
-/* ────────────────── Breadcrumb ────────────────── */
-function Breadcrumb() {
-  return null; // Breadcrumb will be in SuggestionsSection below title
 }
 
 /* ────────────────── Suggestions Section ────────────────── */
@@ -79,7 +71,7 @@ function SuggestionsSection({
     {
       id: "adhesive",
       title: "Suggested adhesive",
-      body: "INDOBLUE PVA, PFE, WP1; ProBond; Merstik; Helen. Drying time may vary—follow manufacturer's guidance.",
+      body: "INDOBLUE PVA, PFE, WP1; ProBond; Merstik; Helen. Drying time may vary—follow manufacturer’s guidance.",
     },
     {
       id: "paneling",
@@ -155,7 +147,6 @@ function SuggestionsSection({
           >
             <div className="aspect-video">
               <LazyYouTubeIframe />
-
             </div>
           </motion.div>
 
