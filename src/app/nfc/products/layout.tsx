@@ -184,7 +184,7 @@ const PRODUCTS: Product[] = [
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <span
-      className="inline-block rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-white"
+      className="inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white"
       style={{ backgroundColor: BRAND.teal }}
     >
       {children}
@@ -206,7 +206,7 @@ function Button({
     return (
       <a
         href={href}
-        className="inline-flex h-10 items-center justify-center rounded-full border border-slate-300 bg-white px-4 text-[13px] font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50 cursor-pointer"
+        className="inline-flex h-10 items-center justify-center rounded-full border border-slate-300 bg-white px-4 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50 cursor-pointer"
       >
         {children}
       </a>
@@ -215,7 +215,7 @@ function Button({
   return (
     <a
       href={href}
-      className="inline-flex h-10 items-center justify-center rounded-full bg-teal-600 px-4 text-[13px] font-semibold text-white shadow-sm transition hover:bg-teal-700 cursor-pointer"
+      className="inline-flex h-10 items-center justify-center rounded-full bg-teal-600 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-700 cursor-pointer"
     >
       {children}
     </a>
@@ -225,8 +225,8 @@ function Button({
 function SpecPill({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_1px_0_rgba(15,23,42,0.04)]">
-      <div className="text-[11px] font-medium uppercase tracking-wide text-slate-500">{label}</div>
-      <div className="mt-1 text-[13px] font-semibold leading-snug text-slate-900">{value}</div>
+      <div className="text-xs font-medium uppercase tracking-wide text-slate-500">{label}</div>
+      <div className="mt-1 text-sm font-semibold leading-snug text-slate-900">{value}</div>
     </div>
   )
 }
@@ -322,11 +322,11 @@ export default function ProductsPage() {
                   <div className="flex h-full flex-col justify-between p-6 sm:p-8">
                     <div className="max-w-xl">
                       {p.tag && <Eyebrow>{p.tag}</Eyebrow>}
-                      <h2 className="mt-3 text-2xl font-bold text-slate-900">{p.name}</h2>
-                      <p className="mt-2 text-[15px] leading-7 text-slate-700">{p.blurb}</p>
+                      <h2 className="mt-3 text-xl sm:text-2xl font-bold text-slate-900">{p.name}</h2>
+                      <p className="mt-2 text-sm sm:text-base leading-7 text-slate-700">{p.blurb}</p>
 
                       {p.bullets?.length ? (
-                        <ul className="mt-4 grid list-disc gap-x-6 gap-y-1 pl-5 text-[13px] text-slate-700 sm:grid-cols-2">
+                        <ul className="mt-4 grid list-disc gap-x-6 gap-y-1 pl-5 text-sm text-slate-700 sm:grid-cols-2">
                           {p.bullets.map((b, idx) => (
                             <li key={idx}>{b}</li>
                           ))}

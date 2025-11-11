@@ -177,7 +177,7 @@ export const metadata = {
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <span
-      className="inline-block rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white"
+      className="inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white"
       style={{ backgroundColor: BRAND.teal }}
     >
       {children}
@@ -200,7 +200,7 @@ function BtnPrimary({
   return (
     <a
       href={href}
-      className="inline-flex items-center justify-center rounded-full px-4 py-2 text-[13px] font-semibold text-white shadow-sm transition duration-200 hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer"
+      className="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-white shadow-sm transition duration-200 hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer"
       style={{ backgroundColor: variant === "teal" ? BRAND.teal : BRAND.magenta }}
     >
       {children}
@@ -222,7 +222,7 @@ function BtnSecondary({
   return (
     <a
       href={href}
-      className={`inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2 text-[13px] font-semibold shadow-sm transition duration-200 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-300 cursor-pointer ${textColor} ${hoverText}`}
+      className={`inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold shadow-sm transition duration-200 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-300 cursor-pointer ${textColor} ${hoverText}`}
     >
       {children}
     </a>
@@ -233,8 +233,8 @@ function BtnSecondary({
 function SpecPill({ label, value }: { label: string; value: string }) {
   return (
     <div className="grid min-h-[44px] grid-cols-2 items-center gap-x-2 rounded-xl border border-slate-200 bg-white px-4 py-2 shadow-[0_1px_0_rgba(15,23,42,0.02)] sm:grid-cols-[auto_1fr]">
-      <span className="text-[12px] font-medium text-slate-500">{label}</span>
-      <span className="text-[13px] font-semibold text-slate-800 justify-self-end sm:justify-self-start">
+      <span className="text-xs font-medium text-slate-500">{label}</span>
+      <span className="text-sm font-semibold text-slate-800 justify-self-end sm:justify-self-start">
         {value}
       </span>
     </div>
@@ -331,11 +331,11 @@ export default function ProductsPage() {
                     <div>
                       {p.tag && <Eyebrow>{p.tag}</Eyebrow>}
 
-                      <h2 className="mt-3 text-2xl font-bold text-slate-900">
+                      <h2 className="mt-3 text-xl sm:text-2xl font-bold text-slate-900">
                         {p.name}
                       </h2>
 
-                      <p className="mt-2 text-slate-700">{p.blurb}</p>
+                      <p className="mt-2 text-sm sm:text-base leading-7 text-slate-700">{p.blurb}</p>
 
                       {p.bullets?.length ? (
                         <ul className="mt-4 grid list-disc gap-x-6 gap-y-1 pl-5 text-sm text-slate-700 sm:grid-cols-2">
