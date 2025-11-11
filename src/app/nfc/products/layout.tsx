@@ -119,6 +119,7 @@ type Product = {
   cta?: CTA[]
   websiteUrl?: string
   showCustomSizeText?: boolean
+  hideExploreSpecs?: boolean
 }
 
 /* ----------------------- DATA (unchanged) ----------------------- */
@@ -203,7 +204,7 @@ const PRODUCTS: Product[] = [
   },
   {
     id: "nfc-decking",
-    name: "nfc decking",
+    name: "NFC decking",
     slug: "nfc-decking",
     tag: "Elevate your out door living with solid composite decking",
     image: "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_1600/deck.jpg",
@@ -213,7 +214,8 @@ const PRODUCTS: Product[] = [
       { label: "Available size", value: "8 feet x 6 inch (2440mm x 150mm)" },
       { label: "Thickness", value: "25mm, 30mm" },
     ],
-    cta: [{ label: "See Available Patterns", href: "#" }],
+    cta: [{ label: "See Available Patterns", href: "/nfc/products/nfc-decking" }],
+    hideExploreSpecs: true,
   },
   {
     id: "nfc-flute",
@@ -478,9 +480,11 @@ export default function ProductsPage() {
                         </div>
                       ) : (
                         <div className="mt-6 flex flex-wrap gap-3">
-                          <Button href={`#${p.slug}`} variant="solid">
-                            Explore Specs
-                          </Button>
+                          {!p.hideExploreSpecs && (
+                            <Button href={`#${p.slug}`} variant="solid">
+                              Explore Specs
+                            </Button>
+                          )}
                           {(p.cta ?? []).map((c, idx) => (
                             <Button key={idx} href={c.href} variant="outline" download={c.download}>
                               {c.label}

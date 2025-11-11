@@ -17,6 +17,7 @@ type Product = {
   cta?: { label: string; href: string; download?: boolean }[];
   specs?: { label: string; value: string }[];
   showCustomSizeText?: boolean;
+  hideExploreSpecs?: boolean;
 };
 
 const PRODUCTS: Product[] = [
@@ -112,7 +113,7 @@ const PRODUCTS: Product[] = [
   },
   {
     id: "nfc-decking",
-    name: "nfc decking",
+    name: "NFC decking",
     slug: "nfc-decking",
     tag: "Long-lasting outdoor composite decking",
     image:
@@ -121,7 +122,8 @@ const PRODUCTS: Product[] = [
       "Slip-resistant surface, excellent drainage design and fade-resistant finish for patios, poolsides and walkways.",
     bullets: ["Hidden fasteners", "Low maintenance"],
     specs: [{ label: "Section", value: "25×150 mm • 2.4 m" }],
-    cta: [{ label: "See Colour Options", href: "#" }],
+    cta: [{ label: "See Available Patterns", href: "/nfc/products/nfc-decking" }],
+    hideExploreSpecs: true,
   },
   {
     id: "nfc-fluted",
@@ -470,7 +472,9 @@ export default function ProductsPage() {
                       </div>
                     ) : (
                       <div className="mt-6 flex flex-wrap gap-3">
-                        <BtnPrimary href={`#${p.slug}`}>Explore Specs</BtnPrimary>
+                        {!p.hideExploreSpecs && (
+                          <BtnPrimary href={`#${p.slug}`}>Explore Specs</BtnPrimary>
+                        )}
                         {(p.cta ?? []).map((c, idx) => (
                           <BtnSecondary key={idx} href={c.href} tone="teal" download={c.download}>
                             {c.label}
