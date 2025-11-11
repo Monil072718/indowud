@@ -19,6 +19,7 @@ type Product = {
   bullets?: string[]
   specs?: Spec[]
   cta?: CTA[]
+  websiteUrl?: string
 }
 
 /* ----------------------- DATA (unchanged) ----------------------- */
@@ -41,6 +42,7 @@ const PRODUCTS: Product[] = [
       { label: "Download Brochure", href: "#" },
       { label: "Talk to Sales", href: "/contact" },
     ],
+    websiteUrl: "www.zerOwud.com",
   },
   {
     id: "indowud-nfc-board",
@@ -338,6 +340,22 @@ export default function ProductsPage() {
                           ))}
                         </div>
                       ) : null}
+
+                      {p.websiteUrl && (
+                        <div className="mt-4">
+                          <p className="text-base text-slate-700 mb-2">
+                            For more details, visit{" "}
+                            <a
+                              href={`https://${p.websiteUrl}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-block bg-teal-100 text-teal-700 px-3 py-1.5 rounded-md font-semibold hover:bg-teal-200 transition-colors underline decoration-2 decoration-teal-600 text-base"
+                            >
+                              {p.websiteUrl}
+                            </a>
+                          </p>
+                        </div>
+                      )}
                     </div>
 
                     <div className="mt-6 flex flex-wrap gap-3">
