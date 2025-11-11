@@ -1,6 +1,104 @@
 import type React from "react"
 import Image from "next/image"
 
+/* Simple icon badge (inline SVG, no extra deps) */
+function IconBadge({ svg, label }: { svg: React.ReactNode; label: string }) {
+  return (
+    <div className="flex flex-col items-center gap-2">
+      <div className="grid h-12 w-12 place-items-center rounded-full border border-slate-200 bg-white shadow-sm">
+        {svg}
+      </div>
+      <span className="text-xs font-medium text-slate-700 text-center">{label}</span>
+    </div>
+  )
+}
+
+/* NFC-GLU section */
+function NfcGluSection() {
+  return (
+    <section className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10">
+      <div className="grid gap-8 md:grid-cols-[380px_1fr] md:items-start">
+        {/* Left: product image */}
+        <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200">
+          <div className="relative aspect-[4/3] w-full">
+            <Image
+              src="https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_1200/sample.jpg"
+              alt="NFC-GLU adhesive containers"
+              fill
+              className="object-contain p-6"
+              sizes="(min-width: 1024px) 380px, 100vw"
+            />
+          </div>
+        </div>
+
+        {/* Right: copy */}
+        <div>
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+            NFC-GLU: <span className="text-teal-700">Bonding With The Best</span>
+          </h2>
+
+          <div className="mt-4 space-y-4 text-sm sm:text-base text-slate-700 leading-7">
+            <p>
+              Our research team observed that while bonding Indowud NFC with other surfaces, the
+              drying/bonding time can vary with weather conditions and the type of glue used.
+            </p>
+            <p>
+              With our expertise and technical backup, we developed an all-in-one professional
+              grade adhesive — <strong>NFC-GLU</strong> — to overcome such challenges.
+            </p>
+            <p>
+              NFC-GLU extends a strong, water-resistant bond with almost all surfaces — whether
+              rough or smooth, porous or non-porous.
+            </p>
+            <p>
+              We strongly recommend using NFC-GLU together with Indowud NFC for bonding different
+              surfaces together and faster, consistent results.
+            </p>
+          </div>
+
+          {/* Feature icons */}
+          <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-4">
+            <IconBadge
+              svg={
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="9" stroke="#0FA5A5" strokeWidth="2" />
+                  <path d="M12 7v6l4 2" stroke="#0FA5A5" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              }
+              label="Faster setting time"
+            />
+            <IconBadge
+              svg={
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 3c4 6 4 9 0 13-4-4-4-7 0-13Z" stroke="#0FA5A5" strokeWidth="2" />
+                </svg>
+              }
+              label="Water-resistant"
+            />
+            <IconBadge
+              svg={
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 12a5 5 0 0 1 10 0" stroke="#0FA5A5" strokeWidth="2" />
+                  <path d="M9 14h6" stroke="#0FA5A5" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              }
+              label="Strong bonding"
+            />
+            <IconBadge
+              svg={
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 12l5-5 5 5-5 5-5-5Z" stroke="#0FA5A5" strokeWidth="2" />
+                </svg>
+              }
+              label="Bonds on most surfaces"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 const BRAND = {
   teal: "#0FA5A5",
   magenta: "#C13584",
@@ -395,6 +493,9 @@ export default function ProductsPage() {
                 </article>
               )
             })}
+
+            {/* NFC-GLU feature section */}
+            <NfcGluSection />
 
             {/* Bottom CTA */}
             <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 sm:p-10">
