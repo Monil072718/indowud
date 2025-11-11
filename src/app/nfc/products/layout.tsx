@@ -460,7 +460,7 @@ export default function ProductsPage() {
                                 href={`https://${p.websiteUrl}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block bg-teal-100 text-teal-700 px-3 py-1.5 rounded-md font-semibold hover:bg-teal-200 transition-colors underline decoration-2 decoration-teal-600 text-base"
+                                className="inline-block text-teal-700 font-semibold hover:text-teal-800 transition-colors underline decoration-2 decoration-teal-600 text-base"
                               >
                                 {p.websiteUrl}
                               </a>
