@@ -20,6 +20,7 @@ type Product = {
   specs?: Spec[]
   cta?: CTA[]
   websiteUrl?: string
+  showCustomSizeText?: boolean
 }
 
 /* ----------------------- DATA (unchanged) ----------------------- */
@@ -58,6 +59,7 @@ const PRODUCTS: Product[] = [
       { label: "Finish", value: "Available in both side rough surface" },
     ],
     cta: [{ label: "View Applications", href: "/nfc/applications" }],
+    showCustomSizeText: true,
   },
   {
     id: "nfc-door",
@@ -367,16 +369,27 @@ export default function ProductsPage() {
                       )}
                     </div>
 
-                    <div className="mt-6 flex flex-wrap gap-3">
-                      <Button href={`#${p.slug}`} variant="solid">
-                        Explore Specs
-                      </Button>
-                      {(p.cta ?? []).map((c, idx) => (
-                        <Button key={idx} href={c.href} variant="outline" download={c.download}>
-                          {c.label}
+                    {p.showCustomSizeText ? (
+                      <div className="mt-6">
+                        <a
+                          href="/contact"
+                          className="text-base text-slate-700 hover:text-teal-600 transition-colors"
+                        >
+                          <span className="font-medium">Contact Us for Custom size</span>
+                        </a>
+                      </div>
+                    ) : (
+                      <div className="mt-6 flex flex-wrap gap-3">
+                        <Button href={`#${p.slug}`} variant="solid">
+                          Explore Specs
                         </Button>
-                      ))}
-                    </div>
+                        {(p.cta ?? []).map((c, idx) => (
+                          <Button key={idx} href={c.href} variant="outline" download={c.download}>
+                            {c.label}
+                          </Button>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               </article>

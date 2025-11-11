@@ -15,6 +15,7 @@ type Product = {
   bullets?: string[];
   cta?: { label: string; href: string; download?: boolean }[];
   specs?: { label: string; value: string }[];
+  showCustomSizeText?: boolean;
 };
 
 const PRODUCTS: Product[] = [
@@ -62,6 +63,7 @@ const PRODUCTS: Product[] = [
       { label: "Thickness", value: "8–30 mm" },
     ],
     cta: [{ label: "View Applications", href: "/nfc/applications" }],
+    showCustomSizeText: true,
   },
   {
     id: "nfc-door",
@@ -359,14 +361,25 @@ export default function ProductsPage() {
                       ) : null}
                     </div>
 
-                    <div className="mt-6 flex flex-wrap gap-3">
-                      <BtnPrimary href={`#${p.slug}`}>Explore Specs</BtnPrimary>
-                      {(p.cta ?? []).map((c, idx) => (
-                        <BtnSecondary key={idx} href={c.href} tone="teal" download={c.download}>
-                          {c.label}
-                        </BtnSecondary>
-                      ))}
-                    </div>
+                    {p.showCustomSizeText ? (
+                      <div className="mt-6">
+                        <a
+                          href="/contact"
+                          className="text-base text-slate-700 hover:text-teal-600 transition-colors"
+                        >
+                          <span className="font-medium">Contact Us for Custom size</span>
+                        </a>
+                      </div>
+                    ) : (
+                      <div className="mt-6 flex flex-wrap gap-3">
+                        <BtnPrimary href={`#${p.slug}`}>Explore Specs</BtnPrimary>
+                        {(p.cta ?? []).map((c, idx) => (
+                          <BtnSecondary key={idx} href={c.href} tone="teal" download={c.download}>
+                            {c.label}
+                          </BtnSecondary>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               </article>
