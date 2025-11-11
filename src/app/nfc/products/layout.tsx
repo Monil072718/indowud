@@ -301,123 +301,123 @@ export default function ProductsPage() {
           </aside>
 
           {/* Content */}
-        <div className="space-y-10">
-          {PRODUCTS.map((p, i) => {
-            const reverse = i % 2 === 1
-            return (
-              <article
-                key={p.id}
-                id={p.id}
-                className="scroll-mt-24 rounded-3xl border border-slate-200 bg-white shadow-sm ring-1 ring-black/5 group cursor-pointer"
-              >
-                <div
-                  className={`grid items-stretch gap-0 md:grid-cols-2 ${
-                    reverse ? "md:[&>div:first-child]:order-2" : ""
-                  }`}
+          <div className="space-y-10">
+            {PRODUCTS.map((p, i) => {
+              const reverse = i % 2 === 1
+              return (
+                <article
+                  key={p.id}
+                  id={p.id}
+                  className="scroll-mt-24 rounded-3xl border border-slate-200 bg-white shadow-sm ring-1 ring-black/5 group cursor-pointer"
                 >
-                  {/* image */}
-                  <div className="relative aspect-[4/3] overflow-visible rounded-t-3xl md:aspect-auto md:rounded-l-3xl md:rounded-tr-none p-4 sm:p-6 md:p-8">
-                    <div className="relative h-full w-full overflow-hidden rounded-lg">
-                      <Image
-                        src={p.image || "/placeholder.svg"}
-                        alt={p.name}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                        sizes="(min-width:1024px) 44rem, 100vw"
-                        priority={i < 2}
-                      />
+                  <div
+                    className={`grid items-stretch gap-0 md:grid-cols-2 ${
+                      reverse ? "md:[&>div:first-child]:order-2" : ""
+                    }`}
+                  >
+                    {/* image */}
+                    <div className="relative aspect-[4/3] overflow-visible rounded-t-3xl md:aspect-auto md:rounded-l-3xl md:rounded-tr-none p-4 sm:p-6 md:p-8">
+                      <div className="relative h-full w-full overflow-hidden rounded-lg">
+                        <Image
+                          src={p.image || "/placeholder.svg"}
+                          alt={p.name}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                          sizes="(min-width:1024px) 44rem, 100vw"
+                          priority={i < 2}
+                        />
+                      </div>
                     </div>
-                  </div>
 
-                  {/* content */}
-                  <div className="flex h-full flex-col justify-between p-6 sm:p-8">
-                    <div className="max-w-xl">
-                      {p.tag && <Eyebrow>{p.tag}</Eyebrow>}
-                      <h2 className="mt-3 text-xl sm:text-2xl font-bold text-slate-900">{p.name}</h2>
-                      <p className="mt-2 text-sm sm:text-base leading-7 text-slate-700">{p.blurb}</p>
+                    {/* content */}
+                    <div className="flex h-full flex-col justify-between p-6 sm:p-8">
+                      <div className="max-w-xl">
+                        {p.tag && <Eyebrow>{p.tag}</Eyebrow>}
+                        <h2 className="mt-3 text-xl sm:text-2xl font-bold text-slate-900">{p.name}</h2>
+                        <p className="mt-2 text-sm sm:text-base leading-7 text-slate-700">{p.blurb}</p>
 
-                      {p.bullets?.length ? (
-                        <ul className="mt-4 grid list-disc gap-x-6 gap-y-1 pl-5 text-sm text-slate-700 sm:grid-cols-2">
-                          {p.bullets.map((b, idx) => (
-                            <li key={idx}>{b}</li>
-                          ))}
-                        </ul>
-                      ) : null}
+                        {p.bullets?.length ? (
+                          <ul className="mt-4 grid list-disc gap-x-6 gap-y-1 pl-5 text-sm text-slate-700 sm:grid-cols-2">
+                            {p.bullets.map((b, idx) => (
+                              <li key={idx}>{b}</li>
+                            ))}
+                          </ul>
+                        ) : null}
 
-                      {p.specs?.length ? (
-                        <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                          {p.specs.map((s, idx) => (
-                            <SpecPill key={idx} label={s.label} value={s.value} />
-                          ))}
+                        {p.specs?.length ? (
+                          <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                            {p.specs.map((s, idx) => (
+                              <SpecPill key={idx} label={s.label} value={s.value} />
+                            ))}
+                          </div>
+                        ) : null}
+
+                        {p.websiteUrl && (
+                          <div className="mt-4">
+                            <p className="text-base text-slate-700 mb-2">
+                              For more details, visit{" "}
+                              <a
+                                href={`https://${p.websiteUrl}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block bg-teal-100 text-teal-700 px-3 py-1.5 rounded-md font-semibold hover:bg-teal-200 transition-colors underline decoration-2 decoration-teal-600 text-base"
+                              >
+                                {p.websiteUrl}
+                              </a>
+                            </p>
+                          </div>
+                        )}
+                      </div>
+
+                      {p.showCustomSizeText ? (
+                        <div className="mt-6">
+                          <a
+                            href="/contact"
+                            className="text-base text-slate-700 hover:text-teal-600 transition-colors"
+                          >
+                            <span className="font-medium">Contact Us for Custom size</span>
+                          </a>
                         </div>
-                      ) : null}
-
-                      {p.websiteUrl && (
-                        <div className="mt-4">
-                          <p className="text-base text-slate-700 mb-2">
-                            For more details, visit{" "}
-                            <a
-                              href={`https://${p.websiteUrl}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-block bg-teal-100 text-teal-700 px-3 py-1.5 rounded-md font-semibold hover:bg-teal-200 transition-colors underline decoration-2 decoration-teal-600 text-base"
-                            >
-                              {p.websiteUrl}
-                            </a>
-                          </p>
+                      ) : (
+                        <div className="mt-6 flex flex-wrap gap-3">
+                          <Button href={`#${p.slug}`} variant="solid">
+                            Explore Specs
+                          </Button>
+                          {(p.cta ?? []).map((c, idx) => (
+                            <Button key={idx} href={c.href} variant="outline" download={c.download}>
+                              {c.label}
+                            </Button>
+                          ))}
                         </div>
                       )}
                     </div>
-
-                    {p.showCustomSizeText ? (
-                      <div className="mt-6">
-                        <a
-                          href="/contact"
-                          className="text-base text-slate-700 hover:text-teal-600 transition-colors"
-                        >
-                          <span className="font-medium">Contact Us for Custom size</span>
-                        </a>
-                      </div>
-                    ) : (
-                      <div className="mt-6 flex flex-wrap gap-3">
-                        <Button href={`#${p.slug}`} variant="solid">
-                          Explore Specs
-                        </Button>
-                        {(p.cta ?? []).map((c, idx) => (
-                          <Button key={idx} href={c.href} variant="outline" download={c.download}>
-                            {c.label}
-                          </Button>
-                        ))}
-                      </div>
-                    )}
                   </div>
-                </div>
-              </article>
-            )
-          })}
+                </article>
+              )
+            })}
 
-          {/* Bottom CTA */}
-          <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 sm:p-10">
-            <div className="grid gap-6 md:grid-cols-3 md:items-center">
-              <div className="md:col-span-2">
-                <h3 className="text-2xl font-bold text-slate-900">Need guidance choosing the right product?</h3>
-                <p className="mt-2 text-slate-700">
-                  Share your project details and we'll recommend the optimal thickness, finish and profiles for
-                  long-term performance.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-3 md:justify-end">
-                <Button href="/contact" variant="solid">
-                  Talk to an Expert
-                </Button>
-                <Button href="/nfc/applications" variant="outline">
-                  See Applications
-                </Button>
+            {/* Bottom CTA */}
+            <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 sm:p-10">
+              <div className="grid gap-6 md:grid-cols-3 md:items-center">
+                <div className="md:col-span-2">
+                  <h3 className="text-2xl font-bold text-slate-900">Need guidance choosing the right product?</h3>
+                  <p className="mt-2 text-slate-700">
+                    Share your project details and we&apos;ll recommend the optimal thickness, finish and profiles for
+                    long-term performance.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-3 md:justify-end">
+                  <Button href="/contact" variant="solid">
+                    Talk to an Expert
+                  </Button>
+                  <Button href="/nfc/applications" variant="outline">
+                    See Applications
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       </section>
 
       {/* helper wave */}
