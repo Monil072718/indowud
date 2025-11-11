@@ -6,7 +6,7 @@ const BRAND = {
   magenta: "#C13584",
 }
 
-type CTA = { label: string; href: string }
+type CTA = { label: string; href: string; download?: boolean }
 type Spec = { label: string; value: string }
 
 type Product = {
@@ -39,7 +39,7 @@ const PRODUCTS: Product[] = [
       { label: "Finish", value: "Available in both side surface smooth" },
     ],
     cta: [
-      { label: "Download Brochure", href: "#" },
+      { label: "Download Brochure", href: "/Indowud-nfc-eBrochure.pdf", download: true },
       { label: "Talk to Sales", href: "/contact" },
     ],
     websiteUrl: "www.zerOwud.com",
@@ -197,15 +197,22 @@ function Button({
   href,
   children,
   variant = "solid",
+  download,
 }: {
   href: string
   children: React.ReactNode
   variant?: BtnVariant
+  download?: boolean
 }) {
+  const commonProps = {
+    href,
+    ...(download && { download: "Indowud-nfc-eBrochure.pdf" }),
+  }
+  
   if (variant === "outline") {
     return (
       <a
-        href={href}
+        {...commonProps}
         className="inline-flex h-10 items-center justify-center rounded-full border border-slate-300 bg-white px-4 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50 cursor-pointer"
       >
         {children}
@@ -214,7 +221,7 @@ function Button({
   }
   return (
     <a
-      href={href}
+      {...commonProps}
       className="inline-flex h-10 items-center justify-center rounded-full bg-teal-600 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-700 cursor-pointer"
     >
       {children}
@@ -307,15 +314,17 @@ export default function ProductsPage() {
                   }`}
                 >
                   {/* image */}
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-t-3xl md:aspect-auto md:rounded-l-3xl md:rounded-tr-none">
-                    <Image
-                      src={p.image || "/placeholder.svg"}
-                      alt={p.name}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      sizes="(min-width:1024px) 44rem, 100vw"
-                      priority={i < 2}
-                    />
+                  <div className="relative aspect-[4/3] overflow-visible rounded-t-3xl md:aspect-auto md:rounded-l-3xl md:rounded-tr-none p-4 sm:p-6 md:p-8">
+                    <div className="relative h-full w-full overflow-hidden rounded-lg">
+                      <Image
+                        src={p.image || "/placeholder.svg"}
+                        alt={p.name}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        sizes="(min-width:1024px) 44rem, 100vw"
+                        priority={i < 2}
+                      />
+                    </div>
                   </div>
 
                   {/* content */}
@@ -363,7 +372,7 @@ export default function ProductsPage() {
                         Explore Specs
                       </Button>
                       {(p.cta ?? []).map((c, idx) => (
-                        <Button key={idx} href={c.href} variant="outline">
+                        <Button key={idx} href={c.href} variant="outline" download={c.download}>
                           {c.label}
                         </Button>
                       ))}

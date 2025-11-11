@@ -13,7 +13,7 @@ type Product = {
   image: string;
   blurb: string;
   bullets?: string[];
-  cta?: { label: string; href: string }[];
+  cta?: { label: string; href: string; download?: boolean }[];
   specs?: { label: string; value: string }[];
 };
 
@@ -39,7 +39,7 @@ const PRODUCTS: Product[] = [
       { label: "Finish", value: "Sanded, primer ready" },
     ],
     cta: [
-      { label: "Download Brochure", href: "#" },
+      { label: "Download Brochure", href: "/Indowud-nfc-eBrochure.pdf", download: true },
       { label: "Talk to Sales", href: "/contact" },
     ],
   },
@@ -212,16 +212,19 @@ function BtnSecondary({
   href,
   children,
   tone = "slate",
+  download,
 }: {
   href: string;
   children: React.ReactNode;
   tone?: "slate" | "teal";
+  download?: boolean;
 }) {
   const textColor = tone === "teal" ? "text-teal-600" : "text-slate-800";
   const hoverText = tone === "teal" ? "hover:text-teal-700" : "hover:text-slate-900";
   return (
     <a
       href={href}
+      {...(download && { download: "Indowud-nfc-eBrochure.pdf" })}
       className={`inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold shadow-sm transition duration-200 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-300 cursor-pointer ${textColor} ${hoverText}`}
     >
       {children}
@@ -314,16 +317,18 @@ export default function ProductsPage() {
                 {/* split */}
                 <div className="grid items-stretch gap-0 md:grid-cols-2">
                   {/* image */}
-                  <div className="relative overflow-hidden rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none">
-                    <div className="absolute inset-0 bg-gradient-to-br from-black/0 via-black/0 to-black/5" />
-                    <Image
-                      src={p.image}
-                      alt={p.name}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      sizes="(min-width:1024px) 44rem, 100vw"
-                      priority={i < 2}
-                    />
+                  <div className="relative overflow-visible rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none p-4 sm:p-6 md:p-8">
+                    <div className="relative h-full w-full overflow-hidden rounded-lg">
+                      <div className="absolute inset-0 bg-gradient-to-br from-black/0 via-black/0 to-black/5" />
+                      <Image
+                        src={p.image}
+                        alt={p.name}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        sizes="(min-width:1024px) 44rem, 100vw"
+                        priority={i < 2}
+                      />
+                    </div>
                   </div>
 
                   {/* content */}
@@ -357,7 +362,7 @@ export default function ProductsPage() {
                     <div className="mt-6 flex flex-wrap gap-3">
                       <BtnPrimary href={`#${p.slug}`}>Explore Specs</BtnPrimary>
                       {(p.cta ?? []).map((c, idx) => (
-                        <BtnSecondary key={idx} href={c.href} tone="teal">
+                        <BtnSecondary key={idx} href={c.href} tone="teal" download={c.download}>
                           {c.label}
                         </BtnSecondary>
                       ))}
