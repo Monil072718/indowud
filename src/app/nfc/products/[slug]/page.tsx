@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 /** -------------------- PRODUCT → PATTERN IMAGES -------------------- */
-/** Replace demo URLs with your real product pattern images */
+/** Use root-relative paths for /public files, e.g. "/2.jpg" maps to <repo>/public/2.jpg */
 const PRODUCT_PATTERNS: Record<
   string,
   {
@@ -14,42 +14,32 @@ const PRODUCT_PATTERNS: Record<
 > = {
   "nfc-decking": {
     name: "NFC Decking",
-    hero:
-      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_1600/park.jpg",
-    patterns: [
-      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_1600/bench.jpg",
-      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_1600/mountain.jpg",
-      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_1600/beach.jpg",
-      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_1600/house.jpg",
-      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_1600/city.jpg",
-      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_1600/lake.jpg",
-    ],
+    hero: "/2.jpg",
+    patterns: ["/2.jpg", "/3.jpg", "/4.jpg", "/5.jpg", "/6.jpg"],
   },
   "zerowud-nfc": {
     name: "ZeroWud nfc",
-    hero:
-      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_1600/sample.jpg",
-    patterns: [
-      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_1600/flowers.jpg",
-      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_1600/city.jpg",
-      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_1600/lake.jpg",
-      "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_1600/park.jpg",
-    ],
+    hero: "/3.jpg",
+    patterns: ["/2.jpg", "/3.jpg", "/4.jpg", "/5.jpg", "/6.jpg"],
   },
 };
 
 /** -------------------- SEO -------------------- */
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const data = PRODUCT_PATTERNS[params.slug];
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params; // Next 15 requires awaiting params
+  const data = PRODUCT_PATTERNS[slug];
   const title = data ? `${data.name} — Patterns | Indowud NFC` : "Patterns";
-  const description =
-    data
-      ? `Browse available patterns and finishes for ${data.name}.`
-      : "Browse available patterns.";
+  const description = data
+    ? `Browse available patterns and finishes for ${data.name}.`
+    : "Browse available patterns.";
   return { title, description };
 }
 
-/** -------------------- Lightbox (client) -------------------- */
+/** -------------------- Utils -------------------- */
 function cn(...x: (string | false | null | undefined)[]) {
   return x.filter(Boolean).join(" ");
 }
@@ -73,7 +63,7 @@ function EmptyState() {
   );
 }
 
-/** Client-only gallery (imported inside server component) */
+/** -------------------- Client-only gallery (inline component) -------------------- */
 function GalleryClient({
   items,
   name,
@@ -121,6 +111,7 @@ function GalleryClient({
               height={600}
               className="h-56 w-full object-cover transition group-hover:scale-[1.02]"
               sizes="(max-width: 1024px) 100vw, 33vw"
+              priority={i < 3}
             />
             <span className="absolute bottom-2 right-2 rounded-md bg-black/55 px-2 py-1 text-[11px] font-medium text-white">
               View
@@ -137,7 +128,6 @@ function GalleryClient({
         )}
         onClick={() => setOpen(false)}
       >
-        {/* image container */}
         <div
           className="absolute inset-0 mx-auto flex max-w-6xl items-center justify-center p-4"
           onClick={(e) => e.stopPropagation()}
@@ -188,12 +178,13 @@ function GalleryClient({
 }
 
 /** -------------------- PAGE -------------------- */
-export default function ProductPatternsPage({
+export default async function ProductPatternsPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const product = PRODUCT_PATTERNS[params.slug];
+  const { slug } = await params;
+  const product = PRODUCT_PATTERNS[slug];
 
   if (!product) {
     return <EmptyState />;
@@ -220,8 +211,7 @@ export default function ProductPatternsPage({
           {product.name} — Available Patterns
         </h1>
         <p className="mt-2 max-w-3xl text-neutral-600">
-          Explore finishes, grains and colors available for {product.name}. Click any
-          tile to view larger.
+          Explore finishes, grains and colors available for {product.name}. Click any tile to view larger.
         </p>
       </header>
 
