@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -139,15 +140,11 @@ export default function ApplicationsPage() {
   );
 
   /* ───────── slider #1 */
-  const [heroIndex, setHeroIndex] = useState(0);
+  const [heroIndex] = useState(0);
   const [heroImageIndex, setHeroImageIndex] = useState(0);
   const hero = heroSlides[heroIndex];
   const heroImgs = hero.images;
   const heroCount = heroImgs.length;
-
-  const nextHeroImg = () => setHeroImageIndex((v) => (v + 1) % heroCount);
-  const prevHeroImg = () =>
-    setHeroImageIndex((v) => (v - 1 + heroCount) % heroCount);
 
   /* ───────── slider #2 */
   const [showcaseIndex, setShowcaseIndex] = useState(0);
@@ -201,20 +198,20 @@ export default function ApplicationsPage() {
               hospitality.
             </p>
             <div className="flex gap-3 pt-1">
-              <a
+              <Link
                 href="/nfc/products"
                 className="rounded-xl px-5 py-2.5 text-sm font-semibold text-white shadow"
                 style={{ backgroundColor: MAGENTA }}
               >
                 Explore Products
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/contact"
                 className="rounded-xl px-5 py-2.5 text-sm font-semibold border"
                 style={{ color: TEAL, borderColor: TEAL }}
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </motion.div>
 
@@ -376,13 +373,13 @@ export default function ApplicationsPage() {
                 <p className="text-sm text-slate-700">{activePanelData.desc}</p>
                 <p className="text-sm text-slate-800">{activePanelData.long}</p>
                 <div className="pt-2 flex flex-wrap gap-3">
-                  <a
+                  <Link
                     href="/nfc/products"
                     className="rounded-lg px-4 py-2 text-sm font-medium text-white"
                     style={{ backgroundColor: TEAL }}
                   >
                     View specifications
-                  </a>
+                  </Link>
                   <a
                     href="#"
                     className="rounded-lg px-4 py-2 text-sm font-medium border"
@@ -468,13 +465,13 @@ export default function ApplicationsPage() {
                       <div className="p-4 space-y-2">
                         <p className="text-sm text-slate-600">{panel.desc}</p>
                         <p className="text-sm text-slate-800">{panel.long}</p>
-                        <a
+                        <Link
                           href="/nfc/products"
                           className="inline-flex items-center gap-1 text-sm font-semibold"
                           style={{ color: MAGENTA }}
                         >
                           View specifications →
-                        </a>
+                        </Link>
                       </div>
                     </>
                   )}
