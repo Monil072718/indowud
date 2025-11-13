@@ -79,6 +79,8 @@ export default function HeroShowcaseSlider() {
       <div className="absolute inset-0">
         {slides.map((s, i) => {
           const isActive = i === index;
+          const shouldLoad = i === 0 || i === index || i === (index + 1) % slides.length || i === (index - 1 + slides.length) % slides.length;
+          
           return (
             <div
               key={i}
@@ -87,16 +89,21 @@ export default function HeroShowcaseSlider() {
               }`}
             >
               <div className="absolute inset-0 overflow-hidden">
-                <Image
-                  src={s.image}
-                  alt={s.title}
-                  fill
-                  priority={i === 0}
-                  className={`object-cover will-change-transform ${
-                    isActive ? "animate-kenburns" : ""
-                  }`}
-                  sizes="100vw"
-                />
+                {shouldLoad ? (
+                  <Image
+                    src={s.image}
+                    alt={s.title}
+                    fill
+                    priority={i === 0}
+                    className={`object-cover will-change-transform ${
+                      isActive ? "animate-kenburns" : ""
+                    }`}
+                    sizes="100vw"
+                    loading={i === 0 ? undefined : "lazy"}
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-slate-900" />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
               </div>
             </div>
@@ -179,6 +186,8 @@ export default function HeroShowcaseSlider() {
                 fill
                 className="object-cover"
                 sizes="96px"
+                loading="lazy"
+                quality={75}
               />
               <div
                 className={`absolute inset-0 transition ${

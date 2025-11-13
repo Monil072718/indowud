@@ -43,10 +43,25 @@ img, picture, video {
 
 /* Optimize animations - use GPU acceleration */
 @media (prefers-reduced-motion: no-preference) {
-  .animate-kenburns,
-  [data-animate] {
+  .animate-kenburns {
     will-change: transform;
     transform: translateZ(0);
+  }
+  
+  /* Only apply will-change when animating */
+  .animate-kenburns:not(.animate-kenburns) {
+    will-change: auto;
+  }
+}
+
+/* Reduce animation overhead */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
