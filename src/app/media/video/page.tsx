@@ -7,12 +7,17 @@ import Breadcrumb from "@/components/common/Breadcrumb";
 type YT = { id: string; title: string; tag?: string };
 
 const vids: YT[] = [
-  { id: "oHg5SJYRHA0", title: "Indowud Corporate (Hindi)", tag: "Corporate" },
-  { id: "dQw4w9WgXcQ", title: "What Designers Think", tag: "Testimonial" },
-  { id: "9bZkp7q19f0", title: "One India Feature", tag: "Feature" },
-  { id: "kXYiU_JCYtU", title: "NAS Daily Feature", tag: "Feature" },
-  { id: "3JZ_D3ELwOQ", title: "Fire Safety Comparison", tag: "Comparison" },
-  { id: "fJ9rUzIMcZQ", title: "Corporate Video (English)", tag: "Corporate" },
+  { id: "7r3axN50R8w", title: "Indowud Innovate" },
+  { id: "1MmTPyymufE", title: "Corporate Video (Hindi)" },
+  { id: "Nkel1DsLYKA", title: "Corporate Video (English)" },
+  { id: "VlHbrlvkV9A", title: "Fire Safety Comparison" },
+  { id: "Zh7TyIQuISU", title: "NAS Daily Feature" },
+  { id: "RO6LK3mdi4E", title: "Testimonial" },
+  { id: "iKU7k7dCoyI", title: "Testimonial" },
+  { id: "mKCC5HZ3Nic", title: "Testimonial" },
+  { id: "AvrSnE5bypg", title: "Testimonial" },
+  { id: "5UyIzKtaSFA", title: "Dainik Bhaskar Feature" },
+  { id: "RJp2zMV0VN0", title: "One India Feature" },
 ];
 
 const fade = {
