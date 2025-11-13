@@ -75,6 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google.com" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />
+        <link rel="preload" as="image" href="/nfc-decking.png.webp" />
       </head>
       <body className="min-h-screen">
         <Header />

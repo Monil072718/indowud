@@ -229,7 +229,7 @@ export default function ApplicationsPage() {
                   alt="Modern interior"
                   fill
                   className="object-cover object-center"
-                  unoptimized
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
               </div>
@@ -254,7 +254,8 @@ export default function ApplicationsPage() {
                 alt="Indowud interior"
                 fill
                 className="object-cover object-center"
-                unoptimized
+                sizes="(max-width: 768px) 100vw, 50vw"
+                loading="lazy"
               />
             </div>
           </motion.div>
@@ -362,7 +363,8 @@ export default function ApplicationsPage() {
                   alt={activePanelData.title}
                   fill
                   className="object-cover object-center"
-                  unoptimized
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  loading="lazy"
                 />
                 <div className="absolute top-4 left-4 rounded-full px-4 py-1.5 text-xs font-semibold text-white"
                   style={{ backgroundColor: TEAL }}>
@@ -453,7 +455,8 @@ export default function ApplicationsPage() {
                           alt={panel.title}
                           fill
                           className="object-cover object-center"
-                          unoptimized
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          loading="lazy"
                         />
                         <div
                           className="absolute top-3 left-3 rounded-full px-3 py-1 text-[10px] font-medium text-white"
@@ -530,7 +533,8 @@ export default function ApplicationsPage() {
                       alt="Application"
                       fill
                       className="object-cover object-center"
-                      unoptimized
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -554,7 +558,8 @@ export default function ApplicationsPage() {
                         alt={`Thumb ${i + 1}`}
                         fill
                         className="object-cover"
-                        unoptimized
+                        sizes="(max-width: 768px) 33vw, 300px"
+                        loading="lazy"
                       />
                     </div>
                   </button>
@@ -610,7 +615,8 @@ export default function ApplicationsPage() {
                     alt={`Showcase ${i + 1}`}
                     fill
                     className="object-cover object-center"
-                    unoptimized
+                    sizes="(max-width: 640px) 78vw, (max-width: 768px) 60vw, (max-width: 1024px) 33vw, 400px"
+                    loading="lazy"
                   />
                 </div>
               </div>

@@ -43,9 +43,19 @@ img, picture, video {
 
 /* Optimize animations - use GPU acceleration */
 @media (prefers-reduced-motion: no-preference) {
-  * {
-    will-change: auto;
+  .animate-kenburns,
+  [data-animate] {
+    will-change: transform;
+    transform: translateZ(0);
   }
+}
+
+/* Font display optimization */
+@font-face {
+  font-family: system;
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
 }
 
 /* Reduce repaints */
