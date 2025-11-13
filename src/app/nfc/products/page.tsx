@@ -114,7 +114,7 @@ const PRODUCTS: Product[] = [
       "Slip-resistant surface, excellent drainage design and fade-resistant finish for patios, poolsides and walkways.",
     bullets: ["Hidden fasteners", "Low maintenance"],
     specs: [{ label: "Section", value: "25×150 mm • 2.4 m" }],
-    cta: [{ label: "See Available Patterns", href: "/nfc/products/${product.slug}" }],
+    cta: [{ label: "See Available Patterns", href: "/nfc/products/nfc-decking" }],
     hideExploreSpecs: true,
   },
   {

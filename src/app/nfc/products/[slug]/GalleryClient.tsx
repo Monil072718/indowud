@@ -17,6 +17,15 @@ export default function GalleryClient({
   const [open, setOpen] = useState(false);
   const [idx, setIdx] = useState(0);
 
+  // Safety check: if no items, return empty state
+  if (!items || items.length === 0) {
+    return (
+      <div className="text-center py-12">
+        <p className="text-lg text-neutral-500">No pattern images available.</p>
+      </div>
+    );
+  }
+
   const onKey = (e: KeyboardEvent) => {
     if (!open) return;
     if (e.key === "Escape") setOpen(false);
