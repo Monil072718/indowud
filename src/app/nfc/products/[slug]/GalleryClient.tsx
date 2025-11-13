@@ -17,20 +17,11 @@ export default function GalleryClient({
   const [open, setOpen] = useState(false);
   const [idx, setIdx] = useState(0);
 
-  // Safety check: if no items, return empty state
-  if (!items || items.length === 0) {
-    return (
-      <div className="text-center py-12">
-        <p className="text-lg text-neutral-500">No pattern images available.</p>
-      </div>
-    );
-  }
-
   const onKey = (e: KeyboardEvent) => {
     if (!open) return;
     if (e.key === "Escape") setOpen(false);
-    if (e.key === "ArrowRight") setIdx((i) => (i + 1) % items.length);
-    if (e.key === "ArrowLeft")
+    if (e.key === "ArrowRight" && items.length > 0) setIdx((i) => (i + 1) % items.length);
+    if (e.key === "ArrowLeft" && items.length > 0)
       setIdx((i) => (i - 1 + items.length) % items.length);
   };
 
@@ -39,6 +30,15 @@ export default function GalleryClient({
     return () => window.removeEventListener("keydown", onKey);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open, items.length]);
+
+  // Safety check: if no items, return empty state (after all hooks)
+  if (!items || items.length === 0) {
+    return (
+      <div className="text-center py-12">
+        <p className="text-lg text-neutral-500">No pattern images available.</p>
+      </div>
+    );
+  }
 
   return (
     <>
