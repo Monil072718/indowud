@@ -15,12 +15,10 @@ const PRODUCT_PATTERNS: Record<
 > = {
   "nfc-decking": {
     name: "NFC Decking",
-    hero: "/nfc-decking.png.webp",
     patterns: ["/pattern-2.jpg", "/pattern-3.jpg", "/pattern-4.jpg", "/pattern-5.jpg", "/pattern-6.jpg"],
   },
   "zerowud-nfc": {
     name: "ZeroWud nfc",
-    hero: "/zerOwud-nfc-board.png.webp",
     patterns: ["/pattern-2.jpg", "/pattern-3.jpg", "/pattern-4.jpg", "/pattern-5.jpg", "/pattern-6.jpg"],
   },
 };
