@@ -51,18 +51,19 @@ export default function GalleryClient({
               setIdx(i);
               setOpen(true);
             }}
-            className="group relative overflow-hidden rounded-2xl border bg-white shadow-sm hover:shadow-md"
+            className="group relative overflow-hidden rounded-2xl border bg-white shadow-sm hover:shadow-md transition-shadow"
           >
-            <Image
-              src={src}
-              alt={`${name} pattern ${i + 1}`}
-              width={900}
-              height={600}
-              className="h-56 w-full object-cover transition group-hover:scale-[1.02]"
-              sizes="(max-width: 1024px) 100vw, 33vw"
-              priority={i < 3}
-            />
-            <span className="absolute bottom-2 right-2 rounded-md bg-black/55 px-2 py-1 text-[11px] font-medium text-white">
+            <div className="relative aspect-[4/3] w-full bg-slate-50">
+              <Image
+                src={src}
+                alt={`${name} pattern ${i + 1}`}
+                fill
+                className="object-contain p-2 transition-transform duration-300 group-hover:scale-[1.05]"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                priority={i < 3}
+              />
+            </div>
+            <span className="absolute bottom-2 right-2 rounded-md bg-black/70 px-2 py-1 text-[11px] font-medium text-white backdrop-blur-sm">
               View
             </span>
           </button>
@@ -82,21 +83,12 @@ export default function GalleryClient({
           onClick={(e) => e.stopPropagation()}
         >
           {open && (
-            <div className="relative w-full">
-              <Image
-                src={items[idx]}
-                alt={`${name} large pattern ${idx + 1}`}
-                width={1600}
-                height={1066}
-                className="max-h-[80vh] w-full rounded-2xl object-contain shadow-2xl"
-                sizes="100vw"
-                priority
-              />
-              {/* controls */}
-              <div className="absolute inset-x-0 -top-12 flex items-center justify-between px-1">
+            <div className="relative w-full max-w-5xl mx-auto">
+              {/* controls - top */}
+              <div className="absolute -top-12 left-0 right-0 flex items-center justify-between px-1 z-10">
                 <button
                   onClick={() => setOpen(false)}
-                  className="rounded-lg bg-white/90 px-3 py-1 text-sm shadow hover:bg-white"
+                  className="rounded-lg bg-white/90 px-3 py-1 text-sm shadow hover:bg-white transition-colors"
                 >
                   Close
                 </button>
@@ -104,20 +96,40 @@ export default function GalleryClient({
                   {idx + 1} / {items.length}
                 </span>
               </div>
-              <button
-                aria-label="Prev"
-                onClick={() => setIdx((i) => (i - 1 + items.length) % items.length)}
-                className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 shadow hover:bg-white"
-              >
-                ‹
-              </button>
-              <button
-                aria-label="Next"
-                onClick={() => setIdx((i) => (i + 1) % items.length)}
-                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 shadow hover:bg-white"
-              >
-                ›
-              </button>
+              
+              {/* image container */}
+              <div className="relative bg-white rounded-2xl p-4 shadow-2xl">
+                <div className="relative aspect-video w-full max-h-[85vh] bg-slate-50 rounded-lg overflow-hidden">
+                  <Image
+                    src={items[idx]}
+                    alt={`${name} large pattern ${idx + 1}`}
+                    fill
+                    className="object-contain p-4"
+                    sizes="(max-width: 768px) 100vw, 90vw"
+                    priority
+                  />
+                </div>
+              </div>
+              
+              {/* navigation buttons */}
+              {items.length > 1 && (
+                <>
+                  <button
+                    aria-label="Previous"
+                    onClick={() => setIdx((i) => (i - 1 + items.length) % items.length)}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 shadow-lg hover:bg-white transition-colors z-10"
+                  >
+                    <span className="text-2xl leading-none">‹</span>
+                  </button>
+                  <button
+                    aria-label="Next"
+                    onClick={() => setIdx((i) => (i + 1) % items.length)}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 shadow-lg hover:bg-white transition-colors z-10"
+                  >
+                    <span className="text-2xl leading-none">›</span>
+                  </button>
+                </>
+              )}
             </div>
           )}
         </div>

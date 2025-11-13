@@ -222,12 +222,12 @@ function ProductImage({
 }) {
   return (
     <div className="relative aspect-[4/3] overflow-visible rounded-t-3xl md:aspect-auto md:rounded-l-3xl md:rounded-tr-none p-4 sm:p-6 md:p-8">
-      <div className="relative h-full w-full overflow-hidden rounded-lg">
+      <div className="relative h-full w-full overflow-hidden rounded-lg bg-gradient-to-br from-slate-50 to-slate-100">
         <Image
           src={src || "/placeholder.svg"}
           alt={alt}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          className="object-contain p-4 sm:p-6 transition-transform duration-500 group-hover:scale-[1.05]"
           sizes="(min-width:1024px) 44rem, 100vw"
           priority={priority}
         />
@@ -243,12 +243,12 @@ function NfcGluSection() {
       <div className="grid gap-8 md:grid-cols-[380px_1fr] md:items-start">
         {/* Left: image */}
         <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200">
-          <div className="relative aspect-[4/3] w-full">
+          <div className="relative aspect-[4/3] w-full bg-gradient-to-br from-slate-50 to-slate-100">
             <Image
               src="/nfc-glu.png.webp"
               alt="NFC-GLU adhesive containers"
               fill
-              className="object-contain p-6"
+              className="object-contain p-6 sm:p-8"
               sizes="(min-width: 1024px) 380px, 100vw"
             />
           </div>
