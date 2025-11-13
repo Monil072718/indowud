@@ -32,7 +32,7 @@ const PRODUCTS: Product[] = [
     name: "ZeroWud nfc",
     slug: "zerowud-nfc",
     tag: "Build green with zero-filler panels",
-    image: "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/sample.jpg",
+    image: "/zerOwud-nfc-board.png.webp",
     blurb:
       "Dense, robust panels engineered for durability and finishing that can withstand moisture, termites and harsh weather—yet friendly to fabrication.",
     bullets: [
@@ -56,7 +56,7 @@ const PRODUCTS: Product[] = [
     name: "Indowud nfc board",
     slug: "indowud-nfc-board",
     tag: "Engineered, application-ready interior/exterior board",
-    image: "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/sofa-2.jpg",
+    image: "/Indowud-nfc-board.png.webp",
     blurb:
       "High-strength NFC board for furniture, kitchens, vanities and façades. Stable in humidity, dimensionally true, and easy to edge-band, rout and finish.",
     bullets: ["Warp-free & termite-resistant", "Excellent screw pull-out strength", "CNC-friendly for routing"],
@@ -72,7 +72,7 @@ const PRODUCTS: Product[] = [
     name: "nfc door",
     slug: "nfc-door",
     tag: "The eco-friendly, engineered door",
-    image: "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/chair.jpg",
+    image: "/nfc-door.png.webp",
     blurb:
       "Stable, ready-to-finish door shutters that stay aligned and withstand seasonal changes. Choose skins, paint, veneer or lamination.",
     bullets: ["Robust, rattle-free core", "Moisture & termite resistance", "Ready for paint or veneer"],
@@ -87,7 +87,7 @@ const PRODUCTS: Product[] = [
     name: "nfc frames",
     slug: "nfc-frames",
     tag: "Non-warping door/window frames",
-    image: "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/wood.jpg",
+    image: "/nfc-frame.png.webp",
     blurb:
       "Dimensionally stable frames and mouldings that look premium and last. Accepts paint, stain or veneers with crisp edges and profiles.",
     bullets: ["Factory-profiled sections", "Uniform grain-like texture"],
@@ -98,7 +98,7 @@ const PRODUCTS: Product[] = [
     name: "nfc jalli",
     slug: "nfc-jalli",
     tag: "Dress your walls with intricate patterns",
-    image: "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/architecture.jpg",
+    image: "/jaal1.jpg.webp",
     blurb:
       "CNC-cut NFC jallis enable ornate façades, screens and partitions that handle the weather without swelling or splitting.",
     bullets: ["Custom patterns", "Prime & paint ready"],
@@ -109,7 +109,7 @@ const PRODUCTS: Product[] = [
     name: "NFC decking",
     slug: "nfc-decking",
     tag: "Long-lasting outdoor composite decking",
-    image: "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/deck.jpg",
+    image: "/nfc-decking.png.webp",
     blurb:
       "Slip-resistant surface, excellent drainage design and fade-resistant finish for patios, poolsides and walkways.",
     bullets: ["Hidden fasteners", "Low maintenance"],
@@ -122,7 +122,7 @@ const PRODUCTS: Product[] = [
     name: "nfc fluted profiles",
     slug: "nfc-fluted-profiles",
     tag: "Modern wall/ceiling flutes & trims",
-    image: "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/wall.jpg",
+    image: "/nfc-flute.png.webp",
     blurb:
       "Accent walls that pop — fast to install, easy to repaint, and consistent groove depth for perfect rhythm.",
     bullets: ["Multiple groove widths", "Impact-resistant"],
@@ -133,7 +133,7 @@ const PRODUCTS: Product[] = [
     name: "nfc textured panels",
     slug: "nfc-textured-panels",
     tag: "Natural textures with craftsman-like detail",
-    image: "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/floor.jpg",
+    image: "/nfc-textured-panel.png.webp",
     blurb: "Authentic wood-like textures on durable NFC base for feature walls, cabinetry and façades.",
     bullets: ["Uniform pattern repeat", "Prime/paint or veneer"],
   },
@@ -142,21 +142,10 @@ const PRODUCTS: Product[] = [
     name: "nfc fence",
     slug: "nfc-fence",
     tag: "Beauty and sustainability combined",
-    image: "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/fence.jpg",
+    image: "/nfc-fence.png.webp",
     blurb:
       "Weather-resistant pickets and rails that retain looks with minimal upkeep. Safe, splinter-free, child-friendly.",
     bullets: ["Custom heights & caps", "Colour-coatable"],
-  },
-  {
-    id: "nfg-glu",
-    name: "NFG-GLU",
-    slug: "nfg-glu",
-    tag: "Bonding, when it matters most",
-    image: "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_900/bottle.jpg",
-    blurb:
-      "High-performance adhesive formulated for NFC surfaces and trims, ensuring strong bonds on complex profiles.",
-    bullets: ["Fast set", "High final strength"],
-    cta: [{ label: "Safety Data Sheet", href: "#" }],
   },
 ];
 
@@ -256,7 +245,7 @@ function NfcGluSection() {
         <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200">
           <div className="relative aspect-[4/3] w-full">
             <Image
-              src="https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_1200/sample.jpg"
+              src="/nfc-glu.png.webp"
               alt="NFC-GLU adhesive containers"
               fill
               className="object-contain p-6"

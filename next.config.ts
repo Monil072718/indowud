@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
         hostname: "dummyimage.com",
       },
     ],
-    domains: ["res.cloudinary.com", "images.pexels.com"],
+    domains: ["images.pexels.com"],
   },
   
   // Compression
