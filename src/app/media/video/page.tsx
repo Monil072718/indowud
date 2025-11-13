@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
 import Breadcrumb from "@/components/common/Breadcrumb";
 
 type YT = { id: string; title: string; tag?: string };
@@ -30,6 +32,37 @@ const fade = {
 };
 
 function Card({ v, i }: { v: YT; i: number }) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Intersection Observer for lazy loading
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: "100px" }
+    );
+
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const handleClick = () => {
+    setIsLoaded(true);
+  };
+
+  const thumbnailUrl = `https://img.youtube.com/vi/${v.id}/maxresdefault.jpg`;
+  const embedUrl = `https://www.youtube.com/embed/${v.id}?autoplay=1&rel=0`;
+
   return (
     <motion.article
       custom={i}
@@ -40,16 +73,45 @@ function Card({ v, i }: { v: YT; i: number }) {
       whileHover={{ y: -6, scale: 1.01 }}
       className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm cursor-pointer"
     >
-      <div className="relative">
+      <div className="relative" ref={containerRef}>
         <div className="pt-[56.25%]" />
-        <iframe
-          className="absolute inset-0 h-full w-full"
-          src={`https://www.youtube.com/embed/${v.id}`}
-          title={v.title}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        />
+        {isLoaded && isInView ? (
+          <iframe
+            className="absolute inset-0 h-full w-full"
+            src={embedUrl}
+            title={v.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            loading="lazy"
+          />
+        ) : (
+          <div
+            className="absolute inset-0 h-full w-full bg-slate-900 cursor-pointer"
+            onClick={handleClick}
+          >
+            <Image
+              src={thumbnailUrl}
+              alt={v.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              loading="lazy"
+            />
+            {/* Play button overlay */}
+            <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-all group-hover:bg-black/30">
+              <div className="rounded-full bg-red-600 p-4 shadow-lg transition-transform group-hover:scale-110">
+                <svg
+                  className="h-8 w-8 text-white ml-1"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
       <div className="flex items-center justify-between p-3">
         <h3 className="line-clamp-1 text-sm font-semibold text-slate-900">

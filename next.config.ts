@@ -20,8 +20,12 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "dummyimage.com",
       },
+      {
+        protocol: "https",
+        hostname: "img.youtube.com",
+      },
     ],
-    domains: ["images.pexels.com"],
+    domains: ["images.pexels.com", "img.youtube.com"],
   },
   
   // Compression
