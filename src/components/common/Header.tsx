@@ -216,6 +216,22 @@ export default function Header() {
     }
   }, [brochureOpen])
 
+  // mobile menu scroll lock
+  useEffect(() => {
+    if (mobileOpen) {
+      const prev = document.body.style.overflow
+      document.body.style.overflow = "hidden"
+      const onKey = (e: KeyboardEvent) => {
+        if (e.key === "Escape") setMobileOpen(false)
+      }
+      window.addEventListener("keydown", onKey)
+      return () => {
+        document.body.style.overflow = prev
+        window.removeEventListener("keydown", onKey)
+      }
+    }
+  }, [mobileOpen])
+
   const openBrochure = () => {
     setBrochureOpen(true)
     setMobileOpen(false)
@@ -438,7 +454,7 @@ export default function Header() {
         </div>
       </motion.header>
 
-      {/* MOBILE / TABLET MENU (unchanged) */}
+      {/* MOBILE / TABLET MENU - Slide from right */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -446,29 +462,61 @@ export default function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/20 z-40 lg:hidden"
+              transition={{ duration: 1 }}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
               onClick={() => setMobileOpen(false)}
             />
 
             <motion.div
               key="mobile-menu"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className="lg:hidden w-full bg-white border-t border-gray-200 fixed top-14 sm:top-16 left-0 right-0 z-40 shadow-lg"
+              initial={{ x: "100%", opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: "100%", opacity: 0 }}
+              transition={{ 
+                duration: 0.8,
+                ease: [0.25, 0.1, 0.25, 1]
+              }}
+              className="lg:hidden fixed top-0 right-0 h-full w-[85vw] max-w-sm bg-white z-50 shadow-2xl flex flex-col"
             >
-              <div className="w-full px-3 xs:px-4 sm:px-6 py-3 max-h-[calc(100vh-3.5rem)] sm:max-h-[calc(100vh-4rem)] overflow-y-auto">
-                {navItems.map((item) => {
+              {/* Header with close button */}
+              <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-teal-50 to-white">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center rounded">
+                    <div className="w-4 h-4 border-2 border-white rotate-45 rounded-sm" />
+                  </div>
+                  <div className="leading-tight">
+                    <div className="text-base font-bold text-rose-600 tracking-wide">
+                      INDOWUD
+                    </div>
+                    <div className="text-[10px] text-gray-600 tracking-wider">
+                      DESIGN TECHNOLOGY
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setMobileOpen(false)}
+                  className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+                  aria-label="Close menu"
+                >
+                  <X size={22} className="text-gray-700" />
+                </button>
+              </div>
+
+              {/* Menu content */}
+              <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4">
+                {navItems.map((item, idx) => {
                   const hasDropdown = !!item.dropdown?.length
                   const open = mobileOpenTop === item.label
 
                   return (
-                    <div
+                    <motion.div
                       key={item.label}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: idx * 0.05 + 0.1, duration: 0.3 }}
                       className="border-b border-gray-100 last:border-b-0"
                     >
-                      <div className="w-full flex items-center justify-between py-3">
+                      <div className="w-full flex items-center justify-between py-3.5">
                         <Link
                           href={item.path}
                           onClick={(e) => {
@@ -480,10 +528,10 @@ export default function Header() {
                               setMobileOpen(false)
                             }
                           }}
-                          className={`text-base font-medium flex-1 ${
+                          className={`text-base font-semibold flex-1 transition-colors duration-200 ${
                             item.label === "Home"
                               ? "text-rose-600"
-                              : "text-gray-800"
+                              : "text-gray-800 hover:text-rose-600"
                           }`}
                         >
                           {item.label}
@@ -495,7 +543,7 @@ export default function Header() {
                               setMobileOpenTop(open ? null : item.label)
                               setMobileOpenSub(null)
                             }}
-                            className="p-1.5 rounded hover:bg-gray-100 transition-colors duration-200 ml-3 flex-shrink-0"
+                            className="p-2 rounded-lg hover:bg-gray-100 transition-all duration-200 ml-3 flex-shrink-0"
                           >
                             <ChevronRight
                               className={`w-5 h-5 text-gray-600 transition-transform duration-300 ${
@@ -512,16 +560,22 @@ export default function Header() {
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="pl-4 border-l-2 border-teal-400 ml-2 bg-gray-50/50"
+                            transition={{ 
+                              duration: 0.3,
+                              ease: "easeInOut"
+                            }}
+                            className="pl-4 border-l-2 border-teal-400 ml-2 bg-gradient-to-r from-teal-50/50 to-transparent rounded-r-lg my-1"
                           >
-                            {item.dropdown!.map((d) => {
+                            {item.dropdown!.map((d, dIdx) => {
                               const hasSub = !!(d.hasSubmenu && d.submenu?.length)
                               const subOpen = mobileOpenSub === d.label
 
                               return (
-                                <div
+                                <motion.div
                                   key={d.label}
+                                  initial={{ opacity: 0, x: 10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: dIdx * 0.03 + 0.15, duration: 0.25 }}
                                   className="border-b border-gray-100 last:border-b-0"
                                 >
                                   <div className="w-full flex items-center justify-between py-2.5">
@@ -535,7 +589,7 @@ export default function Header() {
                                           setMobileOpen(false)
                                         }
                                       }}
-                                      className="text-sm text-gray-700 flex-1"
+                                      className="text-sm text-gray-700 hover:text-teal-600 flex-1 transition-colors duration-200 font-medium"
                                     >
                                       {d.label}
                                     </Link>
@@ -545,7 +599,7 @@ export default function Header() {
                                         onClick={() =>
                                           setMobileOpenSub(subOpen ? null : d.label)
                                         }
-                                        className="p-1.5 rounded hover:bg-gray-200 transition-colors duration-200 ml-2 flex-shrink-0"
+                                        className="p-1.5 rounded-lg hover:bg-gray-200 transition-all duration-200 ml-2 flex-shrink-0"
                                       >
                                         <ChevronRight
                                           className={`w-4 h-4 text-gray-600 transition-transform duration-300 ${
@@ -562,54 +616,64 @@ export default function Header() {
                                         initial={{ height: 0, opacity: 0 }}
                                         animate={{ height: "auto", opacity: 1 }}
                                         exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.18 }}
-                                        className="pl-4 border-l-2 border-pink-300 ml-2 bg-gray-50/30"
+                                        transition={{ 
+                                          duration: 0.25,
+                                          ease: "easeInOut"
+                                        }}
+                                        className="pl-4 border-l-2 border-pink-300 ml-2 bg-gradient-to-r from-pink-50/50 to-transparent rounded-r-lg my-1"
                                       >
-                                        {d.submenu!.map((s) => (
-                                          <Link
+                                        {d.submenu!.map((s, idx) => (
+                                          <motion.div
                                             key={s.label}
-                                            href={s.path}
-                                            onClick={() => setMobileOpen(false)}
-                                            className="block text-xs text-gray-600 py-2 px-2 hover:text-rose-600 hover:bg-white transition-colors duration-200 border-b border-gray-100 last:border-b-0 rounded"
+                                            initial={{ opacity: 0, x: 10 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: idx * 0.05 }}
                                           >
-                                            {s.label}
-                                          </Link>
+                                            <Link
+                                              href={s.path}
+                                              onClick={() => setMobileOpen(false)}
+                                              className="block text-xs text-gray-600 py-2.5 px-3 hover:text-rose-600 hover:bg-white/80 transition-all duration-200 border-b border-gray-100 last:border-b-0 rounded-lg font-medium"
+                                            >
+                                              {s.label}
+                                            </Link>
+                                          </motion.div>
                                         ))}
                                       </motion.div>
                                     )}
                                   </AnimatePresence>
-                                </div>
+                                </motion.div>
                               )
                             })}
                           </motion.div>
                         )}
                       </AnimatePresence>
-                    </div>
+                    </motion.div>
                   )
                 })}
+              </div>
 
-                <div className="py-4 mt-2 border-t border-gray-200">
-                  <button
-                    onClick={openBrochure}
-                    className="w-full bg-teal-500 hover:bg-teal-600 text-white px-4 py-3 text-sm font-medium rounded-md transition-colors duration-200 mb-4"
-                  >
-                    Request E-Brochure
-                  </button>
-                  <div className="flex items-center justify-center gap-5">
-                    {[Facebook, Twitter, Youtube, Instagram, Linkedin].map(
-                      (Icon, i) => (
-                        <a
-                          key={i}
-                          href="#"
-                          className="text-gray-600 hover:text-rose-600 transition-colors duration-200"
-                          aria-label="social-link"
-                          onClick={() => setMobileOpen(false)}
-                        >
-                          <Icon size={20} />
-                        </a>
-                      )
-                    )}
-                  </div>
+              {/* Footer section - fixed at bottom */}
+              <div className="px-4 sm:px-6 py-4 border-t border-gray-200 bg-gray-50/50 flex-shrink-0">
+                <button
+                  onClick={openBrochure}
+                  className="w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 mb-4 shadow-md hover:shadow-lg transform hover:scale-[1.02]"
+                >
+                  Request E-Brochure
+                </button>
+                <div className="flex items-center justify-center gap-4">
+                  {headerSocial.map(({ Icon, href }, i) => (
+                    <a
+                      key={i}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-gray-600 hover:text-rose-600 hover:bg-rose-50 transition-all duration-200 shadow-sm hover:shadow-md"
+                      aria-label="social-link"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      <Icon size={18} />
+                    </a>
+                  ))}
                 </div>
               </div>
             </motion.div>
