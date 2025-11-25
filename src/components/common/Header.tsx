@@ -3,6 +3,7 @@
 import type React from "react"
 import { useRef, useState, useCallback, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import {
   Facebook,
   Twitter,
@@ -253,17 +254,22 @@ export default function Header() {
               className="flex items-center gap-2.5 flex-shrink-0"
               onClick={closeAllMenus}
             >
-              <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center rounded">
-                <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 border-2 border-white rotate-45 rounded-sm" />
-              </div>
-              <div className="leading-tight">
+              <Image
+                src="/imgi_2_logo.png.webp"
+                alt="Indowud Logo"
+                width={120}
+                height={120}
+                className="w-20 h-20 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-[120px] lg:h-[120px] object-contain"
+                priority
+              />
+              {/* <div className="leading-tight">
                 <div className="text-lg font-bold text-rose-600 tracking-wide">
                   INDOWUD
                 </div>
                 <div className="text-xs text-gray-600 tracking-wider">
                   DESIGN TECHNOLOGY
                 </div>
-              </div>
+              </div> */}
             </Link>
 
             {/* DESKTOP NAV - hover to open */}
@@ -481,9 +487,14 @@ export default function Header() {
               {/* Header with close button */}
               <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-teal-50 to-white">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center rounded">
-                    <div className="w-4 h-4 border-2 border-white rotate-45 rounded-sm" />
-                  </div>
+                  <Image
+                    src="/imgi_2_logo.png.webp"
+                    alt="Indowud Logo"
+                    width={48}
+                    height={48}
+                    className="w-12 h-12 object-contain"
+                    priority
+                  />
                   <div className="leading-tight">
                     <div className="text-base font-bold text-rose-600 tracking-wide">
                       INDOWUD
