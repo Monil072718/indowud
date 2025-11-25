@@ -1,8 +1,8 @@
 "use client";
-/* eslint-disable @next/next/no-img-element */
 
 import { memo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export type BlogCardPost = {
@@ -58,13 +58,14 @@ function BlogCard({
       {/* cover */}
       <Link href={href} className="block cursor-pointer">
         <div className="relative">
-          <div className={`${mediaAspect} w-full overflow-hidden`}>
-            <img
+          <div className={`${mediaAspect} w-full overflow-hidden relative`}>
+            <Image
               src={post.cover}
               alt={post.title}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
-              decoding="async"
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>
           <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

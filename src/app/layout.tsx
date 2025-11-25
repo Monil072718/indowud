@@ -71,12 +71,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <OrganizationSchema />
         <WebsiteSchema />
+        {/* Resource hints for better performance */}
         <link rel="preconnect" href="https://images.pexels.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://img.youtube.com" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />
         <link rel="dns-prefetch" href="https://www.google.com" />
-        <link rel="preload" as="image" href="/nfc-decking.png.webp" />
+        {/* Preload critical assets */}
+        <link rel="preload" as="image" href="/imgi_2_logo.png.webp" fetchPriority="high" />
+        {/* Font optimization */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="min-h-screen">
         <Header />

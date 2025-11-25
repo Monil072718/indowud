@@ -53,6 +53,40 @@ const nextConfig: NextConfig = {
       "country-state-city",
     ],
     optimizeCss: true,
+    // Reduce bundle size
+    serverMinification: true,
+  },
+  
+  // Webpack optimizations for better code splitting
+  webpack: (config: any, { isServer }: { isServer: boolean }) => {
+    if (!isServer) {
+      // Enhanced code splitting
+      config.optimization = {
+        ...config.optimization,
+        moduleIds: 'deterministic',
+        runtimeChunk: 'single',
+        splitChunks: {
+          chunks: 'all',
+          cacheGroups: {
+            default: false,
+            vendors: false,
+            framework: {
+              name: 'framework',
+              chunks: 'all',
+              test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
+              priority: 40,
+              enforce: true,
+            },
+            commons: {
+              name: 'commons',
+              minChunks: 2,
+              priority: 20,
+            },
+          },
+        },
+      };
+    }
+    return config;
   },
   
   // Remove console statements in production
