@@ -262,14 +262,6 @@ export default function Header() {
                 className="w-20 h-20 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-[120px] lg:h-[120px] object-contain"
                 priority
               />
-              {/* <div className="leading-tight">
-                <div className="text-lg font-bold text-rose-600 tracking-wide">
-                  INDOWUD
-                </div>
-                <div className="text-xs text-gray-600 tracking-wider">
-                  DESIGN TECHNOLOGY
-                </div>
-              </div> */}
             </Link>
 
             {/* DESKTOP NAV - hover to open */}

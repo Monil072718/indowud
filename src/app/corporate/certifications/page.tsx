@@ -2,22 +2,23 @@
 
 import PageHero from "@/components/common/PageHero";
 import { motion, type Variants, useReducedMotion } from "framer-motion";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import Image from "next/image";
 
 /* ------------------------ data ------------------------ */
 const logosTop = [
-  { src: "https://dummyimage.com/220x110/ffffff/2b6cb0&text=ISO+45001:2015", alt: "ISO 45001" },
-  { src: "https://dummyimage.com/220x110/ffffff/2b6cb0&text=ISO+9001:2015", alt: "ISO 9001" },
-  { src: "https://dummyimage.com/220x110/ffffff/2b6cb0&text=ISO+14001:2015", alt: "ISO 14001" },
-  { src: "https://dummyimage.com/220x110/ffffff/16a34a&text=RoHS", alt: "RoHS" },
+  { src: "/1.png.webp", alt: "ISO 45001" },
+  { src: "/2.png.webp", alt: "ISO 9001" },
+  { src: "/3.png.webp", alt: "ISO 14001" },
+  { src: "/jD6rmh@4x-8.png.webp", alt: "RoHS" },
 ];
 
 const logosBottom = [
-  { src: "https://dummyimage.com/220x110/ffffff/000&text=MSME", alt: "MSME" },
-  { src: "https://dummyimage.com/220x110/ffffff/f97316&text=startup+india", alt: "Startup India" },
-  { src: "https://dummyimage.com/220x110/ffffff/0ea5e9&text=EPD+Verified", alt: "EPD" },
-  { src: "https://dummyimage.com/220x110/ffffff/22c55e&text=GreenPro", alt: "GreenPro" },
+  { src: "/MSME-Logo-PNG-Black-and-White.png.webp", alt: "MSME" },
+  { src: "/Startup-India_Preview-e1720938309748.png.webp", alt: "Startup India" },
+  { src: "/Environmental_Product_Declarations1.png.webp", alt: "EPD" },
+  { src: "/EPD-Verified.png.webp", alt: "EPD Verified" },
+  { src: "/green pro.webp", alt: "GreenPro" },
 ];
 
 /* ---------------------- motion utils ---------------------- */
@@ -42,6 +43,9 @@ const item: Variants = {
 
 /* -------------------- small components -------------------- */
 function LogoCard({ src, alt }: { src: string; alt: string }) {
+  const [imgSrc, setImgSrc] = useState(src)
+  const [hasError, setHasError] = useState(false)
+
   return (
     <motion.div
       variants={item}
@@ -52,32 +56,79 @@ function LogoCard({ src, alt }: { src: string; alt: string }) {
         className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{ boxShadow: "0 0 0 2px rgba(16,185,129,0.12) inset" }}
       />
-      <Image src={src} alt={alt} width={220} height={110} className="h-14 sm:h-16 md:h-20 w-auto max-w-full object-contain" />
+      {!hasError ? (
+        <Image 
+          src={imgSrc} 
+          alt={alt} 
+          width={220} 
+          height={110} 
+          className="h-14 sm:h-16 md:h-20 w-auto max-w-full object-contain"
+          onError={() => {
+            setHasError(true)
+            setImgSrc(`https://dummyimage.com/220x110/e5e7eb/6b7280&text=${encodeURIComponent(alt)}`)
+          }}
+          unoptimized
+        />
+      ) : (
+        <div className="h-14 sm:h-16 md:h-20 w-auto flex items-center justify-center text-gray-400 text-xs text-center px-2">
+          {alt}
+        </div>
+      )}
     </motion.div>
   );
 }
 
 /* ====== this is the SAME pattern as your home page ====== */
 function LogoPill({ src, alt }: { src: string; alt: string }) {
+  const [imgSrc, setImgSrc] = useState(src)
+  const [hasError, setHasError] = useState(false)
+
   return (
     <div
       className="
         shrink-0 rounded-xl border border-gray-200 bg-white
-        px-5 py-4
+        px-4 py-3
         sm:px-4 sm:py-3
         md:px-5 md:py-4 lg:px-6 lg:py-4
-        shadow-sm grid place-items-center
+        shadow-sm 
+        flex items-center justify-center
         h-24 sm:h-20 md:h-24 lg:h-28
         min-w-[170px] sm:min-w-[140px] md:min-w-[160px] lg:min-w-[184px]
+        overflow-hidden
+        relative
       "
     >
-      <Image
-        src={src || "/placeholder.svg"}
-        alt={alt}
-        width={220}
-        height={110}
-        className="h-14 sm:h-10 md:h-12 lg:h-16 w-auto object-contain"
-      />
+      <div className="w-full h-full flex items-center justify-center relative">
+        {!hasError ? (
+          <Image
+            src={imgSrc}
+            alt={alt}
+            width={220}
+            height={110}
+            className="
+              max-h-full
+              max-w-full
+              h-auto
+              w-auto
+              object-contain
+              object-center
+            "
+            style={{
+              maxHeight: '100%',
+              maxWidth: '100%',
+            }}
+            onError={() => {
+              setHasError(true)
+              setImgSrc(`https://dummyimage.com/220x110/e5e7eb/6b7280&text=${encodeURIComponent(alt)}`)
+            }}
+            unoptimized
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs text-center px-2">
+            {alt}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
