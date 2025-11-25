@@ -1,6 +1,6 @@
 "use client"
 
-import Link from "next/link"
+
 import { motion, type Variants } from "framer-motion"
 import Image from "next/image"
 import Breadcrumb from "@/components/common/Breadcrumb"

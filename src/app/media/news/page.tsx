@@ -1,13 +1,12 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Breadcrumb from "@/components/common/Breadcrumb";
 
-/* ----------------------------- Types & Data ----------------------------- */
 type NewsKind = "video" | "article" | "short";
+
 type NewsItem = {
   id: string;
   kind: NewsKind;
@@ -95,7 +94,7 @@ function getYouTubeEmbed(url: string) {
       if (u.pathname.startsWith("/shorts/")) return `https://www.youtube.com/embed/${u.pathname.split("/")[2]}`;
     }
     if (u.hostname === "youtu.be") return `https://www.youtube.com/embed/${u.pathname.slice(1)}`;
-  } catch {}
+  } catch { }
   return null;
 }
 
@@ -200,7 +199,7 @@ const Card = React.memo(function Card({ item, onPlay }: { item: NewsItem; onPlay
   const isVideo = item.kind === "video" || item.kind === "short";
 
   return (
-      <motion.article
+    <motion.article
       initial={{ opacity: 0, y: 10, scale: 0.98 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, amount: 0.2 }}

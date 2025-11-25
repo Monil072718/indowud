@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import dynamic from "next/dynamic";
-import Header from "@/components/common/Header";
+import Header from "@/components/layout/Header";
+import { Inter } from "next/font/google";
 import {
   OrganizationSchema,
   WebsiteSchema,
 } from "@/components/common/StructuredData";
 
+const inter = Inter({ subsets: ["latin"], display: "swap" });
+
 // Lazy load Footer - it's below the fold
-const Footer = dynamic(() => import("@/components/common/Footer"), {
+const Footer = dynamic(() => import("@/components/layout/Footer"), {
   ssr: true, // Keep SSR for SEO
 });
 
@@ -65,9 +68,11 @@ export const metadata: Metadata = {
   },
 };
 
+import MotionProvider from "@/components/common/MotionProvider";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.className}>
       <head>
         <OrganizationSchema />
         <WebsiteSchema />
@@ -79,14 +84,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="https://www.google.com" />
         {/* Preload critical assets */}
         <link rel="preload" as="image" href="/imgi_2_logo.png.webp" fetchPriority="high" />
-        {/* Font optimization */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="min-h-screen">
-        <Header />
-        <main className="pt-20" id="main-content">{children}</main>
-        <Footer />
+        <MotionProvider>
+          <Header />
+          <main className="pt-20" id="main-content">{children}</main>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );

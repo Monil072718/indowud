@@ -3,7 +3,6 @@
 
 import { useMemo, Suspense } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import BlogCard, { BlogCardPost } from "@/components/sections/blog/BlogCard";
 import Breadcrumb from "@/components/common/Breadcrumb";

@@ -27,23 +27,23 @@ const nextConfig: NextConfig = {
     ],
     domains: ["images.pexels.com", "img.youtube.com"],
   },
-  
+
   // Compression
   compress: true,
-  
+
   // Performance optimizations
   poweredByHeader: false,
-  
+
   // Optimize production builds further
   productionBrowserSourceMaps: false,
-  
+
   // Reduce JavaScript bundle size
   modularizeImports: {
     "lucide-react": {
       transform: "lucide-react/dist/esm/icons/{{kebabCase member}}",
     },
   },
-  
+
   // Experimental features for better performance
   experimental: {
     optimizePackageImports: [
@@ -52,11 +52,11 @@ const nextConfig: NextConfig = {
       "swiper",
       "country-state-city",
     ],
-    optimizeCss: true,
+    optimizeCss: false, // critters not installed
     // Reduce bundle size
     serverMinification: true,
   },
-  
+
   // Webpack optimizations for better code splitting
   webpack: (config: any, { isServer }: { isServer: boolean }) => {
     if (!isServer) {
@@ -88,14 +88,14 @@ const nextConfig: NextConfig = {
     }
     return config;
   },
-  
+
   // Remove console statements in production
   compiler: {
     removeConsole: process.env.NODE_ENV === "production" ? {
       exclude: ["error", "warn"], // Keep errors and warnings
     } : false,
   },
-  
+
   // Headers for caching, security, and performance
   async headers() {
     return [
