@@ -22,7 +22,7 @@ type Feature = {
 function FeaturesSection({
   heading = "Built for the real world",
   sub = "Engineered to perform. Designed to last.",
-  heroImage = "/hero-wood.jpg",
+  heroImage = "/features.webp",
   items,
 }: {
   heading?: string;
@@ -101,15 +101,14 @@ function FeaturesSection({
               transition={{ duration: 0.5 }}
               className="relative isolate overflow-hidden rounded-b-3xl md:rounded-r-3xl md:rounded-bl-none"
             >
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,213,190,.20),transparent_55%)]" />
+              <div className="pointer-events-none absolute inset-0" />
               <motion.div
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 250, damping: 18 }}
                 className="relative mx-auto my-8 aspect-[16/9] w-11/12"
               >
-                <Image src={heroImage} alt="Indowud NFC" fill className="rounded-2xl object-cover shadow-2xl" />
+                <Image src={heroImage} alt="Indowud NFC" fill className="rounded-2xl object-cover" />
                 {/* brand tint */}
-                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-tr from-transparent via-transparent to-[#00d5be]/15" />
               </motion.div>
             </motion.div>
           </div>
