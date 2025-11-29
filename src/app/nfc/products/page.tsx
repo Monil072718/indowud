@@ -1,13 +1,13 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
-/* ───────────────────────────────── Brand ───────────────────────────────── */
+import { useEffect, useState } from "react";
+
+/* ───────────────────────────────── Data ───────────────────────────────── */
 const BRAND = {
   teal: "#0FA5A5",
-  magenta: "#C13584",
+  stone: "#F5F5F4", // warm grey
 };
 
-/* ───────────────────────────────── Types & Data ───────────────────────────────── */
 type CTA = { label: string; href: string; download?: boolean };
 type Spec = { label: string; value: string };
 
@@ -29,9 +29,9 @@ type Product = {
 const PRODUCTS: Product[] = [
   {
     id: "zerowud-nfc",
-    name: "ZeroWud nfc",
+    name: "ZeroWud NFC",
     slug: "zerowud-nfc",
-    tag: "Build green with zero-filler panels",
+    tag: "Premium Panels",
     image: "/zerOwud-nfc-board.png.webp",
     blurb:
       "Dense, robust panels engineered for durability and finishing that can withstand moisture, termites and harsh weather—yet friendly to fabrication.",
@@ -47,15 +47,15 @@ const PRODUCTS: Product[] = [
       { label: "Finish", value: "Sanded, primer ready" },
     ],
     cta: [
-      { label: "Download Brochure", href: "/Indowud-nfc-eBrochure.pdf", download: true },
-      { label: "Talk to Sales", href: "/contact" },
+      { label: "Brochure", href: "/Indowud-nfc-eBrochure.pdf", download: true },
+      { label: "Inquire", href: "/contact" },
     ],
   },
   {
     id: "indowud-board",
-    name: "Indowud nfc board",
+    name: "Indowud NFC Board",
     slug: "indowud-nfc-board",
-    tag: "Engineered, application-ready interior/exterior board",
+    tag: "Exterior Grade",
     image: "/Indowud-nfc-board.png.webp",
     blurb:
       "High-strength NFC board for furniture, kitchens, vanities and façades. Stable in humidity, dimensionally true, and easy to edge-band, rout and finish.",
@@ -64,14 +64,14 @@ const PRODUCTS: Product[] = [
       { label: "Sizes", value: "8×4 ft" },
       { label: "Thickness", value: "8–30 mm" },
     ],
-    cta: [{ label: "View Applications", href: "/nfc/applications" }],
+    cta: [{ label: "Applications", href: "/nfc/applications" }],
     showCustomSizeText: true,
   },
   {
     id: "nfc-door",
-    name: "nfc door",
+    name: "NFC Door",
     slug: "nfc-door",
-    tag: "The eco-friendly, engineered door",
+    tag: "Engineered Doors",
     image: "/nfc-door.png.webp",
     blurb:
       "Stable, ready-to-finish door shutters that stay aligned and withstand seasonal changes. Choose skins, paint, veneer or lamination.",
@@ -80,48 +80,48 @@ const PRODUCTS: Product[] = [
       { label: "Standard", value: "32, 35, 38 mm thick" },
       { label: "Custom", value: "Sizes on request" },
     ],
-    cta: [{ label: "Get a Quote", href: "/contact" }],
+    cta: [{ label: "Get Quote", href: "/contact" }],
   },
   {
     id: "nfc-frame",
-    name: "nfc frames",
+    name: "NFC Frames",
     slug: "nfc-frames",
-    tag: "Non-warping door/window frames",
+    tag: "Structural",
     image: "/nfc-frame.png.webp",
     blurb:
       "Dimensionally stable frames and mouldings that look premium and last. Accepts paint, stain or veneers with crisp edges and profiles.",
     bullets: ["Factory-profiled sections", "Uniform grain-like texture"],
-    cta: [{ label: "Ask for Sections List", href: "#" }],
+    cta: [{ label: "Sections List", href: "#" }],
   },
   {
     id: "nfc-jalli",
-    name: "nfc jalli",
+    name: "NFC Jalli",
     slug: "nfc-jalli",
-    tag: "Dress your walls with intricate patterns",
+    tag: "Architectural Screens",
     image: "/jaal1.jpg.webp",
     blurb:
       "CNC-cut NFC jallis enable ornate façades, screens and partitions that handle the weather without swelling or splitting.",
     bullets: ["Custom patterns", "Prime & paint ready"],
-    cta: [{ label: "Start a Custom Design", href: "/contact" }],
+    cta: [{ label: "Custom Design", href: "/contact" }],
   },
   {
     id: "nfc-decking",
-    name: "NFC decking",
+    name: "NFC Decking",
     slug: "nfc-decking",
-    tag: "Long-lasting outdoor composite decking",
+    tag: "Outdoor Living",
     image: "/nfc-decking.png.webp",
     blurb:
       "Slip-resistant surface, excellent drainage design and fade-resistant finish for patios, poolsides and walkways.",
     bullets: ["Hidden fasteners", "Low maintenance"],
     specs: [{ label: "Section", value: "25×150 mm • 2.4 m" }],
-    cta: [{ label: "See Available Patterns", href: "/nfc/products/nfc-decking" }],
+    cta: [{ label: "Patterns", href: "/nfc/products/nfc-decking" }],
     hideExploreSpecs: true,
   },
   {
     id: "nfc-fluted",
-    name: "nfc fluted profiles",
+    name: "Fluted Profiles",
     slug: "nfc-fluted-profiles",
-    tag: "Modern wall/ceiling flutes & trims",
+    tag: "Wall Cladding",
     image: "/nfc-flute.png.webp",
     blurb:
       "Accent walls that pop — fast to install, easy to repaint, and consistent groove depth for perfect rhythm.",
@@ -130,18 +130,18 @@ const PRODUCTS: Product[] = [
   },
   {
     id: "nfc-textured",
-    name: "nfc textured panels",
+    name: "Textured Panels",
     slug: "nfc-textured-panels",
-    tag: "Natural textures with craftsman-like detail",
+    tag: "Finishes",
     image: "/nfc-textured-panel.png.webp",
     blurb: "Authentic wood-like textures on durable NFC base for feature walls, cabinetry and façades.",
     bullets: ["Uniform pattern repeat", "Prime/paint or veneer"],
   },
   {
     id: "nfc-fence",
-    name: "nfc fence",
+    name: "NFC Fence",
     slug: "nfc-fence",
-    tag: "Beauty and sustainability combined",
+    tag: "Landscape",
     image: "/nfc-fence.png.webp",
     blurb:
       "Weather-resistant pickets and rails that retain looks with minimal upkeep. Safe, splinter-free, child-friendly.",
@@ -149,360 +149,237 @@ const PRODUCTS: Product[] = [
   },
 ];
 
-/* ───────────────────────────────── UI helpers (in-page) ───────────────────────────────── */
-function Eyebrow({ children }: { children: React.ReactNode }) {
-  return (
-    <span
-      className="inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white"
-      style={{ backgroundColor: BRAND.teal }}
-    >
-      {children}
-    </span>
-  );
-}
+/* ───────────────────────────────── UI Components ───────────────────────────────── */
 
-type BtnVariant = "solid" | "outline";
-function Button({
-  href,
-  children,
-  variant = "solid",
-  download,
-}: {
-  href: string;
-  children: React.ReactNode;
-  variant?: BtnVariant;
-  download?: boolean;
-}) {
-  const common = { href, ...(download && { download: "Indowud-nfc-eBrochure.pdf" }) };
-  return variant === "outline" ? (
-    <a
-      {...common}
-      className="inline-flex h-10 items-center justify-center rounded-full border border-slate-300 bg-white px-4 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50 cursor-pointer"
-    >
-      {children}
-    </a>
-  ) : (
-    <a
-      {...common}
-      className="inline-flex h-10 items-center justify-center rounded-full bg-teal-600 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-700 cursor-pointer"
-    >
-      {children}
-    </a>
-  );
-}
-
-function SpecPill({ label, value }: { label: string; value: string }) {
+function ProductImage({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_1px_0_rgba(15,23,42,0.04)]">
-      <div className="text-xs font-medium uppercase tracking-wide text-slate-500">{label}</div>
-      <div className="mt-1 text-sm font-semibold leading-snug text-slate-900">{value}</div>
-    </div>
-  );
-}
-
-function IconBadge({ svg, label }: { svg: React.ReactNode; label: string }) {
-  return (
-    <div className="flex flex-col items-center gap-2">
-      <div className="grid h-12 w-12 place-items-center rounded-full border border-slate-200 bg-white shadow-sm">
-        {svg}
-      </div>
-      <span className="text-xs font-medium text-slate-700 text-center">{label}</span>
-    </div>
-  );
-}
-
-function ProductImage({
-  src,
-  alt,
-  priority,
-}: {
-  src: string;
-  alt: string;
-  priority?: boolean;
-}) {
-  return (
-    <div className="relative aspect-[4/3] overflow-visible rounded-t-3xl md:aspect-auto md:rounded-l-3xl md:rounded-tr-none p-4 sm:p-6 md:p-8">
-      <div className="relative h-full w-full overflow-hidden rounded-lg bg-gradient-to-br from-slate-50 to-slate-100">
-        <Image
+    <div className="relative aspect-[4/3] w-full rounded-2xl bg-stone-100/50 p-4 transition-colors duration-500 group-hover:bg-stone-100">
+      <div className="flex h-full w-full items-center justify-center overflow-visible">
+        <img
           src={src || "/placeholder.svg"}
           alt={alt}
-          fill
-          className="object-contain p-4 sm:p-6 transition-transform duration-500 group-hover:scale-[1.05]"
-          sizes="(min-width:1024px) 44rem, 100vw"
-          priority={priority}
+          className="max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-105 drop-shadow-xl"
         />
       </div>
     </div>
   );
 }
 
-/* NFC-GLU feature section (once) */
-function NfcGluSection() {
+function SpecItem({ label, value }: { label: string; value: string }) {
   return (
-    <section className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10">
-      <div className="grid gap-8 md:grid-cols-[380px_1fr] md:items-start">
-        {/* Left: image */}
-        <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200">
-          <div className="relative aspect-[4/3] w-full bg-gradient-to-br from-slate-50 to-slate-100">
-            <Image
-              src="/nfc-glu.png.webp"
-              alt="NFC-GLU adhesive containers"
-              fill
-              className="object-contain p-6 sm:p-8"
-              sizes="(min-width: 1024px) 380px, 100vw"
-            />
-          </div>
-        </div>
-
-        {/* Right: copy */}
-        <div>
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900">
-            NFC-GLU: <span className="text-teal-700">Bonding With The Best</span>
-          </h2>
-
-          <div className="mt-4 space-y-4 text-sm sm:text-base text-slate-700 leading-7">
-            <p>
-              Our research team observed that while bonding Indowud NFC with other surfaces, the
-              drying/bonding time can vary with weather conditions and the type of glue used.
-            </p>
-            <p>
-              With our expertise and technical backup, we developed an all-in-one professional grade
-              adhesive — <strong>NFC-GLU</strong> — to overcome such challenges.
-            </p>
-            <p>
-              NFC-GLU extends a strong, water-resistant bond with almost all surfaces — whether
-              rough or smooth, porous or non-porous.
-            </p>
-            <p>
-              We strongly recommend using NFC-GLU together with Indowud NFC for faster, consistent results.
-            </p>
-          </div>
-
-          {/* Feature icons */}
-          <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-4">
-            <IconBadge
-              svg={
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="12" r="9" stroke={BRAND.teal} strokeWidth="2" />
-                  <path d="M12 7v6l4 2" stroke={BRAND.teal} strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              }
-              label="Faster setting"
-            />
-            <IconBadge
-              svg={
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 3c4 6 4 9 0 13-4-4-4-7 0-13Z" stroke={BRAND.teal} strokeWidth="2" />
-                </svg>
-              }
-              label="Water-resistant"
-            />
-            <IconBadge
-              svg={
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <path d="M7 12a5 5 0 0 1 10 0" stroke={BRAND.teal} strokeWidth="2" />
-                  <path d="M9 14h6" stroke={BRAND.teal} strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              }
-              label="High strength"
-            />
-            <IconBadge
-              svg={
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <path d="M7 12l5-5 5 5-5 5-5-5Z" stroke={BRAND.teal} strokeWidth="2" />
-                </svg>
-              }
-              label="Multi-surface"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
+    <div className="border-l-2 border-stone-200 pl-4">
+      <div className="text-[10px] font-bold uppercase tracking-wider text-stone-400">{label}</div>
+      <div className="mt-1 text-sm font-medium text-stone-800">{value}</div>
+    </div>
   );
 }
 
-/* ───────────────────────────────── Page ───────────────────────────────── */
+/* ───────────────────────────────── Sidebar Nav ───────────────────────────────── */
+function SidebarNav() {
+  const [activeId, setActiveId] = useState("");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -50% 0px" } // Adjust trigger zone
+    );
+
+    PRODUCTS.forEach((p) => {
+      const el = document.getElementById(p.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <nav className="sticky top-24 hidden h-fit w-60 lg:block">
+      <h3 className="mb-6 font-serif text-lg font-medium text-stone-900">Collection</h3>
+      <ul className="relative space-y-4 border-l border-stone-200 pl-6">
+        {PRODUCTS.map((p) => {
+          const isActive = activeId === p.id;
+          return (
+            <li key={p.id} className="relative">
+              {isActive && (
+                <span className="absolute -left-[25px] top-1/2 h-8 w-[2px] -translate-y-1/2 bg-teal-600 transition-all duration-300" />
+              )}
+              <a
+                href={`#${p.id}`}
+                className={`block text-sm transition-colors duration-300 ${
+                  isActive ? "font-semibold text-teal-700" : "text-stone-500 hover:text-stone-900"
+                }`}
+              >
+                {p.name}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+      
+      <div className="mt-12">
+        <a 
+            href="/contact" 
+            className="group flex items-center gap-2 text-sm font-semibold text-stone-900"
+        >
+            Contact Sales 
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+      </div>
+    </nav>
+  );
+}
+
+/* ───────────────────────────────── Main Page ───────────────────────────────── */
 export default function ProductsPage() {
   return (
-    <main className="relative">
-      {/* Gradient Hero */}
-      <header className="w-full">
-        <div className="bg-gradient-to-b from-teal-700 via-teal-600/70 to-pink-700/80">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-            <h1 className="text-center text-4xl font-serif italic font-semibold text-white drop-shadow">
-              Products
+    <main className="bg-white min-h-screen">
+      
+      {/* Minimalist Hero */}
+      <header className="relative w-full bg-[#FDFCF8] py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600">
+                Product Catalogue
+            </span>
+            <h1 className="mt-4 font-serif text-4xl sm:text-6xl text-stone-900">
+                Engineered for <span className="italic text-stone-500">Excellence</span>
             </h1>
-            <nav className="mt-3 text-center text-xs tracking-widest text-white/90 uppercase">
-              <ol className="inline-flex items-center">
-                <li>
-                  <Link href="/" className="hover:text-white transition-colors">
-                    HOME
-                  </Link>
-                </li>
-                <li aria-hidden="true" className="mx-1">
-                  /
-                </li>
-                <li>
-                  <Link href="/nfc" className="hover:text-white transition-colors">
-                    NFC
-                  </Link>
-                </li>
-                <li aria-hidden="true" className="mx-1">
-                  /
-                </li>
-                <li className="text-white">PRODUCTS</li>
-              </ol>
-            </nav>
-          </div>
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-stone-600 font-light">
+                Discover our range of premium Natural Fibre Composite materials designed for durability, aesthetics, and sustainability.
+            </p>
         </div>
       </header>
 
-      {/* Main with sidebar */}
-      <section className="relative mx-auto max-w-7xl px-4 pb-16 pt-8 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[240px_1fr]">
-          {/* Left sidebar */}
-          <aside className="hidden lg:block">
-            <nav className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-700">Products</h3>
-              <ul className="space-y-1 text-sm">
-                {PRODUCTS.map((p) => (
-                  <li key={p.id}>
-                    <a
-                      href={`#${p.id}`}
-                      className="block rounded-md px-2 py-1.5 text-slate-700 hover:bg-slate-50 hover:text-slate-900"
-                    >
-                      {p.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+      {/* Main Content Layout */}
+      <div className="mx-auto max-w-7xl px-4 pb-24 pt-12 sm:px-6 lg:px-8">
+        <div className="flex gap-16">
+          
+          {/* Left: Sticky Sidebar */}
+          <SidebarNav />
 
-              <div className="mt-5 h-px bg-slate-100" />
-              <a
-                href="/contact"
-                className="mt-5 block rounded-md border border-slate-200 px-3 py-2 text-center text-sm font-medium text-slate-700 hover:bg-slate-50"
+          {/* Right: Product List */}
+          <div className="flex-1 space-y-24">
+            {PRODUCTS.map((p, i) => (
+              <article
+                key={p.id}
+                id={p.id}
+                className="group scroll-mt-24"
               >
-                Contact Sales
-              </a>
-            </nav>
-          </aside>
+                <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+                  
+                  {/* Image Side */}
+                  <div className={` ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+                     <ProductImage src={p.image} alt={p.name} />
+                  </div>
 
-          {/* Content */}
-          <div className="space-y-10">
-            {PRODUCTS.map((p, i) => {
-              const reverse = i % 2 === 1;
-              return (
-                <article
-                  key={p.id}
-                  id={p.id}
-                  className="scroll-mt-24 rounded-3xl border border-slate-200 bg-white shadow-sm ring-1 ring-black/5 group"
-                >
-                  <div
-                    className={`grid items-stretch gap-0 md:grid-cols-2 ${
-                      reverse ? "md:[&>div:first-child]:order-2" : ""
-                    }`}
-                  >
-                    {/* image */}
-                    <ProductImage src={p.image} alt={p.name} priority={i < 2} />
-
-                    {/* copy */}
-                    <div className="flex h-full flex-col justify-between p-6 sm:p-8">
-                      <div className="max-w-xl">
-                        {p.tag && <Eyebrow>{p.tag}</Eyebrow>}
-                        <h2 className="mt-3 text-xl sm:text-2xl font-bold text-slate-900">{p.name}</h2>
-                        <p className="mt-2 text-sm sm:text-base leading-7 text-slate-700">{p.blurb}</p>
-
-                        {p.bullets?.length ? (
-                          <ul className="mt-4 grid list-disc gap-x-6 gap-y-1 pl-5 text-sm text-slate-700 sm:grid-cols-2">
-                            {p.bullets.map((b, idx) => (
-                              <li key={idx}>{b}</li>
-                            ))}
-                          </ul>
-                        ) : null}
-
-                        {p.specs?.length ? (
-                          <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                            {p.specs.map((s, idx) => (
-                              <SpecPill key={idx} label={s.label} value={s.value} />
-                            ))}
-                          </div>
-                        ) : null}
-
-                        {p.websiteUrl && (
-                          <p className="mt-4 text-base text-slate-700">
-                            For more details, visit{" "}
-                            <a
-                              href={`https://${p.websiteUrl}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-block text-teal-700 font-semibold hover:text-teal-800 transition-colors underline decoration-2 decoration-teal-600 text-base"
-                            >
-                              {p.websiteUrl}
-                            </a>
-                          </p>
+                  {/* Text Side */}
+                  <div className={`space-y-6 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                    <div>
+                        {p.tag && (
+                            <span className="inline-block rounded-full bg-stone-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-stone-500">
+                                {p.tag}
+                            </span>
                         )}
-                      </div>
+                        <h2 className="mt-4 font-serif text-3xl sm:text-4xl text-stone-900">
+                            {p.name}
+                        </h2>
+                    </div>
 
-                      {p.showCustomSizeText ? (
-                        <div className="mt-6">
-                          <a href="/contact" className="text-base text-slate-700 hover:text-teal-600 transition-colors">
-                            <span className="font-medium">Contact Us for Custom size</span>
-                          </a>
+                    <p className="text-base leading-relaxed text-stone-600">
+                        {p.blurb}
+                    </p>
+
+                    {/* Bullets */}
+                    {p.bullets && (
+                        <ul className="space-y-2">
+                            {p.bullets.map((b, idx) => (
+                                <li key={idx} className="flex items-start gap-2 text-sm text-stone-700">
+                                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-teal-500 flex-shrink-0" />
+                                    {b}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+
+                    {/* Specs Grid */}
+                    {p.specs && (
+                        <div className="grid grid-cols-2 gap-4 pt-4">
+                            {p.specs.map((s, idx) => (
+                                <SpecItem key={idx} label={s.label} value={s.value} />
+                            ))}
                         </div>
-                      ) : (
-                        <div className="mt-6 flex flex-wrap gap-3">
-                          {!p.hideExploreSpecs && (
-                            <Button href={`#${p.slug}`} variant="solid">
-                              Explore Specs
-                            </Button>
-                          )}
-                          {(p.cta ?? []).map((c, idx) => (
-                            <Button key={idx} href={c.href} variant="outline" download={c.download}>
-                              {c.label}
-                            </Button>
-                          ))}
-                        </div>
-                      )}
+                    )}
+
+                    {/* Actions */}
+                    <div className="flex flex-wrap items-center gap-4 pt-4">
+                        {(p.cta ?? []).map((c, idx) => (
+                            <a
+                                key={idx}
+                                href={c.href}
+                                download={c.download ? "Indowud-nfc-eBrochure.pdf" : undefined}
+                                className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
+                                    idx === 0 
+                                    ? "bg-stone-900 text-white hover:bg-stone-800 hover:shadow-lg" 
+                                    : "border border-stone-200 text-stone-700 hover:border-stone-900 hover:text-stone-900"
+                                }`}
+                            >
+                                {c.label}
+                            </a>
+                        ))}
+                        {!p.hideExploreSpecs && !p.cta && (
+                             <a href={`#${p.slug}`} className="px-6 py-3 rounded-full bg-stone-900 text-white text-sm font-semibold hover:bg-stone-800 hover:shadow-lg transition-all">
+                                Explore
+                             </a>
+                        )}
+                        {p.showCustomSizeText && (
+                            <a href="/contact" className="text-sm font-medium text-teal-600 hover:text-teal-800 underline underline-offset-4">
+                                Request Custom Size
+                            </a>
+                        )}
                     </div>
                   </div>
-                </article>
-              );
-            })}
 
-            {/* NFC-GLU feature section */}
-            <NfcGluSection />
+                </div>
+              </article>
+            ))}
 
-            {/* Bottom CTA */}
-            <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 sm:p-10">
-              <div className="grid gap-6 md:grid-cols-3 md:items-center">
-                <div className="md:col-span-2">
-                  <h3 className="text-2xl font-bold text-slate-900">Need guidance choosing the right product?</h3>
-                  <p className="mt-2 text-slate-700">
-                    Share your project details and we&apos;ll recommend the optimal thickness, finish and profiles for
-                    long-term performance.
-                  </p>
+            {/* Feature Section: NFC-GLU */}
+            <div className="relative overflow-hidden rounded-3xl bg-stone-900 p-8 sm:p-12 text-white">
+                <div className="relative z-10 grid gap-8 lg:grid-cols-2 lg:items-center">
+                    <div>
+                        <h3 className="font-serif text-3xl">NFC-GLU Adhesive</h3>
+                        <p className="mt-4 text-stone-300 leading-relaxed">
+                            A professional grade adhesive developed specifically to bond Indowud NFC with almost any surface. Fast setting, water-resistant, and high strength.
+                        </p>
+                        <div className="mt-8 grid grid-cols-2 gap-4">
+                            {['Faster Setting', 'Water Resistant', 'High Strength', 'Multi-Surface'].map((f) => (
+                                <div key={f} className="flex items-center gap-2">
+                                    <svg className="w-5 h-5 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span className="text-sm font-medium">{f}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="relative h-64 lg:h-full min-h-[300px] rounded-2xl overflow-hidden bg-white/5">
+                         <img 
+                            src="/nfc-glu.png.webp" 
+                            alt="NFC GLU" 
+                            className="absolute inset-0 w-full h-full object-contain p-8"
+                         />
+                    </div>
                 </div>
-                <div className="flex flex-wrap gap-3 md:justify-end">
-                  <Button href="/contact" variant="solid">
-                    Talk to an Expert
-                  </Button>
-                  <Button href="/nfc/applications" variant="outline">
-                    See Applications
-                  </Button>
-                </div>
-              </div>
             </div>
+
           </div>
         </div>
-      </section>
-
-      {/* helper wave (for hero bottom if you want) */}
-      <style>{`
-        .clip-wave {
-          -webkit-clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);
-          clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);
-        }
-      `}</style>
+      </div>
     </main>
   );
 }
