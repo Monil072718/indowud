@@ -44,6 +44,11 @@ function FeaturesSection({
       { id: "smoke", title: "Smoke suppressant", desc: "Added safety layer.", icon: <Emoji>🚭</Emoji> },
       { id: "stable", title: "Dimensionally stable", desc: "Minimal expansion.", icon: <Emoji>📏</Emoji> },
       { id: "nofume", title: "No formaldehyde", desc: "Health-first materials.", icon: <Emoji>💨</Emoji> },
+
+      // --- ADDED NEW ITEMS BELOW ---
+      { id: "rodent", title: "Anti rodent", desc: "Keeps pests away.", icon: <Emoji>🐀</Emoji> },
+      { id: "screw", title: "Good screw holding", desc: "Strong grip strength.", icon: <Emoji>🔩</Emoji> },
+      { id: "thermo", title: "Thermoformable", desc: "Bend into curves.", icon: <Emoji>➰</Emoji> },
     ];
 
   return (
