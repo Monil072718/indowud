@@ -102,50 +102,55 @@ function Pagination({
   }
 
   const btnBase =
-    "inline-flex items-center justify-center rounded-lg border px-3 py-2 text-sm font-semibold transition-colors";
-  const active = "border-slate-900 bg-slate-900 text-white hover:bg-slate-800";
-  const normal = "border-slate-200 bg-white text-slate-800 hover:bg-slate-50";
+    "inline-flex items-center justify-center rounded-lg border px-4 py-2 text-sm font-semibold transition-all duration-200";
+  const active = "border-slate-900 bg-slate-900 text-white shadow-md hover:bg-slate-800 hover:shadow-lg";
+  const normal = "border-slate-200 bg-white text-slate-600 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-900";
 
   return (
     <nav
-      className="mt-10 flex items-center justify-center gap-2"
+      className="mt-16 flex items-center justify-center gap-3"
       aria-label="Pagination"
     >
       {/* PREVIOUS ONLY */}
       <button
-        className={`${btnBase} ${normal}`}
+        className={`${btnBase} ${normal} disabled:opacity-50 disabled:cursor-not-allowed`}
         onClick={() => onChange(Math.max(1, page - 1))}
         disabled={page === 1}
         aria-label="Previous page"
       >
-        ‹
+        Previous
       </button>
 
-      {pages.map((p, i) =>
-        p === "…" ? (
-          <span key={`dots-${i}`} className="px-2 text-slate-500">
-            …
-          </span>
-        ) : (
-          <button
-            key={p}
-            className={`${btnBase} ${p === page ? active : normal}`}
-            onClick={() => onChange(p)}
-            aria-current={p === page ? "page" : undefined}
-          >
-            {p}
-          </button>
-        )
-      )}
+      <div className="flex items-center gap-1">
+        {pages.map((p, i) =>
+          p === "…" ? (
+            <span key={`dots-${i}`} className="px-2 text-slate-400 font-medium">
+              …
+            </span>
+          ) : (
+            <button
+              key={p}
+              className={`w-10 h-10 rounded-lg text-sm font-semibold transition-all ${p === page
+                  ? "bg-slate-900 text-white shadow-md"
+                  : "text-slate-600 hover:bg-slate-100"
+                }`}
+              onClick={() => onChange(p)}
+              aria-current={p === page ? "page" : undefined}
+            >
+              {p}
+            </button>
+          )
+        )}
+      </div>
 
       {/* NEXT ONLY */}
       <button
-        className={`${btnBase} ${normal}`}
+        className={`${btnBase} ${normal} disabled:opacity-50 disabled:cursor-not-allowed`}
         onClick={() => onChange(Math.min(totalPages, page + 1))}
         disabled={page === totalPages}
         aria-label="Next page"
       >
-        ›
+        Next
       </button>
     </nav>
   );
@@ -157,7 +162,7 @@ function BlogContent() {
   const [featured, ...rest] = posts;
 
   // paginate ONLY the grid (rest)
-  const PAGE_SIZE = 3; // TEMP: make small to verify pagination. Set back to 9 later.
+  const PAGE_SIZE = 6; // Increased page size for better grid look
   const totalPages = Math.max(1, Math.ceil(rest.length / PAGE_SIZE));
 
   const router = useRouter();
@@ -180,107 +185,126 @@ function BlogContent() {
   };
 
   return (
-    <div className="mx-auto max-w-[1200px] px-4 py-10 md:py-14">
-      {/* header */}
-      <motion.header
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0, transition: { duration: 0.45 } }}
-        className="mb-8 md:mb-10"
-      >
-        <h1 className="text-4xl font-extrabold tracking-tight text-slate-900">
-          Blog
-        </h1>
-        {/* Breadcrumb */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="mt-3"
-        >
-          <Breadcrumb
-            items={[
-              { label: "HOME", href: "/" },
-              { label: "MEDIA", href: "/media" },
-              { label: "BLOG" },
-            ]}
-          />
-        </motion.div>
-        <p className="mt-2 text-base max-w-2xl text-slate-600">
-          Stories, comparisons, and how-tos from Indowud NFC.
-        </p>
-      </motion.header>
-
-      {/* featured post (unchanged) */}
-      {featured ? (
-        <motion.article
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0, transition: { duration: 0.4 } }}
-          className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
-        >
-          <div className="relative">
-            <div className="aspect-[21/9] w-full overflow-hidden">
-              <img
-                src={featured.cover}
-                alt={featured.title}
-                loading="lazy"
-                decoding="async"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+    <div className="min-h-screen bg-slate-50/50">
+      {/* Hero Section */}
+      <div className="bg-white border-b border-slate-200">
+        <div className="mx-auto max-w-[1200px] px-4 py-16 md:py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <div className="flex justify-center mb-6">
+              <Breadcrumb
+                items={[
+                  { label: "HOME", href: "/" },
+                  { label: "MEDIA", href: "/media" },
+                  { label: "BLOG" },
+                ]}
               />
             </div>
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-600" />
-          </div>
-
-          <div className="p-6 md:p-8">
-            <div className="mb-3 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wide text-emerald-700">
-              <span className="rounded-full bg-emerald-50 px-2 py-1">
-                Featured
-              </span>
-              {featured.tags?.slice(0, 2).map((t) => (
-                <span
-                  key={t}
-                  className="rounded-full bg-slate-100 px-2 py-1 text-slate-600"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-
-            <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
-              {featured.title}
-            </h2>
-            <p className="mt-2 text-base max-w-3xl text-slate-600">
-              {featured.excerpt}
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
+              Our Latest <span className="text-emerald-600">Stories</span>
+            </h1>
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
+              Discover insights, comparisons, and expert advice on sustainable construction and modern design with Indowud NFC.
             </p>
-
-            <a
-              href={`/media/blog/${featured.slug}`}
-              className="mt-5 inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-semibold text-slate-800 transition-colors hover:bg-slate-50"
-            >
-              Read article
-              <svg
-                className="h-4 w-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </a>
-          </div>
-        </motion.article>
-      ) : null}
-
-      {/* grid (paginated) */}
-      <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {current.map((p, i) => (
-          <BlogCard key={p.id} post={p} i={i} />
-        ))}
+          </motion.div>
+        </div>
       </div>
 
-      {/* pagination controls */}
-      <Pagination page={page} totalPages={totalPages} onChange={setPage} />
+      <div className="mx-auto max-w-[1200px] px-4 py-12 md:py-20">
+        {/* Featured Post */}
+        {featured ? (
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-20"
+          >
+            <div className="flex items-center gap-2 mb-6">
+              <span className="h-px flex-1 bg-slate-200"></span>
+              <span className="text-sm font-bold tracking-wider text-slate-400 uppercase">Featured Article</span>
+              <span className="h-px flex-1 bg-slate-200"></span>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-3xl bg-white shadow-xl shadow-slate-200/50 ring-1 ring-slate-100 transition-all hover:shadow-2xl hover:shadow-slate-200/60 grid md:grid-cols-2 gap-0">
+              <div className="relative h-64 md:h-auto overflow-hidden">
+                <img
+                  src={featured.cover}
+                  alt={featured.title}
+                  loading="eager"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              </div>
+
+              <div className="p-8 md:p-12 flex flex-col justify-center relative">
+                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-emerald-500 to-teal-600 opacity-0 md:opacity-100" />
+
+                <div className="mb-6 flex flex-wrap items-center gap-3">
+                  <span className="inline-flex items-center rounded-full bg-emerald-600 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white shadow-sm">
+                    Featured
+                  </span>
+                  {featured.tags?.slice(0, 2).map((t) => (
+                    <span
+                      key={t}
+                      className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-600"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-emerald-800 transition-colors">
+                  <a href={`/media/blog/${featured.slug}`} className="focus:outline-none">
+                    <span className="absolute inset-0 md:hidden" aria-hidden="true" />
+                    {featured.title}
+                  </a>
+                </h2>
+
+                <p className="text-slate-600 text-lg mb-8 line-clamp-3 leading-relaxed">
+                  {featured.excerpt}
+                </p>
+
+                <div className="flex items-center justify-between mt-auto">
+                  <span className="text-sm font-medium text-slate-500">
+                    {new Date(featured.date).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}
+                  </span>
+                  <a
+                    href={`/media/blog/${featured.slug}`}
+                    className="inline-flex items-center gap-2 text-sm font-bold text-emerald-600 transition-colors hover:text-emerald-700"
+                  >
+                    Read Article
+                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </motion.section>
+        ) : null}
+
+        {/* Grid Header */}
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl font-bold text-slate-900">Latest Articles</h2>
+          <div className="hidden md:block h-px flex-1 bg-slate-200 ml-6"></div>
+        </div>
+
+        {/* Grid (paginated) */}
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {current.map((p, i) => (
+            <BlogCard key={p.id} post={p} i={i} />
+          ))}
+        </div>
+
+        {/* Pagination Controls */}
+        <Pagination page={page} totalPages={totalPages} onChange={setPage} />
+      </div>
     </div>
   );
 }
@@ -290,15 +314,20 @@ export default function BlogListPage() {
   return (
     <Suspense
       fallback={
-        <div className="mx-auto max-w-[1200px] px-4 py-10 md:py-14">
-          <div className="mb-8 md:mb-10">
-            <div className="mb-2 h-10 w-64 rounded bg-slate-200"></div>
-            <div className="h-4 w-96 rounded bg-slate-200"></div>
+        <div className="min-h-screen bg-slate-50/50">
+          <div className="bg-white border-b border-slate-200 py-24">
+            <div className="mx-auto max-w-[1200px] px-4 text-center">
+              <div className="h-12 w-64 bg-slate-200 rounded-lg mx-auto mb-4 animate-pulse" />
+              <div className="h-6 w-96 bg-slate-100 rounded-lg mx-auto animate-pulse" />
+            </div>
           </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="h-80 rounded-2xl bg-slate-200"></div>
-            ))}
+          <div className="mx-auto max-w-[1200px] px-4 py-20">
+            <div className="h-96 w-full bg-slate-200 rounded-3xl mb-20 animate-pulse" />
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="h-[400px] rounded-2xl bg-slate-200 animate-pulse" />
+              ))}
+            </div>
           </div>
         </div>
       }

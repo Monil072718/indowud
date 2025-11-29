@@ -17,11 +17,11 @@ export type BlogCardPost = {
 };
 
 const fade = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 20 },
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.35, delay: i * 0.05 },
+    transition: { duration: 0.4, delay: i * 0.05 },
   }),
 };
 
@@ -36,14 +36,11 @@ function BlogCard({
 }) {
   const href = `/media/blog/${post.slug}`;
 
-  // container + media sizing per variant
+  // Modern card styling: cleaner, subtle border, nice shadow on hover
   const container =
-    variant === "compact"
-      ? "group overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm"
-      : "group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm";
+    "group flex flex-col h-full overflow-hidden rounded-2xl bg-white transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:border-slate-200";
 
-  const mediaAspect = variant === "compact" ? "aspect-[16/11]" : "aspect-[16/10]";
-  const padding = variant === "compact" ? "p-3" : "p-4";
+  const mediaAspect = variant === "compact" ? "aspect-[16/10]" : "aspect-[16/10]";
 
   return (
     <motion.article
@@ -51,85 +48,94 @@ function BlogCard({
       variants={fade}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
-      whileHover={{ y: -6, scale: 1.01 }}
-      className={`${container} cursor-pointer`}
+      viewport={{ once: true, margin: "-50px" }}
+      className={container}
     >
-      {/* cover */}
-      <Link href={href} className="block cursor-pointer">
-        <div className="relative">
-          <div className={`${mediaAspect} w-full overflow-hidden relative`}>
-            <Image
-              src={post.cover}
-              alt={post.title}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-            />
-          </div>
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      {/* Image Section */}
+      <Link href={href} className="block w-full overflow-hidden relative">
+        <div className={`${mediaAspect} w-full relative overflow-hidden bg-slate-100`}>
+          <Image
+            src={post.cover}
+            alt={post.title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+          />
+          {/* Overlay gradient on hover */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         </div>
       </Link>
 
-      {/* body */}
-      <div className={padding}>
-        {/* tags */}
-        <div className="mb-2 flex flex-wrap gap-2">
-          {post.tags?.slice(0, 2).map((t) => (
-            <span
-              key={t}
-              className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-slate-600"
-            >
-              {t}
-            </span>
-          ))}
+      {/* Content Section */}
+      <div className="flex flex-1 flex-col p-6">
+        {/* Meta & Tags */}
+        <div className="mb-3 flex items-center justify-between gap-4">
+          <div className="flex flex-wrap gap-2">
+            {post.tags?.slice(0, 1).map((t) => (
+              <span
+                key={t}
+                className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/10"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+          <span className="text-xs text-slate-400 font-medium">
+            {new Date(post.date).toLocaleDateString(undefined, {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            })}
+          </span>
         </div>
 
-        {/* title + excerpt */}
-        <Link href={href} className="block cursor-pointer">
-          <h3
-            className={`text-slate-900 font-bold ${
-              variant === "compact" ? "text-[15px] leading-snug line-clamp-2" : "text-lg line-clamp-2"
-            }`}
-          >
+        {/* Title */}
+        <Link href={href} className="group/title block">
+          <h3 className="text-xl font-bold text-slate-900 transition-colors group-hover/title:text-emerald-700 line-clamp-2 leading-tight">
             {post.title}
           </h3>
-          <p
-            className={`mt-1 text-slate-600 ${
-              variant === "compact" ? "text-[13px] line-clamp-2" : "text-sm line-clamp-3"
-            }`}
-          >
-            {post.excerpt}
-          </p>
         </Link>
 
-        {/* meta */}
-        <div className="mt-3 flex items-center justify-between text-xs text-slate-500">
-          <span>{new Date(post.date).toLocaleDateString()}</span>
-          {post.readMins ? <span>{post.readMins} min</span> : <span />}
+        {/* Excerpt */}
+        <p className="mt-3 text-sm leading-relaxed text-slate-600 line-clamp-3 flex-1">
+          {post.excerpt}
+        </p>
+
+        {/* Footer / Read More */}
+        <div className="mt-6 flex items-center justify-between pt-4 border-t border-slate-50">
+          <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
+            {post.readMins ? (
+              <>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {post.readMins} min read
+              </>
+            ) : null}
+          </div>
+
+          <Link
+            href={href}
+            className="group/btn inline-flex items-center gap-1 text-sm font-semibold text-emerald-600 transition-colors hover:text-emerald-700"
+          >
+            Read more
+            <svg
+              className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+            >
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </Link>
         </div>
-
-        {/* Read more */}
-        <Link
-          href={href}
-          className="group/button mt-3 inline-flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 cursor-pointer"
-        >
-          Read more
-          <svg
-            className="h-4 w-4 transition-transform group-hover/button:translate-x-0.5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path d="M5 12h14" />
-            <path d="m12 5 7 7-7 7" />
-          </svg>
-        </Link>
       </div>
     </motion.article>
   );
 }
 
 export default memo(BlogCard);
+

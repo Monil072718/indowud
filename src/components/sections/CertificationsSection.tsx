@@ -122,55 +122,7 @@ export default function CertificationsSection() {
           </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 mt-16 mb-16 md:mb-24">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            whileHover={{ scale: 1.05 }}
-            className="relative h-64"
-          >
-            <Image
-              src="https://images.pexels.com/photos/1268975/pexels-photo-1268975.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Nature"
-              fill
-              className="object-cover shadow-xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: "100%" }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-teal-500 to-rose-500"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            whileHover={{ scale: 1.05 }}
-            className="relative h-64"
-          >
-            <Image
-              src="https://images.pexels.com/photos/1227511/pexels-photo-1227511.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Craftsmanship"
-              fill
-              className="object-cover shadow-xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: "100%" }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-rose-500 to-teal-500"
-            />
-          </motion.div>
-        </div>
+        
       </div>
       
       {/* Bottom spacing for footer */}

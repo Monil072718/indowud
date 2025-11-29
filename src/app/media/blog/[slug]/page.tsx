@@ -127,7 +127,9 @@ export default async function BlogPostPage({ params }: PageProps) {
       {/* cover */}
       <figure className="relative mx-auto mt-6 max-w-5xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-600" />
-        <img src={post.cover} alt={post.title} className="w-full object-cover" />
+        <div className="relative h-[300px] md:h-[500px] w-full">
+          <img src={post.cover} alt={post.title} className="absolute inset-0 h-full w-full object-cover" />
+        </div>
       </figure>
 
       {/* content + sidebar */}
