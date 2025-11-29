@@ -12,21 +12,21 @@ export default function ChairmanMessagePage() {
 
       <section className="max-w-5xl mx-auto px-3 sm:px-6 py-8 md:py-16">
         {/* Intro */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr,160px] gap-5 md:gap-8 items-center md:items-start">
-          <div className="order-2 md:order-1 text-center md:text-left">
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-5 md:gap-8">
+          <div className="flex-1 text-center md:text-left">
             <p className="text-base font-medium text-gray-900">
               With over 30 years in the ply industry, Mr. Bengani is respected
               as the founder of Uniply. Today, as the Chairman of Indowud, he
               is pioneering natural fibre composite wood in India and the world.
             </p>
           </div>
-          <div className="order-1 md:order-2 mx-auto md:mx-0 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden grayscale justify-self-end relative">
+          <div className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden grayscale relative">
             <Image
-              src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=600"
+              src="/bl.webp"
               alt="Chairman"
               width={160}
               height={160}
-              className="object-cover"
+              className="object-cover w-full h-full"
             />
           </div>
         </div>
