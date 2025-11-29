@@ -80,7 +80,6 @@ export default function OurTeamPage() {
           <div className="my-2 border-t border-gray-200" />
 
           <Profile
-            reverse
             name="Mr. Varun Bengani"
             role="Co-Founder & Director"
             img="/varun.webp"
