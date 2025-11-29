@@ -3,9 +3,67 @@
 
 import { motion, type Variants } from "framer-motion"
 import Image from "next/image"
+import nextDynamic from "next/dynamic"
 import PageHeader from "@/components/common/PageHeader"
 
+// Swiper CSS
+import "swiper/css"
+import "swiper/css/navigation"
+import "swiper/css/pagination"
+
 export const dynamic = "force-static"
+
+// lazy swiper
+const SwiperSlider = nextDynamic(
+  () =>
+    Promise.all([import("swiper/react"), import("swiper/modules")]).then(
+      ([swiperMod, modulesMod]) => {
+        const { Swiper, SwiperSlide } = swiperMod;
+        const { Navigation, Autoplay, Pagination } = modulesMod;
+
+        return function SwiperSliderComponent({
+          gallery,
+        }: {
+          gallery: { src: string; alt: string }[];
+        }) {
+          return (
+            <Swiper
+              modules={[Navigation, Autoplay, Pagination]}
+              navigation
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              loop={true}
+              spaceBetween={20}
+              slidesPerView={1}
+              breakpoints={{
+                640: { slidesPerView: 2, spaceBetween: 20 },
+                1024: { slidesPerView: 3, spaceBetween: 30 },
+                1280: { slidesPerView: 4, spaceBetween: 30 },
+              }}
+              className="w-full py-8 px-4"
+            >
+              {gallery.map((g, i) => (
+                <SwiperSlide key={i} className="h-auto">
+                  <div className="group overflow-hidden rounded-lg sm:rounded-xl border border-gray-200 bg-white shadow-sm relative h-full">
+                    <div className="h-48 sm:h-56 md:h-64 relative">
+                      <Image
+                        src={g.src || "/placeholder.svg"}
+                        alt={g.alt}
+                        fill
+                        className="object-contain transition duration-300 group-hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          );
+        };
+      }
+    ),
+  { ssr: false }
+);
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -22,20 +80,28 @@ const fadeUp: Variants = {
 
 const gallery = [
   {
-    src: "https://images.pexels.com/photos/373892/pexels-photo-373892.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "Plant exterior",
+    src: "/1-2-2.png.webp",
+    alt: "Manufacturing Process",
   },
   {
-    src: "https://images.pexels.com/photos/373544/pexels-photo-373544.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "Mixing silos",
+    src: "/4-2.jpg.webp",
+    alt: "Manufacturing Process",
   },
   {
-    src: "https://images.pexels.com/photos/2760242/pexels-photo-2760242.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "Calibration line",
+    src: "/6-2.jpg.webp",
+    alt: "Manufacturing Process",
   },
   {
-    src: "https://images.pexels.com/photos/257700/pexels-photo-257700.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "Warehouse",
+    src: "/7-1.jpg.webp",
+    alt: "Manufacturing Process",
+  },
+  {
+    src: "/9.jpg.webp",
+    alt: "Manufacturing Process",
+  },
+  {
+    src: "/5-2.jpg.webp",
+    alt: "Manufacturing Process",
   },
 ]
 
@@ -43,22 +109,22 @@ const steps = [
   {
     title: "Selection of Raw Material",
     text: "Virgin PVC resin from certified sources and carefully curated natural fibres from local farming communities. Consistent grading ensures uninterrupted supply and repeatable quality.",
-    image: "https://images.pexels.com/photos/1581484/pexels-photo-1581484.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/process-1.png.webp",
   },
   {
     title: "Matrix Formulation",
     text: "Polymers and fibres are blended with minerals, coupling agents and thermal stabilizers. Tightly controlled temperature/pressure creates a homogeneous matrix that drives mechanical performance.",
-    image: "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/Page-7-01.png.webp",
   },
   {
     title: "Interface Strength",
     text: "Optimized fibre dispersion yields excellent interfacial bonding—improving impact resistance, internal bond and screw holding. The result is durable boards suitable for interior and exterior use.",
-    image: "https://images.pexels.com/photos/3855962/pexels-photo-3855962.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/interface.png.webp",
   },
   {
     title: "Extrusion & Finishing",
     text: "Continuous extrusion passes through calibrated cooling beds. Boards are then trimmed and processed for finishing—ready for painting, routing, lamination or thermoforming.",
-    image: "https://images.pexels.com/photos/3735439/pexels-photo-3735439.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/lastsec.png.webp",
   },
 ]
 
@@ -101,30 +167,8 @@ export default function ManufacturingProcessPage() {
           Engineering a process that surpasses global best practices
         </motion.p>
 
-        <div className="mt-3 sm:mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3">
-          {gallery.map((g, i) => (
-            <motion.div
-              key={g.src}
-              variants={fadeUp}
-              custom={i}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "0px 0px -80px 0px" }}
-              whileHover={{ y: -6, scale: 1.02 }}
-              transition={{ duration: 0.28 }}
-              className="group overflow-hidden rounded-lg sm:rounded-xl border border-gray-200 bg-white shadow-sm relative"
-            >
-              <div className="h-24 sm:h-32 md:h-40 lg:h-48 relative">
-                <Image
-                  src={g.src || "/placeholder.svg"}
-                  alt={g.alt}
-                  fill
-                  className="object-cover transition duration-300 group-hover:scale-105"
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                />
-              </div>
-            </motion.div>
-          ))}
+        <div className="mt-6 sm:mt-10">
+          <SwiperSlider gallery={gallery} />
         </div>
       </section>
 
@@ -197,14 +241,14 @@ export default function ManufacturingProcessPage() {
                     >
                       <motion.div
                         whileHover={{ scale: 1.02 }}
-                        className="overflow-hidden rounded-lg sm:rounded-xl border border-gray-200 bg-white shadow-sm relative"
+                        className="relative"
                       >
                         <div className="h-36 sm:h-48 md:h-56 relative">
                           <Image
                             src={s.image || '/placeholder.svg'}
                             alt={s.title}
                             fill
-                            className="object-cover transition duration-300 hover:scale-105"
+                            className="object-contain transition duration-300 hover:scale-105"
                             sizes="(max-width: 768px) 100vw, 50vw"
                           />
                         </div>
