@@ -1,218 +1,184 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 
 type Slide = {
   title: string;
   subtitle: string;
   image: string;
   accent: string;
+  tag: string;
 };
 
+// Merged Data: Your content + Tags for the Magazine UI
 const slides: Slide[] = [
   {
     title: "Design with soul",
     subtitle: "Spaces that breathe and inspire.",
-    image:
-      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1000&fit=crop",
-    accent: "#10b981",
+    image: "/slider-1.webp",
+    accent: "#10b981", // Emerald
+    tag: "Interior Design",
   },
   {
     title: "Form meets function",
     subtitle: "Beauty, balance, and purpose.",
-    image:
-      "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1000&fit=crop",
-    accent: "#f59e0b",
+    image: "/slider-2.webp",
+    accent: "#f59e0b", // Amber
+    tag: "Architecture",
   },
   {
     title: "Crafted for living",
     subtitle: "Where ideas turn into homes.",
-    image:
-      "https://images.pexels.com/photos/1647776/pexels-photo-1647776.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1000&fit=crop",
-    accent: "#ec4899",
+    image: "/slider-3.webp",
+    accent: "#ec4899", // Pink
+    tag: "Lifestyle",
+  },
+  {
+    title: "Sustainable excellence",
+    subtitle: "Quality and responsibility in every detail.",
+    image: "/slider-4.png",
+    accent: "#8b5cf6", // Violet
+    tag: "Eco-Friendly",
+  },
+  {
+    title: "Innovation meets tradition",
+    subtitle: "Modern solutions with timeless appeal.",
+    image: "/slider-5.webp",
+    accent: "#06b6d4", // Cyan
+    tag: "Modern Craft",
   },
 ];
 
-// ⏱️ 3 seconds per slide
-const AUTO_MS = 3000;
+const AUTO_MS = 5000;
 
 export default function HeroShowcaseSlider() {
   const [index, setIndex] = useState(0);
   const timerRef = useRef<number | null>(null);
-  const touchStartX = useRef(0);
-  const touchDeltaX = useRef(0);
 
   const next = () => setIndex((i) => (i + 1) % slides.length);
   const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
   const goTo = (i: number) => setIndex(i);
 
-  // 🔁 always autoplay every 3s, no hover/touch pause
+  // Autoplay with reset
   useEffect(() => {
     timerRef.current = window.setInterval(next, AUTO_MS);
     return () => {
       if (timerRef.current) window.clearInterval(timerRef.current);
     };
-  }, []);
+  }, [index]);
 
-  // mobile swipe (doesn't pause autoplay)
-  const onTouchStart: React.TouchEventHandler = (e) => {
-    touchStartX.current = e.touches[0].clientX;
-    touchDeltaX.current = 0;
-  };
-  const onTouchMove: React.TouchEventHandler = (e) => {
-    touchDeltaX.current = e.touches[0].clientX - touchStartX.current;
-  };
-  const onTouchEnd: React.TouchEventHandler = () => {
-    const dx = touchDeltaX.current;
-    if (Math.abs(dx) > 40) (dx < 0 ? next() : prev());
-  };
+  const current = slides[index];
 
   return (
-    <section
-      className="relative h-screen w-full overflow-hidden bg-neutral-900"
-      onTouchStart={onTouchStart}
-      onTouchMove={onTouchMove}
-      onTouchEnd={onTouchEnd}
-    >
-      {/* Background slides (Ken Burns + crossfade) */}
-      <div className="absolute inset-0">
-        {slides.map((s, i) => {
-          const isActive = i === index;
-          const shouldLoad = i === 0 || i === index || i === (index + 1) % slides.length || i === (index - 1 + slides.length) % slides.length;
+    <section className="relative w-full h-[85vh] min-h-[600px] overflow-hidden bg-[#FDFCF8] text-stone-800 font-sans">
+      
+      {/* Container */}
+      <div className="relative z-10 mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid h-full grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          return (
-            <div
-              key={i}
-              className={`absolute inset-0 transition-opacity duration-700 ease-out ${
-                isActive ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <div className="absolute inset-0 overflow-hidden">
-                {shouldLoad ? (
-                  <Image
-                    src={s.image}
-                    alt={s.title}
-                    fill
-                    priority={i === 0}
-                    className={`object-cover will-change-transform ${
-                      isActive ? "animate-kenburns" : ""
-                    }`}
-                    sizes="100vw"
-                    loading={i === 0 ? undefined : "lazy"}
-                  />
-                ) : (
-                  <div className="absolute inset-0 bg-slate-900" />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+          {/* --- LEFT: Typography & Nav (5 Cols) --- */}
+          <div className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1 pt-10 lg:pt-0">
+            
+            {/* Animated Text Content */}
+            <div key={index} className="animate-slide-up">
+              <div className="flex items-center gap-3 mb-6">
+                 <span className="h-px w-10 bg-stone-800" />
+                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-stone-500">
+                    {current.tag}
+                 </span>
               </div>
-            </div>
-          );
-        })}
-      </div>
 
-      {/* Foreground content card */}
-      <div className="relative z-10 h-full flex items-center">
-        <div className="w-full px-6 sm:px-10 lg:px-16">
-          <div className="max-w-2xl rounded-3xl bg-white/80 backdrop-blur-md p-6 sm:p-8 shadow-xl">
-            <div className="mb-4 flex items-center gap-3">
-              <span
-                className="inline-block h-1 w-10 rounded-full"
-                style={{ backgroundColor: slides[index].accent }}
-              />
-              <span
-                className="text-xs font-semibold tracking-widest uppercase"
-                style={{ color: slides[index].accent }}
-              >
-                0{index + 1} / 0{slides.length}
-              </span>
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-stone-900 leading-[1.1]">
+                {current.title}
+              </h1>
+              
+              <p className="mt-6 text-lg text-stone-600 leading-relaxed max-w-md">
+                {current.subtitle}
+              </p>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 leading-tight">
-              {slides[index].title}
-            </h1>
-            <p className="mt-3 sm:mt-4 text-neutral-700 text-base sm:text-lg">
-              {slides[index].subtitle}
-            </p>
+            {/* Pagination / Progress */}
+            <div className="mt-16 flex items-center gap-6">
+                 <div className="flex gap-2">
+                    <button onClick={prev} className="p-3 rounded-full border border-stone-200 hover:bg-stone-100 transition-colors">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M10 13L5 8L10 3" /></svg>
+                    </button>
+                    <button onClick={next} className="p-3 rounded-full border border-stone-200 hover:bg-stone-100 transition-colors">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 3L11 8L6 13" /></svg>
+                    </button>
+                 </div>
+                 
+                 {/* Number Indicator */}
+                 <div className="flex items-end gap-1 font-serif">
+                    <span className="text-2xl leading-none font-bold text-stone-900">0{index + 1}</span>
+                    <span className="text-sm leading-none text-stone-400 mb-1">/ 0{slides.length}</span>
+                 </div>
 
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <a
-                href="#"
-                className="rounded-full px-5 py-2.5 text-white text-sm font-semibold shadow-md transition hover:shadow-lg"
-                style={{ backgroundColor: slides[index].accent }}
-              >
-                Explore Work
-              </a>
-              <a
-                href="#"
-                className="rounded-full px-5 py-2.5 text-sm font-semibold text-neutral-800 bg-white/90 ring-1 ring-black/5 hover:bg-white"
-              >
-                Our Process
-              </a>
+                 {/* Progress Bar */}
+                 <div className="h-1 w-24 bg-stone-200 rounded-full overflow-hidden relative">
+                    <div 
+                        key={`progress-${index}`}
+                        className="absolute inset-y-0 left-0 bg-stone-800 animate-progress"
+                    />
+                 </div>
             </div>
+
           </div>
+
+          {/* --- RIGHT: Visual Showcase (7 Cols) --- */}
+          <div className="lg:col-span-7 h-[50vh] lg:h-full relative order-1 lg:order-2 flex items-center justify-center">
+            
+            {/* The Backdrop Shape (Arch) */}
+            <div 
+                className="absolute w-[90%] h-[80%] lg:h-[85%] bottom-0 lg:bottom-auto rounded-t-[10rem] lg:rounded-t-full transition-colors duration-700 ease-in-out"
+                style={{ backgroundColor: `${current.accent}40` }} // 40 = 25% opacity hex
+            />
+
+            {/* The Product Image */}
+            <div className="relative w-full h-full flex items-center justify-center p-8 lg:p-12">
+                 {slides.map((s, i) => (
+                    <div
+                        key={i}
+                        className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ease-out ${
+                            i === index 
+                            ? "opacity-100 translate-y-0 scale-100 pointer-events-auto" 
+                            : "opacity-0 translate-y-12 scale-95 pointer-events-none"
+                        }`}
+                    >
+                        <div className="relative w-full h-[60%] lg:h-[70%] max-w-lg flex items-center justify-center">
+                            <img
+                                src={s.image}
+                                alt={s.title}
+                                className="max-w-full max-h-full w-auto h-auto object-contain drop-shadow-sm z-10 relative mx-auto"
+                            />
+                            {/* Grounding Shadow */}
+                            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[60%] h-8 bg-black/10 blur-xl rounded-[100%]" />
+                        </div>
+                    </div>
+                 ))}
+            </div>
+
+          </div>
+
         </div>
       </div>
 
-      {/* Mobile dots */}
-      <div className="absolute bottom-4 inset-x-0 z-20 flex justify-center gap-2 sm:hidden">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            aria-label={`Go to slide ${i + 1}`}
-            onClick={() => goTo(i)}
-            className={`h-2 w-2 rounded-full transition ${
-              i === index ? "bg-white" : "bg-white/40"
-            }`}
-          />
-        ))}
-      </div>
-
-      {/* Desktop thumbnail strip (kept, as requested) */}
-      <div className="pointer-events-none absolute bottom-6 inset-x-0 z-20 hidden justify-center lg:flex">
-        <div className="flex gap-3 rounded-2xl bg-black/30 p-3 backdrop-blur-md">
-          {slides.map((s, i) => (
-            <button
-              key={i}
-              onClick={() => goTo(i)}
-              className={`pointer-events-auto relative h-14 w-24 overflow-hidden rounded-xl ring-2 transition ${
-                i === index ? "ring-white" : "ring-transparent hover:ring-white/60"
-              }`}
-              aria-label={`Go to slide ${i + 1}`}
-            >
-              <Image
-                src={s.image}
-                alt={s.title}
-                fill
-                className="object-cover"
-                sizes="96px"
-                loading="lazy"
-                quality={75}
-              />
-              <div
-                className={`absolute inset-0 transition ${
-                  i === index ? "bg-black/0" : "bg-black/25"
-                }`}
-              />
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* corner counter */}
-      <div className="absolute right-4 top-4 z-20 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-neutral-800 shadow-md">
-        {String(index + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
-      </div>
-
+      {/* CSS Animations */}
       <style>{`
-        /* Ken Burns tuned for 3s slide */
-        @keyframes kenburns {
-          0%   { transform: scale(1.02) translate3d(0,0,0); }
-          100% { transform: scale(1.08) translate3d(0,0,0); }
+        @keyframes slide-up {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-        .animate-kenburns {
-          animation: kenburns ${AUTO_MS}ms ease-out both;
-          will-change: transform;
+        .animate-slide-up {
+          animation: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes progress {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+        .animate-progress {
+            animation: progress ${AUTO_MS}ms linear forwards;
         }
       `}</style>
     </section>
