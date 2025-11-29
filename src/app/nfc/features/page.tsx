@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ReactNode } from "react";
-import Breadcrumb from "@/components/common/Breadcrumb";
+import PageHeader from "@/components/common/PageHeader";
 
 /* ---------- page (no props!) ---------- */
 export default function Page() {
@@ -54,45 +54,12 @@ function FeaturesSection({
       "
     >
       {/* brand gradient header band */}
-      <div className="bg-gradient-to-r from-[#00d5be] via-[#00b9a7] to-[#008e81]">
-        <div className="mx-auto max-w-7xl px-6 py-16 text-white">
-          <motion.h2
-            initial={{ y: 24, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl font-semibold tracking-tight"
-          >
-            {heading}
-          </motion.h2>
-          {/* breadcrumb */}
-          <motion.div
-            initial={{ y: 18, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-3"
-          >
-            <Breadcrumb
-              items={[
-                { label: "HOME", href: "/" },
-                { label: "NFC", href: "/nfc" },
-                { label: "FEATURES" },
-              ]}
-              variant="light"
-            />
-          </motion.div>
-          <motion.p
-            initial={{ y: 18, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-3 text-base text-white/90"
-          >
-            {sub}
-          </motion.p>
-        </div>
-      </div>
+      <PageHeader
+        category="NFC Features"
+        title={heading || "Built for the real world"}
+        description={sub || "Engineered to perform. Designed to last."}
+        className="mb-8"
+      />
 
       {/* hero block + grid */}
       <div className="mx-auto max-w-7xl px-6 pb-20">

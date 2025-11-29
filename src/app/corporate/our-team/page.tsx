@@ -1,4 +1,4 @@
-import PageHero from "@/components/common/PageHero";
+import PageHeader from "@/components/common/PageHeader";
 import Image from "next/image";
 
 type ProfileProps = {
@@ -56,10 +56,10 @@ function Profile({ name, role, img, paragraphs, reverse }: ProfileProps) {
 export default function OurTeamPage() {
   return (
     <>
-      <PageHero
+      <PageHeader
+        category="Corporate"
         title="Our Team"
-        trail={["Home", "Corporate", "Our Team"]}
-        subtitle="Experience, craftsmanship and a shared love for sustainable materials."
+        description="Experience, craftsmanship and a shared love for sustainable materials."
       />
 
       <main className="relative">

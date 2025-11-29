@@ -3,7 +3,7 @@
 
 import { motion, type Variants } from "framer-motion"
 import Image from "next/image"
-import Breadcrumb from "@/components/common/Breadcrumb"
+import PageHeader from "@/components/common/PageHeader"
 
 export const dynamic = "force-static"
 
@@ -73,46 +73,11 @@ export default function ManufacturingProcessPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* HERO */}
-      <section className="relative overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="h-40 sm:h-48 md:h-56 lg:h-60 w-full bg-gradient-to-r from-teal-100 via-white to-rose-100"
-        />
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="absolute inset-0 bg-[radial-gradient(70%_50%_at_50%_-10%,rgba(13,148,136,.18),transparent_60%)]"
-        />
-        <div className="absolute inset-0 flex items-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <motion.h1
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 leading-tight"
-            >
-              Manufacturing Process
-            </motion.h1>
-            <motion.div
-              variants={fadeUp}
-              custom={1}
-              initial="hidden"
-              animate="show"
-              className="mt-1 sm:mt-3"
-            >
-              <Breadcrumb
-                items={[
-                  { label: "HOME", href: "/" },
-                  { label: "NFC", href: "/nfc" },
-                  { label: "MANUFACTURING PROCESS" },
-                ]}
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        category="NFC"
+        title="Manufacturing Process"
+        description="A simple overview of how we convert natural fibres into high-performance NFC boards."
+      />
 
       {/* GALLERY STRIP */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 sm:mt-8 lg:mt-12">

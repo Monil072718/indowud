@@ -4,7 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import Breadcrumb from "@/components/common/Breadcrumb"
+import PageHeader from "@/components/common/PageHeader"
 
 /** ★ simple star icon */
 function Star({ filled }: { filled?: boolean }) {
@@ -103,205 +103,169 @@ export default function SustainabilityPage() {
   const [open, setOpen] = useState<string | null>(data[0]?.id ?? null)
 
   return (
-    <section className="relative overflow-hidden bg-[radial-gradient(1100px_520px_at_12%_-10%,rgba(0,213,190,.07),transparent_60%),#fafafa]">
-      {/* Brand band */}
-      <div className="bg-gradient-to-r from-[#00d5be] via-[#00b9a7] to-[#008e81]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-14">
-          <motion.h2
-            initial={{ y: 16, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45 }}
-            className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight text-white"
-          >
-            Sustainability & Green Rating
-          </motion.h2>
-          {/* Breadcrumb */}
-          <motion.div
-            initial={{ y: 12, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45, delay: 0.05 }}
-            className="mt-3"
-          >
-            <Breadcrumb
-              items={[
-                { label: "HOME", href: "/" },
-                { label: "NFC", href: "/nfc" },
-                { label: "SUSTAINABILITY" },
-              ]}
-              variant="light"
-            />
-          </motion.div>
-        </div>
-      </div>
+    <>
+      <PageHeader
+        category="Sustainability"
+        title="Sustainability &"
+        highlight="Green Rating"
+        description="Indowud NFC is a GreenPro certified product and adds merit to projects with Green Rating."
+      />
+      <section className="relative overflow-hidden bg-[radial-gradient(1100px_520px_at_12%_-10%,rgba(0,213,190,.07),transparent_60%),#fafafa]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 pb-12 sm:pb-20 pt-12">
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 pb-12 sm:pb-20">
-        {/* Intro */}
-        <motion.p
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45, delay: 0.05 }}
-          className="mx-auto mt-6 sm:mt-10 mb-6 sm:mb-8 max-w-3xl text-center text-sm sm:text-base md:text-lg text-[#003a36]"
-        >
-          Indowud NFC is a GreenPro certified product and adds merit to projects with Green Rating.
-          <span className="mx-auto mt-3 block h-1 w-16 rounded-full bg-[#00d5be]" />
-        </motion.p>
-
-        {/* Accordion table */}
-        <div className="mx-auto max-w-5xl rounded-2xl sm:rounded-3xl bg-white/70 p-2 shadow-xl ring-1 ring-black/5 backdrop-blur-md">
-          {data.map((r, idx) => {
-            const isOpen = open === r.id
-            return (
-              <motion.div
-                key={r.id}
-                initial={false}
-                className={`group relative rounded-xl sm:rounded-2xl transition ${
-                  idx !== data.length - 1 ? "mb-2" : ""
-                }`}
-              >
-                {/* Row header */}
-                <button
-                  onClick={() => setOpen(isOpen ? null : r.id)}
-                  className="flex w-full flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-6 rounded-xl sm:rounded-2xl px-3 sm:px-5 py-3 sm:py-4 bg-[#00d5be]/10 hover:bg-[#00d5be]/15 transition ring-1 ring-[#00d5be]/20"
+          {/* Accordion table */}
+          <div className="mx-auto max-w-5xl rounded-2xl sm:rounded-3xl bg-white/70 p-2 shadow-xl ring-1 ring-black/5 backdrop-blur-md">
+            {data.map((r, idx) => {
+              const isOpen = open === r.id
+              return (
+                <motion.div
+                  key={r.id}
+                  initial={false}
+                  className={`group relative rounded-xl sm:rounded-2xl transition ${idx !== data.length - 1 ? "mb-2" : ""
+                    }`}
                 >
-                  <div className="flex items-start sm:items-center gap-2 sm:gap-3 text-left flex-1">
-                    <span className="inline-flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-[#00d5be]/20 text-[#008e81] flex-shrink-0 mt-0.5 sm:mt-0">
-                      <svg
-                        viewBox="0 0 24 24"
-                        className={`h-3 w-3 sm:h-4 sm:w-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
-                        fill="currentColor"
-                      >
-                        <path d="M7 10l5 5 5-5H7z" />
-                      </svg>
-                    </span>
-                    <span className="text-sm sm:text-base font-semibold text-[#003a36]">{r.title}</span>
-                  </div>
+                  {/* Row header */}
+                  <button
+                    onClick={() => setOpen(isOpen ? null : r.id)}
+                    className="flex w-full flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-6 rounded-xl sm:rounded-2xl px-3 sm:px-5 py-3 sm:py-4 bg-[#00d5be]/10 hover:bg-[#00d5be]/15 transition ring-1 ring-[#00d5be]/20"
+                  >
+                    <div className="flex items-start sm:items-center gap-2 sm:gap-3 text-left flex-1">
+                      <span className="inline-flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-[#00d5be]/20 text-[#008e81] flex-shrink-0 mt-0.5 sm:mt-0">
+                        <svg
+                          viewBox="0 0 24 24"
+                          className={`h-3 w-3 sm:h-4 sm:w-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                          fill="currentColor"
+                        >
+                          <path d="M7 10l5 5 5-5H7z" />
+                        </svg>
+                      </span>
+                      <span className="text-sm sm:text-base font-semibold text-[#003a36]">{r.title}</span>
+                    </div>
 
-                  {/* RIGHT SIDE (mobile all-in-one line) */}
-                  <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
-                    {/* mobile: row | sm+: column */}
-                    <div className="flex items-center gap-2 sm:flex-col sm:items-end sm:gap-1">
-                      <span className="text-xs font-medium text-slate-500 uppercase">POINTS</span>
+                    {/* RIGHT SIDE (mobile all-in-one line) */}
+                    <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
+                      {/* mobile: row | sm+: column */}
+                      <div className="flex items-center gap-2 sm:flex-col sm:items-end sm:gap-1">
+                        <span className="text-xs font-medium text-slate-500 uppercase">POINTS</span>
 
-                      <div className="flex items-center gap-2 sm:gap-1">
-                        <span className="text-lg sm:text-xl font-bold text-[#00d5be]">{r.rating}</span>
+                        <div className="flex items-center gap-2 sm:gap-1">
+                          <span className="text-lg sm:text-xl font-bold text-[#00d5be]">{r.rating}</span>
 
-                        <div className="flex items-center gap-0.5 sm:gap-1">
-                          {Array.from({ length: 5 }).map((_, i) => (
-                            <Star key={i} filled={i < r.rating} />
-                          ))}
+                          <div className="flex items-center gap-0.5 sm:gap-1">
+                            {Array.from({ length: 5 }).map((_, i) => (
+                              <Star key={i} filled={i < r.rating} />
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </button>
+                  </button>
 
-                {/* Divider line accent */}
-                <div className="mx-3 sm:mx-5 h-px bg-gradient-to-r from-[#008e81] via-[#00d5be] to-transparent" />
+                  {/* Divider line accent */}
+                  <div className="mx-3 sm:mx-5 h-px bg-gradient-to-r from-[#008e81] via-[#00d5be] to-transparent" />
 
-                {/* Content */}
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      key="content"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="px-3 sm:px-5 pb-3 sm:pb-4 pt-2 sm:pt-3 space-y-4">
-                        {/* Module and Credit */}
-                        <div className="space-y-2">
-                          <div>
-                            <span className="text-xs sm:text-sm font-semibold text-[#003a36]">Module:</span>
-                            <p className="text-xs sm:text-sm text-slate-600">{r.module}</p>
+                  {/* Content */}
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key="content"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-3 sm:px-5 pb-3 sm:pb-4 pt-2 sm:pt-3 space-y-4">
+                          {/* Module and Credit */}
+                          <div className="space-y-2">
+                            <div>
+                              <span className="text-xs sm:text-sm font-semibold text-[#003a36]">Module:</span>
+                              <p className="text-xs sm:text-sm text-slate-600">{r.module}</p>
+                            </div>
+                            <div>
+                              <span className="text-xs sm:text-sm font-semibold text-[#003a36]">Credit:</span>
+                              <p className="text-xs sm:text-sm text-slate-600">{r.credit}</p>
+                            </div>
                           </div>
+
+                          {/* Compliance */}
                           <div>
-                            <span className="text-xs sm:text-sm font-semibold text-[#003a36]">Credit:</span>
-                            <p className="text-xs sm:text-sm text-slate-600">{r.credit}</p>
+                            <span className="text-xs sm:text-sm font-semibold text-[#003a36]">Compliance:</span>
+                            <p className="text-xs sm:text-sm text-slate-600">{r.compliance}</p>
                           </div>
+
+                          {/* Points */}
+                          {r.points?.length > 0 && (
+                            <div>
+                              <span className="text-xs sm:text-sm font-semibold text-[#003a36]">Points:</span>
+                              <ul className="mt-1 space-y-1">
+                                {r.points.map((p, i) => (
+                                  <li key={i} className="flex items-start gap-2">
+                                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#00d5be] flex-shrink-0" />
+                                    <p className="text-xs sm:text-sm text-slate-600">{p}</p>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          {/* Indowud Edge */}
+                          {r.indowudEdge?.length > 0 && (
+                            <div className="bg-[#00d5be]/5 p-3 rounded-lg">
+                              <span className="text-xs sm:text-sm font-semibold text-[#003a36]">Indowud Edge:</span>
+                              <ul className="mt-1 space-y-1">
+                                {r.indowudEdge.map((edge, i) => (
+                                  <li key={i} className="flex items-start gap-2">
+                                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#00d5be] flex-shrink-0" />
+                                    <p className="text-xs sm:text-sm text-slate-600">{edge}</p>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
                         </div>
-
-                        {/* Compliance */}
-                        <div>
-                          <span className="text-xs sm:text-sm font-semibold text-[#003a36]">Compliance:</span>
-                          <p className="text-xs sm:text-sm text-slate-600">{r.compliance}</p>
-                        </div>
-
-                        {/* Points */}
-                        {r.points?.length > 0 && (
-                          <div>
-                            <span className="text-xs sm:text-sm font-semibold text-[#003a36]">Points:</span>
-                            <ul className="mt-1 space-y-1">
-                              {r.points.map((p, i) => (
-                                <li key={i} className="flex items-start gap-2">
-                                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#00d5be] flex-shrink-0" />
-                                  <p className="text-xs sm:text-sm text-slate-600">{p}</p>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-
-                        {/* Indowud Edge */}
-                        {r.indowudEdge?.length > 0 && (
-                          <div className="bg-[#00d5be]/5 p-3 rounded-lg">
-                            <span className="text-xs sm:text-sm font-semibold text-[#003a36]">Indowud Edge:</span>
-                            <ul className="mt-1 space-y-1">
-                              {r.indowudEdge.map((edge, i) => (
-                                <li key={i} className="flex items-start gap-2">
-                                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#00d5be] flex-shrink-0" />
-                                  <p className="text-xs sm:text-sm text-slate-600">{edge}</p>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            )
-          })}
-        </div>
-
-        {/* EPD badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.35 }}
-          className="mx-auto mt-8 sm:mt-12 flex w-full justify-center"
-        >
-          <div className="rounded-xl sm:rounded-2xl bg-white/80 p-3 sm:p-4 shadow-lg ring-1 ring-black/5">
-            <Image
-              src="/epd-verified.png"
-              alt="ECO Platform EPD Verified"
-              width={360}
-              height={160}
-              className="h-12 w-auto sm:h-16 md:h-20"
-              priority
-            />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              )
+            })}
           </div>
-        </motion.div>
 
-        {/* EPD blurb */}
-        <motion.p
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45, delay: 0.05 }}
-          className="mx-auto mt-4 sm:mt-6 max-w-4xl px-2 sm:px-4 text-center text-xs md:text-base text-slate-600"
-        >
-          An Environmental Product Declaration (EPD) is a Type III environmental declaration that quantifies
-          environmental information about the life cycle of a product. It is generally done to understand the
-          environmental impact of the product and demonstrate a commitment to limiting environmental impacts.
-        </motion.p>
-      </div>
-    </section>
+          {/* EPD badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.35 }}
+            className="mx-auto mt-8 sm:mt-12 flex w-full justify-center"
+          >
+            <div className="rounded-xl sm:rounded-2xl bg-white/80 p-3 sm:p-4 shadow-lg ring-1 ring-black/5">
+              <Image
+                src="/epd-verified.png"
+                alt="ECO Platform EPD Verified"
+                width={360}
+                height={160}
+                className="h-12 w-auto sm:h-16 md:h-20"
+                priority
+              />
+            </div>
+          </motion.div>
+
+          {/* EPD blurb */}
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: 0.05 }}
+            className="mx-auto mt-4 sm:mt-6 max-w-4xl px-2 sm:px-4 text-center text-xs md:text-base text-slate-600"
+          >
+            An Environmental Product Declaration (EPD) is a Type III environmental declaration that quantifies
+            environmental information about the life cycle of a product. It is generally done to understand the
+            environmental impact of the product and demonstrate a commitment to limiting environmental impacts.
+          </motion.p>
+        </div>
+      </section>
+    </>
   )
 }

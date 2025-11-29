@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import PageHeader from "@/components/common/PageHeader";
 
 /* ───────────────────────────────── Brand Colors (from your site) */
 const TEAL = "#008B8B";
@@ -162,81 +163,27 @@ export default function ApplicationsPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Top band */}
-      <div
-        className="h-14 md:h-16 flex items-center justify-between px-4 md:px-8 text-white text-xs md:text-sm"
-        style={{
-          backgroundImage: `linear-gradient(90deg, ${TEAL}, #AE236B, ${MAGENTA})`,
-        }}
+      <PageHeader
+        category="Applications"
+        title="Transform spaces with premium"
+        highlight="Interior & Exterior Panels"
+        description="Beautiful finishes that are engineered to last — healthy indoors, durable outdoors, and easy to fabricate. Explore our range for homes, offices and hospitality."
       >
-        <span className="uppercase tracking-[0.28em] font-semibold">
-          Applications
-        </span>
-        <span className="opacity-90">Home / NFC / Applications</span>
-      </div>
-
-      {/* Hero */}
-      <section className="bg-gradient-to-r from-[#F2FFFD] via-white to-[#FFEFF5]">
-        <div className="mx-auto max-w-6xl px-4 md:px-6 lg:px-8 py-10 md:py-14 grid lg:grid-cols-2 gap-8 items-center">
-          {/* Left copy */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="space-y-5"
-          >
-            <h1
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.1]"
-              style={{ color: TEAL }}
-            >
-              Transform spaces with premium Interior & Exterior Panels
-            </h1>
-            <p className="text-slate-600 max-w-prose">
-              Beautiful finishes that are engineered to last — healthy indoors, durable
-              outdoors, and easy to fabricate. Explore our range for homes, offices and
-              hospitality.
-            </p>
-            <div className="flex gap-3 pt-1">
-              <Link
-                href="/nfc/products"
-                className="rounded-xl px-5 py-2.5 text-sm font-semibold text-white shadow"
-                style={{ backgroundColor: MAGENTA }}
-              >
-                Explore Products
-              </Link>
-              <Link
-                href="/contact"
-                className="rounded-xl px-5 py-2.5 text-sm font-semibold border"
-                style={{ color: TEAL, borderColor: TEAL }}
-              >
-                Contact Us
-              </Link>
-            </div>
-          </motion.div>
-
-          {/* Right image card — fixed aspect prevents stretching */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-          >
-            <div className="rounded-3xl border border-white/60 bg-white shadow-[0_20px_70px_rgba(0,0,0,0.08)] overflow-hidden">
-              <div className="relative aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9]">
-                <Image
-                  src="https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                  alt="Modern interior"
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+        <Link
+          href="/nfc/products"
+          className="rounded-xl px-5 py-2.5 text-sm font-semibold text-white shadow hover:opacity-90 transition-opacity"
+          style={{ backgroundColor: MAGENTA }}
+        >
+          Explore Products
+        </Link>
+        <Link
+          href="/contact"
+          className="rounded-xl px-5 py-2.5 text-sm font-semibold border hover:bg-teal-50 transition-colors"
+          style={{ color: TEAL, borderColor: TEAL }}
+        >
+          Contact Us
+        </Link>
+      </PageHeader>
 
       {/* Why section */}
       <section className="bg-gradient-to-r from-[#FDFEFE] via-white to-[#FFEFF5]">
@@ -313,11 +260,10 @@ export default function ApplicationsPage() {
                   <button
                     key={panel.key}
                     onClick={() => setActivePanel(panel.key)}
-                    className={`w-full text-left rounded-2xl border px-4 py-4 transition-all ${
-                      isActive
-                        ? "bg-[#ECFFFE] border-[var(--teal)] shadow-sm"
-                        : "bg-white border-slate-200 hover:border-[var(--teal)]/40"
-                    }`}
+                    className={`w-full text-left rounded-2xl border px-4 py-4 transition-all ${isActive
+                      ? "bg-[#ECFFFE] border-[var(--teal)] shadow-sm"
+                      : "bg-white border-slate-200 hover:border-[var(--teal)]/40"
+                      }`}
                     style={
                       {
                         "--teal": TEAL,
@@ -405,9 +351,8 @@ export default function ApplicationsPage() {
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true }}
-                  className={`rounded-2xl border ${
-                    isOpen ? "border-[var(--teal)]" : "border-slate-200"
-                  } bg-white shadow-sm`}
+                  className={`rounded-2xl border ${isOpen ? "border-[var(--teal)]" : "border-slate-200"
+                    } bg-white shadow-sm`}
                   style={
                     { "--teal": TEAL } as React.CSSProperties
                   }
@@ -546,9 +491,8 @@ export default function ApplicationsPage() {
                   <button
                     key={i}
                     onClick={() => setHeroImageIndex(i)}
-                    className={`relative rounded-xl overflow-hidden border ${
-                      i === heroImageIndex ? "border-[var(--magenta)]" : "border-slate-200"
-                    }`}
+                    className={`relative rounded-xl overflow-hidden border ${i === heroImageIndex ? "border-[var(--magenta)]" : "border-slate-200"
+                      }`}
                     style={{ "--magenta": MAGENTA } as React.CSSProperties}
                     aria-label={`Go to image ${i + 1}`}
                   >

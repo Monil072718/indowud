@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef, type ReactNode } from "react";
 import { X } from "lucide-react"
-import Breadcrumb from "@/components/common/Breadcrumb"
+import PageHeader from "@/components/common/PageHeader"
 
 /* ────────────────── Types ────────────────── */
 type GridRow = {
@@ -103,39 +103,11 @@ function SuggestionsSection({
   return (
     <section id="suggestions" className="relative overflow-hidden">
       {/* Hero band */}
-      <div className="bg-gradient-to-r from-[#00d5be] via-[#00b9a7] to-[#008e81]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-14 text-white">
-          <motion.h1
-            initial={{ y: 18, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45 }}
-            className="text-4xl font-semibold tracking-tight"
-          >
-            {heading}
-          </motion.h1>
-          {/* Breadcrumb */}
-          <motion.div
-            initial={{ y: 12, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45, delay: 0.05 }}
-            className="mt-3"
-          >
-            <Breadcrumb
-              items={[
-                { label: "HOME", href: "/" },
-                { label: "NFC", href: "/nfc" },
-                { label: "SUGGESTIONS" },
-              ]}
-              variant="light"
-            />
-          </motion.div>
-          <p className="mt-2 text-base text-white/90">
-            Zero-defect furniture starts with the right workflow & installation.
-          </p>
-        </div>
-      </div>
+      <PageHeader
+        category="NFC"
+        title={heading}
+        description="Zero-defect furniture starts with the right workflow & installation."
+      />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 pb-12 sm:pb-20">
         {/* Video */}
@@ -422,7 +394,7 @@ function BrochureModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
     state: "",
     city: ""
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -703,7 +675,7 @@ function LazyYouTubeIframe() {
 
   useEffect(() => {
     if (!iframeRef.current) return;
-    
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -713,7 +685,7 @@ function LazyYouTubeIframe() {
       },
       { rootMargin: "100px" }
     );
-    
+
     observer.observe(iframeRef.current);
     return () => observer.disconnect();
   }, []);
@@ -734,7 +706,7 @@ function LazyYouTubeIframe() {
         <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
           <div className="text-center">
             <svg className="w-12 h-12 text-gray-400 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
             </svg>
             <p className="text-sm text-gray-500">Loading video...</p>
           </div>

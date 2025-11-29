@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
-import Breadcrumb from "@/components/common/Breadcrumb";
+import PageHeader from "@/components/common/PageHeader";
 
 type YT = { id: string; title: string; tag?: string };
 
@@ -129,40 +129,19 @@ function Card({ v, i }: { v: YT; i: number }) {
 
 export default function VideosPage() {
   return (
-    <div className="mx-auto max-w-[1200px] px-4 py-10 md:py-14">
-      <motion.header
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0, transition: { duration: 0.45 } }}
-        className="mb-8 md:mb-10"
-      >
-        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
-          Videos
-        </h1>
-        {/* Breadcrumb */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="mt-3"
-        >
-          <Breadcrumb
-            items={[
-              { label: "HOME", href: "/" },
-              { label: "MEDIA", href: "/media" },
-              { label: "VIDEOS" },
-            ]}
-          />
-        </motion.div>
-        <p className="mt-2 max-w-2xl text-slate-600">
-          Explore stories, comparisons, and features about Indowud NFC.
-        </p>
-      </motion.header>
-
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {vids.map((v, i) => (
-          <Card key={v.id} v={v} i={i} />
-        ))}
+    <>
+      <PageHeader
+        category="Media"
+        title="Videos"
+        description="Explore stories, comparisons, and features about Indowud NFC."
+      />
+      <div className="mx-auto max-w-[1200px] px-4 py-10 md:py-14">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {vids.map((v, i) => (
+            <Card key={v.id} v={v} i={i} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -1,5 +1,6 @@
 import type React from "react"
 import Link from "next/link"
+import PageHeader from "@/components/common/PageHeader"
 
 /* --------- small helpers --------- */
 const Yes = () => (
@@ -56,42 +57,13 @@ export default function ComparativeStudyPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <header className="w-full">
-        <div className="bg-gradient-to-b from-teal-700 via-teal-600/70 to-pink-700/80">
-          <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
-            <h1 className="text-center text-4xl font-serif italic font-semibold text-white drop-shadow">
-              Comparative Study
-            </h1>
-            <nav className="mt-3 text-center text-xs tracking-widest text-white/90 uppercase">
-              <ol className="inline-flex items-center">
-                <li>
-                  <Link href="/" className="hover:text-white transition-colors">
-                    HOME
-                  </Link>
-                </li>
-                <li aria-hidden="true" className="mx-1">/</li>
-                <li>
-                  <Link href="/nfc" className="hover:text-white transition-colors">
-                    NFC
-                  </Link>
-                </li>
-                <li aria-hidden="true" className="mx-1">/</li>
-                <li className="text-white">COMPARATIVE STUDY</li>
-              </ol>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <PageHeader
+        category="NFC"
+        title="Comparative Study"
+        description="NFC Boards vs. Other Boards. Quality the world and time can test."
+      />
 
-      {/* Page title + tagline */}
-      <section className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 pt-6 sm:pt-10">
-        <h2 className="text-center text-3xl font-extrabold text-teal-700">
-          nfc Boards vs. Other Boards
-        </h2>
-        <p className="mt-2 text-center text-sm font-semibold text-rose-600">
-          Quality the world and time can test
-        </p>
-      </section>
+
 
       {/* Table */}
       <section className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 py-6 sm:py-8">

@@ -2,6 +2,7 @@
 
 import React, { useMemo, useState } from "react";
 import Link from "next/link";
+import PageHeader from "@/components/common/PageHeader";
 
 /* ----------------------------- Data (from screenshot) ----------------------------- */
 type FAQ = { q: string; a?: string };
@@ -82,32 +83,11 @@ export default function FAQPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <header>
-        <div className="bg-gradient-to-b from-teal-700 via-teal-600/70 to-pink-700/80">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-            <h1 className="text-center text-4xl font-serif italic font-semibold text-white drop-shadow">
-              FAQs
-            </h1>
-            <nav className="mt-3 text-center text-xs tracking-widest text-white/90 uppercase">
-              <ol className="inline-flex items-center">
-                <li>
-                  <Link href="/" className="hover:text-white transition-colors">
-                    HOME
-                  </Link>
-                </li>
-                <li aria-hidden="true" className="mx-1">/</li>
-                <li>
-                  <Link href="/nfc" className="hover:text-white transition-colors">
-                    NFC
-                  </Link>
-                </li>
-                <li aria-hidden="true" className="mx-1">/</li>
-                <li className="text-white">FAQS</li>
-              </ol>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <PageHeader
+        category="NFC"
+        title="FAQs"
+        description="Frequently Asked Questions about Indowud NFC."
+      />
 
       {/* Controls + Accordion */}
       <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-16">
@@ -153,7 +133,7 @@ export default function FAQPage() {
 
                 {/* answer (only where available) */}
                 {isOpen && item.a && (
-                  <div 
+                  <div
                     id={`faq-answer-${idx}`}
                     role="region"
                     aria-labelledby={`faq-question-${idx}`}

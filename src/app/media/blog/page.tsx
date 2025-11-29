@@ -5,7 +5,7 @@ import { useMemo, Suspense } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import BlogCard, { BlogCardPost } from "@/components/sections/blog/BlogCard";
-import Breadcrumb from "@/components/common/Breadcrumb";
+import PageHeader from "@/components/common/PageHeader";
 
 /* ----------------------- mock fetcher (unchanged) ----------------------- */
 function fetchBlogs(): BlogCardPost[] {
@@ -131,8 +131,8 @@ function Pagination({
             <button
               key={p}
               className={`w-10 h-10 rounded-lg text-sm font-semibold transition-all ${p === page
-                  ? "bg-slate-900 text-white shadow-md"
-                  : "text-slate-600 hover:bg-slate-100"
+                ? "bg-slate-900 text-white shadow-md"
+                : "text-slate-600 hover:bg-slate-100"
                 }`}
               onClick={() => onChange(p)}
               aria-current={p === page ? "page" : undefined}
@@ -187,32 +187,11 @@ function BlogContent() {
   return (
     <div className="min-h-screen bg-slate-50/50">
       {/* Hero Section */}
-      <div className="bg-white border-b border-slate-200">
-        <div className="mx-auto max-w-[1200px] px-4 py-16 md:py-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <div className="flex justify-center mb-6">
-              <Breadcrumb
-                items={[
-                  { label: "HOME", href: "/" },
-                  { label: "MEDIA", href: "/media" },
-                  { label: "BLOG" },
-                ]}
-              />
-            </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
-              Our Latest <span className="text-emerald-600">Stories</span>
-            </h1>
-            <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
-              Discover insights, comparisons, and expert advice on sustainable construction and modern design with Indowud NFC.
-            </p>
-          </motion.div>
-        </div>
-      </div>
+      <PageHeader
+        category="Media"
+        title="Our Latest Stories"
+        description="Discover insights, comparisons, and expert advice on sustainable construction and modern design with Indowud NFC."
+      />
 
       <div className="mx-auto max-w-[1200px] px-4 py-12 md:py-20">
         {/* Featured Post */}

@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import PageHeader from "@/components/common/PageHeader";
 
 /* ----------------------- small UI bits ----------------------- */
 const Tick = () => (
@@ -57,42 +57,12 @@ export default function ComparativeStudyPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Gradient Hero */}
-      <header className="w-full">
-        <div className="bg-gradient-to-b from-teal-700 via-teal-600/70 to-pink-700/80">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-            <h1 className="text-center text-4xl font-serif italic font-semibold text-white drop-shadow">
-              Comparitive Study
-            </h1>
-            <nav className="mt-3 text-center text-xs tracking-widest text-white/90 uppercase">
-              <ol className="inline-flex items-center">
-                <li>
-                  <Link href="/" className="hover:text-white transition-colors">
-                    HOME
-                  </Link>
-                </li>
-                <li aria-hidden="true" className="mx-1">/</li>
-                <li>
-                  <Link href="/nfc" className="hover:text-white transition-colors">
-                    NFC
-                  </Link>
-                </li>
-                <li aria-hidden="true" className="mx-1">/</li>
-                <li className="text-white">WHY NFC</li>
-              </ol>
-            </nav>
-          </div>
-        </div>
-      </header>
-
-      {/* Section title + tagline */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10">
-        <h2 className="text-center text-2xl sm:text-3xl font-extrabold text-teal-700">
-          nfc Boards vs. Other Boards
-        </h2>
-        <p className="mt-2 text-center text-[15px] font-semibold text-rose-600">
-          Quality the world and time can test
-        </p>
-      </section>
+      <PageHeader
+        category="Why NFC"
+        title="Comparative Study"
+        highlight="NFC vs Others"
+        description="Quality the world and time can test. See how Indowud NFC stacks up against PVC, Plywood, and MDF."
+      />
 
       {/* Table Card */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">

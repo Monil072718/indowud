@@ -1,6 +1,7 @@
 /* Server Component (no "use client") */
 import Image from "next/image";
 import Link from "next/link";
+import PageHeader from "@/components/common/PageHeader";
 import GalleryClient from "./GalleryClient";
 
 /** -------------------- PRODUCT → PATTERN IMAGES -------------------- */
@@ -73,57 +74,42 @@ export default async function ProductPatternsPage({
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8">
-      {/* breadcrumb */}
-      <nav className="mb-6 text-sm text-neutral-500">
-        <Link href="/" className="hover:text-neutral-800">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <Link href="/nfc/products" className="hover:text-neutral-800">
-          Products
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-neutral-800">{product.name}</span>
-      </nav>
+    <>
+      <PageHeader
+        category="Patterns"
+        title={product.name}
+        highlight="Available Patterns"
+        description={`Explore finishes, grains and colors available for ${product.name}. Click any tile to view larger.`}
+      />
+      <div className="mx-auto max-w-7xl px-4 py-8">
+        {/* hero */}
+        {product.hero && (
+          <div className="mb-8 overflow-hidden rounded-2xl border">
+            <Image
+              src={product.hero}
+              alt={`${product.name} hero`}
+              width={1600}
+              height={700}
+              className="h-[260px] w-full object-cover md:h-[360px]"
+              priority
+            />
+          </div>
+        )}
 
-      {/* header */}
-      <header className="mb-8">
-        <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">
-          {product.name} — Available Patterns
-        </h1>
-        <p className="mt-2 max-w-3xl text-neutral-600">
-          Explore finishes, grains and colors available for {product.name}. Click any tile to view larger.
-        </p>
-      </header>
+        {/* gallery */}
+        <GalleryClient name={product.name} items={product.patterns} />
 
-      {/* hero */}
-      {product.hero && (
-        <div className="mb-8 overflow-hidden rounded-2xl border">
-          <Image
-            src={product.hero}
-            alt={`${product.name} hero`}
-            width={1600}
-            height={700}
-            className="h-[260px] w-full object-cover md:h-[360px]"
-            priority
-          />
+        {/* back link */}
+        <div className="mt-10">
+          <Link
+            href="/nfc/products"
+            className="inline-flex items-center rounded-lg border px-4 py-2 text-sm hover:bg-neutral-50"
+          >
+            ← Back to Products
+          </Link>
         </div>
-      )}
-
-      {/* gallery */}
-      <GalleryClient name={product.name} items={product.patterns} />
-
-      {/* back link */}
-      <div className="mt-10">
-        <Link
-          href="/nfc/products"
-          className="inline-flex items-center rounded-lg border px-4 py-2 text-sm hover:bg-neutral-50"
-        >
-          ← Back to Products
-        </Link>
       </div>
-    </div>
+    </>
   );
 }
 

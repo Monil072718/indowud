@@ -1,6 +1,6 @@
 "use client";
 
-import PageHero from "@/components/common/PageHero";
+import PageHeader from "@/components/common/PageHeader";
 import { motion, type Variants, useReducedMotion } from "framer-motion";
 import { useMemo, useState } from "react";
 import Image from "next/image";
@@ -57,11 +57,11 @@ function LogoCard({ src, alt }: { src: string; alt: string }) {
         style={{ boxShadow: "0 0 0 2px rgba(16,185,129,0.12) inset" }}
       />
       {!hasError ? (
-        <Image 
-          src={imgSrc} 
-          alt={alt} 
-          width={220} 
-          height={110} 
+        <Image
+          src={imgSrc}
+          alt={alt}
+          width={220}
+          height={110}
           className="h-14 sm:h-16 md:h-20 w-auto max-w-full object-contain"
           onError={() => {
             setHasError(true)
@@ -209,10 +209,10 @@ function MarqueeRow({
 export default function CertificationsPage() {
   return (
     <>
-      <PageHero
+      <PageHeader
+        category="Corporate"
         title="Certifications"
-        trail={["Home", "Corporate", "Certifications"]}
-        subtitle="Our manufacturing and materials meet globally recognized benchmarks."
+        description="Our manufacturing and materials meet globally recognized benchmarks."
       />
 
       {/* ===== Static grid (top) ===== */}

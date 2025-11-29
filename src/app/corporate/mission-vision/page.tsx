@@ -1,12 +1,12 @@
-import PageHero from "@/components/common/PageHero";
+import PageHeader from "@/components/common/PageHeader";
 
 export default function MissionVisionPage() {
   return (
     <>
-      <PageHero
+      <PageHeader
+        category="Corporate"
         title="Mission, Vision & Quality"
-        trail={["Home", "Corporate", "Mission & Vision"]}
-        subtitle="Clear principles that guide every board we make."
+        description="Clear principles that guide every board we make."
       />
 
       <section className="relative">

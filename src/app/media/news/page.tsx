@@ -3,7 +3,7 @@
 import React, { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import Breadcrumb from "@/components/common/Breadcrumb";
+import PageHeader from "@/components/common/PageHeader";
 
 type NewsKind = "video" | "article" | "short";
 
@@ -111,30 +111,11 @@ export default function NewsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Top bar / breadcrumb */}
-      <header className="relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <h1 className="text-4xl font-bold tracking-tight text-slate-900">
-                News & Media
-              </h1>
-              {/* Breadcrumb */}
-              <div className="mt-3">
-                <Breadcrumb
-                  items={[
-                    { label: "HOME", href: "/" },
-                    { label: "MEDIA", href: "/media" },
-                    { label: "NEWS" },
-                  ]}
-                />
-              </div>
-              <p className="mt-1 text-slate-600">
-                Media mentions, videos, and articles about Indowud.
-              </p>
-            </div>
-          </div>
-        </div>
-      </header>
+      <PageHeader
+        category="Media"
+        title="News & Media"
+        description="Media mentions, videos, and articles about Indowud."
+      />
 
       {/* Filters */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

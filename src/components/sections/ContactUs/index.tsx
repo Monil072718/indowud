@@ -3,7 +3,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Breadcrumb from "@/components/common/Breadcrumb";
+import PageHeader from "@/components/common/PageHeader";
 import {
   Mail,
   Phone,
@@ -192,54 +192,26 @@ export default function ContactUs() {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
       {/* Top hero band */}
       {/* pulled up a bit to remove the white strip at the top */}
-      <div className="relative overflow-hidden -mt-4 md:mt-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(20,184,166,.25),transparent_40%),radial-gradient(circle_at_80%_0%,rgba(244,63,94,.22),transparent_35%)]" />
-        <div className="relative max-w-7xl mx-auto px-6 pt-16 pb-14 md:py-20">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <div>
-              <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">
-                Let&apos;s talk
-              </h1>
-              {/* Breadcrumb */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="mt-3"
-              >
-                <Breadcrumb
-                  items={[
-                    { label: "HOME", href: "/" },
-                    { label: "CONTACT US" },
-                  ]}
-                />
-              </motion.div>
-              <p className="mt-3 text-base text-gray-600 max-w-2xl">
-                Tell us a bit about yourself and what you&apos;re looking for. Our team will get
-                back to you shortly.
-              </p>
-            </div>
-
-            {/* Quick actions */}
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="tel:+914442105060"
-                className="inline-flex items-center gap-2 rounded-full bg-teal-600 text-white px-5 py-2.5 text-sm font-semibold hover:bg-teal-700 transition"
-              >
-                <Phone className="w-4 h-4" />
-                Call us
-              </a>
-              <a
-                href="mailto:info@indowud.com"
-                className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition"
-              >
-                <Mail className="w-4 h-4" />
-                Email
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PageHeader
+        category="Contact Us"
+        title="Let's talk"
+        description="Tell us a bit about yourself and what you're looking for. Our team will get back to you shortly."
+      >
+        <a
+          href="tel:+914442105060"
+          className="inline-flex items-center gap-2 rounded-full bg-teal-600 text-white px-5 py-2.5 text-sm font-semibold hover:bg-teal-700 transition"
+        >
+          <Phone className="w-4 h-4" />
+          Call us
+        </a>
+        <a
+          href="mailto:info@indowud.com"
+          className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition"
+        >
+          <Mail className="w-4 h-4" />
+          Email
+        </a>
+      </PageHeader>
 
       {/* Content grid */}
       {/* reduced mt so form sits closer to hero */}
@@ -684,9 +656,8 @@ function TextArea({ className, ...props }: React.TextareaHTMLAttributes<HTMLText
   return (
     <textarea
       {...props}
-      className={`w-full rounded-xl border border-gray-300 bg-white px-3 py-3 text-sm shadow-sm outline-none ring-0 transition placeholder:text-gray-400 focus:border-teal-500 ${
-        className || ""
-      }`}
+      className={`w-full rounded-xl border border-gray-300 bg-white px-3 py-3 text-sm shadow-sm outline-none ring-0 transition placeholder:text-gray-400 focus:border-teal-500 ${className || ""
+        }`}
       rows={props.rows || 5}
     />
   );

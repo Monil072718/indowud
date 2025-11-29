@@ -1,13 +1,14 @@
-import PageHero from "@/components/common/PageHero";
+import PageHeader from "@/components/common/PageHeader";
 import SectionHeading from "@/components/common/SectionHeading";
 import Image from "next/image";
 
 export default function ChairmanMessagePage() {
   return (
     <>
-      <PageHero
+      <PageHeader
+        category="Corporate"
         title="Chairman Message"
-        trail={["Home", "Corporate", "Chairman Message"]}
+        description="A message from our Chairman, Mr. B L Bengani."
       />
 
       <section className="max-w-5xl mx-auto px-3 sm:px-6 py-8 md:py-16">

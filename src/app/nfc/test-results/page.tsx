@@ -1,4 +1,4 @@
-import Link from "next/link"
+import PageHeader from "@/components/common/PageHeader"
 
 /* ---------------- data from your screenshot ---------------- */
 type TestRow = { test: string; unit: string; method: string; result: string }
@@ -46,44 +46,12 @@ export default function TestResultsPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Gradient Hero */}
-      <header className="w-full">
-        <div className="bg-gradient-to-b from-teal-700 via-teal-600/70 to-pink-700/80">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-            <h1 className="text-center text-4xl font-serif italic font-semibold text-white drop-shadow">
-              Test Results
-            </h1>
-            <nav className="mt-3 text-center text-xs tracking-widest text-white/90 uppercase">
-              <ol className="inline-flex items-center">
-                <li>
-                  <Link href="/" className="hover:text-white transition-colors">
-                    HOME
-                  </Link>
-                </li>
-                <li aria-hidden="true" className="mx-1">/</li>
-                <li>
-                  <Link href="/nfc" className="hover:text-white transition-colors">
-                    NFC
-                  </Link>
-                </li>
-                <li aria-hidden="true" className="mx-1">/</li>
-                <li className="text-white">TEST RESULTS</li>
-              </ol>
-            </nav>
-          </div>
-        </div>
-      </header>
-
-      {/* Intro + Title */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10">
-        <h2 className="text-center text-3xl font-extrabold text-teal-700">
-          nfc Boards with High Fibre Content
-        </h2>
-        <p className="mt-3 text-center text-[13px] leading-6 text-zinc-600">
-          The following tests were carried out on the samples of Indowud NFC board by the National Test House, Central
-          Institute of Plastic Engineering &amp; Technology (CIPET) and Indian Plywood Industries Research &amp;
-          Training Institute (IPIRTI), Spectro Labs and SGS Labs
-        </p>
-      </section>
+      <PageHeader
+        category="Test Results"
+        title="NFC Boards with"
+        highlight="High Fibre Content"
+        description="The following tests were carried out on the samples of Indowud NFC board by the National Test House, Central Institute of Plastic Engineering & Technology (CIPET) and Indian Plywood Industries Research & Training Institute (IPIRTI), Spectro Labs and SGS Labs"
+      />
 
       {/* Main Test Table */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">

@@ -4,7 +4,7 @@ import React, { useId, Suspense } from "react";
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
 import dynamic from "next/dynamic";
-import Breadcrumb from "@/components/common/Breadcrumb";
+import PageHeader from "@/components/common/PageHeader";
 
 // Swiper CSS
 import "swiper/css";
@@ -131,47 +131,14 @@ export default function ThermoformingPage() {
   return (
     <section className="relative isolate">
       {/* angled header band – behind content, overdraw on left, no white gap */}
-      <div
-        className="pointer-events-none absolute inset-x-0 -top-28 h-48 bg-gradient-to-r from-emerald-100 via-teal-100 to-cyan-100 -z-10"
-        style={{
-          // -4% makes it start off-screen to the left -> fixes white triangle
-          clipPath: "polygon(-4% 30%, 100% 0, 100% 100%, -4% 100%)",
-        }}
-        aria-hidden
+      <PageHeader
+        category="NFC"
+        title={title}
+        description="Effortless thermoforming without compromising on strength. The high content of natural fibres in Indowud NFC ensures dimensional stability post forming."
       />
 
       {/* content in front */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 md:pt-24 md:pb-20">
-        {/* title + breadcrumb */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.45 }}
-        >
-          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
-            {title}
-          </h2>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.4 }}
-            className="mt-3"
-          >
-            <Breadcrumb
-              items={[
-                { label: "HOME", href: "/" },
-                { label: "NFC", href: "/nfc" },
-                { label: "THERMOFORMING" },
-              ]}
-            />
-          </motion.div>
-
-          <p className="mt-2 text-base max-w-3xl text-slate-600">{subtitle}</p>
-        </motion.div>
-
         {/* video */}
         <motion.div
           variants={container}
