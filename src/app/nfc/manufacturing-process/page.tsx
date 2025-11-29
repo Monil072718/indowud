@@ -1,6 +1,5 @@
 "use client"
 
-
 import { motion, type Variants } from "framer-motion"
 import Image from "next/image"
 import nextDynamic from "next/dynamic"
@@ -8,8 +7,9 @@ import PageHeader from "@/components/common/PageHeader"
 
 // Swiper CSS
 import "swiper/css"
-import "swiper/css/navigation"
-import "swiper/css/pagination"
+// Navigation and Pagination CSS imports removed
+// import "swiper/css/navigation"
+// import "swiper/css/pagination"
 
 export const dynamic = "force-static"
 
@@ -19,7 +19,8 @@ const SwiperSlider = nextDynamic(
     Promise.all([import("swiper/react"), import("swiper/modules")]).then(
       ([swiperMod, modulesMod]) => {
         const { Swiper, SwiperSlide } = swiperMod;
-        const { Navigation, Autoplay, Pagination } = modulesMod;
+        // Only Autoplay module needed now
+        const { Autoplay } = modulesMod;
 
         return function SwiperSliderComponent({
           gallery,
@@ -28,31 +29,35 @@ const SwiperSlider = nextDynamic(
         }) {
           return (
             <Swiper
-              modules={[Navigation, Autoplay, Pagination]}
-              navigation
-              pagination={{ clickable: true }}
-              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              modules={[Autoplay]}
+              autoplay={{ delay: 3500, disableOnInteraction: false }}
               loop={true}
               spaceBetween={20}
               slidesPerView={1}
+              grabCursor={true}
               breakpoints={{
                 640: { slidesPerView: 2, spaceBetween: 20 },
-                1024: { slidesPerView: 3, spaceBetween: 30 },
-                1280: { slidesPerView: 4, spaceBetween: 30 },
+                1024: { slidesPerView: 3, spaceBetween: 24 },
+                1280: { slidesPerView: 4, spaceBetween: 24 },
               }}
-              className="w-full py-8 px-4"
+              // Added [&_.swiper-scrollbar]:hidden to force hide any swiper scrollbar artifacts
+              className="w-full py-10 px-4 [&_.swiper-scrollbar]:hidden"
             >
               {gallery.map((g, i) => (
                 <SwiperSlide key={i} className="h-auto">
-                  <div className="group overflow-hidden rounded-lg sm:rounded-xl border border-gray-200 bg-white shadow-sm relative h-full">
-                    <div className="h-48 sm:h-56 md:h-64 relative">
+                  {/* UPDATED CARD: Full bleed image with rounded corners */}
+                  <div className="group relative h-full w-full overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100 shadow-md transition-all duration-300 hover:shadow-xl border border-gray-200/60">
+                    {/* Aspect Ratio Container */}
+                    <div className="aspect-[4/3] relative w-full">
                       <Image
                         src={g.src || "/placeholder.svg"}
                         alt={g.alt}
                         fill
-                        className="object-contain transition duration-300 group-hover:scale-105"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       />
+                      {/* Optional: Subtle inner shadow/ring for definition */}
+                      <div className="absolute inset-0 rounded-xl sm:rounded-2xl ring-1 ring-inset ring-black/5 pointer-events-none" />
                     </div>
                   </div>
                 </SwiperSlide>
@@ -167,7 +172,8 @@ export default function ManufacturingProcessPage() {
           Engineering a process that surpasses global best practices
         </motion.p>
 
-        <div className="mt-6 sm:mt-10">
+        {/* Added overflow-hidden here to prevent browser scrollbars */}
+        <div className="mt-6 sm:mt-10 overflow-hidden">
           <SwiperSlider gallery={gallery} />
         </div>
       </section>
@@ -270,8 +276,6 @@ export default function ManufacturingProcessPage() {
           </div>
         </ol>
       </section>
-
-
 
       {/* STATS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-10 lg:mt-16">
