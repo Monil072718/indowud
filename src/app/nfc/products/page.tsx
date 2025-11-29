@@ -241,7 +241,7 @@ export default function ProductsPage() {
     <main className="bg-white min-h-screen">
       
       {/* Minimalist Hero */}
-      <header className="relative w-full bg-[#FDFCF8] py-24 sm:py-32">
+      <header className="relative w-full bg-[#FDFCF8] py-12 sm:py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600">
                 Product Catalogue
