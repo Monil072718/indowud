@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
 
 import { motion } from "framer-motion";
 
@@ -23,7 +24,7 @@ export default function BenefitsSection() {
     <section className="relative overflow-hidden bg-white py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
+
           {/* --- LEFT COLUMN: CONTENT --- */}
           <div className="order-2 lg:order-1">
             <motion.div
@@ -57,19 +58,19 @@ export default function BenefitsSection() {
               {/* "Made for Makers" - Integrated Callout Box */}
               <div className="mt-8 rounded-xl bg-emerald-50/50 border border-emerald-100 p-5">
                 <div className="flex gap-3">
-                    <div className="mt-1 flex-shrink-0">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
-                            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                            </svg>
-                        </div>
+                  <div className="mt-1 flex-shrink-0">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                      </svg>
                     </div>
-                    <div>
-                        <h3 className="font-semibold text-slate-900">Made for Makers</h3>
-                        <p className="mt-1 text-sm text-slate-600">
-                            Thermoformable for curves and complex geometries—perfect for architects and factories turning imagination into reality.
-                        </p>
-                    </div>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-900">Made for Makers</h3>
+                    <p className="mt-1 text-sm text-slate-600">
+                      Thermoformable for curves and complex geometries—perfect for architects and factories turning imagination into reality.
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -95,32 +96,32 @@ export default function BenefitsSection() {
               // CHANGE HERE: Removed "shadow-2xl shadow-slate-200", added subtle border and tight shadow
               className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white"
             >
-                {/* The Image - Aspect Ratio Constrained */}
-                <div className="aspect-[4/3] w-full bg-slate-100">
-                    <img
-                        src={img1}
-                        alt="Factory overhead view"
-                        className="h-full w-full object-cover"
-                    />
-                </div>
+              {/* The Image - Aspect Ratio Constrained */}
+              <div className="aspect-[4/3] w-full bg-slate-100">
+                <img
+                  src={img1}
+                  alt="Factory overhead view"
+                  className="h-full w-full object-cover"
+                />
+              </div>
 
-                {/* Subtle Overlay Gradient for depth */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-slate-900/20 via-transparent to-transparent pointer-events-none" />
+              {/* Subtle Overlay Gradient for depth */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-slate-900/20 via-transparent to-transparent pointer-events-none" />
 
-                {/* Floating Badge on Image */}
-                <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur shadow-md rounded-lg px-4 py-2 border border-slate-100">
-                    <p className="text-xs font-bold text-slate-800 uppercase tracking-wide">
-                        Wood-like Surface
-                    </p>
-                    <p className="text-[10px] text-slate-500">
-                        Print, Paint, Stain, CNC
-                    </p>
-                </div>
+              {/* Floating Badge on Image */}
+              <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur shadow-md rounded-lg px-4 py-2 border border-slate-100">
+                <p className="text-xs font-bold text-slate-800 uppercase tracking-wide">
+                  Wood-like Surface
+                </p>
+                <p className="text-[10px] text-slate-500">
+                  Print, Paint, Stain, CNC
+                </p>
+              </div>
             </motion.div>
 
             {/* Background Decor Elements to blend image */}
             <div className="absolute -z-10 top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
-                 <div className="h-64 w-64 bg-emerald-50 rounded-full blur-2xl opacity-50"></div>
+              <div className="h-64 w-64 bg-emerald-50 rounded-full blur-2xl opacity-50"></div>
             </div>
           </div>
 

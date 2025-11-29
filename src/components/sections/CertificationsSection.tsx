@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Award, Leaf, Shield, CheckCircle } from "lucide-react";
-import Image from "next/image";
+
 
 export default function CertificationsSection() {
   const certifications = [
@@ -122,9 +122,9 @@ export default function CertificationsSection() {
           </motion.p>
         </motion.div>
 
-        
+
       </div>
-      
+
       {/* Bottom spacing for footer */}
       <div className="mb-16 md:mb-24"></div>
     </section>

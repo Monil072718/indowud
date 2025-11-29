@@ -1,4 +1,4 @@
-import Link from "next/link"
+
 import PageHeader from "@/components/common/PageHeader"
 
 type Row = { test: string; method: string; unit: string; result: string }

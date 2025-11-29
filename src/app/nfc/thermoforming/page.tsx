@@ -1,7 +1,8 @@
 "use client";
 
+
 import React, { useId, Suspense } from "react";
-import Link from "next/link";
+
 import { motion, type Variants } from "framer-motion";
 import dynamic from "next/dynamic";
 import PageHeader from "@/components/common/PageHeader";
@@ -100,13 +101,7 @@ export default function ThermoformingPage() {
   const uid = useId();
 
   const title = "Thermoforming";
-  const subtitle = (
-    <>
-      Effortless thermoforming without compromising on strength. The high
-      content of natural fibres in Indowud <span className="font-semibold">NFC</span>
-      &nbsp;ensures dimensional stability post forming.
-    </>
-  );
+
   const noteItems = [
     "The panel may shrink while heating and giving a shape.",
     "Suggested time may vary depending on the design.",

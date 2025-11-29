@@ -1,13 +1,10 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useState } from "react";
 import PageHeader from "@/components/common/PageHeader";
 
 /* ───────────────────────────────── Data ───────────────────────────────── */
-const BRAND = {
-  teal: "#0FA5A5",
-  stone: "#F5F5F4", // warm grey
-};
 
 type CTA = { label: string; href: string; download?: boolean };
 type Spec = { label: string; value: string };
@@ -299,25 +296,25 @@ export default function ProductsPage() {
                       </ul>
                     )}
 
-                    {/* Specs Grid */}
-                    {p.specs && (
-                      <div className="grid grid-cols-2 gap-4 pt-4">
+                    {/* Specs */}
+                    {!p.hideExploreSpecs && p.specs && (
+                      <div className="grid grid-cols-2 gap-4 pt-2">
                         {p.specs.map((s, idx) => (
                           <SpecItem key={idx} label={s.label} value={s.value} />
                         ))}
                       </div>
                     )}
 
-                    {/* Actions */}
-                    <div className="flex flex-wrap items-center gap-4 pt-4">
-                      {(p.cta ?? []).map((c, idx) => (
+                    {/* CTA Buttons */}
+                    <div className="flex flex-wrap gap-3 pt-4">
+                      {p.cta?.map((c, idx) => (
                         <a
                           key={idx}
                           href={c.href}
                           download={c.download ? "Indowud-nfc-eBrochure.pdf" : undefined}
                           className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${idx === 0
-                              ? "bg-stone-900 text-white hover:bg-stone-800 hover:shadow-lg"
-                              : "border border-stone-200 text-stone-700 hover:border-stone-900 hover:text-stone-900"
+                            ? "bg-stone-900 text-white hover:bg-stone-800 hover:shadow-lg"
+                            : "border border-stone-200 text-stone-700 hover:border-stone-900 hover:text-stone-900"
                             }`}
                         >
                           {c.label}

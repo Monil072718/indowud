@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import Link from "next/link";
+
 import Breadcrumb from "@/components/common/Breadcrumb";
 
 export default function WarrantyPage() {
@@ -12,7 +12,7 @@ export default function WarrantyPage() {
     try {
       // Attempt to open the PDF in a new tab
       const newWindow = window.open(pdfPath, '_blank');
-      
+
       if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
         // If popup is blocked or failed to open, try the fallback method
         const link = document.createElement('a');
