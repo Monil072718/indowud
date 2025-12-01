@@ -5,6 +5,7 @@ import React, { useId, Suspense } from "react";
 
 import { motion, type Variants } from "framer-motion";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import PageHeader from "@/components/common/PageHeader";
 
 // Swiper CSS
@@ -47,13 +48,13 @@ const SwiperSlider = dynamic(
               {gallery.map((g, i) => (
                 <SwiperSlide key={i}>
                   <figure className="group relative overflow-hidden h-[280px] sm:h-[320px] lg:h-[360px]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+
+                    <Image
                       src={g.src}
                       alt={g.alt ?? "Thermoformed example"}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      fill
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 to-transparent px-4 py-3 text-white flex items-center justify-between">
                       <span className="text-sm font-medium">
@@ -121,7 +122,14 @@ export default function ThermoformingPage() {
     { label: "Cooling Time", value: "1–2 minutes / mm of thickness" },
   ];
   // empty for now
-  const gallery: { src: string; alt?: string }[] = [];
+  const gallery: { src: string; alt?: string }[] = [
+    { src: "/thermoforming2.jpg.webp", },
+    { src: "/thermoforming3.jpg.webp", },
+    { src: "/thermoforming4.jpg.webp", },
+    { src: "/thermoforming5.jpg.webp", },
+    { src: "/thermoforming6.jpg.webp", },
+    { src: "/thermoforming7.jpg.webp", },
+  ];
 
   return (
     <section className="relative isolate">
