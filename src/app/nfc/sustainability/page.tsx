@@ -240,13 +240,13 @@ export default function SustainabilityPage() {
             transition={{ duration: 0.35 }}
             className="mx-auto mt-8 sm:mt-12 flex w-full justify-center"
           >
-            <div className="rounded-xl sm:rounded-2xl bg-white/80 p-3 sm:p-4 shadow-lg ring-1 ring-black/5">
+            <div className="">
               <Image
-                src="/epd-verified.png"
+                src="/EPD-Verified.png.webp"
                 alt="ECO Platform EPD Verified"
                 width={360}
                 height={160}
-                className="h-12 w-auto sm:h-16 md:h-20"
+                className="h-24 w-auto sm:h-16 md:h-20"
                 priority
               />
             </div>
