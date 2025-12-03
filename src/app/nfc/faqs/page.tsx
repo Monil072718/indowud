@@ -13,44 +13,196 @@ const FAQS: FAQ[] = [
     a:
       "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
   },
-  { q: "Where should the use of nfc board be avoided?" },
-  { q: "Can nfc board be fixed directly on the wall?" },
-  { q: "Can nfc board be used for ceiling applications?" },
-  { q: "Does nfc deform without providing proper support?" },
-  { q: "Can nfc boards be used for exterior applications?" },
-  { q: "Can nfc board deform during climatic changes or extreme weather?" },
-  { q: "How does nfc board be fire retardant and smoke suppressant?" },
-  { q: "Is nfc free from harmful ingredients?" },
-  { q: "Does nfc board emit harmful VOC gases?" },
-  { q: "Can I use regular wood working tools as nfc board working cum finish work cutter?" },
-  { q: "Do we need a substrate to paste on indowud nfc before PU painting" },
-  { q: "What are the glues suggested to use on nfc board?" },
-  { q: "If fixing distances are too wide, can nfc vibrate?" },
-  { q: "Does the company offer any buyback of nfc boards?" },
-  { q: "Is there a warranty that comes with nfc board?" },
-  { q: "Can indowud panels be customized?" },
-  { q: "How does using indowud contribute to eco-friendly construction?" },
-  { q: "What is nfc board?" },
-  { q: "What are the standard nfc Board sizes available?" },
-  { q: "Is nfc eco-conscious?" },
-  { q: "What is GreenPro ecolabel?" },
-  { q: "Is there any colour options in nfc?" },
-  { q: "What makes indowud a superior alternative to traditional wood-based panels?" },
-  { q: "How is indowud contributing to environmental sustainability?" },
-  { q: "Is indowud suitable for both interior and exterior applications?" },
-  { q: "Can indowud be customised for specific design needs?" },
-  { q: "What is Indowud NFC?" },
-  { q: "Is indowud resistant to pests and moisture?" },
-  { q: "Is indowud easy to install?" },
-  { q: "Does indowud require special maintenance?" },
-  { q: "What is WPC Plywood Board?" },
-  { q: "Which is better, PVC or WPC?" },
-  { q: "Which material is good for room partition?" },
-  { q: "What are the benefits of NFC flutes wall panel?" },
-  { q: "How long does fire-retardant plywood last?" },
-  { q: "What are WPC boards used for?" },
-  { q: "Are WPC boards waterproof?" },
-  { q: "Which board is termite-proof?" },
+  {
+    q: "Where should the use of nfc board be avoided?",
+    a:
+      "Nfc boards are suitable for all exterior and interior applications. However, the use of nfc board must be avoided in all those places where the temperature is above 60 degree Celsius.",
+  },
+  {
+    q: "Can nfc board be fixed directly on the wall?",
+    a:
+      "We do not recommend fixing nfc boards directly on the wall. It is recommended to leave a gap of atleast 10mm from the wall and fix the boards on the support/frame provided. Refer to guidelines and suggestions for more details or download the technical brochure from the downloads page in our website.",
+  },
+  {
+    q: "Can nfc board be used for ceiling applications?",
+    a:
+      "Indowud nfc can be used for ceiling applications. It is suggested to reduce the thickness wise recommended support distance by 100mm to avoid gravitational pull.",
+  },
+  {
+    q: "Does nfc deform without providing proper support?",
+    a:
+      "Yes, nfc boards are homogeneous product. Hence, it requires a proper constructive/structural support to avoid unwanted deformations.",
+  },
+  {
+    q: "Can nfc boards be used for exterior applications?",
+    a:
+      "Yes, nfc boards are 100% water proof and can be used for all types of exterior applications. It is recommended to apply sealant/varnish/coating/paint of exterior grade to protect the boards from sun/weather and regular wear & tear.",
+  },
+  {
+    q: "Can nfc board deform during climatic changes or extreme weather?",
+    a:
+      "If we take care of proper support system, type of screws used, and exterior grade sealant/varnishing/painting/coating, the boards would resist deformations.",
+  },
+  {
+    q: "How does nfc board be fire retardant and smoke suppressant?",
+    a:
+      "During the manufacturing process, certain additives are used that prevents the spread of fire and smoke in the unlikely event of fire accident.  Indowud nfc has been tested with UL94 of USA (V0 rating) and ASTM E84 (passes class 1/a. Flame spread index @ 6 and smoke developed index @ 100) and UIC564 (Class 1/a).",
+  },
+  {
+    q: "Is nfc free from harmful ingredients?",
+    a:
+      "Yes, Indowud nfc is RoHS certified and has ensured that it is free from asbestos, lead and other harmful raw materials.",
+  },
+  {
+    q: "Does nfc board emit harmful VOC gases?",
+    a:
+      "No, There are no harmful VOC gases emitting from nfc boards making it a safe option to be used for all types of interior applications.",
+  },
+  {
+    q: "Can I use regular wood working tools as nfc board working cum finish work cutter?",
+    a:
+      "Yes, the boards can be processed like any other wood based panel products and all types of wood working tools can be used for processing.",
+  },
+  {
+    q: "Do we need a substrate to paste on indowud nfc before PU painting",
+    a:
+      "No, it is possible to PU paint directly on Indowud nfc. Do not use NC Putty. Do not pour water before closure of pores. Please contact us for more details.",
+  },
+  {
+    q: "What are the glues suggested to use on nfc board?",
+    a:
+      "NFC-GLU, Probond, WP1, HeatX, PUR, Plastilok can be used. However, for any other adhesives, it is suggested to test the adhesive with a small sample piece of Indowud nfc. Drying time may vary due to environmental and atmospheric conditions.",
+  },
+  {
+    q: "If fixing distances are too wide, can nfc vibrate?",
+    a:
+      "Unwanted deformations may appear if recommended fixing distance is not followed. We suggest to follow the recommended fixing distance for best results  and to avoid curve generation.",
+  },
+  {
+    q: "Does the company offer any buyback of nfc boards?",
+    a:
+      "Yes, Indowud offers buy back of nfc boards. Ensure that the boards are free from metal and wood parts before sending the wastage/scrap/rejected boards to the factory for recycling. Please contact us for more details.",
+  },
+  {
+    q: "Is there a warranty that comes with nfc board?",
+    a:
+      "Yes, Indowud nfc offers a warranty. Refer to the warranty page for more details about the warranty.",
+  },
+  {
+    q: "Can indowud panels be customized?",
+    a:
+      "Yes, Indowud panels can be customized in terms of size, finish, and design to suit various project requirements.",
+  },
+  {
+    q: "How does using indowud contribute to eco-friendly construction?",
+    a:
+      "Indowud helps reduce reliance on wood, preserving forests and lowering carbon footprints in construction projects.",
+  },
+  {
+    q: "What is nfc board?",
+    a:
+      "Nfc means Natural Fibre Composite product. It is a sustainable ecofriendly board that looks, feels and are available in dimensions like wood based panels for all exterior and interior applications.",
+  },
+  {
+    q: "What are the standard nfc Board sizes available?",
+    a:
+      "Nfc boards are available in the standard size of 8 feet (2440mm) x 4 feet (1220mm) x thickness : 6mm, 8mm, 12mm, 15mm, 16mm, 18mm, 20mm, 25mm. However, customized sizes are available as per the request. Please contact us for the available options.",
+  },
+  {
+    q: "Is nfc eco-conscious?",
+    a:
+      "Yes, Indowud nfc is a zero wood product made using agricultural husks primarily and extruded. Our product is certified with GreePro ecolabel by the CII (Confederation of Indian Industries) – Green Products and Services Council (CII – GPSC) / CII- Godrej IGBC.",
+  },
+  {
+    q: "What is GreenPro ecolabel?",
+    a:
+      "GreenPro is a Type-1 Ecolabel that helps the building and manufacturing sectors choose sustainable products, materials, and technologies to reduce environmental impact. Products with the GreenPro Ecolabel, like Indowud, have lower environmental footprints and contribute to improving the performance of Green Buildings and eco-friendly companies. As a zero-wood, durable, and termite-resistant WPC alternative, Indowud supports sustainable construction and interior solutions.",
+  },
+  {
+    q: "Is there any colour options in nfc?",
+    a:
+      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+  },
+  {
+    q: "What makes indowud a superior alternative to traditional wood-based panels?",
+    a:
+      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+  },
+  {
+    q: "How is indowud contributing to environmental sustainability?",
+    a:
+      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+  },
+  {
+    q: "Is indowud suitable for both interior and exterior applications?",
+    a:
+      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+  },
+  {
+    q: "Can indowud be customised for specific design needs?",
+    a:
+      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+  },
+  {
+    q: "What is Indowud NFC?",
+    a:
+      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+  },
+  {
+    q: "Is indowud resistant to pests and moisture?",
+    a:
+      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+  },
+  {
+    q: "Is indowud easy to install?",
+    a:
+      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+  },
+  {
+    q: "Does indowud require special maintenance?",
+    a:
+      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+  },
+  {
+    q: "What is WPC Plywood Board?",
+    a:
+      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+  },
+  {
+    q: "Which is better, PVC or WPC?",
+    a:
+      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+  },
+  {
+    q: "Which material is good for room partition?",
+    a:
+      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+  },
+  {
+    q: "What are the benefits of NFC flutes wall panel?",
+    a:
+      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+  },
+  {
+    q: "How long does fire-retardant plywood last?",
+    a:
+      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+  },
+  {
+    q: "What are WPC boards used for?",
+    a:
+      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+  },
+  {
+    q: "Are WPC boards waterproof?",
+    a:
+      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+  },
+  {
+    q: "Which board is termite-proof?",
+    a:
+      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+  },
 ];
 
 /* ----------------------------- Icons ----------------------------- */
