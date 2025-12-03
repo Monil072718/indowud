@@ -28,114 +28,81 @@ const fade = {
 function BlogCard({
   post,
   i = 0,
-  variant = "default",
 }: {
   post: BlogCardPost;
   i?: number;
-  variant?: "default" | "compact";
 }) {
   const href = `/media/blog/${post.slug}`;
 
-  // Modern card styling: cleaner, subtle border, nice shadow on hover
-  const container =
-    "group flex flex-col h-full overflow-hidden rounded-2xl bg-white transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:border-slate-200";
-
-  const mediaAspect = variant === "compact" ? "aspect-[16/10]" : "aspect-[16/10]";
-
   return (
     <motion.article
-      custom={i}
-      variants={fade}
-      initial="hidden"
-      whileInView="show"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      className={container}
+      transition={{ duration: 0.5, delay: i * 0.1 }}
+      className="group relative h-[500px] w-full overflow-hidden rounded-3xl bg-slate-900 cursor-pointer shadow-xl"
     >
-      {/* Image Section */}
-      <Link href={href} className="block w-full overflow-hidden relative">
-        <div className={`${mediaAspect} w-full relative overflow-hidden bg-slate-100`}>
+      <Link href={href} className="block h-full w-full">
+        {/* Background Image with Zoom Effect */}
+        <div className="absolute inset-0 h-full w-full overflow-hidden">
           <Image
             src={post.cover}
             alt={post.title}
             fill
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:blur-[2px]"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-            loading="lazy"
           />
-          {/* Overlay gradient on hover */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          {/* Gradient Overlay for Text Readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-90" />
         </div>
-      </Link>
 
-      {/* Content Section */}
-      <div className="flex flex-1 flex-col p-6">
-        {/* Meta & Tags */}
-        <div className="mb-3 flex items-center justify-between gap-4">
-          <div className="flex flex-wrap gap-2">
-            {post.tags?.slice(0, 1).map((t) => (
-              <span
-                key={t}
-                className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/10"
-              >
-                {t}
-              </span>
-            ))}
+        {/* Floating Badge */}
+        <div className="absolute top-6 right-6 z-10">
+          <div className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 backdrop-blur-md transition-colors group-hover:bg-white/20">
+            <span className="text-xs font-bold uppercase tracking-wider text-white">
+              {post.tags?.[0] || "Blog"}
+            </span>
           </div>
-          <span className="text-xs text-slate-400 font-medium">
+        </div>
+
+        {/* Content Container */}
+        <div className="absolute inset-0 flex flex-col justify-end p-8">
+          {/* Date */}
+          <time className="mb-3 text-xs font-medium text-emerald-400">
             {new Date(post.date).toLocaleDateString(undefined, {
-              month: "short",
+              month: "long",
               day: "numeric",
               year: "numeric",
             })}
-          </span>
-        </div>
+          </time>
 
-        {/* Title */}
-        <Link href={href} className="group/title block">
-          <h3 className="text-xl font-bold text-slate-900 transition-colors group-hover/title:text-emerald-700 line-clamp-2 leading-tight">
+          {/* Title */}
+          <h3 className="mb-4 text-2xl font-bold leading-tight text-white transition-transform duration-500 group-hover:-translate-y-2">
             {post.title}
           </h3>
-        </Link>
 
-        {/* Excerpt */}
-        <p className="mt-3 text-sm leading-relaxed text-slate-600 line-clamp-3 flex-1">
-          {post.excerpt}
-        </p>
+          {/* Hidden Content Reveal on Hover */}
+          <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-out group-hover:grid-rows-[1fr]">
+            <div className="overflow-hidden">
+              <p className="mb-6 text-sm leading-relaxed text-slate-300 line-clamp-3 whitespace-pre-line">
+                {post.excerpt}
+              </p>
 
-        {/* Footer / Read More */}
-        <div className="mt-6 flex items-center justify-between pt-4 border-t border-slate-50">
-          <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
-            {post.readMins ? (
-              <>
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <span className="inline-flex items-center gap-2 text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">
+                Read Full Story
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
                 </svg>
-                {post.readMins} min read
-              </>
-            ) : null}
+              </span>
+            </div>
           </div>
-
-          <Link
-            href={href}
-            className="group/btn inline-flex items-center gap-1 text-sm font-semibold text-emerald-600 transition-colors hover:text-emerald-700"
-          >
-            Read more
-            <svg
-              className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-            >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-          </Link>
         </div>
-      </div>
+      </Link>
     </motion.article>
   );
 }
-
 export default memo(BlogCard);
+
+
 

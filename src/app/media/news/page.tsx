@@ -20,70 +20,144 @@ type NewsItem = {
 const NEWS_ITEMS: NewsItem[] = [
   {
     id: "1",
-    kind: "video",
-    title: "ETV Article and Video",
-    source: "ETV Tamil Nadu",
-    thumb:
-      "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=60",
-    href: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    lang: "TA",
+    kind: "short",
+    title: "Nas Daily - shorts",
+    source: "Nas Daily",
+    thumb: "https://img.youtube.com/vi/Jk4pxVx-kWY/hqdefault.jpg",
+    href: "https://youtube.com/shorts/Jk4pxVx-kWY?si=xsD1mcA7Dp1Zxn_K",
   },
   {
     id: "2",
     kind: "article",
-    title: "Feature in Hindu Business Line",
-    source: "Hindu BusinessLine",
-    thumb:
-      "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=60",
-    href: "https://www.thehindubusinessline.com/",
+    title: "Hindu Business Line Article",
+    source: "Hindu Business Line",
+    thumb: "",
+    href: "https://www.thehindubusinessline.com/news/awoodwithout-wood-to-save-forests/article65553026.ece",
   },
   {
     id: "3",
     kind: "video",
-    title: "Influencer Video",
-    source: "YouTube",
-    thumb:
-      "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=1200&q=60",
-    href: "https://www.youtube.com/watch?v=oHg5SJYRHA0",
+    title: "One India",
+    source: "One India",
+    thumb: "https://img.youtube.com/vi/RJp2zMV0VN0/hqdefault.jpg",
+    href: "https://youtu.be/RJp2zMV0VN0?si=E_nN-CXiV9yv612R",
   },
   {
     id: "4",
-    kind: "article",
-    title: "Construction World — Article",
-    source: "Construction World",
-    thumb:
-      "https://images.unsplash.com/photo-1520697222861-7b53fa0f92f3?auto=format&fit=crop&w=1200&q=60",
-    href: "https://www.constructionworld.in/",
+    kind: "video",
+    title: "Dainik Bhaskar Youtube",
+    source: "Dainik Bhaskar",
+    thumb: "https://img.youtube.com/vi/5UyIzKtaSFA/hqdefault.jpg",
+    href: "https://youtu.be/5UyIzKtaSFA?si=LRpu2EX-d4L_5hz7",
   },
   {
     id: "5",
-    kind: "short",
-    title: "NAS Daily — Shorts",
-    source: "YouTube Shorts",
-    thumb:
-      "https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=1200&q=60",
-    href: "https://www.youtube.com/shorts/aqz-KE-bpKQ",
-    lang: "EN",
+    kind: "article",
+    title: "Navbharath Times",
+    source: "Navbharath Times",
+    thumb: "",
+    href: "https://navbharattimes.indiatimes.com/business/business-news/story-of-bl-bengani-who-made-plywood-by-using-stubble-and-earning-millions/articleshow/90015448.cms?story=1",
   },
   {
     id: "6",
     kind: "article",
-    title: "One India — Coverage",
-    source: "One India",
-    thumb:
-      "https://images.unsplash.com/photo-1516455207990-7a41ce80f7ee?auto=format&fit=crop&w=1200&q=60",
-    href: "https://www.oneindia.com/",
+    title: "Dainik Bhaskar News Paper",
+    source: "Dainik Bhaskar",
+    thumb: "",
+    href: "https://www.bhaskar.com/db-original/news/once-used-to-work-as-an-office-boy-on-a-salary-of-100-rupees-today-plywood-is-made-from-paddy-straw-turnover-of-more-than-one-crore-128591419.html",
   },
-  // add as many as you like (videos, shorts, articles)...
+  {
+    id: "7",
+    kind: "short",
+    title: "Influencer Video - Shorts",
+    source: "YouTube Shorts",
+    thumb: "https://img.youtube.com/vi/ecf2aEtmPJk/hqdefault.jpg",
+    href: "https://youtu.be/ecf2aEtmPJk?si=U4SO7ytyd1pDJ1A1",
+  },
+  {
+    id: "8",
+    kind: "article",
+    title: "Better India",
+    source: "The Better India",
+    thumb: "",
+    href: "https://thebetterindia.com/289539/chennai-entrepreneur-makes-waterproof-wood-from-rice-husk-to-build-furniture/",
+  },
+  {
+    id: "9",
+    kind: "article",
+    title: "Hindu Business Line Video",
+    source: "Hindu Business Line",
+    thumb: "",
+    href: "https://www.thehindubusinessline.com/multimedia/video/watch-this-chennai-start-up-creates-boards-from-agricultural-husks/article65556865.ece",
+  },
+  {
+    id: "10",
+    kind: "article",
+    title: "Construction World - Article",
+    source: "Construction World",
+    thumb: "",
+    href: "https://www.constructionworld.in/policy-updates-and-economic-news/indowud-produces-nfc-board-from-agricultural-husks-to-save-forest/34840",
+  },
+  {
+    id: "11",
+    kind: "article",
+    title: "Hindi Better India - Article",
+    source: "The Better India (Hindi)",
+    thumb: "",
+    href: "https://hindi.thebetterindia.com/%E0%A4%AA%E0%A4%B0%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B5%E0%A4%B0%E0%A4%A3/rags-to-riches-story-chennai-businessman-making-eco-friendly-plywood-indowud-nfc-from-agricultural-waste-india/",
+  },
+  {
+    id: "12",
+    kind: "article",
+    title: "Gujrati Newspaper and Digital Page",
+    source: "ETV Bharat",
+    thumb: "",
+    href: "https://www.etvbharat.com/gujarati/gujarat/bharat/tamil-nadu-a-private-company-is-now-producing-artificial-wood-from-the-husk-of-paddy/gj20220714221841726726386",
+  },
+  {
+    id: "13",
+    kind: "article",
+    title: "Telegu Newspaper and Digital Page",
+    source: "ETV Bharat",
+    thumb: "",
+    href: "https://www.etvbharat.com/oriya/odisha/bharat/a-private-company-producing-artificial-wood-from-the-husk-of-paddy-in-chennai/or20220715142225261261476",
+  },
+  {
+    id: "14",
+    kind: "article",
+    title: "Dina Thandi Newspaper and Digital Page",
+    source: "DT Next",
+    thumb: "",
+    href: "https://www.dtnext.in/city/2022/07/12/city-based-company-makes-furniture-out-of-rice-husks-",
+  },
+  {
+    id: "15",
+    kind: "short",
+    title: "Class 7 CBSE - Shorts",
+    source: "YouTube Shorts",
+    thumb: "https://img.youtube.com/vi/AbhDCoSCAmg/hqdefault.jpg",
+    href: "https://youtu.be/AbhDCoSCAmg?si=8JcKKYbt614uTYom",
+  },
+  {
+    id: "16",
+    kind: "video",
+    title: "The Hindu Business Line – Video",
+    source: "Hindu Business Line",
+    thumb: "https://img.youtube.com/vi/-zfhJLH2fXM/hqdefault.jpg",
+    href: "https://youtu.be/-zfhJLH2fXM?si=JlmEsKtJwqsFDZkO",
+  },
+  {
+    id: "17",
+    kind: "video",
+    title: "Anuj Ramatri - Video",
+    source: "Anuj Ramatri",
+    thumb: "https://img.youtube.com/vi/F-0Q7k-mlQk/hqdefault.jpg",
+    href: "https://youtu.be/F-0Q7k-mlQk?si=w-BUAMCfi_XGbp_o",
+  },
 ];
 
 /* ----------------------------- Small Utilities ----------------------------- */
-const TABS: { key: "all" | NewsKind; label: string }[] = [
-  { key: "all", label: "All" },
-  { key: "video", label: "Videos" },
-  { key: "short", label: "Shorts" },
-  { key: "article", label: "Articles" },
-];
+
 
 function getYouTubeEmbed(url: string) {
   // quick & forgiving extractor
@@ -100,13 +174,7 @@ function getYouTubeEmbed(url: string) {
 
 /* ----------------------------- Page Component ----------------------------- */
 export default function NewsPage() {
-  const [activeTab, setActiveTab] = useState<(typeof TABS)[number]["key"]>("all");
   const [videoOpen, setVideoOpen] = useState<NewsItem | null>(null);
-
-  const items = useMemo(() => {
-    if (activeTab === "all") return NEWS_ITEMS;
-    return NEWS_ITEMS.filter((n) => n.kind === activeTab);
-  }, [activeTab]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
@@ -117,56 +185,19 @@ export default function NewsPage() {
         description="Media mentions, videos, and articles about Indowud."
       />
 
-      {/* Filters */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-4">
-          {TABS.map((t) => {
-            const active = activeTab === t.key;
-            return (
-              <button
-                key={t.key}
-                onClick={() => setActiveTab(t.key)}
-                className={[
-                  "px-3 py-1.5 rounded-full text-sm transition",
-                  active
-                    ? "bg-slate-900 text-white shadow"
-                    : "bg-white text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50",
-                ].join(" ")}
-              >
-                {t.label}
-              </button>
-            );
-          })}
-        </div>
-
         {/* Grid */}
-        <AnimatePresence mode="popLayout">
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.25 }}
-            className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 py-8"
-          >
-            {items.map((n) => (
-              <Card
-                key={n.id}
-                item={n}
-                onPlay={() => {
-                  if (n.kind === "video" || n.kind === "short") setVideoOpen(n);
-                }}
-              />
-            ))}
-          </motion.div>
-        </AnimatePresence>
-
-        {/* (Optional) Load more */}
-        {/* <div className="pb-12 text-center">
-          <button className="px-4 py-2 text-sm rounded-full bg-slate-900 text-white hover:opacity-90">
-            Load more
-          </button>
-        </div> */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 py-8">
+          {NEWS_ITEMS.map((n) => (
+            <Card
+              key={n.id}
+              item={n}
+              onPlay={() => {
+                if (n.kind === "video" || n.kind === "short") setVideoOpen(n);
+              }}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Video lightbox */}
@@ -188,13 +219,19 @@ const Card = React.memo(function Card({ item, onPlay }: { item: NewsItem; onPlay
       className="group relative overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 cursor-pointer"
     >
       <div className="aspect-video w-full overflow-hidden bg-slate-100 relative">
-        <Image
-          src={item.thumb}
-          alt={item.title}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
+        {item.thumb && !item.thumb.includes("youtube.com") && !item.thumb.includes("youtu.be") ? (
+          <Image
+            src={item.thumb}
+            alt={item.title}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center bg-slate-200 text-slate-400">
+            <span className="text-sm">No Thumbnail</span>
+          </div>
+        )}
         {isVideo && (
           <button
             onClick={onPlay}

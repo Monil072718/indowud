@@ -13,65 +13,16 @@ function fetchBlogs(): BlogCardPost[] {
   return [
     {
       id: "1",
-      slug: "eco-friendly-furniture",
-      title: "Eco-Friendly Furniture: Why Rice Husk Panels Are the Game Changer",
+      slug: "why-leading-architects-prefer-wpc-board",
+      title: "Why Leading Architects Prefer WPC Board Manufacturers Over Plywood Makers",
       excerpt:
-        "Boards made from rice husk deliver strength, moisture-resistance and stunning finishes with a smaller footprint.",
+        "Leading architects tend to choose WPC board manufacturers more often than plywood makers these days. Infact if they have to prioritise termite proofing, they go in for a better product- Indowud nfc .\n\nWhat Is a WPC Board Manufacturer?\n\nA WPC board manufacturer runs a specialized operation. They make Wood Plastic Composite boards by mixing wood fibers with thermoplastic polymers. The process...",
       cover:
-        "https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      date: "2025-09-28",
-      readMins: 6,
-      tags: ["Sustainability", "NFC"],
+        "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=1200&q=60",
+      date: "2025-11-18",
+      readMins: 4,
+      tags: ["WPC", "Architecture"],
     },
-    {
-      id: "2",
-      slug: "termite-proof-boards",
-      title: "Termite-Proof Boards: The Better Alternative to Plywood",
-      excerpt:
-        "Conventional plywood needs treatment; engineered boards stay stable and save maintenance.",
-      cover:
-        "https://images.pexels.com/photos/667838/pexels-photo-667838.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      date: "2025-09-25",
-      readMins: 5,
-      tags: ["Termite Proof"],
-    },
-    {
-      id: "3",
-      slug: "waterproof-kitchen-bath",
-      title: "Boards for Kitchens & Bathrooms",
-      excerpt:
-        "Design confidently in high-moisture areas with panels that keep their form and finish.",
-      cover:
-        "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      date: "2025-09-20",
-      readMins: 7,
-      tags: ["Moisture"],
-    },
-    {
-      id: "4",
-      slug: "fire-retardant-boards",
-      title: "Fire-Retardant Boards for Safer Homes & Offices",
-      excerpt:
-        "Safety starts with better materials — understand ratings and real-world behavior.",
-      cover:
-        "https://images.pexels.com/photos/296110/pexels-photo-296110.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      date: "2025-09-15",
-      readMins: 5,
-      tags: ["Fire Safety"],
-    },
-    {
-      id: "5",
-      slug: "husk-vs-wood",
-      title: "Husk Panels vs Wood Panels: Which Should You Choose?",
-      excerpt:
-        "Cost, stability, maintenance, and sustainability — a practical comparison.",
-      cover:
-        "https://images.pexels.com/photos/164010/pexels-photo-164010.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      date: "2025-09-12",
-      readMins: 8,
-      tags: ["Comparison"],
-    },
-    // add more posts here to test > 1 page with larger PAGE_SIZE
   ];
 }
 
@@ -159,11 +110,10 @@ function Pagination({
 /* --------------------------------- Blog Content Component --------------------------------- */
 function BlogContent() {
   const posts = useMemo(fetchBlogs, []);
-  const [featured, ...rest] = posts;
 
-  // paginate ONLY the grid (rest)
-  const PAGE_SIZE = 6; // Increased page size for better grid look
-  const totalPages = Math.max(1, Math.ceil(rest.length / PAGE_SIZE));
+  // paginate the grid
+  const PAGE_SIZE = 9; // Increased page size for better grid look
+  const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
 
   const router = useRouter();
   const pathname = usePathname();
@@ -175,7 +125,7 @@ function BlogContent() {
       : 1;
 
   const start = (page - 1) * PAGE_SIZE;
-  const current = rest.slice(start, start + PAGE_SIZE);
+  const current = posts.slice(start, start + PAGE_SIZE);
 
   const setPage = (p: number) => {
     const params = new URLSearchParams(sp?.toString() ?? "");
@@ -194,86 +144,6 @@ function BlogContent() {
       />
 
       <div className="mx-auto max-w-[1200px] px-4 py-12 md:py-20">
-        {/* Featured Post */}
-        {featured ? (
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-20"
-          >
-            <div className="flex items-center gap-2 mb-6">
-              <span className="h-px flex-1 bg-slate-200"></span>
-              <span className="text-sm font-bold tracking-wider text-slate-400 uppercase">Featured Article</span>
-              <span className="h-px flex-1 bg-slate-200"></span>
-            </div>
-
-            <div className="group relative overflow-hidden rounded-3xl bg-white shadow-xl shadow-slate-200/50 ring-1 ring-slate-100 transition-all hover:shadow-2xl hover:shadow-slate-200/60 grid md:grid-cols-2 gap-0">
-              <div className="relative h-64 md:h-auto overflow-hidden">
-                <img
-                  src={featured.cover}
-                  alt={featured.title}
-                  loading="eager"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-              </div>
-
-              <div className="p-8 md:p-12 flex flex-col justify-center relative">
-                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-emerald-500 to-teal-600 opacity-0 md:opacity-100" />
-
-                <div className="mb-6 flex flex-wrap items-center gap-3">
-                  <span className="inline-flex items-center rounded-full bg-emerald-600 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white shadow-sm">
-                    Featured
-                  </span>
-                  {featured.tags?.slice(0, 2).map((t) => (
-                    <span
-                      key={t}
-                      className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-600"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-emerald-800 transition-colors">
-                  <a href={`/media/blog/${featured.slug}`} className="focus:outline-none">
-                    <span className="absolute inset-0 md:hidden" aria-hidden="true" />
-                    {featured.title}
-                  </a>
-                </h2>
-
-                <p className="text-slate-600 text-lg mb-8 line-clamp-3 leading-relaxed">
-                  {featured.excerpt}
-                </p>
-
-                <div className="flex items-center justify-between mt-auto">
-                  <span className="text-sm font-medium text-slate-500">
-                    {new Date(featured.date).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}
-                  </span>
-                  <a
-                    href={`/media/blog/${featured.slug}`}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-emerald-600 transition-colors hover:text-emerald-700"
-                  >
-                    Read Article
-                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M5 12h14" />
-                      <path d="m12 5 7 7-7 7" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.section>
-        ) : null}
-
-        {/* Grid Header */}
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold text-slate-900">Latest Articles</h2>
-          <div className="hidden md:block h-px flex-1 bg-slate-200 ml-6"></div>
-        </div>
-
         {/* Grid (paginated) */}
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {current.map((p, i) => (

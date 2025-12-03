@@ -25,7 +25,6 @@ const nextConfig: NextConfig = {
         hostname: "img.youtube.com",
       },
     ],
-    domains: ["images.pexels.com", "img.youtube.com"],
   },
 
   // Compression
