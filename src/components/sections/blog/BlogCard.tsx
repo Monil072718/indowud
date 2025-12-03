@@ -16,15 +16,6 @@ export type BlogCardPost = {
   tags?: string[];
 };
 
-const fade = {
-  hidden: { opacity: 0, y: 20 },
-  show: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, delay: i * 0.05 },
-  }),
-};
-
 function BlogCard({
   post,
   i = 0,
@@ -36,73 +27,83 @@ function BlogCard({
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: i * 0.1 }}
-      className="group relative h-[500px] w-full overflow-hidden rounded-3xl bg-slate-900 cursor-pointer shadow-xl"
+      transition={{ duration: 0.4, delay: i * 0.1 }}
+      className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition-shadow hover:shadow-md"
     >
-      <Link href={href} className="block h-full w-full">
-        {/* Background Image with Zoom Effect */}
-        <div className="absolute inset-0 h-full w-full overflow-hidden">
-          <Image
-            src={post.cover}
-            alt={post.title}
-            fill
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:blur-[2px]"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-          {/* Gradient Overlay for Text Readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-90" />
-        </div>
+      {/* Image Section */}
+      <Link href={href} className="relative block aspect-[16/10] w-full overflow-hidden bg-slate-100">
+        <Image
+          src={post.cover}
+          alt={post.title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+      </Link>
 
-        {/* Floating Badge */}
-        <div className="absolute top-6 right-6 z-10">
-          <div className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 backdrop-blur-md transition-colors group-hover:bg-white/20">
-            <span className="text-xs font-bold uppercase tracking-wider text-white">
-              {post.tags?.[0] || "Blog"}
+      {/* Content Section */}
+      <div className="flex flex-1 flex-col p-6">
+        {/* Meta Row: Tag & Date */}
+        <div className="mb-4 flex items-center justify-between">
+          {post.tags?.[0] && (
+            <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
+              {post.tags[0]}
             </span>
-          </div>
-        </div>
-
-        {/* Content Container */}
-        <div className="absolute inset-0 flex flex-col justify-end p-8">
-          {/* Date */}
-          <time className="mb-3 text-xs font-medium text-emerald-400">
+          )}
+          <span className="text-xs font-medium text-slate-400">
             {new Date(post.date).toLocaleDateString(undefined, {
-              month: "long",
               day: "numeric",
+              month: "short",
               year: "numeric",
             })}
-          </time>
+          </span>
+        </div>
 
-          {/* Title */}
-          <h3 className="mb-4 text-2xl font-bold leading-tight text-white transition-transform duration-500 group-hover:-translate-y-2">
+        {/* Title */}
+        <Link href={href} className="group/title block">
+          <h3 className="mb-3 text-xl font-bold leading-tight text-slate-900 transition-colors group-hover/title:text-emerald-700">
             {post.title}
           </h3>
+        </Link>
 
-          {/* Hidden Content Reveal on Hover */}
-          <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-out group-hover:grid-rows-[1fr]">
-            <div className="overflow-hidden">
-              <p className="mb-6 text-sm leading-relaxed text-slate-300 line-clamp-3 whitespace-pre-line">
-                {post.excerpt}
-              </p>
+        {/* Excerpt */}
+        <div
+          className="mb-6 flex-1 text-sm leading-relaxed text-slate-600 whitespace-pre-line"
+          dangerouslySetInnerHTML={{ __html: post.excerpt }}
+        />
 
-              <span className="inline-flex items-center gap-2 text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">
-                Read Full Story
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </span>
-            </div>
+        {/* Footer: Read Time & Read More */}
+        <div className="flex items-center justify-between border-t border-slate-100 pt-4">
+          <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            {post.readMins || 4} min read
           </div>
+
+          <Link
+            href={href}
+            className="group/btn inline-flex items-center gap-1 text-sm font-bold text-emerald-600 transition-colors hover:text-emerald-700"
+          >
+            Read more
+            <svg
+              className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+            >
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </Link>
         </div>
-      </Link>
+      </div>
     </motion.article>
   );
 }
+
 export default memo(BlogCard);
-
-
-
