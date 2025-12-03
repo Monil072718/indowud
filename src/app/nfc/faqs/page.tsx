@@ -156,32 +156,32 @@ const FAQS: FAQ[] = [
   {
     q: "Is indowud easy to install?",
     a:
-      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+      "Yes, Indowud is designed for easy installation with traditional woodworking tools.",
   },
   {
     q: "Does indowud require special maintenance?",
     a:
-      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+      "No, Indowud is low-maintenance. It’s resistant to moisture and pests, so routine cleaning is typically all that’s needed.",
   },
   {
     q: "What is WPC Plywood Board?",
     a:
-      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+      "WPC boards blend wood fibers and plastic, offering water resistance, durability, and termite-proof features. Unlike WPC, Indowud uses zero wood, ensuring superior eco-friendliness, strength, and sustainability.",
   },
   {
     q: "Which is better, PVC or WPC?",
     a:
-      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+      "WPC boards, like Indowud, offer better durability, water resistance, and eco-friendliness than PVC. While PVC is cheaper, Indowud — a zero-wood, sustainable WPC alternative — is termite-resistant, long-lasting, and ideal for furniture, interiors, and outdoor applications.",
   },
   {
     q: "Which material is good for room partition?",
     a:
-      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+      "Indowud Jalli is an eco-friendly, zero-wood composite panel with a unique jalli texture. It’s durable, sustainable, and perfect for interior and exterior applications, offering both aesthetic appeal and strength.",
   },
   {
     q: "What are the benefits of NFC flutes wall panel?",
     a:
-      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+      " Indowud NFC flutes wall panels are lightweight, durable, and eco-friendly. They offer excellent sound insulation, thermal resistance, easy installation, and aesthetic appeal, making them ideal for modern, sustainable interior designs.",
   },
   {
     q: "How long does fire-retardant plywood last?",
