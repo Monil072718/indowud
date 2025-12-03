@@ -56,12 +56,6 @@ const SwiperSlider = dynamic(
                       className="object-cover transition duration-500 group-hover:scale-105"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
-                    <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 to-transparent px-4 py-3 text-white flex items-center justify-between">
-                      <span className="text-sm font-medium">
-                        {g.alt ?? "Project"}
-                      </span>
-                      <span className="text-xs opacity-90">Hover to view</span>
-                    </figcaption>
                   </figure>
                 </SwiperSlide>
               ))}
@@ -245,18 +239,6 @@ export default function ThermoformingPage() {
               className="mt-10"
             >
               <div className="relative">
-                <button
-                  aria-label="Previous"
-                  className={`thermo-prev-${uid} absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 shadow ring-1 ring-slate-200 px-3 py-2 hover:bg-white`}
-                >
-                  ‹
-                </button>
-                <button
-                  aria-label="Next"
-                  className={`thermo-next-${uid} absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 shadow ring-1 ring-slate-200 px-3 py-2 hover:bg-white`}
-                >
-                  ›
-                </button>
                 <SwiperSlider gallery={gallery} uid={uid} />
               </div>
             </motion.div>
