@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 
 import PageHeader from "@/components/common/PageHeader";
 
@@ -219,18 +219,7 @@ const Minus = () => (
 
 /* ----------------------------- Page ----------------------------- */
 export default function FAQPage() {
-  const [query, setQuery] = useState("");
   const [openIdx, setOpenIdx] = useState<number | null>(0); // first item open
-  const filtered = useMemo(
-    () =>
-      FAQS.filter(({ q }) =>
-        q.toLowerCase().includes(query.trim().toLowerCase())
-      ),
-    [query]
-  );
-
-  const expandAll = () => setOpenIdx(-1); // special marker for "all"
-  const collapseAll = () => setOpenIdx(null);
 
   return (
     <main className="min-h-screen bg-white">
@@ -241,41 +230,24 @@ export default function FAQPage() {
         description="Frequently Asked Questions about Indowud NFC."
       />
 
-      {/* Controls + Accordion */}
+      {/* Accordion */}
       <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search questions…"
-            className="w-full sm:w-64 rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-teal-500"
-          />
-          <div className="flex items-center gap-2">
-            <button onClick={expandAll} className="rounded-md border px-3 py-1.5 text-xs font-semibold hover:bg-zinc-50">
-              Expand all
-            </button>
-            <button onClick={collapseAll} className="rounded-md border px-3 py-1.5 text-xs font-semibold hover:bg-zinc-50">
-              Collapse all
-            </button>
-          </div>
-        </div>
-
         <div className="space-y-3">
-          {filtered.map((item, idx) => {
-            const isOpen = openIdx === -1 || openIdx === idx;
+          {FAQS.map((item, idx) => {
+            const isOpen = openIdx === idx;
             return (
               <div
                 key={idx}
                 className="overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition"
               >
                 <button
-                  onClick={() => setOpenIdx(isOpen && openIdx !== -1 ? null : idx)}
+                  onClick={() => setOpenIdx(isOpen ? null : idx)}
                   className="flex w-full items-center justify-between gap-4 px-4 py-3 text-left focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-inset"
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${idx}`}
                   id={`faq-question-${idx}`}
                 >
-                  <span className="text-sm font-semibold text-zinc-900">
+                  <span className="text-base sm:text-lg font-semibold text-zinc-900">
                     {item.q}
                   </span>
                   <span className="shrink-0 text-teal-700">
@@ -289,7 +261,7 @@ export default function FAQPage() {
                     id={`faq-answer-${idx}`}
                     role="region"
                     aria-labelledby={`faq-question-${idx}`}
-                    className="border-t border-zinc-200 bg-teal-50/60 px-4 py-3 text-[13px] leading-6 text-zinc-700"
+                    className="border-t border-zinc-200 bg-teal-50/60 px-4 py-3 text-sm sm:text-base leading-6 text-zinc-700"
                   >
                     {item.a}
                   </div>
@@ -297,12 +269,6 @@ export default function FAQPage() {
               </div>
             );
           })}
-
-          {filtered.length === 0 && (
-            <div className="rounded-xl border border-dashed border-zinc-300 p-6 text-center text-sm text-zinc-600">
-              No questions matched your search.
-            </div>
-          )}
         </div>
       </section>
     </main>
