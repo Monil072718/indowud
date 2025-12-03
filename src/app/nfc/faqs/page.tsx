@@ -121,37 +121,37 @@ const FAQS: FAQ[] = [
   {
     q: "Is there any colour options in nfc?",
     a:
-      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+      "Indowud nfc  is available in standard wood like brown colour. However, it is easy to paint and stain  nfc board as per the desired colour.",
   },
   {
     q: "What makes indowud a superior alternative to traditional wood-based panels?",
     a:
-      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+      "Indowud is eco-friendly, durable, termite-proof, and moisture-resistant. It is a zero-wood product, offering a sustainable alternative to plywood and MDF.",
   },
   {
     q: "How is indowud contributing to environmental sustainability?",
     a:
-      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+      "Indowud uses zero wood, helping to reduce deforestation. It’s made from recycled materials and supports eco-friendly construction practices.",
   },
   {
     q: "Is indowud suitable for both interior and exterior applications?",
     a:
-      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+      "Yes, Indowud is versatile and can be used for both interior and exterior furnishings, offering resistance to weather, moisture, and insects.",
   },
   {
     q: "Can indowud be customised for specific design needs?",
     a:
-      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+      "Yes, Indowud can be easily cut, shaped, and finished, making it customizable for various design and architectural requirements.",
   },
   {
     q: "What is Indowud NFC?",
     a:
-      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+      "Indowud NFC is a sustainable, zero-wood panel product designed for both interior and exterior furnishings, offering an eco-friendly alternative to plywood and MDF.",
   },
   {
     q: "Is indowud resistant to pests and moisture?",
     a:
-      "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended.",
+      "Yes, Indowud is highly resistant to pests, moisture, and rot, making it long-lasting and low-maintenance.",
   },
   {
     q: "Is indowud easy to install?",
