@@ -7,23 +7,11 @@ import { motion } from "framer-motion";
 import BlogCard, { BlogCardPost } from "@/components/sections/blog/BlogCard";
 import PageHeader from "@/components/common/PageHeader";
 
-/* ----------------------- mock fetcher (unchanged) ----------------------- */
+/* ----------------------- mock fetcher (swap with WP REST) ----------------------- */
+import { getAllPosts } from "@/lib/blog-data";
+
 function fetchBlogs(): BlogCardPost[] {
-  // Replace with your WP fetch (map to BlogCardPost)
-  return [
-    {
-      id: "1",
-      slug: "why-leading-architects-prefer-wpc-board",
-      title: "Why Leading Architects Prefer WPC Board Manufacturers Over Plywood Makers",
-      excerpt:
-        "Leading architects tend to choose WPC board manufacturers more often than plywood makers these days. Infact if they have to prioritise termite proofing, they go in for a better product- Indowud nfc .<br/><br/><strong class='text-slate-900 text-base'>What Is a WPC Board Manufacturer?</strong><br/><br/>A WPC board manufacturer runs a specialized operation. They make Wood Plastic Composite boards by mixing wood fibers with thermoplastic polymers. The process...",
-      cover:
-        "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=1200&q=60",
-      date: "2025-11-18",
-      readMins: 4,
-      tags: ["WPC", "Architecture"],
-    },
-  ];
+  return getAllPosts();
 }
 
 /* ------------------------------ Pagination UI ------------------------------ */

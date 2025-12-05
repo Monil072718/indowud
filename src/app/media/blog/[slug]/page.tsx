@@ -1,131 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
-import RelatedPosts from "../RelatedPosts";
-import type { BlogCardPost } from "@/components/sections/blog/BlogCard";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import BlogSidebar from "@/components/sections/blog/BlogSidebar";
+import { getPostBySlug, getAllPosts } from "@/lib/blog-data";
+import type { BlogCardPost } from "@/components/sections/blog/BlogCard";
 
-/* ---------------- MOCK FETCHERS (swap with WP REST) ---------------- */
-async function getPostBySlug(slug: string) {
-  return {
-    slug,
-    title: "Why Leading Architects Prefer WPC Board Manufacturers Over Plywood Makers",
-    author: { name: "Indowud Team" },
-    date: "2025-10-01",
-    readMins: 5,
-    cover: "https://images.pexels.com/photos/667838/pexels-photo-667838.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    html: `
-      <p>Leading architects tend to choose WPC board manufacturers more often than plywood makers these days. Infact if they have to prioritise termite proofing, they go in for a better product- Indowud nfc.</p>
-
-      <br/>
-      <strong>What Is a WPC Board Manufacturer?</strong>
-      <br/>
-      <p>A WPC board manufacturer runs a specialized operation. They make Wood Plastic Composite boards by mixing wood fibers with thermoplastic polymers. The process creates boards that look and feel like wood but bring none of wood's weaknesses. Plywood makers peel layers of wood and glue them together. While this has worked for years, getting consistent quality can be tough. Voids, knots, or weak spots often hide inside plywood sheets. With WPC boards, the density is uniform. Every inch is solid, giving architects confidence in every cut they make. The material doesn't split, crack, or warp easily either. It handles moisture, heat, and heavy loads better than even the best plywood.</p>
-
-      <br/>
-      <strong>The Architectural Shift From Traditional to Innovative</strong>
-      <br/>
-      <p>For years, plywood has been the standard choice for interiors. But as designs become more complex and sustainability becomes a focus, architects are looking for better materials. This is where WPC boards come in. They offer the workability of wood with the durability of plastic.</p>
-      <p>Architects love WPC boards because they allow for more creative freedom. They can be curved, routed, and shaped in ways that plywood can't. Plus, they come in a variety of colors and finishes, reducing the need for laminates or paint.</p>
-
-      <br/>
-      <strong>Quality Assurance: The Manufacturing Edge</strong>
-      <br/>
-
-      <br/>
-      <strong>Consistency That Plywood Can't Match</strong>
-      <br/>
-      <p>One big reason architects prefer WPC is the assurance of quality. When you buy a sheet of plywood, you don't always know what you're getting. There could be gaps in the layers, or the glue might not hold up over time. WPC boards are manufactured in a controlled environment. Every board is produced to exact specifications. This means no surprises on the job site.</p>
-      <p>Leading WPC board manufacturers use advanced technology to ensure that every board meets strict quality standards. This level of consistency is hard to find with plywood, which relies heavily on the quality of the timber used.</p>
-
-      <br/>
-      <strong>Advanced Testing Protocols</strong>
-      <br/>
-      <p>Reputable WPC manufacturers put their products through rigorous testing. They check for things like water absorption, screw holding capacity, and impact resistance. This data is crucial for architects who need to know how a material will perform in the real world. Plywood testing is often less comprehensive, leaving architects to guess how it will hold up in certain conditions.</p>
-      <p>With WPC, you get a product that has been engineered to perform. It's not just about looking good; it's about lasting longer and performing better.</p>
-
-      <br/>
-      <strong>Eco-Friendly: The Performance Promise</strong>
-      <br/>
-      <p>Sustainability is a huge topic in architecture right now. Clients want buildings that are eco-friendly and energy-efficient. WPC boards fit the bill perfectly. They are often made from recycled materials and are 100% recyclable. This makes them a much greener choice than plywood, which requires cutting down trees.</p>
-      <p>Using WPC boards can help projects earn LEED points and other green building certifications. This is a big plus for architects who are trying to build a reputation for sustainable design. Plus, because WPC boards are so durable, they don't need to be replaced as often, further reducing their environmental impact.</p>
-
-      <br/>
-      <strong>Termite Proof</strong>
-      <br/>
-      <p>Termites are a nightmare for any building owner. They can cause massive damage that is expensive to fix. Plywood is a feast for termites. Even treated plywood can eventually succumb to these pests. WPC boards, on the other hand, are completely termite-proof. The plastic content in the boards makes them unappealing to termites.</p>
-      <p>This is a huge selling point for architects. They can specify WPC boards knowing that they are protecting their clients from future headaches. It's a simple switch that can save a lot of money and stress down the road.</p>
-
-      <br/>
-      <strong>Conclusion</strong>
-      <br/>
-      <p>So, why are leading architects switching to WPC?</p>
-      <p>It comes down to a few key factors:</p>
-      <ul class="list-disc pl-5 space-y-2 mb-4">
-        <li><strong>Consistency:</strong> WPC boards are uniform and reliable.</li>
-        <li><strong>Durability:</strong> They resist water, heat, and termites better than plywood.</li>
-        <li><strong>Sustainability:</strong> They are an eco-friendly choice that appeals to modern clients.</li>
-        <li><strong>Versatility:</strong> They offer more design freedom than traditional materials.</li>
-      </ul>
-
-      <p>If you're an architect looking for a material that can keep up with your vision, it's time to look at WPC board manufacturers. They are producing the materials of the future, today.</p>
-      
-      <br/>
-      <strong>Are you ready to make the switch?</strong>
-      <br/>
-      <p>Contact Indowud NFC today to learn more about our premium WPC boards and how they can elevate your next project.</p>
-    `,
-    tags: ["WPC", "Architecture"],
-  };
-}
-
+/* ---------------- HELPER: Get Related Posts ---------------- */
 async function getRelatedPosts(
   currentSlug: string,
   tags: string[]
 ): Promise<BlogCardPost[]> {
-  const all: BlogCardPost[] = [
-    {
-      id: "2",
-      slug: "termite-proof-boards",
-      title: "Termite-Proof Boards vs Plywood",
-      excerpt: "Why engineered boards beat termites without toxic treatments.",
-      cover:
-        "https://images.pexels.com/photos/667838/pexels-photo-667838.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      date: "2025-09-25",
-      readMins: 5,
-      tags: ["Termite Proof", "NFC"],
-    },
-    {
-      id: "3",
-      slug: "waterproof-kitchen-bath",
-      title: "Boards for Kitchens & Bathrooms",
-      excerpt:
-        "High performance in wet zones without swelling or warping.",
-      cover:
-        "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      date: "2025-09-20",
-      readMins: 7,
-      tags: ["Moisture", "Sustainability"],
-    },
-    {
-      id: "4",
-      slug: "husk-vs-wood",
-      title: "Husk Panels vs Wood Panels: Which Should You Choose?",
-      excerpt:
-        "Cost, stability, maintenance, and sustainability compared.",
-      cover:
-        "https://images.pexels.com/photos/164010/pexels-photo-164010.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      date: "2025-09-12",
-      readMins: 8,
-      tags: ["Comparison", "NFC"],
-    },
-  ];
-
-  const tagset = new Set(tags);
-  return all
-    .filter(
-      (p) =>
-        p.slug !== currentSlug
-    )
+  const allPosts = getAllPosts();
+  
+  // Simple logic: filter out current post
+  // In a real app, you'd match tags
+  return allPosts
+    .filter((p) => p.slug !== currentSlug)
     .slice(0, 3);
 }
 
@@ -136,8 +26,16 @@ type PageProps = { params: Promise<Params> };
 /* ----------------------- generateMetadata (Next 15) ----------------------- */
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
+  const post = getPostBySlug(slug);
+  
+  if (!post) {
+    return {
+      title: "Post Not Found",
+    };
+  }
+
   return {
-    title: `Blog | ${slug}`,
+    title: `Blog | ${post.title}`,
   };
 }
 
@@ -145,7 +43,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function BlogPostPage({ params }: PageProps) {
     const { slug } = await params;
 
-    const post = await getPostBySlug(slug);
+    const post = getPostBySlug(slug);
+
+    if (!post) {
+      notFound();
+    }
+
     const related = await getRelatedPosts(slug, post.tags ?? []);
 
     return (
