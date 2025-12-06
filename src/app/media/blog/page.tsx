@@ -132,13 +132,6 @@ function BlogContent() {
       />
 
       <div className="mx-auto max-w-[1200px] px-4 py-12 md:py-20">
-        <div className="mb-6 flex items-center justify-between">
-          <span className="text-sm font-medium text-slate-500">
-            Showing {current.length > 0 ? start + 1 : 0}-
-            {Math.min(start + PAGE_SIZE, posts.length)} of {posts.length} posts
-          </span>
-        </div>
-
         {/* Grid (paginated) */}
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {current.map((p, i) => (

@@ -783,6 +783,256 @@ export const blogPosts: BlogPost[] = [
       <p>We are living in an era where sustainable, high-performance building materials are finally accessible. You don't have to choose between saving the planet and building a safe home. With Indowud NFC, you do both.</p>
       <p>Take the step. Upgrade your building standards. The future is safe, and it's here.</p>
     `
+  },
+  {
+    id: "13",
+    slug: "husk-boards-smarter-greener-alternative-furniture",
+    title: "Husk Boards: A Smarter, Greener Alternative for Furniture",
+    excerpt:
+      "Every harvest season, rice fields produce mountains of husk—the hard outer shell of the grain. For years, most of it was burned right there in the fields. And that’s when I first wondered—is there really no better use for all this waste? Turns out, there is. Today, manufacturers have found a way to press rice husk with...",
+    cover:
+      "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-09-18",
+    readMins: 5,
+    tags: ["Husk Boards", "Sustainable Furniture", "Indowud NFC"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>Every harvest season, rice fields produce mountains of husk—the hard outer shell of the grain. For years, most of it was burned right there in the fields. And that’s when I first wondered—is there really no better use for all this waste? Turns out, there is. Today, manufacturers have found a way to press rice husk with polymers to create boards that are stronger than wood and cleaner for the air.</p>
+
+      <br/>
+      <strong>From Smoke-Filled Skies to Smarter Solutions</strong>
+      <br/>
+      <p>Rice husk was once a headache for farmers. Now, it's a resource. By converting this agricultural waste into Indowud NFC boards, we are solving two problems at once: stopping the massive pollution caused by stubble burning and creating a sustainable alternative to plywood that doesn't require cutting down forests.</p>
+      <p>It is collective wisdom meeting modern innovation. The simple act of choosing these boards supports farmers, clears the air, and gives you a better product.</p>
+
+      <br/>
+      <strong>Why Waterproofing Actually Matters</strong>
+      <br/>
+      <p>Most furniture starts to rot when the mopping water touches the legs daily. Or when a pipe leaks in the kitchen. Wood sponges up water and swells. Husk boards, like Indowud NFC, are inherently waterproof. You could submerge them in water for years, and they wouldn't rot.</p>
+
+      <br/>
+      <strong>The End of the Termite Problem</strong>
+      <br/>
+      <p>If you have ever had termites, you know the panic of finding dust piles. Termites chew through wood and plywood because it contains cellulose they can eat. They cannot digest rice husk boards. It's a natural termite barrier that never needs chemical treatment. No poisons, no worries.</p>
+
+      <br/>
+      <strong>Eco-Friendly Without Compromise</strong>
+      <br/>
+      <p>Green building materials often get a bad rap for being weak or expensive. Husk boards flip the script. They are affordable and outperform traditional materials.</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Flame Retardant:</strong> They don't spread fire like wood does.</li>
+        <li><strong>Screw Holding:</strong> You can drive a screw right into the edge, and it holds tight.</li>
+        <li><strong>VOC Free:</strong> No harmful fumes in your home. Safe for kids and pets.</li>
+        <li><strong>Thermoformable:</strong> Architects can bend them into curves for unique designs.</li>
+      </ul>
+
+      <br/>
+      <strong>A Material for Every Space</strong>
+      <br/>
+      <p>These boards are versatile enough for any project you can dream up:</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li>Creative wardrobes with curved doors</li>
+        <li>Bathroom vanities that defy moisture (and rot)</li>
+        <li>Kitchen cabinets that stay hygienic</li>
+        <li>Outdoor decking that handles rain and sun</li>
+        <li>Wall cladding that creates texture and warmth</li>
+      </ul>
+
+      <br/>
+      <strong>Designed, Tested, Trusted</strong>
+      <br/>
+      <p>For professionals, specs matter. Indowud NFC provides boards in consistent densities, perfect thickness, and calibrated surfaces. It means your tools work better, your finishes look sharper, and your clients stay happier.</p>
+      <p>Indowud NFC is RoHS certified, meaning it is free from hazardous substances like lead, mercury, or cadmium.</p>
+
+      <br/>
+      <strong>Frequently Asked Questions</strong>
+      <br/>
+      <p><strong>Q: Are husk boards as strong as plywood?</strong><br/>
+      A: Yes, they often have higher density and screw holding capacity than commercial ply.</p>
+      <p><strong>Q: Can I stick laminates on them?</strong><br/>
+      A: Easily. You can use standard adhesives like Fevicol. They also take PU paint and Duco paint perfectly.</p>
+      <p><strong>Q: How does it help the environment?</strong><br/>
+      A: Every board prevents crop burning, saves trees from being cut, and is 100% recyclable. It's a true circular economy product.</p>
+
+      <br/>
+      <strong>Looking Ahead</strong>
+      <br/>
+      <p>Choosing the right material is the first step in designing a home that lasts. Husk boards aren't just an alternative; they are an upgrade. They solve the age-old problems of wood—termites, water, and rot—while keeping the earth green.</p>
+      <p>So, the next time you plan a piece of furniture, ask yourself: Why cut a tree when you can use the husk? It's smarter, stronger, and greener.</p>
+    `
+  },
+  {
+    id: "14",
+    slug: "husk-panels-vs-wood-panels-which-should-you-choose",
+    title: "Husk Panels vs. Wood Panels: Which Should You Choose?",
+    excerpt:
+      "When the world saw photos of various latest residential projects in Texas, proudly showing off the husk panels Architects used for the interior walls. Immediate reaction of witnesses? \"But it's not real wood!\" And honestly? The more people learned about husk panels versus traditional wood panels, the more I realized we've all been asking the wrong questions about building materials. If you're...",
+    cover:
+      "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-09-17",
+    readMins: 7,
+    tags: ["Husk Panels", "Wood Alternatives", "Comparison", "Indowud NFC"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>When the world saw photos of various latest residential projects in Texas, proudly showing off the husk panels Architects used for the interior walls. Immediate reaction of witnesses? "But it's not real wood!" And honestly? The more people learned about husk panels versus traditional wood panels, the more I realized we've all been asking the wrong questions about building materials. If you're selecting materials for your next project, you deserve to know exactly what you are investing in. Let's break it down.</p>
+
+      <br/>
+      <strong>The Wake-Up Call People Barely See Coming</strong>
+      <br/>
+      <p>When builders discovered the durability of husk panels compared to wood, it wasn't just a minor improvement; it was a revolution. Here is something no one tells you: plywood starts to rot much faster than you think, primarily because it absorbs moisture. Husk panels simply don't.</p>
+
+      <br/>
+      <strong>What Exactly Are Husk Panels Anyway?</strong>
+      <br/>
+      <p>Husk panels are born from rice husks—the tough outer shells of grain—pressed with eco-friendly polymers to create a board that rivals the strongest wood species on earth. Same look, better performance.</p>
+      <p>The secret is in the unique composition. They eliminate the problems wood possesses (termites, rot, warping) but keep the natural aesthetic we all love. It is not synthetically cold; it is organically strong.</p>
+
+      <br/>
+      <strong>The Real Performance Battle: Husk Panels vs Wood Panels</strong>
+      <br/>
+      <p>Wood panels have been the gold standard for decades. The problem? Nature wins. Weather changes, termites attack, and dampness seeps in. Wood eventually loses.</p>
+      <p>Indowud NFC husk panels rewrite the rules. They laugh at moisture. Termites can’t digest them. They stay straight and true, year after year.</p>
+
+      <br/>
+      <strong>The Sustainability Question That Saves Us All</strong>
+      <br/>
+      <p>Using wood panels means trees are cut. Using husk panels means farm waste is upcycled. It stops stubble burning, saves forests, and reduces carbon footprints. It's a clearer choice. One depletes nature; the other protects it.</p>
+
+      <br/>
+      <strong>Comparison Table: The Numbers Don't Lie</strong>
+      <br/>
+      <div class="overflow-x-auto my-6">
+        <table class="min-w-full divide-y divide-slate-200 border border-slate-200 rounded-lg">
+          <thead class="bg-slate-50">
+            <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Feature</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Husk Panels (Indowud NFC)</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Wood Panels</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-slate-200">
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Water Resistance</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">100% Waterproof</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Swells/Rots with moisture</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Termite Attack</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">100% Termite Proof</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Yes, requires chemicals</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Eco-Friendly</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Prevents deforestation</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Depletes forests</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Maintenance</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Zero maintenance needed</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Regular polishing needed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <br/>
+      <strong>The Honest Truth About Aesthetics</strong>
+      <br/>
+      <p>Some purists say nothing beats wood. Only true until you see Indowud NFC. It captures the warm textures and grains of wood perfectly, without the knots and imperfections. You get the consistent premium look, and it stays that way. No fading, no peeling.</p>
+
+      <br/>
+      <strong>Why Builders Are Quietly Making the Switch</strong>
+      <br/>
+      <p>Smart builders hate callbacks. They hate fixing warped doors or rotting cabinets. That's why they are switching to husk panels. They install it once, and forget it. It's the 'peace of mind' material.</p>
+
+      <br/>
+      <strong>The Real World Applications That Matter</strong>
+      <br/>
+      <p>Indowud NFC isn't just a niche product; it's replacing wood panels everywhere:</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Interior Wall Paneling:</strong> For walls that stay pristine.</li>
+        <li><strong>Outdoor Facades:</strong> Handles sun and rain without fading.</li>
+        <li><strong>Doors and Windows:</strong> Say goodbye to swelling frames.</li>
+        <li><strong>Commercial Spaces:</strong> Durable enough for high traffic areas.</li>
+      </ul>
+
+      <br/>
+      <strong>The Future Is Not Coming</strong>
+      <br/>
+      <p>It is already here. Husk panels will be the norm in a few years, and wood will be the archaic, expensive option. Be ahead of the curve. Choosing husk panels isn't just smart; it's essential.</p>
+    `
+  },
+  {
+    id: "15",
+    slug: "rice-husk-boards-future-of-eco-friendly-furniture",
+    title: "Rice Husk Boards: The Future of Eco-Friendly Furniture",
+    excerpt:
+      "Rice husk Boards are exactly what they sound like—boards made from the humble outer shell of rice grains, that stuff most farmers used to burn off in the fields. Sounds almost too simple, right? But here's the twist: these panels are quietly rewriting the story of modern interiors, eco-friendly furniture, and wood panel replacements in a way that makes me wonder...",
+    cover:
+      "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-09-16",
+    readMins: 6,
+    tags: ["Rice Husk Boards", "Eco-Friendly", "Furniture", "Indowud NFC"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>Rice husk Boards are exactly what they sound like—boards made from the humble outer shell of rice grains, that stuff most farmers used to burn off in the fields. Sounds almost too simple, right? But here's the twist: these panels are quietly rewriting the story of modern interiors, eco-friendly furniture, and wood panel replacements in a way that makes me wonder why we didn't start doing this decades ago.</p>
+
+      <br/>
+      <strong>Why rice husk? Isn't that just farm waste? Indowud NFC changes the narrative</strong>
+      <br/>
+      <p>For decades, farmers burned mountains of husks after harvest, choking the air with smoke. It was a disposal problem. Then material scientists found that rice husk is naturally rich in silica—the same stuff that makes glass hard. Press it with eco-friendly polymers, and you don't just get a recycled block; you get a beast of a material.</p>
+      <p>Best part? It behaves like wood, feels like wood, but holds up where wood often gives up. It loves being cut, screwed, and painted. But it hates termites, moisture, and fire. And that, my friends, is a winning combination for any home.</p>
+
+      <br/>
+      <strong>Why Architects are switching from wood</strong>
+      <br/>
+      <p>It is hard to break habits. We love wood. But we hate what wood does—rot, swell, warp, and get eaten by bugs. Architects are pragmatic. They want materials that look good on day 1 and still look good on day 1000. Indowud NFC is fitting that bill perfectly. It's stable, consistent, and frankly, easier to work with than knotted, unpredictable timber.</p>
+      <p>Plus, green building is not just a buzzword anymore; it's the requirement. Clients request it. Regulations demand it. Using a board made from agrowaste is a legitimate badge of honor for any project.</p>
+
+      <br/>
+      <strong>So, what makes Indowud NFC - Rice husk panels different?</strong>
+      <br/>
+      <p>Here is what happens when you swap that plywood or MDF sheet for a rice husk board in your next project:</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Termites ignore it:</strong> Seriously. It has no cellulose in a form they can eat.</li>
+        <li><strong>You stop worrying about water:</strong> Kitchen sink leaks? Mopping daily? No problem. Use it in bathrooms and wash areas.</li>
+        <li><strong>Flame retardant:</strong> It doesn't fuel a fire like dry wood does. Safety first.</li>
+        <li><strong>Screw holding power:</strong> Drive a screw into the edge, and it holds tight. Carpenters love this.</li>
+      </ul>
+      <p>And yes, it is 100% recyclable. Zero waste mindset.</p>
+
+      <br/>
+      <strong>Did I ask about money? Because everyone does.</strong>
+      <br/>
+      <p>Good stuff usually costs more, right? Well, think about lifetime value. "Buy cheap and replace often" vs "Buy once and it lasts".</p>
+      <p>Plywood has layers; it peels. MDF swells; it crumbles. Rice husk boards are solid and homogeneous. Think of it as an investment in peace of mind. You aren't paying for the board; you are paying to never repair that cabinet again. In the long run, it is actually cheaper.</p>
+      <p>And it saves on other materials too—no need for extra primers or expensive pest control chemicals every few years. That adds up.</p>
+
+      <br/>
+      <strong>Eco-friendly furniture made from Indowud NFC that actually feels good</strong>
+      <br/>
+      <p>Have you touched a piece of furniture made from Indowud NFC? It is solid. It has a nice weight to it. It doesn't feel plastic or hollow. It takes laminates, veneers, and paints beautifully. You can make wardrobes, cabinets, partitions, wall paneling, and even intricate CNC designs.</p>
+      <p>And knowing your new wardrobe saved a few trees and prevented 100kgs of agricultural waste from being burned in a field? That feels pretty good too.</p>
+
+      <br/>
+      <strong>From farm waste to fine interiors</strong>
+      <br/>
+      <p>Every board represents a cycle. From the soil, to the grain, to the husk, to your home. It creates a connection to the land without taking from it. We are utilizing what was once discarded to create environments that are modern, beautiful, and responsible.</p>
+      <p>An architect friend recently said to me while designing a hotel project, "Using Indowud NFC felt like I was cheating the system. I was getting a better material, but I was also ticking all the 'green' boxes for the client." That is the sweet spot right there.</p>
+
+      <br/>
+      <strong>Are Rice husk panels the future?</strong>
+      <br/>
+      <p>Unless we start growing trees faster than we cut them down (spoiler: we aren't), the answer is a resounding YES. We need alternatives. But we don't want alternatives that are compromises. We want upgrades.</p>
+      <p>Indowud NFC is that upgrade. It makes sense for the builder, makes sense for the homeowner, and makes sense for the planet. It is logical, it is practical, and it is here.</p>
+
+      <br/>
+      <strong>Final Note</strong>
+      <br/>
+      <p>Next time you are selecting materials for that new kitchen or dream home, pause. Ask to see a sample of Indowud NFC. Feel the texture. Test it. Ask the hard questions.</p>
+      <p>If you want interiors that last, sometimes the answer isn't in the forest—it's in the field. And that is a beautiful thing.</p>
+      <p>Be a part of a smarter, greener future. Choose Indowud NFC for your next project.</p>
+    `
   }
 ];
 
