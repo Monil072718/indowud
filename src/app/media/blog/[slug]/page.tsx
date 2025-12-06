@@ -2,22 +2,9 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import BlogSidebar from "@/components/sections/blog/BlogSidebar";
-import { getPostBySlug, getAllPosts } from "@/lib/blog-data";
-import type { BlogCardPost } from "@/components/sections/blog/BlogCard";
+import { getPostBySlug } from "@/lib/blog-data";
 
-/* ---------------- HELPER: Get Related Posts ---------------- */
-async function getRelatedPosts(
-  currentSlug: string,
-  tags: string[]
-): Promise<BlogCardPost[]> {
-  const allPosts = getAllPosts();
-  
-  // Simple logic: filter out current post
-  // In a real app, you'd match tags
-  return allPosts
-    .filter((p) => p.slug !== currentSlug)
-    .slice(0, 3);
-}
+
 
 /* ------------------------------- TYPES ------------------------------- */
 type Params = { slug: string };
@@ -49,7 +36,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       notFound();
     }
 
-    const related = await getRelatedPosts(slug, post.tags ?? []);
+
 
     return (
       <div className="min-h-screen bg-slate-50/30">
