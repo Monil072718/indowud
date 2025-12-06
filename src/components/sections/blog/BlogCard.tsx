@@ -19,11 +19,14 @@ export type BlogCardPost = {
 function BlogCard({
   post,
   i = 0,
+  variant = "default",
 }: {
   post: BlogCardPost;
   i?: number;
+  variant?: "default" | "compact";
 }) {
   const href = `/media/blog/${post.slug}`;
+  const isCompact = variant === "compact";
 
   return (
     <motion.article
@@ -31,7 +34,9 @@ function BlogCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.4, delay: i * 0.1 }}
-      className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition-shadow hover:shadow-md"
+      className={`group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition-shadow hover:shadow-md ${
+        isCompact ? "max-w-sm" : ""
+      }`}
     >
       {/* Image Section */}
       <Link href={href} className="relative block aspect-[16/10] w-full overflow-hidden bg-slate-100">
@@ -45,7 +50,7 @@ function BlogCard({
       </Link>
 
       {/* Content Section */}
-      <div className="flex flex-1 flex-col p-6">
+      <div className={`flex flex-1 flex-col ${isCompact ? "p-4" : "p-6"}`}>
         {/* Meta Row: Tag & Date */}
         <div className="mb-4 flex items-center justify-between">
           {post.tags?.[0] && (
@@ -64,16 +69,22 @@ function BlogCard({
 
         {/* Title */}
         <Link href={href} className="group/title block">
-          <h3 className="mb-3 text-xl font-bold leading-tight text-slate-900 transition-colors group-hover/title:text-emerald-700">
+          <h3
+            className={`mb-3 font-bold leading-tight text-slate-900 transition-colors group-hover/title:text-emerald-700 ${
+              isCompact ? "text-lg" : "text-xl"
+            }`}
+          >
             {post.title}
           </h3>
         </Link>
 
         {/* Excerpt */}
-        <div
-          className="mb-6 flex-1 text-sm leading-relaxed text-slate-600 whitespace-pre-line"
-          dangerouslySetInnerHTML={{ __html: post.excerpt }}
-        />
+        {!isCompact && (
+          <div
+            className="mb-6 flex-1 text-sm leading-relaxed text-slate-600 whitespace-pre-line"
+            dangerouslySetInnerHTML={{ __html: post.excerpt }}
+          />
+        )}
 
         {/* Footer: Read Time & Read More */}
         <div className="flex items-center justify-between border-t border-slate-100 pt-4">
