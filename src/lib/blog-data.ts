@@ -604,7 +604,7 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export function getAllPosts(): BlogCardPost[] {
-  return blogPosts.map(({ html, author, ...rest }) => rest);
+  return blogPosts.map(({ html: _html, author: _author, ...rest }) => rest);
 }
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
