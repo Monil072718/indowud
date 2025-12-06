@@ -730,6 +730,59 @@ export const blogPosts: BlogPost[] = [
       <p>We are living in an era where sustainable, high-performance building materials are finally accessible. You don't have to choose between saving the planet and building a strong home. With Indowud NFC, you do both.</p>
       <p>Take the step. Upgrade your building standards. The future is waterproof, and it's here.</p>
     `
+  },
+  {
+    id: "12",
+    slug: "fire-retardant-boards-safer-homes-offices",
+    title: "Fire Retardant Boards for Safer Homes & Offices",
+    excerpt:
+      "Construction professionals worldwide are facing an uncomfortable truth – traditional building materials are failing when it matters most. The devastating high-rise fires in London, Dubai, and São Paulo weren't just tragedies; they were wake-up calls about how quickly fire retardant failures can turn buildings into death traps. Yet here's the paradox: while building codes get stricter, many architects and builders...",
+    cover:
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-09-19",
+    readMins: 5,
+    tags: ["Fire Retardant", "Safety", "Indowud NFC"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>Construction professionals worldwide are facing an uncomfortable truth – traditional building materials are failing when it matters most. The devastating high-rise fires in London, Dubai, and São Paulo weren't just tragedies; they were wake-up calls about how quickly fire retardant failures can turn buildings into death traps. Yet here's the paradox: while building codes get stricter, many architects and builders still default to materials that are essentially fuel for the fire.</p>
+
+      <br/>
+      <strong>The Fire Retardant Reality Check Nobody Wants to Face</strong>
+      <br/>
+      <p>The scary truth is that most "fire-resistant" plywood is only treated on the surface. Cut it, sand it, or let it age, and that resistance fades. Real fire safety needs to be built into the core of the material itself. This is where Indowud NFC changes the game. It is self-extinguishing by nature, meaning it doesn't just resist catching fire—it actively stops it from spreading.</p>
+
+      <br/>
+      <strong>Self-Extinguishing Fire Retardant Materials That Actually Work - Indowud NFC</strong>
+      <br/>
+      <p>Our boards are engineered to be the first line of defense in fire safety. Here is how they work:</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>High-rise residential buildings:</strong> Where evacuation times are long, using slow-burning materials can mean the difference between life and death.</li>
+        <li><strong>Commercial office furniture:</strong> Open floor plans spread fire fast. Fire-retardant partitions slow it down.</li>
+        <li><strong>Public institutions:</strong> Schools and hospitals need the highest safety standards. Indowud NFC meets them.</li>
+        <li><strong>Kitchens and pantries:</strong> Areas with open flames are high-risk. Our boards don't catch fire even if a stove flare-up occurs.</li>
+      </ul>
+
+      <br/>
+      <strong>Breaking Down the Sustainability Story of Indowud NFC That Actually Adds Value</strong>
+      <br/>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li>It utilizes agricultural waste (rice husks), preventing stubble burning and reducing air pollution.</li>
+        <li>It is 100% recyclable, meaning it never needs to end up in a landfill.</li>
+        <li>It saves trees, reducing the pressure on our forests.</li>
+        <li>VOC-free and Lead-free: It makes for a healthier indoor environment for your family. No toxic smoke release during a fire.</li>
+      </ul>
+
+      <br/>
+      <strong>The Economic Reality of Upgrading to Waterproof Boards</strong>
+      <br/>
+      <p>Safety is often seen as an extra cost, but it's actually an investment. Fire damage costs billions every year. Using fire-retardant materials reduces insurance premiums and protects your asset from total loss.</p>
+
+      <br/>
+      <strong>Making the Switch: Why Now Makes Sense</strong>
+      <br/>
+      <p>We are living in an era where sustainable, high-performance building materials are finally accessible. You don't have to choose between saving the planet and building a safe home. With Indowud NFC, you do both.</p>
+      <p>Take the step. Upgrade your building standards. The future is safe, and it's here.</p>
+    `
   }
 ];
 
