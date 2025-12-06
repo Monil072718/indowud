@@ -600,6 +600,136 @@ export const blogPosts: BlogPost[] = [
       <p>Green furniture is the future. And rice husk panels are the star of the show. They are tough, beautiful, and kind to the earth. Why settle for less when you can have the best?</p>
       <p>Make the switch today. Your home will thank you. The planet will thank you.</p>
     `
+  },
+  {
+    id: "10",
+    slug: "termite-proof-boards-best-alternative-plywood",
+    title: "Termite-Proof Boards: The Best Alternative to Plywood",
+    excerpt:
+      "You know that moment when you're half-awake, shuffling to the kitchen for your morning coffee fix, and you open the cabinet door only to find... sawdust? Little piles of it, like someone's been doing woodwork in your kitchen overnight. That's when your stomach drops. You give the cabinet door a tap—please don't be hollow, please don't be hollow—but that dull,...",
+    cover:
+      "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-09-29",
+    readMins: 5,
+    tags: ["Termite-Proof Boards", "Kitchens", "Bathrooms"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>You know that moment when you're half-awake, shuffling to the kitchen for your morning coffee fix, and you open the cabinet door only to find... sawdust? Little piles of it, like someone's been doing woodwork in your kitchen overnight. That's when your stomach drops. You give the cabinet door a tap—please don't be hollow, please don't be hollow—but that dull, hollow thud confirms your worst fears.</p>
+      <p>It's termites. Again.</p>
+
+      <br/>
+      <strong>The Termite Problem That's Eating Away at Our Homes</strong>
+      <br/>
+      <p>Termites are silent destroyers. They start small, maybe a little bit of dust here or a stuck drawer there. But before you know it, they've built a colony inside your walls and cabinets, eating you out of house and home—literally. Traditional plywood, even the "termite-resistant" kind, is basically an all-you-can-eat buffet for them. Chemical treatments fade, and moisture opens the door for these pests to move right in.</p>
+
+      <br/>
+      <strong>Enter Termite-Proof Boards: The Game Changer Nobody Saw Coming - Indowud NFC</strong>
+      <br/>
+      <p>This is where things get interesting. We aren't just talking about better plywood. We are talking about an entirely different material: Indowud NFC (Natural Fibre Composite). These boards are designed from the ground up to be completely unappealing to termites.</p>
+      <p>How? Because they don't contain the wood cellulose that termites crave in the same accessible way. Instead, they are made from agricultural residues like rice husks mixed with polymers. The result is a board that termites literally cannot eat. It's not poison; it's just not food to them. That means your kitchen cabinets stay solid, safe, and sawdust-free forever.</p>
+
+      <br/>
+      <strong>The Eco-Friendly Furniture Revolution That Actually Makes Sense</strong>
+      <br/>
+      <p>Indowud NFC follows a circular economy model. It uses rice husks—a common farm waste product that usually gets burned, causing air pollution. By turning this "waste" into premium building material, we stop the burning and save trees at the same time. It's a win-win.</p>
+      <p>But eco-friendly doesn't mean soft or weak. These boards are tough. They are waterproof, fire-retardant, and hold screws tighter than plywood. It's the sustainable choice that actually performs better than the unsustainable one.</p>
+
+      <br/>
+      <strong>Real-World Applications That Prove the Point</strong>
+      <br/>
+      <p>Termite-proof boards aren't just for labs; they are working in real homes right now.</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Kitchens:</strong> Areas prone to moisture are termite magnets. Indowud NFC stops them cold.</li>
+        <li><strong>Bathrooms:</strong> High humidity usually ruins wood and invites pests. These boards handle it perfectly.</li>
+        <li><strong>Wardrobes:</strong> Keep your expensive clothes safe from pests that chew through the back panels.</li>
+        <li><strong>Outdoor Furniture:</strong> Rain or shine, these boards won't rot or get eaten.</li>
+      </ul>
+
+      <br/>
+      <strong>Key Configuration Standards</strong>
+      <br/>
+      <p>Indowud NFC boards come in standard sizes just like plywood (8ft x 4ft), making them easy to switch to. They are available in various thicknesses (6mm to 25mm) and densities to suit different needs, from heavy-duty structural use to lightweight paneling. You can cut, drill, and route them with standard carpentry tools, so your contractor won't need new equipment.</p>
+
+      <br/>
+      <strong>Frequently Asked Questions About Termite-Proof Boards</strong>
+      <br/>
+      <p><strong>Q: Do termite-proof boards cost more than plywood?</strong><br/>
+      A: The initial cost might be slightly higher than cheap plywood, but it's comparable to high-quality marine ply. When you factor in that you'll never need to replace it due to termites or rot, it's much cheaper in the long run.</p>
+      <p><strong>Q: Can I paint or laminate them?</strong><br/>
+      A: Absolutely. They take paint, varnish, and laminates beautifully. In fact, due to the calibrated surface, you often need less primer and get a smoother finish.</p>
+      <p><strong>Q: Where can we get Indowud NFC?</strong><br/>
+      A: Indowud NFC is available across major cities in India through our network of dealers. Contact us to find the store nearest you.</p>
+
+      <br/>
+      <strong>The Real Takeaway</strong>
+      <br/>
+      <p>Stop feeding the termites. Switch to a material that protects your home and the planet. Indowud NFC isn't just a board; it's peace of mind.</p>
+    `
+  },
+  {
+    id: "11",
+    slug: "waterproof-boards-kitchens-bathrooms",
+    title: "Waterproof Boards for Kitchens and Bathrooms",
+    excerpt:
+      "Waterproof boards such as Indowud nfc have become the unsung heroes of modern construction, transforming how architects and builders approach wet areas. Unlike conventional materials that merely resist moisture for a while before eventually succumbing, truly waterproof boards like Indowud nfc create an impenetrable barrier that is durable.",
+    cover:
+      "https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-09-20",
+    readMins: 6,
+    tags: ["Waterproof Boards", "Kitchens", "Bathrooms"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>Waterproof boards such as Indowud nfc have become the unsung heroes of modern construction, transforming how architects and builders approach wet areas. Unlike conventional materials that merely resist moisture for a while before eventually succumbing, truly waterproof boards like Indowud nfc create an impenetrable barrier that is durable.</p>
+
+      <br/>
+      <strong>Why Your Regular Plywood is Basically Expensive Kindling (When Wet)</strong>
+      <br/>
+      <p>Here's an uncomfortable truth: most "water-resistant" plywood is only resistant until it isn't. Once moisture gets past the initial barrier—whether through a crack, a screw hole, or just high humidity over time—it starts to rot from the inside out. Layers delaminate, strength is lost, and before you know it, your expensive kitchen cabinets are sagging and smelling musty.</p>
+
+      <br/>
+      <strong>The Long-Term Mindset Change That's Changing Construction</strong>
+      <br/>
+      <p>Modern construction isn't just about building fast; it's about building to last. The mindset has shifted from "what's cheapest now" to "what will last the longest." Waterproof boards are at the center of this shift. They offer a solution that doesn't just delay water damage—it prevents it entirely.</p>
+      <p>It's a simple equation: invest in better materials now, and save huge amounts on repairs and replacements later. For homeowners and developers alike, this mathematical certainty is driving the adoption of Indowud NFC.</p>
+
+      <br/>
+      <strong>Use Cases Where Waterproof Boards Totally Matter</strong>
+      <br/>
+      <p>Smart builders know exactly where to use Indowud NFC for maximum impact:</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Renovating bathrooms:</strong> Vanities constantly exposed to moisture need material that won't warp.</li>
+        <li><strong>Modular kitchens:</strong> Under-sink cabinets are high-risk zones. NFC boards keep them safe.</li>
+        <li><strong>Outdoor furniture:</strong> Rain and sun destroy wood. Indowud NFC handles the elements effortlessly.</li>
+        <li><strong>Coastal properties:</strong> Salt air and high humidity eat traditional materials. NFC boards are immune.</li>
+      </ul>
+
+      <br/>
+      <strong>The Real Tech Revolution Nobody Saw Coming</strong>
+      <br/>
+      <p>Indowud NFC represents a quantum leap in material science. By combining natural fibers with high-grade polymers, we've created a material that gives you the best of both worlds: the workability of wood and the durability of plastic. It looks and feels premium but acts like a fortress against nature.</p>
+      <p>This isn't just about water. It's about stability. These boards don't expand and contract wildly with temperature changes, meaning your joinery stays tight and your paint finishes stay smooth.</p>
+
+      <br/>
+      <strong>Breaking Down the Sustainability Story of Indowud nfc That Actually Adds Value</strong>
+      <br/>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li>It utilizes agricultural waste (rice husks), preventing stubble burning and reducing air pollution.</li>
+        <li>It is 100% recyclable, meaning it never needs to end up in a landfill.</li>
+        <li>It saves trees, reducing the pressure on our forests.</li>
+        <li>VOC-free and Lead-free: It makes for a healthier indoor environment for your family.</li>
+      </ul>
+
+      <br/>
+      <strong>The Economic Reality of Upgrading to Waterproof Boards</strong>
+      <br/>
+      <p>The math is simple. If you have to replace your kitchen cabinets every 10 years because of water damage, you are paying double. If you use Indowud NFC, you build it once, and it lasts a lifetime. The "higher" initial cost is actually a massive saving over time.</p>
+
+      <br/>
+      <strong>Making the Switch: Why Now Makes Sense</strong>
+      <br/>
+      <p>We are living in an era where sustainable, high-performance building materials are finally accessible. You don't have to choose between saving the planet and building a strong home. With Indowud NFC, you do both.</p>
+      <p>Take the step. Upgrade your building standards. The future is waterproof, and it's here.</p>
+    `
   }
 ];
 
