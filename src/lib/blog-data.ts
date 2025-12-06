@@ -340,6 +340,266 @@ export const blogPosts: BlogPost[] = [
       <p>A trusted WPC board manufacturer is a partner in your project's success. They provide high-quality, durable, and eco-friendly materials. You get better value for your money and a result that looks great and lasts longer.</p>
       <p>When choosing a supplier, look for experience, certifications, and a commitment to quality. Indowud NFC checks all these boxes. They offer a superior alternative to plywood and standard WPC. Make the smart choice for your next project.</p>
     `
+  },
+  {
+    id: "6",
+    slug: "furniture-boards-explained-smart-alternative-traditional-wood",
+    title: "Furniture Boards Explained. A Smart Alternative to Traditional Wood.",
+    excerpt:
+      "People still picture natural wood when they think about making furniture. Furniture boards like Indowud nfc stand out now as a clever choice over old school wood. They bring strength along with good looks and eco benefits all packed together. Indowud NFC counts as one top example in this shift toward better options. It uses rice husk mostly to turn farm...",
+    cover:
+      "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-11-13",
+    readMins: 4,
+    tags: ["Furniture boards"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>People still picture natural wood when they think about making furniture. Furniture boards like Indowud nfc stand out now as a clever choice over old school wood. They bring strength along with good looks and eco benefits all packed together. Indowud NFC counts as one top example in this shift toward better options. It uses rice husk mostly to turn farm waste into premium boards. You get a material that fights off termites, water, and wear without trouble.</p>
+
+      <br/>
+      <strong>What Furniture Boards Are and Why They Count</strong>
+      <br/>
+      <p>Furniture boards mean human-made panels. You find them used often for cupboards, tables, and shelves. They mix wood bits, fibers, or other stuff with glues to form strong sheets. Makers press them under heat to build solid layers. This method creates boards that stay straight and don't warp like raw wood does. They cost less and work easier than timber. That is why homes and offices pick them for modern interiors. You find types like MDF, particle board, and plywood. But newer ones like NFC boards take the lead now.</p>
+
+      <br/>
+      <strong>Termite-Proof, Water-Resistant, and Built to Last: Structure Boards</strong>
+      <br/>
+      <p>Indowud NFC boards bring huge perks. They fight off termites completely. This matters a lot in warm, damp places. Termites eat through wood fast. But they can't touch these boards.</p>
+      <p>Water damage happens often with wood. It swells and rots. These boards resist water. You can use them in kitchens or bathrooms without worry. They stay strong for years.</p>
+      <p>They also handle heat well. Fire safety is key. These boards don't catch fire easily. It adds a layer of safety to your home.</p>
+
+      <br/>
+      <strong>Eco-Friendly Choice for a Better Future</strong>
+      <br/>
+      <p>We all care about the planet. Cutting down trees hurts nature. Furniture boards use less wood. Some, like Indowud NFC, use no wood at all. They use farm waste. This saves trees and stops waste burning. It is a clean, green choice.</p>
+      <p>Also, they don't use bad chemicals. Some glues in plywood release harmful gases. These boards are safe for your family. You breathe clean air inside your home.</p>
+
+      <br/>
+      <strong>Why Old School Wood is Not the Best Pick</strong>
+      <br/>
+      <p>Solid wood looks great. But it has problems. It costs a lot. It cracks and warps. It needs polish often. Termites love it.</p>
+      <p>Furniture boards solve these issues. They look like wood but act better. They are tough. They don't need much care. You wipe them clean. That is it. They stay new for a long time.</p>
+
+      <br/>
+      <strong>Architects and Designers Take to the Shift with Textured Boards</strong>
+      <br/>
+      <p>Design pros love these boards. They come in many textures and colors. You can paint them, laminate them, or print on them.</p>
+      <p>You can cut them into shapes. They hold screws tight. You can make fancy furniture. It gives freedom to design. You can create modern, sleek looks.</p>
+
+      <br/>
+      <strong>Best Use Cases for Furniture Boards</strong>
+      <br/>
+      <p>You can use them almost anywhere. They fit big projects and small homes.</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Kitchens:</strong> Cabinets, shelves, and counters. They handle water and heat well.</li>
+        <li><strong>Wardrobes:</strong> They keep clothes safe from dampness and pests.</li>
+        <li><strong>Wall Paneling:</strong> They make walls look great. They hide wires and damp spots.</li>
+        <li><strong>Office Furniture:</strong> Desks, tables, and partitions. They look professional and last long.</li>
+        <li><strong>Bathroom Vanities:</strong> They don't rot in wet areas.</li>
+      </ul>
+      <p>They work for outside too. You can use them for cladding and gates. They stand up to sun and rain.</p>
+
+      <br/>
+      <strong>Sustainability Meets Circular Economy</strong>
+      <br/>
+      <p>The world moves to a circular economy. We use things, then reuse them. These boards fit perfectly. They use waste to make something new. When you are done, you can recycle them.</p>
+      <p>It cuts down on trash. It saves resources. It is the smart way to build.</p>
+      <p>So, next time you plan furniture, think beyond wood. Think furniture boards. Think Indowud NFC. You get style, strength, and savings. Plus, you help the earth. It is a win-win.</p>
+    `
+  },
+  {
+    id: "7",
+    slug: "why-exterior-panels-are-best-choice-weatherproof-designs",
+    title: "Why Exterior Panels Are the Best Choice for Weatherproof Designs",
+    excerpt:
+      "People in modern architecture these days focus a lot on picking materials that look nice and hold up well over time. This matters especially for outside uses where things get tough. That’s when Indowud nfc comes into the picture. Exterior panels stand out as a top pick for designs that handle weather just fine. At the same time, these panels...",
+    cover:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-10-24",
+    readMins: 4,
+    tags: ["Exterior Panels", "Weatherproof"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>People in modern architecture these days focus a lot on picking materials that look nice and hold up well over time. This matters especially for outside uses where things get tough. That’s when Indowud nfc comes into the picture. Exterior panels stand out as a top pick for designs that handle weather just fine. At the same time, these panels bring great style to any building.</p>
+
+      <br/>
+      <strong>What Are Exterior Panels?</strong>
+      <br/>
+      <p>Exterior panels act as the outer skin of a building. They protect the walls from rain, sun, and wind. You find them made from wood, metal, glass, or composites. But WPC (Wood Plastic Composite) panels gain the most fame now. They mix wood fibers with plastic. This blend creates a tough shield. It stops water and heat from hurting the walls.</p>
+
+      <br/>
+      <strong>Advantages of Exterior Panels Over Wood</strong>
+      <br/>
+      <p>Solid wood has a classic look. But it rots when it gets wet. It cracks in the sun. Termites eat it. Exterior panels solve these problems. They look like wood but last longer. They don't need paint every year. They stay strong in all seasons.</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Weather Resistance:</strong> They handle rain, sun, and snow well. They don't swell or warp.</li>
+        <li><strong>Termite Proof:</strong> Bugs can't eat them. Your walls stay safe.</li>
+        <li><strong>Fade Resistant:</strong> The color stays bright for years. You don't need to polish them often.</li>
+        <li><strong>Low Upkeep:</strong> You just wash them with water. No costly maintenance needed.</li>
+      </ul>
+
+      <br/>
+      <strong>Why Architects and Builders Prefer Exterior Panels</strong>
+      <br/>
+      <p>Designers love these panels. They come in many colors and textures. You can create modern looks. You can mix them with glass or stone. They fit homes, offices, and shops.</p>
+      <p>Builders like them because they are easy to install. They are light. They don't put heavy load on the structure. They save time and money.</p>
+      <p>Also, they hide ugly walls or pipes. They make old buildings look new. It is a smart way to upgrade a property.</p>
+
+      <br/>
+      <strong>Applications in the USA</strong>
+      <br/>
+      <p>Exterior panels find use in many places. You see them on front facades. They make a bold statement. You see them on balcony ceilings. They look warm and inviting. They work well for gate cladding too. It adds privacy and style.</p>
+      <p>Some use them for fencing. It looks neat and clean. Others use them for rooftop bars or garden walls. They handle outdoor weather well.</p>
+
+      <br/>
+      <strong>Versatility in Design</strong>
+      <br/>
+      <p>You can fix these panels in many ways. You can put them horizontally. It makes the building look wider. You can put them vertically. It makes it look tall. You can create patterns. You can mix colors.</p>
+      <p>Indowud NFC panels offer even more freedom. You can bend them. You can cover curved walls. You can cut them into shapes. It lets architects play with designs. They can create unique structures that stand out.</p>
+
+      <br/>
+      <strong>A Sustainable Alternative for the Future</strong>
+      <br/>
+      <p>Using exterior panels helps the planet. They use recycled materials. It saves trees. Indowud NFC uses farm waste. It stops stubble burning. It reduces pollution. Plus, these panels are recyclable. When you change them, they don't fill up landfills.</p>
+      <p>Choosing green materials is a big trend now. It shows you care about nature. It adds value to your building too.</p>
+
+      <br/>
+      <strong>Wrapping It Up</strong>
+      <br/>
+      <p>Exterior panels bring together style and strength. They protect your building. They make it look great. They last for years without trouble.</p>
+      <p>If you want a weatherproof design, go for exterior panels. Choose Indowud NFC. It is the smart choice for modern buildings.</p>
+    `
+  },
+  {
+    id: "8",
+    slug: "what-are-interior-panels-how-transform-modern-spaces",
+    title: "What Are Interior Panels and How Do They Transform Modern Spaces?",
+    excerpt:
+      "Interior panels aren’t just about making walls or ceilings look stylish—they shape the entire feel of a room. Whether it’s a snug living room, a calm office, or a lively café, the right panels quietly influence the mood. They soften echoes, guide how light moves across the space, and even make the environment...",
+    cover:
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-10-16",
+    readMins: 4,
+    tags: ["Interior Panels"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>Interior panels aren’t just about making walls or ceilings look stylish—they shape the entire feel of a room. Whether it’s a snug living room, a calm office, or a lively café, the right panels quietly influence the mood. They soften echoes, guide how light moves across the space, and even make the environment more comfortable to live or work in.</p>
+
+      <br/>
+      <strong>Visual Style and Mood Shift</strong>
+      <br/>
+      <p>Think about walking into a room with flat, white walls. It feels clean but maybe a bit cold or empty. Now picture that same room with textured panels—maybe a wood-grain finish or a soft, matte color. Suddenly, the space feels warm and grounded.</p>
+      <p>That’s the power of interior panels. They add depth and character without needing a lot of decor. You don’t need to hang a dozen paintings to make a wall interesting. The panel itself does the work.</p>
+
+      <br/>
+      <strong>The Problem with Plain Walls</strong>
+      <br/>
+      <p>Let’s be honest—plain painted walls are easy. But they also show every scuff, scratch, and smudge. They fade over time. If you want a fresh look, you have to paint again. It’s messy, smells bad, and takes time.</p>
+      <p>Plus, they don’t do much for the room’s acoustics or temperature. Sounds bounce off hard walls, making rooms noisy. Heat escapes easily.</p>
+
+      <br/>
+      <strong>The Solution: Smarter Panels with Purpose</strong>
+      <br/>
+      <p>This is where modern panels step in. Take Indowud NFC (Natural Fibre Composite) panels as an example. They aren’t just covers; they are problem solvers. They are solid, durable, and termite-proof. You don’t have to worry about pests eating your walls.</p>
+      <p>Water doesn’t hurt them either. You can wipe them down with a wet cloth. It’s easy. They don’t peel or flake like paint. They stay looking new for years.</p>
+
+      <br/>
+      <strong>Sustainability Meets Strength</strong>
+      <br/>
+      <p>We all want to make better choices for the planet. Using panels made from recycled materials or farm waste is a big step. It saves trees. It reduces waste. Indowud NFC uses rice husks—a farm byproduct—to create strong panels. It’s a smart way to build. You get a tough product that’s also kind to the earth.</p>
+
+      <br/>
+      <strong>Beyond Aesthetics: The Practical Magic</strong>
+      <br/>
+      <p>Sure, they look good. But what else do they do? A lot, actually.</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Sound Control:</strong> They dampen noise. This makes rooms quieter and more relaxing.</li>
+        <li><strong>Insulation:</strong> They add a layer to your walls. This helps keep your room cool in summer and warm in winter. It saves energy.</li>
+        <li><strong>Hide the Mess:</strong> Have wires or uneven walls? Panels cover them up neatly. You get a clean, polished look instantly.</li>
+        <li><strong>Easy Install:</strong> You can put them up fast. It saves labor costs and time.</li>
+      </ul>
+
+      <br/>
+      <strong>A Smart, Long-Term Value</strong>
+      <br/>
+      <p>People sometimes think panels cost too much upfront. But think about the long run. You don’t need to paint them every two years. You don’t need to fix cracks. They last a long time.</p>
+      <p>That makes them a smart investment. You save money on maintenance. Plus, they add value to your property. A home or office with premium paneling looks more expensive.</p>
+
+      <br/>
+      <strong>The Final Word</strong>
+      <br/>
+      <p>Modern spaces need more than just paint. They need texture, warmth, and smart design. Interior panels give you all that and more. They solve problems and look great doing it.</p>
+      <p>So, when you plan your next renovation or build, think beyond the paint bucket. Think about panels. Think about comfort, style, and sustainability.</p>
+      <p>Think Indowud NFC. It’s the upgrade your walls have been waiting for.</p>
+    `
+  },
+  {
+    id: "9",
+    slug: "eco-friendly-furniture-rice-husk-panels-game-changer",
+    title: "Eco-Friendly Furniture: Why Rice Husk Panels Are the Game Changer",
+    excerpt:
+      "Here's what blew my mind: we produce millions of tons of rice husk every year, and most of it just gets burned. In places like Punjab and Haryana, those massive fires create air pollution so bad it makes international headlines. Meanwhile, we're cutting down forests to make furniture. Rice husk boards like Indowud nfc are changing that equation entirely. Instead of...",
+    cover:
+      "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-10-09",
+    readMins: 4,
+    tags: ["Eco-Friendly", "Furniture"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>Here's what blew my mind: we produce millions of tons of rice husk every year, and most of it just gets burned. In places like Punjab and Haryana, those massive fires create air pollution so bad it makes international headlines. Meanwhile, we're cutting down forests to make furniture.</p>
+      <p>Rice husk boards like Indowud nfc are changing that equation entirely. Instead of choking the air with smoke, we're turning that waste into premium, durable panels. It's honestly better than wood and doesn't harm the earth.</p>
+
+      <br/>
+      <strong>Why Rice Husk Boards Are Perfect for Eco-Friendly Furniture</strong>
+      <br/>
+      <p>The thing about traditional wood is it demands cutting down trees. And even then, you didn't know if you had. Termites and moisture could mess it up in a couple of years. But rice husk boards change the game.</p>
+      <p>Rice husk boards, like Indowud nfc, are naturally termite-proof. No harsh chemicals, no poisons, just natural defense. For a home owner or a furniture maker, it means peace of mind. You build a wardrobe or a kitchen cabinet, and you know it will last.</p>
+      <p>They are also completely water-proof. Which means you can use them in bathrooms, kitchens, or even outdoor spaces. No swelling, no warping, no rotting. You get the look and feel of wood without the headaches.</p>
+
+      <br/>
+      <strong>The Sustainability Story That Actually Makes Sense</strong>
+      <br/>
+      <p>Every piece of furniture made from rice husk panels saves a tree that didn't become a plank. It also stops a fire that would have choked our air. It's a double win for the environment. And the best part? The material can be recycled again and again.</p>
+      <p>We talk a lot about sustainable living, but this is where it gets real. It's not just a buzzword. It's a real solution. As consumers, we have the power to choose responsibly. And when the responsible choice is also the better one, it's a no-brainer.</p>
+
+      <br/>
+      <strong>Top Benefits of Eco-Friendly Furniture Made from Rice Husk</strong>
+      <br/>
+      <ol class="list-decimal pl-5 space-y-2 mb-4">
+        <li><strong>Termite Proof:</strong> I can't stress this enough. If you have ever dealt with termites, you know the nightmare. Rice husk boards are naturally resistant. You don't need to spray poisons in your home.</li>
+        <li><strong>Water Resistant:</strong> Spilled water? Flooded floor? No problem. These boards handle moisture better than wood ever could. They won't swell or crumble.</li>
+        <li><strong>Fire Retardant:</strong> Safety matters. These boards are self-extinguishing. They don't spread fire like plywood does. It gives you precious time in an emergency.</li>
+        <li><strong>Screw Holding Capacity:</strong> Furniture needs to hold together. These boards grip screws tight. Your hinges won't come loose. Your drawers won't sag.</li>
+        <li><strong>Non-Toxic:</strong> Many plywoods use glues that release harmful gases (VOCs). Rice husk boards are safe. They keep your indoor air clean.</li>
+      </ol>
+
+      <br/>
+      <strong>How Much Application Can These Be Used?</strong>
+      <br/>
+      <p>From wardrobes and kitchen cabinets to wall paneling and office desks, rice husk panels work everywhere. You can cut them, drill them, and paint them just like wood.</p>
+      <p>The finish is super smooth. You can create modern, sleek designs or go for a classic wood grain look. Architects love them because they are flexible. You can curve them to create unique shapes.</p>
+      <p>And for the DIY lovers out there? It's a dream material. It's easy to work with. You don't need to special tools. Just your regular carpentry kit.</p>
+
+      <br/>
+      <strong>The Manufacturing Reality Check</strong>
+      <br/>
+      <p>We have a habit of wasting resources. But companies who innovate with waste, like Indowud, are leading the way. They take what was once trash and turn it into treasure. It's a circular economy in action.</p>
+      <p>You see the stubble burning every winter? Imagine if all that waste went into making our homes beautiful. It's not a fantasy. It's happening right now. And by choosing these panels, we support that change.</p>
+
+      <br/>
+      <strong>Why This Matters More Than You Think</strong>
+      <br/>
+      <p>Furniture isn't just stuff we own. It's part of our daily life. We eat at these tables. We sleep on these beds. We store our memories in these cabinets. The materials matter. They impact our health and our planet.</p>
+      <p>Choosing rice husk furniture is a small step. But millions of small steps create a movement. It sends a message that we care. That we want better products. That we want a cleaner world.</p>
+      <p>So, next time you are looking for furniture, ask what it's made of. Choose the sustainable option. Choose the durable option. Choose rice husk panels.</p>
+      <p>It's the smart choice. It's the right choice. And trust me, once you switch, you won't go back to old-school plywood.</p>
+
+      <br/>
+      <strong>Conclusion</strong>
+      <br/>
+      <p>Green furniture is the future. And rice husk panels are the star of the show. They are tough, beautiful, and kind to the earth. Why settle for less when you can have the best?</p>
+      <p>Make the switch today. Your home will thank you. The planet will thank you.</p>
+    `
   }
 ];
 
