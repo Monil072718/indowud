@@ -1033,6 +1033,77 @@ export const blogPosts: BlogPost[] = [
       <p>If you want interiors that last, sometimes the answer isn't in the forest—it's in the field. And that is a beautiful thing.</p>
       <p>Be a part of a smarter, greener future. Choose Indowud NFC for your next project.</p>
     `
+  },
+  {
+    id: "16",
+    slug: "what-are-rice-husk-panels-and-why-better-than-plywood",
+    title: "What Are Rice Husk Panels and Why Are They Better Than Plywood?",
+    excerpt:
+      "Rice husk panels are a modern alternative to plywood, providing strength, attractiveness, and sustainability in a single material. Composed of rice husk (an agricultural residue) blended with natural fibres and environmentally friendly binders, these panels have tough, water-resistant, and termite-resistant features that conventional plywood finds hard to provide.",
+    cover:
+      "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-09-11",
+    readMins: 6,
+    tags: ["Rice Husk Panels", "Plywood Alternative", "Sustainability", "Indowud NFC"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>Rice husk panels are a modern alternative to plywood, providing strength, attractiveness, and sustainability in a single material. Composed of rice husk (an agricultural residue) blended with natural fibres and environmentally friendly binders, these panels have tough, water-resistant, and termite-resistant features that conventional plywood finds hard to provide.</p>
+
+      <br/>
+      <strong>What Are Rice Husk Panels?</strong>
+      <br/>
+      <p>Rice husk panels are wood-free, engineered panels produced by bonding rice husks—a byproduct of rice milling—with specific binders. Normally, rice husks are burned or discarded, causing environmental pollution. Instead, these panels turn waste into a resource, creating a sustainable but sturdy material for construction and furniture.</p>
+
+      <br/>
+      <strong>Why We Think Panels Are Superior to Plywood</strong>
+      <br/>
+      <p>Unlike traditional wood-based plywood, rice husk panels offer distinctive advantages making them a superior choice for homeowners, architects, and builders.</p>
+
+      <br/>
+      <p><strong>1. Waterproof Strength</strong></p>
+      <p>Plywood often swells or warps when exposed to moisture. Rice husk panels are naturally water-resistant because of the silica content in the husks. This makes them ideal for kitchens, bathrooms, and outdoor furniture.</p>
+
+      <br/>
+      <p><strong>2. Termite-Proof and Borer-Free</strong></p>
+      <p>Plywood relies on chemical treatments to repel termites. Rice husk panels are naturally termite-proof because they don't contain cellulose in a form termites can eat.</p>
+
+      <br/>
+      <p><strong>3. Good Quality Finish</strong></p>
+      <p>Every panel is calibrated for thickness and smoothness. Unlike plywood, which can have knots or voids, husk panels provide a uniform surface perfect for laminates, paint, or polish. No sanding required to get a smooth base.</p>
+
+      <br/>
+      <p><strong>4. No Toxic Emissions</strong></p>
+      <p>Plywood manufacturing uses urea-formaldehyde resins, which release VOC gases (toxic fumes). Indowud NFC rice husk panels do not use toxic resins, keeping your indoor air safe for your family.</p>
+
+      <br/>
+      <p><strong>5. Flexibility for Design Freedom</strong></p>
+      <p>They can be cut, drilled, and routed just like wood but without chipping or splitting. This means you can design intricate CNC jali patterns or curved furniture with ease and precision.</p>
+
+      <br/>
+      <strong>Real-Life Applications of Rice Husk Panels</strong>
+      <br/>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Exterior Cladding:</strong> Resists sun and rain better than wood.</li>
+        <li><strong>Modular Kitchens:</strong> Perfect for sink cabinets (no rot!).</li>
+        <li><strong>Furniture:</strong> Wardrobes, tables, and sofas that last a lifetime.</li>
+        <li><strong>Wall Panelling:</strong> Create beautiful accent walls.</li>
+      </ul>
+
+      <br/>
+      <strong>Why Architects and Designers Like Rice Husk Panels</strong>
+      <br/>
+      <p>Sustainability is a growing trend, but it's not the only reason pros are switching. The principal reasons are:</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Reliability:</strong> Consistent quality every time.</li>
+        <li><strong>Durability:</strong> Fewer complaints about damage.</li>
+        <li><strong>Social Value:</strong> Using a product that helps farmers and the environment.</li>
+      </ul>
+
+      <br/>
+      <strong>Final Note</strong>
+      <br/>
+      <p>Rice husk panels are not just an alternative; they are an upgrade. Changing from plywood to rice husk panels is a small change for you but a giant leap for the environment.</p>
+    `
   }
 ];
 
