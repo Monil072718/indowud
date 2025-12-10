@@ -1824,6 +1824,248 @@ export const blogPosts: BlogPost[] = [
       <p>Building a home is about safety. Choosing Indowud NFC is choosing to sleep a little sounder at night, knowing your family is protected.</p>
       <p><strong>Build Smart. Build Safe. Choose Indowud.</strong></p>
     `
+  },
+  {
+    id: "25",
+    slug: "top-termite-proof-wood-india-long-lasting-furniture",
+    title: "Top Termite Proof Wood in India for Long-Lasting Furniture",
+    excerpt:
+      "Imagine this: You walk into your beautifully furnished home one day and notice strange powdery dust near your wooden cabinet. You tap it gently—and it crumbles. Termites. The silent destroyers. They don’t knock. They don’t give warning. And by the time you notice, they’ve already eaten their way through your precious furniture, door frames, and peace of mind. If you’ve been through this...",
+    cover: "https://images.unsplash.com/photo-1611486212557-88be5ff6f941?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-07-08",
+    readMins: 6,
+    tags: ["Termite Proof Wood", "Furniture", "India", "Indowud NFC"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>Imagine this: You walk into your beautifully furnished home one day and notice strange powdery dust near your wooden cabinet. You tap it gently—and it crumbles.</p>
+      <p><strong>Termites. The silent destroyers.</strong></p>
+      <p>They don’t knock. They don’t give warning. And by the time you notice, they’ve already eaten their way through your precious furniture, door frames, and peace of mind.</p>
+      <p>If you’ve been through this, you know the heartbreak. But what if there was a way to never, ever deal with termites again?</p>
+      
+      <br/>
+      <strong>The Global Termite Threat: Bigger Than You Think</strong>
+      <p>Here is a scary stat: Research suggests termites cause <strong>$40 Billion in damage annually globally</strong>. That is more than fires and storms combined in some regions.</p>
+      <p>In a tropical country like India, with high humidity and moisture, termites thrive. They work 24/7, chewing through your investments.</p>
+
+      <br/>
+      <strong>The Real Cost of Pest Control</strong>
+      <p>Many people rely on pest control services. But let’s look at the reality:</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>It creates a toxic home:</strong> Do you really want to pump hazardous chemicals into your kitchen where you cook food?</li>
+        <li><strong>It is a temporary fix:</strong> Termites are persistent. They often come back after a few years.</li>
+        <li><strong>It drains your wallet:</strong> Recurring treatments add up. It is a subscription to stress.</li>
+      </ul>
+      <p>Friends, it is time to stop the cure and start the prevention.</p>
+
+      <br/>
+      <strong>Why Do Termites Love Wood So Much?</strong>
+      <p>Two words: <strong>Cellulose + Moisture</strong>.</p>
+      <p>Cellulose is the primary food source for termites. Wood is full of it. Add a little humidity (hello, Indian monsoons!), and you have an "All-You-Can-Eat Buffet" for pests.</p>
+      
+      <br/>
+      <strong>Meet Indowud NFC: The Forever Termite-Proof Choice</strong>
+      <p>This is where the revolution starts. Indowud NFC (Natural Fiber Composite) puts an end to the termite terror once and for all.</p>
+      <p>Why Indowud is termite's worst nightmare:</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>No Cellulose Buffet:</strong> While it contains natural fibers, they are encapsulated in polymers. Termites can't digest it. It is literally inedible to them.</li>
+        <li><strong>100% Moisture Proof:</strong> No dampness means no attraction for bugs.</li>
+        <li><strong>Lifetime Guarantee:</strong> We don't just say it; we mean it. Indowud stands strong for decades.</li>
+      </ul>
+
+      <br/>
+      <strong>Indowud vs Traditional Wood: A Quick Comparison</strong>
+      <div class="overflow-x-auto my-6">
+        <table class="min-w-full divide-y divide-slate-200 border border-slate-200 rounded-lg">
+          <thead class="bg-slate-50">
+            <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Feature</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Traditional Plywood</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Indowud NFC</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-slate-200">
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Termite Resistance</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Requires chemicals</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">100% Naturally Proof</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Maintenance</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">High</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Zero</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Life Span</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Unpredictable (5-10 yrs)</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Lifetime</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Chemicals</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Often toxic</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Safe & Non-Toxic</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <br/>
+      <strong>Real Talk: Peace of Mind Matters</strong>
+      <p>You invest lakhs in interiors. You pick the perfect laminate, the perfect paint, the perfect lighting. Why gamble on the base material?</p>
+      <p>With Indowud NFC, you eliminate the "What If". You know your cabinets won't crumble. Your door frames won't hollow out.</p>
+
+      <br/>
+      <strong>Final Thoughts: Say Goodbye to Termite Drama</strong>
+      <p>Stop feeding your furniture to pests. Stop spending hard-earned money on toxic sprays. Investing in Indowud today prevents a disaster tomorrow.</p>
+      <p><strong>Choose Indowud NFC — a stylish haven that stays strong for generations.</strong></p>
+    `
+  },
+  {
+    id: "26",
+    slug: "looking-best-replacement-wood-architects-recommend",
+    title: "Looking for the Best Replacement for Wood? Here’s What Architects Recommend",
+    excerpt:
+      "In today’s fast-paced, eco-conscious world, the question on many minds is: Can we keep building the world of tomorrow without sacrificing the environment today? For decades, wood has been the standard for construction and design, but with growing concerns about deforestation, air pollution, and climate change, architects and designers are increasingly seeking alternatives that don't cost the planet. So, what's the best...",
+    cover: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-07-07",
+    readMins: 5,
+    tags: ["Replacement for Wood", "Sustainable Architecture", "Indowud NFC"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>In today’s fast-paced, eco-conscious world, the question on many minds is: <strong>Can we keep building the world of tomorrow without sacrificing the environment today?</strong></p>
+      <p>For decades, wood has been the standard for construction and design, but with growing concerns about deforestation, air pollution, and climate change, architects and designers are increasingly seeking alternatives that don’t cost the planet.</p>
+      <p>So, what's the best replacement for wood? It’s not just about finding a substitute; it’s about finding something <strong>better, stronger, and more sustainable</strong>.</p>
+      <p>Let’s explore why architects (and smart homeowners like you) are turning away from traditional wood and what makes Indowud NFC the leader in high-performance alternatives.</p>
+
+      <br/>
+      <strong>The Problem with Traditional Wood</strong>
+      <p>Before we jump to the solution, let’s get real about wood. While beautiful, wood comes with a heavy environmental price tag—and a heavy maintenance bill.</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Deforestation & Climate Change:</strong> Trees are our best defense against climate change. Cutting them down for construction contributes to global warming and habitat loss.</li>
+        <li><strong>Limited Durability:</strong> Wood is susceptible to water damage, termites, and fungal decay. Keeping it in top shape requires constant varnishing and chemical treatments.</li>
+        <li><strong>Toxic Chemicals:</strong> Many engineered woods (like plywood and MDF) are bonded with chemical adhesives containing formaldehyde, a known carcinogen that off-gasses into your home.</li>
+      </ul>
+
+      <br/>
+      <strong>Indowud NFC: The Perfect Replacement for Wood</strong>
+      <p>So, what is the best replacement for wood moving forward? The answer is clear: <strong>Natural Fiber Composites (NFC)</strong>. And leading the charge is Indowud NFC.</p>
+      <p>Architects agree: Indowud NFC is the superior choice because it mimics the look and feel of natural wood but fixes all its vulnerabilities. It is not just an alternative; it is an upgrade in performance and ethics.</p>
+      <p>Here’s why it is the new standard in building and interior design:</p>
+
+      <br/>
+      <strong>1. Sustainability at its Core</strong>
+      <p>Indowud NFC is the replacement for wood that actually saves trees. Made from agricultural husks (rice husks) and virgin polymers, it prevents stubble burning (a major cause of air pollution) and saves trees from being cut. It is a <strong>zero-wood product</strong>.</p>
+      <p>By using farm waste, we give farmers a secondary income and reduce CO2 emissions. It’s a win-win-win (for you, nature, and the farmer).</p>
+
+      <br/>
+      <strong>2. Durability That Outlasts Generations</strong>
+      <p>Unlike wood, which rots and warps, Indowud NFC is engineered to last.</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Water Proof:</strong> It doesn't swell or decay when wet. Ideal for bathroom vanities and kitchen cabinets.</li>
+        <li><strong>Termite Proof:</strong> Bugs can't eat it. No more expensive pest control treatments.</li>
+        <li><strong>Sun & Weather Proof:</strong> It withstands harsh UV rays and rain, making it perfect for exterior cladding and furniture.</li>
+      </ul>
+
+      <br/>
+      <strong>3. Workability of Wood, Performance of Indowud</strong>
+      <p>Contractors love it because it works just like wood! You can saw it, drill it, nail it, screw it, and paint it. It holds screws better than plywood (high screw holding capacity).</p>
+      <p><strong>Why Indowud NFC wins over Plywood, MDF, and WPC:</strong></p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Plywood:</strong> Needs chemicals to be waterproof/termite proof. Indowud is naturally proof.</li>
+        <li><strong>MDF/HDF:</strong> Swells with moisture. Indowud doesn't.</li>
+        <li><strong>WPC:</strong> Often has plastic content that makes it brittle. Indowud has high fiber content, giving it wood-like strength.</li>
+      </ul>
+
+      <br/>
+      <strong>4. Healthier Homes (VOC & Lead Free)</strong>
+      <p>Your home should be a safe haven. Indowud NFC is free from hazardous chemicals like lead and Formaldehyde (VOCs). No toxic fumes, just clean, safe living spaces.</p>
+
+      <br/>
+      <strong>Conclusion: The Future of Building is Here</strong>
+      <p>Asking "what's the best replacement for wood?" leads to one answer: <strong>Indowud NFC</strong>. It offers the warmth and aesthetics of wood without the guilt. It is stronger, safer, and sustainable.</p>
+      <p>Whether you are an architect designing a marvel or a homeowner renovating your kitchen, Indowud NFC is the smart material choice.</p>
+      <p><strong>Don't settle for the past. Build for the future with Indowud NFC.</strong></p>
+    `
+  },
+  {
+    id: "27",
+    slug: "best-substitute-wood-india-eco-friendly-durable-alternatives",
+    title: "What Is the Best Substitute of Wood in India? Discover Eco-Friendly & Durable Alternatives",
+    excerpt:
+      "Let’s start off with a simple question: Can we build the future without cutting down a single tree? If you’re wondering if that’s even possible, let me introduce you to Indowud NFC, and it’s a game-changer. Made from agricultural waste (yes, you read that right!), this eco-friendly material is not only a great substitute of wood in India, but it’s also...",
+    cover: "https://images.unsplash.com/photo-1542601906990-b4d3fb7d5fa5?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-07-03",
+    readMins: 5,
+    tags: ["Eco-Friendly", "Substitute of Wood", "India", "Indowud NFC"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>Let’s start off with a simple question: <strong>Can we build the future without cutting down a single tree?</strong></p>
+      <p>If you’re wondering if that’s even possible, let me introduce you to Indowud NFC, and it’s a game-changer.</p>
+      <p>Made from agricultural waste (yes, you read that right!), this eco-friendly material is not only a great substitute of wood in India, but it’s also highly durable and efficient.</p>
+
+      <br/>
+      <strong>The Problem with Wood (and Why We Need to Rethink It)</strong>
+      <p>Here is a hard truth: We love wood. It looks good. It feels warmer. But we are loving it to death.</p>
+      <p>Every year, <strong>15 billion trees are cut down globally</strong>. A big chunk of that goes into construction and furniture. If we continue at this rate, we are heading towards a future with no privacy, polluted air, and severe climate change.</p>
+      <p>We need a substitute. Something that looks like wood, feels like wood, but doesn't kill the planet.</p>
+
+      <br/>
+      <strong>Indowud NFC: The Eco-Friendly Wonder Material</strong>
+      <p>Here is where the magic happens. Indowud NFC (Natural Fiber Composite) is the answer. It is a material made from husks. Yes. Those rice husks that farmers usually burn and cause pollution?</p>
+      <p>We take that "waste", mix it with clean polymers and create a highly durable, termite-proof, and water-proof board. It looks like wood. It works like wood (you can drill, nail, and paint it). But it is 100% tree-free. Indowud NFC is a High-Performance building material that brings sustainability and strength together.</p>
+      <p>Pretty cool, right? But how does it stack up against wood?</p>
+
+      <br/>
+      <strong>Indowud vs Wood: The Showdown</strong>
+
+      <strong>1. Sustainability 🌱</strong>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Traditional Wood:</strong> Waste resource.</li>
+        <li><strong>Indowud NFC:</strong> Made from agricultural waste, prevents deforestation.</li>
+      </ul>
+
+      <strong>2. Durability 🛡️</strong>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Traditional Wood:</strong> Rots, swells, termites eat it. Needs constant care.</li>
+        <li><strong>Indowud NFC:</strong> 100% Waterproof, Termite Proof, UV Resistant. Zero Maintenance.</li>
+      </ul>
+
+      <strong>3. Health 🩺</strong>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Traditional Wood:</strong> Plywood uses formaldehyde adhesives (carcinogenic).</li>
+        <li><strong>Indowud NFC:</strong> VOC-Free, Lead-Free, Safe for your family.</li>
+      </ul>
+
+      <strong>4. Recyclability ♻️</strong>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Traditional Wood:</strong> Rarely recyclable. Often ends in landfills.</li>
+        <li><strong>Indowud NFC:</strong> 100% Recyclable. We can grind it down and make new boards!</li>
+      </ul>
+
+      <br/>
+      <strong>Why Indowud NFC is a Sustainable and Eco-Friendly Material</strong>
+      <p>Here is why choosing Indowud NFC is the smartest choice for the planet (and your wallet):</p>
+      <ol class="list-decimal pl-5 space-y-2 mb-4">
+        <li><strong>Prevents Deforestation:</strong> By using agricultural husks, we save thousands of trees.</li>
+        <li><strong>Stops Stubble Burning:</strong> We use the husks that farmers would otherwise burn, reducing air pollution.</li>
+        <li><strong>Energy Efficient:</strong> The manufacturing process is low energy compared to traditional materials.</li>
+        <li><strong>No Waste Manufacturing:</strong> Our production assumes zero waste. Every scrap is reused.</li>
+      </ol>
+
+      <br/>
+      <strong>The Advantages You Can’t Ignore</strong>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Waterproof:</strong> Use it in kitchens, bathrooms, exterior cladding. It won't swell.</li>
+        <li><strong>Termite Proof:</strong> Say goodbye to pest control. Termites can't eat it.</li>
+        <li><strong>Fire Retardant:</strong> It is self-extinguishing. A safer choice for your home.</li>
+        <li><strong>Low Maintenance:</strong> No polishing, no varnishing needed. Just wipe and go.</li>
+      </ul>
+
+      <br/>
+      <strong>The Big Why: Build for a Greener Tomorrow</strong>
+      <p>Sustainability isn't just a buzzword. It is a responsibility. With Indowud NFC, we don't have to choose between aesthetics and ethics.</p>
+      <p>Whether you are building your dream home, designing an office, or renovating a commercial space, choosing Indowud NFC means you are actively protecting the environment. You are saving a tree. You are reducing waste. And you are getting a superior product that lasts a lifetime.</p>
+      <p><strong>Don't settle for less. Build for a greener tomorrow with Indowud NFC.</strong></p>
+    `
   }
 ];
 
