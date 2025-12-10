@@ -1104,6 +1104,310 @@ export const blogPosts: BlogPost[] = [
       <br/>
       <p>Rice husk panels are not just an alternative; they are an upgrade. Changing from plywood to rice husk panels is a small change for you but a giant leap for the environment.</p>
     `
+  },
+  {
+    id: "17",
+    slug: "fire-retardant-plywood-vs-indowud-which-offers-better-safety",
+    title: "Fire Retardant Plywood vs Indowud: Which Offers Better Safety?",
+    excerpt:
+      "We’ve all heard the stories—freak fires spreading in homes and offices, caused by faulty wiring or even small electrical appliances. The truth is, no matter how careful we are, fire risks can lurk everywhere. And the materials we use to build and furnish our homes and workplaces can make a huge difference in how easily fire spreads. So, when it comes...",
+    cover:
+      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-07-23",
+    readMins: 6,
+    tags: ["Fire Retardant Plywood", "Safety", "Comparison", "Indowud NFC"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>We’ve all heard the stories—freak fires spreading in homes and offices, caused by faulty wiring or even small electrical appliances. The truth is, no matter how careful we are, fire risks can lurk everywhere. And the materials we use to build and furnish our homes and workplaces can make a huge difference in how easily fire spreads. So, when it comes to prioritizing safety, choosing the right material for your interiors is critical.</p>
+      <p>For a long time, the only choice was treating standard plywood with chemicals to make it Fire Retardant. But technology has evolved. Today, you have a better option: Indowud NFC (Natural Fiber Composite). It is an advanced material that is naturally self-extinguishing and far superior to traditional fire-retardant plywood when it comes to fire safety.</p>
+      <p>Let’s explore the breakdown to check where their fire-retardant properties stand and find out which one really protects your space.</p>
+
+      <br/>
+      <strong>Fire Retardant Plywood: The Traditional Option</strong>
+      <br/>
+      <strong>What is Fire Retardant Plywood?</strong>
+      <p>Basically, it is regular plywood that is chemically treated. The wood is soaked in fire-retardant chemicals or coated with a special finish to slow down the spread of fire. While this does improve its fire resistance rating compared to untreated wood, it doesn't make it fireproof. It only delays combustion for a limited time.</p>
+      
+      <br/>
+      <strong>Issues with Fire Retardant Plywood</strong>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Limited Fire Resistance:</strong> The chemicals only delay ignition; eventually the wood will burn and contribute to the fire drastically.</li>
+        <li><strong>Chemical Exposure:</strong> The fire-retardant chemicals used can off-gas toxic fumes into the environment over time, affecting indoor air quality and potentially causing health issues.</li>
+        <li><strong>Maintenance Requirements:</strong> The fire-retardant properties of plywood rely on chemical coatings which wear off over time. You might need to re-apply these treatments regularly to maintain protection.</li>
+      </ul>
+
+      <br/>
+      <strong>Indowud NFC: The Best Modern Alternative</strong>
+      <br/>
+      <p>Now, let’s talk about Indowud NFC. It is a new-age material engineered using rice husks and virgin polymers, making it inherently superior to chemically treated plywood.</p>
+      <p>Indowud NFC (Natural Fiber Composite) offers enhanced composite material which is safer and wiser. We created a proprietary mix, increasing the bond formation, offering a much better fire retardant.</p>
+
+      <br/>
+      <strong>What Makes Indowud NFC Superior for Safety:</strong>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Self-Extinguishing:</strong> Indowud NFC is VO rated. This means if the source of fire is removed, the fire on the board self-extinguishes instantly. It doesn't propagate the flame.</li>
+        <li><strong>No Harmful Chemicals:</strong> Unlike treated plywood, which relies on toxic chemicals, Indowud NFC is naturally fire retardant due to its composition. It’s safer for the environment and your health.</li>
+        <li><strong>Low Smoke:</strong> In high-intensity fires, smoke inhalation is often deadlier than the fire itself. Indowud NFC generates very low smoke compared to wood, helping in safe evacuation during emergencies.</li>
+      </ul>
+
+      <br/>
+      <strong>Which Choice Is The Winner?</strong>
+      <br/>
+      <p>The choice is clear when you compare protection, health, and value. Let's break it down:</p>
+      <ol class="list-decimal pl-5 space-y-2 mb-4">
+        <li><strong>Safety:</strong> Indowud NFC wins.
+          <ul class="list-disc pl-5 mt-1">
+             <li><strong>Fire Retardant Plywood:</strong> Can still catch fire and contribute to the spread even if slightly delayed. It generates smoke.</li>
+             <li><strong>Indowud NFC:</strong> Self-extinguishing. It stops the fire in its tracks.</li>
+          </ul>
+        </li>
+        <li><strong>Health:</strong> Indowud NFC wins again.
+          <ul class="list-disc pl-5 mt-1">
+             <li><strong>Fire Retardant Plywood:</strong> Contains chemicals which may leach out or off-gas.</li>
+             <li><strong>Indowud NFC:</strong> Non-toxic, hazardous substance free. Safe for homes with kids and pets.</li>
+          </ul>
+        </li>
+        <li><strong>Durability:</strong> Indowud NFC is Built to Last.
+          <ul class="list-disc pl-5 mt-1">
+             <li><strong>Fire Retardant Plywood:</strong> Is susceptible to moisture and termites, which can compromise its structural integrity even before a fire happens.</li>
+             <li><strong>Indowud NFC:</strong> Waterproof, termite-proof, and durable. It stays strong for decades.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <br/>
+      <strong>Ideal Applications Where Fire Safety Matters</strong>
+      <br/>
+      <p>If you are asking where you should upgrade to Indowud NFC, we recommend it everywhere safety is a priority:</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Kitchens:</strong> High risk of fire due to cooking appliances, gas, and heat. Use it for cabinets.</li>
+        <li><strong>Offices:</strong> High density of electrical equipment makes short circuits a real risk. Use it for workstations and partitions.</li>
+        <li><strong>Public Spaces:</strong> Cinemas, malls, hospitals. Fire safety compliance is strict here, and Indowud NFC meets the requirements better than treated plywood.</li>
+      </ul>
+
+      <br/>
+      <strong>The Final Verdict: Is It Worth The Switch?</strong>
+      <br/>
+      <p>Answer: Absolutely. Why put your trust in a material that only ‘delays’ a fire when you can rely on a material that ‘stops’ it?</p>
+      <p>If you are looking for a budget-friendly option and are okay with regular maintenance, fire-retardant plywood might work for your project. But if long-lasting fire protection, low maintenance, and health safety are your priorities, Indowud NFC is the clear winner.</p>
+      <p>Be fire-ready? Be fire-safe. Be Wise. Switch to Indowud NFC for a safer tomorrow.</p>
+    `
+  },
+  {
+    id: "18",
+    slug: "wpc-sheets-vs-plywood-which-one-should-you-choose-for-interiors",
+    title: "WPC Sheets vs Plywood: Which One Should You Choose for Interiors?",
+    excerpt:
+      "Picture this: you’re finally redoing your kitchen, or perhaps building that dream wardrobe you’ve been saving for. Your carpenter says, “We can go with plywood or try these new WPC sheets.” You nod, pretending you know the difference—but deep down, you’re wondering: “Wait… what are WPC sheets? And are they better than plywood?”You’re not alone. Most homeowners find themselves stuck at...",
+    cover:
+      "https://images.unsplash.com/photo-1595428774781-5aa6da9680ac?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-07-23",
+    readMins: 6,
+    tags: ["WPC Sheets", "Plywood Comparison", "Interiors", "Indowud NFC"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>Picture this: you’re finally redoing your kitchen, or perhaps building that dream wardrobe you’ve been saving for. Your carpenter says, “We can go with plywood or try these new WPC sheets.” You nod, pretending you know the difference—but deep down, you’re wondering: “Wait… what are WPC sheets? And are they better than plywood?”</p>
+      <p>You’re not alone. Most homeowners find themselves stuck at this crossroad. It’s not just about picking a board; it’s about picking a material that won’t make you regret your choice five years down the line.</p>
+
+      <br/>
+      <strong>Plywood: The Old Reliable… But with Baggage</strong>
+      <br/>
+      <p>To be fair, we started using plywood everywhere because solid wood was getting too expensive and scarce. Plywood—thin layers of wood glued together—became the standard.</p>
+      
+      <br/>
+      <strong>Why People Love It</strong>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Easy to work with:</strong> Carpenters have used it for decades.</li>
+        <li><strong>Readily available:</strong> You can find it at any hardware store.</li>
+        <li><strong>Holds screws well (when new):</strong> Decent structural integrity initially.</li>
+      </ul>
+
+      <br/>
+      <strong>But Here’s the Catch</strong>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Prone to Water Damage:</strong> Swells and rots in kitchens and bathrooms.</li>
+        <li><strong>Not Termite Proof:</strong> Bugs love eating the wood layers.</li>
+        <li><strong>Requires maintenance:</strong> Needs laminates and polishing to hide the ugly layers.</li>
+        <li><strong>Quality varies significantly:</strong> One batch could be great, another full of voids.</li>
+      </ul>
+      <p>So, if you want furniture that lasts a lifetime, relying on plywood is a bit like rolling the dice.</p>
+
+      <br/>
+      <strong>WPC Sheets: The Modern Contender</strong>
+      <br/>
+      <p>WPC (Wood Plastic Composite) is the new kid on the block. It mixes wood fibers with thermoplastics to create a material that aims to solve plywood’s issues.</p>
+      <p>And honestly? It does a good job.</p>
+
+      <br/>
+      <strong>What Makes WPC Sheets Bravo:</strong>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Waterproof:</strong> Ideal for wet areas like sink cabinets.</li>
+        <li><strong>Termite Proof:</strong> Insects can’t digest plastic material.</li>
+        <li><strong>Durable:</strong> Doesn't rot, rust or corrode easily.</li>
+      </ul>
+
+      <br/>
+      <div class="overflow-x-auto my-6">
+        <table class="min-w-full divide-y divide-slate-200 border border-slate-200 rounded-lg">
+          <thead class="bg-slate-50">
+            <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Feature</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Plywood</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">WPC Sheets</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-slate-200">
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Water Resistance</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Low</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">High</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Termite Proof</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">No</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Yes</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Maintenance</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">High</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Low</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Life Span</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">5-10 years</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">20+ years</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Eco-Friendly</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Depends on grade</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Sometimes yes/no</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Cost</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Moderate</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Moderate/High</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <br/>
+      <strong>Indowud NFC Stands Apart from Regular WPC Sheets</strong>
+      <br/>
+      <p>Here is where it gets tricky. Not all WPC boards are created equal. Some are just plastic with wood flour filler—heavy and brittle.</p>
+      <p>Indowud NFC, however, is the <strong>Natural Fiber Composite (NFC)</strong>.</p>
+      
+      <br/>
+      <strong>NFC - Natural Fiber Composite is the Real Deal</strong>
+      <br/>
+      <p>Indowud NFC is made from rice husks— an agricultural residue—and virgin polymers. It isn’t just recycled; it is engineered for performance.</p>
+      
+      <br/>
+      <strong>Why Indowud is Better Than Typical WPC Sheets</strong>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Screw holding capacity:</strong> Indowud NFC holds screws tight, unlike standard WPC which can be soft.</li>
+        <li><strong>Density:</strong> High density (~1250 kg/m3) means better strength.</li>
+        <li><strong>Eco-Friendly:</strong> No heavy metals or hazardous chemicals.</li>
+      </ul>
+
+      <br/>
+      <strong>Still Unsure? Ask Yourself These Questions</strong>
+      <br/>
+      <ol class="list-decimal pl-5 space-y-2 mb-4">
+        <li><strong>Do you want furniture that swells when water touches it?</strong> (If yes, stick to plywood).</li>
+        <li><strong>Do you worry about termites eating your investment?</strong> (If yes, choose Indowud).</li>
+        <li><strong>Do you want a material that feels premium & lasts?</strong> (Compare Indowud vs others).</li>
+      </ol>
+
+      <br/>
+      <strong>How to Spot the Winner for Your Next Project?</strong>
+      <br/>
+      <p>If you want to save a few bucks upfront? Go plywood. But plan for repairs down the road.</p>
+      <p>If you want peace of mind, durability, and a legitimately eco-friendly usage? WPC Sheets (the good kind, like Indowud NFC) is the way to go.</p>
+      <p>Make the smart switch. Upgrade your interiors. Switch to Indowud.</p>
+    `
+  },
+  {
+    id: "19",
+    slug: "how-to-choose-right-wpc-board-manufacturer-india-smart-buyers-guide",
+    title: "How to Choose the Right WPC Board Manufacturer in India: A Smart Buyer’s Guide",
+    excerpt:
+      "Let’s say you’re renovating your kitchen. Or maybe you’re building new office furniture. You’ve heard about WPC boards—they’re eco-friendly, waterproof, termite-proof, and cost-effective. Seems like a no-brainer, right? But here’s where most people get stuck: “Which WPC board manufacturer should I trust?” Because here’s the thing—not all WPC boards are made equal, and not every manufacturer is as reliable as their website makes them sound. So...",
+    cover: "https://images.unsplash.com/photo-1599694617552-ba72af11ffe8?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-07-21",
+    readMins: 5,
+    tags: ["WPC Boards", "Buyer's Guide", "Manufacturing", "Indowud NFC"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>Let’s say you’re renovating your kitchen. Or maybe you’re building new office furniture. You’ve heard about WPC boards—they’re eco-friendly, waterproof, termite-proof, and cost-effective. Seems like a no-brainer, right?</p>
+      <p>But here’s where most people get stuck: "Which WPC board manufacturer should I trust?"</p>
+      <p>Because here’s the thing—not all WPC boards are made equal, and not every manufacturer is as reliable as their website makes them sound.</p>
+
+      <br/>
+      <strong>So, how do you separate the real deal from the "too good to be true"?</strong>
+      <p>If you are looking for reliable WPC boards in India, here is a no-nonsense guide to help you choose the right partner. No jargon, just straight talk.</p>
+
+      <br/>
+      <strong>1. Raw Materials Matter</strong>
+      <p>A WPC board is only as good as what goes into it. Some manufacturers cut costs by using cheap fillers and recycled plastic. The result? Boards that warp, crack, or smell bad.</p>
+      <p>Look for manufacturers who use virgin polymers and high-quality natural fibers. Ask them specifically: "What goes into the mix?"</p>
+
+      <br/>
+      <strong>2. In-House Manufacturing</strong>
+      <p>Many companies just buy cheap boards from somewhere else, slap their label on it, and call it their own. A good WPC brand usually has its own manufacturing unit where they control every step of the process.</p>
+      <p>Ask the seller:</p>
+      <p>"Do you manufacture these or just trade them?"</p>
+      <p>This one question can reveal a lot.</p>
+
+      <br/>
+      <strong>3. Certifications Stamp Quality Standards</strong>
+      <p>Anyone can say their product is "the best". But do they have the certificates to prove it? Look for standards like ISO 9001:2015.</p>
+      <p>Look for reports on fire resistance, termite resistance, and absence of hazardous chemicals (RoHS).</p>
+
+      <br/>
+      <strong>4. Indowud NFC: Setting a Gold Standard</strong>
+      <p>When it comes to distinct quality and trust, Indowud NFC stands in a league of its own.</p>
+      <p><strong>Why Indowud Stands Out?</strong></p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>100% Termite & Borer Proof:</strong> We don’t just say it. We mean it. Our boards are practically invincible against termites.</li>
+        <li><strong>Fire Retardant:</strong> Safety isn't optional. Our boards are self-extinguishing.</li>
+        <li><strong>Eco-Friendly & Sustainable:</strong> Made from rice husks and virgin polymers. Zero trees cut.</li>
+      </ul>
+
+      <br/>
+      <strong>5. 100% Lead-Free, Borer-Free & VOC-Free</strong>
+      <p>Indowud NFC cares about your health. We ensure our boards are free from harmful chemicals like lead and VOCs (Volatile Organic Compounds). This means better indoor air quality for you and your family.</p>
+
+      <br/>
+      <strong>6. Ethical Workforce, Transparent Policies</strong>
+      <p>There is a lot that goes behind the scenes. A good manufacturer treats its workers fairly and operates with integrity.</p>
+      <p>At Indowud NFC, we believe in ethical manufacturing. We don't cut corners with our workforce, and we don't cut corners with your boards.</p>
+
+      <br/>
+      <strong>7. Ask Questions. Don't Just Buy Blindly.</strong>
+      <p>Before you place that order, ask potential suppliers:</p>
+      <ol class="list-decimal pl-5 space-y-2 mb-4">
+        <li>Where is your factory located? Can I visit? (Even if you don't visit, their reaction will tell you a lot).</li>
+        <li>Can you show me lab test reports?</li>
+        <li>Do you offer a warranty?</li>
+        <li>Can I see a sample? (Touch and feel matters).</li>
+      </ol>
+
+      <br/>
+      <strong>The Pitfalls of Choosing the Wrong Manufacturer</strong>
+      <p>Let's be real. Using a bad WPC board can cost you more in the long run.</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Callbacks:</strong> Warped cupboards? Peeling laminate? It’s a headache.</li>
+        <li><strong>Health Hazards:</strong> toxic fumes from cheap boards? Not worth the risk.</li>
+        <li><strong>Wasted Money:</strong> Replacing "cheap" boards in 2 years is expensive.</li>
+      </ul>
+
+      <br/>
+      <strong>Final Note</strong>
+      <p>Choosing the right manufacturer is as important as choosing the right material.</p>
+      <p>Don't just look at the price tag. Look at the quality, the ethics, and the reliability.</p>
+      <p>Choose a manufacturer who stands by their product. Choose Indowud NFC.</p>
+    `
   }
 ];
 
