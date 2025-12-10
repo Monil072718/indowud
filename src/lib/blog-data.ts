@@ -1408,6 +1408,422 @@ export const blogPosts: BlogPost[] = [
       <p>Don't just look at the price tag. Look at the quality, the ethics, and the reliability.</p>
       <p>Choose a manufacturer who stands by their product. Choose Indowud NFC.</p>
     `
+  },
+  {
+    id: "20",
+    slug: "wpc-board-price-in-india-what-you-should-know-before-buying",
+    title: "WPC Board Price in India: What You Should Know Before Buying",
+    excerpt:
+      "When it comes to furnishing your home, building a kitchen cabinet, or even installing modular furniture, one of the first questions we ask is: “How much will it cost me?” That’s a fair question. Price matters. But let me share something that might surprise you: Price is not always the real problem. Wait, what? Yes, you read that right. Especially when it comes to buying...",
+    cover: "https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-07-18",
+    readMins: 6,
+    tags: ["WPC Board Price", "India", "Cost Guide", "Indowud NFC"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>When it comes to furnishing your home, building a kitchen cabinet, or even installing modular furniture, one of the first questions we ask is: "How much will it cost me?"</p>
+      
+      <br/>
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">"How much will it cost me?"</h2>
+      
+      <p>That’s a fair question. Price matters. But let me share something that might surprise you: Price is not always the real problem. Wait, what? Yes, you read that right. Especially when it comes to buying WPC boards.</p>
+      <p>Here is why: You might save Rs. 20 per sq. ft. today, but end up spending Rs. 20,000 in repairs two years later. That’s not saving; that’s a bad investment.</p>
+      <p>So, before you Google "WPC board price in India" and pick the cheapest option, let’s talk about what you are actually paying for.</p>
+
+      <br/>
+      <strong>What Actually Dictates WPC Board Price?</strong>
+      <p>If two boards look the same, why is one Rs. 80 and the other Rs. 130? Is it just branding? No. The difference lies in the DNA of the board.</p>
+
+      <br/>
+      <strong>1. Density is the Game Changer</strong>
+      <p>This is the most critical factor. Density determines strength, screw holding capacity, and durability.</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+         <li><strong>Low Density Boards (0.5 - 0.6 g/cm3):</strong> These are light, porous, and weak. Screws slip out easily. They are cheaper.</li>
+         <li><strong>High Density Boards (0.8 - 1.25 g/cm3):</strong> These are solid, heavy, and hold screws like concrete. This is what you want.</li>
+      </ul>
+
+      <br/>
+      <strong>2. Raw Materials Matter</strong>
+      <p>Are the manufacturers using virgin polymers (fresh, high quality) or recycled mix (reused plastic waste)? Virgin polymers cost more but give you a safe, non-toxic board. Recycled mix is cheaper but can be hazardous and brittle.</p>
+
+      <br/>
+      <strong>3. Manufacturing Process</strong>
+      <p>Advanced technology like crust foam extrusion creates a smooth, hardened surface that can be directly painted or laminated. Basic machinery produces rough surfaces requiring more finishing work.</p>
+
+      <br/>
+      <strong>WPC Board Price in India: The Numbers</strong>
+      <p>While prices vary by region and dealer, here is a ballpark figure to help you budget:</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+         <li><strong>Generic / Low-Density WPC Boards:</strong> Range from <strong>Rs. 60 - Rs. 90 per sq. ft.</strong> (Often used for back panels or temporary structures).</li>
+         <li><strong>Standard Quality WPC Boards:</strong> Range from <strong>Rs. 95 - Rs. 115 per sq. ft.</strong></li>
+         <li><strong>Premium / High-Density Boards (like Indowud NFC):</strong> Range from <strong>Rs. 120 - Rs. 165 per sq. ft.</strong> (Used for main carcasses, kitchens, wardrobes).</li>
+      </ul>
+      <p><em>Note: Prices differ based on thickness (6mm, 12mm, 18mm, etc.).</em></p>
+
+      <br/>
+      <strong>Why a Low Price Tag Can Cost You More Later</strong>
+      <p>Let's say you chose the cheapest board for your kitchen.</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>In 6 Months:</strong> The doors start misaligning because screws are loose.</li>
+        <li><strong>In 1 Year:</strong> You see signs of bending because the density was too low to support weight.</li>
+        <li><strong>In 2 Years:</strong> You might see termite trails if the WPC had too much wood flour filler.</li>
+      </ul>
+      <p>Now, you have to rip out the kitchen and redo it. The cost? Double what you initially paid.</p>
+
+      <br/>
+      <strong>The Better Alternative: Indowud NFC</strong>
+      <p>We don’t compete on being the "cheapest". We compete on being the "best value".</p>
+      <p>Indowud NFC offers:</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Density of 1250 kg/m3:</strong> Superior strength.</li>
+        <li><strong>Lifetime Warranty:</strong> We stand by our quality.</li>
+        <li><strong>Thermoforming capabilities:</strong> Can be molded into curved shapes.</li>
+        <li><strong>Anti-Rodent & Termite Proof:</strong> Certified protection.</li>
+      </ul>
+      
+      <br/>
+      <strong>Indowud NFC vs Typical WPC - What Makes It Superior?</strong>
+      <br/>
+      <div class="overflow-x-auto my-6">
+        <table class="min-w-full divide-y divide-slate-200 border border-slate-200 rounded-lg">
+          <thead class="bg-slate-50">
+            <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Feature</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Typical Cheap WPC</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Indowud NFC</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-slate-200">
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Screw Holding</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Poor (Screws slip)</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Excellent (> 1800 N)</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Surface Hardness</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Soft, scratches easily</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Hard, durable surface</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Toxicity</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">May contain Lead/VOCs</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">RoHS Certified (Safe)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <br/>
+      <strong>Final Verdict: Good Price vs Good Value</strong>
+      <p>Investing in your home is emotional. You want it to look good and last long. Don’t pinch pennies on the core material that holds everything together.</p>
+      <p><strong>Pay a fair price for a great product, and enjoy peace of mind for decades. Choose Indowud NFC.</strong></p>
+    `
+  },
+  {
+    id: "21",
+    slug: "why-eco-friendly-wood-is-future-sustainable-furniture-india",
+    title: "Why Eco-Friendly Wood Is the Future of Sustainable Furniture in India",
+    excerpt:
+      "Let's chat about something incredibly close to our hearts (and homes!): furniture. We love our solid wood pieces – the smell, the grain, the stories they tell. But have you ever paused to think about where that wood comes from? And what impact does its journey have on our planet, especially right here in India? The truth is, the traditional approach...",
+    cover: "https://images.unsplash.com/photo-1595515106967-1b072e92c019?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-07-17",
+    readMins: 6,
+    tags: ["Eco-Friendly Wood", "Sustainable Furniture", "India", "Indowud NFC"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>Let's chat about something incredibly close to our hearts (and homes!): furniture. We love our solid wood pieces – the smell, the grain, the stories they tell. But have you ever paused to think about where that wood comes from? And what impact does its journey have on our planet, especially right here in India?</p>
+      <p>The truth is, the traditional approach with rampant deforestation and illegal logging has pushed our forests to the brink. But there is a silver lining—a shift towards <strong>Eco-Friendly Wood</strong> and Sustainable Furniture. Let’s dive into what this actually means and why it is not just a trend, but the only way forward for a greener tomorrow.</p>
+      
+      <br/>
+      <strong>The Elephant in the Room: Deforestation and Its Climate Catastrophe</strong>
+      <p>To put things into perspective: India has lost significantly large areas of forest land to farming, urbanization, and illegal logging. Deforestation isn't just about losing beautiful green cover. It directly impacts our water table, soil quality, and air we breathe. (Did you know that deforestation is responsible for around 10-15% of all greenhouse gas emissions globally? That’s more than the entire transport sector combined!) And sadly, the furniture industry has historically been a major contributor.</p>
+
+      <br/>
+      <strong>Why is deforestation a really big deal?</strong>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Climate Change Accelerator:</strong> Trees are often called the "lungs of the Earth". They absorb carbon dioxide (a major greenhouse gas) and release oxygen for us to breathe. Fewer trees mean more carbon in the atmosphere, accelerating global warming.</li>
+        <li><strong>Biodiversity Loss:</strong> Forests are home to 80% of the world's terrestrial biodiversity. When forests go, animals lose their homes and many species face extinction.</li>
+        <li><strong>Disrupted Water Cycles:</strong> Trees play a crucial role in the water cycle, absorbing and releasing water vapor. Deforestation disrupts this, leading to drier climates and even droughts.</li>
+        <li><strong>Erosion of Soil Quality:</strong> Tree roots anchor the soil. Without them, the soil washes away, causing landslides and degrading the land for agriculture.</li>
+      </ul>
+      <p>Every time we purchase a piece of furniture made from questionable timber, we are unknowingly participating in this cycle of destruction. It is a heavy price to pay for a coffee table or a wardrobe.</p>
+
+      <br/>
+      <strong>Breathing Toxic Air: VOCs and Indoor Air Quality</strong>
+      <p>But the harm doesn't stop at the forest edge. It follows us into our homes. Many conventional furniture materials like plywood and particle boards are often laden with Volatile Organic Compounds (VOCs) like formaldehyde. These invisible chemicals off-gas into our homes for years, contributing to "Sick Building Syndrome". Headaches, dizziness, allergies, and respiratory issues can often be linked back to the very furniture we live with.</p>
+
+      <br/>
+      <strong>Why should you care about VOCs?</strong>
+      <p>VOCs are harmful chemicals that evaporate at room temperature. They are found in adhesives, paints, and finishes used in furniture. Exposure to high levels of VOCs can cause eye, nose, and throat irritation, headaches, and organ damage. Long term exposure is even linked to cancer. Creating a healthy home environment starts with choosing materials that are safe and non-toxic.</p>
+
+      <br/>
+      <strong>The Dawn of Eco-Friendly Wood: A Sustainable Path Forward</strong>
+      <p>The good news? We are waking up. In the face of these challenges, the demand for sustainable, eco-friendly furniture is growing across India. Conscious consumers (like you!) are asking the right questions: "Where does this wood come from?", "Is it certified?", "Is it safe?". This shift is driving innovation.</p>
+      <p>Here are the heroes of this new chapter:</p>
+      <ol class="list-decimal pl-5 space-y-2 mb-4">
+        <li><strong>Certified Sustainable Wood:</strong> This ensures the wood comes from forests that are managed responsibly. Look for certifications like FSC (Forest Stewardship Council) or PEFC (Programme for the Endorsement of Forest Certification). It means trees are harvested in a way that maintains the forest's biodiversity, productivity, and ecological processes.</li>
+        <li><strong>Reclaimed Wood (Upcycled Wood):</strong> Giving old wood a new life. Be it from old barns, ships, or warehouses. This reduces the demand for new timber and adds unique character.</li>
+        <li><strong>Fast-Growing, Renewable Resources:</strong> Materials like Bamboo (technically a grass) grow incredibly fast and can be harvested without killing the plant.</li>
+        <li><strong>Advanced Natural Fiber Composites (NFCs) & Wood Plastic Composites (WPCs):</strong> This is where science meets nature. By using agricultural residues (like rice husks) and mixing them with polymers, we create materials that look and feel like wood but without cutting down a single tree.</li>
+      </ol>
+
+      <br/>
+      <strong>Indowud NFC: Crafting the Future, Sustainably</strong>
+      <p>Indowud NFC embodies this shift towards responsible, sustainable living. We aren't just making boards; we are making a promise—a promise to the planet and to your health.</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Zero Deforestation Impact:</strong> The most compelling reason to choose Indowud NFC? Not a single tree is cut to make our boards. We use rice husks—an agricultural residue that would otherwise be burnt (causing pollution)—and virgin polymers. It is a classic waste-to-wealth story. By choosing Indowud, you are actively saving forests.</li>
+        <li><strong>VOC-Free & Non-Toxic:</strong> We believe your home should be your sanctuary, not a hazard zone. Indowud NFC is free from hazardous chemicals like lead and formaldehyde. It is safe for your children, your pets, and you. No more worrying about invisible toxins.</li>
+        <li><strong>Termite and Borer Proof:</strong> Unlike traditional wood that requires constant chemical treatments to keep bugs away, Indowud NFC is naturally termite and borer proof. This means a longer lifespan for your furniture and ZERO reliance on harmful pesticides in your home.</li>
+        <li><strong>Waterproof & Durable:</strong> India's climate is diverse—humid monsoons, dry heats. Wood often warps and swells. Indowud NFC is 100% waterproof and weather-resistant, making it perfect for Indian kitchens, bathrooms, and even outdoor furniture. Durability is a key component of sustainability; if you don't have to replace it, you reduce waste.</li>
+        <li><strong>Closed-Loop Sustainability:</strong> Indowud NFC is 100% recyclable. We minimize waste production during manufacturing and because the material is thermoplastic, it can be recycled at the end of its life, creating a true circular economy.</li>
+      </ul>
+
+      <br/>
+      <p>Imagine a stylish, modern kitchen or a sleek wardrobe that didn't cost the earth—literally. Furniture crafted from Indowud NFC offers the warmth and aesthetics of wood without the guilt. It is a choice that says you care about the forests, the air quality, and the future generation. It is not just furniture; it is a statement.</p>
+      <p>So, the next time you are looking to furnish your space, remember: The future of furniture is green, and it is here.</p>
+      
+      <br/>
+      <strong>Final Note</strong>
+      <p>Choosing eco-friendly wood isn't just a trend; it's a necessity for a healthier planet.</p>
+      <p>By making conscious choices, we can enjoy beautiful furniture without compromising the environment.</p>
+      <p>Let's build a sustainable future, one piece of furniture at a time.</p>
+    `
+  },
+  {
+    id: "22",
+    slug: "which-are-best-waterproof-wood-brands-india-quick-comparison",
+    title: "Which Are the Best Waterproof Wood Brands in India? A Quick Comparison",
+    excerpt:
+      "Wood + Water: Can They Finally Coexist? Now imagine this: You love the warmth of wood, but every spill, splash, or storm makes you worry—Will it warp? Swell? Attract termites? You’re not alone. That’s the eternal conflict: Wood looks great. Water doesn’t care. The Traditional Choices (and Their Hidden Flaws) Let’s take a quick stroll through the usual suspects: Plywood, MDF, and HDF are staples...",
+    cover: "https://images.unsplash.com/photo-1549488344-c705dbfb6e6d?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-07-16",
+    readMins: 7,
+    tags: ["Waterproof Wood Brands", "India", "Comparison", "Indowud NFC"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>Wood + Water: Can They Finally Coexist?</p>
+      <p>Now imagine this: You love the warmth of wood, but every spill, splash, or storm makes you worry—Will it warp? Swell? Attract termites?</p>
+      <p>You’re not alone. That’s the eternal conflict: Wood looks great. Water doesn’t care.</p>
+      
+      <br/>
+      <strong>The Traditional Choices (and Their Hidden Flaws)</strong>
+      <p>Let’s take a quick stroll through the usual suspects: Plywood, MDF, and HDF are staples in Indian construction. But water is their kryptonite.</p>
+      
+      <br/>
+      <strong>Plywood (MR & BWR)</strong>
+      <p>You will hear terms like "Moisture Resistant" (MR) or "Boiling Water Resistant" (BWR). They sound impressive, but here is the catch: they are water-<em>resistant</em>, not water-<em>proof</em>. Prolonged exposure leads to delamination (layers coming apart) and swelling.</p>
+      <p><strong>Issues with Plywood:</strong></p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Glue failure:</strong> The adhesive binding the layers breaks down when wet.</li>
+        <li><strong>Rot & Fungus:</strong> Damp wood is a playground for mold and fungus.</li>
+        <li><strong>Termites:</strong> Water-damaged wood softens, inviting termites for a feast.</li>
+      </ul>
+
+      <br/>
+      <strong>Wood Plastic Composite (WPC)</strong>
+      <p>Enter WPC, a mixture of wood fibers and plastic. It is a step up from plywood in terms of waterproofing, but generic WPC has its own issues: it can be varying quality, can be brittle, and often lacks screw holding strength.</p>
+
+      <br/>
+      <strong>Why Indowud NFC Changes the Waterproofing Game</strong>
+      <p>Now, let’s talk about Indowud NFC (Natural Fiber Composite). We aren't just another wood alternative. We are a different category entirely.</p>
+      <p>Indowud NFC is engineered to bridge the gap between aesthetics and durability. Here is why it is the top contender for waterproof "wood" in India:</p>
+
+      <br/>
+      <strong>1. 100% Waterproof - Really</strong>
+      <p>You can submerge a piece of Indowud NFC in water for days (we've done it!). It won't swell. It won't warp. It won't delaminate. It is totally impervious to water.</p>
+      <p>This makes it perfect for:</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Kitchen sink cabinets</strong> (area prone to leaks)</li>
+        <li><strong>Bathroom vanities</strong> (high humidity)</li>
+        <li><strong>Outdoor decks and cladding</strong> (monsoon ready)</li>
+      </ul>
+
+      <br/>
+      <strong>2. Termite Proof = Long Life</strong>
+      <p>Water damage often leads to termite infestations. With Indowud, you solve both problems. We are 100% termite and borer proof. Guaranteed.</p>
+
+      <br/>
+      <strong>3. Zero Hazardous Chemicals</strong>
+      <p>Many "waterproof" plywoods use toxic resins to repel water. Indowud NFC is free from formaldehyde, lead, and other VOCs.</p>
+
+      <br/>
+      <strong>4. Eco-Friendly & Sustainable</strong>
+      <p>We use rice husks and polymers. We save agricultural waste from burning and save trees from cutting.</p>
+
+      <br/>
+      <strong>5. Thermoforming Capabilities</strong>
+      <p>Want curved furniture? Indowud NFC can be molded into any shape upon heating. Try doing that with plywood.</p>
+      
+      <br/>
+      <strong>Testing the Truth: Water Absorption</strong>
+      <p>If you check the specs, Indowud NFC has a water absorption rate that is practically negligible compared to plywood or even generic WPC.</p>
+
+      <br/>
+      <strong>From India to the World: Indowud is Making Waves</strong>
+      <p>Indowud is proudly made in India but meets international standards like ISO 9001. We are exported globally, proving that Indian innovation is world-class.</p>
+      
+      <br/>
+      <strong>Final Cut:</strong>
+      <p>If you want a material that looks like wood, works like wood, but laughs in the face of water, Indowud NFC is the answer.</p>
+      <p><strong>Stop shrinking. Stop swelling. Start living. Switch to Indowud NFC.</strong></p>
+    `
+  },
+  {
+    id: "23",
+    slug: "is-uv-resistant-wood-ideal-for-outdoor-furniture-heres-what-you-need-to-know",
+    title: "Is UV-Resistant Wood Ideal for Outdoor Furniture? Here’s What You Need to Know",
+    excerpt:
+      "Picture This: Your Perfect Outdoor Setup… You're lounging on your patio with a chilled drink, surrounded by beautiful wooden furniture that blends effortlessly with nature. Sounds perfect, right? But fast forward a few months under the sun, and suddenly… That once-stunning teak bench? Faded. Those sleek wooden chairs? Cracked and splintered. Your perfect setup? A maintenance nightmare. What happened? One invisible villain: UV radiation.",
+    cover: "https://images.unsplash.com/photo-1596245084930-1049ad87b923?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-07-15",
+    readMins: 5,
+    tags: ["UV Resistant Wood", "Outdoor Furniture", "Indowud NFC"],
+    author: { name: "Indowud Team" },
+    html: `
+      <p>Picture This: Your Perfect Outdoor Setup…</p>
+      <p>You're lounging on your patio with a chilled drink, surrounded by beautiful wooden furniture that blends effortlessly with nature.</p>
+      <p>Sounds perfect, right?</p>
+      <p>But fast forward a few months under the sun, and suddenly… That once-stunning teak bench? Faded. Those sleek wooden chairs? Cracked and splintered. Your perfect setup? A maintenance nightmare.</p>
+      <p>What happened? One invisible villain: UV radiation.</p>
+      
+      <br/>
+      <br/>
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">Meet the Enemy:...</h2>
+      <p>Just like our skin burns without sunscreen, natural wood degrades under sunlight. Two main things happen:</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Fading with (Photo-oxidation):</strong> The UV rays break down lignin (the "glue" holding wood fibers together). This turns wood gray and lifeless.</li>
+        <li><strong>Color Fading:</strong> The beautiful warm tones bleach out, leaving it dull.</li>
+        <li><strong>Surface Damage:</strong> As lignin breaks down, the surface becomes rough and prone to cracking.</li>
+        <li><strong>Cracks & Warps:</strong> The heat dries out the wood, causing shrinking and splitting.</li>
+      </ul>
+      <p><strong>Quick Check: Is your current furniture sun-damaged?</strong> Rub your hand on the surface. Does it feel dry and rough? Do you see micro-cracks? That is UV damage.</p>
+
+      <br/>
+      <strong>Solution: So, How Can Wood Finally Beat the Sun?</strong>
+      <p>Traditional wood needs constant maintenance (oil, varnish, paint) to fight UV. Even then, it is a losing battle.</p>
+      <p><strong>1. "Treated" Natural Wood</strong></p>
+      <p>Some woods like teak or treated pine handle outdoor weather better due to their natural oils—but they still need annual maintenance. And let's be honest, rubbing oil on chairs every 6 months is a chore.</p>
+      <p><strong>2. UV Resistant Technology</strong></p>
+      <p>Modern science has gifted us with materials that look like wood but are engineered to deflect UV rays instead of absorbing them. This is the game-changer.</p>
+      <p><strong>3. Engineered Natural Fiber Composites (Like Indowud NFC)</strong></p>
+      <p>This is where innovation meets nature.</p>
+      
+      <br/>
+      <strong>Indowud NFC vs The Sun: Why Indowud Wins</strong>
+      <p>Indowud NFC (Natural Fiber Composite) is made from agricultural husks and virgin polymers—but with a secret weapon: <strong>High-Grade UV Stabilizers</strong>.</p>
+      <p>Think of it as sunscreen built into the "DNA" of the board.</p>
+      
+      <br/>
+      <strong>What It Means for You</strong>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>No Desaturation:</strong> The color stays rich and vibrant, year after year. It slows down fading drastically compared to natural wood.</li>
+        <li><strong>No Cracking:</strong> It doesn't dry out. It remains structurally sound even in peak summer.</li>
+        <li><strong>No Maintenance:</strong> Forget sanding and varnishing. Just wipe it clean.</li>
+      </ul>
+
+      <br/>
+      <strong>Perfect for…</strong>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><strong>Patios & Decks:</strong> Areas that get full sun exposure.</li>
+        <li><strong>Garden Furniture:</strong> Benches, pergolas, gazebos.</li>
+        <li><strong>Poolside Decking:</strong> It is waterproof too, so triple win.</li>
+      </ul>
+
+      <br/>
+      <strong>The Verdict</strong>
+      <p>If you love the wood look but hate the wood maintenance, go for <strong>UV-resistant Indowud NFC</strong>.</p>
+      <p>Your patio deserves furniture that shines, not fades. 😎</p>
+    `
+  },
+  {
+    id: "24",
+    slug: "fire-resistant-wood-safer-choice-modern-construction",
+    title: "Fire Resistant Wood: The Safer Choice for Modern Construction",
+    excerpt:
+      "Ever Heard That Crackle? It’s Time to Talk Fire Safety — Seriously. We’ve all seen those harrowing news clips — a forest ablaze, city skylines shrouded in smoke, or a home reduced to ash in minutes. It's gut-wrenching. And the truth? Fires are no longer rare disasters. They’re a global crisis. The 2019–2020 Australian bushfires scorched 19 million hectares, devastating wildlife and communities. Daily...",
+    cover: "https://images.unsplash.com/photo-1546768292-fb12f6c92568?auto=format&fit=crop&w=1200&q=60",
+    date: "2025-07-14",
+    readMins: 6,
+    tags: ["Fire Resistant Wood", "Safety", "Construction", "Indowud NFC"],
+    author: { name: "Indowud Team" },
+    html: `
+      <h3 class="text-3xl font-serif text-center italic text-[#593b2a] mb-6">Ever Heard That Crackle? It’s Time to Talk Fire Safety — Seriously</h3>
+      <p>We’ve all seen those harrowing news clips — a forest ablaze, city skylines shrouded in smoke, or a home reduced to ash in minutes. It's gut-wrenching.</p>
+      <p>And the truth? Fires are no longer rare disasters. They’re a global crisis. The 2019–2020 Australian bushfires scorched 19 million hectares, devastating wildlife and communities. Daily...</p>
+      
+      <br/>
+      <strong>Here is a fact that will keep you up at night:</strong>
+      <p>In a house fire, <strong>you have less than 2 minutes to escape</strong> before the smoke and heat become deadly. 2 minutes.</p>
+      <p>Traditional wood? It is fuel. It feeds the fire, making it spread faster and hotter.</p>
+      <p>But what if your house’s skeleton—the very material it is made of—could fight back?</p>
+      
+      <br/>
+      <strong>News Flash: Fire Resistant Wood is Real. Not Magic.</strong>
+      <p>Imagine wood that creates a shield when it touches fire instead of bursting into flames. That is <strong>Indowud NFC</strong>.</p>
+      <p>Indowud NFC (Natural Fiber Composite) isn't your grandma’s plywood. It is an agricultural residue-based material. It uses...</p>
+      <p>Science! Specifically, it creates a carbon char layer that blocks oxygen and stops the fire from spreading.</p>
+      
+      <br/>
+      <strong>What Makes Indowud the Safer Choice? The Triple Safety Shield</strong>
+      
+      <br/>
+      <strong>1. Flame? What Flame? Indowud Stands Cold</strong>
+      <p>Indowud is classified as <strong>Self-Extinguishing</strong> material. What does this mean? If you take the lighter away, the fire on the Indowud dies out <em>instantly</em>. It doesn't propagate the flame.</p>
+      <p><strong>Translation?</strong></p>
+      <p>If a kitchen towel catches fire on an Indowud counter, the counter won't catch light and burn down the house.</p>
+      
+      <br/>
+      <strong>2. Smoke Gets in Your Eyes? Not with Indowud.</strong>
+      <p>In most fire tragedies, it is the <strong>smoke</strong> that kills, not the flames.</p>
+      <p>Traditional wood and cheap plastics release thick, black, toxic smoke that blinds and suffocates. Indowud NFC releases very low smoke, aiding safe evacuation.</p>
+      
+      <br/>
+      <strong>3. Eco-Friendly and Fire Safe? Yes, It's Possible</strong>
+      <p>Lot of fire-retardant plywoods are treated with harsh chemicals.</p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li>They can off-gas toxic smells (formaldehyde) into your home.</li>
+        <li>Indowud NFC is <strong>VOC-Free and Lead-Free</strong>. It protects you from the fire, and it protects you in the quiet times too.</li>
+      </ul>
+
+      <br/>
+      <strong>Testing the Truth: Fire Rating</strong>
+      <p>Indowud NFC has passed stringent international tests. <strong>VO RATED.</strong></p>
+      <p>Indowud NFC vs The Others</p>
+      <div class="overflow-x-auto my-6">
+        <table class="min-w-full divide-y divide-slate-200 border border-slate-200 rounded-lg">
+          <thead class="bg-slate-50">
+            <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Feature</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Plywood</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Indowud NFC</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-slate-200">
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Fire Spread</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">High (Fuel)</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Low (Self-Extinguishing)</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Toxic Smoke</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Yes (Deadly)</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">No (Minimal)</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Chemical Treatment</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">Often toxic</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">None needed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <br/>
+      <strong>Final Thought: The Fire Safety Upgrade We Need</strong>
+      <p>We install fire alarms. We buy fire extinguishers.<br/>But isn't it better if the walls and furniture simply <strong>refused to burn</strong>?</p>
+      <p>Building a home is about safety. Choosing Indowud NFC is choosing to sleep a little sounder at night, knowing your family is protected.</p>
+      <p><strong>Build Smart. Build Safe. Choose Indowud.</strong></p>
+    `
   }
 ];
 
