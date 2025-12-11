@@ -89,8 +89,8 @@ export const blogPosts: BlogPost[] = [
     title: "WPC Ply Board Compared to Plywood. Which One Works Best for Inside Spaces.",
     excerpt:
       "People often wonder about WPC ply board. It stands for wood plastic composite board. This material gets made from mixing wood fibers with plastic polymers. Those come from thermoplastics. Traditional plywood relies on stacking wood veneers and gluing them together. WPC boards use recycled wood bits mixed with plastic resins instead. The result turns into a solid panel that's even...",
-    cover:
-      "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1200&q=60",
+    cover: "/blog2.webp",
+    innerCover: "/7-3-2048x1152.jpg.webp",
     date: "2025-11-17",
     readMins: 5,
     tags: ["Comparison", "Interiors"],
@@ -164,8 +164,8 @@ export const blogPosts: BlogPost[] = [
     title: "Benefits of Partnering with a Reliable WPC Board Supplier",
     excerpt:
       "People still talk about how partnering with a solid WPC board supplier can really change things for construction projects. A WPC board supplier makes and sells Wood Plastic Composite boards. These are smart materials that show up a lot in furniture, inside spaces, and outside building designs. The boards hold up well, need little upkeep, and stand strong against water...",
-    cover:
-      "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1200&q=60",
+    cover: "/blog3.webp",
+    innerCover: "/6-1-2048x1152.jpg.webp",
     date: "2025-11-16",
     readMins: 4,
     tags: ["WPC", "Supplier"],
@@ -221,8 +221,8 @@ export const blogPosts: BlogPost[] = [
     title: "How Partition Boards Redefine Modern Interiors",
     excerpt:
       "Partition boards work as ready-made panels. They build temporary or lasting splits in any room. You find them in stuff like natural fiber mixes. MDF shows up often. PVC works well too. More options exist out there. They mix good looks with privacy needs. Practical side comes through strong. Think office setups with these dividers. Studios get modular walls from...",
-    cover:
-      "https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1200&q=60",
+    cover: "/blog-4.webp",
+    innerCover: "/5-5-2048x1152.jpg.webp",
     date: "2025-11-15",
     readMins: 4,
     tags: ["Partition Boards", "Interiors"],
@@ -292,8 +292,8 @@ export const blogPosts: BlogPost[] = [
     title: "Why Choose a Trusted WPC Boards Manufacturer for Your Next Project?",
     excerpt:
       "A WPC board manufacturer is a company that produces Wood Plastic Composite boards. These materials are created by blending wood fibers with plastic and additives. The boards are designed to mimic wood while offering better durability and lower maintenance. Over the last few years, WPC boards and Indowud nfc have become a popular choice in India for interior and exterior...",
-    cover:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=60",
+    cover: "/b5.webp",
+    innerCover: "/4-5-2048x1152.jpg.webp",
     date: "2025-11-14",
     readMins: 4,
     tags: ["Partition boards"],
@@ -347,8 +347,8 @@ export const blogPosts: BlogPost[] = [
     title: "Furniture Boards Explained. A Smart Alternative to Traditional Wood.",
     excerpt:
       "People still picture natural wood when they think about making furniture. Furniture boards like Indowud nfc stand out now as a clever choice over old school wood. They bring strength along with good looks and eco benefits all packed together. Indowud NFC counts as one top example in this shift toward better options. It uses rice husk mostly to turn farm...",
-    cover:
-      "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=1200&q=60",
+    cover: "/b6.webp",
+    innerCover: "/3-6-2048x1152.jpg.webp",
     date: "2025-11-13",
     readMins: 4,
     tags: ["Furniture boards"],
