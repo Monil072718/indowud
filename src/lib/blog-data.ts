@@ -1527,7 +1527,8 @@ export const blogPosts: BlogPost[] = [
     title: "Why Eco-Friendly Wood Is the Future of Sustainable Furniture in India",
     excerpt:
       "Let's chat about something incredibly close to our hearts (and homes!): furniture. We love our solid wood pieces – the smell, the grain, the stories they tell. But have you ever paused to think about where that wood comes from? And what impact does its journey have on our planet, especially right here in India? The truth is, the traditional approach...",
-    cover: "https://images.unsplash.com/photo-1595515106967-1b072e92c019?auto=format&fit=crop&w=1200&q=60",
+    cover: "/Minimal-Photocentric-Productivity-Blog-Banner-61-300x169.png.webp",
+    innerCover: "/Minimal-Photocentric-Productivity-Blog-Banner-61-2048x1152.png.webp",
     date: "2025-07-17",
     readMins: 6,
     tags: ["Eco-Friendly Wood", "Sustainable Furniture", "India", "Indowud NFC"],
@@ -1597,7 +1598,8 @@ export const blogPosts: BlogPost[] = [
     title: "Which Are the Best Waterproof Wood Brands in India? A Quick Comparison",
     excerpt:
       "Wood + Water: Can They Finally Coexist? Now imagine this: You love the warmth of wood, but every spill, splash, or storm makes you worry—Will it warp? Swell? Attract termites? You’re not alone. That’s the eternal conflict: Wood looks great. Water doesn’t care. The Traditional Choices (and Their Hidden Flaws) Let’s take a quick stroll through the usual suspects: Plywood, MDF, and HDF are staples...",
-    cover: "https://images.unsplash.com/photo-1549488344-c705dbfb6e6d?auto=format&fit=crop&w=1200&q=60",
+    cover: "/Minimal-Photocentric-Productivity-Blog-Banner-60-300x169.png.webp",
+    innerCover: "/Minimal-Photocentric-Productivity-Blog-Banner-60-2048x1152.png.webp",
     date: "2025-07-16",
     readMins: 7,
     tags: ["Waterproof Wood Brands", "India", "Comparison", "Indowud NFC"],
@@ -1676,7 +1678,8 @@ export const blogPosts: BlogPost[] = [
     title: "Is UV-Resistant Wood Ideal for Outdoor Furniture? Here’s What You Need to Know",
     excerpt:
       "Picture This: Your Perfect Outdoor Setup… You're lounging on your patio with a chilled drink, surrounded by beautiful wooden furniture that blends effortlessly with nature. Sounds perfect, right? But fast forward a few months under the sun, and suddenly… That once-stunning teak bench? Faded. Those sleek wooden chairs? Cracked and splintered. Your perfect setup? A maintenance nightmare. What happened? One invisible villain: UV radiation.",
-    cover: "https://images.unsplash.com/photo-1596245084930-1049ad87b923?auto=format&fit=crop&w=1200&q=60",
+    cover: "/Minimal-Photocentric-Productivity-Blog-Banner-59-300x169.png.webp",
+    innerCover: "/Minimal-Photocentric-Productivity-Blog-Banner-59-2048x1152.png.webp",
     date: "2025-07-15",
     readMins: 5,
     tags: ["UV Resistant Wood", "Outdoor Furniture", "Indowud NFC"],
@@ -1743,7 +1746,8 @@ export const blogPosts: BlogPost[] = [
     title: "Fire Resistant Wood: The Safer Choice for Modern Construction",
     excerpt:
       "Ever Heard That Crackle? It’s Time to Talk Fire Safety — Seriously. We’ve all seen those harrowing news clips — a forest ablaze, city skylines shrouded in smoke, or a home reduced to ash in minutes. It's gut-wrenching. And the truth? Fires are no longer rare disasters. They’re a global crisis. The 2019–2020 Australian bushfires scorched 19 million hectares, devastating wildlife and communities. Daily...",
-    cover: "https://images.unsplash.com/photo-1546768292-fb12f6c92568?auto=format&fit=crop&w=1200&q=60",
+    cover: "/Minimal-Photocentric-Productivity-Blog-Banner-58-300x169.png.webp",
+    innerCover: "/Minimal-Photocentric-Productivity-Blog-Banner-58-2048x1152.png.webp",
     date: "2025-07-14",
     readMins: 6,
     tags: ["Fire Resistant Wood", "Safety", "Construction", "Indowud NFC"],
@@ -1833,7 +1837,8 @@ export const blogPosts: BlogPost[] = [
     title: "Top Termite Proof Wood in India for Long-Lasting Furniture",
     excerpt:
       "Imagine this: You walk into your beautifully furnished home one day and notice strange powdery dust near your wooden cabinet. You tap it gently—and it crumbles. Termites. The silent destroyers. They don’t knock. They don’t give warning. And by the time you notice, they’ve already eaten their way through your precious furniture, door frames, and peace of mind. If you’ve been through this...",
-    cover: "https://images.unsplash.com/photo-1611486212557-88be5ff6f941?auto=format&fit=crop&w=1200&q=60",
+    cover: "/Minimal-Photocentric-Productivity-Blog-Banner-57-300x169.png.webp",
+    innerCover: "/Minimal-Photocentric-Productivity-Blog-Banner-57-2048x1152.png.webp",
     date: "2025-07-08",
     readMins: 6,
     tags: ["Termite Proof Wood", "Furniture", "India", "Indowud NFC"],
@@ -1927,7 +1932,8 @@ export const blogPosts: BlogPost[] = [
     title: "Looking for the Best Replacement for Wood? Here’s What Architects Recommend",
     excerpt:
       "In today’s fast-paced, eco-conscious world, the question on many minds is: Can we keep building the world of tomorrow without sacrificing the environment today? For decades, wood has been the standard for construction and design, but with growing concerns about deforestation, air pollution, and climate change, architects and designers are increasingly seeking alternatives that don't cost the planet. So, what's the best...",
-    cover: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=60",
+    cover: "/Minimal-Photocentric-Productivity-Blog-Banner-55-300x169.png.webp",
+    innerCover: "/Minimal-Photocentric-Productivity-Blog-Banner-55-2048x1152.png.webp",
     date: "2025-07-07",
     readMins: 5,
     tags: ["Replacement for Wood", "Sustainable Architecture", "Indowud NFC"],
@@ -1994,7 +2000,8 @@ export const blogPosts: BlogPost[] = [
     title: "What Is the Best Substitute of Wood in India? Discover Eco-Friendly & Durable Alternatives",
     excerpt:
       "Let’s start off with a simple question: Can we build the future without cutting down a single tree? If you’re wondering if that’s even possible, let me introduce you to Indowud NFC, and it’s a game-changer. Made from agricultural waste (yes, you read that right!), this eco-friendly material is not only a great substitute of wood in India, but it’s also...",
-    cover: "https://images.unsplash.com/photo-1542601906990-b4d3fb7d5fa5?auto=format&fit=crop&w=1200&q=60",
+    cover: "/Minimal-Photocentric-Productivity-Blog-Banner-54-300x169.png.webp",
+    innerCover: "/Minimal-Photocentric-Productivity-Blog-Banner-54-2048x1152.png.webp",
     date: "2025-07-03",
     readMins: 5,
     tags: ["Eco-Friendly", "Substitute of Wood", "India", "Indowud NFC"],
