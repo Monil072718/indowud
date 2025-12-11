@@ -75,7 +75,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               {/* Featured Image - HEIGHT ADJUSTMENT APPLIED HERE */}
               <div className="mb-10 overflow-hidden rounded-2xl shadow-sm h-64 md:h-80 lg:h-[400px]">
                 <img
-                  src={post.cover}
+                  src={post.innerCover ?? post.cover}
                   alt={post.title}
                   className="w-full h-full object-cover"
                 />

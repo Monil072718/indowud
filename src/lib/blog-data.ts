@@ -15,8 +15,8 @@ export const blogPosts: BlogPost[] = [
     title: "Why Leading Architects Prefer WPC Board Manufacturers Over Plywood Makers",
     excerpt:
       "Leading architects tend to choose WPC board manufacturers more often than plywood makers these days. Infact if they have to prioritise termite proofing, they go in for a better product- Indowud nfc .<br/><br/><strong class='text-slate-900 text-base'>What Is a WPC Board Manufacturer?</strong><br/><br/>A WPC board manufacturer runs a specialized operation. They make Wood Plastic Composite boards by mixing wood fibers with thermoplastic polymers. The process...",
-    cover:
-      "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=1200&q=60",
+    cover: "/blog-1.webp",
+    innerCover: "/8-2-2048x1152.jpg.webp",
     date: "2025-11-18",
     readMins: 4,
     tags: ["WPC", "Architecture"],

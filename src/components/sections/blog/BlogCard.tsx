@@ -14,6 +14,7 @@ export type BlogCardPost = {
   date: string; // ISO
   readMins?: number;
   tags?: string[];
+  innerCover?: string;
 };
 
 function BlogCard({
