@@ -413,8 +413,8 @@ export const blogPosts: BlogPost[] = [
     title: "Why Exterior Panels Are the Best Choice for Weatherproof Designs",
     excerpt:
       "People in modern architecture these days focus a lot on picking materials that look nice and hold up well over time. This matters especially for outside uses where things get tough. That’s when Indowud nfc comes into the picture. Exterior panels stand out as a top pick for designs that handle weather just fine. At the same time, these panels...",
-    cover:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=60",
+    cover: "/b7.webp",
+    innerCover: "/2-9-2048x1152.jpg.webp",
     date: "2025-10-24",
     readMins: 4,
     tags: ["Exterior Panels", "Weatherproof"],
@@ -476,8 +476,8 @@ export const blogPosts: BlogPost[] = [
     title: "What Are Interior Panels and How Do They Transform Modern Spaces?",
     excerpt:
       "Interior panels aren’t just about making walls or ceilings look stylish—they shape the entire feel of a room. Whether it’s a snug living room, a calm office, or a lively café, the right panels quietly influence the mood. They soften echoes, guide how light moves across the space, and even make the environment...",
-    cover:
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=60",
+    cover: "/b8.webp",
+    innerCover: "/1-8-2048x1152.jpg.webp",
     date: "2025-10-16",
     readMins: 4,
     tags: ["Interior Panels"],
@@ -539,8 +539,8 @@ export const blogPosts: BlogPost[] = [
     title: "Eco-Friendly Furniture: Why Rice Husk Panels Are the Game Changer",
     excerpt:
       "Here's what blew my mind: we produce millions of tons of rice husk every year, and most of it just gets burned. In places like Punjab and Haryana, those massive fires create air pollution so bad it makes international headlines. Meanwhile, we're cutting down forests to make furniture. Rice husk boards like Indowud nfc are changing that equation entirely. Instead of...",
-    cover:
-      "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1200&q=60",
+    cover: "/b9.webp",
+    innerCover: "/man-working-wood-engraving-workshop-2048x1365.jpg.webp",
     date: "2025-10-09",
     readMins: 4,
     tags: ["Eco-Friendly", "Furniture"],
@@ -607,8 +607,8 @@ export const blogPosts: BlogPost[] = [
     title: "Termite-Proof Boards: The Best Alternative to Plywood",
     excerpt:
       "You know that moment when you're half-awake, shuffling to the kitchen for your morning coffee fix, and you open the cabinet door only to find... sawdust? Little piles of it, like someone's been doing woodwork in your kitchen overnight. That's when your stomach drops. You give the cabinet door a tap—please don't be hollow, please don't be hollow—but that dull,...",
-    cover:
-      "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=60",
+    cover: "/b10.webp",
+    innerCover: "/Minimal-Photocentric-Productivity-Blog-Banner-71-1.png.webp",
     date: "2025-09-29",
     readMins: 5,
     tags: ["Termite-Proof Boards", "Kitchens", "Bathrooms"],
@@ -672,8 +672,8 @@ export const blogPosts: BlogPost[] = [
     title: "Waterproof Boards for Kitchens and Bathrooms",
     excerpt:
       "Waterproof boards such as Indowud nfc have become the unsung heroes of modern construction, transforming how architects and builders approach wet areas. Unlike conventional materials that merely resist moisture for a while before eventually succumbing, truly waterproof boards like Indowud nfc create an impenetrable barrier that is durable.",
-    cover:
-      "https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&w=1200&q=60",
+    cover: "/b10.webp",
+    innerCover: "/Minimal-Photocentric-Productivity-Blog-Banner-71-1.png.webp",
     date: "2025-09-20",
     readMins: 6,
     tags: ["Waterproof Boards", "Kitchens", "Bathrooms"],
@@ -737,8 +737,8 @@ export const blogPosts: BlogPost[] = [
     title: "Fire Retardant Boards for Safer Homes & Offices",
     excerpt:
       "Construction professionals worldwide are facing an uncomfortable truth – traditional building materials are failing when it matters most. The devastating high-rise fires in London, Dubai, and São Paulo weren't just tragedies; they were wake-up calls about how quickly fire retardant failures can turn buildings into death traps. Yet here's the paradox: while building codes get stricter, many architects and builders...",
-    cover:
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=60",
+    cover: "/Minimal-Photocentric-Productivity-Blog-Banner-70-300x169.png.webp",
+    innerCover: "/Minimal-Photocentric-Productivity-Blog-Banner-70-2048x1152.png.webp",
     date: "2025-09-19",
     readMins: 5,
     tags: ["Fire Retardant", "Safety", "Indowud NFC"],
@@ -790,8 +790,8 @@ export const blogPosts: BlogPost[] = [
     title: "Husk Boards: A Smarter, Greener Alternative for Furniture",
     excerpt:
       "Every harvest season, rice fields produce mountains of husk—the hard outer shell of the grain. For years, most of it was burned right there in the fields. And that’s when I first wondered—is there really no better use for all this waste? Turns out, there is. Today, manufacturers have found a way to press rice husk with...",
-    cover:
-      "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1200&q=60",
+    cover: "/Minimal-Photocentric-Productivity-Blog-Banner-69-300x169.png.webp",
+    innerCover: "/Minimal-Photocentric-Productivity-Blog-Banner-69-2048x1152.png.webp",
     date: "2025-09-18",
     readMins: 5,
     tags: ["Husk Boards", "Sustainable Furniture", "Indowud NFC"],
@@ -867,8 +867,8 @@ export const blogPosts: BlogPost[] = [
     title: "Husk Panels vs. Wood Panels: Which Should You Choose?",
     excerpt:
       "When the world saw photos of various latest residential projects in Texas, proudly showing off the husk panels Architects used for the interior walls. Immediate reaction of witnesses? \"But it's not real wood!\" And honestly? The more people learned about husk panels versus traditional wood panels, the more I realized we've all been asking the wrong questions about building materials. If you're...",
-    cover:
-      "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1200&q=60",
+    cover: "/Minimal-Photocentric-Productivity-Blog-Banner-68-300x169.png.webp",
+    innerCover: "/Minimal-Photocentric-Productivity-Blog-Banner-68-2048x1152.png.webp",
     date: "2025-09-17",
     readMins: 7,
     tags: ["Husk Panels", "Wood Alternatives", "Comparison", "Indowud NFC"],
@@ -968,8 +968,8 @@ export const blogPosts: BlogPost[] = [
     title: "Rice Husk Boards: The Future of Eco-Friendly Furniture",
     excerpt:
       "Rice husk Boards are exactly what they sound like—boards made from the humble outer shell of rice grains, that stuff most farmers used to burn off in the fields. Sounds almost too simple, right? But here's the twist: these panels are quietly rewriting the story of modern interiors, eco-friendly furniture, and wood panel replacements in a way that makes me wonder...",
-    cover:
-      "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1200&q=60",
+    cover: "/Minimal-Photocentric-Productivity-Blog-Banner-67-300x169.png.webp",
+    innerCover: "/Minimal-Photocentric-Productivity-Blog-Banner-67.png.webp",
     date: "2025-09-16",
     readMins: 6,
     tags: ["Rice Husk Boards", "Eco-Friendly", "Furniture", "Indowud NFC"],
@@ -1040,8 +1040,8 @@ export const blogPosts: BlogPost[] = [
     title: "What Are Rice Husk Panels and Why Are They Better Than Plywood?",
     excerpt:
       "Rice husk panels are a modern alternative to plywood, providing strength, attractiveness, and sustainability in a single material. Composed of rice husk (an agricultural residue) blended with natural fibres and environmentally friendly binders, these panels have tough, water-resistant, and termite-resistant features that conventional plywood finds hard to provide.",
-    cover:
-      "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1200&q=60",
+    cover: "/Minimal-Photocentric-Productivity-Blog-Banner-66-300x169.png.webp",
+    innerCover: "/Minimal-Photocentric-Productivity-Blog-Banner-66-2048x1152.png.webp",
     date: "2025-09-11",
     readMins: 6,
     tags: ["Rice Husk Panels", "Plywood Alternative", "Sustainability", "Indowud NFC"],
@@ -1111,8 +1111,8 @@ export const blogPosts: BlogPost[] = [
     title: "Fire Retardant Plywood vs Indowud: Which Offers Better Safety?",
     excerpt:
       "We’ve all heard the stories—freak fires spreading in homes and offices, caused by faulty wiring or even small electrical appliances. The truth is, no matter how careful we are, fire risks can lurk everywhere. And the materials we use to build and furnish our homes and workplaces can make a huge difference in how easily fire spreads. So, when it comes...",
-    cover:
-      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=60",
+    cover: "/Minimal-Photocentric-Productivity-Blog-Banner-65-300x169.png.webp",
+    innerCover: "/Minimal-Photocentric-Productivity-Blog-Banner-65-2048x1152.png.webp",
     date: "2025-07-23",
     readMins: 6,
     tags: ["Fire Retardant Plywood", "Safety", "Comparison", "Indowud NFC"],
@@ -1199,8 +1199,8 @@ export const blogPosts: BlogPost[] = [
     title: "WPC Sheets vs Plywood: Which One Should You Choose for Interiors?",
     excerpt:
       "Picture this: you’re finally redoing your kitchen, or perhaps building that dream wardrobe you’ve been saving for. Your carpenter says, “We can go with plywood or try these new WPC sheets.” You nod, pretending you know the difference—but deep down, you’re wondering: “Wait… what are WPC sheets? And are they better than plywood?”You’re not alone. Most homeowners find themselves stuck at...",
-    cover:
-      "https://images.unsplash.com/photo-1595428774781-5aa6da9680ac?auto=format&fit=crop&w=1200&q=60",
+    cover: "/Minimal-Photocentric-Productivity-Blog-Banner-64-300x169.png.webp",
+    innerCover: "/Minimal-Photocentric-Productivity-Blog-Banner-64-2048x1152.png.webp",
     date: "2025-07-23",
     readMins: 6,
     tags: ["WPC Sheets", "Plywood Comparison", "Interiors", "Indowud NFC"],
@@ -1333,7 +1333,8 @@ export const blogPosts: BlogPost[] = [
     title: "How to Choose the Right WPC Board Manufacturer in India: A Smart Buyer’s Guide",
     excerpt:
       "Let’s say you’re renovating your kitchen. Or maybe you’re building new office furniture. You’ve heard about WPC boards—they’re eco-friendly, waterproof, termite-proof, and cost-effective. Seems like a no-brainer, right? But here’s where most people get stuck: “Which WPC board manufacturer should I trust?” Because here’s the thing—not all WPC boards are made equal, and not every manufacturer is as reliable as their website makes them sound. So...",
-    cover: "https://images.unsplash.com/photo-1599694617552-ba72af11ffe8?auto=format&fit=crop&w=1200&q=60",
+    cover: "/Minimal-Photocentric-Productivity-Blog-Banner-63-300x169.png.webp",
+    innerCover: "/Minimal-Photocentric-Productivity-Blog-Banner-63-2048x1152.png.webp",
     date: "2025-07-21",
     readMins: 5,
     tags: ["WPC Boards", "Buyer's Guide", "Manufacturing", "Indowud NFC"],
@@ -1415,7 +1416,8 @@ export const blogPosts: BlogPost[] = [
     title: "WPC Board Price in India: What You Should Know Before Buying",
     excerpt:
       "When it comes to furnishing your home, building a kitchen cabinet, or even installing modular furniture, one of the first questions we ask is: “How much will it cost me?” That’s a fair question. Price matters. But let me share something that might surprise you: Price is not always the real problem. Wait, what? Yes, you read that right. Especially when it comes to buying...",
-    cover: "https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&w=1200&q=60",
+    cover: "/Minimal-Photocentric-Productivity-Blog-Banner-62-300x169.png.webp",
+    innerCover: "/Minimal-Photocentric-Productivity-Blog-Banner-62-2048x1152.png.webp",
     date: "2025-07-18",
     readMins: 6,
     tags: ["WPC Board Price", "India", "Cost Guide", "Indowud NFC"],
