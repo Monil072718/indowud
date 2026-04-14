@@ -185,41 +185,6 @@ export default function HeroShowcaseWithFounder() {
         `}</style>
       </section>
 
-      {/* Founder Section */}
-      <section className="w-full bg-[#FDFCF8] py-20 px-4 sm:px-6 lg:px-8 font-sans">
-        <div className="max-w-6xl mx-auto">
-          {/* Grid Layout: Ensures Text and Image are in the same line on desktop */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
-
-            {/* Text Content (Left Side) */}
-            <div className="md:col-span-8 space-y-6">
-              <h2 className="text-2xl font-serif text-stone-900">
-                Chairman&apos;s Message
-              </h2>
-              <p className="text-lg md:text-xl text-stone-600 leading-relaxed font-light">
-                With over 30 years in the ply industry, Mr. Bengani is respected as
-                the founder of Uniply. Today, as the Chairman of Indowud, he is
-                pioneering natural fibre composite wood in India and the world.
-              </p>
-            </div>
-
-            {/* Image Content (Right Side) */}
-            <div className="md:col-span-4 flex justify-start md:justify-end">
-              {/* Circular Profile Image with subtle shadow */}
-              <div className="relative group">
-                <div className="absolute inset-0 bg-stone-200 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
-                <img
-                  // Replace with your actual image path
-                  src="/founder-image.png"
-                  alt="Mr. Bengani"
-                  className="relative w-48 h-48 md:w-56 md:h-56 rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-500 shadow-lg border-4 border-white"
-                />
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

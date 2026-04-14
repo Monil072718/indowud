@@ -64,7 +64,7 @@ export default function FeaturesSection() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-3xl font-semibold text-gray-800 mb-6 italic"
           >
-            A Pioneering Wood That Lets You Breathe Freely
+            A feature rich Wood That Lets You Breathe Freely
           </motion.h2>
 
           <motion.p
