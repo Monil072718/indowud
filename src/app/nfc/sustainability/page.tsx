@@ -152,8 +152,8 @@ export default function SustainabilityPage() {
                           <span className="text-lg sm:text-xl font-bold text-[#00d5be]">{r.rating}</span>
 
                           <div className="flex items-center gap-0.5 sm:gap-1">
-                            {Array.from({ length: 5 }).map((_, i) => (
-                              <Star key={i} filled={i < r.rating} />
+                            {Array.from({ length: r.rating }).map((_, i) => (
+                              <Star key={i} filled />
                             ))}
                           </div>
                         </div>
