@@ -142,7 +142,7 @@ const stats = [
 
 export default function ManufacturingProcessPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <main className="min-h-screen bg-gradient-to-b from-white to-gray-50 pb-16 lg:pb-24">
       {/* HERO */}
       <PageHeader
         category="NFC"
@@ -307,78 +307,7 @@ export default function ManufacturingProcessPage() {
         </motion.div>
       </section>
 
-      {/* FAQ */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-10 lg:mt-16 pb-10">
-        <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="text-lg sm:text-2xl md:text-3xl font-bold italic text-gray-900"
-        >
-          Process FAQs
-        </motion.h2>
-        <motion.div
-          variants={fadeUp}
-          custom={1}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="mt-3 sm:mt-6 divide-y divide-gray-200 rounded-lg sm:rounded-xl border border-gray-200 bg-white"
-        >
-          <motion.details
-            whileHover={{ backgroundColor: "rgba(13,148,136,.05)" }}
-            className="group p-3 sm:p-4 md:p-5 transition-colors"
-          >
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
-              <span className="font-semibold text-xs sm:text-sm md:text-base text-gray-900">
-                Is the process eco-friendly?
-              </span>
-              <span className="shrink-0 h-5 w-5 sm:h-6 sm:w-6 grid place-items-center rounded-full bg-gray-100 text-gray-600 group-open:rotate-45 transition-transform text-base sm:text-lg">
-                +
-              </span>
-            </summary>
-            <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-gray-700 leading-5 sm:leading-6">
-              Yes. We rely on agri-residue fibres, closed-loop water usage and energy-efficient extrusion to minimize
-              environmental impact.
-            </p>
-          </motion.details>
 
-          <motion.details
-            whileHover={{ backgroundColor: "rgba(13,148,136,.05)" }}
-            className="group p-3 sm:p-4 md:p-5 transition-colors"
-          >
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
-              <span className="font-semibold text-xs sm:text-sm md:text-base text-gray-900">
-                Can boards be thermoformed?
-              </span>
-              <span className="shrink-0 h-5 w-5 sm:h-6 sm:w-6 grid place-items-center rounded-full bg-gray-100 text-gray-600 group-open:rotate-45 transition-transform text-base sm:text-lg">
-                +
-              </span>
-            </summary>
-            <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-gray-700 leading-5 sm:leading-6">
-              Absolutely. NFC&apos;s thermoformability enables curved surfaces and bespoke design details.
-            </p>
-          </motion.details>
-
-          <motion.details
-            whileHover={{ backgroundColor: "rgba(13,148,136,.05)" }}
-            className="group p-3 sm:p-4 md:p-5 transition-colors"
-          >
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
-              <span className="font-semibold text-xs sm:text-sm md:text-base text-gray-900">
-                What finishes work best?
-              </span>
-              <span className="shrink-0 h-5 w-5 sm:h-6 sm:w-6 grid place-items-center rounded-full bg-gray-100 text-gray-600 group-open:rotate-45 transition-transform text-base sm:text-lg">
-                +
-              </span>
-            </summary>
-            <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-gray-700 leading-5 sm:leading-6">
-              Paints, stains, veneers and laminates all bond well after standard surface preparation.
-            </p>
-          </motion.details>
-        </motion.div>
-      </section>
     </main>
   )
 }

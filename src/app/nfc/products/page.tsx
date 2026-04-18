@@ -338,29 +338,29 @@ export default function ProductsPage() {
             ))}
 
             {/* Feature Section: NFC-GLU */}
-            <div className="relative overflow-hidden rounded-3xl bg-stone-900 p-8 sm:p-12 text-white">
+            <div id="nfc-glu" className="relative overflow-hidden rounded-3xl bg-[#F6F1EC] p-8 sm:p-12 text-stone-900 shadow-sm border border-stone-200/60 scroll-mt-24">
               <div className="relative z-10 grid gap-8 lg:grid-cols-2 lg:items-center">
                 <div>
-                  <h3 className="font-serif text-3xl">NFC-GLU Adhesive</h3>
-                  <p className="mt-4 text-stone-300 leading-relaxed">
+                  <h3 className="font-serif text-3xl md:text-4xl">NFC-GLU Adhesive</h3>
+                  <p className="mt-4 text-stone-600 leading-relaxed text-lg">
                     A professional grade adhesive developed specifically to bond Indowud NFC with almost any surface. Fast setting, water-resistant, and high strength.
                   </p>
                   <div className="mt-8 grid grid-cols-2 gap-4">
                     {['Faster Setting', 'Water Resistant', 'High Strength', 'Multi-Surface'].map((f) => (
-                      <div key={f} className="flex items-center gap-2">
-                        <svg className="w-5 h-5 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      <div key={f} className="flex items-center gap-3">
+                        <svg className="w-6 h-6 text-teal-600 drop-shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                         </svg>
-                        <span className="text-sm font-medium">{f}</span>
+                        <span className="text-base font-bold text-stone-800">{f}</span>
                       </div>
                     ))}
                   </div>
                 </div>
-                <div className="relative h-64 lg:h-full min-h-[300px] rounded-2xl overflow-hidden bg-white/5">
+                <div className="relative h-64 lg:h-full min-h-[350px] flex items-center justify-center">
                   <img
                     src="/nfc-glu.png.webp"
                     alt="NFC GLU"
-                    className="absolute inset-0 w-full h-full object-contain p-8"
+                    className="absolute inset-0 w-full h-full object-contain mix-blend-multiply drop-shadow-xl p-4"
                   />
                 </div>
               </div>

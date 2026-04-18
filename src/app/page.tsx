@@ -62,10 +62,7 @@ const BenefitsSection = dynamic(() => import("@/components/sections/BenefitsSect
   ssr: true,
 });
 
-const TrustedProgramsSection = dynamic(() => import("@/components/sections/TrustedProgramsSection"), {
-  loading: () => <div className="h-64 bg-gray-50" />,
-  ssr: true,
-});
+
 
 const BrandSection = dynamic(() => import("@/components/sections/BrandSection"), {
   loading: () => <div className="h-96 bg-gray-50" />,
@@ -81,11 +78,11 @@ export default function HomePage() {
   return (
     <>
       <HeroSlider />
+      {/* Force page rebuild */}
       <FeaturesSection />
       <BenefitsSection />
-      <TrustedProgramsSection />
-      <BrandSection />
       <CertificationsSection />
+      <BrandSection />
     </>
   );
 }

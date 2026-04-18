@@ -73,7 +73,15 @@ export default function HeroShowcaseWithFounder() {
   return (
     <div className="bg-[#FDFCF8]">
       {/* Hero Showcase Slider Section */}
-      <section className="relative w-full h-[85vh] min-h-[600px] overflow-hidden bg-[#FDFCF8] text-stone-800 font-sans">
+      <section 
+        className="relative w-full h-[85vh] min-h-[600px] overflow-hidden text-stone-800 font-sans"
+        style={{
+          backgroundImage: "url('/imgi_43_Untitled-design.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundColor: "#FDFCF8",
+        }}
+      >
 
         {/* Container */}
         <div className="relative z-10 mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -98,6 +106,13 @@ export default function HeroShowcaseWithFounder() {
                 <p className="mt-6 text-lg text-stone-600 leading-relaxed max-w-md">
                   {current.subtitle}
                 </p>
+
+                {/* Added Tagline */}
+                <div className="mt-8 flex flex-col items-center sm:items-start text-center sm:text-left sm:w-fit text-stone-800 font-bold italic text-2xl sm:text-3xl leading-snug tracking-wide">
+                  <span>No trees cut</span>
+                  <span>No forests destroyed</span>
+                  <span>No beings harmed</span>
+                </div>
               </div>
 
               {/* Pagination / Progress */}
@@ -130,12 +145,6 @@ export default function HeroShowcaseWithFounder() {
 
             {/* --- RIGHT: Visual Showcase (7 Cols) --- */}
             <div className="lg:col-span-7 h-[50vh] lg:h-full relative order-1 lg:order-2 flex items-center justify-center">
-
-              {/* The Backdrop Shape (Arch) */}
-              <div
-                className="absolute w-[90%] h-[80%] lg:h-[85%] bottom-0 lg:bottom-auto rounded-t-[10rem] lg:rounded-t-full transition-colors duration-700 ease-in-out"
-                style={{ backgroundColor: `${current.accent}40` }} // 40 = 25% opacity hex
-              />
 
               {/* The Product Image */}
               <div className="relative w-full h-full flex items-center justify-center p-8 lg:p-12">

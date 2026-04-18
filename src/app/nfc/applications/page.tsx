@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ShieldCheck, Paintbrush, Leaf, Settings } from "lucide-react";
 import PageHeader from "@/components/common/PageHeader";
 
 /* ───────────────────────────────── Brand Colors (from your site) */
@@ -216,320 +216,235 @@ export default function ApplicationsPage() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold" style={{ color: TEAL }}>
               Why choose Indowud panels?
             </h2>
-            <ul className="mt-5 space-y-3 text-[15px] text-slate-800">
-              {[
-                "Durable interior panels that enhance aesthetics and longevity.",
-                "Stylish and sustainable exterior panels resistant to weather and wear.",
-                "Versatile furniture boards for cabinets, wardrobes and desks.",
-                "Smart partition boards that maximise privacy and acoustic comfort.",
-              ].map((t, i) => (
-                <li key={i} className="flex gap-3">
-                  <span className="mt-2 h-2.5 w-2.5 rounded-full bg-slate-800" />
-                  <p>{t}</p>
-                </li>
-              ))}
+            <ul className="mt-8 space-y-6 text-lg sm:text-xl text-slate-900 list-disc pl-6 marker:text-slate-900">
+              <li className="pl-2">
+                Durable <strong style={{ color: TEAL }}>interior panels</strong> that enhance aesthetics and longevity.
+              </li>
+              <li className="pl-2">
+                Stylish and sustainable <strong style={{ color: TEAL }}>exterior panels</strong> resistant to weather and wear.
+              </li>
+              <li className="pl-2">
+                Versatile <strong style={{ color: TEAL }}>furniture boards</strong> for custom cabinets, wardrobes, and desks.
+              </li>
+              <li className="pl-2">
+                Smart <strong style={{ color: TEAL }}>partition boards</strong> for office and home spaces, maximising utility.
+              </li>
             </ul>
           </motion.div>
         </div>
       </section>
 
-      {/* Panel selector */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-4 md:px-6 lg:px-8 py-12 md:py-16">
-          <motion.div
+      {/* Features Grid */}
+      <section className="bg-gradient-to-b from-white to-gray-50/50">
+        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8 py-16 md:py-24 text-center">
+          <motion.h2
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="mb-8 text-center md:text-left"
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold italic mb-14 md:mb-20 tracking-tight"
+            style={{ color: MAGENTA }}
           >
-            <p className="text-xs uppercase tracking-[0.28em]" style={{ color: MAGENTA }}>
-              Our Panel Range
-            </p>
-            <h3 className="mt-1 text-2xl md:text-3xl font-bold text-slate-900">
-              Interior • Exterior • Furniture • Partition
-            </h3>
-          </motion.div>
+            Built for Quality, Designed for You
+          </motion.h2>
 
-          {/* Desktop */}
-          <div className="hidden lg:grid grid-cols-[0.36fr,0.64fr] gap-8">
-            <div className="space-y-4">
-              {panels.map((panel) => {
-                const isActive = panel.key === activePanel;
-                return (
-                  <button
-                    key={panel.key}
-                    onClick={() => setActivePanel(panel.key)}
-                    className={`w-full text-left rounded-2xl border px-4 py-4 transition-all ${isActive
-                      ? "bg-[#ECFFFE] border-[var(--teal)] shadow-sm"
-                      : "bg-white border-slate-200 hover:border-[var(--teal)]/40"
-                      }`}
-                    style={
-                      {
-                        "--teal": TEAL,
-                      } as React.CSSProperties
-                    }
-                  >
-                    <div className="flex items-start gap-3">
-                      <div
-                        className="h-10 w-1.5 rounded-full mt-1"
-                        style={{ background: isActive ? TEAL : "#E5E7EB" }}
-                      />
-                      <div className="flex-1">
-                        <p
-                          className="text-sm font-semibold"
-                          style={{ color: isActive ? TEAL : "#0f172a" }}
-                        >
-                          {panel.title}
-                        </p>
-                        <p
-                          className="text-[11px] mt-1"
-                          style={{ color: isActive ? `${TEAL}B3` : "#6b7280" }}
-                        >
-                          {panel.desc}
-                        </p>
-                      </div>
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
+            {/* 1 */}
             <motion.div
-              key={activePanelData.key}
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="rounded-3xl border border-slate-200 bg-white shadow-[0_18px_50px_rgba(0,0,0,0.04)] overflow-hidden"
+              className="group flex flex-col items-center px-4 py-8 rounded-3xl bg-white border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,139,139,0.08)] hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="relative aspect-[16/9]">
+              <div className="mb-6 flex h-24 w-24 items-center justify-center transition-transform duration-300 group-hover:scale-110">
                 <Image
-                  src={activePanelData.img}
-                  alt={activePanelData.title}
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                  loading="lazy"
+                  src="/Icons_100-Eco-friendly-1-1.png.webp"
+                  alt="Durable"
+                  width={64}
+                  height={64}
+                  className="object-contain"
                 />
-                <div className="absolute top-4 left-4 rounded-full px-4 py-1.5 text-xs font-semibold text-white"
-                  style={{ backgroundColor: TEAL }}>
-                  {activePanelData.title}
-                </div>
               </div>
-              <div className="p-7 space-y-3">
-                <p className="text-sm text-slate-700">{activePanelData.desc}</p>
-                <p className="text-sm text-slate-800">{activePanelData.long}</p>
-                <div className="pt-2 flex flex-wrap gap-3">
-                  <Link
-                    href="/nfc/products"
-                    className="rounded-lg px-4 py-2 text-sm font-medium text-white"
-                    style={{ backgroundColor: TEAL }}
-                  >
-                    View specifications
-                  </Link>
-                  <a
-                    href="#"
-                    className="rounded-lg px-4 py-2 text-sm font-medium border"
-                    style={{ color: MAGENTA, borderColor: "#e5e7eb" }}
-                  >
-                    Download brochure
-                  </a>
-                </div>
-              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Durable & Long-lasting</h3>
+              <p className="text-[15px] text-slate-600 leading-relaxed max-w-[220px] mx-auto group-hover:text-slate-800 transition-colors">
+                Premium materials that withstand daily use.
+              </p>
             </motion.div>
-          </div>
 
-          {/* Mobile/Tablet cards */}
-          <div className="lg:hidden space-y-5">
-            {panels.map((panel) => {
-              const isOpen = panel.key === activePanel;
-              return (
-                <motion.div
-                  key={panel.key}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                  className={`rounded-2xl border ${isOpen ? "border-[var(--teal)]" : "border-slate-200"
-                    } bg-white shadow-sm`}
-                  style={
-                    { "--teal": TEAL } as React.CSSProperties
-                  }
-                >
-                  <button
-                    onClick={() => setActivePanel(panel.key)}
-                    className="w-full flex items-center gap-3 px-4 py-3"
-                  >
-                    <div
-                      className="h-9 w-9 rounded-full flex items-center justify-center text-xs font-bold"
-                      style={{
-                        background: isOpen ? TEAL : "#F1F5F9",
-                        color: isOpen ? "white" : "#334155",
-                      }}
-                    >
-                      {panel.title[0]}
-                    </div>
-                    <div className="flex-1 text-left">
-                      <p
-                        className="text-sm font-semibold"
-                        style={{ color: isOpen ? TEAL : "#0f172a" }}
-                      >
-                        {panel.title}
-                      </p>
-                      <p className="text-[11px] text-slate-500 line-clamp-2">
-                        {panel.desc}
-                      </p>
-                    </div>
-                    <span
-                      className="text-xs px-2 py-1 rounded-full"
-                      style={{
-                        background: isOpen ? "#ECFFFE" : "#F1F5F9",
-                        color: isOpen ? TEAL : "#64748b",
-                      }}
-                    >
-                      {isOpen ? "Selected" : "View"}
-                    </span>
-                  </button>
+            {/* 2 */}
+            <motion.div
+              variants={fadeUp}
+              custom={1}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="group flex flex-col items-center px-4 py-8 rounded-3xl bg-white border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(229,0,109,0.08)] hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="mb-6 flex h-24 w-24 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                <Image
+                  src="/Icons_Better-Glue-Cover-1.png.webp"
+                  alt="Customizable"
+                  width={64}
+                  height={64}
+                  className="object-contain"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Customizable Designs</h3>
+              <p className="text-[15px] text-slate-600 leading-relaxed max-w-[220px] mx-auto group-hover:text-slate-800 transition-colors">
+                Choose finishes and textures to match your style.
+              </p>
+            </motion.div>
 
-                  {isOpen && (
-                    <>
-                      <div className="relative aspect-[16/10]">
-                        <Image
-                          src={panel.img}
-                          alt={panel.title}
-                          fill
-                          className="object-cover object-center"
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          loading="lazy"
-                        />
-                        <div
-                          className="absolute top-3 left-3 rounded-full px-3 py-1 text-[10px] font-medium text-white"
-                          style={{ backgroundColor: TEAL }}
-                        >
-                          {panel.title}
-                        </div>
-                      </div>
-                      <div className="p-4 space-y-2">
-                        <p className="text-sm text-slate-600">{panel.desc}</p>
-                        <p className="text-sm text-slate-800">{panel.long}</p>
-                        <Link
-                          href="/nfc/products"
-                          className="inline-flex items-center gap-1 text-sm font-semibold"
-                          style={{ color: MAGENTA }}
-                        >
-                          View specifications →
-                        </Link>
-                      </div>
-                    </>
-                  )}
-                </motion.div>
-              );
-            })}
+            {/* 3 */}
+            <motion.div
+              variants={fadeUp}
+              custom={2}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="group flex flex-col items-center px-4 py-8 rounded-3xl bg-white border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,139,139,0.08)] hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="mb-6 flex h-24 w-24 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                <Image
+                  src="/Icons_Easily-machinable-1.png.webp"
+                  alt="Eco-Friendly"
+                  width={64}
+                  height={64}
+                  className="object-contain"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Eco-Friendly Options</h3>
+              <p className="text-[15px] text-slate-600 leading-relaxed max-w-[220px] mx-auto group-hover:text-slate-800 transition-colors">
+                Sustainable panels for conscious living.
+              </p>
+            </motion.div>
+
+            {/* 4 */}
+            <motion.div
+              variants={fadeUp}
+              custom={3}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="group flex flex-col items-center px-4 py-8 rounded-3xl bg-white border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(229,0,109,0.08)] hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="mb-6 flex h-24 w-24 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                <Image
+                  src="/Icons_Strong-Bonding-1.png.webp"
+                  alt="Easy Installation"
+                  width={64}
+                  height={64}
+                  className="object-contain"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Easy Installation</h3>
+              <p className="text-[15px] text-slate-600 leading-relaxed max-w-[220px] mx-auto group-hover:text-slate-800 transition-colors">
+                Quick and hassle-free setup for all spaces.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Slider #1 — hero gallery with proper aspect + thumbs */}
+      {/* Slider #1 — Premium Hero Gallery */}
       <section>
         <div className="w-full" style={{ backgroundColor: "#EFE8E2" }}>
-          <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 py-10 md:py-12">
-            <div className="rounded-3xl border border-white/70 bg-white/90 backdrop-blur-sm shadow-[0_18px_60px_rgba(0,0,0,0.08)] p-5 md:p-7">
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
-                <div>
-                  <p className="text-lg md:text-xl font-medium italic" style={{ color: TEAL }}>
-                    {hero.title}
-                  </p>
-                  <p className="relative inline-block italic text-sm md:text-base" style={{ color: TEAL }}>
-                    {hero.subtitle}
-                    <span
-                      className="absolute left-0 -bottom-1 h-[3px] w-full"
-                      style={{ backgroundColor: MAGENTA }}
-                    />
-                  </p>
-                </div>
-
-                <div className="hidden md:flex gap-2">
-                  <button
-                    onClick={() => setHeroImageIndex((v) => (v - 1 + heroCount) % heroCount)}
-                    className="h-8 w-8 grid place-items-center rounded-md text-white"
-                    style={{ backgroundColor: TEAL }}
-                    aria-label="Previous image"
-                  >
-                    <ChevronLeft size={18} />
-                  </button>
-                  <button
-                    onClick={() => setHeroImageIndex((v) => (v + 1) % heroCount)}
-                    className="h-8 w-8 grid place-items-center rounded-md text-white"
-                    style={{ backgroundColor: TEAL }}
-                    aria-label="Next image"
-                  >
-                    <ChevronRight size={18} />
-                  </button>
-                </div>
+          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-24">
+            
+            {/* Header Section */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 w-full px-2">
+              <div>
+                <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-2" style={{ color: TEAL }}>
+                  {hero.title}
+                </h3>
+                <p className="text-xl md:text-2xl text-slate-600 font-medium italic">
+                  {hero.subtitle}
+                </p>
               </div>
 
-              {/* Main image */}
-              <div className="relative rounded-2xl overflow-hidden">
-                <div className="relative w-full rounded-2xl overflow-hidden">
-                  <div className="relative aspect-[16/9] sm:aspect-[16/9] bg-slate-100">
-                    <Image
-                      src={heroImgs[heroImageIndex]}
-                      alt="Application"
-                      fill
-                      className="object-cover object-center"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
+              {/* Desktop Controls */}
+              <div className="hidden md:flex gap-3">
+                <button
+                  onClick={() => setHeroImageIndex((v) => (v - 1 + heroCount) % heroCount)}
+                  className="h-12 w-12 flex items-center justify-center rounded-full bg-white text-slate-800 shadow-sm hover:shadow-md hover:scale-105 transition-all"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft size={24} strokeWidth={2} />
+                </button>
+                <button
+                  onClick={() => setHeroImageIndex((v) => (v + 1) % heroCount)}
+                  className="h-12 w-12 flex items-center justify-center rounded-full text-white shadow-md hover:shadow-lg hover:scale-105 transition-all"
+                  style={{ backgroundColor: MAGENTA }}
+                  aria-label="Next image"
+                >
+                  <ChevronRight size={24} strokeWidth={2} />
+                </button>
+              </div>
+            </div>
+
+            {/* Main Image Banner */}
+            <div className="relative w-full rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] group">
+              <div className="relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] bg-slate-200">
+                <Image
+                  src={heroImgs[heroImageIndex]}
+                  alt={`${hero.title} Showcase`}
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 95vw, 1400px"
+                  priority
+                />
               </div>
 
-              {/* Thumbs */}
-              <div className="mt-4 grid grid-cols-3 gap-3">
+              {/* Thumbs Overlay - Desktop Only */}
+              <div className="hidden md:flex absolute bottom-6 right-6 gap-3 z-10 bg-white/20 backdrop-blur-md p-2 rounded-2xl border border-white/30">
                 {heroImgs.map((img, i) => (
                   <button
                     key={i}
                     onClick={() => setHeroImageIndex(i)}
-                    className={`relative rounded-xl overflow-hidden border ${i === heroImageIndex ? "border-[var(--magenta)]" : "border-slate-200"
-                      }`}
-                    style={{ "--magenta": MAGENTA } as React.CSSProperties}
-                    aria-label={`Go to image ${i + 1}`}
+                    className={`relative w-20 h-14 rounded-xl overflow-hidden shadow-sm transition-all duration-300 ${
+                      i === heroImageIndex ? "border-[3px] border-white scale-110" : "opacity-70 hover:opacity-100"
+                    }`}
                   >
-                    <div className="relative aspect-[4/3] bg-slate-100">
-                      <Image
-                        src={img}
-                        alt={`Thumb ${i + 1}`}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 33vw, 300px"
-                        loading="lazy"
-                      />
-                    </div>
+                    <Image src={img} alt={`Thumb ${i}`} fill className="object-cover" sizes="80px" />
                   </button>
                 ))}
               </div>
+            </div>
 
-              {/* Mobile controls */}
-              <div className="flex md:hidden justify-center gap-2 mt-5">
+            {/* Mobile Controls & Thumbs */}
+            <div className="md:hidden mt-8 flex flex-col items-center gap-6">
+              <div className="flex gap-4">
                 <button
                   onClick={() => setHeroImageIndex((v) => (v - 1 + heroCount) % heroCount)}
-                  className="h-8 w-8 grid place-items-center rounded-md text-white"
-                  style={{ backgroundColor: TEAL }}
-                  aria-label="Previous image"
+                  className="h-14 w-14 flex items-center justify-center rounded-full bg-white text-slate-800 shadow-sm"
                 >
-                  <ChevronLeft size={16} />
+                  <ChevronLeft size={24} strokeWidth={2} />
                 </button>
                 <button
                   onClick={() => setHeroImageIndex((v) => (v + 1) % heroCount)}
-                  className="h-8 w-8 grid place-items-center rounded-md text-white"
-                  style={{ backgroundColor: TEAL }}
-                  aria-label="Next image"
+                  className="h-14 w-14 flex items-center justify-center rounded-full text-white shadow-md"
+                  style={{ backgroundColor: MAGENTA }}
                 >
-                  <ChevronRight size={16} />
+                  <ChevronRight size={24} strokeWidth={2} />
                 </button>
               </div>
+              <div className="flex gap-3 justify-center">
+                {heroImgs.map((img, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setHeroImageIndex(i)}
+                    className={`relative w-16 h-12 rounded-lg overflow-hidden transition-all ${
+                      i === heroImageIndex ? "border-[3px] border-[var(--teal)] opacity-100 scale-105" : "border-2 border-transparent opacity-50"
+                    }`}
+                    style={{ "--teal": TEAL } as React.CSSProperties}
+                  >
+                    <Image src={img} alt={`Thumb ${i}`} fill className="object-cover" sizes="64px" />
+                  </button>
+                ))}
+              </div>
             </div>
+
           </div>
         </div>
       </section>

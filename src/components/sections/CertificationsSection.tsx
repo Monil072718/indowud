@@ -1,16 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, Leaf, Shield, CheckCircle } from "lucide-react";
+import { Leaf } from "lucide-react";
 
 
 export default function CertificationsSection() {
-  const certifications = [
-    { name: "CII Certified", icon: Award },
-    { name: "GreenPro Ecolabel", icon: Leaf },
-    { name: "EDO Verified", icon: Shield },
-    { name: "Sustainable Product", icon: CheckCircle },
-  ];
+
 
   return (
     <section className="relative py-24 bg-white overflow-hidden">
@@ -65,40 +60,7 @@ export default function CertificationsSection() {
           </motion.h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-4 gap-8 mb-16">
-          {certifications.map((cert, index) => (
-            <motion.div
-              key={cert.name}
-              initial={{ opacity: 0, y: 50, rotateY: -90 }}
-              whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15, duration: 0.6 }}
-              whileHover={{ y: -15, rotateY: 10, scale: 1.05 }}
-              className="relative group"
-            >
-              <div className="bg-gradient-to-br from-white to-gray-50 p-8 shadow-lg hover:shadow-2xl transition-shadow border border-gray-100 h-full flex flex-col items-center justify-center">
-                <motion.div
-                  whileHover={{ rotate: [0, -15, 15, -15, 0], scale: 1.2 }}
-                  transition={{ duration: 0.5 }}
-                  className="w-20 h-20 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center mb-4 shadow-lg"
-                >
-                  <cert.icon className="w-10 h-10 text-white" />
-                </motion.div>
-                <h3 className="text-lg font-semibold text-gray-800 text-center">{cert.name}</h3>
-              </div>
 
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15 + 0.3, duration: 0.4 }}
-                className="absolute -top-3 -right-3 w-8 h-8 bg-rose-500 rounded-full flex items-center justify-center"
-              >
-                <CheckCircle className="w-5 h-5 text-white" />
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}

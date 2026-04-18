@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function ChairmanMessagePage() {
   return (
-    <>
+    <div className="bg-white text-gray-900">
       <PageHeader
         category="Corporate"
         title="Chairman Message"
@@ -80,6 +80,6 @@ export default function ChairmanMessagePage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

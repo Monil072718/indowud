@@ -109,15 +109,32 @@ export default function Header() {
       dropdown: [
         { label: "Chairman Message", path: "/corporate/chairman-message" },
         { label: "Mission & Vision", path: "/corporate/mission-vision" },
-        { label: "Our Team", path: "/corporate/our-team" },
+        { label: "About Us", path: "/corporate/our-team" },
         { label: "Certifications", path: "/corporate/certifications" },
       ],
     },
     {
-      label: "NFC",
+      label: "NFC Products",
+      path: "/nfc/products",
+      dropdown: [
+        { label: "zerOwud NFC", path: "/nfc/products#zerowud-nfc" },
+        { label: "Indowud NFC", path: "/nfc/products#indowud-board" },
+        { label: "NFC Textured panels", path: "/nfc/products#nfc-textured" },
+        { label: "NFC Flute", path: "/nfc/products#nfc-fluted" },
+        { label: "NFC Door", path: "/nfc/products#nfc-door" },
+        { label: "NFC Frame", path: "/nfc/products#nfc-frame" },
+        { label: "NFC Siding", path: "/nfc/products#nfc-siding" },
+        { label: "NFC Fence", path: "/nfc/products#nfc-fence" },
+        { label: "NFC Flooring", path: "/nfc/products#nfc-flooring" },
+        { label: "NFC Rafters", path: "/nfc/products#nfc-rafters" },
+        { label: "NFC Jaali", path: "/nfc/products#nfc-jalli" },
+        { label: "NFC GLU", path: "/nfc/products#nfc-glu" },
+      ],
+    },
+    {
+      label: "Knowledge Center",
       path: "#",
       dropdown: [
-        { label: "Products", path: "/nfc/products" },
         { label: "Manufacturing Process", path: "/nfc/manufacturing-process" },
         { label: "Applications", path: "/nfc/applications" },
         { label: "Features", path: "/nfc/features" },
@@ -187,11 +204,15 @@ export default function Header() {
   }
 
   const closeAllMenus = () => {
-    setOpenTop(null)
-    setOpenSub(null)
-    setMobileOpen(false)
-    setMobileOpenTop(null)
-    setMobileOpenSub(null)
+    // Wrap in setTimeout to escape React's startTransition batching
+    // This allows the menu to close instantly even if Next.js is slow to load the next page
+    setTimeout(() => {
+      setOpenTop(null)
+      setOpenSub(null)
+      setMobileOpen(false)
+      setMobileOpenTop(null)
+      setMobileOpenSub(null)
+    }, 0)
   }
 
   // modal scroll lock
@@ -277,7 +298,7 @@ export default function Header() {
                     {hasDropdown ? (
                       <button
                         onClick={preventNav}
-                        className={`text-sm font-medium py-2 px-1 transition-colors whitespace-nowrap ${isOpen ? "text-rose-600" : "text-gray-700 hover:text-rose-600"
+                        className={`text-base font-medium py-2 px-1 transition-colors whitespace-nowrap ${isOpen ? "text-rose-600" : "text-gray-700 hover:text-rose-600"
                           }`}
                       >
                         {item.label}
@@ -286,7 +307,7 @@ export default function Header() {
                       <Link
                         href={item.path}
                         onClick={closeAllMenus}
-                        className={`text-sm font-medium py-2 px-1 transition-colors whitespace-nowrap ${item.label === "Home"
+                        className={`text-base font-medium py-2 px-1 transition-colors whitespace-nowrap ${item.label === "Home"
                           ? "text-rose-600"
                           : "text-gray-700 hover:text-rose-600"
                           }`}
@@ -336,7 +357,7 @@ export default function Header() {
                                   {hasSub ? (
                                     <button
                                       onClick={preventNav}
-                                      className="w-full flex items-center justify-between px-5 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-teal-500 hover:to-teal-600 hover:text-white transition-all duration-200"
+                                      className="w-full flex items-center justify-between px-5 py-3 text-base text-gray-700 hover:bg-gradient-to-r hover:from-teal-500 hover:to-teal-600 hover:text-white transition-all duration-200"
                                     >
                                       <span>{d.label}</span>
                                       <ChevronRight className="w-4 h-4 shrink-0" />
@@ -344,7 +365,7 @@ export default function Header() {
                                   ) : (
                                     <Link
                                       href={d.path}
-                                      className="flex items-center justify-between px-5 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-teal-500 hover:to-teal-600 hover:text-white transition-all duration-200"
+                                      className="flex items-center justify-between px-5 py-3 text-base text-gray-700 hover:bg-gradient-to-r hover:from-teal-500 hover:to-teal-600 hover:text-white transition-all duration-200"
                                       onClick={closeAllMenus}
                                     >
                                       <span>{d.label}</span>
@@ -376,7 +397,7 @@ export default function Header() {
                                             >
                                               <Link
                                                 href={s.path}
-                                                className="block px-5 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-pink-500 hover:to-pink-600 hover:text-white transition-all duration-200"
+                                                className="block px-5 py-3 text-base text-gray-700 hover:bg-gradient-to-r hover:from-pink-500 hover:to-pink-600 hover:text-white transition-all duration-200"
                                                 onClick={closeAllMenus}
                                               >
                                                 {s.label}
@@ -519,10 +540,10 @@ export default function Header() {
                               setMobileOpenTop(open ? null : item.label)
                               setMobileOpenSub(null)
                             } else {
-                              setMobileOpen(false)
+                              setTimeout(() => setMobileOpen(false), 0)
                             }
                           }}
-                          className={`text-base font-semibold flex-1 transition-colors duration-200 ${item.label === "Home"
+                          className={`text-lg font-semibold flex-1 transition-colors duration-200 ${item.label === "Home"
                             ? "text-rose-600"
                             : "text-gray-800 hover:text-rose-600"
                             }`}
@@ -578,10 +599,10 @@ export default function Header() {
                                           e.preventDefault()
                                           setMobileOpenSub(subOpen ? null : d.label)
                                         } else {
-                                          setMobileOpen(false)
+                                          setTimeout(() => setMobileOpen(false), 0)
                                         }
                                       }}
-                                      className="text-sm text-gray-700 hover:text-teal-600 flex-1 transition-colors duration-200 font-medium"
+                                      className="text-base text-gray-700 hover:text-teal-600 flex-1 transition-colors duration-200 font-medium"
                                     >
                                       {d.label}
                                     </Link>
@@ -622,8 +643,8 @@ export default function Header() {
                                           >
                                             <Link
                                               href={s.path}
-                                              onClick={() => setMobileOpen(false)}
-                                              className="block text-xs text-gray-600 py-2.5 px-3 hover:text-rose-600 hover:bg-white/80 transition-all duration-200 border-b border-gray-100 last:border-b-0 rounded-lg font-medium"
+                                              onClick={() => setTimeout(() => setMobileOpen(false), 0)}
+                                              className="block text-sm text-gray-600 py-2.5 px-3 hover:text-rose-600 hover:bg-white/80 transition-all duration-200 border-b border-gray-100 last:border-b-0 rounded-lg font-medium"
                                             >
                                               {s.label}
                                             </Link>

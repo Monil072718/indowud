@@ -1,23 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
-type AhimsaCard = {
-  letter: "A" | "H" | "I" | "M" | "S";
-  meaning: string;
-};
-
-const AHIMSA: AhimsaCard[] = [
+const AHIMSA = [
   { letter: "A", meaning: "Axe the axe, no more trees cut." },
   { letter: "H", meaning: "Healthy homes with anti-bacterial properties." },
   { letter: "I", meaning: "Ice, rain and water proof." },
   { letter: "M", meaning: "Mouldable and easy to design with." },
   { letter: "S", meaning: "Secure against termites and rodents." },
+  { letter: "A", meaning: "Agricultural husk made, preventing air pollution from waste husk burning." },
 ];
-
-const LAST_A_MEANING =
-  "Agricultural husk made, preventing air pollution from waste husk burning.";
 
 export default function BrandSection() {
   const [hovered, setHovered] = useState<number | null>(null);
@@ -51,19 +44,56 @@ export default function BrandSection() {
           className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
         />
       </motion.div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+        
+        {/* MOBILE VIEW: Grid layout with permanent text */}
+        <div className="grid md:hidden grid-cols-1 sm:grid-cols-2 gap-6 max-w-6xl mx-auto text-left">
+          {AHIMSA.map((item, index) => {
+            return (
+              <motion.div
+                key={`mobile-${index}`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.6,
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 10,
+                }}
+                className="bg-white rounded-2xl shadow-xl p-6 flex items-center border border-gray-50 overflow-hidden relative"
+              >
+                {/* Decorative background circle */}
+                <div className="absolute -right-6 -top-6 w-24 h-24 bg-gradient-to-br from-teal-50 to-rose-50 rounded-full opacity-50 pointer-events-none" />
+                
+                <div className="w-16 sm:w-20 flex-shrink-0 text-center relative z-10">
+                  <span className="text-6xl sm:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-amber-700 to-amber-900">
+                    {item.letter}
+                  </span>
+                </div>
+                
+                <div className="pl-5 border-l-2 border-teal-100 flex-1 relative z-10">
+                  <p className="text-gray-700 text-sm sm:text-base font-medium leading-relaxed">
+                    {item.meaning}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-        {/* AHIMS letters */}
-        <div className="flex justify-center items-start gap-4 md:gap-8 flex-wrap">
+        {/* DESKTOP VIEW: Hover cards with tooltips */}
+        <div className="hidden md:flex justify-center items-start gap-4 md:gap-8 flex-wrap">
           {AHIMSA.map((item, index) => (
             <motion.div
-              key={index}
+              key={`desktop-${index}`}
               initial={{ opacity: 0, y: 100, rotateX: -90 }}
               whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
               whileHover={{
                 y: -8,
                 scale: 1.05,
-                rotate: 2,  // Fixed rotate animation
+                rotate: 2,
               }}
               viewport={{ once: true }}
               transition={{
@@ -96,7 +126,7 @@ export default function BrandSection() {
                   className="absolute inset-0 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   style={{ boxShadow: "inset 0 0 20px rgba(244, 63, 94, 0.3)" }}
                 />
-                <span className="relative z-20 text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-amber-700 to-amber-900">
+                <span className={`relative z-20 font-bold text-transparent bg-clip-text bg-gradient-to-b from-amber-700 to-amber-900 ${index === 5 ? 'text-6xl md:text-8xl' : 'text-6xl'}`}>
                   {item.letter}
                 </span>
               </motion.div>
@@ -122,75 +152,12 @@ export default function BrandSection() {
                 className="absolute -top-6 -left-6 w-6 h-6 border border-rose-300 rounded-full opacity-0 group-hover:opacity-60 transition-opacity duration-300 z-0"
               />
 
-              {/* Tooltip (conditionally rendered) */}
-              {hovered === index && <Tooltip text={item.meaning} />}
+              {/* Tooltip */}
+              <AnimatePresence>
+                {hovered === index && <Tooltip text={item.meaning} />}
+              </AnimatePresence>
             </motion.div>
           ))}
-
-          {/* final A */}
-          <motion.div
-            key="last-A"
-            initial={{ opacity: 0, y: 100, rotateX: -90 }}
-            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-            whileHover={{
-              y: -8,
-              scale: 1.05,
-              rotate: 2,  // Fixed rotate animation
-            }}
-            viewport={{ once: true }}
-            transition={{
-              delay: AHIMSA.length * 0.1,
-              duration: 0.6,
-              type: "spring",
-              stiffness: 400,
-              damping: 10,
-            }}
-            onMouseEnter={() => setHovered(99)}
-            onMouseLeave={() => setHovered(null)}
-            tabIndex={0}
-            className="relative group outline-none will-change-transform overflow-visible pb-16"
-          >
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                delay: 0.2,
-                ease: "easeInOut",
-              }}
-              className="relative bg-white w-24 h-32 md:w-32 md:h-40 flex items-center justify-center shadow-2xl group-hover:shadow-rose-300/50 transition-all duration-300 rounded overflow-hidden z-10"
-            >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-transparent via-white to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
-              <div
-                className="absolute inset-0 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                style={{ boxShadow: "inset 0 0 20px rgba(244, 63, 94, 0.3)" }}
-              />
-              <span className="relative z-20 text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-amber-700 to-amber-900">
-                A
-              </span>
-            </motion.div>
-
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.4 }}
-              className="absolute -bottom-2 left-0 right-0 h-2 bg-gradient-to-r from-rose-500 to-rose-600 origin-left rounded group-hover:shadow-lg group-hover:shadow-rose-500/50 transition-all duration-300"
-            />
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute -top-4 -right-4 w-8 h-8 border-2 border-teal-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:shadow-lg group-hover:shadow-teal-400/50 z-0"
-            />
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-              className="absolute -top-6 -left-6 w-6 h-6 border border-rose-300 rounded-full opacity-0 group-hover:opacity-60 transition-opacity duration-300 z-0"
-            />
-
-            {/* Tooltip (conditionally rendered for last A) */}
-            {hovered === 99 && <Tooltip text={LAST_A_MEANING} />}
-          </motion.div>
         </div>
 
         {/* caption */}

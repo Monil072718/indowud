@@ -1,35 +1,24 @@
 "use client";
-
+// Force HMR refresh
+import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  Bug,
-  Droplets,
-  Flame,
-  Wind,
-  Volume2,
-  Beaker,
-  Wrench,
-  Settings,
-  Leaf,
-  Shield
-} from "lucide-react";
 
 type Feature = {
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  img: string;
   title: string;
 };
 
 const features: Feature[] = [
-  { icon: Bug, title: "Termite Proof" },
-  { icon: Droplets, title: "Water Proof" },
-  { icon: Flame, title: "Flame Retardant" },
-  { icon: Wind, title: "Smoke Suppressant" },
-  { icon: Shield, title: "Anti Rodent" },
-  { icon: Volume2, title: "Good Sound Absorption" },
-  { icon: Beaker, title: "No Harmful Ingredients" },
-  { icon: Wrench, title: "Good Screw Holding" },
-  { icon: Settings, title: "Easily Machinable" },
-  { icon: Leaf, title: "No Formaldehyde Emissions" },
+  { img: "/imgi_8_Icons_Termite-Proof-1.png.webp", title: "Termite Proof" },
+  { img: "/imgi_9_Icons_Water-Proof-1.png.webp", title: "Water Proof" },
+  { img: "/Icons_Flame-retardant-1.png.webp", title: "Flame Retardant" },
+  { img: "/imgi_11_Icons_Smoke-suppressant-1.png.webp", title: "Smoke Suppressant" },
+  { img: "/imgi_12_Icons_Anti-rodent-1.png.webp", title: "Anti Rodent" },
+  { img: "/imgi_14_Icons_Absorbs-Sound-1.png.webp", title: "Good Sound Absorption" },
+  { img: "/imgi_15_Icons_No-harmful-ingredients-1-1.png.webp", title: "No Harmful Ingredients" },
+  { img: "/imgi_16_Icons_Good-screw-holding-1.png.webp", title: "Good Screw Holding" },
+  { img: "/Icons_Easily-machinable-1.png.webp", title: "Easily Machinable" },
+  { img: "/imgi_13_Icons_No-formaldehyde-emission-1-1.png.webp", title: "No Formaldehyde Emissions" },
 ];
 
 export default function FeaturesSection() {
@@ -96,7 +85,7 @@ export default function FeaturesSection() {
               className="flex flex-col items-center text-center"
             >
               <div className="w-20 h-20 mb-3 bg-white rounded-full flex items-center justify-center shadow">
-                <feature.icon className="w-10 h-10 text-gray-700" strokeWidth={1.5} />
+                <Image src={feature.img} alt={feature.title} width={48} height={48} className="object-contain" />
               </div>
               <h3 className="text-xs font-semibold text-gray-700 uppercase tracking-wide leading-tight">
                 {feature.title}
@@ -118,7 +107,7 @@ export default function FeaturesSection() {
               className="flex flex-col items-center text-center"
             >
               <div className="w-20 h-20 mb-3 bg-white rounded-full flex items-center justify-center shadow">
-                <feature.icon className="w-10 h-10 text-gray-700" strokeWidth={1.5} />
+                <Image src={feature.img} alt={feature.title} width={48} height={48} className="object-contain" />
               </div>
               <h3 className="text-xs font-semibold text-gray-700 uppercase tracking-wide leading-tight">
                 {feature.title}
