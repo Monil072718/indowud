@@ -1,4 +1,7 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const nextConfig: NextConfig = {
   // Optimize images
@@ -57,6 +60,7 @@ const nextConfig: NextConfig = {
   },
 
   // Webpack optimizations for better code splitting
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   webpack: (config: any, { isServer }: { isServer: boolean }) => {
     if (!isServer) {
       // Enhanced code splitting
@@ -158,4 +162,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

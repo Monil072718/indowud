@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
-import { ChevronLeft, ChevronRight, ShieldCheck, Paintbrush, Leaf, Settings } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import PageHeader from "@/components/common/PageHeader";
 
 /* ───────────────────────────────── Brand Colors (from your site) */
@@ -31,6 +31,7 @@ type Panel = {
   long: string;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const panels: Panel[] = [
   {
     key: "interior",
@@ -133,13 +134,6 @@ const showcaseSlides = [
 ];
 
 export default function ApplicationsPage() {
-  /* ───────── states for panels */
-  const [activePanel, setActivePanel] = useState<PanelKey>("interior");
-  const activePanelData = useMemo(
-    () => panels.find((p) => p.key === activePanel) ?? panels[0],
-    [activePanel]
-  );
-
   /* ───────── slider #1 */
   const [heroIndex] = useState(0);
   const [heroImageIndex, setHeroImageIndex] = useState(0);

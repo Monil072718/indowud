@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from "react";
 import PageHeader from "@/components/common/PageHeader";
+import Link from "next/link";
 
 /* ───────────────────────────────── Data ───────────────────────────────── */
 
@@ -220,13 +221,13 @@ function SidebarNav() {
       </ul>
 
       <div className="mt-12">
-        <a
+        <Link
           href="/contact"
           className="group flex items-center gap-2 text-sm font-semibold text-stone-900"
         >
           Contact Sales
           <span className="group-hover:translate-x-1 transition-transform">→</span>
-        </a>
+        </Link>
       </div>
     </nav>
   );
@@ -326,9 +327,9 @@ export default function ProductsPage() {
                         </a>
                       )}
                       {p.showCustomSizeText && (
-                        <a href="/contact" className="text-sm font-medium text-teal-600 hover:text-teal-800 underline underline-offset-4">
+                        <Link href="/contact" className="text-sm font-medium text-teal-600 hover:text-teal-800 underline underline-offset-4">
                           Request Custom Size
-                        </a>
+                        </Link>
                       )}
                     </div>
                   </div>

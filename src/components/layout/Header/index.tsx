@@ -2,7 +2,8 @@
 
 import type React from "react"
 import { useRef, useState, useCallback, useEffect } from "react"
-import Link from "next/link"
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
 import Image from "next/image"
 import {
   Facebook,
@@ -16,6 +17,7 @@ import {
 } from "lucide-react"
 import { motion, AnimatePresence, type Variants } from "framer-motion"
 import dynamic from "next/dynamic";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 type SubNavItem = { label: string; path: string }
 type DropdownItem = {
@@ -31,6 +33,7 @@ type NavItem = {
 }
 
 export default function Header() {
+  const t = useTranslations('Nav');
   const [openTop, setOpenTop] = useState<string | null>(null)
   const [openSub, setOpenSub] = useState<string | null>(null)
 
@@ -102,68 +105,68 @@ export default function Header() {
   }
 
   const navItems: NavItem[] = [
-    { label: "Home", path: "/" },
+    { label: t('home'), path: "/" },
     {
-      label: "Corporate",
+      label: t('corporate'),
       path: "#",
       dropdown: [
-        { label: "Chairman Message", path: "/corporate/chairman-message" },
-        { label: "Mission & Vision", path: "/corporate/mission-vision" },
-        { label: "About Us", path: "/corporate/our-team" },
-        { label: "Certifications", path: "/corporate/certifications" },
+        { label: t('chairmanMessage'), path: "/corporate/chairman-message" },
+        { label: t('missionVision'), path: "/corporate/mission-vision" },
+        { label: t('aboutUs'), path: "/corporate/our-team" },
+        { label: t('certifications'), path: "/corporate/certifications" },
       ],
     },
     {
-      label: "NFC Products",
+      label: t('nfcProducts'),
       path: "/nfc/products",
       dropdown: [
-        { label: "zerOwud NFC", path: "/nfc/products#zerowud-nfc" },
-        { label: "Indowud NFC", path: "/nfc/products#indowud-board" },
-        { label: "NFC Textured panels", path: "/nfc/products#nfc-textured" },
-        { label: "NFC Flute", path: "/nfc/products#nfc-fluted" },
-        { label: "NFC Door", path: "/nfc/products#nfc-door" },
-        { label: "NFC Frame", path: "/nfc/products#nfc-frame" },
-        { label: "NFC Siding", path: "/nfc/products#nfc-siding" },
-        { label: "NFC Fence", path: "/nfc/products#nfc-fence" },
-        { label: "NFC Flooring", path: "/nfc/products#nfc-flooring" },
-        { label: "NFC Rafters", path: "/nfc/products#nfc-rafters" },
-        { label: "NFC Jaali", path: "/nfc/products#nfc-jalli" },
-        { label: "NFC GLU", path: "/nfc/products#nfc-glu" },
+        { label: t('zerOwudNFC'), path: "/nfc/products#zerowud-nfc" },
+        { label: t('indowudNFC'), path: "/nfc/products#indowud-board" },
+        { label: t('nfcTexturedPanels'), path: "/nfc/products#nfc-textured" },
+        { label: t('nfcFlute'), path: "/nfc/products#nfc-fluted" },
+        { label: t('nfcDoor'), path: "/nfc/products#nfc-door" },
+        { label: t('nfcFrame'), path: "/nfc/products#nfc-frame" },
+        { label: t('nfcSiding'), path: "/nfc/products#nfc-siding" },
+        { label: t('nfcFence'), path: "/nfc/products#nfc-fence" },
+        { label: t('nfcFlooring'), path: "/nfc/products#nfc-flooring" },
+        { label: t('nfcRafters'), path: "/nfc/products#nfc-rafters" },
+        { label: t('nfcJaali'), path: "/nfc/products#nfc-jalli" },
+        { label: t('nfcGlu'), path: "/nfc/products#nfc-glu" },
       ],
     },
     {
-      label: "Knowledge Center",
+      label: t('knowledgeCenter'),
       path: "#",
       dropdown: [
-        { label: "Manufacturing Process", path: "/nfc/manufacturing-process" },
-        { label: "Applications", path: "/nfc/applications" },
-        { label: "Features", path: "/nfc/features" },
-        { label: "Sustainability & Green Rating", path: "/nfc/sustainability" },
-        { label: "Important Suggestions", path: "/nfc/suggestions" },
-        { label: "Thermoforming", path: "/nfc/thermoforming" },
+        { label: t('manufacturingProcess'), path: "/nfc/manufacturing-process" },
+        { label: t('applications'), path: "/nfc/applications" },
+        { label: t('features'), path: "/nfc/features" },
+        { label: t('sustainabilityGreenRating'), path: "/nfc/sustainability" },
+        { label: t('importantSuggestions'), path: "/nfc/suggestions" },
+        { label: t('thermoforming'), path: "/nfc/thermoforming" },
         {
-          label: "Why NFC?",
+          label: t('whyNFC'),
           path: "/nfc/whynfc",
           hasSubmenu: true,
           submenu: [
-            { label: "Test Results", path: "/nfc/test-results" },
-            { label: "Comparative Study", path: "/nfc/comparative-study" },
-            { label: "Fire Test", path: "/nfc/fire-test" },
+            { label: t('testResults'), path: "/nfc/test-results" },
+            { label: t('comparativeStudy'), path: "/nfc/comparative-study" },
+            { label: t('fireTest'), path: "/nfc/fire-test" },
           ],
         },
-        { label: "FAQs", path: "/nfc/faqs" },
+        { label: t('faqs'), path: "/nfc/faqs" },
       ],
     },
     {
-      label: "Media",
+      label: t('media'),
       path: "#",
       dropdown: [
-        { label: "Videos", path: "/media/video" },
-        { label: "Blog", path: "/media/blog" },
-        { label: "News", path: "/media/news" },
+        { label: t('videos'), path: "/media/video" },
+        { label: t('blog'), path: "/media/blog" },
+        { label: t('news'), path: "/media/news" },
       ],
     },
-    { label: "Contact Us", path: "/contact" },
+    { label: t('contactUs'), path: "/contact" },
   ]
 
   const dropdownPanel: Variants = {
@@ -422,12 +425,13 @@ export default function Header() {
 
             {/* right side buttons */}
             <div className="hidden lg:flex items-center gap-3 lg:gap-5 flex-shrink-0">
+              <LanguageSwitcher />
               <button
                 className="hidden xl:block bg-teal-500 hover:bg-teal-600 text-white px-4 xl:px-6 py-2.5 text-sm font-medium rounded-md transition-colors duration-200 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
                 onClick={openBrochure}
                 aria-label="Request E-Brochure"
               >
-                Request E-Brochure
+                {t('requestBrochure')}
               </button>
               <div className="hidden xl:flex items-center gap-3">
                 {headerSocial.map(({ Icon, href }, i) => (
@@ -666,11 +670,14 @@ export default function Header() {
 
               {/* Footer section - fixed at bottom */}
               <div className="px-4 sm:px-6 py-4 border-t border-gray-200 bg-gray-50/50 flex-shrink-0">
+                <div className="mb-4">
+                  <LanguageSwitcher />
+                </div>
                 <button
                   onClick={openBrochure}
                   className="w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 mb-4 shadow-md hover:shadow-lg transform hover:scale-[1.02]"
                 >
-                  Request E-Brochure
+                  {t('requestBrochure')}
                 </button>
                 <div className="flex items-center justify-center gap-4">
                   {headerSocial.map(({ Icon, href }, i) => (
@@ -737,3 +744,4 @@ const BrochureFormCard = dynamic(() => import("./BrochureFormCard"), {
     </div>
   ),
 })
+

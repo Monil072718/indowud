@@ -1,5 +1,5 @@
 "use client";
-import BlogCard, { BlogCardPost } from "../../../components/sections/blog/BlogCard";
+import BlogCard, { BlogCardPost } from "@/components/sections/blog/BlogCard";
 import { motion } from "framer-motion";
 
 export default function RelatedPosts({ items }: { items: BlogCardPost[] }) {

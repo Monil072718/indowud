@@ -31,7 +31,7 @@ function DetailedFeatures() {
           <p className="leading-relaxed">Unlike a regular fire retardant insulation board, Indowud NFC combines flame resistance and thermal protection in one advanced material—making it a smarter choice for modern construction.</p>
           
           <h3 className="text-xl font-serif italic font-semibold text-slate-800 mt-8">Self-Extinguishing Technology</h3>
-          <p className="leading-relaxed">Indowud NFC doesn't just resist fire—it self-extinguishes once the flame source is removed, stopping fire spread faster than conventional boards.</p>
+          <p className="leading-relaxed">Indowud NFC doesn&apos;t just resist fire—it self-extinguishes once the flame source is removed, stopping fire spread faster than conventional boards.</p>
           
           <h3 className="text-xl font-serif italic font-semibold text-slate-800 mt-8">Low Smoke, Higher Safety</h3>
           <p className="leading-relaxed">Many boards produce toxic smoke. Indowud NFC emits significantly less smoke, making it ideal for homes, hospitals, schools, hotels, and commercial spaces.</p>
@@ -59,7 +59,7 @@ function DetailedFeatures() {
             <p>Long-lasting value</p>
           </div>
           
-          <p className="leading-relaxed mt-6">Indowud NFC isn't just another board—it's the next-generation solution for safer, stronger, and smarter spaces.</p>
+          <p className="leading-relaxed mt-6">Indowud NFC isn&apos;t just another board—it&apos;s the next-generation solution for safer, stronger, and smarter spaces.</p>
           
           <button className="mt-8 px-8 py-3 bg-teal-600 text-white font-medium rounded-lg hover:bg-teal-700 transition-colors shadow-sm cursor-pointer inline-block">
             Know More
@@ -71,7 +71,7 @@ function DetailedFeatures() {
           <h2 className="text-[2rem] font-bold text-[#008e81] mb-8">Waterproof</h2>
           
           <h3 className="text-xl font-serif italic font-semibold text-slate-800 mt-8">The Ultimate Waterproof Board</h3>
-          <p className="leading-relaxed">Traditional plywood and marine boards often absorb moisture, leading to mold, warping, and damage—proving that "waterproof" doesn't always last. Chemical coatings wear off, increasing maintenance and replacement costs, making the <strong>waterproof board price</strong> less valuable over time.</p>
+          <p className="leading-relaxed">Traditional plywood and marine boards often absorb moisture, leading to mold, warping, and damage—proving that &quot;waterproof&quot; doesn&apos;t always last. Chemical coatings wear off, increasing maintenance and replacement costs, making the <strong>waterproof board price</strong> less valuable over time.</p>
           
           <h3 className="text-xl font-serif italic font-semibold text-slate-800 mt-8">Why Indowud NFC Is Different</h3>
           <p className="leading-relaxed">Indowud NFC is a true <strong>waterproof board</strong> engineered for 100% water resistance. Unlike a typical <strong>water resistant board</strong>, it does not swell, crack, or delaminate—even in high-moisture environments.</p>
@@ -85,7 +85,7 @@ function DetailedFeatures() {
           <p className="leading-relaxed">This makes Indowud NFC far more cost-effective compared to traditional options, delivering better lifetime value beyond the initial <strong>waterproof board price</strong>.</p>
           
           <h3 className="text-xl font-serif italic font-semibold text-slate-800 mt-8">Wood-Like & Versatile</h3>
-          <p className="leading-relaxed">With a natural wood look and easy workability, it's ideal for:</p>
+          <p className="leading-relaxed">With a natural wood look and easy workability, it&apos;s ideal for:</p>
           <ul className="list-disc pl-6 space-y-3 py-2">
             <li>Decking & poolside areas</li>
             <li>Shipbuilding & marine projects</li>

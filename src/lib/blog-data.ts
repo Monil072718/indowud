@@ -2079,6 +2079,7 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export function getAllPosts(): BlogCardPost[] {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   return blogPosts.map(({ html: _html, author: _author, ...rest }) => rest);
 }
 
