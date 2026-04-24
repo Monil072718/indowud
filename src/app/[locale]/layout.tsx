@@ -113,7 +113,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <MotionProvider>
             <Header />
-            <main className="pt-20" id="main-content">{children}</main>
+            <main dir="ltr" className="pt-20" id="main-content">{children}</main>
             <Footer />
           </MotionProvider>
         </NextIntlClientProvider>

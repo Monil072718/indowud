@@ -2,21 +2,18 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function BenefitsSection() {
+  const t = useTranslations("BenefitsSection");
+
   const copy = [
-    {
-      t: "Natural wood-like appearance allows it to print, paint, stain, varnish, overlay veneer/laminate, CNC routing, etc.",
-    },
-    {
-      t: "The high content of natural fibres gives better physical and mechanical properties like product density, strength and screw holding.",
-    },
-    {
-      t: "Indowud nfc is not plywood, or wood fibre board. Wood fibre boards have wood particles, while nfc board has only agricultural husk.",
-      small: true,
-      italic: true,
-    },
+    { t: t("copy.0") },
+    { t: t("copy.1") },
+    { t: t("copy.2"), small: true, italic: true },
   ];
+
+  const tags = [t("tags.0"), t("tags.1"), t("tags.2")];
 
   const img1 = "/factory.png";
 
@@ -37,13 +34,12 @@ export default function BenefitsSection() {
               <div className="flex items-center gap-3 mb-6">
                 <span className="h-px w-8 bg-emerald-500"></span>
                 <span className="text-emerald-700 text-sm font-bold uppercase tracking-wider">
-                  Benefits & Craftability
+                  {t("label")}
                 </span>
               </div>
 
               <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl mb-6 leading-tight">
-                Designed for <span className="text-emerald-600">performance</span>, <br />
-                made for <span className="text-emerald-600">imagination</span>.
+                {t("heading")}
               </h2>
 
               {/* Main Copy */}
@@ -66,9 +62,9 @@ export default function BenefitsSection() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-900">Made for Makers</h3>
+                    <h3 className="font-semibold text-slate-900">{t("calloutTitle")}</h3>
                     <p className="mt-1 text-sm text-slate-600">
-                      Thermoformable for curves and complex geometries—perfect for architects and factories turning imagination into reality.
+                      {t("calloutText")}
                     </p>
                   </div>
                 </div>
@@ -76,7 +72,7 @@ export default function BenefitsSection() {
 
               {/* Tags */}
               <div className="mt-8 flex flex-wrap gap-2">
-                {["Print • Paint • Stain", "Thermoform Ready", "High Screw Holding"].map((tag) => (
+                {tags.map((tag) => (
                   <span key={tag} className="inline-flex items-center px-3 py-1 rounded-md bg-slate-100 text-slate-600 text-xs font-medium">
                     {tag}
                   </span>
@@ -111,10 +107,10 @@ export default function BenefitsSection() {
               {/* Floating Badge on Image */}
               <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur shadow-md rounded-lg px-4 py-2 border border-slate-100">
                 <p className="text-xs font-bold text-slate-800 uppercase tracking-wide">
-                  Wood-like Surface
+                  {t("imageBadgeTitle")}
                 </p>
                 <p className="text-[10px] text-slate-500">
-                  Print, Paint, Stain, CNC
+                  {t("imageBadgeSubtitle")}
                 </p>
               </div>
             </motion.div>

@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Leaf } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 
 export default function CertificationsSection() {
-
+  const t = useTranslations("CertificationsSection");
 
   return (
     <section className="relative py-24 bg-white overflow-hidden">
@@ -54,9 +55,9 @@ export default function CertificationsSection() {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-4xl font-bold text-center text-gray-800 mb-6 italic"
           >
-            CII has Certified Indowud nfc as Sustainable Green Product
+            {t("headingLine1")}
             <br />
-            <span className="text-teal-600">and has awarded with GreenPro ecolabel</span>
+            <span className="text-teal-600">{t("headingLine2")}</span>
           </motion.h2>
         </motion.div>
 
@@ -70,17 +71,13 @@ export default function CertificationsSection() {
           className="max-w-4xl mx-auto space-y-6 text-center"
         >
           <motion.p whileHover={{ scale: 1.02 }} className="text-lg text-gray-700 leading-relaxed">
-            A product which bears GreenPro Ecolabel has lower environment impact and contributes significantly for
-            enhancing the performance of Green Buildings and Green Companies.
+            {t("para1")}
           </motion.p>
           <motion.p whileHover={{ scale: 1.02 }} className="text-lg text-gray-700 leading-relaxed">
-            GreenPro Ecolabel is accredited by Global Ecolabelling Network (GEN) through GENICES – {"GEN's"} Internationally
-            Coordinated Ecolabelling System.
+            {t("para2")}
           </motion.p>
           <motion.p whileHover={{ scale: 1.02 }} className="text-lg text-gray-700 leading-relaxed">
-            An Environmental Product Declaration (EPD) is a Type III environmental declaration that quantifies environmental
-            information about the life cycle of a product. It is generally done to understand the environmental impact of the
-            product and demonstrate a commitment to limiting environmental impacts.
+            {t("para3")}
           </motion.p>
         </motion.div>
 

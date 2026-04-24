@@ -18,7 +18,7 @@
     "nfcProducts": "Produtos NFC",
     "zerOwudNFC": "zerOwud NFC",
     "indowudNFC": "Indowud NFC",
-    "nfcTexturedPanels": "Painéis NFC Texturizados",
+    "nfcTexturedPanels": "Painéis Texturizados NFC",
     "nfcFlute": "NFC Flauta",
     "nfcDoor": "Porta NFC",
     "nfcFrame": "Moldura NFC",
@@ -26,13 +26,13 @@
     "nfcFence": "Cerca NFC",
     "nfcFlooring": "Piso NFC",
     "nfcRafters": "Caibros NFC",
-    "nfcJaali": "NFC Jaali",
+    "nfcJaali": "Treliça NFC",
     "nfcGlu": "NFC GLU",
     "knowledgeCenter": "Centro de Conhecimento",
     "manufacturingProcess": "Processo de Fabricação",
     "applications": "Aplicações",
     "features": "Características",
-    "sustainabilityGreenRating": "Sustentabilidade e Avaliação Verde",
+    "sustainabilityGreenRating": "Sustentabilidade e Classificação Verde",
     "importantSuggestions": "Sugestões Importantes",
     "thermoforming": "Termoformagem",
     "whyNFC": "Por que NFC?",
@@ -44,7 +44,170 @@
     "videos": "Vídeos",
     "blog": "Blog",
     "news": "Notícias",
-    "contactUs": "Entre em Contato",
+    "contactUs": "Fale Conosco",
     "requestBrochure": "Solicitar E-Brochure"
+  },
+  "HeroSlider": {
+    "slides": [
+      {
+        "tag": "Design de Interiores",
+        "title": "Design com alma",
+        "subtitle": "Espaços que respiram e inspiram."
+      },
+      {
+        "tag": "Arquitetura",
+        "title": "Forma encontra função",
+        "subtitle": "Beleza, equilíbrio e propósito."
+      },
+      {
+        "tag": "Estilo de Vida",
+        "title": "Feito para viver",
+        "subtitle": "Onde ideias se tornam lares."
+      },
+      {
+        "tag": "Eco-Friendly",
+        "title": "Excelência sustentável",
+        "subtitle": "Qualidade e responsabilidade em cada detalhe."
+      },
+      {
+        "tag": "Arte Moderna",
+        "title": "Inovação encontra tradição",
+        "subtitle": "Soluções modernas com apelo atemporal."
+      }
+    ]
+  },
+  "FeaturesSection": {
+    "heading": "Uma madeira rica em recursos que permite respirar livremente",
+    "descriptionBold": "O Indowud nfc é um produto de painel sustentável e ecológico para todas as aplicações de mobiliário e marcenaria exterior e interior.",
+    "descriptionRegular": "É um produto sem madeira, uma alternativa superior à madeira tropical e painéis à base de madeira como compensado, MDF/HDF em muitos aspectos.",
+    "features": [
+      "Resistente a Cupins",
+      "À Prova d'Água",
+      "Retardante de Chamas",
+      "Supressor de Fumaça",
+      "Anti-Roedores",
+      "Boa Absorção Sonora",
+      "Sem Ingredientes Nocivos",
+      "Boa Fixação de Parafusos",
+      "Facilmente Usinável",
+      "Sem Emissão de Formaldeído"
+    ]
+  },
+  "BenefitsSection": {
+    "label": "Benefícios e Trabalhabilidade",
+    "heading": "Projetado para desempenho, feito para imaginação.",
+    "performance": "desempenho",
+    "imagination": "imaginação",
+    "copy": [
+      "A aparência natural semelhante à madeira permite pintar, manchar, envernizar, sobrepor folheado/laminado, roteamento CNC, etc.",
+      "O alto teor de fibras naturais oferece melhores propriedades físicas e mecânicas como densidade do produto, resistência e fixação de parafusos.",
+      "O Indowud nfc não é compensado nem placa de fibra de madeira. As placas de fibra de madeira contêm partículas de madeira, enquanto a placa nfc contém apenas casca agrícola."
+    ],
+    "calloutTitle": "Feito para Criadores",
+    "calloutText": "Termoformável para curvas e geometrias complexas—perfeito para arquitetos e fábricas que transformam imaginação em realidade.",
+    "tags": ["Pintar • Manchar • Envernizar", "Pronto para Termoformagem", "Alta Fixação de Parafusos"],
+    "imageBadgeTitle": "Superfície semelhante à madeira",
+    "imageBadgeSubtitle": "Pintar, Manchar, CNC"
+  },
+  "CertificationsSection": {
+    "headingLine1": "A CII certificou o Indowud nfc como Produto Verde Sustentável",
+    "headingLine2": "e concedeu o ecolabel GreenPro",
+    "para1": "Um produto que possui o GreenPro Ecolabel tem menor impacto ambiental e contribui significativamente para melhorar o desempenho de Edifícios Verdes e Empresas Verdes.",
+    "para2": "O GreenPro Ecolabel é credenciado pela Global Ecolabelling Network (GEN) por meio do GENICES – Sistema de Rotulagem Ecológica Coordenado Internacionalmente da GEN.",
+    "para3": "Uma Declaração Ambiental de Produto (EPD) é uma declaração ambiental Tipo III que quantifica informações ambientais sobre o ciclo de vida de um produto. Geralmente é feita para entender o impacto ambiental do produto e demonstrar comprometimento em limitar os impactos ambientais."
+  },
+  "BrandSection": {
+    "ahimsa": [
+      "Adeus ao machado, sem mais árvores cortadas.",
+      "Lares saudáveis com propriedades antibacterianas.",
+      "À prova de gelo, chuva e água.",
+      "Moldável e fácil de projetar.",
+      "Seguro contra cupins e roedores.",
+      "Feito de casca agrícola, prevenindo a poluição do ar pela queima de resíduos."
+    ],
+    "caption": "Filosofia de não-violência e harmonia"
+  },
+  "TrustedProgramsSection": {
+    "heading": "Verificado por programas confiáveis",
+    "description": "Dos padrões ISO aos ecolabels de sustentabilidade, nossos painéis são auditados segundo rigorosos padrões de segurança, qualidade e desempenho ambiental.",
+    "greenproCallout": "O GreenPro Ecolabel da CII valida a excelência do ciclo de vida e a contribuição para edifícios verdes.",
+    "greenproLabel": "GreenPro Ecolabel"
+  },
+  "ContactPage": {
+    "category": "Fale Conosco",
+    "title": "Vamos conversar",
+    "description": "Conte-nos um pouco sobre você e o que está procurando. Nossa equipe entrará em contato em breve.",
+    "callUs": "Ligue para nós",
+    "email": "E-mail",
+    "formLabel": "Formulário de contato",
+    "formTitle": "Envie-nos uma mensagem",
+    "successTitle": "Mensagem enviada!",
+    "successText": "Obrigado por entrar em contato — responderemos em breve.",
+    "errorTitle": "Algo deu errado",
+    "errorText": "Por favor, tente novamente.",
+    "labelSalutation": "Saudação",
+    "labelName": "Nome",
+    "labelCompany": "Empresa",
+    "labelEmail": "E-mail",
+    "labelOccupation": "Ocupação",
+    "labelPhone": "Telefone (Fixo)",
+    "labelMobile": "Número de Celular",
+    "labelAddress": "Endereço Linha 1",
+    "labelPincode": "CEP",
+    "labelCountry": "País",
+    "labelState": "Estado/Província",
+    "labelCity": "Cidade",
+    "labelAttachments": "Anexos",
+    "labelMessage": "Sua Mensagem* (mín. 50 caracteres)",
+    "placeholderName": "Seu nome completo",
+    "placeholderCompany": "Sua empresa",
+    "placeholderEmail": "seu@email.com",
+    "placeholderPhone": "Inclua código STD",
+    "placeholderMobile": "Seu número de celular",
+    "placeholderAddress": "Endereço",
+    "placeholderPincode": "600001",
+    "placeholderCountry": "Selecionar País",
+    "placeholderState": "Selecionar Estado/Província",
+    "placeholderStateNA": "N/D para este país",
+    "placeholderStateFirst": "Selecione o país primeiro",
+    "placeholderCity": "Selecionar Cidade",
+    "placeholderCityNA": "Sem cidades no banco de dados",
+    "placeholderCityFirst": "Selecione o país (e estado) primeiro",
+    "placeholderMessage": "Fale sobre sua consulta…",
+    "chooseFile": "Escolher arquivo",
+    "noFile": "Nenhum arquivo escolhido",
+    "attachmentHint": "Anexar seu cartão de visita reduz o tempo de resposta do fornecedor.",
+    "sendMessage": "Enviar mensagem",
+    "submitting": "Enviando…",
+    "responseTime": "Tempo médio de resposta:",
+    "responseTimeValue": "24–48 hrs",
+    "headOffice": "Escritório central",
+    "salesMarketing": "Vendas & Marketing",
+    "careers": "Carreiras",
+    "findUs": "Nos encontre",
+    "findUsText": "Estamos centralmente localizados em Shenoy Nagar, Chennai.",
+    "openInMaps": "Abrir no Maps",
+    "workingHours": "Horário de trabalho",
+    "workingHoursText": "Seg–Sex, 9h30–18h00 (IST)",
+    "workingHoursSubtle": "Os tempos de resposta podem variar nos fins de semana e feriados.",
+    "needDirections": "Precisa de direções? Toque abaixo para abrir no seu aplicativo de mapas.",
+    "openMaps": "Abrir Maps"
+  },
+  "Footer": {
+    "phone": "Telefone",
+    "email": "E-mail",
+    "quickLinks": "Links Rápidos",
+    "copyright": "© 2023 INDOWUD. Todos os Direitos Reservados.",
+    "links": {
+      "home": "Início",
+      "corporate": "Corporativo",
+      "nfc": "NFC",
+      "media": "Mídia",
+      "contactUs": "Fale Conosco",
+      "downloads": "Downloads",
+      "privacyPolicy": "Política de Privacidade",
+      "legalNote": "Nota Legal",
+      "warranty": "Garantia"
+    }
   }
 }

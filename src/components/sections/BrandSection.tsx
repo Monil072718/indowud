@@ -2,18 +2,18 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
-const AHIMSA = [
-  { letter: "A", meaning: "Axe the axe, no more trees cut." },
-  { letter: "H", meaning: "Healthy homes with anti-bacterial properties." },
-  { letter: "I", meaning: "Ice, rain and water proof." },
-  { letter: "M", meaning: "Mouldable and easy to design with." },
-  { letter: "S", meaning: "Secure against termites and rodents." },
-  { letter: "A", meaning: "Agricultural husk made, preventing air pollution from waste husk burning." },
-];
+const LETTERS = ["A", "H", "I", "M", "S", "A"];
 
 export default function BrandSection() {
+  const t = useTranslations("BrandSection");
   const [hovered, setHovered] = useState<number | null>(null);
+
+  const AHIMSA = LETTERS.map((letter, i) => ({
+    letter,
+    meaning: t(`ahimsa.${i}`),
+  }));
 
   const Tooltip = ({ text }: { text: string }) => (
     <motion.div
@@ -172,7 +172,7 @@ export default function BrandSection() {
             whileHover={{ scale: 1.05 }}
             className="text-2xl font-light text-gray-600 italic"
           >
-            Philosophy of non-violence and harmony
+            {t("caption")}
           </motion.p>
         </motion.div>
       </div>

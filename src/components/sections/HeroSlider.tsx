@@ -2,63 +2,35 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
-type Slide = {
-  title: string;
-  subtitle: string;
-  image: string;
-  accent: string;
-  tag: string;
-};
-
-// Merged Data: Your content + Tags for the Magazine UI
-const slides: Slide[] = [
-  {
-    title: "Design with soul",
-    subtitle: "Spaces that breathe and inspire.",
-    image: "/slider-1.webp",
-    accent: "#10b981", // Emerald
-    tag: "Interior Design",
-  },
-  {
-    title: "Form meets function",
-    subtitle: "Beauty, balance, and purpose.",
-    image: "/slider-2.webp",
-    accent: "#f59e0b", // Amber
-    tag: "Architecture",
-  },
-  {
-    title: "Crafted for living",
-    subtitle: "Where ideas turn into homes.",
-    image: "/slider-3.webp",
-    accent: "#ec4899", // Pink
-    tag: "Lifestyle",
-  },
-  {
-    title: "Sustainable excellence",
-    subtitle: "Quality and responsibility in every detail.",
-    image: "/slider-4.png",
-    accent: "#8b5cf6", // Violet
-    tag: "Eco-Friendly",
-  },
-  {
-    title: "Innovation meets tradition",
-    subtitle: "Modern solutions with timeless appeal.",
-    image: "/slider-5.webp",
-    accent: "#06b6d4", // Cyan
-    tag: "Modern Craft",
-  },
+const images = [
+  "/slider-1.webp",
+  "/slider-2.webp",
+  "/slider-3.webp",
+  "/slider-4.png",
+  "/slider-5.webp",
 ];
+
+const accents = ["#10b981", "#f59e0b", "#ec4899", "#8b5cf6", "#06b6d4"];
 
 const AUTO_MS = 5000;
 
 export default function HeroShowcaseWithFounder() {
+  const t = useTranslations("HeroSlider");
   const [index, setIndex] = useState(0);
   const timerRef = useRef<number | null>(null);
 
+  const slides = [0, 1, 2, 3, 4].map((i) => ({
+    tag: t(`slides.${i}.tag`),
+    title: t(`slides.${i}.title`),
+    subtitle: t(`slides.${i}.subtitle`),
+    image: images[i],
+    accent: accents[i],
+  }));
+
   const next = () => setIndex((i) => (i + 1) % slides.length);
   const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
-
 
   // Autoplay with reset
   useEffect(() => {
@@ -70,10 +42,12 @@ export default function HeroShowcaseWithFounder() {
 
   const current = slides[index];
 
+  // Text direction — keep slider columns in LTR order even in RTL locales
+  // (Arabic text inside will still render RTL correctly)
   return (
     <div className="bg-[#FDFCF8]">
       {/* Hero Showcase Slider Section */}
-      <section 
+      <section
         className="relative w-full h-[85vh] min-h-[600px] overflow-hidden text-stone-800 font-sans"
         style={{
           backgroundImage: "url('/imgi_43_Untitled-design.png')",
@@ -83,8 +57,8 @@ export default function HeroShowcaseWithFounder() {
         }}
       >
 
-        {/* Container */}
-        <div className="relative z-10 mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Container — always LTR so image stays right, text stays left */}
+        <div dir="ltr" className="relative z-10 mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid h-full grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
             {/* --- LEFT: Typography & Nav (5 Cols) --- */}
@@ -106,13 +80,6 @@ export default function HeroShowcaseWithFounder() {
                 <p className="mt-6 text-lg text-stone-600 leading-relaxed max-w-md">
                   {current.subtitle}
                 </p>
-
-                {/* Added Tagline */}
-                <div className="mt-8 flex flex-col items-center sm:items-start text-center sm:text-left sm:w-fit text-stone-800 font-bold italic text-2xl sm:text-3xl leading-snug tracking-wide">
-                  <span>No trees cut</span>
-                  <span>No forests destroyed</span>
-                  <span>No beings harmed</span>
-                </div>
               </div>
 
               {/* Pagination / Progress */}

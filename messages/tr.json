@@ -11,7 +11,7 @@
   "Nav": {
     "home": "Ana Sayfa",
     "corporate": "Kurumsal",
-    "chairmanMessage": "Yönetim Kurulu Başkanı'nın Mesajı",
+    "chairmanMessage": "Başkan Mesajı",
     "missionVision": "Misyon ve Vizyon",
     "aboutUs": "Hakkımızda",
     "certifications": "Sertifikalar",
@@ -25,7 +25,7 @@
     "nfcSiding": "NFC Kaplama",
     "nfcFence": "NFC Çit",
     "nfcFlooring": "NFC Zemin",
-    "nfcRafters": "NFC Mertek",
+    "nfcRafters": "NFC Makaslar",
     "nfcJaali": "NFC Jaali",
     "nfcGlu": "NFC GLU",
     "knowledgeCenter": "Bilgi Merkezi",
@@ -34,17 +34,180 @@
     "features": "Özellikler",
     "sustainabilityGreenRating": "Sürdürülebilirlik ve Yeşil Derecelendirme",
     "importantSuggestions": "Önemli Öneriler",
-    "thermoforming": "Termoform",
+    "thermoforming": "Termoşekillendirme",
     "whyNFC": "Neden NFC?",
     "testResults": "Test Sonuçları",
     "comparativeStudy": "Karşılaştırmalı Çalışma",
     "fireTest": "Yangın Testi",
-    "faqs": "Sıkça Sorulan Sorular",
+    "faqs": "Sık Sorulan Sorular",
     "media": "Medya",
     "videos": "Videolar",
     "blog": "Blog",
     "news": "Haberler",
     "contactUs": "Bize Ulaşın",
     "requestBrochure": "E-Broşür İste"
+  },
+  "HeroSlider": {
+    "slides": [
+      {
+        "tag": "İç Tasarım",
+        "title": "Ruhla tasarım",
+        "subtitle": "Nefes alan ve ilham veren mekanlar."
+      },
+      {
+        "tag": "Mimarlık",
+        "title": "Form işlevle buluşuyor",
+        "subtitle": "Güzellik, denge ve amaç."
+      },
+      {
+        "tag": "Yaşam Tarzı",
+        "title": "Yaşam için üretildi",
+        "subtitle": "Fikirlerin evlere dönüştüğü yer."
+      },
+      {
+        "tag": "Çevre Dostu",
+        "title": "Sürdürülebilir mükemmellik",
+        "subtitle": "Her detayda kalite ve sorumluluk."
+      },
+      {
+        "tag": "Modern Zanaatkarlık",
+        "title": "Yenilik gelenekle buluşuyor",
+        "subtitle": "Zamansız cazibe ile modern çözümler."
+      }
+    ]
+  },
+  "FeaturesSection": {
+    "heading": "Özgürce nefes almanızı sağlayan zengin özellikli ahşap",
+    "descriptionBold": "Indowud nfc, tüm dış ve iç mobilya ve doğrama uygulamaları için sürdürülebilir, çevre dostu bir panel ürünüdür.",
+    "descriptionRegular": "Sıfır ahşap ürünüdür; tropikal ahşap ve kontraplak, MDF/HDF gibi ahşap esaslı panellere pek çok açıdan üstün bir alternatiftir.",
+    "features": [
+      "Termite Dayanıklı",
+      "Su Geçirmez",
+      "Alev Geciktirici",
+      "Duman Bastırıcı",
+      "Kemirgen Karşıtı",
+      "İyi Ses Emilimi",
+      "Zararlı İçerik Yok",
+      "İyi Vida Tutma",
+      "Kolay İşlenebilir",
+      "Formaldehit Salınımı Yok"
+    ]
+  },
+  "BenefitsSection": {
+    "label": "Faydalar ve İşlenebilirlik",
+    "heading": "Performans için tasarlandı, hayal gücü için yapıldı.",
+    "performance": "performans",
+    "imagination": "hayal gücü",
+    "copy": [
+      "Doğal ahşap görünümü sayesinde baskı, boya, leke, vernik, kaplama/laminat uygulaması, CNC yönlendirme vb. işlemlere uygundur.",
+      "Yüksek doğal elyaf içeriği, ürün yoğunluğu, mukavemet ve vida tutma gibi daha iyi fiziksel ve mekanik özellikler sağlar.",
+      "Indowud nfc kontraplak veya ahşap elyaf levha değildir. Ahşap elyaf levhalar ahşap parçacıkları içerirken, nfc levhası yalnızca tarımsal kavuz içerir."
+    ],
+    "calloutTitle": "Üreticiler İçin Yapıldı",
+    "calloutText": "Eğriler ve karmaşık geometriler için termoşekillendirilebilir—hayal gücünü gerçeğe dönüştüren mimarlar ve fabrikalar için mükemmel.",
+    "tags": ["Baskı • Boya • Leke", "Termoşekillendirmeye Hazır", "Yüksek Vida Tutma"],
+    "imageBadgeTitle": "Ahşap Benzeri Yüzey",
+    "imageBadgeSubtitle": "Baskı, Boya, Leke, CNC"
+  },
+  "CertificationsSection": {
+    "headingLine1": "CII, Indowud nfc'yi Sürdürülebilir Yeşil Ürün olarak sertifikalandırdı",
+    "headingLine2": "ve GreenPro çevre etiketi ile ödüllendirdi",
+    "para1": "GreenPro Ecolabel taşıyan bir ürün daha düşük çevresel etkiye sahiptir ve Yeşil Binalar ile Yeşil Şirketlerin performansını artırmaya önemli ölçüde katkı sağlar.",
+    "para2": "GreenPro Ecolabel, GENICES – GEN'in Uluslararası Koordineli Ekolabeleme Sistemi aracılığıyla Global Ekolabeleme Ağı (GEN) tarafından akredite edilmektedir.",
+    "para3": "Çevresel Ürün Beyanı (EPD), bir ürünün yaşam döngüsü hakkındaki çevresel bilgileri nicelendiren bir Tip III çevre beyanıdır. Genellikle ürünün çevresel etkisini anlamak ve çevresel etkileri sınırlamaya yönelik taahhüdü göstermek için yapılır."
+  },
+  "BrandSection": {
+    "ahimsa": [
+      "Baltaya veda, artık ağaç kesilmiyor.",
+      "Antibakteriyal özelliklere sahip sağlıklı evler.",
+      "Buz, yağmur ve su geçirmez.",
+      "Şekillendirilebilir ve tasarımı kolay.",
+      "Termit ve kemirgenlerden güvenli.",
+      "Tarımsal kavuzdan yapılmış, atık kavuz yakılmasından kaynaklanan hava kirliliğini önlüyor."
+    ],
+    "caption": "Şiddet karşıtlığı ve uyum felsefesi"
+  },
+  "TrustedProgramsSection": {
+    "heading": "Güvenilir programlar tarafından doğrulandı",
+    "description": "ISO standartlarından sürdürülebilirlik ekolabellerine kadar panellerimiz güvenlik, kalite ve çevresel performans için katı standartlara göre denetlenmektedir.",
+    "greenproCallout": "CII'nin GreenPro Ecolabel'i yaşam döngüsü mükemmeliyetini ve yeşil bina katkısını doğrular.",
+    "greenproLabel": "GreenPro Ecolabel"
+  },
+  "ContactPage": {
+    "category": "Bize Ulaşın",
+    "title": "Konuşalm",
+    "description": "Kendiniz ve aradıklarınız hakkında bize biraz bilgi verin. Ekibimiz kısa süre içinde size dönecektir.",
+    "callUs": "Bizi arayın",
+    "email": "E-posta",
+    "formLabel": "İletişim formu",
+    "formTitle": "Bize mesaj gönderin",
+    "successTitle": "Mesaj gönderildi!",
+    "successText": "Ulaştığınız için teşekkürler — kısa süre içinde size döneceğiz.",
+    "errorTitle": "Bir şeyler yanlış gitti",
+    "errorText": "Lütfen tekrar deneyin.",
+    "labelSalutation": "Hitap",
+    "labelName": "Ad",
+    "labelCompany": "Şirket",
+    "labelEmail": "E-posta",
+    "labelOccupation": "Meslek",
+    "labelPhone": "Telefon (Sabit)",
+    "labelMobile": "Cep Telefonu",
+    "labelAddress": "Adres Satırı 1",
+    "labelPincode": "Posta Kodu",
+    "labelCountry": "Ülke",
+    "labelState": "İl/Eyalet",
+    "labelCity": "Şehir",
+    "labelAttachments": "Ekler",
+    "labelMessage": "Mesajınız* (en az 50 karakter)",
+    "placeholderName": "Ad Soyadınız",
+    "placeholderCompany": "Şirketiniz",
+    "placeholderEmail": "e-posta@adresiniz.com",
+    "placeholderPhone": "STD kodu ekleyin",
+    "placeholderMobile": "Cep telefonu numaranız",
+    "placeholderAddress": "Sokak adresi",
+    "placeholderPincode": "600001",
+    "placeholderCountry": "Ülke Seçin",
+    "placeholderState": "İl/Eyalet Seçin",
+    "placeholderStateNA": "Bu ülke için geçerli değil",
+    "placeholderStateFirst": "Önce ülke seçin",
+    "placeholderCity": "Şehir Seçin",
+    "placeholderCityNA": "Veri setinde şehir yok",
+    "placeholderCityFirst": "Önce ülke (ve il) seçin",
+    "placeholderMessage": "Talebiniz hakkında bize anlatın…",
+    "chooseFile": "Dosya seçin",
+    "noFile": "Dosya seçilmedi",
+    "attachmentHint": "Kartvizitinizi eklemek tedarikçi yanıt süresini kısaltır.",
+    "sendMessage": "Mesaj gönder",
+    "submitting": "Gönderiliyor…",
+    "responseTime": "Ortalama yanıt süresi:",
+    "responseTimeValue": "24–48 saat",
+    "headOffice": "Genel Müdulürlük",
+    "salesMarketing": "Satış & Pazarlama",
+    "careers": "Kariyer",
+    "findUs": "Bizi bulun",
+    "findUsText": "Shenoy Nagar, Chennai'de merkezi bir konumdayız.",
+    "openInMaps": "Haritalarda Aç",
+    "workingHours": "Çalışma saatleri",
+    "workingHoursText": "Pzt–Cum, 09:30–18:00 (IST)",
+    "workingHoursSubtle": "Hafta sonları ve tatillerde yanıt süreleri değişebilir.",
+    "needDirections": "Tarif mi lazım? Harita uygulamanızda açmak için aşağıya dokunun.",
+    "openMaps": "Haritayı Aç"
+  },
+  "Footer": {
+    "phone": "Telefon",
+    "email": "E-posta",
+    "quickLinks": "Hızlı Bağlantılar",
+    "copyright": "© 2023 INDOWUD. Tüm Hakları Saklıdır.",
+    "links": {
+      "home": "Ana Sayfa",
+      "corporate": "Kurumsal",
+      "nfc": "NFC",
+      "media": "Medya",
+      "contactUs": "Bize Ulaşın",
+      "downloads": "İndirmeler",
+      "privacyPolicy": "Gizlilik Politikası",
+      "legalNote": "Hukuki Not",
+      "warranty": "Garanti"
+    }
   }
 }

@@ -2,26 +2,29 @@
 // Force HMR refresh
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
-type Feature = {
-  img: string;
-  title: string;
-};
-
-const features: Feature[] = [
-  { img: "/imgi_8_Icons_Termite-Proof-1.png.webp", title: "Termite Proof" },
-  { img: "/imgi_9_Icons_Water-Proof-1.png.webp", title: "Water Proof" },
-  { img: "/Icons_Flame-retardant-1.png.webp", title: "Flame Retardant" },
-  { img: "/imgi_11_Icons_Smoke-suppressant-1.png.webp", title: "Smoke Suppressant" },
-  { img: "/imgi_12_Icons_Anti-rodent-1.png.webp", title: "Anti Rodent" },
-  { img: "/imgi_14_Icons_Absorbs-Sound-1.png.webp", title: "Good Sound Absorption" },
-  { img: "/imgi_15_Icons_No-harmful-ingredients-1-1.png.webp", title: "No Harmful Ingredients" },
-  { img: "/imgi_16_Icons_Good-screw-holding-1.png.webp", title: "Good Screw Holding" },
-  { img: "/Icons_Easily-machinable-1.png.webp", title: "Easily Machinable" },
-  { img: "/imgi_13_Icons_No-formaldehyde-emission-1-1.png.webp", title: "No Formaldehyde Emissions" },
+const featureImages = [
+  "/imgi_8_Icons_Termite-Proof-1.png.webp",
+  "/imgi_9_Icons_Water-Proof-1.png.webp",
+  "/Icons_Flame-retardant-1.png.webp",
+  "/imgi_11_Icons_Smoke-suppressant-1.png.webp",
+  "/imgi_12_Icons_Anti-rodent-1.png.webp",
+  "/imgi_14_Icons_Absorbs-Sound-1.png.webp",
+  "/imgi_15_Icons_No-harmful-ingredients-1-1.png.webp",
+  "/imgi_16_Icons_Good-screw-holding-1.png.webp",
+  "/Icons_Easily-machinable-1.png.webp",
+  "/imgi_13_Icons_No-formaldehyde-emission-1-1.png.webp",
 ];
 
 export default function FeaturesSection() {
+  const t = useTranslations("FeaturesSection");
+
+  const features = featureImages.map((img, i) => ({
+    img,
+    title: t(`features.${i}`),
+  }));
+
   return (
     <section className="relative py-24 bg-gradient-to-b from-green-50 via-white to-green-50 overflow-hidden">
       {/* subtle background image like the reference */}
@@ -53,7 +56,7 @@ export default function FeaturesSection() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-3xl font-semibold text-gray-800 mb-6 italic"
           >
-            A feature rich Wood That Lets You Breathe Freely
+            {t("heading")}
           </motion.h2>
 
           <motion.p
@@ -64,11 +67,9 @@ export default function FeaturesSection() {
             className="text-base text-gray-700 max-w-4xl mx-auto leading-relaxed"
           >
             <span className="font-semibold">
-              Indowud nfc is a sustainable eco-friendly panel product for all
-              exterior & interior furnishing and joinery applications.
+              {t("descriptionBold")}
             </span>{" "}
-            It is a zero-wood product, a superior alternative to tropical wood
-            and wood-based panels like plywood, MDF/HDF in many ways.
+            {t("descriptionRegular")}
           </motion.p>
         </motion.div>
 

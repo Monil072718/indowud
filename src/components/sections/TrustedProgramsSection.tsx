@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion"
 import { useMemo, useState } from "react"
 import Image from "next/image"
+import { useTranslations } from "next-intl"
 
 /* --------- logos --------- */
 const logosTop = [
@@ -158,6 +159,8 @@ function MarqueeRow({
 
 /* ============================ SECTION ============================ */
 export default function TrustedProgramsSection() {
+  const t = useTranslations("TrustedProgramsSection")
+
   return (
     <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-10 md:py-14 lg:py-20">
       <div className="max-w-7xl mx-auto">
@@ -165,17 +168,16 @@ export default function TrustedProgramsSection() {
           {/* Left copy */}
           <div className="md:col-span-1 lg:col-span-2">
             <h2 className="text-3xl font-bold text-slate-800 text-balance">
-              Verified by trusted programs
+              {t("heading")}
             </h2>
             <p className="mt-2 sm:mt-3 md:mt-4 text-base text-slate-600 leading-relaxed">
-              From ISO standards to sustainability ecolabels, our panels are audited against rigorous benchmarks for
-              safety, quality and environmental performance.
+              {t("description")}
             </p>
 
             <div className="mt-4 sm:mt-5 md:mt-6 rounded-lg sm:rounded-xl bg-white border border-emerald-100 p-3 sm:p-4 md:p-5 shadow-sm">
               <div className="text-base leading-relaxed">
-                <span className="font-semibold text-emerald-700">GreenPro Ecolabel</span> by CII validates lifecycle
-                excellence and green building contribution.
+                <span className="font-semibold text-emerald-700">{t("greenproLabel")}</span>{" "}
+                {t("greenproCallout")}
               </div>
             </div>
           </div>

@@ -2,18 +2,23 @@
 
 import { motion } from "framer-motion";
 import { Facebook, Twitter, Youtube, Instagram, Linkedin, Phone, Mail } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("Footer");
+  const locale = useLocale();
+
   const footerLinks = [
-    { title: "Home", href: "/" },
-    { title: "Corporate", href: "/corporate/chairman-message" },
-    { title: "NFC", href: "/nfc/whynfc" },
-    { title: "Media", href: "/media/video" },
-    { title: "Contact Us", href: "/contact" },
-    { title: "Downloads", href: "#" },
-    { title: "Privacy Policy", href: "/quick-links/privacy-policy" },
-    { title: "Legal Note", href: "/quick-links/legal-note" },
-    { title: "Warranty", href: "/quick-links/warranty" }
+    { title: t("links.home"), href: `/${locale}` },
+    { title: t("links.corporate"), href: `/${locale}/corporate/chairman-message` },
+    { title: t("links.nfc"), href: `/${locale}/nfc/whynfc` },
+    { title: t("links.media"), href: `/${locale}/media/video` },
+    { title: t("links.contactUs"), href: `/${locale}/contact` },
+    { title: t("links.downloads"), href: "#" },
+    { title: t("links.privacyPolicy"), href: `/${locale}/quick-links/privacy-policy` },
+    { title: t("links.legalNote"), href: `/${locale}/quick-links/legal-note` },
+    { title: t("links.warranty"), href: `/${locale}/quick-links/warranty` },
   ];
 
   const socialIcons = [
@@ -21,11 +26,11 @@ export default function Footer() {
     { icon: Twitter, href: "https://x.com/indowud", color: "hover:bg-sky-500" },
     { icon: Youtube, href: "https://www.youtube.com/channel/UC7akg1w5159gl0i0fubvYWw/videos", color: "hover:bg-red-600" },
     { icon: Instagram, href: "https://www.instagram.com/indowud/", color: "hover:bg-pink-600" },
-    { icon: Linkedin, href: "https://www.linkedin.com/company/indowud/", color: "hover:bg-blue-700" }
+    { icon: Linkedin, href: "https://www.linkedin.com/company/indowud/", color: "hover:bg-blue-700" },
   ];
 
   return (
-    <footer className="relative bg-gradient-to-b from-gray-100 to-gray-200 pt-20 pb-8 overflow-hidden">
+    <footer dir="ltr" className="relative bg-gradient-to-b from-gray-100 to-gray-200 pt-20 pb-8 overflow-hidden">
       <div className="absolute inset-0 opacity-5">
         <svg viewBox="0 0 1440 320" className="absolute bottom-0 w-full">
           <path
@@ -54,7 +59,7 @@ export default function Footer() {
                   <Phone className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-500 uppercase tracking-wide">Phone</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-wide">{t("phone")}</p>
                   <p className="font-medium">+91 44 4215 6686</p>
                 </div>
               </div>
@@ -63,7 +68,7 @@ export default function Footer() {
                   <Mail className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-500 uppercase tracking-wide">Email</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-wide">{t("email")}</p>
                   <p className="font-medium">info@indowud.com</p>
                 </div>
               </div>
@@ -71,7 +76,7 @@ export default function Footer() {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2, duration: 0.6 }} className="md:col-span-2">
-            <h3 className="text-lg font-semibold text-gray-800 mb-6 uppercase tracking-wide">Quick Links</h3>
+            <h3 className="text-lg font-semibold text-gray-800 mb-6 uppercase tracking-wide">{t("quickLinks")}</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {footerLinks.map((link) => (
                 <a
@@ -104,7 +109,7 @@ export default function Footer() {
             ))}
           </div>
 
-          <p className="text-gray-600 text-sm">© 2023 INDOWUD. All Rights Reserved.</p>
+          <p className="text-gray-600 text-sm">{t("copyright")}</p>
         </div>
       </div>
     </footer>

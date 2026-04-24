@@ -46,5 +46,168 @@
     "news": "News",
     "contactUs": "Contact Us",
     "requestBrochure": "Request E-Brochure"
+  },
+  "HeroSlider": {
+    "slides": [
+      {
+        "tag": "Interior Design",
+        "title": "Design with soul",
+        "subtitle": "Spaces that breathe and inspire."
+      },
+      {
+        "tag": "Architecture",
+        "title": "Form meets function",
+        "subtitle": "Beauty, balance, and purpose."
+      },
+      {
+        "tag": "Lifestyle",
+        "title": "Crafted for living",
+        "subtitle": "Where ideas turn into homes."
+      },
+      {
+        "tag": "Eco-Friendly",
+        "title": "Sustainable excellence",
+        "subtitle": "Quality and responsibility in every detail."
+      },
+      {
+        "tag": "Modern Craft",
+        "title": "Innovation meets tradition",
+        "subtitle": "Modern solutions with timeless appeal."
+      }
+    ]
+  },
+  "FeaturesSection": {
+    "heading": "A feature rich Wood That Lets You Breathe Freely",
+    "descriptionBold": "Indowud nfc is a sustainable eco-friendly panel product for all exterior & interior furnishing and joinery applications.",
+    "descriptionRegular": "It is a zero-wood product, a superior alternative to tropical wood and wood-based panels like plywood, MDF/HDF in many ways.",
+    "features": [
+      "Termite Proof",
+      "Water Proof",
+      "Flame Retardant",
+      "Smoke Suppressant",
+      "Anti Rodent",
+      "Good Sound Absorption",
+      "No Harmful Ingredients",
+      "Good Screw Holding",
+      "Easily Machinable",
+      "No Formaldehyde Emissions"
+    ]
+  },
+  "BenefitsSection": {
+    "label": "Benefits & Craftability",
+    "heading": "Designed for {performance}, made for {imagination}.",
+    "performance": "performance",
+    "imagination": "imagination",
+    "copy": [
+      "Natural wood-like appearance allows it to print, paint, stain, varnish, overlay veneer/laminate, CNC routing, etc.",
+      "The high content of natural fibres gives better physical and mechanical properties like product density, strength and screw holding.",
+      "Indowud nfc is not plywood, or wood fibre board. Wood fibre boards have wood particles, while nfc board has only agricultural husk."
+    ],
+    "calloutTitle": "Made for Makers",
+    "calloutText": "Thermoformable for curves and complex geometries—perfect for architects and factories turning imagination into reality.",
+    "tags": ["Print • Paint • Stain", "Thermoform Ready", "High Screw Holding"],
+    "imageBadgeTitle": "Wood-like Surface",
+    "imageBadgeSubtitle": "Print, Paint, Stain, CNC"
+  },
+  "CertificationsSection": {
+    "headingLine1": "CII has Certified Indowud nfc as Sustainable Green Product",
+    "headingLine2": "and has awarded with GreenPro ecolabel",
+    "para1": "A product which bears GreenPro Ecolabel has lower environment impact and contributes significantly for enhancing the performance of Green Buildings and Green Companies.",
+    "para2": "GreenPro Ecolabel is accredited by Global Ecolabelling Network (GEN) through GENICES – GEN's Internationally Coordinated Ecolabelling System.",
+    "para3": "An Environmental Product Declaration (EPD) is a Type III environmental declaration that quantifies environmental information about the life cycle of a product. It is generally done to understand the environmental impact of the product and demonstrate a commitment to limiting environmental impacts."
+  },
+  "BrandSection": {
+    "ahimsa": [
+      "Axe the axe, no more trees cut.",
+      "Healthy homes with anti-bacterial properties.",
+      "Ice, rain and water proof.",
+      "Mouldable and easy to design with.",
+      "Secure against termites and rodents.",
+      "Agricultural husk made, preventing air pollution from waste husk burning."
+    ],
+    "caption": "Philosophy of non-violence and harmony"
+  },
+  "TrustedProgramsSection": {
+    "heading": "Verified by trusted programs",
+    "description": "From ISO standards to sustainability ecolabels, our panels are audited against rigorous benchmarks for safety, quality and environmental performance.",
+    "greenproCallout": "GreenPro Ecolabel by CII validates lifecycle excellence and green building contribution.",
+    "greenproLabel": "GreenPro Ecolabel"
+  },
+  "ContactPage": {
+    "category": "Contact Us",
+    "title": "Let's talk",
+    "description": "Tell us a bit about yourself and what you're looking for. Our team will get back to you shortly.",
+    "callUs": "Call us",
+    "email": "Email",
+    "formLabel": "Contact form",
+    "formTitle": "Send us a message",
+    "successTitle": "Message sent!",
+    "successText": "Thanks for reaching out—we'll get back to you soon.",
+    "errorTitle": "Something went wrong",
+    "errorText": "Please try again.",
+    "labelSalutation": "Salutation",
+    "labelName": "Name",
+    "labelCompany": "Company",
+    "labelEmail": "Email",
+    "labelOccupation": "Occupation",
+    "labelPhone": "Phone (Landline)",
+    "labelMobile": "Mobile Number",
+    "labelAddress": "Address Line 1",
+    "labelPincode": "Pincode",
+    "labelCountry": "Country",
+    "labelState": "State/Province",
+    "labelCity": "City",
+    "labelAttachments": "Attachments",
+    "labelMessage": "Your Message* (min 50 chars)",
+    "placeholderName": "Your full name",
+    "placeholderCompany": "Your company",
+    "placeholderEmail": "your@email.com",
+    "placeholderPhone": "Include STD code",
+    "placeholderMobile": "Your mobile number",
+    "placeholderAddress": "Street address",
+    "placeholderPincode": "600001",
+    "placeholderCountry": "Select Country",
+    "placeholderState": "Select State/Province",
+    "placeholderStateNA": "N/A for this country",
+    "placeholderStateFirst": "Select country first",
+    "placeholderCity": "Select City",
+    "placeholderCityNA": "No cities in dataset",
+    "placeholderCityFirst": "Select country (and state) first",
+    "placeholderMessage": "Tell us about your inquiry…",
+    "chooseFile": "Choose file",
+    "noFile": "No file chosen",
+    "attachmentHint": "Attaching your business card shortens supplier response time.",
+    "sendMessage": "Send message",
+    "submitting": "Submitting…",
+    "responseTime": "Average response time:",
+    "responseTimeValue": "24–48 hrs",
+    "headOffice": "Head office",
+    "salesMarketing": "Sales & Marketing",
+    "careers": "Careers",
+    "findUs": "Find us",
+    "findUsText": "We're centrally located in Shenoy Nagar, Chennai.",
+    "openInMaps": "Open in Maps",
+    "workingHours": "Working hours",
+    "workingHoursText": "Mon–Fri, 9:30am–6:00pm (IST)",
+    "workingHoursSubtle": "Response times may vary on weekends and holidays.",
+    "needDirections": "Need directions? Tap below to open in your maps app.",
+    "openMaps": "Open Maps"
+  },
+  "Footer": {
+    "phone": "Phone",
+    "email": "Email",
+    "quickLinks": "Quick Links",
+    "copyright": "© 2023 INDOWUD. All Rights Reserved.",
+    "links": {
+      "home": "Home",
+      "corporate": "Corporate",
+      "nfc": "NFC",
+      "media": "Media",
+      "contactUs": "Contact Us",
+      "downloads": "Downloads",
+      "privacyPolicy": "Privacy Policy",
+      "legalNote": "Legal Note",
+      "warranty": "Warranty"
+    }
   }
 }

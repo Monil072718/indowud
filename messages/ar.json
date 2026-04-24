@@ -13,20 +13,20 @@
     "corporate": "الشركة",
     "chairmanMessage": "رسالة الرئيس",
     "missionVision": "المهمة والرؤية",
-    "aboutUs": "عن الشركة",
+    "aboutUs": "من نحن",
     "certifications": "الشهادات",
     "nfcProducts": "منتجات NFC",
     "zerOwudNFC": "zerOwud NFC",
     "indowudNFC": "Indowud NFC",
-    "nfcTexturedPanels": "لوحات NFC المنقوشة",
+    "nfcTexturedPanels": "ألواح NFC منقوشة",
     "nfcFlute": "NFC فلوت",
     "nfcDoor": "باب NFC",
     "nfcFrame": "إطار NFC",
-    "nfcSiding": "كسوة NFC",
+    "nfcSiding": "تكسية NFC",
     "nfcFence": "سياج NFC",
     "nfcFlooring": "أرضيات NFC",
-    "nfcRafters": "NFC رافتر",
-    "nfcJaali": "NFC جالي",
+    "nfcRafters": "서까래 NFC",
+    "nfcJaali": "شبكة NFC",
     "nfcGlu": "NFC GLU",
     "knowledgeCenter": "مركز المعرفة",
     "manufacturingProcess": "عملية التصنيع",
@@ -36,8 +36,8 @@
     "importantSuggestions": "اقتراحات مهمة",
     "thermoforming": "التشكيل الحراري",
     "whyNFC": "لماذا NFC؟",
-    "testResults": "نتائج الاختبار",
-    "comparativeStudy": "دراسة مقارنة",
+    "testResults": "نتائج الاختبارات",
+    "comparativeStudy": "الدراسة المقارنة",
     "fireTest": "اختبار الحريق",
     "faqs": "الأسئلة الشائعة",
     "media": "الإعلام",
@@ -45,6 +45,169 @@
     "blog": "المدونة",
     "news": "الأخبار",
     "contactUs": "اتصل بنا",
-    "requestBrochure": "طلب الكتيب الإلكتروني"
+    "requestBrochure": "طلب كتيب إلكتروني"
+  },
+  "HeroSlider": {
+    "slides": [
+      {
+        "tag": "التصميم الداخلي",
+        "title": "تصميم بروح",
+        "subtitle": "مساحات تتنفس وتلهم."
+      },
+      {
+        "tag": "العمارة",
+        "title": "الشكل يلتقي بالوظيفة",
+        "subtitle": "الجمال والتوازن والهدف."
+      },
+      {
+        "tag": "أسلوب الحياة",
+        "title": "مصنوع للحياة",
+        "subtitle": "حيث تتحول الأفكار إلى منازل."
+      },
+      {
+        "tag": "صديق للبيئة",
+        "title": "التميز المستدام",
+        "subtitle": "الجودة والمسؤولية في كل تفصيل."
+      },
+      {
+        "tag": "الحرفة الحديثة",
+        "title": "الابتكار يلتقي بالتقاليد",
+        "subtitle": "حلول حديثة بجاذبية خالدة."
+      }
+    ]
+  },
+  "FeaturesSection": {
+    "heading": "خشب غني بالميزات يتيح لك التنفس بحرية",
+    "descriptionBold": "Indowud nfc منتج ألواح صديق للبيئة ومستدام لجميع تطبيقات التأثيث الخارجي والداخلي والنجارة.",
+    "descriptionRegular": "إنه منتج خالٍ من الخشب، وبديل متفوق للخشب الاستوائي والألواح الخشبية مثل الخشب الرقائقي و MDF/HDF بطرق عديدة.",
+    "features": [
+      "مقاوم للنمل الأبيض",
+      "مقاوم للماء",
+      "مقاوم للهب",
+      "كابت للدخان",
+      "مضاد للقوارض",
+      "امتصاص صوتي جيد",
+      "لا مكونات ضارة",
+      "تثبيت برغي جيد",
+      "سهل التشغيل الآلي",
+      "لا انبعاثات فورمالديهيد"
+    ]
+  },
+  "BenefitsSection": {
+    "label": "الفوائد وقابلية الصياغة",
+    "heading": "مصمم للأداء، مصنوع للإبداع.",
+    "performance": "الأداء",
+    "imagination": "الإبداع",
+    "copy": [
+      "المظهر الطبيعي المشابه للخشب يتيح الطباعة والطلاء والتلوين والورنيش وتراكب القشرة/الصفائح وتوجيه CNC وغير ذلك.",
+      "المحتوى العالي من الألياف الطبيعية يمنح خصائص فيزيائية وميكانيكية أفضل مثل كثافة المنتج والمتانة وتثبيت البرغي.",
+      "Indowud nfc ليس خشباً رقائقياً أو لوحاً من ألياف الخشب. تحتوي ألواح الألياف الخشبية على جسيمات خشبية، بينما تحتوي ألواح nfc على قشور زراعية فقط."
+    ],
+    "calloutTitle": "مصنوع للصانعين",
+    "calloutText": "قابل للتشكيل الحراري للأشكال المنحنية والهندسية المعقدة—مثالي للمعماريين والمصانع الذين يحولون الخيال إلى واقع.",
+    "tags": ["طباعة • طلاء • تلوين", "جاهز للتشكيل الحراري", "تثبيت برغي عالٍ"],
+    "imageBadgeTitle": "سطح يشبه الخشب",
+    "imageBadgeSubtitle": "طباعة، طلاء، تلوين، CNC"
+  },
+  "CertificationsSection": {
+    "headingLine1": "منحت CII شهادة Indowud nfc كمنتج أخضر مستدام",
+    "headingLine2": "وحازت على علامة GreenPro البيئية",
+    "para1": "المنتج الحامل لعلامة GreenPro Ecolabel له تأثير بيئي أقل ويُسهم بشكل كبير في تعزيز أداء المباني الخضراء والشركات الخضراء.",
+    "para2": "علامة GreenPro Ecolabel معتمدة من شبكة Ecolabelling العالمية (GEN) من خلال GENICES – نظام وضع علامات بيئية منسق دولياً.",
+    "para3": "إعلان المنتج البيئي (EPD) هو إعلان بيئي من النوع الثالث يحدد المعلومات البيئية حول دورة حياة المنتج. يتم ذلك عموماً لفهم التأثير البيئي للمنتج وإثبات الالتزام بالحد من الآثار البيئية."
+  },
+  "BrandSection": {
+    "ahimsa": [
+      "توديع الفأس، لن تُقطع الأشجار بعد الآن.",
+      "منازل صحية بخصائص مضادة للبكتيريا.",
+      "مقاوم للجليد والمطر والماء.",
+      "قابل للتشكيل وسهل التصميم.",
+      "آمن ضد النمل الأبيض والقوارض.",
+      "مصنوع من قشور الزراعة، يمنع التلوث الهوائي من حرق القشور المهدرة."
+    ],
+    "caption": "فلسفة اللاعنف والانسجام"
+  },
+  "TrustedProgramsSection": {
+    "heading": "معتمد من برامج موثوقة",
+    "description": "من معايير ISO إلى علامات الاستدامة البيئية، تُراجع ألواحنا وفقاً لمعايير صارمة للسلامة والجودة والأداء البيئي.",
+    "greenproCallout": "علامة GreenPro Ecolabel من CII تُثبت تميز دورة الحياة والمساهمة في البناء الأخضر.",
+    "greenproLabel": "GreenPro Ecolabel"
+  },
+  "ContactPage": {
+    "category": "اتصل بنا",
+    "title": "لنتحدث",
+    "description": "أخبرنا قليلاً عن نفسك وما تبحث عنه. سيتواصل معك فريقنا قريباً.",
+    "callUs": "اتصل بنا",
+    "email": "بريد إلكتروني",
+    "formLabel": "نموذج التواصل",
+    "formTitle": "أرسل لنا رسالة",
+    "successTitle": "تم إرسال الرسالة!",
+    "successText": "شكراً لتواصلك — سنعود إليك قريباً.",
+    "errorTitle": "حدث خطأ ما",
+    "errorText": "رجاءً المحاولة مرة أخرى.",
+    "labelSalutation": "التحية",
+    "labelName": "الاسم",
+    "labelCompany": "الشركة",
+    "labelEmail": "البريد الإلكتروني",
+    "labelOccupation": "المهنة",
+    "labelPhone": "الهاتف (أرضي)",
+    "labelMobile": "رقم الجوال",
+    "labelAddress": "سطر العنوان 1",
+    "labelPincode": "الرمز البريدي",
+    "labelCountry": "الدولة",
+    "labelState": "الولاية/المنطقة",
+    "labelCity": "المدينة",
+    "labelAttachments": "المرفقات",
+    "labelMessage": "رسالتك* (حد أدنى 50 حرفاً)",
+    "placeholderName": "اسمك الكامل",
+    "placeholderCompany": "شركتك",
+    "placeholderEmail": "بريدك@الإيميل.com",
+    "placeholderPhone": "ادرج رمز STD",
+    "placeholderMobile": "رقم هاتفك المحمول",
+    "placeholderAddress": "عنوان الشارع",
+    "placeholderPincode": "600001",
+    "placeholderCountry": "اختر دولة",
+    "placeholderState": "اختر ولاية/منطقة",
+    "placeholderStateNA": "غير متاح لهذا البلد",
+    "placeholderStateFirst": "اختر الدولة أولاً",
+    "placeholderCity": "اختر مدينة",
+    "placeholderCityNA": "لا توجد مدن في قاعدة البيانات",
+    "placeholderCityFirst": "اختر الدولة (والولاية) أولاً",
+    "placeholderMessage": "أخبرنا عن استفسارك…",
+    "chooseFile": "اختر ملفاً",
+    "noFile": "لم يتم اختيار ملف",
+    "attachmentHint": "إرفاق بطاقة عملك يقلل وقت استجابة المورد.",
+    "sendMessage": "إرسال الرسالة",
+    "submitting": "جاري الإرسال…",
+    "responseTime": "متوسط وقت الاستجابة:",
+    "responseTimeValue": "24–48 ساعة",
+    "headOffice": "المكتب الرئيسي",
+    "salesMarketing": "المبيعات والتسويق",
+    "careers": "الوظائف",
+    "findUs": "اعثر علينا",
+    "findUsText": "نحن متمركزون في شينوي نغار، تشيناي.",
+    "openInMaps": "فتح في الخرائط",
+    "workingHours": "ساعات العمل",
+    "workingHoursText": "الاثنين–الجمعة، 9:30 ص– 6:00 م (IST)",
+    "workingHoursSubtle": "قد تتفاوت أوقات الاستجابة خلال عطل نهاية الأسبوع والإجازات.",
+    "needDirections": "تحتاج إلى اتجاهات؟ انقر أدناه لفتحها في تطبيق الخرائط.",
+    "openMaps": "فتح الخرائط"
+  },
+  "Footer": {
+    "phone": "الهاتف",
+    "email": "البريد الإلكتروني",
+    "quickLinks": "روابط سريعة",
+    "copyright": "© 2023 INDOWUD. جميع الحقوق محفوظة.",
+    "links": {
+      "home": "الرئيسية",
+      "corporate": "الشركة",
+      "nfc": "NFC",
+      "media": "الإعلام",
+      "contactUs": "اتصل بنا",
+      "downloads": "التنزيلات",
+      "privacyPolicy": "سياسة الخصوصية",
+      "legalNote": "ملاحظة قانونية",
+      "warranty": "الضمان"
+    }
   }
 }

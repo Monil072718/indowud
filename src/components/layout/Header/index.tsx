@@ -264,7 +264,12 @@ export default function Header() {
         className="bg-white/90 backdrop-blur shadow-sm fixed inset-x-0 top-0 z-50 w-full overflow-visible"
       >
         <div className="w-full max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-14 sm:h-16 md:h-20 w-full overflow-visible">
+          {/* dir="ltr" + style ensure logo-nav-buttons order never flips in RTL locales */}
+          <div
+            dir="ltr"
+            style={{ direction: "ltr" }}
+            className="flex justify-between items-center h-14 sm:h-16 md:h-20 w-full overflow-visible"
+          >
             {/* logo */}
             <Link
               href="/"
@@ -490,6 +495,7 @@ export default function Header() {
                 duration: 0.8,
                 ease: [0.25, 0.1, 0.25, 1]
               }}
+              dir="ltr"
               className="lg:hidden fixed top-0 right-0 h-full w-[85vw] max-w-sm bg-white z-50 shadow-2xl flex flex-col"
             >
               {/* Header with close button */}
