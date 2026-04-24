@@ -4,51 +4,104 @@ import { useLocale, useTranslations } from 'next-intl';
 import { useTransition } from 'react';
 import { useRouter, usePathname, routing } from '@/i18n/routing';
 
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Globe, ChevronDown, Check } from 'lucide-react';
+
 export default function LanguageSwitcher() {
   const t = useTranslations('LocaleSwitcher');
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
+  
+  const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  function onSelectChange(event: React.ChangeEvent<HTMLSelectElement>) {
-    const nextLocale = event.target.value;
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 150);
+  };
+
+  useEffect(() => {
+    setMounted(true);
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  if (!mounted) return (
+    <div className="w-24 h-8 bg-white/10 rounded-lg animate-pulse" />
+  );
+
+  const handleLocaleChange = (nextLocale: string) => {
+    setIsOpen(false);
     startTransition(() => {
       router.replace({ pathname }, { locale: nextLocale });
     });
-  }
+  };
+
+  const currentLocaleName = t(locale);
 
   return (
-    <label className="relative text-gray-400">
-      <span className="sr-only">{t('label')}</span>
-      <select
-        className="appearance-none bg-transparent py-2 pl-3 pr-8 w-max text-sm rounded border border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-500 disabled:opacity-50"
-        defaultValue={locale}
+    <div 
+      className="relative" 
+      ref={dropdownRef}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <button
+        onClick={() => setIsOpen(!isOpen)}
         disabled={isPending}
-        onChange={onSelectChange}
-        suppressHydrationWarning
+        className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-[11px] font-bold py-1.5 px-3 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-teal-400 group disabled:opacity-50 uppercase tracking-widest"
       >
-        {routing.locales.map((cur) => (
-          <option key={cur} value={cur} className="text-black bg-white">
-            {t(cur)}
-          </option>
-        ))}
-      </select>
-      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-        <svg
-          className="h-4 w-4"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </div>
-    </label>
+        <span>{currentLocaleName}</span>
+        <Globe size={18} className="text-teal-400 group-hover:rotate-12 transition-transform duration-500" />
+        <ChevronDown 
+          size={16} 
+          className={`text-white/50 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} 
+        />
+      </button>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 8, scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+            className="absolute right-0 mt-3 w-48 bg-white border border-gray-100 rounded-2xl z-[1000] shadow-2xl overflow-hidden p-1.5"
+          >
+            <div className="space-y-0.5">
+              {routing.locales.map((cur) => {
+                const isSelected = locale === cur;
+                return (
+                  <button
+                    key={cur}
+                    onClick={() => handleLocaleChange(cur)}
+                    className={`flex items-center justify-between w-full px-4 py-3 text-[13px] font-semibold rounded-xl transition-all ${
+                      isSelected 
+                        ? 'bg-teal-600 text-white shadow-sm' 
+                        : 'text-gray-700 hover:bg-teal-50 hover:text-teal-900'
+                    }`}
+                  >
+                    <span className="capitalize">{t(cur)}</span>
+                    {isSelected && <Check size={14} className="text-white" />}
+                  </button>
+                );
+              })}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }

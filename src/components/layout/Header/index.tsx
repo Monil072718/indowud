@@ -34,6 +34,7 @@ type NavItem = {
 
 export default function Header() {
   const t = useTranslations('Nav');
+  const [mounted, setMounted] = useState(false);
   const [openTop, setOpenTop] = useState<string | null>(null)
   const [openSub, setOpenSub] = useState<string | null>(null)
 
@@ -42,6 +43,12 @@ export default function Header() {
   const [mobileOpenSub, setMobileOpenSub] = useState<string | null>(null)
 
   const [brochureOpen, setBrochureOpen] = useState(false)
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
 
   const headerSocial = [
@@ -257,37 +264,58 @@ export default function Header() {
 
   return (
     <>
+      {/* ── TOP BAR ── */}
+      <div className="bg-teal-900 text-white py-1.5 z-[60] relative">
+        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-[11px] font-medium tracking-wider uppercase">
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4">
+              {headerSocial.map(({ Icon, href }, i) => (
+                <a
+                  key={i}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-white transition-colors"
+                >
+                  <Icon size={14} />
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher />
+          </div>
+        </div>
+      </div>
+
       <motion.header
-        initial={{ y: -100, opacity: 0 }}
+        initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="bg-white/90 backdrop-blur shadow-sm fixed inset-x-0 top-0 z-50 w-full overflow-visible"
+        transition={{ duration: 0.6 }}
+        className="glass-nav fixed inset-x-0 top-8 z-50 w-full"
       >
-        <div className="w-full max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
-          {/* dir="ltr" + style ensure logo-nav-buttons order never flips in RTL locales */}
-          <div
-            dir="ltr"
-            style={{ direction: "ltr" }}
-            className="flex justify-between items-center h-14 sm:h-16 md:h-20 w-full overflow-visible"
-          >
-            {/* logo */}
-            <Link
-              href="/"
-              className="flex items-center gap-2.5 flex-shrink-0"
-              onClick={closeAllMenus}
-            >
-              <Image
-                src="/imgi_2_logo.png.webp"
-                alt="Indowud Logo"
-                width={120}
-                height={120}
-                className="w-20 h-20 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-[120px] lg:h-[120px] object-contain"
-                priority
-              />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-3 group" onClick={closeAllMenus}>
+              <div className="relative overflow-hidden rounded-lg p-1 bg-white/10 group-hover:bg-white/20 transition-colors">
+                <Image
+                  src="/imgi_2_logo.png.webp"
+                  alt="Indowud Logo"
+                  width={60}
+                  height={60}
+                  className="w-12 h-12 md:w-14 md:h-14 object-contain"
+                  priority
+                />
+              </div>
+              <div className="hidden sm:block">
+                <div className="text-xl font-black text-rose-600 tracking-tighter leading-none group-hover:scale-105 transition-transform origin-left">INDOWUD</div>
+                <div className="text-[9px] text-gray-500 font-bold tracking-[0.2em]">{t('designTechnology')}</div>
+              </div>
             </Link>
 
-            {/* DESKTOP NAV - hover to open */}
-            <nav className="hidden lg:flex items-center gap-4 lg:gap-7 xl:gap-8 flex-shrink-0 overflow-visible">
+            {/* Desktop Nav */}
+            <nav className="hidden lg:flex items-center gap-1">
               {navItems.map((item) => {
                 const hasDropdown = !!item.dropdown?.length
                 const isOpen = openTop === item.label
@@ -295,30 +323,23 @@ export default function Header() {
                 return (
                   <div
                     key={item.label}
-                    className="relative overflow-visible"
-                    onMouseEnter={() => {
-                      if (hasDropdown) {
-                        handleTopEnter(item.label)
-                      }
-                    }}
+                    className="relative"
+                    onMouseEnter={() => hasDropdown && handleTopEnter(item.label)}
                     onMouseLeave={handleTopLeave}
                   >
                     {hasDropdown ? (
                       <button
-                        onClick={preventNav}
-                        className={`text-base font-medium py-2 px-1 transition-colors whitespace-nowrap ${isOpen ? "text-rose-600" : "text-gray-700 hover:text-rose-600"
-                          }`}
+                        className={`nav-link-hover px-4 py-2 text-[13px] font-bold tracking-wide transition-all uppercase ${
+                          isOpen ? "text-rose-600" : "text-gray-700 hover:text-rose-600"
+                        }`}
                       >
                         {item.label}
                       </button>
                     ) : (
                       <Link
                         href={item.path}
+                        className="nav-link-hover px-4 py-2 text-[13px] font-bold tracking-wide transition-all uppercase text-gray-700 hover:text-rose-600"
                         onClick={closeAllMenus}
-                        className={`text-base font-medium py-2 px-1 transition-colors whitespace-nowrap ${item.label === "Home"
-                          ? "text-rose-600"
-                          : "text-gray-700 hover:text-rose-600"
-                          }`}
                       >
                         {item.label}
                       </Link>
@@ -327,96 +348,64 @@ export default function Header() {
                     <AnimatePresence>
                       {hasDropdown && isOpen && (
                         <motion.div
-                          key={`${item.label}-dd`}
                           variants={dropdownPanel}
                           initial="hidden"
                           animate="show"
                           exit="exit"
-                          className="absolute top-full left-0 mt-1 w-72 bg-white shadow-2xl rounded-xl z-50 ring-1 ring-black/5 overflow-visible"
-                          style={{ transformOrigin: "top left" }}
-                          onMouseEnter={() => handleTopEnter(item.label)}
-                          onMouseLeave={handleTopLeave}
+                          className="glass-dropdown absolute top-full left-0 mt-2 w-72 rounded-2xl z-50 overflow-hidden"
                         >
-                          <div className="py-2">
+                          <div className="p-2 space-y-0.5">
                             {item.dropdown!.map((d, i) => {
                               const hasSub = !!(d.hasSubmenu && d.submenu?.length)
                               const subOpen = openSub === d.label
 
                               return (
-                                <motion.div
+                                <div
                                   key={d.label}
-                                  custom={i}
-                                  variants={listItem}
-                                  initial="hidden"
-                                  animate="show"
-                                  exit="exit"
-                                  className="relative group overflow-visible"
-                                  onMouseEnter={() => {
-                                    if (hasSub) {
-                                      handleSubEnter(d.label)
-                                    }
-                                  }}
-                                  onMouseLeave={() => {
-                                    if (hasSub) {
-                                      handleSubLeave()
-                                    }
-                                  }}
+                                  className="relative"
+                                  onMouseEnter={() => hasSub && handleSubEnter(d.label)}
+                                  onMouseLeave={() => hasSub && handleSubLeave()}
                                 >
                                   {hasSub ? (
-                                    <button
-                                      onClick={preventNav}
-                                      className="w-full flex items-center justify-between px-5 py-3 text-base text-gray-700 hover:bg-gradient-to-r hover:from-teal-500 hover:to-teal-600 hover:text-white transition-all duration-200"
-                                    >
+                                    <button className="w-full flex items-center justify-between px-4 py-3 text-[13px] font-semibold text-gray-700 hover:bg-teal-500 hover:text-white rounded-xl transition-all">
                                       <span>{d.label}</span>
-                                      <ChevronRight className="w-4 h-4 shrink-0" />
+                                      <ChevronRight className={`w-4 h-4 transition-transform ${subOpen ? 'rotate-90' : ''}`} />
                                     </button>
                                   ) : (
                                     <Link
                                       href={d.path}
-                                      className="flex items-center justify-between px-5 py-3 text-base text-gray-700 hover:bg-gradient-to-r hover:from-teal-500 hover:to-teal-600 hover:text-white transition-all duration-200"
+                                      className="block px-4 py-3 text-[13px] font-semibold text-gray-700 hover:bg-teal-500 hover:text-white rounded-xl transition-all"
                                       onClick={closeAllMenus}
                                     >
-                                      <span>{d.label}</span>
+                                      {d.label}
                                     </Link>
                                   )}
 
                                   <AnimatePresence>
                                     {hasSub && subOpen && (
                                       <motion.div
-                                        key={`${d.label}-submenu`}
                                         variants={submenuPanel}
                                         initial="hidden"
                                         animate="show"
                                         exit="exit"
-                                        className="absolute left-full top-0 ml-0.5 w-72 bg-white shadow-2xl rounded-xl z-[60] ring-1 ring-black/5 overflow-visible"
-                                        style={{ transformOrigin: "top left" }}
-                                        onMouseEnter={() => handleSubEnter(d.label)}
-                                        onMouseLeave={handleSubLeave}
+                                        className="glass-dropdown absolute left-full top-0 ml-2 w-72 rounded-2xl z-[60] overflow-hidden"
                                       >
-                                        <div className="py-2">
-                                          {d.submenu!.map((s, si) => (
-                                            <motion.div
+                                        <div className="p-2 space-y-0.5">
+                                          {d.submenu!.map((s) => (
+                                            <Link
                                               key={s.label}
-                                              custom={si}
-                                              variants={listItem}
-                                              initial="hidden"
-                                              animate="show"
-                                              exit="exit"
+                                              href={s.path}
+                                              className="block px-4 py-3 text-[13px] font-semibold text-gray-700 hover:bg-rose-500 hover:text-white rounded-xl transition-all"
+                                              onClick={closeAllMenus}
                                             >
-                                              <Link
-                                                href={s.path}
-                                                className="block px-5 py-3 text-base text-gray-700 hover:bg-gradient-to-r hover:from-pink-500 hover:to-pink-600 hover:text-white transition-all duration-200"
-                                                onClick={closeAllMenus}
-                                              >
-                                                {s.label}
-                                              </Link>
-                                            </motion.div>
+                                              {s.label}
+                                            </Link>
                                           ))}
                                         </div>
                                       </motion.div>
                                     )}
                                   </AnimatePresence>
-                                </motion.div>
+                                </div>
                               )
                             })}
                           </div>
@@ -428,46 +417,22 @@ export default function Header() {
               })}
             </nav>
 
-            {/* right side buttons */}
-            <div className="hidden lg:flex items-center gap-3 lg:gap-5 flex-shrink-0">
-              <LanguageSwitcher />
+            {/* CTA Button */}
+            <div className="hidden lg:flex items-center">
               <button
-                className="hidden xl:block bg-teal-500 hover:bg-teal-600 text-white px-4 xl:px-6 py-2.5 text-sm font-medium rounded-md transition-colors duration-200 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
                 onClick={openBrochure}
-                aria-label="Request E-Brochure"
+                className="btn-premium px-6 py-3 text-[11px] font-black text-white uppercase tracking-widest rounded-full transition-all"
               >
                 {t('requestBrochure')}
               </button>
-              <div className="hidden xl:flex items-center gap-3">
-                {headerSocial.map(({ Icon, href }, i) => (
-                  <a
-                    key={i}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-rose-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2 rounded"
-                    onClick={closeAllMenus}
-                  >
-                    <Icon size={18} aria-hidden={true} />
-                  </a>
-                ))}
-              </div>
             </div>
 
-            {/* mobile / tablet toggle */}
+            {/* Mobile Toggle */}
             <button
-              className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded hover:bg-gray-100 transition-colors duration-200 flex-shrink-0"
-              aria-label="Toggle menu"
-              onClick={() => {
-                const next = !mobileOpen
-                setMobileOpen(next)
-                if (!next) {
-                  setMobileOpenTop(null)
-                  setMobileOpenSub(null)
-                }
-              }}
+              className="lg:hidden p-2 rounded-xl bg-gray-100 text-gray-900"
+              onClick={() => setMobileOpen(!mobileOpen)}
             >
-              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
@@ -488,215 +453,155 @@ export default function Header() {
 
             <motion.div
               key="mobile-menu"
-              initial={{ x: "100%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "100%", opacity: 0 }}
-              transition={{
-                duration: 0.8,
-                ease: [0.25, 0.1, 0.25, 1]
-              }}
-              dir="ltr"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className="lg:hidden fixed top-0 right-0 h-full w-[85vw] max-w-sm bg-white z-50 shadow-2xl flex flex-col"
             >
-              {/* Header with close button */}
-              <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-teal-50 to-white">
-                <div className="flex items-center gap-2.5">
+              {/* Mobile Header */}
+              <div className="flex items-center justify-between px-6 py-6 border-b border-gray-100">
+                <div className="flex items-center gap-3">
                   <Image
                     src="/imgi_2_logo.png.webp"
-                    alt="Indowud Logo"
-                    width={48}
-                    height={48}
-                    className="w-12 h-12 object-contain"
-                    priority
+                    alt="Logo"
+                    width={40}
+                    height={40}
+                    className="w-10 h-10 object-contain"
                   />
-                  <div className="leading-tight">
-                    <div className="text-base font-bold text-rose-600 tracking-wide">
-                      INDOWUD
-                    </div>
-                    <div className="text-[10px] text-gray-600 tracking-wider">
-                      DESIGN TECHNOLOGY
-                    </div>
+                  <div>
+                    <div className="text-lg font-black text-rose-600 leading-none">INDOWUD</div>
+                    <div className="text-[8px] text-gray-400 font-bold tracking-widest uppercase">Design Tech</div>
                   </div>
                 </div>
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
-                  aria-label="Close menu"
+                  className="p-2 rounded-xl bg-gray-50 text-gray-900"
                 >
-                  <X size={22} className="text-gray-700" />
+                  <X size={20} />
                 </button>
               </div>
 
-              {/* Menu content */}
-              <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4">
-                {navItems.map((item, idx) => {
-                  const hasDropdown = !!item.dropdown?.length
-                  const open = mobileOpenTop === item.label
+              {/* Mobile Nav Links */}
+              <div className="flex-1 overflow-y-auto px-6 py-8">
+                <nav className="space-y-1">
+                  {navItems.map((item, idx) => {
+                    const hasDropdown = !!item.dropdown?.length
+                    const open = mobileOpenTop === item.label
 
-                  return (
-                    <motion.div
-                      key={item.label}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.05 + 0.1, duration: 0.3 }}
-                      className="border-b border-gray-100 last:border-b-0"
-                    >
-                      <div className="w-full flex items-center justify-between py-3.5">
-                        <Link
-                          href={item.path}
-                          onClick={(e) => {
-                            if (hasDropdown) {
-                              e.preventDefault()
-                              setMobileOpenTop(open ? null : item.label)
-                              setMobileOpenSub(null)
-                            } else {
-                              setTimeout(() => setMobileOpen(false), 0)
-                            }
-                          }}
-                          className={`text-lg font-semibold flex-1 transition-colors duration-200 ${item.label === "Home"
-                            ? "text-rose-600"
-                            : "text-gray-800 hover:text-rose-600"
+                    return (
+                      <div key={item.label} className="py-1">
+                        <div className="flex items-center justify-between">
+                          <Link
+                            href={item.path}
+                            onClick={(e) => {
+                              if (hasDropdown) {
+                                e.preventDefault()
+                                setMobileOpenTop(open ? null : item.label)
+                              } else {
+                                closeAllMenus()
+                              }
+                            }}
+                            className={`text-base font-bold uppercase tracking-wide transition-colors ${
+                              open ? "text-rose-600" : "text-gray-900"
                             }`}
-                        >
-                          {item.label}
-                        </Link>
-                        {hasDropdown && (
-                          <button
-                            aria-label="Toggle section"
-                            onClick={() => {
-                              setMobileOpenTop(open ? null : item.label)
-                              setMobileOpenSub(null)
-                            }}
-                            className="p-2 rounded-lg hover:bg-gray-100 transition-all duration-200 ml-3 flex-shrink-0"
                           >
-                            <ChevronRight
-                              className={`w-5 h-5 text-gray-600 transition-transform duration-300 ${open ? "rotate-90" : ""
-                                }`}
-                            />
-                          </button>
-                        )}
-                      </div>
+                            {item.label}
+                          </Link>
+                          {hasDropdown && (
+                            <button
+                              onClick={() => setMobileOpenTop(open ? null : item.label)}
+                              className={`p-2 transition-transform duration-300 ${open ? 'rotate-90 text-rose-600' : 'text-gray-400'}`}
+                            >
+                              <ChevronRight size={18} />
+                            </button>
+                          )}
+                        </div>
 
-                      <AnimatePresence>
-                        {hasDropdown && open && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{
-                              duration: 0.3,
-                              ease: "easeInOut"
-                            }}
-                            className="pl-4 border-l-2 border-teal-400 ml-2 bg-gradient-to-r from-teal-50/50 to-transparent rounded-r-lg my-1"
-                          >
-                            {item.dropdown!.map((d, dIdx) => {
-                              const hasSub = !!(d.hasSubmenu && d.submenu?.length)
-                              const subOpen = mobileOpenSub === d.label
+                        <AnimatePresence>
+                          {hasDropdown && open && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              className="overflow-hidden pl-4 mt-2 space-y-1 border-l-2 border-teal-500"
+                            >
+                              {item.dropdown!.map((d) => {
+                                const hasSub = !!(d.hasSubmenu && d.submenu?.length)
+                                const subOpen = mobileOpenSub === d.label
 
-                              return (
-                                <motion.div
-                                  key={d.label}
-                                  initial={{ opacity: 0, x: 10 }}
-                                  animate={{ opacity: 1, x: 0 }}
-                                  transition={{ delay: dIdx * 0.03 + 0.15, duration: 0.25 }}
-                                  className="border-b border-gray-100 last:border-b-0"
-                                >
-                                  <div className="w-full flex items-center justify-between py-2.5">
-                                    <Link
-                                      href={d.path}
-                                      onClick={(e) => {
-                                        if (hasSub) {
-                                          e.preventDefault()
-                                          setMobileOpenSub(subOpen ? null : d.label)
-                                        } else {
-                                          setTimeout(() => setMobileOpen(false), 0)
-                                        }
-                                      }}
-                                      className="text-base text-gray-700 hover:text-teal-600 flex-1 transition-colors duration-200 font-medium"
-                                    >
-                                      {d.label}
-                                    </Link>
-                                    {hasSub && (
-                                      <button
-                                        aria-label="Toggle submenu"
-                                        onClick={() =>
-                                          setMobileOpenSub(subOpen ? null : d.label)
-                                        }
-                                        className="p-1.5 rounded-lg hover:bg-gray-200 transition-all duration-200 ml-2 flex-shrink-0"
-                                      >
-                                        <ChevronRight
-                                          className={`w-4 h-4 text-gray-600 transition-transform duration-300 ${subOpen ? "rotate-90" : ""
-                                            }`}
-                                        />
-                                      </button>
-                                    )}
-                                  </div>
-
-                                  <AnimatePresence>
-                                    {hasSub && subOpen && (
-                                      <motion.div
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: "auto", opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        transition={{
-                                          duration: 0.25,
-                                          ease: "easeInOut"
+                                return (
+                                  <div key={d.label}>
+                                    <div className="flex items-center justify-between py-2">
+                                      <Link
+                                        href={d.path}
+                                        onClick={(e) => {
+                                          if (hasSub) {
+                                            e.preventDefault()
+                                            setMobileOpenSub(subOpen ? null : d.label)
+                                          } else {
+                                            closeAllMenus()
+                                          }
                                         }}
-                                        className="pl-4 border-l-2 border-pink-300 ml-2 bg-gradient-to-r from-pink-50/50 to-transparent rounded-r-lg my-1"
+                                        className="text-[13px] font-semibold text-gray-600 hover:text-teal-600"
                                       >
-                                        {d.submenu!.map((s, idx) => (
-                                          <motion.div
-                                            key={s.label}
-                                            initial={{ opacity: 0, x: 10 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            transition={{ delay: idx * 0.05 }}
-                                          >
+                                        {d.label}
+                                      </Link>
+                                      {hasSub && (
+                                        <button
+                                          onClick={() => setMobileOpenSub(subOpen ? null : d.label)}
+                                          className={`p-1 transition-transform ${subOpen ? 'rotate-90 text-teal-600' : 'text-gray-300'}`}
+                                        >
+                                          <ChevronRight size={14} />
+                                        </button>
+                                      )}
+                                    </div>
+
+                                    <AnimatePresence>
+                                      {hasSub && subOpen && (
+                                        <motion.div
+                                          initial={{ height: 0, opacity: 0 }}
+                                          animate={{ height: "auto", opacity: 1 }}
+                                          exit={{ height: 0, opacity: 0 }}
+                                          className="overflow-hidden pl-4 space-y-1 border-l border-rose-200"
+                                        >
+                                          {d.submenu!.map((s) => (
                                             <Link
+                                              key={s.label}
                                               href={s.path}
-                                              onClick={() => setTimeout(() => setMobileOpen(false), 0)}
-                                              className="block text-sm text-gray-600 py-2.5 px-3 hover:text-rose-600 hover:bg-white/80 transition-all duration-200 border-b border-gray-100 last:border-b-0 rounded-lg font-medium"
+                                              className="block py-2 text-[12px] font-medium text-gray-500 hover:text-rose-500"
+                                              onClick={closeAllMenus}
                                             >
                                               {s.label}
                                             </Link>
-                                          </motion.div>
-                                        ))}
-                                      </motion.div>
-                                    )}
-                                  </AnimatePresence>
-                                </motion.div>
-                              )
-                            })}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </motion.div>
-                  )
-                })}
+                                          ))}
+                                        </motion.div>
+                                      )}
+                                    </AnimatePresence>
+                                  </div>
+                                )
+                              })}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    )
+                  })}
+                </nav>
               </div>
 
-              {/* Footer section - fixed at bottom */}
-              <div className="px-4 sm:px-6 py-4 border-t border-gray-200 bg-gray-50/50 flex-shrink-0">
-                <div className="mb-4">
-                  <LanguageSwitcher />
-                </div>
+              {/* Mobile Footer */}
+              <div className="p-6 border-t border-gray-100 space-y-6">
                 <button
                   onClick={openBrochure}
-                  className="w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 mb-4 shadow-md hover:shadow-lg transform hover:scale-[1.02]"
+                  className="w-full btn-premium py-4 text-xs font-black text-white uppercase tracking-widest rounded-xl"
                 >
                   {t('requestBrochure')}
                 </button>
-                <div className="flex items-center justify-center gap-4">
+                <div className="flex justify-center gap-6">
                   {headerSocial.map(({ Icon, href }, i) => (
-                    <a
-                      key={i}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-gray-600 hover:text-rose-600 hover:bg-rose-50 transition-all duration-200 shadow-sm hover:shadow-md"
-                      aria-label="social-link"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      <Icon size={18} />
+                    <a key={i} href={href} target="_blank" className="text-gray-400 hover:text-rose-600 transition-colors">
+                      <Icon size={20} />
                     </a>
                   ))}
                 </div>

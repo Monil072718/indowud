@@ -5,7 +5,6 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import Header from "@/components/layout/Header";
 import { Inter } from "next/font/google";
 import {
   OrganizationSchema,
@@ -13,6 +12,8 @@ import {
 } from "@/components/common/StructuredData";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
+
+import Header from "@/components/layout/Header";
 
 // Lazy load Footer - it's below the fold
 const Footer = dynamic(() => import("@/components/layout/Footer"), {
@@ -113,7 +114,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <MotionProvider>
             <Header />
-            <main className="pt-20" id="main-content">{children}</main>
+            <main className="pt-32" id="main-content">{children}</main>
             <Footer />
           </MotionProvider>
         </NextIntlClientProvider>
