@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import PageHeader from "@/components/common/PageHeader";
+import { useTranslations } from "next-intl";
 
 /* ----------------------- small UI bits ----------------------- */
 const Tick = () => (
@@ -13,55 +16,49 @@ const Cross = () => (
   </span>
 );
 
-/* ----------------------- data (from image) ----------------------- */
-const HEAD = ["No", "Properties", "NFC", "PVC/WPC Foam Board", "Plywood", "MDF"] as const;
-type Row = {
-  no: number;
-  prop: string;
-  nfc: React.ReactNode;
-  pvcwpc: React.ReactNode;
-  plywood: React.ReactNode;
-  mdf: React.ReactNode;
-};
-const ROWS: Row[] = [
-  { no: 1, prop: "Density (kg/cbm)", nfc: "700 – 800", pvcwpc: "400 – 600", plywood: "650 – 750", mdf: "600 – 700" },
-  {
-    no: 2,
-    prop: "Raw Material",
-    nfc: "Natural fibers and thermoplastics",
-    pvcwpc: "PVC and filler materials",
-    plywood: "Medium/softwood, Urea/Phenol Formaldehyde",
-    mdf: "Medium/softwood, Urea Formaldehyde",
-  },
-  { no: 3, prop: "Termite Proof", nfc: <Tick />, pvcwpc: "Not always", plywood: <Cross />, mdf: <Cross /> },
-  { no: 4, prop: "Water Proof", nfc: <Tick />, pvcwpc: <Tick />, plywood: "For sometime", mdf: <Cross /> },
-  { no: 5, prop: "Screw Holding", nfc: "Above par", pvcwpc: "Below par", plywood: "Above par", mdf: "Below par" },
-  { no: 6, prop: "Conventional Tools", nfc: <Tick />, pvcwpc: <Tick />, plywood: <Tick />, mdf: <Tick /> },
-  { no: 7, prop: "Overlay Laminate/Veneer", nfc: <Tick />, pvcwpc: "Not Always", plywood: <Tick />, mdf: <Tick /> },
-  {
-    no: 8,
-    prop: "Outdoor and Indoor Applications",
-    nfc: "Both indoor and outdoor",
-    pvcwpc: "Preferably indoor",
-    plywood: "Indoor",
-    mdf: "Only indoor",
-  },
-  { no: 9, prop: "Shrinking and Swelling", nfc: <Cross />, pvcwpc: <Cross />, plywood: <Tick />, mdf: <Tick /> },
-  { no: 10, prop: "Weather and Ageing Resistant", nfc: <Tick />, pvcwpc: <Tick />, plywood: <Cross />, mdf: <Cross /> },
-  { no: 11, prop: "Flame Retardant", nfc: <Tick />, pvcwpc: "Not Known", plywood: <Cross />, mdf: <Cross /> },
-  { no: 12, prop: "Eco Friendly", nfc: <Tick />, pvcwpc: <Tick />, plywood: <Cross />, mdf: <Cross /> },
-];
-
 /* ----------------------- page ----------------------- */
 export default function ComparativeStudyPage() {
+  const t = useTranslations("WhyNFCPage");
+
+  const head = t.raw("tableHead") as string[];
+
+  const rows = [
+    { no: 1, prop: t("properties.density"), nfc: t("values.densityNFC"), pvcwpc: t("values.densityPVC"), plywood: t("values.densityPlywood"), mdf: t("values.densityMDF") },
+    {
+      no: 2,
+      prop: t("properties.rawMaterial"),
+      nfc: t("values.rawNFC"),
+      pvcwpc: t("values.rawPVC"),
+      plywood: t("values.rawPlywood"),
+      mdf: t("values.rawMDF"),
+    },
+    { no: 3, prop: t("properties.termiteProof"), nfc: <Tick />, pvcwpc: t("values.termitePVC"), plywood: <Cross />, mdf: <Cross /> },
+    { no: 4, prop: t("properties.waterProof"), nfc: <Tick />, pvcwpc: <Tick />, plywood: t("values.waterPlywood"), mdf: <Cross /> },
+    { no: 5, prop: t("properties.screwHolding"), nfc: t("values.screwNFC"), pvcwpc: t("values.screwPVC"), plywood: t("values.screwPlywood"), mdf: t("values.screwMDF") },
+    { no: 6, prop: t("properties.conventionalTools"), nfc: <Tick />, pvcwpc: <Tick />, plywood: <Tick />, mdf: <Tick /> },
+    { no: 7, prop: t("properties.overlay"), nfc: <Tick />, pvcwpc: t("values.termitePVC"), plywood: <Tick />, mdf: <Tick /> },
+    {
+      no: 8,
+      prop: t("properties.applications"),
+      nfc: t("values.appNFC"),
+      pvcwpc: t("values.appPVC"),
+      plywood: t("values.appPlywood"),
+      mdf: t("values.appMDF"),
+    },
+    { no: 9, prop: t("properties.shrinking"), nfc: <Cross />, pvcwpc: <Cross />, plywood: <Tick />, mdf: <Tick /> },
+    { no: 10, prop: t("properties.weather"), nfc: <Tick />, pvcwpc: <Tick />, plywood: <Cross />, mdf: <Cross /> },
+    { no: 11, prop: t("properties.flame"), nfc: <Tick />, pvcwpc: t("values.termitePVC"), plywood: <Cross />, mdf: <Cross /> },
+    { no: 12, prop: t("properties.eco"), nfc: <Tick />, pvcwpc: <Tick />, plywood: <Cross />, mdf: <Cross /> },
+  ];
+
   return (
     <main className="min-h-screen bg-white">
       {/* Gradient Hero */}
       <PageHeader
-        category="Why NFC"
-        title="Comparative Study"
-        highlight="NFC vs Others"
-        description="Quality the world and time can test. See how Indowud NFC stacks up against PVC, Plywood, and MDF."
+        category={t("category")}
+        title={t("title")}
+        highlight={t("highlight")}
+        description={t("description")}
       />
 
       {/* Table Card */}
@@ -71,7 +68,7 @@ export default function ComparativeStudyPage() {
             <table className="min-w-[880px] w-full border-separate border-spacing-0">
               <thead>
                 <tr>
-                  {HEAD.map((h, i) => (
+                  {head.map((h, i) => (
                     <th
                       key={h}
                       className={[
@@ -89,7 +86,7 @@ export default function ComparativeStudyPage() {
                 </tr>
               </thead>
               <tbody>
-                {ROWS.map((r) => (
+                {rows.map((r) => (
                   <tr key={r.no} className="group even:bg-zinc-50 hover:bg-teal-50/60">
                     <td className="sticky left-0 z-10 bg-inherit border-b border-zinc-200 px-4 py-3 text-sm font-semibold text-zinc-700">
                       {r.no}

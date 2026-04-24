@@ -1,12 +1,17 @@
+"use client";
+
 import PageHeader from "@/components/common/PageHeader";
+import { useTranslations } from "next-intl";
 
 export default function MissionVisionPage() {
+  const t = useTranslations("MissionVisionPage");
+
   return (
     <>
       <PageHeader
-        category="Corporate"
-        title="Mission, Vision & Quality"
-        description="Clear principles that guide every board we make."
+        category={t("category")}
+        title={t("title")}
+        description={t("description")}
       />
 
       <section className="relative">
@@ -16,34 +21,30 @@ export default function MissionVisionPage() {
           {/* Mission */}
           <div className="mb-14">
             <h3 className="text-3xl font-bold italic underline decoration-2 underline-offset-4 mb-4">
-              Mission
+              {t("mission")}
             </h3>
             <p className="text-base leading-relaxed text-gray-900">
-              Our mission is to become the pioneers of agri-based nfc products in the
-              world, as superior alternate of wood for home owners, builders,
-              architects and designers
+              {t("missionText")}
             </p>
           </div>
 
           {/* Vision */}
           <div className="mb-14">
             <h3 className="text-3xl font-bold italic underline decoration-2 underline-offset-4 mb-4">
-              Vision
+              {t("vision")}
             </h3>
             <p className="text-base leading-relaxed text-gray-900">
-              Our vision is to make Indowud nfc a brand synonymous with sustainability
-              and innovation in the building materials with Make in India Initiative
+              {t("visionText")}
             </p>
           </div>
 
           {/* Quality */}
           <div>
             <h3 className="text-3xl font-bold italic underline decoration-2 underline-offset-4 mb-4">
-              Quality
+              {t("quality")}
             </h3>
             <p className="text-base leading-relaxed text-gray-900">
-              We strategize around one principle goal – Passion for producing and
-              delivering quality products that surpass customer expectations
+              {t("qualityText")}
             </p>
           </div>
         </div>

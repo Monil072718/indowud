@@ -4,6 +4,7 @@ import { useMemo, Suspense } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import BlogCard, { BlogCardPost } from "@/components/sections/blog/BlogCard";
 import PageHeader from "@/components/common/PageHeader";
+import { useTranslations } from "next-intl";
 
 /* ----------------------- mock fetcher (swap with WP REST) ----------------------- */
 import { getAllPosts } from "@/lib/blog-data";
@@ -22,6 +23,7 @@ function Pagination({
   totalPages: number;
   onChange: (p: number) => void;
 }) {
+  const t = useTranslations("Blog.pagination");
   if (totalPages <= 1) return null;
 
   const pages: (number | "…")[] = [];
@@ -53,9 +55,9 @@ function Pagination({
         className={`${btnBase} ${normal} disabled:opacity-50 disabled:cursor-not-allowed`}
         onClick={() => onChange(Math.max(1, page - 1))}
         disabled={page === 1}
-        aria-label="Previous page"
+        aria-label={t("previous")}
       >
-        Previous
+        {t("previous")}
       </button>
 
       <div className="flex items-center gap-1">
@@ -85,9 +87,9 @@ function Pagination({
         className={`${btnBase} ${normal} disabled:opacity-50 disabled:cursor-not-allowed`}
         onClick={() => onChange(Math.min(totalPages, page + 1))}
         disabled={page === totalPages}
-        aria-label="Next page"
+        aria-label={t("next")}
       >
-        Next
+        {t("next")}
       </button>
     </nav>
   );
@@ -95,6 +97,7 @@ function Pagination({
 
 /* --------------------------------- Blog Content Component --------------------------------- */
 function BlogContent() {
+  const t = useTranslations("Blog");
   const posts = useMemo(fetchBlogs, []);
 
   // paginate the grid
@@ -124,9 +127,9 @@ function BlogContent() {
     <div className="min-h-screen bg-slate-50/50">
       {/* Hero Section */}
       <PageHeader
-        category="Media"
-        title="Our Latest Stories"
-        description="Discover insights, comparisons, and expert advice on sustainable construction and modern design with Indowud NFC."
+        category={t("category")}
+        title={t("title")}
+        description={t("description")}
       />
 
       <div className="mx-auto max-w-[1200px] px-4 py-12 md:py-20">

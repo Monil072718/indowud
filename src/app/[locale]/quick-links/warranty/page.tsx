@@ -1,10 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
-
 import Breadcrumb from "@/components/common/Breadcrumb";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function WarrantyPage() {
+  const t = useTranslations("WarrantyPage");
+  const locale = useLocale();
+
   useEffect(() => {
     // Path to the PDF in the public folder
     const pdfPath = '/Warranty-Card_Indowud.pdf';
@@ -24,26 +27,26 @@ export default function WarrantyPage() {
       // PDF opened successfully
     } catch {
       // Handle error silently with user feedback
-      alert('Unable to open warranty document. Please check your browser settings.');
+      alert(t("error"));
     }
 
     // Redirect back to home page after opening PDF (with longer delay)
     setTimeout(() => {
-      window.location.href = '/';
+      window.location.href = `/${locale}`;
     }, 3000);  // Increased timeout to ensure PDF opens first
 
-  }, []);
+  }, [t, locale]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex flex-col items-center justify-center px-4">
       <div className="w-full max-w-4xl mb-8 self-start">
-        <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">Warranty</h1>
+        <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">{t("title")}</h1>
         {/* Breadcrumb */}
         <div className="mt-3">
           <Breadcrumb
             items={[
-              { label: "HOME", href: "/" },
-              { label: "WARRANTY" },
+              { label: "HOME", href: `/${locale}` },
+              { label: t("breadcrumb") },
             ]}
           />
         </div>
@@ -51,8 +54,8 @@ export default function WarrantyPage() {
 
       <div className="text-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600 mx-auto mb-4"></div>
-        <p className="text-gray-600">Opening warranty document...</p>
-        <p className="text-sm text-gray-500 mt-2">If the document doesn&apos;t open, please check your popup blocker settings.</p>
+        <p className="text-gray-600">{t("opening")}</p>
+        <p className="text-sm text-gray-500 mt-2">{t("popupBlocked")}</p>
       </div>
     </div>
   );

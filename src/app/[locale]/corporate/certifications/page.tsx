@@ -4,6 +4,7 @@ import PageHeader from "@/components/common/PageHeader";
 import { motion, type Variants, useReducedMotion } from "framer-motion";
 import { useMemo, useState } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 /* ------------------------ data ------------------------ */
 const logosTop = [
@@ -207,12 +208,14 @@ function MarqueeRow({
    PAGE
    ========================================================= */
 export default function CertificationsPage() {
+  const t = useTranslations("CertificationsPage");
+
   return (
     <>
       <PageHeader
-        category="Corporate"
-        title="Certifications"
-        description="Our manufacturing and materials meet globally recognized benchmarks."
+        category={t("category")}
+        title={t("title")}
+        description={t("description")}
       />
 
       {/* ===== Static grid (top) ===== */}
@@ -252,14 +255,12 @@ export default function CertificationsPage() {
         >
           {/* headline */}
           <p className="text-base sm:text-lg md:text-lg font-semibold leading-snug">
-            CII has certified Indowud NFC as a Sustainable Green Product and awarded the{" "}
-            <span className="text-teal-700">GreenPro ecolabel</span>.
+            {t("calloutHeadline")}
           </p>
 
           {/* body */}
           <p className="mt-2 text-sm sm:text-base md:text-base text-teal-800 leading-relaxed">
-            Products bearing the GreenPro ecolabel have lower environmental impact and contribute
-            to higher performance in green buildings and companies.
+            {t("calloutBody")}
           </p>
         </motion.div>
       </section>
@@ -275,17 +276,15 @@ export default function CertificationsPage() {
           {/* Left copy */}
           <div className="md:col-span-1 lg:col-span-2">
             <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-slate-800 text-balance">
-              Verified by trusted programs
+              {t("trustedTitle")}
             </h2>
             <p className="mt-2 sm:mt-3 md:mt-4 text-slate-600 text-base sm:text-base md:text-lg leading-relaxed">
-              From ISO standards to sustainability ecolabels, our panels are audited against
-              rigorous benchmarks for safety, quality and environmental performance.
+              {t("trustedPara")}
             </p>
 
             <div className="mt-4 sm:mt-5 md:mt-6 rounded-lg sm:rounded-xl bg-white border border-emerald-100 p-4 sm:p-4 md:p-5 shadow-sm">
               <div className="text-base sm:text-base md:text-lg leading-relaxed">
-                <span className="font-semibold text-emerald-700">GreenPro Ecolabel</span> by CII
-                validates lifecycle excellence and green building contribution.
+                {t("greenproCard")}
               </div>
             </div>
           </div>

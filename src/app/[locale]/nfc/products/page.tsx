@@ -1,152 +1,10 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import PageHeader from "@/components/common/PageHeader";
 import Link from "next/link";
-
-/* ───────────────────────────────── Data ───────────────────────────────── */
-
-type CTA = { label: string; href: string; download?: boolean };
-type Spec = { label: string; value: string };
-
-type Product = {
-  id: string;
-  name: string;
-  slug: string;
-  tag?: string;
-  image: string;
-  blurb: string;
-  bullets?: string[];
-  specs?: Spec[];
-  cta?: CTA[];
-  websiteUrl?: string;
-  showCustomSizeText?: boolean;
-  hideExploreSpecs?: boolean;
-};
-
-const PRODUCTS: Product[] = [
-  {
-    id: "zerowud-nfc",
-    name: "ZeroWud NFC",
-    slug: "zerowud-nfc",
-    tag: "Premium Panels",
-    image: "/zerOwud-nfc-board.png.webp",
-    blurb:
-      "Dense, robust panels engineered for durability and finishing that can withstand moisture, termites and harsh weather—yet friendly to fabrication.",
-    bullets: [
-      "100% wood-free natural fibre composite",
-      "Zero filler — consistent density",
-      "Precision machining & screw holding",
-      "Low maintenance, paint/veneer ready",
-    ],
-    specs: [
-      { label: "Sizes", value: "8×4 ft, 9×6 ft" },
-      { label: "Thickness", value: "6, 12, 18, 25 mm" },
-      { label: "Finish", value: "Sanded, primer ready" },
-    ],
-    cta: [
-      { label: "Brochure", href: "/Indowud-nfc-eBrochure.pdf", download: true },
-      { label: "Inquire", href: "/contact" },
-    ],
-  },
-  {
-    id: "indowud-board",
-    name: "Indowud NFC Board",
-    slug: "indowud-nfc-board",
-    tag: "Exterior Grade",
-    image: "/Indowud-nfc-board.png.webp",
-    blurb:
-      "High-strength NFC board for furniture, kitchens, vanities and façades. Stable in humidity, dimensionally true, and easy to edge-band, rout and finish.",
-    bullets: ["Warp-free & termite-resistant", "Excellent screw pull-out strength", "CNC-friendly for routing"],
-    specs: [
-      { label: "Sizes", value: "8×4 ft" },
-      { label: "Thickness", value: "8–30 mm" },
-    ],
-    cta: [{ label: "Applications", href: "/nfc/applications" }],
-    showCustomSizeText: true,
-  },
-  {
-    id: "nfc-door",
-    name: "NFC Door",
-    slug: "nfc-door",
-    tag: "Engineered Doors",
-    image: "/nfc-door.png.webp",
-    blurb:
-      "Stable, ready-to-finish door shutters that stay aligned and withstand seasonal changes. Choose skins, paint, veneer or lamination.",
-    bullets: ["Robust, rattle-free core", "Moisture & termite resistance", "Ready for paint or veneer"],
-    specs: [
-      { label: "Standard", value: "32, 35, 38 mm thick" },
-      { label: "Custom", value: "Sizes on request" },
-    ],
-    cta: [{ label: "Get Quote", href: "/contact" }],
-  },
-  {
-    id: "nfc-frame",
-    name: "NFC Frames",
-    slug: "nfc-frames",
-    tag: "Structural",
-    image: "/nfc-frame.png.webp",
-    blurb:
-      "Dimensionally stable frames and mouldings that look premium and last. Accepts paint, stain or veneers with crisp edges and profiles.",
-    bullets: ["Factory-profiled sections", "Uniform grain-like texture"],
-    cta: [{ label: "Sections List", href: "#" }],
-  },
-  {
-    id: "nfc-jalli",
-    name: "NFC Jalli",
-    slug: "nfc-jalli",
-    tag: "Architectural Screens",
-    image: "/jaal1.jpg.webp",
-    blurb:
-      "CNC-cut NFC jallis enable ornate façades, screens and partitions that handle the weather without swelling or splitting.",
-    bullets: ["Custom patterns", "Prime & paint ready"],
-    cta: [{ label: "Custom Design", href: "/contact" }],
-  },
-  {
-    id: "nfc-decking",
-    name: "NFC Decking",
-    slug: "nfc-decking",
-    tag: "Outdoor Living",
-    image: "/nfc-decking.png.webp",
-    blurb:
-      "Slip-resistant surface, excellent drainage design and fade-resistant finish for patios, poolsides and walkways.",
-    bullets: ["Hidden fasteners", "Low maintenance"],
-    specs: [{ label: "Section", value: "25×150 mm • 2.4 m" }],
-    cta: [{ label: "Patterns", href: "/nfc/products/nfc-decking" }],
-    hideExploreSpecs: true,
-  },
-  {
-    id: "nfc-fluted",
-    name: "Fluted Profiles",
-    slug: "nfc-fluted-profiles",
-    tag: "Wall Cladding",
-    image: "/nfc-flute.png.webp",
-    blurb:
-      "Accent walls that pop — fast to install, easy to repaint, and consistent groove depth for perfect rhythm.",
-    bullets: ["Multiple groove widths", "Impact-resistant"],
-    cta: [{ label: "Explore Profiles", href: "#" }],
-  },
-  {
-    id: "nfc-textured",
-    name: "Textured Panels",
-    slug: "nfc-textured-panels",
-    tag: "Finishes",
-    image: "/nfc-textured-panel.png.webp",
-    blurb: "Authentic wood-like textures on durable NFC base for feature walls, cabinetry and façades.",
-    bullets: ["Uniform pattern repeat", "Prime/paint or veneer"],
-  },
-  {
-    id: "nfc-fence",
-    name: "NFC Fence",
-    slug: "nfc-fence",
-    tag: "Landscape",
-    image: "/nfc-fence.png.webp",
-    blurb:
-      "Weather-resistant pickets and rails that retain looks with minimal upkeep. Safe, splinter-free, child-friendly.",
-    bullets: ["Custom heights & caps", "Colour-coatable"],
-  },
-];
+import { useTranslations } from "next-intl";
 
 /* ───────────────────────────────── UI Components ───────────────────────────────── */
 
@@ -174,8 +32,9 @@ function SpecItem({ label, value }: { label: string; value: string }) {
 }
 
 /* ───────────────────────────────── Sidebar Nav ───────────────────────────────── */
-function SidebarNav() {
+function SidebarNav({ products }: { products: any[] }) {
   const [activeId, setActiveId] = useState("");
+  const t = useTranslations("NFCProductsPage");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -189,19 +48,19 @@ function SidebarNav() {
       { rootMargin: "-20% 0px -50% 0px" } // Adjust trigger zone
     );
 
-    PRODUCTS.forEach((p) => {
+    products.forEach((p) => {
       const el = document.getElementById(p.id);
       if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [products]);
 
   return (
     <nav className="sticky top-24 hidden h-fit w-60 lg:block">
-      <h3 className="mb-6 font-serif text-lg font-medium text-stone-900">Collection</h3>
+      <h3 className="mb-6 font-serif text-lg font-medium text-stone-900">{t("collection")}</h3>
       <ul className="relative space-y-4 border-l border-stone-200 pl-6">
-        {PRODUCTS.map((p) => {
+        {products.map((p) => {
           const isActive = activeId === p.id;
           return (
             <li key={p.id} className="relative">
@@ -225,7 +84,7 @@ function SidebarNav() {
           href="/contact"
           className="group flex items-center gap-2 text-sm font-semibold text-stone-900"
         >
-          Contact Sales
+          {t("contactSales")}
           <span className="group-hover:translate-x-1 transition-transform">→</span>
         </Link>
       </div>
@@ -235,15 +94,127 @@ function SidebarNav() {
 
 /* ───────────────────────────────── Main Page ───────────────────────────────── */
 export default function ProductsPage() {
+  const t = useTranslations("NFCProductsPage");
+
+  const products = useMemo(() => [
+    {
+      id: "zerowud-nfc",
+      name: t("products.zerowud-nfc.name"),
+      slug: "zerowud-nfc",
+      tag: t("products.zerowud-nfc.tag"),
+      image: "/zerOwud-nfc-board.png.webp",
+      blurb: t("products.zerowud-nfc.blurb"),
+      bullets: t.raw("products.zerowud-nfc.bullets"),
+      specs: [
+        { label: t("products.zerowud-nfc.labels.sizes"), value: t("products.zerowud-nfc.specs.sizes") },
+        { label: t("products.zerowud-nfc.labels.thickness"), value: t("products.zerowud-nfc.specs.thickness") },
+        { label: t("products.zerowud-nfc.labels.finish"), value: t("products.zerowud-nfc.specs.finish") },
+      ],
+      cta: [
+        { label: t("products.zerowud-nfc.cta.brochure"), href: "/Indowud-nfc-eBrochure.pdf", download: true },
+        { label: t("products.zerowud-nfc.cta.inquire"), href: "/contact" },
+      ],
+    },
+    {
+      id: "indowud-board",
+      name: t("products.indowud-board.name"),
+      slug: "indowud-nfc-board",
+      tag: t("products.indowud-board.tag"),
+      image: "/Indowud-nfc-board.png.webp",
+      blurb: t("products.indowud-board.blurb"),
+      bullets: t.raw("products.indowud-board.bullets"),
+      specs: [
+        { label: t("products.indowud-board.labels.sizes"), value: t("products.indowud-board.specs.sizes") },
+        { label: t("products.indowud-board.labels.thickness"), value: t("products.indowud-board.specs.thickness") },
+      ],
+      cta: [{ label: t("products.indowud-board.cta.applications"), href: "/nfc/applications" }],
+      showCustomSizeText: true,
+    },
+    {
+      id: "nfc-door",
+      name: t("products.nfc-door.name"),
+      slug: "nfc-door",
+      tag: t("products.nfc-door.tag"),
+      image: "/nfc-door.png.webp",
+      blurb: t("products.nfc-door.blurb"),
+      bullets: t.raw("products.nfc-door.bullets"),
+      specs: [
+        { label: t("products.nfc-door.labels.standard"), value: t("products.nfc-door.specs.standard") },
+        { label: t("products.nfc-door.labels.custom"), value: t("products.nfc-door.specs.custom") },
+      ],
+      cta: [{ label: t("products.nfc-door.cta.quote"), href: "/contact" }],
+    },
+    {
+      id: "nfc-frame",
+      name: t("products.nfc-frame.name"),
+      slug: "nfc-frames",
+      tag: t("products.nfc-frame.tag"),
+      image: "/nfc-frame.png.webp",
+      blurb: t("products.nfc-frame.blurb"),
+      bullets: t.raw("products.nfc-frame.bullets"),
+      cta: [{ label: t("products.nfc-frame.cta.sections"), href: "#" }],
+    },
+    {
+      id: "nfc-jalli",
+      name: t("products.nfc-jalli.name"),
+      slug: "nfc-jalli",
+      tag: t("products.nfc-jalli.tag"),
+      image: "/jaal1.jpg.webp",
+      blurb: t("products.nfc-jalli.blurb"),
+      bullets: t.raw("products.nfc-jalli.bullets"),
+      cta: [{ label: t("products.nfc-jalli.cta.design"), href: "/contact" }],
+    },
+    {
+      id: "nfc-decking",
+      name: t("products.nfc-decking.name"),
+      slug: "nfc-decking",
+      tag: t("products.nfc-decking.tag"),
+      image: "/nfc-decking.png.webp",
+      blurb: t("products.nfc-decking.blurb"),
+      bullets: t.raw("products.nfc-decking.bullets"),
+      specs: [{ label: t("products.nfc-decking.labels.section"), value: t("products.nfc-decking.specs.section") }],
+      cta: [{ label: t("products.nfc-decking.cta.patterns"), href: "/nfc/products/nfc-decking" }],
+      hideExploreSpecs: true,
+    },
+    {
+      id: "nfc-fluted",
+      name: t("products.nfc-fluted.name"),
+      slug: "nfc-fluted-profiles",
+      tag: t("products.nfc-fluted.tag"),
+      image: "/nfc-flute.png.webp",
+      blurb: t("products.nfc-fluted.blurb"),
+      bullets: t.raw("products.nfc-fluted.bullets"),
+      cta: [{ label: t("products.nfc-fluted.cta.explore"), href: "#" }],
+    },
+    {
+      id: "nfc-textured",
+      name: t("products.nfc-textured.name"),
+      slug: "nfc-textured-panels",
+      tag: t("products.nfc-textured.tag"),
+      image: "/nfc-textured-panel.png.webp",
+      blurb: t("products.nfc-textured.blurb"),
+      bullets: t.raw("products.nfc-textured.bullets"),
+    },
+    {
+      id: "nfc-fence",
+      name: t("products.nfc-fence.name"),
+      slug: "nfc-fence",
+      tag: t("products.nfc-fence.tag"),
+      image: "/nfc-fence.png.webp",
+      blurb: t("products.nfc-fence.blurb"),
+      bullets: t.raw("products.nfc-fence.bullets"),
+    },
+  ], [t]);
+
   return (
     <main className="bg-white min-h-screen">
 
       {/* Minimalist Hero */}
       <PageHeader
-        category="Product Catalogue"
-        title="Engineered for"
-        highlight="Excellence"
-        description="Discover our range of premium Natural Fibre Composite materials designed for durability, aesthetics, and sustainability."
+        category={t("category")}
+        title={t("title")}
+        highlight={t("highlight")}
+        description={t("description")}
       />
 
       {/* Main Content Layout */}
@@ -251,11 +222,11 @@ export default function ProductsPage() {
         <div className="flex gap-16">
 
           {/* Left: Sticky Sidebar */}
-          <SidebarNav />
+          <SidebarNav products={products} />
 
           {/* Right: Product List */}
           <div className="flex-1 space-y-24">
-            {PRODUCTS.map((p, i) => (
+            {products.map((p, i) => (
               <article
                 key={p.id}
                 id={p.id}
@@ -288,7 +259,7 @@ export default function ProductsPage() {
                     {/* Bullets */}
                     {p.bullets && (
                       <ul className="space-y-2">
-                        {p.bullets.map((b, idx) => (
+                        {p.bullets.map((b: string, idx: number) => (
                           <li key={idx} className="flex items-start gap-2 text-sm text-stone-700">
                             <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-teal-500 flex-shrink-0" />
                             {b}
@@ -300,7 +271,7 @@ export default function ProductsPage() {
                     {/* Specs */}
                     {!p.hideExploreSpecs && p.specs && (
                       <div className="grid grid-cols-2 gap-4 pt-2">
-                        {p.specs.map((s, idx) => (
+                        {p.specs.map((s: any, idx: number) => (
                           <SpecItem key={idx} label={s.label} value={s.value} />
                         ))}
                       </div>
@@ -308,7 +279,7 @@ export default function ProductsPage() {
 
                     {/* CTA Buttons */}
                     <div className="flex flex-wrap gap-3 pt-4">
-                      {p.cta?.map((c, idx) => (
+                      {p.cta?.map((c: any, idx: number) => (
                         <a
                           key={idx}
                           href={c.href}
@@ -323,12 +294,12 @@ export default function ProductsPage() {
                       ))}
                       {!p.hideExploreSpecs && !p.cta && (
                         <a href={`#${p.slug}`} className="px-6 py-3 rounded-full bg-stone-900 text-white text-sm font-semibold hover:bg-stone-800 hover:shadow-lg transition-all">
-                          Explore
+                          {t("explore")}
                         </a>
                       )}
                       {p.showCustomSizeText && (
                         <Link href="/contact" className="text-sm font-medium text-teal-600 hover:text-teal-800 underline underline-offset-4">
-                          Request Custom Size
+                          {t("customSize")}
                         </Link>
                       )}
                     </div>
@@ -342,12 +313,12 @@ export default function ProductsPage() {
             <div id="nfc-glu" className="relative overflow-hidden rounded-3xl bg-[#F6F1EC] p-8 sm:p-12 text-stone-900 shadow-sm border border-stone-200/60 scroll-mt-24">
               <div className="relative z-10 grid gap-8 lg:grid-cols-2 lg:items-center">
                 <div>
-                  <h3 className="font-serif text-3xl md:text-4xl">NFC-GLU Adhesive</h3>
+                  <h3 className="font-serif text-3xl md:text-4xl">{t("nfcGlu.title")}</h3>
                   <p className="mt-4 text-stone-600 leading-relaxed text-lg">
-                    A professional grade adhesive developed specifically to bond Indowud NFC with almost any surface. Fast setting, water-resistant, and high strength.
+                    {t("nfcGlu.description")}
                   </p>
                   <div className="mt-8 grid grid-cols-2 gap-4">
-                    {['Faster Setting', 'Water Resistant', 'High Strength', 'Multi-Surface'].map((f) => (
+                    {t.raw("nfcGlu.features").map((f: string) => (
                       <div key={f} className="flex items-center gap-3">
                         <svg className="w-6 h-6 text-teal-600 drop-shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
@@ -366,6 +337,7 @@ export default function ProductsPage() {
                 </div>
               </div>
             </div>
+
 
           </div>
         </div>

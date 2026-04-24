@@ -29,6 +29,8 @@ export default function Footer() {
     { icon: Linkedin, href: "https://www.linkedin.com/company/indowud/", color: "hover:bg-blue-700" },
   ];
 
+  const isRtl = locale === "ar";
+
   return (
     <footer dir="ltr" className="relative bg-gradient-to-b from-gray-100 to-gray-200 pt-20 pb-8 overflow-hidden">
       <div className="absolute inset-0 opacity-5">
@@ -49,7 +51,7 @@ export default function Footer() {
               </div>
               <div>
                 <div className="text-2xl font-bold text-rose-600 tracking-wide">INDOWUD</div>
-                <div className="text-xs text-gray-600 tracking-wider">DESIGN TECHNOLOGY</div>
+                <div className="text-xs text-gray-600 tracking-wider">{t("designTechnology")}</div>
               </div>
             </motion.div>
 
@@ -60,7 +62,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 uppercase tracking-wide">{t("phone")}</p>
-                  <p className="font-medium">+91 44 4215 6686</p>
+                  <p className="font-medium" dir="ltr">+91 44 4215 6686</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 text-gray-700">

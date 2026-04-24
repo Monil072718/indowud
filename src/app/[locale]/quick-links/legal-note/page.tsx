@@ -1,14 +1,20 @@
-// app/legal-note/page.tsx
 import type { Metadata } from "next";
 import Link from "next/link";
+import { useTranslations, useLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Legal Note | Indowud",
-  description:
-    "Important legal note and warranty/liability information for Indowud NFC products.",
-};
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "LegalNotePage" });
+  return {
+    title: `${t("title")} | Indowud`,
+    description: t("para1").slice(0, 160),
+  };
+}
 
 export default function LegalNotePage() {
+  const t = useTranslations("LegalNotePage");
+  const locale = useLocale();
+
   return (
     <main className="min-h-screen bg-white">
       {/* Hero / Breadcrumb */}
@@ -16,15 +22,15 @@ export default function LegalNotePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-teal-700 via-rose-600 to-fuchsia-700 opacity-80" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-18">
           <h1 className="text-3xl sm:text-4xl font-serif italic font-bold text-white text-center">
-            Legal Note
+            {t("title")}
           </h1>
           <nav className="mt-3 text-xs md:text-sm tracking-widest text-white/90 uppercase">
             <ol className="flex items-center justify-center">
               <li>
-                <Link href="/" className="hover:text-white transition-colors">HOME</Link>
+                <Link href={`/${locale}`} className="hover:text-white transition-colors">HOME</Link>
               </li>
               <li aria-hidden="true" className="mx-1">/</li>
-              <li>LEGAL NOTE</li>
+              <li>{t("breadcrumb")}</li>
             </ol>
           </nav>
         </div>
@@ -47,33 +53,25 @@ export default function LegalNotePage() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="space-y-10 sm:space-y-12 text-center">
             <p className="text-base sm:text-lg leading-8 text-slate-800">
-              All information provided in this website is based out of the knowledge that the company bears and has been
-              published to provide a reference of the details of applications, features, care, precautions, suggestions,
-              ideas, etc while working with Indowud NFC products. This shall not bear as legal warranty or guarantee so as
-              to its specific properties or their suitability of its applications and products in specific areas.
+              {t("para1")}
             </p>
 
             <p className="text-base sm:text-lg leading-8 text-slate-800">
-              The company offers a legal warranty only against termites. The company has the right to alter the terms and
-              conditions at any time without any prior notice or publication. For the most updated warranty details, please
-              refer to the website.
+              {t("para2")}
             </p>
 
             <p className="text-base sm:text-lg leading-8 text-slate-800">
-              The company assumes no liability for any type of application, or information provided in the website, videos,
-              brochures, or in any form whether written or verbal and does not hold any liability on the consequences related
-              thereto. The viewer/purchaser is obliged to check and test the quality and he/she would be the sole person
-              responsible for selecting, purchasing, working, altering, utilizing, processing, etc and applying any
-              information as per the website.
+              {t("para3")}
             </p>
 
             <p className="text-base sm:text-lg leading-8 text-slate-800">
-              Any advice given by the company in any form (verbal or written) shall not be constituted as any guarantee or
-              claim. The company reserves the right to update, alter or change any information as a part of its continuous
-              research and development programme. For more details, mail at{" "}
-              <Link href="mailto:info@indowud.com" className="text-emerald-700 underline underline-offset-2">
-                info@indowud.com
-              </Link>.
+              {t.rich("para4", {
+                email: (chunks) => (
+                  <Link href="mailto:info@indowud.com" className="text-emerald-700 underline underline-offset-2">
+                    info@indowud.com
+                  </Link>
+                ),
+              })}
             </p>
           </div>
         </div>

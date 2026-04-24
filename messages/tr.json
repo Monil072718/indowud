@@ -1,6 +1,6 @@
 {
   "LocaleSwitcher": {
-    "label": "Dil değiştir",
+    "label": "Dili Değiştir",
     "en": "English",
     "hi": "Hindi",
     "ar": "Arabic",
@@ -11,7 +11,7 @@
   "Nav": {
     "home": "Ana Sayfa",
     "corporate": "Kurumsal",
-    "chairmanMessage": "Başkan Mesajı",
+    "chairmanMessage": "Başkanın Mesajı",
     "missionVision": "Misyon ve Vizyon",
     "aboutUs": "Hakkımızda",
     "certifications": "Sertifikalar",
@@ -22,10 +22,10 @@
     "nfcFlute": "NFC Flüt",
     "nfcDoor": "NFC Kapı",
     "nfcFrame": "NFC Çerçeve",
-    "nfcSiding": "NFC Kaplama",
+    "nfcSiding": "NFC Dış Cephe Kaplaması",
     "nfcFence": "NFC Çit",
-    "nfcFlooring": "NFC Zemin",
-    "nfcRafters": "NFC Makaslar",
+    "nfcFlooring": "NFC Döşeme",
+    "nfcRafters": "NFC Mertek",
     "nfcJaali": "NFC Jaali",
     "nfcGlu": "NFC GLU",
     "knowledgeCenter": "Bilgi Merkezi",
@@ -34,169 +34,177 @@
     "features": "Özellikler",
     "sustainabilityGreenRating": "Sürdürülebilirlik ve Yeşil Derecelendirme",
     "importantSuggestions": "Önemli Öneriler",
-    "thermoforming": "Termoşekillendirme",
+    "thermoforming": "Termoform",
     "whyNFC": "Neden NFC?",
     "testResults": "Test Sonuçları",
     "comparativeStudy": "Karşılaştırmalı Çalışma",
     "fireTest": "Yangın Testi",
-    "faqs": "Sık Sorulan Sorular",
+    "faqs": "SSS",
     "media": "Medya",
     "videos": "Videolar",
     "blog": "Blog",
     "news": "Haberler",
     "contactUs": "Bize Ulaşın",
-    "requestBrochure": "E-Broşür İste"
+    "requestBrochure": "E-Broşür İsteyin"
   },
   "HeroSlider": {
     "slides": [
       {
-        "tag": "İç Tasarım",
-        "title": "Ruhla tasarım",
-        "subtitle": "Nefes alan ve ilham veren mekanlar."
+        "tag": "İÇ TASARIM",
+        "title": "Ruh ile Tasarlayın",
+        "subtitle": "Nefes alan ve ilham veren alanlar."
       },
       {
-        "tag": "Mimarlık",
-        "title": "Form işlevle buluşuyor",
+        "tag": "MİMARLIK",
+        "title": "Form ve Fonksiyonun Buluşması",
         "subtitle": "Güzellik, denge ve amaç."
       },
       {
-        "tag": "Yaşam Tarzı",
-        "title": "Yaşam için üretildi",
+        "tag": "YAŞAM TARZI",
+        "title": "Yaşam İçin İnşa Edildi",
         "subtitle": "Fikirlerin evlere dönüştüğü yer."
       },
       {
-        "tag": "Çevre Dostu",
-        "title": "Sürdürülebilir mükemmellik",
-        "subtitle": "Her detayda kalite ve sorumluluk."
+        "tag": "ÇEVRE DOSTU",
+        "title": "Sürdürülebilir Mükemmellik",
+        "subtitle": "Her ayrıntıda kalite ve sorumluluk."
       },
       {
-        "tag": "Modern Zanaatkarlık",
-        "title": "Yenilik gelenekle buluşuyor",
-        "subtitle": "Zamansız cazibe ile modern çözümler."
+        "tag": "MODERN ZANAAT",
+        "title": "İnovasyon Gelenekle Buluşuyor",
+        "subtitle": "Zamansız çekiciliğe sahip modern çözümler."
       }
     ]
   },
   "FeaturesSection": {
-    "heading": "Özgürce nefes almanızı sağlayan zengin özellikli ahşap",
+    "heading": "Özgürce nefes almanızı sağlayan özelliklerle dolu bir ahşap",
     "descriptionBold": "Indowud nfc, tüm dış ve iç mobilya ve doğrama uygulamaları için sürdürülebilir, çevre dostu bir panel ürünüdür.",
-    "descriptionRegular": "Sıfır ahşap ürünüdür; tropikal ahşap ve kontraplak, MDF/HDF gibi ahşap esaslı panellere pek çok açıdan üstün bir alternatiftir.",
+    "descriptionRegular": "Bu, tropikal sert ağaçlara ve kontrplak, MDF/HDF gibi ahşap esaslı panellere birçok yönden üstün bir alternatif olan sıfır ahşaplı bir üründür.",
     "features": [
-      "Termite Dayanıklı",
+      "Termite Karşı Dayanıklı",
       "Su Geçirmez",
       "Alev Geciktirici",
-      "Duman Bastırıcı",
+      "Duman Azaltıcı",
       "Kemirgen Karşıtı",
       "İyi Ses Emilimi",
-      "Zararlı İçerik Yok",
+      "Zararlı Madde İçermez",
       "İyi Vida Tutma",
       "Kolay İşlenebilir",
-      "Formaldehit Salınımı Yok"
+      "Formaldehit Emisyonu Yok"
     ]
   },
   "BenefitsSection": {
     "label": "Faydalar ve İşlenebilirlik",
-    "heading": "Performans için tasarlandı, hayal gücü için yapıldı.",
-    "performance": "performans",
-    "imagination": "hayal gücü",
+    "heading": "Performans için tasarlandı, hayal gücü için inşa edildi.",
+    "performance": "Performans",
+    "imagination": "Hayal Gücü",
     "copy": [
-      "Doğal ahşap görünümü sayesinde baskı, boya, leke, vernik, kaplama/laminat uygulaması, CNC yönlendirme vb. işlemlere uygundur.",
-      "Yüksek doğal elyaf içeriği, ürün yoğunluğu, mukavemet ve vida tutma gibi daha iyi fiziksel ve mekanik özellikler sağlar.",
-      "Indowud nfc kontraplak veya ahşap elyaf levha değildir. Ahşap elyaf levhalar ahşap parçacıkları içerirken, nfc levhası yalnızca tarımsal kavuz içerir."
+      "Doğal ahşap benzeri görünüm baskı, boyama, lekeleme, vernikleme, kaplama/laminat, CNC yönlendirme vb. işlemlerine olanak tanır.",
+      "Doğal liflerin yüksek içeriği, ürün yoğunluğu, mukavemet ve vida tutma gibi daha iyi fiziksel ve mekanik özellikler sağlar.",
+      "Indowud nfc kontrplak veya ahşap lifli levha değildir. Ahşap lifli levhalarda ahşap parçacıkları bulunurken, nfc levhada sadece tarımsal kabuk bulunur."
     ],
-    "calloutTitle": "Üreticiler İçin Yapıldı",
-    "calloutText": "Eğriler ve karmaşık geometriler için termoşekillendirilebilir—hayal gücünü gerçeğe dönüştüren mimarlar ve fabrikalar için mükemmel.",
-    "tags": ["Baskı • Boya • Leke", "Termoşekillendirmeye Hazır", "Yüksek Vida Tutma"],
+    "calloutTitle": "Yapımcılar İçin Üretildi",
+    "calloutText": "Kavisler ve karmaşık geometriler için termoform edilebilir - mimarlar ve fabrikalar için hayal gücünü gerçeğe dönüştürmek için mükemmeldir.",
+    "tags": [
+      "Baskı • Boya • Leke",
+      "Termoform Hazır",
+      "Yüksek Vida Tutma"
+    ],
     "imageBadgeTitle": "Ahşap Benzeri Yüzey",
     "imageBadgeSubtitle": "Baskı, Boya, Leke, CNC"
   },
   "CertificationsSection": {
-    "headingLine1": "CII, Indowud nfc'yi Sürdürülebilir Yeşil Ürün olarak sertifikalandırdı",
-    "headingLine2": "ve GreenPro çevre etiketi ile ödüllendirdi",
-    "para1": "GreenPro Ecolabel taşıyan bir ürün daha düşük çevresel etkiye sahiptir ve Yeşil Binalar ile Yeşil Şirketlerin performansını artırmaya önemli ölçüde katkı sağlar.",
-    "para2": "GreenPro Ecolabel, GENICES – GEN'in Uluslararası Koordineli Ekolabeleme Sistemi aracılığıyla Global Ekolabeleme Ağı (GEN) tarafından akredite edilmektedir.",
-    "para3": "Çevresel Ürün Beyanı (EPD), bir ürünün yaşam döngüsü hakkındaki çevresel bilgileri nicelendiren bir Tip III çevre beyanıdır. Genellikle ürünün çevresel etkisini anlamak ve çevresel etkileri sınırlamaya yönelik taahhüdü göstermek için yapılır."
+    "headingLine1": "CII, Indowud nfc'yi Sürdürülebilir Yeşil Ürün Olarak Sertifikalandırdı",
+    "headingLine2": "ve GreenPro ekolabel ile ödüllendirdi",
+    "para1": "GreenPro Ekolabel taşıyan bir ürün daha düşük çevresel etkiye sahiptir ve Yeşil Binaların ve Yeşil Şirketlerin performansının artırılmasına önemli ölçüde katkıda bulunur.",
+    "para2": "GreenPro Ekolabel, Küresel Ekolabel Ağı (GEN) tarafından GENICES – GEN'in Uluslararası Koordineli Ekolabel Sistemi aracılığıyla akredite edilmiştir.",
+    "para3": "Çevresel Ürün Beyanı (EPD), bir ürünün yaşam döngüsü hakkındaki çevresel bilgileri nicelleştiren Tip III çevresel beyandır. Genellikle ürünün çevresel etkisini anlamak ve çevresel etkileri sınırlama taahhüdünü göstermek için yapılır."
   },
   "BrandSection": {
     "ahimsa": [
-      "Baltaya veda, artık ağaç kesilmiyor.",
-      "Antibakteriyal özelliklere sahip sağlıklı evler.",
+      "Baltayı bırakın, artık ağaç kesilmesin.",
+      "Antibakteriyel özelliklerle sağlıklı evler.",
       "Buz, yağmur ve su geçirmez.",
       "Şekillendirilebilir ve tasarımı kolay.",
-      "Termit ve kemirgenlerden güvenli.",
-      "Tarımsal kavuzdan yapılmış, atık kavuz yakılmasından kaynaklanan hava kirliliğini önlüyor."
+      "Termitlere ve kemirgenlere karşı güvenli.",
+      "Tarımsal kabuktan yapılmıştır, atık kabuk yakılmasından kaynaklanan hava kirliliğini önler."
     ],
-    "caption": "Şiddet karşıtlığı ve uyum felsefesi"
+    "caption": "Şiddetsizlik ve uyum felsefesi"
   },
   "TrustedProgramsSection": {
     "heading": "Güvenilir programlar tarafından doğrulandı",
-    "description": "ISO standartlarından sürdürülebilirlik ekolabellerine kadar panellerimiz güvenlik, kalite ve çevresel performans için katı standartlara göre denetlenmektedir.",
-    "greenproCallout": "CII'nin GreenPro Ecolabel'i yaşam döngüsü mükemmeliyetini ve yeşil bina katkısını doğrular.",
-    "greenproLabel": "GreenPro Ecolabel"
+    "description": "ISO standartlarından sürdürülebilirlik ekolabel'larına kadar panellerimiz, güvenlik, kalite ve çevresel performans için titiz ölçütlere göre denetlenmektedir.",
+    "greenproCallout": "CII tarafından verilen GreenPro Ekolabel, yaşam döngüsü mükemmelliğini ve yeşil bina katkısını doğrular.",
+    "greenproLabel": "GreenPro Ekolabel"
   },
   "ContactPage": {
     "category": "Bize Ulaşın",
-    "title": "Konuşalm",
-    "description": "Kendiniz ve aradıklarınız hakkında bize biraz bilgi verin. Ekibimiz kısa süre içinde size dönecektir.",
+    "title": "Hadi Konuşalım",
+    "description": "Bize biraz kendinizden ve ne aradığınızdan bahsedin. Ekibimiz size kısa süre içinde geri dönecektir.",
     "callUs": "Bizi arayın",
     "email": "E-posta",
     "formLabel": "İletişim formu",
-    "formTitle": "Bize mesaj gönderin",
+    "formTitle": "Bize bir mesaj gönderin",
     "successTitle": "Mesaj gönderildi!",
-    "successText": "Ulaştığınız için teşekkürler — kısa süre içinde size döneceğiz.",
+    "successText": "Bize ulaştığınız için teşekkürler - size yakında geri döneceğiz.",
     "errorTitle": "Bir şeyler yanlış gitti",
     "errorText": "Lütfen tekrar deneyin.",
     "labelSalutation": "Hitap",
-    "labelName": "Ad",
+    "labelName": "İsim",
     "labelCompany": "Şirket",
+    "labelPhone": "Telefon",
     "labelEmail": "E-posta",
     "labelOccupation": "Meslek",
-    "labelPhone": "Telefon (Sabit)",
-    "labelMobile": "Cep Telefonu",
-    "labelAddress": "Adres Satırı 1",
     "labelPincode": "Posta Kodu",
     "labelCountry": "Ülke",
-    "labelState": "İl/Eyalet",
+    "labelState": "Eyalet/Bölge",
     "labelCity": "Şehir",
-    "labelAttachments": "Ekler",
-    "labelMessage": "Mesajınız* (en az 50 karakter)",
-    "placeholderName": "Ad Soyadınız",
-    "placeholderCompany": "Şirketiniz",
-    "placeholderEmail": "e-posta@adresiniz.com",
-    "placeholderPhone": "STD kodu ekleyin",
-    "placeholderMobile": "Cep telefonu numaranız",
-    "placeholderAddress": "Sokak adresi",
-    "placeholderPincode": "600001",
-    "placeholderCountry": "Ülke Seçin",
-    "placeholderState": "İl/Eyalet Seçin",
-    "placeholderStateNA": "Bu ülke için geçerli değil",
-    "placeholderStateFirst": "Önce ülke seçin",
-    "placeholderCity": "Şehir Seçin",
-    "placeholderCityNA": "Veri setinde şehir yok",
-    "placeholderCityFirst": "Önce ülke (ve il) seçin",
-    "placeholderMessage": "Talebiniz hakkında bize anlatın…",
-    "chooseFile": "Dosya seçin",
-    "noFile": "Dosya seçilmedi",
-    "attachmentHint": "Kartvizitinizi eklemek tedarikçi yanıt süresini kısaltır.",
-    "sendMessage": "Mesaj gönder",
-    "submitting": "Gönderiliyor…",
-    "responseTime": "Ortalama yanıt süresi:",
-    "responseTimeValue": "24–48 saat",
-    "headOffice": "Genel Müdulürlük",
-    "salesMarketing": "Satış & Pazarlama",
-    "careers": "Kariyer",
-    "findUs": "Bizi bulun",
-    "findUsText": "Shenoy Nagar, Chennai'de merkezi bir konumdayız.",
-    "openInMaps": "Haritalarda Aç",
-    "workingHours": "Çalışma saatleri",
-    "workingHoursText": "Pzt–Cum, 09:30–18:00 (IST)",
-    "workingHoursSubtle": "Hafta sonları ve tatillerde yanıt süreleri değişebilir.",
-    "needDirections": "Tarif mi lazım? Harita uygulamanızda açmak için aşağıya dokunun.",
-    "openMaps": "Haritayı Aç"
+    "labelMessage": "Mesaj",
+    "btnSubmit": "Gönder",
+    "btnSubmitting": "Gönderiliyor...",
+    "salutations": {
+      "mr": "Bay",
+      "mrs": "Bayan",
+      "ms": "Bayan",
+      "dr": "Dr.",
+      "prof": "Prof."
+    },
+    "occupations": {
+      "architect": "Mimar / İç Mimar",
+      "contractor": "Müteahhit",
+      "dealer": "Bayi",
+      "endUser": "Son Kullanıcı",
+      "other": "Diğer"
+    },
+    "placeholder": {
+      "name": "Adınız",
+      "company": "Şirket adınız",
+      "phone": "Telefon numaranız",
+      "email": "E-posta adresiniz",
+      "pincode": "Posta kodunuz",
+      "message": "Nasıl yardımcı olabiliriz?"
+    }
+  },
+  "ProductSelection": {
+    "title": "Projeniz için doğru paneli bulun",
+    "subtitle": "Her projenin benzersiz olduğunun farkındayız. Uygulamanıza uygun doğru ürünü seçin.",
+    "labels": {
+      "variant": "Varyant",
+      "density": "Yoğunluk",
+      "sizes": "Boyutlar",
+      "thickness": "Kalınlık",
+      "finish": "Yüzey"
+    },
+    "cta": {
+      "brochure": "Broşür",
+      "inquire": "Bilgi Al"
+    }
   },
   "Footer": {
     "phone": "Telefon",
     "email": "E-posta",
     "quickLinks": "Hızlı Bağlantılar",
+    "designTechnology": "TASARIM TEKNOLOJİSİ",
     "copyright": "© 2023 INDOWUD. Tüm Hakları Saklıdır.",
     "links": {
       "home": "Ana Sayfa",
@@ -206,8 +214,215 @@
       "contactUs": "Bize Ulaşın",
       "downloads": "İndirmeler",
       "privacyPolicy": "Gizlilik Politikası",
-      "legalNote": "Hukuki Not",
+      "legalNote": "Yasal Not",
       "warranty": "Garanti"
+    }
+  },
+  "MediaVideoPage": {
+    "category": "Medya",
+    "title": "Videolar",
+    "description": "Indowud NFC hakkındaki hikayeleri, karşılaştırmaları ve özellikleri keşfedin.",
+    "videos": {
+      "innovate": "Indowud İnovasyon",
+      "corpHindi": "Kurumsal Video (Hintçe)",
+      "corpEnglish": "Kurumsal Video (İngilizce)",
+      "fireSafety": "Yangın Güvenliği Karşılaştırması",
+      "nasDaily": "NAS Daily Özelliği",
+      "testimonial": "Tanıklık",
+      "dainikBhaskar": "Dainik Bhaskar Özelliği",
+      "oneIndia": "One India Özelliği"
+    }
+  },
+  "Blog": {
+    "category": "Medya",
+    "title": "En Son Hikayelerimiz",
+    "description": "Indowud NFC ile sürdürülebilir inşaat ve modern tasarım hakkındaki görüşleri, karşılaştırmaları ve uzman tavsiyelerini keşfedin.",
+    "readMore": "Devamını oku",
+    "readTime": "{mins} dk okuma",
+    "pagination": {
+      "previous": "Önceki",
+      "next": "Sonraki"
+    }
+  },
+  "NewsPage": {
+    "category": "Medya",
+    "title": "Haberler ve Medya",
+    "description": "Indowud hakkında medyada çıkan haberler, videolar ve makaleler.",
+    "readArticle": "Makaleyi oku",
+    "watchVideo": "Videoyu izle",
+    "openSource": "Kaynağı aç",
+    "noThumbnail": "Küçük Resim Yok",
+    "kinds": {
+      "article": "MAKALE",
+      "video": "VİDEO",
+      "short": "KISA"
+    }
+  },
+  "LegalNotePage": {
+    "title": "Yasal Not",
+    "breadcrumb": "YASAL NOT",
+    "para1": "Bu web sitesinde sağlanan tüm bilgiler, şirketin sahip olduğu bilgilere dayanmaktadır ve Indowud NFC ürünleriyle çalışırken uygulamalar, özellikler, bakım, önlemler, öneriler, fikirler vb. ayrıntıları hakkında bir referans sağlamak amacıyla yayınlanmıştır. Bu, belirli özelliklerine veya uygulamalarının ve ürünlerinin belirli alanlardaki uygunluğuna ilişkin yasal bir garanti veya güvence teşkil etmez.",
+    "para2": "Şirket sadece termitlere karşı yasal bir garanti sunar. Şirket, herhangi bir zamanda önceden bildirimde bulunmaksızın şartlar ve koşulları değiştirme hakkına sahiptir. En güncel garanti detayları için lütfen web sitesine bakın.",
+    "para3": "Şirket, web sitesinde, videolarda, broşürlerde veya yazılı veya sözlü herhangi bir formda sağlanan hiçbir uygulama veya bilgi için sorumluluk kabul etmez ve bunlarla ilgili sonuçlar için herhangi bir sorumluluk taşımaz. İzleyici/alıcı kaliteyi kontrol etmek ve test etmekle yükümlüdür ve web sitesine göre herhangi bir bilgiyi seçmekten, satın almaktan, üzerinde çalışmaktan, değiştirmekten, kullanmaktan, işlemekten vb. ve uygulamaktan tek başına sorumlu olacaktır.",
+    "para4": "Şirket tarafından herhangi bir formda (sözlü veya yazılı) verilen hiçbir tavsiye, herhangi bir garanti veya iddia olarak kabul edilmeyecektir. Şirket, sürekli araştırma ve geliştirme programının bir parçası olarak herhangi bir bilgiyi güncelleme, değiştirme veya başkalaştırma hakkını saklı tutar. Daha fazla detay için {email} adresine e-posta gönderin."
+  },
+  "WarrantyPage": {
+    "title": "Garanti",
+    "breadcrumb": "GARANTİ",
+    "opening": "Garanti belgesi açılıyor...",
+    "popupBlocked": "Belge açılmazsa, lütfen tarayıcınızın açılır pencere engelleyici ayarlarını kontrol edin.",
+    "error": "Garanti belgesi açılamadı. Lütfen tarayıcı ayarlarınızı kontrol edin."
+  },
+  "PrivacyPolicyPage": {
+    "title": "Gizlilik Politikası",
+    "breadcrumb": "GİZLİLİK POLİTİKASI",
+    "intro": "Indowud'da, web sitemizin ziyaretçilerinin, müşterilerinin ve kullanıcılarının gizliliğini ve güvenliğini korumaya kararlıyız. Bu Gizlilik Politikası, web sitemizi (www.indowud.com) ziyaret ettiğinizde ve hizmetlerimizle etkileşimde bulunduğunuzda bilgilerinizi nasıl topladığımızı, kullandığımızı, açıkladığımızı ve koruduğumuzu açıklar. Lütfen bu politikayı dikkatlice okuyun. Bu politikanın şartlarını kabul etmiyorsanız, lütfen web sitesine erişmeyin.",
+    "sections": {
+      "s1": {
+        "title": "1. Topladığımız Bilgiler",
+        "bullets": [
+          "Kişisel Veriler: Bize doğrudan sağladığınız kişisel bilgileri topluyoruz...",
+          "Otomatik Olarak Toplanan Veriler: Cihazınız hakkında belirli bilgileri otomatik olarak topluyoruz...",
+          "Çerezler: Çerezler ve benzeri izleme teknolojilerini kullanabiliriz..."
+        ]
+      },
+      "s2": {
+        "title": "2. Bilgilerinizi Nasıl Kullanıyoruz",
+        "intro": "Bilgilerinizi şu amaçlarla kullanıyoruz:",
+        "bullets": [
+          "Hizmetlerimizi ve web sitemizi sağlamak ve sürdürmek",
+          "Sorularınıza yanıt vermek ve isteklerinizi yerine getirmek",
+          "Deneyiminizi kişiselleştirmek",
+          "Pazarlama iletişimleri göndermek",
+          "Web sitesi işlevselliğini iyileştirmek",
+          "Yasal yükümlülüklere uymak"
+        ]
+      },
+      "s3": {
+        "title": "3. Bilgilerinizi Nasıl Paylaşıyoruz",
+        "intro": "Kişisel bilgilerinizi satmıyoruz, kiralamıyoruz veya ticaretini yapmıyoruz. Ancak şunlarla paylaşabiliriz:",
+        "bullets": [
+          "Üçüncü taraf hizmet sağlayıcılarla",
+          "Yasaların gerektirdiği durumlarda",
+          "Haklarımızı korumak için"
+        ]
+      },
+      "s4": {
+        "title": "4. Veri Saklama",
+        "content": "Kişisel bilgilerinizi yalnızca toplandığı amaçları yerine getirmek için gerekli olduğu sürece saklayacağız."
+      },
+      "s5": {
+        "title": "5. Bilgilerinizin Güvenliği",
+        "content": "Kişisel bilgilerinizi korumak için makul adımlar atıyoruz. Ancak, internet üzerinden hiçbir iletim yöntemi %100 güvenli değildir."
+      },
+      "s6": {
+        "title": "6. Haklarınız",
+        "content": "Kişisel bilgilerinize erişme, bunları düzeltme, silme veya işlenmesini kısıtlama hakkına sahip olabilirsiniz."
+      },
+      "s7": {
+        "title": "7. Üçüncü Taraf Bağlantıları",
+        "content": "Web sitemiz üçüncü taraf web sitelerine bağlantılar içerebilir. Onların gizlilik uygulamalarından sorumlu değiliz."
+      },
+      "s8": {
+        "title": "8. Bu Gizlilik Politikasındaki Değişiklikler",
+        "content": "Bu Gizlilik Politikasını zaman zaman güncelleyebiliriz. Yeni politikayı web sitemizde yayınlayarak sizi bilgilendireceğiz."
+      },
+      "s9": {
+        "title": "9. Bize Ulaşın",
+        "intro": "Herhangi bir sorunuz veya endişeniz varsa, lütfen bizimle iletişime geçin:",
+        "email": "E-posta",
+        "phone": "Telefon"
+      }
+    },
+    "effectiveDate": "Bu gizlilik politikası {date} tarihinden itibaren geçerlidir."
+  },
+  "SuggestionsPage": {
+    "category": "NFC",
+    "title": "Önemli Öneriler",
+    "description": "Teknik kılavuzlarımızla bakım gerektirmeyen, sıfır hatalı mobilyalar elde edin.",
+    "videoBadge": "Teknik Masterclass",
+    "videoTrust": "500'den Fazla Profesyonel Tarafından Güveniliyor",
+    "videoInitializing": "Başlatılıyor...",
+    "videoNote": "Bakım gerektirmeyen sıfır hatalı bir mobilya elde etmek için lütfen Indowud nfc ile çalışma hakkındaki videoyu takip edin.",
+    "gridTitle": "Indowud nfc homojen bir üründür ve bu nedenle deformasyonları önlemek için uygun yapıcı ızgara desteği (metal borudan yapılmış çerçeveler, kanallar vb.) gerektirir",
+    "gridDescription": "Hassas ızgara aralığı, yapısal bütünlük ve yüzey deformasyonlarını önlemek için kritik öneme sahiptir.",
+    "gridRecommendedLabel": "Önerilen",
+    "gridRecommendedValue": "Metal Boru Çerçeveler",
+    "table": {
+      "header": "Indowud NFC levha kalınlığı (mm olarak)",
+      "thicknessLabel": "Kalınlık (mm)",
+      "gridLabel": "Izgara (mm)",
+      "noteTitle": "Önemli Not",
+      "proTipTitle": "Profesyonel İpucu",
+      "proTipText": "Eşit ağırlık dağılımı sağlamak için kurulumdan önce daima ızgara kare desteklerini doğrulayın.",
+      "cols": ["6", "8", "12", "15", "16", "18", "20", "25"],
+      "rows": [
+        {
+          "variant": "Neo (mm olarak)",
+          "density": "625+ Kg/CBM",
+          "values": ["150", "200", "250", "300", "300", "350", "400", "500"]
+        },
+        {
+          "variant": "Create (mm olarak)",
+          "density": "700+ Kg/CBM",
+          "values": ["200", "250", "300", "350", "350", "400", "450", "550"]
+        },
+        {
+          "variant": "Build (mm olarak)",
+          "density": "800+ Kg/CBM",
+          "values": ["250", "350", "450", "550", "550", "600", "650", "750"]
+        }
+      ],
+      "note": "Tavan için, Create veya Build için 300 mm ve Neo için 200 mm önerilen ızgara kare desteği ile 12 mm veya daha yüksek kalınlıkta levha kullanın."
+    },
+    "general": [
+      {
+        "title": "Sızdırmazlık ve Yüzey Hazırlığı",
+        "text": "NC macun kullanmayın. Solvent/epoksi bazlı sızdırmazlık maddesi, PU dolgu kullanıldığından emin olun. Her taraftaki mikro gözenekler kapanmadan önce ham levha üzerine su dökmeyin. Her taraftaki (yüzey ve kenar) mikro gözeneklerin epoksi/solvent bazlı sızdırmazlık maddesi/astar ile kapatıldığından emin olun."
+      },
+      {
+        "title": "Panjurlar ve Montaj",
+        "text": "Eğilmeyi veya deformasyonu önlemek için, panjuru sabitlemeden önce her iki tarafa kaplama/laminat yapıştırın. Kenarları uygun bir kenar bandı ile kapatmanızı öneririz. Benzer dengeleme için her iki tarafa da benzer panelin yapıştırıldığından emin olun. Vernik/parlatma/PU boya durumunda, mikro gözenekleri epoksi/solvent sızdırmazlık maddesi ile kapatın ve ardından panjuru sabitleyin. Her 300-350 mm'de bir menteşe ve üstte ve altta manyetik top tutucu kullanın. Sertleştirici/düzeltici kullanılması önerilir. Sürgülü panjurlar için, gerekli sertleştiricilerle dört tarafta da uygun çerçeveleme sağlayın."
+      },
+      {
+        "title": "Yapıştırıcılar",
+        "text": "NFC-GLU, PUR, Heatx, WP1, Probond, Plastilok, Relam. Kuruma süresi atmosferik koşullara bağlı olarak değişebilir. Herhangi bir yapıştırıcı için, büyük panellere uygulamadan önce küçük bir parça üzerinde test etmenizi öneririz."
+      },
+      {
+        "title": "Genleşme Boşlukları",
+        "text": "Nefes alması için duvar ve levha arasında en az 12 mm boşluk bırakın. Nefes alma ve genleşme/büzülme için tavan ve zeminde 5 mm boşluk bırakın. İki levha arasında 3 – 5 mm boşluk bırakın."
+      },
+      {
+        "title": "Sabitleme ve Vidalama",
+        "text": "Levha kalınlığının üç katı uzunluğunda, tam dişli, geniş başlı vidalar kullanın. Daha iyi mukavemet için birleşme yerlerinde yapıştırma önerilir. Vidalama yavaş olmalı ve yüzeyde durmalıdır. Çekiçle vurmayın ve vidayı dışarı çekmeyin."
+      }
+    ],
+    "learnMore": "Daha fazla bilgi edin",
+    "ceiling": {
+      "badge": "Yönergeler",
+      "mainTitle": "Tavan Güzelleştirme",
+      "title": "Tavan Güzelleştirme Kılavuzu",
+      "intro": "Tavan güzelleştirmesi için Indowud nfc Levhaları kullanırken, güvenli, dayanıklı ve estetik açıdan üstün bir kurulum sağlamak için gelişmiş teknik kılavuzları takip etmek zorunludur. Aşağıdaki kapsamlı öneriler, sınıfının en iyisi sonuçların elde edilmesine yardımcı olacaktır:",
+      "items": [
+        { "title": "Yerçekimi Kuvvetleri", "text": "Tavana monte edilen Indowud nfc ürünlerine etki eden yerçekimi kuvvetlerini tanıyın ve bunlara karşı önlem alın." },
+        { "title": "Destek", "text": "Create ve Build için 300 mm x 300 mm ve Neo için 200 mm x 200 mm önerilen ızgara desteği ile 12 mm veya daha yüksek kalınlıkta nfc ürünü kullanmanızı öneririz." },
+        { "title": "Sabitleme", "text": "Ürünü tavana sabitlemek için geniş başlı pullu vidalar kullanın. Bu vidalar daha geniş bir temas alanı sunar, yükü daha eşit dağıtır ve ayrılma riskini azaltır. Vidaların, optimum tutma mukavemeti için alt yapıya levha kalınlığının en az iki katı kadar girdiğinden emin olun." },
+        { "title": "Vida Yerleşimi", "text": "Tutarlı destek sağlamak ve sarkmayı önlemek için vidaları levha kenarları boyunca en fazla 300 mm ve levhaların iç kısmında 400 mm aralıklarla yerleştirin." },
+        { "title": "Isı Maruziyeti", "text": "Gökyüzüne açık kurulumlar gibi doğrudan güneş ışığına maruz kalan tavan uygulamaları için, destekleyici yumuşak çelik (MS) alt yapı ısıyı emebilir ve tutabilir, bu da termal genleşmeye ve potansiyel yapısal bozulmaya yol açabilir." },
+        { "title": "Önleyici Tedbirler", "text": "MS alt yapıya ısıya dayanıklı kauçuk boya kaplaması uygulayın. Bu termal bariyer ısı transferini azaltır, termal genleşmeyi hafifletir ve ürünün bütünlüğünü korur." },
+        { "title": "Termal Köprüler", "text": "Isı iletimini en aza indirmek için alt yapı tasarımına termal köprüler dahil edin. Metal alt yapı ile nfc levha ürünü arasına yalıtım köpüğü şeritleri veya termal pedler gibi malzemeler yerleştirilebilir." },
+        { "title": "Gözenekli Yüzeye Vida Atmaktan Kaçınma", "text": "Vidaları doğrudan nfc levhaların oyuklarına veya yönlendirilmiş gözenekli yüzeyine sabitlemekten kaçının. Bu, merkez çekirdeğin gözenekli yapısı nedeniyle ürünün yapısal bütünlüğünü bozabilir." },
+        { "title": "Düzeltme ve Şekillendirme", "text": "Kurulumdan önce levhanın çevresinde Z şeklinde bir kenar oluşturun. Bu teknik hizalamayı, stabiliteyi ve estetik çekiciliği artırır." },
+        { "title": "Genleşme Boşluğu", "text": "Zamanla bükülmeyi veya çarpılmayı önlemek için, termal genleşme ve büzülmeyi karşılamak amacıyla levhalar arasında 3 mm ila 6 mm boşluk bırakın. Kurulum sırasında tutarlı boşluk genişliği sağlamak için ara parçası araçları kullanın." },
+        { "title": "Sızdırmazlık Maddeleri ve Yapıştırıcılar", "text": "Dayanıklı bir bağ sağlamak ve nem girişini önlemek için nfc malzemeleri için özel olarak tasarlanmış yüksek kaliteli, UV ışınlarına dayanıklı sızdırmazlık maddeleri ve yapıştırıcılar kullanın." },
+        { "title": "Ön Delme", "text": "Çatlamayı önlemek ve hassas vida yerleşimi sağlamak için vida deliklerini uygun çapta önceden delin." },
+        { "title": "Su Yalıtımı", "text": "Özellikle yüksek nemli veya kıyı ortamlarında nem girişine karşı ürünün yüzeylerine su geçirmez bir membran veya kaplama uygulayın." },
+        { "title": "Havalandırma", "text": "Hava sirkülasyonuna izin vermek ve küf veya mantar oluşumuna yol açabilecek nem birikmesini önlemek için tavan levhalarının üzerinde uygun havalandırma sağlayın." },
+        { "title": "Destek Gereksinimleri", "text": "Yerçekimi çekimi nedeniyle, Indowud NFC levhaları, ürünün kalınlığına ve ağırlığına göre uyarlanmış uygun yapısal destek gerektirir. Alt yapı, hem statik hem de dinamik kuvvetleri göz önünde bulundurarak yükü etkili bir şekilde taşıyacak şekilde tasarlanmalıdır." },
+        { "title": "Destek Braketleri", "text": "Sertliği artırmak ve yükleri daha etkili bir şekilde dağıtmak için alt yapıya ek destek braketleri veya çapraz elemanlar dahil edin." },
+        { "title": "Kenar Koruması", "text": "Nfc levhaları darbe hasarından korumak ve temiz, bitmiş bir görünüm sağlamak için kenar koruma profilleri kullanın." }
+      ],
+      "closing": "Bu kılavuzları titizlikle takip ederek, Indowud nfc levhaları ile sadece endüstri standartlarını karşılamakla kalmayıp aşan, uzun ömürlülük, stabilite ve kusursuz bir estetik sağlayan bir tavan kurulumu elde edilebilir."
     }
   }
 }

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 import PageHeader from "@/components/common/PageHeader";
 import {
@@ -46,6 +46,8 @@ interface FormData {
 
 export default function ContactUs() {
   const t = useTranslations("ContactPage");
+  const locale = useLocale();
+  const isRtl = locale === "ar";
 
   const [formData, setFormData] = useState<FormData>({
     salutation: "Mr",
@@ -141,8 +143,25 @@ export default function ContactUs() {
     }
   };
 
+  const salutationOptions = [
+    { label: t("salutations.mr"), value: "Mr" },
+    { label: t("salutations.mrs"), value: "Mrs" },
+    { label: t("salutations.ms"), value: "Ms" },
+    { label: t("salutations.dr"), value: "Dr" },
+  ];
+
+  const occupationOptions = [
+    { label: t("occupations.architect"), value: "Architect" },
+    { label: t("occupations.interiorDesigner"), value: "Interior Designer" },
+    { label: t("occupations.builder"), value: "Builder" },
+    { label: t("occupations.contractor"), value: "Contractor" },
+    { label: t("occupations.businessOwner"), value: "Business Owner" },
+    { label: t("occupations.engineer"), value: "Engineer" },
+    { label: t("occupations.other"), value: "Other" },
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
+    <div dir={isRtl ? "rtl" : "ltr"} className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
       <PageHeader category={t("category")} title={t("title")} description={t("description")}>
         <a href="tel:+914442105060" className="inline-flex items-center gap-2 rounded-full bg-teal-600 text-white px-5 py-2.5 text-sm font-semibold hover:bg-teal-700 transition">
           <Phone className="w-4 h-4" />{t("callUs")}
@@ -185,7 +204,7 @@ export default function ContactUs() {
                   <div>
                     <Label>{t("labelSalutation")}*</Label>
                     <Select value={formData.salutation} onValueChange={(v) => setFormData((p) => ({ ...p, salutation: v }))} required icon={<User2 className="w-4 h-4" />}
-                      options={[{ label: "Mr", value: "Mr" }, { label: "Mrs", value: "Mrs" }, { label: "Ms", value: "Ms" }, { label: "Dr", value: "Dr" }]} />
+                      options={salutationOptions} />
                   </div>
                   <div>
                     <Label>{t("labelName")}*</Label>
@@ -207,7 +226,7 @@ export default function ContactUs() {
                 <div>
                   <Label>{t("labelOccupation")}*</Label>
                   <Select value={formData.occupation} onValueChange={(v) => setFormData((p) => ({ ...p, occupation: v }))} required icon={<Briefcase className="w-4 h-4" />} placeholder={t("labelOccupation")}
-                    options={[{ label: "Architect", value: "Architect" }, { label: "Interior Designer", value: "Interior Designer" }, { label: "Builder", value: "Builder" }, { label: "Contractor", value: "Contractor" }, { label: "Business Owner", value: "Business Owner" }, { label: "Engineer", value: "Engineer" }, { label: "Other", value: "Other" }]} />
+                    options={occupationOptions} />
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-5">
@@ -302,19 +321,19 @@ export default function ContactUs() {
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-widest text-rose-600 font-semibold">{t("headOffice")}</p>
-                  <h3 className="font-bold text-gray-900">INDOWUD NFC Pvt. Ltd.</h3>
+                  <h3 className="font-bold text-gray-900">{t("address.company")}</h3>
                 </div>
               </div>
               <div className="mt-5 space-y-4 text-sm text-gray-700">
                 <p className="leading-relaxed">
-                  Indowud NFC Private Limited<br />
-                  First Floor, New No. 36,<br />
-                  First Main Road (East), Shenoy Nagar,<br />
-                  Chennai – 600 030, India
+                  {t("address.line1")}<br />
+                  {t("address.line2")}<br />
+                  {t("address.line3")}<br />
+                  {t("address.line4")}
                 </p>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-teal-600" />
-                  <a className="hover:underline" href="tel:+914442105060">+91 44 4210 5060</a>
+                  <a className="hover:underline" dir="ltr" href="tel:+914442105060">+91 44 4210 5060</a>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4 text-teal-600" />
@@ -369,10 +388,12 @@ function Label({ children }: { children: React.ReactNode }) {
 }
 
 function Input({ icon, className, ...props }: React.InputHTMLAttributes<HTMLInputElement> & { icon?: React.ReactNode }) {
+  const locale = useLocale();
+  const isRtl = locale === "ar";
   return (
     <div className={`relative ${className || ""}`}>
-      {icon && <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">{icon}</span>}
-      <input {...props} className="w-full rounded-xl border border-gray-300 bg-white px-3 py-3 pl-10 text-sm shadow-sm outline-none ring-0 transition placeholder:text-gray-400 focus:border-teal-500" />
+      {icon && <span className={`absolute ${isRtl ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 text-gray-400`}>{icon}</span>}
+      <input {...props} className={`w-full rounded-xl border border-gray-300 bg-white px-3 py-3 ${isRtl ? "pr-10" : "pl-10"} text-sm shadow-sm outline-none ring-0 transition placeholder:text-gray-400 focus:border-teal-500`} />
     </div>
   );
 }
@@ -387,11 +408,13 @@ function Select({ options, placeholder, icon, className, value, onValueChange, d
   options: Option[]; placeholder?: string; icon?: React.ReactNode; className?: string;
   value?: string; onValueChange?: (v: string) => void; disabled?: boolean; required?: boolean;
 } & Omit<React.SelectHTMLAttributes<HTMLSelectElement>, "onChange" | "value">) {
+  const locale = useLocale();
+  const isRtl = locale === "ar";
   return (
     <div className={`relative ${className || ""}`}>
-      {icon && <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">{icon}</span>}
+      {icon && <span className={`absolute ${isRtl ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 text-gray-400`}>{icon}</span>}
       <select value={value ?? ""} onChange={(e) => onValueChange?.(e.target.value)} disabled={disabled} required={required}
-        className="w-full rounded-xl border border-gray-300 bg-white px-3 py-3 pl-10 text-sm shadow-sm outline-none focus:border-teal-500 disabled:bg-gray-50 disabled:text-gray-400" {...props}>
+        className={`w-full rounded-xl border border-gray-300 bg-white px-3 py-3 ${isRtl ? "pr-10" : "pl-10"} text-sm shadow-sm outline-none focus:border-teal-500 disabled:bg-gray-50 disabled:text-gray-400`} {...props}>
         <option value="">{placeholder || "Select an option"}</option>
         {options.map((opt) => <option key={opt.value + opt.label} value={opt.value}>{opt.label}</option>)}
       </select>
@@ -402,6 +425,8 @@ function Select({ options, placeholder, icon, className, value, onValueChange, d
 function InfoCard({ icon, title, text, subtle, cta }: {
   icon: React.ReactNode; title: string; text: string; subtle?: string; cta?: { label: string; href: string };
 }) {
+  const locale = useLocale();
+  const isRtl = locale === "ar";
   return (
     <div className="rounded-3xl border border-gray-200/70 bg-white/70 backdrop-blur-xl shadow-xl ring-1 ring-gray-900/5 p-6">
       <div className="flex items-center gap-3">
@@ -412,7 +437,7 @@ function InfoCard({ icon, title, text, subtle, cta }: {
       {subtle && <p className="mt-1 text-xs text-gray-500">{subtle}</p>}
       {cta && (
         <a href={cta.href} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-teal-700 hover:text-teal-900">
-          {cta.label} <ArrowRight className="w-4 h-4" />
+          {cta.label} <ArrowRight className={`w-4 h-4 ${isRtl ? "rotate-180" : ""}`} />
         </a>
       )}
     </div>

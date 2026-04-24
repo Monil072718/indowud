@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import PageHeader from "@/components/common/PageHeader";
+import { useTranslations } from "next-intl";
 
 type NewsKind = "video" | "article" | "short";
 
@@ -174,15 +175,16 @@ function getYouTubeEmbed(url: string) {
 
 /* ----------------------------- Page Component ----------------------------- */
 export default function NewsPage() {
+  const t = useTranslations("NewsPage");
   const [videoOpen, setVideoOpen] = useState<NewsItem | null>(null);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Top bar / breadcrumb */}
       <PageHeader
-        category="Media"
-        title="News & Media"
-        description="Media mentions, videos, and articles about Indowud."
+        category={t("category")}
+        title={t("title")}
+        description={t("description")}
       />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -208,6 +210,7 @@ export default function NewsPage() {
 
 /* ----------------------------- Card ----------------------------- */
 const Card = React.memo(function Card({ item, onPlay }: { item: NewsItem; onPlay: () => void }) {
+  const t = useTranslations("NewsPage");
   const isVideo = item.kind === "video" || item.kind === "short";
 
   return (
@@ -229,14 +232,14 @@ const Card = React.memo(function Card({ item, onPlay }: { item: NewsItem; onPlay
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center bg-slate-200 text-slate-400">
-            <span className="text-sm">No Thumbnail</span>
+            <span className="text-sm">{t("noThumbnail")}</span>
           </div>
         )}
         {isVideo && (
           <button
             onClick={onPlay}
             className="absolute inset-0 m-auto h-14 w-14 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-lg transition group-hover:scale-105 cursor-pointer"
-            aria-label="Play video"
+            aria-label={t("watchVideo")}
           >
             <svg viewBox="0 0 24 24" className="h-6 w-6 fill-slate-900">
               <path d="M8 5v14l11-7z" />
@@ -255,7 +258,7 @@ const Card = React.memo(function Card({ item, onPlay }: { item: NewsItem; onPlay
               item.kind === "short" && "bg-pink-50 text-pink-700 ring-pink-200",
             ].join(" ")}
           >
-            {item.kind.toUpperCase()}
+            {t(`kinds.${item.kind}`)}
           </span>
           {item.lang && <span>• {item.lang}</span>}
           <span className="ml-auto">{item.source}</span>
@@ -273,14 +276,14 @@ const Card = React.memo(function Card({ item, onPlay }: { item: NewsItem; onPlay
               rel="noreferrer"
               className="text-sm font-medium text-slate-900 hover:opacity-80 cursor-pointer"
             >
-              Read article →
+              {t("readArticle")} →
             </a>
           ) : (
             <button
               onClick={onPlay}
               className="text-sm font-medium text-slate-900 hover:opacity-80 cursor-pointer"
             >
-              Watch video →
+              {t("watchVideo")} →
             </button>
           )}
 
@@ -290,7 +293,7 @@ const Card = React.memo(function Card({ item, onPlay }: { item: NewsItem; onPlay
             rel="noreferrer"
             className="ml-auto text-xs text-slate-500 hover:text-slate-700 cursor-pointer"
           >
-            Open source
+            {t("openSource")}
           </a>
         </div>
       </div>

@@ -1,675 +1,384 @@
 "use client"
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect, useRef, type ReactNode } from "react";
-import { X } from "lucide-react"
-import PageHeader from "@/components/common/PageHeader"
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { 
+  ShieldCheck, 
+  Layers, 
+  Droplets, 
+  Maximize, 
+  Wrench, 
+  Play, 
+  Info,
+  ChevronRight,
+  Hammer,
+  Wind,
+  Sun,
+  Thermometer,
+  Zap,
+  BoxSelect,
+  Grid3X3,
+  CheckCircle2,
+  AlertCircle,
+  Construction
+} from "lucide-react";
+import { useTranslations } from "next-intl";
+import PageHeader from "@/components/common/PageHeader";
 
 /* ────────────────── Types ────────────────── */
 type GridRow = {
-  label: string
-  values: (number | "-")[]
+  variant: string;
+  density: string;
+  values: string[];
 }
 
-type Guide = {
-  id: string
-  title: string
-  body: ReactNode
+type GeneralItem = {
+  title: string;
+  text: string;
 }
 
-type Row = {
-  id: string
-  title: string
-  body: ReactNode
+type CeilingItem = {
+  title: string;
+  text: string;
 }
 
-/* ────────────────── Default Page ────────────────── */
-export default function Page() {
-  return (
-    <>
-      {/* Breadcrumb is rendered inside SuggestionsSection */}
-      <SuggestionsSection />
-      <SustainabilitySection />
-    </>
-  )
-}
+/* ────────────────── Suggestions Page ────────────────── */
+export default function SuggestionsPage() {
+  const t = useTranslations("SuggestionsPage");
 
-/* ────────────────── Suggestions Section ────────────────── */
-function SuggestionsSection({
-  heading = "Important Suggestions",
-  brochureHref = "/brochures/technical-suggestions.pdf",
-  grids,
-  guides,
-}: {
-  heading?: string
-  brochureHref?: string
-  grids?: { columns: string[]; rows: GridRow[]; note?: string }
-  guides?: Guide[]
-}) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const grid = grids ?? {
-    columns: ["6", "8", "12", "15", "16", "18", "20", "25"],
-    rows: [
-      { label: "Neo (6 mm) • 625–650 kg/m³", values: [150, 200, 250, 300, 320, 350, 380, 420] },
-      { label: "Crota (8 mm) • 725+ kg/m³", values: [200, 250, 300, 350, 370, 400, 430, 550] },
-      { label: "Build (10 mm) • 825+ kg/m³", values: [250, 350, 420, 550, 580, 600, 650, 750] },
-    ],
-    note: "For ceiling: 12 mm or higher thickness board with suggested grid: 300 mm for crota or build, 200 mm for neo.",
-  }
+  const tableRows = t.raw("table.rows") as GridRow[];
+  const tableCols = t.raw("table.cols") as string[];
+  const generalItems = t.raw("general") as GeneralItem[];
+  const ceilingItems = t.raw("ceiling.items") as CeilingItem[];
 
-  const sections: Guide[] = guides ?? [
-    {
-      id: "paint",
-      title: "PU paint & polish",
-      body: "Use only NC putty. Ensure the micro pores are sealed. Avoid water-based filler on raw board before the micro pores are sealed.",
-    },
-    {
-      id: "shutters",
-      title: "Wardrobe / Cabinet shutters",
-      body: "Reinforce laminates on both sides before fixing shutter. Use suitable lipping. Provide proper balancing & uniform support.",
-    },
-    {
-      id: "adhesive",
-      title: "Suggested adhesive",
-      body: "INDOBLUE PVA, PFE, WP1; ProBond; Merstik; Helen. Drying time may vary—follow manufacturer’s guidance.",
-    },
-    {
-      id: "paneling",
-      title: "Paneling",
-      body: "Leave 1–2 mm gap between wall & board for breathing. Allow 3 mm gap per 1 m span between two boards.",
-    },
-    {
-      id: "screwing",
-      title: "Screwing",
-      body: "Use mild steel fully threaded. For better strength, drilling or joinery is suggested. Avoid hammering.",
-    },
-    {
-      id: "ceiling",
-      title: "Ceiling",
-      body: "Follow advanced installation guidelines: adequate structural support, correct fasteners, and movement joints.",
-    },
-    {
-      id: "thermal",
-      title: "Thermal management for outdoor applications",
-      body: "Use heat-resistant paint/coating; create thermal breaks; add airflow gaps to minimize heat conduction.",
-    },
-    {
-      id: "substrate",
-      title: "Normal supports",
-      body: "Use adequate support frames sized to board thickness & weight. Keep spans as per suggested grid.",
-    },
-  ]
+  const [activeCeilingIndex, setActiveCeilingIndex] = useState(0);
+
+  const icons = [
+    <Droplets key="1" className="w-8 h-8" />,
+    <Layers key="2" className="w-8 h-8" />,
+    <Zap key="3" className="w-8 h-8" />,
+    <Maximize key="4" className="w-8 h-8" />,
+    <Hammer key="5" className="w-8 h-8" />,
+  ];
+
+  const colors = [
+    "bg-blue-500",
+    "bg-rose-500",
+    "bg-amber-500",
+    "bg-emerald-500",
+    "bg-purple-500",
+  ];
+
+  const ceilingIcons = [
+    <Thermometer key="c1" className="w-6 h-6" />,
+    <Grid3X3 key="c2" className="w-6 h-6" />,
+    <Wrench key="c3" className="w-6 h-6" />,
+    <Maximize key="c4" className="w-6 h-6" />,
+    <Sun key="c5" className="w-6 h-6" />,
+    <ShieldCheck key="c6" className="w-6 h-6" />,
+    <Droplets key="c7" className="w-6 h-6" />,
+    <Info key="c8" className="w-6 h-6" />,
+    <BoxSelect key="c9" className="w-6 h-6" />,
+    <ArrowRightIcon key="c10" className="w-6 h-6" />,
+    <Droplets key="c11" className="w-6 h-6" />,
+    <Zap key="c12" className="w-6 h-6" />,
+    <Wind key="c13" className="w-6 h-6" />,
+    <Grid3X3 key="c14" className="w-6 h-6" />,
+    <ShieldCheck key="c15" className="w-6 h-6" />,
+    <Layers key="c16" className="w-6 h-6" />,
+  ];
 
   return (
-    <section id="suggestions" className="relative overflow-hidden">
-      {/* Hero band */}
+    <main className="min-h-screen bg-[#fafafa]">
       <PageHeader
-        category="NFC"
-        title={heading}
-        description="Zero-defect furniture starts with the right workflow & installation."
+        category={t("category")}
+        title={t("title")}
+        description={t("description")}
       />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 pb-12 sm:pb-20">
-        {/* Video */}
-        <div className="flex flex-col items-center gap-4 sm:gap-6 py-8 sm:py-10">
-          <motion.div
-            whileHover={{ y: -4, scale: 1.01 }}
-            transition={{ type: "spring", stiffness: 240, damping: 18 }}
-            className="relative w-full max-w-3xl overflow-hidden rounded-lg sm:rounded-2xl shadow-xl ring-1 ring-black/5"
-          >
-            <div className="aspect-video">
-              <LazyYouTubeIframe />
-            </div>
-          </motion.div>
-
-          {/* Brochure CTA */}
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="inline-flex items-center gap-2 rounded-full bg-[#00d5be] px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base font-medium text-white shadow-md ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-[#00c7b1]"
-          >
-            Request Technical Guidelines (English)
-            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
-              <path d="M13 5l7 7-7 7v-4H4v-6h9V5z" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Blurb */}
-        <p className="mx-auto mb-6 sm:mb-8 max-w-4xl text-center text-xs sm:text-sm text-slate-600">
-          Indowud NFC is a homogeneous product and hence requires proper constructive grid support (frames, channels,
-          sub-frame) to avoid deformations. Follow the grid & fastening guidance below.
-        </p>
-
-        {/* Grid table */}
-        <div className="mx-auto max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45 }}
-            className="overflow-hidden rounded-xl sm:rounded-2xl border border-slate-200 bg-white shadow-lg"
-          >
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-slate-200 bg-gradient-to-r from-[#00d5be]/15 to-[#00d5be]/5 px-4 sm:px-6 py-4 sm:py-5 gap-2">
-              <div className="flex items-center gap-3">
-                <div className="h-1 w-1 rounded-full bg-[#00d5be]" />
-                <h3 className="text-base font-bold text-[#003a36]">
-                  Suggested grid spacing for panelling (mm)
-                </h3>
-              </div>
-              <span className="text-xs sm:text-sm font-medium text-slate-500">Maximum support distance</span>
-            </div>
-
-            <div className="w-full overflow-x-auto">
-              <table className="w-full text-left text-xs sm:text-sm">
-                <thead className="sticky top-0 bg-slate-50/95 backdrop-blur">
-                  <tr className="[&>th]:px-3 sm:[&>th]:px-5 [&>th]:py-4 [&>th]:font-bold [&>th]:text-slate-700 [&>th]:border-b [&>th]:border-slate-200">
-                    <th className="whitespace-nowrap text-left">Thickness / Variant</th>
-                    {grid.columns.map((c) => (
-                      <th key={c} className="text-center whitespace-nowrap">
-                        {c}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100">
-                  {grid.rows.map((r, idx) => (
-                    <tr
-                      key={r.label}
-                      className={`transition-all duration-200 hover:bg-[#00d5be]/8 hover:shadow-sm ${idx % 2 === 0 ? "bg-white" : "bg-slate-50/50"
-                        } [&>td]:px-3 sm:[&>td]:px-5 [&>td]:py-4`}
-                    >
-                      <td className="font-semibold text-slate-800 whitespace-nowrap">{r.label}</td>
-                      {r.values.map((v, i) => (
-                        <td key={i} className="text-center text-slate-700 whitespace-nowrap font-medium">
-                          {v}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            {grid.note && (
-              <div className="border-t border-slate-200 bg-slate-50/80 px-4 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-slate-600 font-medium">
-                <div className="flex gap-2">
-                  <span className="text-[#00d5be] font-bold">•</span>
-                  <span>{grid.note}</span>
+      {/* Video Section - Redesigned as a "Cinematic Feature" */}
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <div className="relative rounded-[2.5rem] overflow-hidden bg-slate-900 shadow-2xl">
+          <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-transparent pointer-events-none" />
+          <div className="grid lg:grid-cols-5 items-center">
+            <div className="lg:col-span-2 p-10 lg:p-16 z-10">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="space-y-6"
+              >
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-teal-400 text-xs font-bold uppercase tracking-widest">
+                  <Play className="w-4 h-4 fill-current" />
+                  {t("videoBadge")}
                 </div>
+                <h2 className="text-3xl lg:text-4xl font-bold text-white leading-tight">
+                  {t("videoNote")}
+                </h2>
+                <div className="flex items-center gap-4 text-slate-400">
+                  <div className="flex -space-x-2">
+                    {[1,2,3].map(i => (
+                      <div key={i} className="w-8 h-8 rounded-full border-2 border-slate-900 bg-slate-700" />
+                    ))}
+                  </div>
+                  <span className="text-sm">{t("videoTrust")}</span>
+                </div>
+              </motion.div>
+            </div>
+            <div className="lg:col-span-3 aspect-video relative group">
+              <LazyYouTubeIframe />
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition-all duration-700 pointer-events-none flex items-center justify-center">
+                <motion.div 
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ repeat: Infinity, duration: 2 }}
+                  className="w-20 h-20 rounded-full bg-teal-500 flex items-center justify-center shadow-2xl shadow-teal-500/50"
+                >
+                  <Play className="w-8 h-8 text-white fill-current translate-x-1" />
+                </motion.div>
               </div>
-            )}
-          </motion.div>
-        </div>
-
-        {/* Guidelines */}
-        <div className="mx-auto mt-8 sm:mt-12 max-w-5xl">
-          {/* SAME UI — just added items-start so grid cards don’t stretch */}
-          <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 items-start">
-            {sections.map((g) => (
-              <Accordion key={g.id} title={g.title}>
-                <p className="text-xs sm:text-sm leading-relaxed text-slate-600">{g.body}</p>
-              </Accordion>
-            ))}
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* Closing CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="mx-auto mt-8 sm:mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 rounded-lg sm:rounded-2xl
-                     bg-[#00d5be]/10 px-3 sm:px-5 py-3 sm:py-4 ring-1 ring-[#00d5be]/20"
-        >
-          <p className="text-xs sm:text-sm text-slate-700">
-            For deeper details on installation, spacing, fasteners and finishes, refer to our &quot;technical suggestions
-            brochure&quot;.
-          </p>
-          <a
-            href={brochureHref}
-            target="_blank"
-            className="inline-flex items-center gap-2 rounded-full bg-[#00d5be] px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-white
-                       shadow-sm transition hover:-translate-y-0.5 hover:bg-[#00c7b1] whitespace-nowrap"
-            rel="noreferrer"
-          >
-            Open brochure
-            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
-              <path d="M13 5l7 7-7 7v-4H4v-6h9V5z" />
-            </svg>
-          </a>
-        </motion.div>
-      </div>
+      {/* Grid Support - Redesigned as a "Blueprint" */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-40 pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto px-6 relative">
+          <div className="flex flex-col md:flex-row md:items-center justify-between mb-16 gap-8">
+            <div className="max-w-2xl">
+              <h2 className="text-4xl font-bold text-slate-900 mb-6">{t("gridTitle")}</h2>
+              <p className="text-slate-600 text-lg">{t("gridDescription")}</p>
+            </div>
+            <div className="shrink-0">
+              <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-teal-50 flex items-center justify-center text-teal-600">
+                  <Construction className="w-6 h-6" />
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">{t("gridRecommendedLabel")}</div>
+                  <div className="text-lg font-bold text-slate-900">{t("gridRecommendedValue")}</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      {/* Modal */}
-      <AnimatePresence>
-        {isModalOpen && (
-          <BrochureModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-        )}
-      </AnimatePresence>
-    </section>
-  )
-}
-
-/* ────────────────── Sustainability Section ────────────────── */
-function SustainabilitySection({
-  heading = "Sustainability at Indowud",
-  intro = "Engineered from agri-residue with long service life, Indowud NFC reduces timber dependence and supports circular design.",
-  rows,
-}: {
-  heading?: string
-  intro?: string
-  rows?: Row[]
-}) {
-  const items: Row[] = rows ?? [
-    {
-      id: "material",
-      title: "Material circularity",
-      body: "Uses agricultural by-products and is designed for extended life cycles, minimizing virgin resource use.",
-    },
-    {
-      id: "emissions",
-      title: "Low maintenance & emissions",
-      body: "Durable surfaces reduce repainting/refinishing frequency, lowering embodied emissions over the product lifespan.",
-    },
-    {
-      id: "water",
-      title: "Moisture resilience",
-      body: "Dimensional stability helps reduce replacements in humid zones, cutting waste generation at end-of-life.",
-    },
-    {
-      id: "reuse",
-      title: "Repair, reuse, retrofit",
-      body: "Panels can be refitted or repurposed in interior upgrades, improving utilization and reducing disposal.",
-    },
-  ]
-
-  return (
-    <section id="sustainability" className="relative overflow-hidden">
-      {/* Hero */}
-      <div className="bg-gradient-to-r from-[#00d5be] via-[#00b9a7] to-[#008e81]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-14 text-white">
-          <motion.h1
-            initial={{ y: 18, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.45 }}
-            className="text-4xl font-semibold tracking-tight"
+            className="bg-white rounded-[2rem] border border-slate-200 shadow-2xl shadow-slate-200/50 overflow-hidden"
           >
-            {heading}
-          </motion.h1>
-          <p className="mt-2 sm:mt-3 max-w-3xl text-base text-white/90">{intro}</p>
+            <div className="grid grid-cols-1 xl:grid-cols-4 divide-y xl:divide-y-0 xl:divide-x divide-slate-100">
+              {tableRows.map((row, idx) => (
+                <div key={row.variant} className="p-8 hover:bg-slate-50 transition-colors">
+                  <div className="mb-8">
+                    <div className="text-xs font-bold text-teal-600 uppercase tracking-[0.2em] mb-2">{row.density}</div>
+                    <h3 className="text-2xl font-bold text-slate-900">{row.variant}</h3>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest pb-2 border-b border-slate-100">
+                      <span>{t("table.thicknessLabel")}</span>
+                      <span>{t("table.gridLabel")}</span>
+                    </div>
+                    {row.values.map((val, i) => (
+                      <div key={i} className="flex justify-between items-center py-1 group">
+                        <span className="text-sm font-bold text-slate-500 group-hover:text-slate-900 transition-colors">{tableCols[i]}mm</span>
+                        <div className="h-px flex-1 mx-4 bg-slate-100 group-hover:bg-teal-200 transition-colors" />
+                        <span className="text-base font-bold text-slate-900 group-hover:text-teal-600 transition-colors">{val}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+              <div className="p-8 bg-slate-900 text-white flex flex-col justify-between">
+                <div className="space-y-6">
+                  <h4 className="text-xl font-bold">{t("table.noteTitle")}</h4>
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    {t("table.note")}
+                  </p>
+                </div>
+                <div className="mt-8 p-4 rounded-2xl bg-white/5 border border-white/10">
+                  <div className="flex items-center gap-3 text-teal-400 mb-2">
+                    <AlertCircle className="w-5 h-5" />
+                    <span className="text-xs font-bold uppercase tracking-widest">{t("table.proTipTitle")}</span>
+                  </div>
+                  <p className="text-xs text-slate-500 leading-relaxed">{t("table.proTipText")}</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
-      </div>
+      </section>
 
-      {/* Content */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16">
-        <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2">
-          {items.map((r) => (
-            <motion.article
-              key={r.id}
-              initial={{ opacity: 0, y: 10 }}
+      {/* General Suggestions - Bento Grid Redesign */}
+      <section className="max-w-7xl mx-auto px-6 py-24">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
+          {generalItems.map((item, idx) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.35 }}
-              className="rounded-lg sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm"
+              transition={{ delay: idx * 0.1 }}
+              className={`rounded-[2.5rem] p-10 border transition-all duration-500 group flex flex-col justify-between ${
+                idx === 0 || idx === 1 ? "md:col-span-3 bg-white border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl" : 
+                idx === 2 ? "md:col-span-2 bg-slate-900 border-slate-800 text-white" :
+                "md:col-span-2 bg-white border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl"
+              }`}
             >
-              <h3 className="text-lg font-semibold text-[#003a36]">{r.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{r.body}</p>
-            </motion.article>
+              <div>
+                <div className={`mb-8 p-5 rounded-3xl w-fit group-hover:scale-110 transition-transform duration-500 ${
+                  idx === 2 ? "bg-white/10 text-teal-400" : "bg-slate-50 text-slate-900 group-hover:bg-teal-50 group-hover:text-teal-600"
+                }`}>
+                  {icons[idx]}
+                </div>
+                <h3 className="text-2xl font-bold mb-6 group-hover:text-teal-600 transition-colors">{item.title}</h3>
+                <p className={`text-sm leading-relaxed ${idx === 2 ? "text-slate-400" : "text-slate-600"}`}>
+                  {item.text}
+                </p>
+              </div>
+              <div className="mt-10 flex items-center gap-2 text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300">
+                <span className={idx === 2 ? "text-teal-400" : "text-teal-600"}>{t("learnMore")}</span>
+                <ChevronRight className="w-4 h-4" />
+              </div>
+            </motion.div>
           ))}
         </div>
+      </section>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="mt-8 sm:mt-10 rounded-lg sm:rounded-2xl bg-[#00d5be]/10 px-3 sm:px-5 py-3 sm:py-4 ring-1 ring-[#00d5be]/20"
-        >
-          <p className="text-xs sm:text-sm text-slate-700">
-            Want the full sustainability brief (material data, durability metrics, care & maintenance)? Contact our
-            technical team for the latest dossier.
-          </p>
-        </motion.div>
-      </div>
-    </section>
-  )
-}
-
-/* ────────────────── Atom ────────────────── */
-function Accordion({ title, children }: { title: string; children: React.ReactNode }) {
-  const [open, setOpen] = useState(false)
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 8 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.35 }}
-      className="overflow-hidden rounded-lg sm:rounded-2xl border border-slate-200 bg-white shadow-sm"
-    >
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center justify-between gap-3 px-3 sm:px-4 py-2 sm:py-3 text-left"
-      >
-        <span className="text-sm sm:text-base font-semibold text-[#003a36]">{title}</span>
-        <svg
-          viewBox="0 0 24 24"
-          className={`h-5 w-5 text-[#008e81] transition-transform flex-shrink-0 ${open ? "rotate-180" : ""}`}
-          fill="currentColor"
-        >
-          <path d="M7 10l5 5 5-5H7z" />
-        </svg>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="overflow-hidden"
-          >
-            <div className="px-3 sm:px-4 pb-3 sm:pb-4 pt-1">{children}</div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  )
-}
-
-/* ────────────────── Brochure Modal ────────────────── */
-function BrochureModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
-  const [formData, setFormData] = useState({
-    name: "",
-    companyName: "",
-    phoneNumber: "",
-    email: "",
-    occupation: "",
-    pincode: "",
-    country: "",
-    state: "",
-    city: ""
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      // Send email with brochure
-      const response = await fetch('/api/send-brochure', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        alert('Brochure sent successfully to your email!');
-        onClose();
-        setFormData({
-          name: "",
-          companyName: "",
-          phoneNumber: "",
-          email: "",
-          occupation: "",
-          pincode: "",
-          country: "",
-          state: "",
-          city: ""
-        });
-      } else {
-        alert('Failed to send brochure. Please try again.');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Failed to send brochure. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  return (
-    <AnimatePresence>
-      {isOpen && (
-        <>
-          {/* Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-            className="fixed inset-0 bg-black/50 z-50"
-          />
-
-          {/* Modal */}
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-white rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col"
-            >
-              {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b border-gray-200">
-                <h2 className="text-xl font-semibold text-gray-900">
-                  Request Technical Guidelines (English)
+      {/* Ceiling Guidelines - Redesigned as an "Interactive Explorer" */}
+      <section className="bg-white py-32 border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-12 gap-20">
+            {/* Sidebar Navigation */}
+            <div className="lg:col-span-4 space-y-10">
+              <div>
+                <div className="text-teal-600 font-bold text-sm uppercase tracking-[0.3em] mb-4">{t("ceiling.badge")}</div>
+                <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+                  {t("ceiling.mainTitle")}
                 </h2>
-                <button
-                  onClick={onClose}
-                  className="text-gray-400 hover:text-gray-600 transition-colors"
-                >
-                  <X className="w-6 h-6" />
-                </button>
               </div>
+              <p className="text-slate-600 text-lg leading-relaxed">
+                {t("ceiling.intro")}
+              </p>
+              
+              <div className="space-y-2 h-[400px] overflow-y-auto pr-4 custom-scrollbar">
+                {ceilingItems.map((item, idx) => (
+                  <button
+                    key={item.title}
+                    onClick={() => setActiveCeilingIndex(idx)}
+                    className={`w-full text-left p-4 rounded-2xl transition-all duration-300 flex items-center gap-4 group ${
+                      activeCeilingIndex === idx ? "bg-slate-900 text-white shadow-xl shadow-slate-900/20" : "text-slate-500 hover:bg-slate-50"
+                    }`}
+                  >
+                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                      activeCeilingIndex === idx ? "bg-teal-500 text-white" : "bg-slate-100 text-slate-400 group-hover:bg-white"
+                    }`}>
+                      <span className="text-xs font-bold">{idx + 1}</span>
+                    </div>
+                    <span className="text-sm font-bold truncate">{item.title}</span>
+                    {activeCeilingIndex === idx && <motion.div layoutId="active-indicator" className="ml-auto"><ChevronRight className="w-4 h-4" /></motion.div>}
+                  </button>
+                ))}
+              </div>
+            </div>
 
-              {/* Form */}
-              <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Name */}
-                  <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                    />
-                  </div>
-
-                  {/* Company Name */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Company Name
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.companyName}
-                      onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                    />
-                    <p className="text-xs text-gray-500 mt-1">
-                      NOTE: Please put the STD code for landline
-                    </p>
-                  </div>
-
-                  {/* Phone Number */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      value={formData.phoneNumber}
-                      onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                    />
-                  </div>
-
-                  {/* Email */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                    />
-                  </div>
-
-                  {/* Occupation */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Occupation *
-                    </label>
-                    <select
-                      required
-                      value={formData.occupation}
-                      onChange={(e) => setFormData({ ...formData, occupation: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                    >
-                      <option value="">Select Occupation</option>
-                      <option value="architect">Architect / Interior Designer</option>
-                      <option value="contractor">Contractor</option>
-                      <option value="dealer">Dealer</option>
-                      <option value="end-user">End User</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-
-                  {/* Pincode */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Pincode
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.pincode}
-                      onChange={(e) => setFormData({ ...formData, pincode: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                    />
-                  </div>
-
-                  {/* Country */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Country *
-                    </label>
-                    <select
-                      required
-                      value={formData.country}
-                      onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                    >
-                      <option value="">Select Country</option>
-                      <option value="India">India</option>
-                      <option value="USA">USA</option>
-                      <option value="UK">UK</option>
-                      <option value="Canada">Canada</option>
-                      <option value="Australia">Australia</option>
-                    </select>
-                  </div>
-
-                  {/* State */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      State *
-                    </label>
-                    <select
-                      required
-                      value={formData.state}
-                      onChange={(e) => setFormData({ ...formData, state: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                    >
-                      <option value="">Select State</option>
-                      <option value="Tamil Nadu">Tamil Nadu</option>
-                      <option value="Karnataka">Karnataka</option>
-                      <option value="Maharashtra">Maharashtra</option>
-                      <option value="Delhi">Delhi</option>
-                      <option value="Gujarat">Gujarat</option>
-                    </select>
-                  </div>
-
-                  {/* City */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      City *
-                    </label>
-                    <select
-                      required
-                      value={formData.city}
-                      onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                    >
-                      <option value="">Select City</option>
-                      <option value="Chennai">Chennai</option>
-                      <option value="Bangalore">Bangalore</option>
-                      <option value="Mumbai">Mumbai</option>
-                      <option value="Delhi">Delhi</option>
-                      <option value="Ahmedabad">Ahmedabad</option>
-                    </select>
-                  </div>
-                </div>
-
-                {/* reCAPTCHA placeholder */}
-                <div className="mt-6 mb-4">
-                  <div className="flex items-start gap-3">
-                    <input
-                      type="checkbox"
-                      required
-                      className="mt-1 h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded"
-                    />
-                    <span className="text-sm text-gray-700">I&apos;m not a robot</span>
-                  </div>
-                  <div className="mt-2 text-xs text-gray-500">
-                    reCAPTCHA - Privacy - Terms
-                  </div>
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed mb-3"
+            {/* Content Display */}
+            <div className="lg:col-span-8">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeCeilingIndex}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.4 }}
+                  className="bg-slate-50 rounded-[3rem] p-12 lg:p-20 relative h-full flex flex-col justify-center overflow-hidden border border-slate-100"
                 >
-                  {isSubmitting ? 'Sending...' : 'Request Technical Guidelines (English)'}
-                </button>
-
-                {/* Info Text */}
-                <p className="text-xs text-gray-600 text-center">
-                  Please fill the details to receive the brochure on your mailbox
-                </p>
-
-                {/* Close Button */}
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className="mt-4 w-full bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base rounded-md transition-colors"
-                >
-                  Close
-                </button>
-              </form>
-            </motion.div>
+                  <div className="absolute -top-24 -right-24 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl pointer-events-none" />
+                  <div className="relative z-10 space-y-12">
+                    <div className="w-20 h-20 rounded-3xl bg-white shadow-xl flex items-center justify-center text-teal-600">
+                      {ceilingIcons[activeCeilingIndex % ceilingIcons.length]}
+                    </div>
+                    <div className="space-y-6">
+                      <h3 className="text-3xl lg:text-5xl font-bold text-slate-900 leading-tight">
+                        {ceilingItems[activeCeilingIndex].title}
+                      </h3>
+                      <p className="text-xl lg:text-2xl text-slate-600 leading-relaxed font-light">
+                        {ceilingItems[activeCeilingIndex].text}
+                      </p>
+                    </div>
+                    
+                    <div className="pt-10 flex items-center gap-6">
+                      <button 
+                        onClick={() => setActiveCeilingIndex(prev => Math.max(0, prev - 1))}
+                        disabled={activeCeilingIndex === 0}
+                        className="w-14 h-14 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:border-teal-500 hover:text-teal-600 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                      >
+                        <ChevronRight className="w-6 h-6 rotate-180" />
+                      </button>
+                      <div className="text-slate-400 font-bold tracking-widest text-sm">
+                        {String(activeCeilingIndex + 1).padStart(2, '0')} / {String(ceilingItems.length).padStart(2, '0')}
+                      </div>
+                      <button 
+                        onClick={() => setActiveCeilingIndex(prev => Math.min(ceilingItems.length - 1, prev + 1))}
+                        disabled={activeCeilingIndex === ceilingItems.length - 1}
+                        className="w-14 h-14 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:border-teal-500 hover:text-teal-600 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                      >
+                        <ChevronRight className="w-6 h-6" />
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
-        </>
-      )}
-    </AnimatePresence>
+        </div>
+      </section>
+
+      {/* Final Callout */}
+      <section className="bg-slate-900 py-20">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <div className="p-12 rounded-[3rem] bg-gradient-to-br from-white/5 to-transparent border border-white/10 backdrop-blur-sm">
+            <CheckCircle2 className="w-16 h-16 text-teal-400 mx-auto mb-8" />
+            <p className="text-2xl lg:text-3xl text-white font-light italic leading-relaxed">
+              &quot;{t("ceiling.closing")}&quot;
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <style jsx global>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #e2e8f0;
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #cbd5e1;
+        }
+      `}</style>
+    </main>
+  );
+}
+
+function ArrowRightIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7-7 7M5 12h14" />
+    </svg>
   );
 }
 
 // Lazy load YouTube iframe - only load when in viewport
 function LazyYouTubeIframe() {
+  const t = useTranslations("SuggestionsPage");
   const [isInView, setIsInView] = useState(false);
   const iframeRef = useRef<HTMLDivElement>(null);
 
@@ -691,11 +400,11 @@ function LazyYouTubeIframe() {
   }, []);
 
   return (
-    <div ref={iframeRef} className="h-full w-full relative">
+    <div ref={iframeRef} className="h-full w-full relative bg-slate-800 flex items-center justify-center">
       {isInView ? (
         <iframe
           className="h-full w-full"
-          src="https://www.youtube.com/embed/MwGAWcENTGI?si=-txgTwmr472t8Q5E"
+          src="https://www.youtube.com/embed/MwGAWcENTGI?si=-txgTwmr472t8Q5E&rel=0&modestbranding=1"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
@@ -703,13 +412,11 @@ function LazyYouTubeIframe() {
           loading="lazy"
         />
       ) : (
-        <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
-          <div className="text-center">
-            <svg className="w-12 h-12 text-gray-400 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-            </svg>
-            <p className="text-sm text-gray-500">Loading video...</p>
+        <div className="text-center">
+          <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+            <Play className="w-8 h-8 text-white fill-white" />
           </div>
+          <p className="text-slate-400 text-sm">{t("videoInitializing")}</p>
         </div>
       )}
     </div>

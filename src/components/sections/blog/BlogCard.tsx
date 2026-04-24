@@ -4,6 +4,7 @@ import { memo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTranslations, useLocale } from "next-intl";
 
 export type BlogCardPost = {
   id: string;
@@ -26,6 +27,8 @@ function BlogCard({
   i?: number;
   variant?: "default" | "compact";
 }) {
+  const t = useTranslations("Blog");
+  const locale = useLocale();
   const href = `/media/blog/${post.slug}`;
   const isCompact = variant === "compact";
 
@@ -60,7 +63,7 @@ function BlogCard({
             </span>
           )}
           <span className="text-xs font-medium text-slate-400">
-            {new Date(post.date).toLocaleDateString(undefined, {
+            {new Date(post.date).toLocaleDateString(locale, {
               day: "numeric",
               month: "short",
               year: "numeric",
@@ -93,14 +96,14 @@ function BlogCard({
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            {post.readMins || 4} min read
+            {t("readTime", { mins: post.readMins || 4 })}
           </div>
 
           <Link
             href={href}
             className="group/btn inline-flex items-center gap-1 text-sm font-bold text-emerald-600 transition-colors hover:text-emerald-700"
           >
-            Read more
+            {t("readMore")}
             <svg
               className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1"
               viewBox="0 0 24 24"

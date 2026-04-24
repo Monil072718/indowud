@@ -193,10 +193,224 @@
     "needDirections": "Precisa de direções? Toque abaixo para abrir no seu aplicativo de mapas.",
     "openMaps": "Abrir Maps"
   },
+  "ChairmanPage": {
+    "category": "Corporativo",
+    "title": "Mensagem do Presidente",
+    "description": "Uma mensagem do nosso Presidente, Sr. B L Bengani.",
+    "intro": "Com mais de 30 anos na indústria da madeira, o Sr. Bengani é respeitado como o fundador da Uniply. Hoje, como Presidente da Indowud, ele é pioneiro na madeira composta de fibra natural na Índia e no mundo.",
+    "motto": "A qualidade do produto é determinada pelo desempenho e satisfação do cliente. A acessibilidade do cliente aos promotores proporciona confiança no produto e facilidade de decisão. Este é o mantra que sigo na Indowud NFC.",
+    "eyebrow": "Mensagem",
+    "sectionTitle": "Abraçando um Futuro Sustentável, Um Painel NFC de cada vez",
+    "para1": "Em um mundo lutando com a escalada da crise climática, cada cidadão responsável e líder empresarial deve buscar soluções ativamente. Na Indowud NFC, acreditamos que inovação e sustentabilidade não são apenas palavras da moda, mas as pedras angulares para construir um amanhã melhor.",
+    "para2": "Tenho o orgulho de apresentar a vocês nossa notável linha de produtos sustentáveis. Fabricados a partir de um recurso natural abundante e renovável, nossos painéis são ecológicos e possuem qualidades superiores que os tornam uma escolha atraente para proprietários, arquitetos, designers, construtores e empreiteiros.",
+    "para3": "Nossos processos de fabricação meticulosos garantem que nossos produtos sejam à prova de cupins, à prova d'água e até retardantes de chamas + supressores de fumaça, tornando-os adequados para uma ampla gama de aplicações em interiores e exteriores.",
+    "closing": "Sinceramente,",
+    "name": "B L BENGANI"
+  },
+  "MissionVisionPage": {
+    "category": "Corporativo",
+    "title": "Missão, Visão e Qualidade",
+    "description": "Princípios claros que guiam cada painel que fabricamos.",
+    "mission": "Missão",
+    "missionText": "Nossa missão é tornarmo-nos pioneiros de produtos NFC de base agrícola no mundo, como uma alternativa superior à madeira para proprietários, construtores, arquitetos e designers.",
+    "vision": "Visão",
+    "visionText": "Nossa visão é tornar a Indowud NFC uma marca sinônimo de sustentabilidade e inovação em materiais de construção com a iniciativa Make in India.",
+    "quality": "Qualidade",
+    "qualityText": "Estrategiamos em torno de um objetivo principal – Paixão por produzir e entregar produtos de qualidade que superem as expectativas dos clientes."
+  },
+  "OurTeamPage": {
+    "category": "Corporativo",
+    "title": "Nossa Equipe",
+    "description": "Experiência, artesanato e um amor compartilhado por materiais sustentáveis.",
+    "member1": {
+      "name": "Sr. B L Bengani",
+      "role": "Presidente",
+      "bio1": "O Sr. B L Bengani possui vasta experiência em marketing e fabricação de produtos de painéis à base de madeira, como compensados, laminados, painéis de bloco, MDF, folheados decorativos, etc., por meio de arquitetos, designers de interiores e uma rede de revendedores estabelecida com mais de 300 no país. Antes de promover a Uniply Industries Limited, o Sr. Bengani foi Vice-Presidente de Marketing da Greenply Industries Limited. Ele comissionou a indústria de compensados mais moderna – Uniply Industries Limited no estado de Tamil Nadu, com uma força de trabalho de mais de 800 em diferentes segmentos de operações.",
+      "bio2": "Durante o ano de 2015-16, ele desinvestiu sua participação controladora na Uniply para outro investidor. Durante seu mandato de vinte anos na Uniply, ele viajou extensivamente por todo o mundo para entender tecnologia inovadora e produtos futuristas, e concebeu a ideia de iniciar a fabricação de painéis NFC."
+    },
+    "member2": {
+      "name": "Sr. Varun Bengani",
+      "role": "Cofundador e Diretor",
+      "bio1": "O Sr. Varun Bengani é Engenheiro Mecânico pela Anna University, Chennai. Ele ocupou um cargo sênior na Uniply Industries Limited durante os anos de 2010 a 2016 e desenvolveu-se como designer de vários folheados decorativos e compensados. Ele estava liderando uma equipe de marketing, bem como assuntos relacionados à produção de folheados decorativos da marca Elementz.",
+      "bio2": "Em sua capacidade de cofundador e promotor desta empresa, ele cuida das vendas e marketing dos produtos NFC – produtos compostos de fibra natural que estão sendo fabricados na fábrica de última geração da empresa."
+    }
+  },
+  "CertificationsPage": {
+    "category": "Corporativo",
+    "title": "Certificações",
+    "description": "Nossa fabricação e materiais atendem a padrões reconhecidos globalmente.",
+    "calloutHeadline": "A CII certificou a Indowud NFC como um Produto Verde Sustentável e concedeu o selo ecológico GreenPro.",
+    "calloutBody": "Produtos com o selo ecológico GreenPro têm menor impacto ambiental e contribuem para um desempenho superior em edifícios e empresas verdes.",
+    "trustedTitle": "Verificado por programas confiáveis",
+    "trustedPara": "Desde padrões ISO até selos ecológicos de sustentabilidade, nossos painéis são auditados em relação a padrões rigorosos de segurança, qualidade e desempenho ambiental.",
+    "greenproCard": "O selo ecológico GreenPro da CII valida a excelência do ciclo de vida e a contribuição para edifícios verdes."
+  },
+  "NFCProductsPage": {
+    "category": "Catálogo de Produtos",
+    "title": "Projetado para",
+    "highlight": "Excelência",
+    "description": "Descubra nossa linha de materiais compostos de fibra natural premium projetados para durabilidade, estética e sustentabilidade.",
+    "collection": "Coleção",
+    "contactSales": "Contatar Vendas",
+    "explore": "Explorar",
+    "customSize": "Solicitar Tamanho Personalizado",
+    "products": {
+      "zerowud-nfc": {
+        "name": "ZeroWud NFC",
+        "tag": "Painéis Premium",
+        "blurb": "Painéis densos e robustos projetados para durabilidade e acabamento que podem suportar umidade, cupins e clima severo—mas amigáveis à fabricação.",
+        "bullets": [
+          "Composto de fibra natural 100% livre de madeira",
+          "Zero enchimento — densidade consistente",
+          "Usinagem de precisão e fixação de parafusos",
+          "Baixa manutenção, pronto para pintura/folheado"
+        ],
+        "specs": {
+          "sizes": "8×4 pés, 9×6 pés",
+          "thickness": "6, 12, 18, 25 mm",
+          "finish": "Lixado, pronto para primer"
+        },
+        "labels": {
+          "sizes": "Tamanhos",
+          "thickness": "Espessura",
+          "finish": "Acabamento"
+        },
+        "cta": {
+          "brochure": "Brochura",
+          "inquire": "Consultar"
+        }
+      },
+      "indowud-board": {
+        "name": "Painel Indowud NFC",
+        "tag": "Grau Externo",
+        "blurb": "Painel NFC de alta resistência para móveis, cozinhas, penteadeiras e fachadas. Estável na umidade, dimensionalmente fiel e fácil de aplicar fita de borda, fresar e finalizar.",
+        "bullets": [
+          "Livre de empenamento e resistente a cupins",
+          "Excelente força de arrancamento de parafusos",
+          "Amigável para fresagem CNC"
+        ],
+        "specs": {
+          "sizes": "8×4 pés",
+          "thickness": "8–30 mm"
+        },
+        "labels": {
+          "sizes": "Tamanhos",
+          "thickness": "Espessura"
+        },
+        "cta": {
+          "applications": "Aplicações"
+        }
+      },
+      "nfc-door": {
+        "name": "Porta NFC",
+        "tag": "Portas Engenheiradas",
+        "blurb": "Folhas de porta estáveis e prontas para acabamento que permanecem alinhadas e suportam mudanças sazonais. Escolha peles, tinta, folheado ou laminação.",
+        "bullets": [
+          "Núcleo robusto e livre de ruídos",
+          "Resistência à umidade e cupins",
+          "Pronto para pintura ou folheado"
+        ],
+        "specs": {
+          "standard": "32, 35, 38 mm de espessura",
+          "custom": "Tamanhos sob consulta"
+        },
+        "labels": {
+          "standard": "Padrão",
+          "custom": "Personalizado"
+        },
+        "cta": {
+          "quote": "Obter Orçamento"
+        }
+      },
+      "nfc-frame": {
+        "name": "Molduras NFC",
+        "tag": "Estrutural",
+        "blurb": "Molduras e guarnições dimensionalmente estáveis que parecem premium e duram. Aceita tinta, verniz ou folheados com bordas e perfis nítidos.",
+        "bullets": [
+          "Seções perfiladas de fábrica",
+          "Textura uniforme semelhante a grãos"
+        ],
+        "cta": {
+          "sections": "Lista de Seções"
+        }
+      },
+      "nfc-jalli": {
+        "name": "Jalli NFC",
+        "tag": "Telas Arquitetônicas",
+        "blurb": "Jallis NFC cortadas em CNC permitem fachadas, telas e divisórias ornamentadas que lidam com o clima sem inchar ou rachar.",
+        "bullets": [
+          "Padrões personalizados",
+          "Pronto para primer e pintura"
+        ],
+        "cta": {
+          "design": "Design Personalizado"
+        }
+      },
+      "nfc-decking": {
+        "name": "Decking NFC",
+        "tag": "Vida ao Ar Livre",
+        "blurb": "Superfície antiderrapante, excelente design de drenagem e acabamento resistente ao desbotamento para pátios, beiras de piscina e passarelas.",
+        "bullets": [
+          "Fixadores ocultos",
+          "Baixa manutenção"
+        ],
+        "specs": {
+          "section": "25×150 mm • 2.4 m"
+        },
+        "labels": {
+          "section": "Seção"
+        },
+        "cta": {
+          "patterns": "Padrões"
+        }
+      },
+      "nfc-fluted": {
+        "name": "Perfis Canelados",
+        "tag": "Revestimento de Parede",
+        "blurb": "Paredes de destaque que se destacam — rápidas de instalar, fáceis de repintar e profundidade de ranhura consistente para um ritmo perfeito.",
+        "bullets": [
+          "Múltiplas larguras de ranhura",
+          "Resistente a impactos"
+        ],
+        "cta": {
+          "explore": "Explorar Perfis"
+        }
+      },
+      "nfc-textured": {
+        "name": "Painéis Texturizados",
+        "tag": "Acabamentos",
+        "blurb": "Texturas autênticas semelhantes a madeira em base NFC durável para paredes de destaque, armários e fachadas.",
+        "bullets": [
+          "Repetição de padrão uniforme",
+          "Primer/pintura ou folheado"
+        ]
+      },
+      "nfc-fence": {
+        "name": "Cerca NFC",
+        "tag": "Paisagismo",
+        "blurb": "Ripas e trilhos resistentes às intempéries que mantêm a aparência com manutenção mínima. Seguro, livre de farpas, amigável para crianças.",
+        "bullets": [
+          "Alturas e tampas personalizadas",
+          "Revestível com cores"
+        ]
+      }
+    },
+    "nfcGlu": {
+      "title": "Adesivo NFC-GLU",
+      "description": "Um adesivo de grau profissional desenvolvido especificamente para colar Indowud NFC com quase qualquer superfície. Secagem rápida, resistente à água e alta resistência.",
+      "features": [
+        "Secagem Mais Rápida",
+        "Resistente à Água",
+        "Alta Resistência",
+        "Multi-superfície"
+      ]
+    }
+  },
   "Footer": {
     "phone": "Telefone",
     "email": "E-mail",
     "quickLinks": "Links Rápidos",
+    "designTechnology": "TECNOLOGIA DE DESIGN",
     "copyright": "© 2023 INDOWUD. Todos os Direitos Reservados.",
     "links": {
       "home": "Início",
@@ -208,6 +422,167 @@
       "privacyPolicy": "Política de Privacidade",
       "legalNote": "Nota Legal",
       "warranty": "Garantia"
+    }
+  },
+  "MediaVideoPage": {
+    "category": "Mídia",
+    "title": "Vídeos",
+    "description": "Explore histórias, comparações e recursos sobre o Indowud NFC.",
+    "videos": {
+      "innovate": "Indowud Innovate",
+      "corpHindi": "Vídeo Corporativo (Hindi)",
+      "corpEnglish": "Vídeo Corporativo (Inglês)",
+      "fireSafety": "Comparação de Segurança contra Incêndio",
+      "nasDaily": "Recurso Nas Daily",
+      "testimonial": "Depoimento",
+      "dainikBhaskar": "Recurso Dainik Bhaskar",
+      "oneIndia": "Recurso One India"
+    }
+  },
+  "Blog": {
+    "category": "Mídia",
+    "title": "Nossas Últimas Histórias",
+    "description": "Descubra insights, comparações e conselhos de especialistas sobre construção sustentável e design moderno com o Indowud NFC.",
+    "readMore": "Leia mais",
+    "readTime": "{mins} min de leitura",
+    "pagination": {
+      "previous": "Anterior",
+      "next": "Próximo"
+    }
+  },
+  "NewsPage": {
+    "category": "Mídia",
+    "title": "Notícias e Mídia",
+    "description": "Menções na mídia, vídeos e artigos sobre a Indowud.",
+    "readArticle": "Ler artigo",
+    "watchVideo": "Assistir vídeo",
+    "openSource": "Fonte aberta",
+    "noThumbnail": "Sem miniatura",
+    "kinds": {
+      "article": "ARTIGO",
+      "video": "VÍDEO",
+      "short": "SHORT"
+    }
+  },
+  "LegalNotePage": {
+    "title": "Nota Legal",
+    "breadcrumb": "NOTA LEGAL",
+    "para1": "Todas as informações fornecidas neste site são baseadas no conhecimento que a empresa possui e foram publicadas para fornecer uma referência dos detalhes de aplicações, recursos, cuidados, precauções, sugestões, ideias, etc., ao trabalhar com os produtos Indowud NFC. Isso não deve ser considerado como garantia legal quanto às suas propriedades específicas ou à adequação de suas aplicações e produtos em áreas específicas.",
+    "para2": "A empresa oferece uma garantia legal apenas contra cupins. A empresa tem o direito de alterar os termos e condições a qualquer momento, sem aviso prévio ou publicação. Para obter os detalhes de garantia mais atualizados, consulte o site.",
+    "para3": "A empresa não assume qualquer responsabilidade por qualquer tipo de aplicação ou informação fornecida no site, vídeos, brochuras ou em qualquer forma, seja escrita ou verbal, e não detém qualquer responsabilidade sobre as consequências relacionadas a isso. O espectador/comprador é obrigado a verificar e testar a qualidade e ele/ela será a única pessoa responsável por selecionar, comprar, trabalhar, alterar, utilizar, processar, etc., e aplicar qualquer informação de acordo com o site.",
+    "para4": "Qualquer conselho dado pela empresa em qualquer forma (verbal ou escrita) não constituirá qualquer garantia ou reclamação. A empresa reserva-se o direito de atualizar, alterar ou alterar qualquer informação como parte do seu programa contínuo de pesquisa e desenvolvimento. Para mais detalhes, envie um e-mail para {email}."
+  },
+  "WarrantyPage": {
+    "title": "Garantia",
+    "breadcrumb": "GARANTIA",
+    "opening": "Abrindo documento de garantia...",
+    "popupBlocked": "Se o documento não abrir, verifique as configurações do seu bloqueador de pop-ups.",
+    "error": "Não foi possível abrir o documento de garantia. Verifique as configurações do seu navegador."
+  },
+  "PrivacyPolicyPage": {
+    "title": "Política de Privacidade",
+    "breadcrumb": "POLÍTICA DE PRIVACIDADE",
+    "intro": "Na Indowud, estamos comprometidos em proteger a privacidade e a segurança dos visitantes do nosso site, clientes e usuários...",
+    "sections": {
+      "s1": { "title": "1. Informações que Coletamos" },
+      "s2": { "title": "2. Como Usamos Suas Informações" },
+      "s3": { "title": "3. Como Compartilhamos Suas Informações" },
+      "s4": { "title": "4. Retenção de Dados" },
+      "s5": { "title": "5. Segurança de Suas Informações" },
+      "s6": { "title": "6. Seus Direitos" },
+      "s7": { "title": "7. Links de Terceiros" },
+      "s8": { "title": "8. Alterações a esta Política de Privacidade" },
+      "s9": { "title": "9. Entre em Contato Conosco" }
+    },
+    "effectiveDate": "Esta política de privacidade entra em vigor em {date}."
+  },
+  "SuggestionsPage": {
+    "category": "NFC",
+    "title": "Sugestões Importantes",
+    "description": "Obtenha móveis sem manutenção e sem defeitos com as nossas diretrizes técnicas.",
+    "videoBadge": "Masterclass Técnica",
+    "videoTrust": "Confiado por mais de 500 profissionais",
+    "videoInitializing": "Inicializando...",
+    "videoNote": "Para obter um móvel sem defeitos de manutenção, siga o vídeo que menciona o trabalho com Indowud nfc.",
+    "gridTitle": "Indowud nfc é um produto homogêneo e, portanto, requer suporte de grade construtiva adequado (molduras, canais, etc. feitos de tubo de metal) para evitar deformações",
+    "gridDescription": "O espaçamento preciso da grade é fundamental para a integridade estrutural e para evitar deformações na superfície.",
+    "gridRecommendedLabel": "Recomendado",
+    "gridRecommendedValue": "Estruturas de Tubos Metálicos",
+    "table": {
+      "header": "Espessura da placa Indowud NFC (em mm)",
+      "thicknessLabel": "Espessura (mm)",
+      "gridLabel": "Grade (mm)",
+      "noteTitle": "Nota Importante",
+      "proTipTitle": "Dica de Pro",
+      "proTipText": "Sempre verifique os suportes quadrados da grade antes da instalação para garantir uma distribuição uniforme do peso.",
+      "cols": ["6", "8", "12", "15", "16", "18", "20", "25"],
+      "rows": [
+        {
+          "variant": "Neo (em mm)",
+          "density": "625+ Kg/CBM",
+          "values": ["150", "200", "250", "300", "300", "350", "400", "500"]
+        },
+        {
+          "variant": "Create (em mm)",
+          "density": "700+ Kg/CBM",
+          "values": ["200", "250", "300", "350", "350", "400", "450", "550"]
+        },
+        {
+          "variant": "Build (em mm)",
+          "density": "800+ Kg/CBM",
+          "values": ["250", "350", "450", "550", "550", "600", "650", "750"]
+        }
+      ],
+      "note": "Para o teto, use uma placa de 12 mm ou espessura superior com suporte de grade quadrada sugerido de 300 mm para Create ou Build e 200 mm para Neo."
+    },
+    "general": [
+      {
+        "title": "Vedação e preparação de superfície",
+        "text": "Não use massa NC. Certifique-se de usar selante à base de solvente/epóxi, enchimento PU. Não despeje água na placa bruta antes do fechamento dos microporos ao redor. Certifique-se de que os microporos em todos os lados (superfície e borda) sejam fechados com selante/primer à base de epóxi/solvente."
+      },
+      {
+        "title": "Venezianas e montagem",
+        "text": "Para evitar empenamento ou deformação, cole folha/laminado em ambos os lados antes de fixar a veneziana. Sugerimos cobrir as bordas com uma fita de borda adequada. Certifique-se de que um painel semelhante seja colado em ambos os lados para um equilíbrio semelhante. No caso de verniz/polimento/tinta PU, cubra os microporos com selante epóxi/solvente e depois fixe a veneziana. Use dobradiças a cada 300-350 mm e fecho de bola magnético na parte superior e inferior. Recomenda-se o uso de reforço/alinhador. Para venezianas deslizantes, assegure uma estrutura adequada em todos os quatro lados com os reforços necessários."
+      },
+      {
+        "title": "Adesivos",
+        "text": "NFC-GLU, PUR, Heatx, WP1, Probond, Plastilok, Relam. O tempo de secagem pode variar dependendo das condições atmosféricas. Para qualquer cola, aconselhamos testar em uma peça pequena antes de aplicar em painéis maiores."
+      },
+      {
+        "title": "Juntas de dilatação",
+        "text": "Deixe um espaço mínimo de 12 mm entre a parede e a placa para ventilação. Deixe um espaço de 5 mm no teto e no piso para ventilação e expansão/contração. Deixe um espaço de 3 a 5 mm entre duas placas."
+      },
+      {
+        "title": "Fixação e aparafusamento",
+        "text": "Use parafusos de cabeça larga, totalmente roscados, com o triplo do comprimento da espessura da placa. Sugere-se a colagem na marcenaria para melhor resistência. O aparafusamento deve ser lento e parar na superfície. Não martele e não puxe o parafuso para fora."
+      }
+    ],
+    "learnMore": "Saiba mais",
+    "ceiling": {
+      "badge": "As Diretrizes",
+      "mainTitle": "Embelezamento de Teto",
+      "title": "Diretrizes de embelezamento de teto",
+      "intro": "Ao usar as placas Indowud nfc para embelezamento de teto, é imperativo seguir diretrizes técnicas avançadas para garantir uma instalação segura, durável e esteticamente superior. As seguintes recomendações abrangentes ajudarão a alcançar os melhores resultados da categoria:",
+      "items": [
+        { "title": "Forças gravitacionais", "text": "Reconhecer e neutralizar as forças gravitacionais que atuam nos produtos Indowud nfc montados no teto." },
+        { "title": "Suporte", "text": "Sugerimos o uso de produto nfc de 12 mm ou espessura superior com um suporte de grade sugerido de 300 mm x 300 mm para Create e Build e 200 mm x 200 mm para Neo." },
+        { "title": "Fixação", "text": "Utilize parafusos de arruela de cabeça larga para prender o produto ao teto. Esses parafusos oferecem uma área de contato maior, distribuindo a carga de forma mais uniforme e reduzindo o risco de desprendimento. Certifique-se de que os parafusos penetrem pelo menos o dobro da espessura das placas na subestrutura para uma força de fixação ideal." },
+        { "title": "Posicionamento do parafuso", "text": "Coloque os parafusos em intervalos de no máximo 300 mm ao longo das bordas da placa e 400 mm dentro do campo das placas para fornecer suporte consistente e evitar flacidez." },
+        { "title": "Exposição ao calor", "text": "Para aplicações em teto expostas à luz solar direta, como instalações a céu aberto, a subestrutura de suporte de aço doce (MS) pode absorver e reter o calor, levando à expansão térmica e potencial comprometimento estrutural." },
+        { "title": "Medidas preventivas", "text": "Aplique um revestimento de tinta de borracha resistente ao calor na subestrutura MS. Esta barreira térmica reduz a transferência de calor, mitigando a expansão térmica e protegendo a integridade do produto." },
+        { "title": "Rupturas térmicas", "text": "Incorpore rupturas térmicas no projeto da subestrutura para minimizar a condução de calor. Materiais como tiras de espuma isolante ou almofadas térmicas podem ser colocados entre a subestrutura metálica e o produto de placa nfc." },
+        { "title": "Evitar parafusos em superfície porosa", "text": "Evite fixar parafusos diretamente nas ranhuras ou na superfície porosa fresada das placas nfc. Isso pode comprometer a integridade estrutural do produto devido à natureza porosa do núcleo central." },
+        { "title": "Acabamento e modelagem", "text": "Crie uma borda em forma de Z no perímetro da placa antes da instalação. Esta técnica melhora o alinhamento, a estabilidade e o apelo estético." },
+        { "title": "Junta de dilatação", "text": "Mantenha um espaço de 3 mm a 6 mm entre as placas para acomodar a expansão e contração térmica, evitando empenamento ou arqueamento ao longo do tempo. Use ferramentas de espaçamento durante a instalação para garantir uma largura de junta consistente." },
+        { "title": "Selantes e adesivos", "text": "Use selantes e adesivos de alta qualidade, resistentes aos raios UV, especificamente projetados para materiais nfc para garantir uma união duradoura e evitar a entrada de umidade." },
+        { "title": "Pré-perfuração", "text": "Pré-perfure os furos dos parafusos com o diâmetro apropriado para evitar rachaduras e garantir o posicionamento preciso do parafuso." },
+        { "title": "Impermeabilização", "text": "Aplique uma membrana ou revestimento à prova d'água nas superfícies do produto contra a entrada de umidade, especialmente em ambientes de alta umidade ou costeiros." },
+        { "title": "Ventilação", "text": "Assegure uma ventilação adequada acima das placas do teto para permitir a circulação de ar e evitar o acúmulo de umidade, o que pode levar ao aparecimento de mofo ou bolor." },
+        { "title": "Requisitos de suporte", "text": "Devido à tração gravitacional, as placas Indowud NFC requerem suporte estrutural adequado adaptado à espessura e ao peso do produto. A subestrutura deve ser projetada para suportar a carga de forma eficaz, considerando as forças estáticas e dinâmicas." },
+        { "title": "Suportes de apoio", "text": "Incorpore suportes de apoio adicionais ou membros transversais na subestrutura para aumentar a rigidez e distribuir as cargas de forma mais eficaz." },
+        { "title": "Proteção de bordas", "text": "Use perfis de proteção de bordas para proteger as placas nfc de danos por impacto e para fornecer uma aparência limpa e acabada." }
+      ],
+      "closing": "Ao seguir meticulosamente estas diretrizes, pode-se alcançar uma instalação de teto com as placas Indowud nfc que não apenas atende, mas excede os padrões da indústria, garantindo longevidade, estabilidade e uma estética impecável."
     }
   }
 }

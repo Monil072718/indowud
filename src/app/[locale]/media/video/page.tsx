@@ -2,24 +2,11 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import PageHeader from "@/components/common/PageHeader";
+import { useTranslations } from "next-intl";
 
 type YT = { id: string; title: string; tag?: string };
-
-const vids: YT[] = [
-  { id: "7r3axN50R8w", title: "Indowud Innovate" },
-  { id: "1MmTPyymufE", title: "Corporate Video (Hindi)" },
-  { id: "Nkel1DsLYKA", title: "Corporate Video (English)" },
-  { id: "VlHbrlvkV9A", title: "Fire Safety Comparison" },
-  { id: "Zh7TyIQuISU", title: "NAS Daily Feature" },
-  { id: "RO6LK3mdi4E", title: "Testimonial" },
-  { id: "iKU7k7dCoyI", title: "Testimonial" },
-  { id: "mKCC5HZ3Nic", title: "Testimonial" },
-  { id: "AvrSnE5bypg", title: "Testimonial" },
-  { id: "5UyIzKtaSFA", title: "Dainik Bhaskar Feature" },
-  { id: "RJp2zMV0VN0", title: "One India Feature" },
-];
 
 const fade = {
   hidden: { opacity: 0, y: 16 },
@@ -128,12 +115,28 @@ function Card({ v, i }: { v: YT; i: number }) {
 }
 
 export default function VideosPage() {
+  const t = useTranslations("MediaVideoPage");
+
+  const vids: YT[] = useMemo(() => [
+    { id: "7r3axN50R8w", title: t("videos.innovate") },
+    { id: "1MmTPyymufE", title: t("videos.corpHindi") },
+    { id: "Nkel1DsLYKA", title: t("videos.corpEnglish") },
+    { id: "VlHbrlvkV9A", title: t("videos.fireSafety") },
+    { id: "Zh7TyIQuISU", title: t("videos.nasDaily") },
+    { id: "RO6LK3mdi4E", title: t("videos.testimonial") },
+    { id: "iKU7k7dCoyI", title: t("videos.testimonial") },
+    { id: "mKCC5HZ3Nic", title: t("videos.testimonial") },
+    { id: "AvrSnE5bypg", title: t("videos.testimonial") },
+    { id: "5UyIzKtaSFA", title: t("videos.dainikBhaskar") },
+    { id: "RJp2zMV0VN0", title: t("videos.oneIndia") },
+  ], [t]);
+
   return (
     <>
       <PageHeader
-        category="Media"
-        title="Videos"
-        description="Explore stories, comparisons, and features about Indowud NFC."
+        category={t("category")}
+        title={t("title")}
+        description={t("description")}
       />
       <div className="mx-auto max-w-[1200px] px-4 py-10 md:py-14">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

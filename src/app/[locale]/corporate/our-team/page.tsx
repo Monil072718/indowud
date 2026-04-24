@@ -1,5 +1,8 @@
+"use client";
+
 import PageHeader from "@/components/common/PageHeader";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 type ProfileProps = {
   name: string;
@@ -54,12 +57,14 @@ function Profile({ name, role, img, paragraphs, reverse }: ProfileProps) {
 }
 
 export default function OurTeamPage() {
+  const t = useTranslations("OurTeamPage");
+
   return (
     <>
       <PageHeader
-        category="Corporate"
-        title="Our Team"
-        description="Experience, craftsmanship and a shared love for sustainable materials."
+        category={t("category")}
+        title={t("title")}
+        description={t("description")}
       />
 
       <main className="relative">
@@ -67,12 +72,12 @@ export default function OurTeamPage() {
         <div className="relative max-w-6xl mx-auto px-6 py-14 md:py-20 space-y-14">
 
           <Profile
-            name="Mr. B L Bengani"
-            role="Chairman"
+            name={t("member1.name")}
+            role={t("member1.role")}
             img="/bl.webp"
             paragraphs={[
-              `Mr. B L Bengani, comes with a vast experience of marketing and manufacturing wood-based panel products such as Plywood, Laminates, Block Board, MDF, Decorative Veneers, etc through Architects, Interior Designers and an established dealers network of more than 300 in the country. Before promoting Uniply Industries Limited, Mr.Bengani was the Vice-President Marketing with Greenply Industries Limited. He commissioned the most modern plywood industry – Uniply Industries Limited in the state of Tamil Nadu, with a workforce of over 800 at different segments of operations.`,
-              `During the year 2015-16, he divested his controlling stake in Uniply to another investor. During his twenty years tenure with Uniply, he travelled extensively throughout the world to understand innovative technology and futuristic products, and conceived an idea to start manufacturing of NFC Board.`,
+              t("member1.bio1"),
+              t("member1.bio2"),
             ]}
           />
 
@@ -80,12 +85,12 @@ export default function OurTeamPage() {
           <div className="my-2 border-t border-gray-200" />
 
           <Profile
-            name="Mr. Varun Bengani"
-            role="Co-Founder & Director"
+            name={t("member2.name")}
+            role={t("member2.role")}
             img="/varun.webp"
             paragraphs={[
-              `Mr.Varun Bengani is a BE Mechanical Engineer from Anna University, Chennai. He has served at a senior position with Uniply Industries Limited during the year 2010 — 2016 and developed himself as a designer of various Decorative Veneers and Plywoods. He was leading a team of marketing as well as production-related matters of Decorative veneers by the brand Elementz.`,
-              `In his capacity as co-founder and promoter of this company, he looks after the sales and marketing of NFC products — Natural Fibre Composite products being manufactured at the state of the art commissioned plant of the Company.`,
+              t("member2.bio1"),
+              t("member2.bio2"),
             ]}
           />
 
