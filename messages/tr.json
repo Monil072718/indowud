@@ -355,22 +355,58 @@
       "noteTitle": "Önemli Not",
       "proTipTitle": "Profesyonel İpucu",
       "proTipText": "Eşit ağırlık dağılımı sağlamak için kurulumdan önce daima ızgara kare desteklerini doğrulayın.",
-      "cols": ["6", "8", "12", "15", "16", "18", "20", "25"],
+      "cols": [
+        "6",
+        "8",
+        "12",
+        "15",
+        "16",
+        "18",
+        "20",
+        "25"
+      ],
       "rows": [
         {
           "variant": "Neo (mm olarak)",
           "density": "625+ Kg/CBM",
-          "values": ["150", "200", "250", "300", "300", "350", "400", "500"]
+          "values": [
+            "150",
+            "200",
+            "250",
+            "300",
+            "300",
+            "350",
+            "400",
+            "500"
+          ]
         },
         {
           "variant": "Create (mm olarak)",
           "density": "700+ Kg/CBM",
-          "values": ["200", "250", "300", "350", "350", "400", "450", "550"]
+          "values": [
+            "200",
+            "250",
+            "300",
+            "350",
+            "350",
+            "400",
+            "450",
+            "550"
+          ]
         },
         {
           "variant": "Build (mm olarak)",
           "density": "800+ Kg/CBM",
-          "values": ["250", "350", "450", "550", "550", "600", "650", "750"]
+          "values": [
+            "250",
+            "350",
+            "450",
+            "550",
+            "550",
+            "600",
+            "650",
+            "750"
+          ]
         }
       ],
       "note": "Tavan için, Create veya Build için 300 mm ve Neo için 200 mm önerilen ızgara kare desteği ile 12 mm veya daha yüksek kalınlıkta levha kullanın."
@@ -404,25 +440,500 @@
       "title": "Tavan Güzelleştirme Kılavuzu",
       "intro": "Tavan güzelleştirmesi için Indowud nfc Levhaları kullanırken, güvenli, dayanıklı ve estetik açıdan üstün bir kurulum sağlamak için gelişmiş teknik kılavuzları takip etmek zorunludur. Aşağıdaki kapsamlı öneriler, sınıfının en iyisi sonuçların elde edilmesine yardımcı olacaktır:",
       "items": [
-        { "title": "Yerçekimi Kuvvetleri", "text": "Tavana monte edilen Indowud nfc ürünlerine etki eden yerçekimi kuvvetlerini tanıyın ve bunlara karşı önlem alın." },
-        { "title": "Destek", "text": "Create ve Build için 300 mm x 300 mm ve Neo için 200 mm x 200 mm önerilen ızgara desteği ile 12 mm veya daha yüksek kalınlıkta nfc ürünü kullanmanızı öneririz." },
-        { "title": "Sabitleme", "text": "Ürünü tavana sabitlemek için geniş başlı pullu vidalar kullanın. Bu vidalar daha geniş bir temas alanı sunar, yükü daha eşit dağıtır ve ayrılma riskini azaltır. Vidaların, optimum tutma mukavemeti için alt yapıya levha kalınlığının en az iki katı kadar girdiğinden emin olun." },
-        { "title": "Vida Yerleşimi", "text": "Tutarlı destek sağlamak ve sarkmayı önlemek için vidaları levha kenarları boyunca en fazla 300 mm ve levhaların iç kısmında 400 mm aralıklarla yerleştirin." },
-        { "title": "Isı Maruziyeti", "text": "Gökyüzüne açık kurulumlar gibi doğrudan güneş ışığına maruz kalan tavan uygulamaları için, destekleyici yumuşak çelik (MS) alt yapı ısıyı emebilir ve tutabilir, bu da termal genleşmeye ve potansiyel yapısal bozulmaya yol açabilir." },
-        { "title": "Önleyici Tedbirler", "text": "MS alt yapıya ısıya dayanıklı kauçuk boya kaplaması uygulayın. Bu termal bariyer ısı transferini azaltır, termal genleşmeyi hafifletir ve ürünün bütünlüğünü korur." },
-        { "title": "Termal Köprüler", "text": "Isı iletimini en aza indirmek için alt yapı tasarımına termal köprüler dahil edin. Metal alt yapı ile nfc levha ürünü arasına yalıtım köpüğü şeritleri veya termal pedler gibi malzemeler yerleştirilebilir." },
-        { "title": "Gözenekli Yüzeye Vida Atmaktan Kaçınma", "text": "Vidaları doğrudan nfc levhaların oyuklarına veya yönlendirilmiş gözenekli yüzeyine sabitlemekten kaçının. Bu, merkez çekirdeğin gözenekli yapısı nedeniyle ürünün yapısal bütünlüğünü bozabilir." },
-        { "title": "Düzeltme ve Şekillendirme", "text": "Kurulumdan önce levhanın çevresinde Z şeklinde bir kenar oluşturun. Bu teknik hizalamayı, stabiliteyi ve estetik çekiciliği artırır." },
-        { "title": "Genleşme Boşluğu", "text": "Zamanla bükülmeyi veya çarpılmayı önlemek için, termal genleşme ve büzülmeyi karşılamak amacıyla levhalar arasında 3 mm ila 6 mm boşluk bırakın. Kurulum sırasında tutarlı boşluk genişliği sağlamak için ara parçası araçları kullanın." },
-        { "title": "Sızdırmazlık Maddeleri ve Yapıştırıcılar", "text": "Dayanıklı bir bağ sağlamak ve nem girişini önlemek için nfc malzemeleri için özel olarak tasarlanmış yüksek kaliteli, UV ışınlarına dayanıklı sızdırmazlık maddeleri ve yapıştırıcılar kullanın." },
-        { "title": "Ön Delme", "text": "Çatlamayı önlemek ve hassas vida yerleşimi sağlamak için vida deliklerini uygun çapta önceden delin." },
-        { "title": "Su Yalıtımı", "text": "Özellikle yüksek nemli veya kıyı ortamlarında nem girişine karşı ürünün yüzeylerine su geçirmez bir membran veya kaplama uygulayın." },
-        { "title": "Havalandırma", "text": "Hava sirkülasyonuna izin vermek ve küf veya mantar oluşumuna yol açabilecek nem birikmesini önlemek için tavan levhalarının üzerinde uygun havalandırma sağlayın." },
-        { "title": "Destek Gereksinimleri", "text": "Yerçekimi çekimi nedeniyle, Indowud NFC levhaları, ürünün kalınlığına ve ağırlığına göre uyarlanmış uygun yapısal destek gerektirir. Alt yapı, hem statik hem de dinamik kuvvetleri göz önünde bulundurarak yükü etkili bir şekilde taşıyacak şekilde tasarlanmalıdır." },
-        { "title": "Destek Braketleri", "text": "Sertliği artırmak ve yükleri daha etkili bir şekilde dağıtmak için alt yapıya ek destek braketleri veya çapraz elemanlar dahil edin." },
-        { "title": "Kenar Koruması", "text": "Nfc levhaları darbe hasarından korumak ve temiz, bitmiş bir görünüm sağlamak için kenar koruma profilleri kullanın." }
+        {
+          "title": "Yerçekimi Kuvvetleri",
+          "text": "Tavana monte edilen Indowud nfc ürünlerine etki eden yerçekimi kuvvetlerini tanıyın ve bunlara karşı önlem alın."
+        },
+        {
+          "title": "Destek",
+          "text": "Create ve Build için 300 mm x 300 mm ve Neo için 200 mm x 200 mm önerilen ızgara desteği ile 12 mm veya daha yüksek kalınlıkta nfc ürünü kullanmanızı öneririz."
+        },
+        {
+          "title": "Sabitleme",
+          "text": "Ürünü tavana sabitlemek için geniş başlı pullu vidalar kullanın. Bu vidalar daha geniş bir temas alanı sunar, yükü daha eşit dağıtır ve ayrılma riskini azaltır. Vidaların, optimum tutma mukavemeti için alt yapıya levha kalınlığının en az iki katı kadar girdiğinden emin olun."
+        },
+        {
+          "title": "Vida Yerleşimi",
+          "text": "Tutarlı destek sağlamak ve sarkmayı önlemek için vidaları levha kenarları boyunca en fazla 300 mm ve levhaların iç kısmında 400 mm aralıklarla yerleştirin."
+        },
+        {
+          "title": "Isı Maruziyeti",
+          "text": "Gökyüzüne açık kurulumlar gibi doğrudan güneş ışığına maruz kalan tavan uygulamaları için, destekleyici yumuşak çelik (MS) alt yapı ısıyı emebilir ve tutabilir, bu da termal genleşmeye ve potansiyel yapısal bozulmaya yol açabilir."
+        },
+        {
+          "title": "Önleyici Tedbirler",
+          "text": "MS alt yapıya ısıya dayanıklı kauçuk boya kaplaması uygulayın. Bu termal bariyer ısı transferini azaltır, termal genleşmeyi hafifletir ve ürünün bütünlüğünü korur."
+        },
+        {
+          "title": "Termal Köprüler",
+          "text": "Isı iletimini en aza indirmek için alt yapı tasarımına termal köprüler dahil edin. Metal alt yapı ile nfc levha ürünü arasına yalıtım köpüğü şeritleri veya termal pedler gibi malzemeler yerleştirilebilir."
+        },
+        {
+          "title": "Gözenekli Yüzeye Vida Atmaktan Kaçınma",
+          "text": "Vidaları doğrudan nfc levhaların oyuklarına veya yönlendirilmiş gözenekli yüzeyine sabitlemekten kaçının. Bu, merkez çekirdeğin gözenekli yapısı nedeniyle ürünün yapısal bütünlüğünü bozabilir."
+        },
+        {
+          "title": "Düzeltme ve Şekillendirme",
+          "text": "Kurulumdan önce levhanın çevresinde Z şeklinde bir kenar oluşturun. Bu teknik hizalamayı, stabiliteyi ve estetik çekiciliği artırır."
+        },
+        {
+          "title": "Genleşme Boşluğu",
+          "text": "Zamanla bükülmeyi veya çarpılmayı önlemek için, termal genleşme ve büzülmeyi karşılamak amacıyla levhalar arasında 3 mm ila 6 mm boşluk bırakın. Kurulum sırasında tutarlı boşluk genişliği sağlamak için ara parçası araçları kullanın."
+        },
+        {
+          "title": "Sızdırmazlık Maddeleri ve Yapıştırıcılar",
+          "text": "Dayanıklı bir bağ sağlamak ve nem girişini önlemek için nfc malzemeleri için özel olarak tasarlanmış yüksek kaliteli, UV ışınlarına dayanıklı sızdırmazlık maddeleri ve yapıştırıcılar kullanın."
+        },
+        {
+          "title": "Ön Delme",
+          "text": "Çatlamayı önlemek ve hassas vida yerleşimi sağlamak için vida deliklerini uygun çapta önceden delin."
+        },
+        {
+          "title": "Su Yalıtımı",
+          "text": "Özellikle yüksek nemli veya kıyı ortamlarında nem girişine karşı ürünün yüzeylerine su geçirmez bir membran veya kaplama uygulayın."
+        },
+        {
+          "title": "Havalandırma",
+          "text": "Hava sirkülasyonuna izin vermek ve küf veya mantar oluşumuna yol açabilecek nem birikmesini önlemek için tavan levhalarının üzerinde uygun havalandırma sağlayın."
+        },
+        {
+          "title": "Destek Gereksinimleri",
+          "text": "Yerçekimi çekimi nedeniyle, Indowud NFC levhaları, ürünün kalınlığına ve ağırlığına göre uyarlanmış uygun yapısal destek gerektirir. Alt yapı, hem statik hem de dinamik kuvvetleri göz önünde bulundurarak yükü etkili bir şekilde taşıyacak şekilde tasarlanmalıdır."
+        },
+        {
+          "title": "Destek Braketleri",
+          "text": "Sertliği artırmak ve yükleri daha etkili bir şekilde dağıtmak için alt yapıya ek destek braketleri veya çapraz elemanlar dahil edin."
+        },
+        {
+          "title": "Kenar Koruması",
+          "text": "Nfc levhaları darbe hasarından korumak ve temiz, bitmiş bir görünüm sağlamak için kenar koruma profilleri kullanın."
+        }
       ],
       "closing": "Bu kılavuzları titizlikle takip ederek, Indowud nfc levhaları ile sadece endüstri standartlarını karşılamakla kalmayıp aşan, uzun ömürlülük, stabilite ve kusursuz bir estetik sağlayan bir tavan kurulumu elde edilebilir."
+    }
+  },
+  "FAQsPage": {
+    "category": "NFC",
+    "title": "FAQs",
+    "description": "Frequently Asked Questions about Indowud NFC.",
+    "questions": [
+      {
+        "q": "Can nfc board be used for exterior flooring / decking applications?",
+        "a": "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended."
+      },
+      {
+        "q": "Where should the use of nfc board be avoided?",
+        "a": "Nfc boards are suitable for all exterior and interior applications. However, the use of nfc board must be avoided in all those places where the temperature is above 60 degree Celsius."
+      },
+      {
+        "q": "Can nfc board be fixed directly on the wall?",
+        "a": "We do not recommend fixing nfc boards directly on the wall. It is recommended to leave a gap of atleast 10mm from the wall and fix the boards on the support/frame provided. Refer to guidelines and suggestions for more details or download the technical brochure from the downloads page in our website."
+      },
+      {
+        "q": "Can nfc board be used for ceiling applications?",
+        "a": "Indowud nfc can be used for ceiling applications. It is suggested to reduce the thickness wise recommended support distance by 100mm to avoid gravitational pull."
+      },
+      {
+        "q": "Does nfc deform without providing proper support?",
+        "a": "Yes, nfc boards are homogeneous product. Hence, it requires a proper constructive/structural support to avoid unwanted deformations."
+      },
+      {
+        "q": "Can nfc boards be used for exterior applications?",
+        "a": "Yes, nfc boards are 100% water proof and can be used for all types of exterior applications. It is recommended to apply sealant/varnish/coating/paint of exterior grade to protect the boards from sun/weather and regular wear & tear."
+      },
+      {
+        "q": "Can nfc board deform during climatic changes or extreme weather?",
+        "a": "If we take care of proper support system, type of screws used, and exterior grade sealant/varnishing/painting/coating, the boards would resist deformations."
+      },
+      {
+        "q": "How does nfc board be fire retardant and smoke suppressant?",
+        "a": "During the manufacturing process, certain additives are used that prevents the spread of fire and smoke in the unlikely event of fire accident. Indowud nfc has been tested with UL94 of USA (V0 rating) and ASTM E84 (passes class 1/a. Flame spread index @ 6 and smoke developed index @ 100) and UIC564 (Class 1/a)."
+      },
+      {
+        "q": "Is nfc free from harmful ingredients?",
+        "a": "Yes, Indowud nfc is RoHS certified and has ensured that it is free from asbestos, lead and other harmful raw materials."
+      },
+      {
+        "q": "Does nfc board emit harmful VOC gases?",
+        "a": "No, There are no harmful VOC gases emitting from nfc boards making it a safe option to be used for all types of interior applications."
+      },
+      {
+        "q": "Can I use regular wood working tools as nfc board working cum finish work cutter?",
+        "a": "Yes, the boards can be processed like any other wood based panel products and all types of wood working tools can be used for processing."
+      },
+      {
+        "q": "Do we need a substrate to paste on indowud nfc before PU painting",
+        "a": "No, it is possible to PU paint directly on Indowud nfc. Do not use NC Putty. Do not pour water before closure of pores. Please contact us for more details."
+      },
+      {
+        "q": "What are the glues suggested to use on nfc board?",
+        "a": "NFC-GLU, Probond, WP1, HeatX, PUR, Plastilok can be used. However, for any other adhesives, it is suggested to test the adhesive with a small sample piece of Indowud nfc. Drying time may vary due to environmental and atmospheric conditions."
+      },
+      {
+        "q": "If fixing distances are too wide, can nfc vibrate?",
+        "a": "Unwanted deformations may appear if recommended fixing distance is not followed. We suggest to follow the recommended fixing distance for best results and to avoid curve generation."
+      },
+      {
+        "q": "Does the company offer any buyback of nfc boards?",
+        "a": "Yes, Indowud offers buy back of nfc boards. Ensure that the boards are free from metal and wood parts before sending the wastage/scrap/rejected boards to the factory for recycling. Please contact us for more details."
+      },
+      {
+        "q": "Is there a warranty that comes with nfc board?",
+        "a": "Yes, Indowud nfc offers a warranty. Refer to the warranty page for more details about the warranty."
+      },
+      {
+        "q": "Can indowud panels be customized?",
+        "a": "Yes, Indowud panels can be customized in terms of size, finish, and design to suit various project requirements."
+      },
+      {
+        "q": "How does using indowud contribute to eco-friendly construction?",
+        "a": "Indowud helps reduce reliance on wood, preserving forests and lowering carbon footprints in construction projects."
+      },
+      {
+        "q": "What is nfc board?",
+        "a": "Nfc means Natural Fibre Composite product. It is a sustainable ecofriendly board that looks, feels and are available in dimensions like wood based panels for all exterior and interior applications."
+      },
+      {
+        "q": "What are the standard nfc Board sizes available?",
+        "a": "Nfc boards are available in the standard size of 8 feet (2440mm) x 4 feet (1220mm) x thickness : 6mm, 8mm, 12mm, 15mm, 16mm, 18mm, 20mm, 25mm. However, customized sizes are available as per the request. Please contact us for the available options."
+      },
+      {
+        "q": "Is nfc eco-conscious?",
+        "a": "Yes, Indowud nfc is a zero wood product made using agricultural husks primarily and extruded. Our product is certified with GreePro ecolabel by the CII (Confederation of Indian Industries) – Green Products and Services Council (CII – GPSC) / CII- Godrej IGBC."
+      },
+      {
+        "q": "What is GreenPro ecolabel?",
+        "a": "GreenPro is a Type-1 Ecolabel that helps the building and manufacturing sectors choose sustainable products, materials, and technologies to reduce environmental impact. Products with the GreenPro Ecolabel, like Indowud, have lower environmental footprints and contribute to improving the performance of Green Buildings and eco-friendly companies. As a zero-wood, durable, and termite-resistant WPC alternative, Indowud supports sustainable construction and interior solutions."
+      },
+      {
+        "q": "Is there any colour options in nfc?",
+        "a": "Indowud nfc is available in standard wood like brown colour. However, it is easy to paint and stain nfc board as per the desired colour."
+      },
+      {
+        "q": "What makes indowud a superior alternative to traditional wood-based panels?",
+        "a": "Indowud is eco-friendly, durable, termite-proof, and moisture-resistant. It is a zero-wood product, offering a sustainable alternative to plywood and MDF."
+      },
+      {
+        "q": "How is indowud contributing to environmental sustainability?",
+        "a": "Indowud uses zero wood, helping to reduce deforestation. It’s made from recycled materials and supports eco-friendly construction practices."
+      },
+      {
+        "q": "Is indowud suitable for both interior and exterior applications?",
+        "a": "Yes, Indowud is versatile and can be used for both interior and exterior furnishings, offering resistance to weather, moisture, and insects."
+      },
+      {
+        "q": "Can indowud be customised for specific design needs?",
+        "a": "Yes, Indowud can be easily cut, shaped, and finished, making it customizable for various design and architectural requirements."
+      },
+      {
+        "q": "What is Indowud NFC?",
+        "a": "Indowud NFC is a sustainable, zero-wood panel product designed for both interior and exterior furnishings, offering an eco-friendly alternative to plywood and MDF."
+      },
+      {
+        "q": "Is indowud resistant to pests and moisture?",
+        "a": "Yes, Indowud is highly resistant to pests, moisture, and rot, making it long-lasting and low-maintenance."
+      },
+      {
+        "q": "Is indowud easy to install?",
+        "a": "Yes, Indowud is designed for easy installation with traditional woodworking tools."
+      },
+      {
+        "q": "Does indowud require special maintenance?",
+        "a": "No, Indowud is low-maintenance. It’s resistant to moisture and pests, so routine cleaning is typically all that’s needed."
+      },
+      {
+        "q": "What is WPC Plywood Board?",
+        "a": "WPC boards blend wood fibers and plastic, offering water resistance, durability, and termite-proof features. Unlike WPC, Indowud uses zero wood, ensuring superior eco-friendliness, strength, and sustainability."
+      },
+      {
+        "q": "Which is better, PVC or WPC?",
+        "a": "WPC boards, like Indowud, offer better durability, water resistance, and eco-friendliness than PVC. While PVC is cheaper, Indowud — a zero-wood, sustainable WPC alternative — is termite-resistant, long-lasting, and ideal for furniture, interiors, and outdoor applications."
+      },
+      {
+        "q": "Which material is good for room partition?",
+        "a": "Indowud Jalli is an eco-friendly, zero-wood composite panel with a unique jalli texture. It’s durable, sustainable, and perfect for interior and exterior applications, offering both aesthetic appeal and strength."
+      },
+      {
+        "q": "What are the benefits of NFC flutes wall panel?",
+        "a": "Indowud NFC flutes wall panels are lightweight, durable, and eco-friendly. They offer excellent sound insulation, thermal resistance, easy installation, and aesthetic appeal, making them ideal for modern, sustainable interior designs."
+      },
+      {
+        "q": "How long does fire-retardant plywood last?",
+        "a": "Fire-retardant plywood typically lasts 10-25 years, depending on environmental conditions. However, Indowud offers a superior alternative with its zero-wood, fire-retardant panels, which have lifelong durability and enhanced resistance to fire, moisture, and termites. Unlike traditional plywood, Indowud does not degrade over time, making it a more sustainable and long-lasting choice for both interior and exterior applications."
+      },
+      {
+        "q": "What are WPC boards used for?",
+        "a": "WPC boards are used for furniture, wall cladding, doors, and outdoor decking. Indowud offers a superior zero-wood WPC, making it more durable, waterproof, and eco-friendly"
+      },
+      {
+        "q": "Are WPC boards waterproof?",
+        "a": "Yes, WPC boards are waterproof, perfect for kitchens, bathrooms, and outdoor spaces. Indowud, a zero-wood, eco-friendly WPC alternative, is durable, termite-proof, and moisture-resistant — a sustainable, long-lasting choice for interiors and exteriors."
+      },
+      {
+        "q": "Which board is termite-proof?",
+        "a": "WPC boards are termite-proof, making them a durable and low-maintenance choice for homes and commercial spaces. Eco-friendly alternatives like Indowud, a zero-wood WPC solution, offer enhanced termite resistance along with moisture and weather protection — perfect for both interiors and exteriors."
+      }
+    ]
+  },
+  "WhyNFCPage": {
+    "category": "Why NFC",
+    "title": "Comparative Study",
+    "highlight": "NFC vs Others",
+    "description": "Quality the world and time can test. See how Indowud NFC stacks up against PVC, Plywood, and MDF.",
+    "tableHead": [
+      "No",
+      "Properties",
+      "NFC",
+      "PVC/WPC Foam Board",
+      "Plywood",
+      "MDF"
+    ],
+    "properties": {
+      "density": "Density (kg/cbm)",
+      "rawMaterial": "Raw Material",
+      "termiteProof": "Termite Proof",
+      "waterProof": "Water Proof",
+      "screwHolding": "Screw Holding",
+      "conventionalTools": "Conventional Tools",
+      "overlay": "Overlay Laminate/Veneer",
+      "applications": "Outdoor and Indoor Applications",
+      "shrinking": "Shrinking and Swelling",
+      "weather": "Weather and Ageing Resistant",
+      "flame": "Flame Retardant",
+      "eco": "Eco Friendly"
+    },
+    "values": {
+      "densityNFC": "700 – 800",
+      "densityPVC": "400 – 600",
+      "densityPlywood": "650 – 750",
+      "densityMDF": "600 – 700",
+      "rawNFC": "Natural fibers and thermoplastics",
+      "rawPVC": "PVC and filler materials",
+      "rawPlywood": "Medium/softwood, Urea/Phenol Formaldehyde",
+      "rawMDF": "Medium/softwood, Urea Formaldehyde",
+      "termitePVC": "Not always",
+      "waterPlywood": "For sometime",
+      "screwNFC": "Above par",
+      "screwPVC": "Below par",
+      "screwPlywood": "Above par",
+      "screwMDF": "Below par",
+      "appNFC": "Both indoor and outdoor",
+      "appPVC": "Preferably indoor",
+      "appPlywood": "Indoor",
+      "appMDF": "Only indoor"
+    }
+  },
+  "ChairmanPage": {
+    "category": "Corporate",
+    "title": "Chairman Message",
+    "description": "A message from our Chairman, Mr. B L Bengani.",
+    "intro": "With over 30 years in the ply industry, Mr. Bengani is respected as the founder of Uniply. Today, as the Chairman of Indowud, he is pioneering natural fibre composite wood in India and the world.",
+    "motto": "Quality of the product is determined with performance and customer satisfaction. Customer's accessibility to promoters provides confidence in product and ease to decide. This is the mantra I follow at Indowud NFC.",
+    "eyebrow": "Message",
+    "sectionTitle": "Embracing A Sustainable Future, One NFC Board At A Time",
+    "para1": "In a world grappling with the escalating climate crisis, every responsible citizen and business leader must actively seek solutions. At Indowud NFC, we believe that innovation and sustainability are not mere buzzwords, but the cornerstones of building a better tomorrow.",
+    "para2": "I’m proud to present to you our remarkable range of sustainable products. Crafted from a naturally abundant and renewable resource, our panels are eco-friendly and possess superior qualities that make them a compelling choice for homeowners, architects, designers, builders and contractors.",
+    "para3": "Our meticulous manufacturing processes ensure our products are termite-proof, water-proof and even flame-retardant + smoke suppressant, making them suitable for a wide range of applications for interiors and exteriors.",
+    "closing": "Sincerely,",
+    "name": "B L BENGANI"
+  },
+  "MissionVisionPage": {
+    "category": "Corporate",
+    "title": "Mission, Vision & Quality",
+    "description": "Clear principles that guide every board we make.",
+    "mission": "Mission",
+    "missionText": "Our mission is to become the pioneers of agri-based nfc products in the world, as superior alternate of wood for home owners, builders, architects and designers",
+    "vision": "Vision",
+    "visionText": "Our vision is to make Indowud nfc a brand synonymous with sustainability and innovation in the building materials with Make in India Initiative",
+    "quality": "Quality",
+    "qualityText": "We strategize around one principle goal – Passion for producing and delivering quality products that surpass customer expectations"
+  },
+  "OurTeamPage": {
+    "category": "Corporate",
+    "title": "Our Team",
+    "description": "Experience, craftsmanship and a shared love for sustainable materials.",
+    "member1": {
+      "name": "Mr. B L Bengani",
+      "role": "Chairman",
+      "bio1": "Mr. B L Bengani, comes with a vast experience of marketing and manufacturing wood-based panel products such as Plywood, Laminates, Block Board, MDF, Decorative Veneers, etc through Architects, Interior Designers and an established dealers network of more than 300 in the country. Before promoting Uniply Industries Limited, Mr.Bengani was the Vice-President Marketing with Greenply Industries Limited. He commissioned the most modern plywood industry – Uniply Industries Limited in the state of Tamil Nadu, with a workforce of over 800 at different segments of operations.",
+      "bio2": "During the year 2015-16, he divested his controlling stake in Uniply to another investor. During his twenty years tenure with Uniply, he travelled extensively throughout the world to understand innovative technology and futuristic products, and conceived an idea to start manufacturing of NFC Board."
+    },
+    "member2": {
+      "name": "Mr. Varun Bengani",
+      "role": "Co-Founder & Director",
+      "bio1": "Mr.Varun Bengani is a BE Mechanical Engineer from Anna University, Chennai. He has served at a senior position with Uniply Industries Limited during the year 2010 — 2016 and developed himself as a designer of various Decorative Veneers and Plywoods. He was leading a team of marketing as well as production-related matters of Decorative veneers by the brand Elementz.",
+      "bio2": "In his capacity as co-founder and promoter of this company, he looks after the sales and marketing of NFC products — Natural Fibre Composite products being manufactured at the state of the art commissioned plant of the Company."
+    }
+  },
+  "CertificationsPage": {
+    "category": "Corporate",
+    "title": "Certifications",
+    "description": "Our manufacturing and materials meet globally recognized benchmarks.",
+    "calloutHeadline": "CII has certified Indowud NFC as a Sustainable Green Product and awarded the GreenPro ecolabel.",
+    "calloutBody": "Products bearing the GreenPro ecolabel have lower environmental impact and contribute to higher performance in green buildings and companies.",
+    "trustedTitle": "Verified by trusted programs",
+    "trustedPara": "From ISO standards to sustainability ecolabels, our panels are audited against rigorous benchmarks for safety, quality and environmental performance.",
+    "greenproCard": "GreenPro Ecolabel by CII validates lifecycle excellence and green building contribution."
+  },
+  "NFCProductsPage": {
+    "category": "Product Catalogue",
+    "title": "Engineered for",
+    "highlight": "Excellence",
+    "description": "Discover our range of premium Natural Fibre Composite materials designed for durability, aesthetics, and sustainability.",
+    "collection": "Collection",
+    "contactSales": "Contact Sales",
+    "explore": "Explore",
+    "customSize": "Request Custom Size",
+    "products": {
+      "zerowud-nfc": {
+        "name": "ZeroWud NFC",
+        "tag": "Premium Panels",
+        "blurb": "Dense, robust panels engineered for durability and finishing that can withstand moisture, termites and harsh weather—yet friendly to fabrication.",
+        "bullets": [
+          "100% wood-free natural fibre composite",
+          "Zero filler — consistent density",
+          "Precision machining & screw holding",
+          "Low maintenance, paint/veneer ready"
+        ],
+        "specs": {
+          "sizes": "8×4 ft, 9×6 ft",
+          "thickness": "6, 12, 18, 25 mm",
+          "finish": "Sanded, primer ready"
+        },
+        "labels": {
+          "sizes": "Sizes",
+          "thickness": "Thickness",
+          "finish": "Finish"
+        },
+        "cta": {
+          "brochure": "Brochure",
+          "inquire": "Inquire"
+        }
+      },
+      "indowud-board": {
+        "name": "Indowud NFC Board",
+        "tag": "Exterior Grade",
+        "blurb": "High-strength NFC board for furniture, kitchens, vanities and façades. Stable in humidity, dimensionally true, and easy to edge-band, rout and finish.",
+        "bullets": [
+          "Warp-free & termite-resistant",
+          "Excellent screw pull-out strength",
+          "CNC-friendly for routing"
+        ],
+        "specs": {
+          "sizes": "8×4 ft",
+          "thickness": "8–30 mm"
+        },
+        "labels": {
+          "sizes": "Sizes",
+          "thickness": "Thickness"
+        },
+        "cta": {
+          "applications": "Applications"
+        }
+      },
+      "nfc-door": {
+        "name": "NFC Door",
+        "tag": "Engineered Doors",
+        "blurb": "Stable, ready-to-finish door shutters that stay aligned and withstand seasonal changes. Choose skins, paint, veneer or lamination.",
+        "bullets": [
+          "Robust, rattle-free core",
+          "Moisture & termite resistance",
+          "Ready for paint or veneer"
+        ],
+        "specs": {
+          "standard": "32, 35, 38 mm thick",
+          "custom": "Sizes on request"
+        },
+        "labels": {
+          "standard": "Standard",
+          "custom": "Custom"
+        },
+        "cta": {
+          "quote": "Get Quote"
+        }
+      },
+      "nfc-frame": {
+        "name": "NFC Frames",
+        "tag": "Structural",
+        "blurb": "Dimensionally stable frames and mouldings that look premium and last. Accepts paint, stain or veneers with crisp edges and profiles.",
+        "bullets": [
+          "Factory-profiled sections",
+          "Uniform grain-like texture"
+        ],
+        "cta": {
+          "sections": "Sections List"
+        }
+      },
+      "nfc-jalli": {
+        "name": "NFC Jalli",
+        "tag": "Architectural Screens",
+        "blurb": "CNC-cut NFC jallis enable ornate façades, screens and partitions that handle the weather without swelling or splitting.",
+        "bullets": [
+          "Custom patterns",
+          "Prime & paint ready"
+        ],
+        "cta": {
+          "design": "Custom Design"
+        }
+      },
+      "nfc-decking": {
+        "name": "NFC Decking",
+        "tag": "Outdoor Living",
+        "blurb": "Slip-resistant surface, excellent drainage design and fade-resistant finish for patios, poolsides and walkways.",
+        "bullets": [
+          "Hidden fasteners",
+          "Low maintenance"
+        ],
+        "specs": {
+          "section": "25×150 mm • 2.4 m"
+        },
+        "labels": {
+          "section": "Section"
+        },
+        "cta": {
+          "patterns": "Patterns"
+        }
+      },
+      "nfc-fluted": {
+        "name": "Fluted Profiles",
+        "tag": "Wall Cladding",
+        "blurb": "Accent walls that pop — fast to install, easy to repaint, and consistent groove depth for perfect rhythm.",
+        "bullets": [
+          "Multiple groove widths",
+          "Impact-resistant"
+        ],
+        "cta": {
+          "explore": "Explore Profiles"
+        }
+      },
+      "nfc-textured": {
+        "name": "Textured Panels",
+        "tag": "Finishes",
+        "blurb": "Authentic wood-like textures on durable NFC base for feature walls, cabinetry and façades.",
+        "bullets": [
+          "Uniform pattern repeat",
+          "Prime/paint or veneer"
+        ]
+      },
+      "nfc-fence": {
+        "name": "NFC Fence",
+        "tag": "Landscape",
+        "blurb": "Weather-resistant pickets and rails that retain looks with minimal upkeep. Safe, splinter-free, child-friendly.",
+        "bullets": [
+          "Custom heights & caps",
+          "Colour-coatable"
+        ]
+      }
+    },
+    "nfcGlu": {
+      "title": "NFC-GLU Adhesive",
+      "description": "A professional grade adhesive developed specifically to bond Indowud NFC with almost any surface. Fast setting, water-resistant, and high strength.",
+      "features": [
+        "Faster Setting",
+        "Water Resistant",
+        "High Strength",
+        "Multi-Surface"
+      ]
     }
   }
 }

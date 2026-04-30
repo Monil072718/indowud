@@ -22,6 +22,18 @@ const PRODUCT_PATTERNS: Record<
     name: "ZeroWud nfc",
     patterns: ["/pattern-2.jpg", "/pattern-3.jpg", "/pattern-4.jpg", "/pattern-5.jpg", "/pattern-6.jpg"],
   },
+  "nfc-textured-panels-patterns": {
+    name: "NFC Textured Panels Patterns",
+    patterns: ["/pattern-2.jpg", "/pattern-3.jpg", "/pattern-4.jpg", "/pattern-5.jpg", "/pattern-6.jpg", "/pattern-2.jpg"],
+  },
+  "nfc-flute-patterns": {
+    name: "NFC Flute Patterns",
+    patterns: [
+      "/nfc-flute.png.webp", "/nfc-flute.png.webp", "/nfc-flute.png.webp",
+      "/nfc-flute.png.webp", "/nfc-flute.png.webp", "/nfc-flute.png.webp",
+      "/nfc-flute.png.webp", "/nfc-flute.png.webp", "/nfc-flute.png.webp"
+    ],
+  },
 };
 
 /** -------------------- SEO -------------------- */

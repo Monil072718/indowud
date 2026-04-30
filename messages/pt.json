@@ -105,7 +105,11 @@
     ],
     "calloutTitle": "Feito para Criadores",
     "calloutText": "Termoformável para curvas e geometrias complexas—perfeito para arquitetos e fábricas que transformam imaginação em realidade.",
-    "tags": ["Pintar • Manchar • Envernizar", "Pronto para Termoformagem", "Alta Fixação de Parafusos"],
+    "tags": [
+      "Pintar • Manchar • Envernizar",
+      "Pronto para Termoformagem",
+      "Alta Fixação de Parafusos"
+    ],
     "imageBadgeTitle": "Superfície semelhante à madeira",
     "imageBadgeSubtitle": "Pintar, Manchar, CNC"
   },
@@ -484,15 +488,33 @@
     "breadcrumb": "POLÍTICA DE PRIVACIDADE",
     "intro": "Na Indowud, estamos comprometidos em proteger a privacidade e a segurança dos visitantes do nosso site, clientes e usuários...",
     "sections": {
-      "s1": { "title": "1. Informações que Coletamos" },
-      "s2": { "title": "2. Como Usamos Suas Informações" },
-      "s3": { "title": "3. Como Compartilhamos Suas Informações" },
-      "s4": { "title": "4. Retenção de Dados" },
-      "s5": { "title": "5. Segurança de Suas Informações" },
-      "s6": { "title": "6. Seus Direitos" },
-      "s7": { "title": "7. Links de Terceiros" },
-      "s8": { "title": "8. Alterações a esta Política de Privacidade" },
-      "s9": { "title": "9. Entre em Contato Conosco" }
+      "s1": {
+        "title": "1. Informações que Coletamos"
+      },
+      "s2": {
+        "title": "2. Como Usamos Suas Informações"
+      },
+      "s3": {
+        "title": "3. Como Compartilhamos Suas Informações"
+      },
+      "s4": {
+        "title": "4. Retenção de Dados"
+      },
+      "s5": {
+        "title": "5. Segurança de Suas Informações"
+      },
+      "s6": {
+        "title": "6. Seus Direitos"
+      },
+      "s7": {
+        "title": "7. Links de Terceiros"
+      },
+      "s8": {
+        "title": "8. Alterações a esta Política de Privacidade"
+      },
+      "s9": {
+        "title": "9. Entre em Contato Conosco"
+      }
     },
     "effectiveDate": "Esta política de privacidade entra em vigor em {date}."
   },
@@ -515,22 +537,58 @@
       "noteTitle": "Nota Importante",
       "proTipTitle": "Dica de Pro",
       "proTipText": "Sempre verifique os suportes quadrados da grade antes da instalação para garantir uma distribuição uniforme do peso.",
-      "cols": ["6", "8", "12", "15", "16", "18", "20", "25"],
+      "cols": [
+        "6",
+        "8",
+        "12",
+        "15",
+        "16",
+        "18",
+        "20",
+        "25"
+      ],
       "rows": [
         {
           "variant": "Neo (em mm)",
           "density": "625+ Kg/CBM",
-          "values": ["150", "200", "250", "300", "300", "350", "400", "500"]
+          "values": [
+            "150",
+            "200",
+            "250",
+            "300",
+            "300",
+            "350",
+            "400",
+            "500"
+          ]
         },
         {
           "variant": "Create (em mm)",
           "density": "700+ Kg/CBM",
-          "values": ["200", "250", "300", "350", "350", "400", "450", "550"]
+          "values": [
+            "200",
+            "250",
+            "300",
+            "350",
+            "350",
+            "400",
+            "450",
+            "550"
+          ]
         },
         {
           "variant": "Build (em mm)",
           "density": "800+ Kg/CBM",
-          "values": ["250", "350", "450", "550", "550", "600", "650", "750"]
+          "values": [
+            "250",
+            "350",
+            "450",
+            "550",
+            "550",
+            "600",
+            "650",
+            "750"
+          ]
         }
       ],
       "note": "Para o teto, use uma placa de 12 mm ou espessura superior com suporte de grade quadrada sugerido de 300 mm para Create ou Build e 200 mm para Neo."
@@ -564,25 +622,303 @@
       "title": "Diretrizes de embelezamento de teto",
       "intro": "Ao usar as placas Indowud nfc para embelezamento de teto, é imperativo seguir diretrizes técnicas avançadas para garantir uma instalação segura, durável e esteticamente superior. As seguintes recomendações abrangentes ajudarão a alcançar os melhores resultados da categoria:",
       "items": [
-        { "title": "Forças gravitacionais", "text": "Reconhecer e neutralizar as forças gravitacionais que atuam nos produtos Indowud nfc montados no teto." },
-        { "title": "Suporte", "text": "Sugerimos o uso de produto nfc de 12 mm ou espessura superior com um suporte de grade sugerido de 300 mm x 300 mm para Create e Build e 200 mm x 200 mm para Neo." },
-        { "title": "Fixação", "text": "Utilize parafusos de arruela de cabeça larga para prender o produto ao teto. Esses parafusos oferecem uma área de contato maior, distribuindo a carga de forma mais uniforme e reduzindo o risco de desprendimento. Certifique-se de que os parafusos penetrem pelo menos o dobro da espessura das placas na subestrutura para uma força de fixação ideal." },
-        { "title": "Posicionamento do parafuso", "text": "Coloque os parafusos em intervalos de no máximo 300 mm ao longo das bordas da placa e 400 mm dentro do campo das placas para fornecer suporte consistente e evitar flacidez." },
-        { "title": "Exposição ao calor", "text": "Para aplicações em teto expostas à luz solar direta, como instalações a céu aberto, a subestrutura de suporte de aço doce (MS) pode absorver e reter o calor, levando à expansão térmica e potencial comprometimento estrutural." },
-        { "title": "Medidas preventivas", "text": "Aplique um revestimento de tinta de borracha resistente ao calor na subestrutura MS. Esta barreira térmica reduz a transferência de calor, mitigando a expansão térmica e protegendo a integridade do produto." },
-        { "title": "Rupturas térmicas", "text": "Incorpore rupturas térmicas no projeto da subestrutura para minimizar a condução de calor. Materiais como tiras de espuma isolante ou almofadas térmicas podem ser colocados entre a subestrutura metálica e o produto de placa nfc." },
-        { "title": "Evitar parafusos em superfície porosa", "text": "Evite fixar parafusos diretamente nas ranhuras ou na superfície porosa fresada das placas nfc. Isso pode comprometer a integridade estrutural do produto devido à natureza porosa do núcleo central." },
-        { "title": "Acabamento e modelagem", "text": "Crie uma borda em forma de Z no perímetro da placa antes da instalação. Esta técnica melhora o alinhamento, a estabilidade e o apelo estético." },
-        { "title": "Junta de dilatação", "text": "Mantenha um espaço de 3 mm a 6 mm entre as placas para acomodar a expansão e contração térmica, evitando empenamento ou arqueamento ao longo do tempo. Use ferramentas de espaçamento durante a instalação para garantir uma largura de junta consistente." },
-        { "title": "Selantes e adesivos", "text": "Use selantes e adesivos de alta qualidade, resistentes aos raios UV, especificamente projetados para materiais nfc para garantir uma união duradoura e evitar a entrada de umidade." },
-        { "title": "Pré-perfuração", "text": "Pré-perfure os furos dos parafusos com o diâmetro apropriado para evitar rachaduras e garantir o posicionamento preciso do parafuso." },
-        { "title": "Impermeabilização", "text": "Aplique uma membrana ou revestimento à prova d'água nas superfícies do produto contra a entrada de umidade, especialmente em ambientes de alta umidade ou costeiros." },
-        { "title": "Ventilação", "text": "Assegure uma ventilação adequada acima das placas do teto para permitir a circulação de ar e evitar o acúmulo de umidade, o que pode levar ao aparecimento de mofo ou bolor." },
-        { "title": "Requisitos de suporte", "text": "Devido à tração gravitacional, as placas Indowud NFC requerem suporte estrutural adequado adaptado à espessura e ao peso do produto. A subestrutura deve ser projetada para suportar a carga de forma eficaz, considerando as forças estáticas e dinâmicas." },
-        { "title": "Suportes de apoio", "text": "Incorpore suportes de apoio adicionais ou membros transversais na subestrutura para aumentar a rigidez e distribuir as cargas de forma mais eficaz." },
-        { "title": "Proteção de bordas", "text": "Use perfis de proteção de bordas para proteger as placas nfc de danos por impacto e para fornecer uma aparência limpa e acabada." }
+        {
+          "title": "Forças gravitacionais",
+          "text": "Reconhecer e neutralizar as forças gravitacionais que atuam nos produtos Indowud nfc montados no teto."
+        },
+        {
+          "title": "Suporte",
+          "text": "Sugerimos o uso de produto nfc de 12 mm ou espessura superior com um suporte de grade sugerido de 300 mm x 300 mm para Create e Build e 200 mm x 200 mm para Neo."
+        },
+        {
+          "title": "Fixação",
+          "text": "Utilize parafusos de arruela de cabeça larga para prender o produto ao teto. Esses parafusos oferecem uma área de contato maior, distribuindo a carga de forma mais uniforme e reduzindo o risco de desprendimento. Certifique-se de que os parafusos penetrem pelo menos o dobro da espessura das placas na subestrutura para uma força de fixação ideal."
+        },
+        {
+          "title": "Posicionamento do parafuso",
+          "text": "Coloque os parafusos em intervalos de no máximo 300 mm ao longo das bordas da placa e 400 mm dentro do campo das placas para fornecer suporte consistente e evitar flacidez."
+        },
+        {
+          "title": "Exposição ao calor",
+          "text": "Para aplicações em teto expostas à luz solar direta, como instalações a céu aberto, a subestrutura de suporte de aço doce (MS) pode absorver e reter o calor, levando à expansão térmica e potencial comprometimento estrutural."
+        },
+        {
+          "title": "Medidas preventivas",
+          "text": "Aplique um revestimento de tinta de borracha resistente ao calor na subestrutura MS. Esta barreira térmica reduz a transferência de calor, mitigando a expansão térmica e protegendo a integridade do produto."
+        },
+        {
+          "title": "Rupturas térmicas",
+          "text": "Incorpore rupturas térmicas no projeto da subestrutura para minimizar a condução de calor. Materiais como tiras de espuma isolante ou almofadas térmicas podem ser colocados entre a subestrutura metálica e o produto de placa nfc."
+        },
+        {
+          "title": "Evitar parafusos em superfície porosa",
+          "text": "Evite fixar parafusos diretamente nas ranhuras ou na superfície porosa fresada das placas nfc. Isso pode comprometer a integridade estrutural do produto devido à natureza porosa do núcleo central."
+        },
+        {
+          "title": "Acabamento e modelagem",
+          "text": "Crie uma borda em forma de Z no perímetro da placa antes da instalação. Esta técnica melhora o alinhamento, a estabilidade e o apelo estético."
+        },
+        {
+          "title": "Junta de dilatação",
+          "text": "Mantenha um espaço de 3 mm a 6 mm entre as placas para acomodar a expansão e contração térmica, evitando empenamento ou arqueamento ao longo do tempo. Use ferramentas de espaçamento durante a instalação para garantir uma largura de junta consistente."
+        },
+        {
+          "title": "Selantes e adesivos",
+          "text": "Use selantes e adesivos de alta qualidade, resistentes aos raios UV, especificamente projetados para materiais nfc para garantir uma união duradoura e evitar a entrada de umidade."
+        },
+        {
+          "title": "Pré-perfuração",
+          "text": "Pré-perfure os furos dos parafusos com o diâmetro apropriado para evitar rachaduras e garantir o posicionamento preciso do parafuso."
+        },
+        {
+          "title": "Impermeabilização",
+          "text": "Aplique uma membrana ou revestimento à prova d'água nas superfícies do produto contra a entrada de umidade, especialmente em ambientes de alta umidade ou costeiros."
+        },
+        {
+          "title": "Ventilação",
+          "text": "Assegure uma ventilação adequada acima das placas do teto para permitir a circulação de ar e evitar o acúmulo de umidade, o que pode levar ao aparecimento de mofo ou bolor."
+        },
+        {
+          "title": "Requisitos de suporte",
+          "text": "Devido à tração gravitacional, as placas Indowud NFC requerem suporte estrutural adequado adaptado à espessura e ao peso do produto. A subestrutura deve ser projetada para suportar a carga de forma eficaz, considerando as forças estáticas e dinâmicas."
+        },
+        {
+          "title": "Suportes de apoio",
+          "text": "Incorpore suportes de apoio adicionais ou membros transversais na subestrutura para aumentar a rigidez e distribuir as cargas de forma mais eficaz."
+        },
+        {
+          "title": "Proteção de bordas",
+          "text": "Use perfis de proteção de bordas para proteger as placas nfc de danos por impacto e para fornecer uma aparência limpa e acabada."
+        }
       ],
       "closing": "Ao seguir meticulosamente estas diretrizes, pode-se alcançar uma instalação de teto com as placas Indowud nfc que não apenas atende, mas excede os padrões da indústria, garantindo longevidade, estabilidade e uma estética impecável."
+    }
+  },
+  "FAQsPage": {
+    "category": "NFC",
+    "title": "FAQs",
+    "description": "Frequently Asked Questions about Indowud NFC.",
+    "questions": [
+      {
+        "q": "Can nfc board be used for exterior flooring / decking applications?",
+        "a": "Use Indowud NFC Build, 26mm Board for decking and flooring. Ensure proper support as per guidelines for installation. Apply a sealant to close pores, followed by primer, paint/varnish, and an anti-scratch coating for durability and protection. Regular maintenance and reapplication of protective layers are recommended."
+      },
+      {
+        "q": "Where should the use of nfc board be avoided?",
+        "a": "Nfc boards are suitable for all exterior and interior applications. However, the use of nfc board must be avoided in all those places where the temperature is above 60 degree Celsius."
+      },
+      {
+        "q": "Can nfc board be fixed directly on the wall?",
+        "a": "We do not recommend fixing nfc boards directly on the wall. It is recommended to leave a gap of atleast 10mm from the wall and fix the boards on the support/frame provided. Refer to guidelines and suggestions for more details or download the technical brochure from the downloads page in our website."
+      },
+      {
+        "q": "Can nfc board be used for ceiling applications?",
+        "a": "Indowud nfc can be used for ceiling applications. It is suggested to reduce the thickness wise recommended support distance by 100mm to avoid gravitational pull."
+      },
+      {
+        "q": "Does nfc deform without providing proper support?",
+        "a": "Yes, nfc boards are homogeneous product. Hence, it requires a proper constructive/structural support to avoid unwanted deformations."
+      },
+      {
+        "q": "Can nfc boards be used for exterior applications?",
+        "a": "Yes, nfc boards are 100% water proof and can be used for all types of exterior applications. It is recommended to apply sealant/varnish/coating/paint of exterior grade to protect the boards from sun/weather and regular wear & tear."
+      },
+      {
+        "q": "Can nfc board deform during climatic changes or extreme weather?",
+        "a": "If we take care of proper support system, type of screws used, and exterior grade sealant/varnishing/painting/coating, the boards would resist deformations."
+      },
+      {
+        "q": "How does nfc board be fire retardant and smoke suppressant?",
+        "a": "During the manufacturing process, certain additives are used that prevents the spread of fire and smoke in the unlikely event of fire accident. Indowud nfc has been tested with UL94 of USA (V0 rating) and ASTM E84 (passes class 1/a. Flame spread index @ 6 and smoke developed index @ 100) and UIC564 (Class 1/a)."
+      },
+      {
+        "q": "Is nfc free from harmful ingredients?",
+        "a": "Yes, Indowud nfc is RoHS certified and has ensured that it is free from asbestos, lead and other harmful raw materials."
+      },
+      {
+        "q": "Does nfc board emit harmful VOC gases?",
+        "a": "No, There are no harmful VOC gases emitting from nfc boards making it a safe option to be used for all types of interior applications."
+      },
+      {
+        "q": "Can I use regular wood working tools as nfc board working cum finish work cutter?",
+        "a": "Yes, the boards can be processed like any other wood based panel products and all types of wood working tools can be used for processing."
+      },
+      {
+        "q": "Do we need a substrate to paste on indowud nfc before PU painting",
+        "a": "No, it is possible to PU paint directly on Indowud nfc. Do not use NC Putty. Do not pour water before closure of pores. Please contact us for more details."
+      },
+      {
+        "q": "What are the glues suggested to use on nfc board?",
+        "a": "NFC-GLU, Probond, WP1, HeatX, PUR, Plastilok can be used. However, for any other adhesives, it is suggested to test the adhesive with a small sample piece of Indowud nfc. Drying time may vary due to environmental and atmospheric conditions."
+      },
+      {
+        "q": "If fixing distances are too wide, can nfc vibrate?",
+        "a": "Unwanted deformations may appear if recommended fixing distance is not followed. We suggest to follow the recommended fixing distance for best results and to avoid curve generation."
+      },
+      {
+        "q": "Does the company offer any buyback of nfc boards?",
+        "a": "Yes, Indowud offers buy back of nfc boards. Ensure that the boards are free from metal and wood parts before sending the wastage/scrap/rejected boards to the factory for recycling. Please contact us for more details."
+      },
+      {
+        "q": "Is there a warranty that comes with nfc board?",
+        "a": "Yes, Indowud nfc offers a warranty. Refer to the warranty page for more details about the warranty."
+      },
+      {
+        "q": "Can indowud panels be customized?",
+        "a": "Yes, Indowud panels can be customized in terms of size, finish, and design to suit various project requirements."
+      },
+      {
+        "q": "How does using indowud contribute to eco-friendly construction?",
+        "a": "Indowud helps reduce reliance on wood, preserving forests and lowering carbon footprints in construction projects."
+      },
+      {
+        "q": "What is nfc board?",
+        "a": "Nfc means Natural Fibre Composite product. It is a sustainable ecofriendly board that looks, feels and are available in dimensions like wood based panels for all exterior and interior applications."
+      },
+      {
+        "q": "What are the standard nfc Board sizes available?",
+        "a": "Nfc boards are available in the standard size of 8 feet (2440mm) x 4 feet (1220mm) x thickness : 6mm, 8mm, 12mm, 15mm, 16mm, 18mm, 20mm, 25mm. However, customized sizes are available as per the request. Please contact us for the available options."
+      },
+      {
+        "q": "Is nfc eco-conscious?",
+        "a": "Yes, Indowud nfc is a zero wood product made using agricultural husks primarily and extruded. Our product is certified with GreePro ecolabel by the CII (Confederation of Indian Industries) – Green Products and Services Council (CII – GPSC) / CII- Godrej IGBC."
+      },
+      {
+        "q": "What is GreenPro ecolabel?",
+        "a": "GreenPro is a Type-1 Ecolabel that helps the building and manufacturing sectors choose sustainable products, materials, and technologies to reduce environmental impact. Products with the GreenPro Ecolabel, like Indowud, have lower environmental footprints and contribute to improving the performance of Green Buildings and eco-friendly companies. As a zero-wood, durable, and termite-resistant WPC alternative, Indowud supports sustainable construction and interior solutions."
+      },
+      {
+        "q": "Is there any colour options in nfc?",
+        "a": "Indowud nfc is available in standard wood like brown colour. However, it is easy to paint and stain nfc board as per the desired colour."
+      },
+      {
+        "q": "What makes indowud a superior alternative to traditional wood-based panels?",
+        "a": "Indowud is eco-friendly, durable, termite-proof, and moisture-resistant. It is a zero-wood product, offering a sustainable alternative to plywood and MDF."
+      },
+      {
+        "q": "How is indowud contributing to environmental sustainability?",
+        "a": "Indowud uses zero wood, helping to reduce deforestation. It’s made from recycled materials and supports eco-friendly construction practices."
+      },
+      {
+        "q": "Is indowud suitable for both interior and exterior applications?",
+        "a": "Yes, Indowud is versatile and can be used for both interior and exterior furnishings, offering resistance to weather, moisture, and insects."
+      },
+      {
+        "q": "Can indowud be customised for specific design needs?",
+        "a": "Yes, Indowud can be easily cut, shaped, and finished, making it customizable for various design and architectural requirements."
+      },
+      {
+        "q": "What is Indowud NFC?",
+        "a": "Indowud NFC is a sustainable, zero-wood panel product designed for both interior and exterior furnishings, offering an eco-friendly alternative to plywood and MDF."
+      },
+      {
+        "q": "Is indowud resistant to pests and moisture?",
+        "a": "Yes, Indowud is highly resistant to pests, moisture, and rot, making it long-lasting and low-maintenance."
+      },
+      {
+        "q": "Is indowud easy to install?",
+        "a": "Yes, Indowud is designed for easy installation with traditional woodworking tools."
+      },
+      {
+        "q": "Does indowud require special maintenance?",
+        "a": "No, Indowud is low-maintenance. It’s resistant to moisture and pests, so routine cleaning is typically all that’s needed."
+      },
+      {
+        "q": "What is WPC Plywood Board?",
+        "a": "WPC boards blend wood fibers and plastic, offering water resistance, durability, and termite-proof features. Unlike WPC, Indowud uses zero wood, ensuring superior eco-friendliness, strength, and sustainability."
+      },
+      {
+        "q": "Which is better, PVC or WPC?",
+        "a": "WPC boards, like Indowud, offer better durability, water resistance, and eco-friendliness than PVC. While PVC is cheaper, Indowud — a zero-wood, sustainable WPC alternative — is termite-resistant, long-lasting, and ideal for furniture, interiors, and outdoor applications."
+      },
+      {
+        "q": "Which material is good for room partition?",
+        "a": "Indowud Jalli is an eco-friendly, zero-wood composite panel with a unique jalli texture. It’s durable, sustainable, and perfect for interior and exterior applications, offering both aesthetic appeal and strength."
+      },
+      {
+        "q": "What are the benefits of NFC flutes wall panel?",
+        "a": "Indowud NFC flutes wall panels are lightweight, durable, and eco-friendly. They offer excellent sound insulation, thermal resistance, easy installation, and aesthetic appeal, making them ideal for modern, sustainable interior designs."
+      },
+      {
+        "q": "How long does fire-retardant plywood last?",
+        "a": "Fire-retardant plywood typically lasts 10-25 years, depending on environmental conditions. However, Indowud offers a superior alternative with its zero-wood, fire-retardant panels, which have lifelong durability and enhanced resistance to fire, moisture, and termites. Unlike traditional plywood, Indowud does not degrade over time, making it a more sustainable and long-lasting choice for both interior and exterior applications."
+      },
+      {
+        "q": "What are WPC boards used for?",
+        "a": "WPC boards are used for furniture, wall cladding, doors, and outdoor decking. Indowud offers a superior zero-wood WPC, making it more durable, waterproof, and eco-friendly"
+      },
+      {
+        "q": "Are WPC boards waterproof?",
+        "a": "Yes, WPC boards are waterproof, perfect for kitchens, bathrooms, and outdoor spaces. Indowud, a zero-wood, eco-friendly WPC alternative, is durable, termite-proof, and moisture-resistant — a sustainable, long-lasting choice for interiors and exteriors."
+      },
+      {
+        "q": "Which board is termite-proof?",
+        "a": "WPC boards are termite-proof, making them a durable and low-maintenance choice for homes and commercial spaces. Eco-friendly alternatives like Indowud, a zero-wood WPC solution, offer enhanced termite resistance along with moisture and weather protection — perfect for both interiors and exteriors."
+      }
+    ]
+  },
+  "WhyNFCPage": {
+    "category": "Why NFC",
+    "title": "Comparative Study",
+    "highlight": "NFC vs Others",
+    "description": "Quality the world and time can test. See how Indowud NFC stacks up against PVC, Plywood, and MDF.",
+    "tableHead": [
+      "No",
+      "Properties",
+      "NFC",
+      "PVC/WPC Foam Board",
+      "Plywood",
+      "MDF"
+    ],
+    "properties": {
+      "density": "Density (kg/cbm)",
+      "rawMaterial": "Raw Material",
+      "termiteProof": "Termite Proof",
+      "waterProof": "Water Proof",
+      "screwHolding": "Screw Holding",
+      "conventionalTools": "Conventional Tools",
+      "overlay": "Overlay Laminate/Veneer",
+      "applications": "Outdoor and Indoor Applications",
+      "shrinking": "Shrinking and Swelling",
+      "weather": "Weather and Ageing Resistant",
+      "flame": "Flame Retardant",
+      "eco": "Eco Friendly"
+    },
+    "values": {
+      "densityNFC": "700 – 800",
+      "densityPVC": "400 – 600",
+      "densityPlywood": "650 – 750",
+      "densityMDF": "600 – 700",
+      "rawNFC": "Natural fibers and thermoplastics",
+      "rawPVC": "PVC and filler materials",
+      "rawPlywood": "Medium/softwood, Urea/Phenol Formaldehyde",
+      "rawMDF": "Medium/softwood, Urea Formaldehyde",
+      "termitePVC": "Not always",
+      "waterPlywood": "For sometime",
+      "screwNFC": "Above par",
+      "screwPVC": "Below par",
+      "screwPlywood": "Above par",
+      "screwMDF": "Below par",
+      "appNFC": "Both indoor and outdoor",
+      "appPVC": "Preferably indoor",
+      "appPlywood": "Indoor",
+      "appMDF": "Only indoor"
+    }
+  },
+  "ProductDetails": {
+    "nfc-glu": {
+      "title": "NFC GLU",
+      "tagline": "A solução definitiva de colagem",
+      "description": "NFC-GLU oferece uma forte união resistente à água com quase todas as superfícies, sejam ásperas ou lisas, porosas ou não porosas. Recomendamos fortemente o uso de NFC-GLU com Indowud NFC para colar diferentes superfícies de forma mais rápida.",
+      "featuresLabel": "Características",
+      "featureFaster": "Tempo de Secagem Mais Rápido",
+      "featureWater": "Resistente à Água",
+      "featureStrong": "Forte Adesão",
+      "featurePanels": "Pode colar a maioria dos painéis",
+      "worksWithLabel": "Funciona bem com:",
+      "worksWith1": "Indowud NFC",
+      "worksWith2": "Folheado",
+      "worksWith3": "Laminados"
     }
   }
 }

@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { 
   ShieldCheck, 
@@ -61,13 +61,6 @@ export default function SuggestionsPage() {
     <Hammer key="5" className="w-8 h-8" />,
   ];
 
-  const colors = [
-    "bg-blue-500",
-    "bg-rose-500",
-    "bg-amber-500",
-    "bg-emerald-500",
-    "bg-purple-500",
-  ];
 
   const ceilingIcons = [
     <Thermometer key="c1" className="w-6 h-6" />,
@@ -171,7 +164,7 @@ export default function SuggestionsPage() {
             className="bg-white rounded-[2rem] border border-slate-200 shadow-2xl shadow-slate-200/50 overflow-hidden"
           >
             <div className="grid grid-cols-1 xl:grid-cols-4 divide-y xl:divide-y-0 xl:divide-x divide-slate-100">
-              {tableRows.map((row, idx) => (
+              {tableRows.map((row) => (
                 <div key={row.variant} className="p-8 hover:bg-slate-50 transition-colors">
                   <div className="mb-8">
                     <div className="text-xs font-bold text-teal-600 uppercase tracking-[0.2em] mb-2">{row.density}</div>

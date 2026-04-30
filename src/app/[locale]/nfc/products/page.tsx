@@ -32,7 +32,7 @@ function SpecItem({ label, value }: { label: string; value: string }) {
 }
 
 /* ───────────────────────────────── Sidebar Nav ───────────────────────────────── */
-function SidebarNav({ products }: { products: any[] }) {
+function SidebarNav({ products }: { products: { id: string; name: string }[] }) {
   const [activeId, setActiveId] = useState("");
   const t = useTranslations("NFCProductsPage");
 
@@ -96,134 +96,15 @@ function SidebarNav({ products }: { products: any[] }) {
 export default function ProductsPage() {
   const t = useTranslations("NFCProductsPage");
 
-  const products = useMemo(() => [
-    {
-      id: "zerowud-nfc",
-      name: t("products.zerowud-nfc.name"),
-      slug: "zerowud-nfc",
-      tag: t("products.zerowud-nfc.tag"),
-      image: "/zerOwud-nfc-board.png.webp",
-      blurb: t("products.zerowud-nfc.blurb"),
-      bullets: t.raw("products.zerowud-nfc.bullets"),
-      specs: [
-        { label: t("products.zerowud-nfc.labels.sizes"), value: t("products.zerowud-nfc.specs.sizes") },
-        { label: t("products.zerowud-nfc.labels.thickness"), value: t("products.zerowud-nfc.specs.thickness") },
-        { label: t("products.zerowud-nfc.labels.finish"), value: t("products.zerowud-nfc.specs.finish") },
-      ],
-      cta: [
-        { label: t("products.zerowud-nfc.cta.brochure"), href: "/Indowud-nfc-eBrochure.pdf", download: true },
-        { label: t("products.zerowud-nfc.cta.inquire"), href: "/contact" },
-      ],
-    },
-    {
-      id: "indowud-board",
-      name: t("products.indowud-board.name"),
-      slug: "indowud-nfc-board",
-      tag: t("products.indowud-board.tag"),
-      image: "/Indowud-nfc-board.png.webp",
-      blurb: t("products.indowud-board.blurb"),
-      bullets: t.raw("products.indowud-board.bullets"),
-      specs: [
-        { label: t("products.indowud-board.labels.sizes"), value: t("products.indowud-board.specs.sizes") },
-        { label: t("products.indowud-board.labels.thickness"), value: t("products.indowud-board.specs.thickness") },
-      ],
-      cta: [{ label: t("products.indowud-board.cta.applications"), href: "/nfc/applications" }],
-      showCustomSizeText: true,
-    },
-    {
-      id: "nfc-door",
-      name: t("products.nfc-door.name"),
-      slug: "nfc-door",
-      tag: t("products.nfc-door.tag"),
-      image: "/nfc-door.png.webp",
-      blurb: t("products.nfc-door.blurb"),
-      bullets: t.raw("products.nfc-door.bullets"),
-      specs: [
-        { label: t("products.nfc-door.labels.standard"), value: t("products.nfc-door.specs.standard") },
-        { label: t("products.nfc-door.labels.custom"), value: t("products.nfc-door.specs.custom") },
-      ],
-      cta: [{ label: t("products.nfc-door.cta.quote"), href: "/contact" }],
-    },
-    {
-      id: "nfc-frame",
-      name: t("products.nfc-frame.name"),
-      slug: "nfc-frames",
-      tag: t("products.nfc-frame.tag"),
-      image: "/nfc-frame.png.webp",
-      blurb: t("products.nfc-frame.blurb"),
-      bullets: t.raw("products.nfc-frame.bullets"),
-      cta: [{ label: t("products.nfc-frame.cta.sections"), href: "#" }],
-    },
-    {
-      id: "nfc-jalli",
-      name: t("products.nfc-jalli.name"),
-      slug: "nfc-jalli",
-      tag: t("products.nfc-jalli.tag"),
-      image: "/jaal1.jpg.webp",
-      blurb: t("products.nfc-jalli.blurb"),
-      bullets: t.raw("products.nfc-jalli.bullets"),
-      cta: [{ label: t("products.nfc-jalli.cta.design"), href: "/contact" }],
-    },
-    {
-      id: "nfc-decking",
-      name: t("products.nfc-decking.name"),
-      slug: "nfc-decking",
-      tag: t("products.nfc-decking.tag"),
-      image: "/nfc-decking.png.webp",
-      blurb: t("products.nfc-decking.blurb"),
-      bullets: t.raw("products.nfc-decking.bullets"),
-      specs: [{ label: t("products.nfc-decking.labels.section"), value: t("products.nfc-decking.specs.section") }],
-      cta: [{ label: t("products.nfc-decking.cta.patterns"), href: "/nfc/products/nfc-decking" }],
-      hideExploreSpecs: true,
-    },
-    {
-      id: "nfc-fluted",
-      name: t("products.nfc-fluted.name"),
-      slug: "nfc-fluted-profiles",
-      tag: t("products.nfc-fluted.tag"),
-      image: "/nfc-flute.png.webp",
-      blurb: t("products.nfc-fluted.blurb"),
-      bullets: t.raw("products.nfc-fluted.bullets"),
-      cta: [{ label: t("products.nfc-fluted.cta.explore"), href: "#" }],
-    },
-    {
-      id: "nfc-textured",
-      name: t("products.nfc-textured.name"),
-      slug: "nfc-textured-panels",
-      tag: t("products.nfc-textured.tag"),
-      image: "/nfc-textured-panel.png.webp",
-      blurb: t("products.nfc-textured.blurb"),
-      bullets: t.raw("products.nfc-textured.bullets"),
-    },
-    {
-      id: "nfc-fence",
-      name: t("products.nfc-fence.name"),
-      slug: "nfc-fence",
-      tag: t("products.nfc-fence.tag"),
-      image: "/nfc-fence.png.webp",
-      blurb: t("products.nfc-fence.blurb"),
-      bullets: t.raw("products.nfc-fence.bullets"),
-    },
-  ], [t]);
+  const products = useMemo(() => [], [t]);
 
   return (
     <main className="bg-white min-h-screen">
 
-      {/* Minimalist Hero */}
-      <PageHeader
-        category={t("category")}
-        title={t("title")}
-        highlight={t("highlight")}
-        description={t("description")}
-      />
 
       {/* Main Content Layout */}
       <div className="mx-auto max-w-7xl px-4 pb-24 pt-12 sm:px-6 lg:px-8">
         <div className="flex gap-16">
-
-          {/* Left: Sticky Sidebar */}
-          <SidebarNav products={products} />
-
           {/* Right: Product List */}
           <div className="flex-1 space-y-24">
             {products.map((p, i) => (
@@ -271,7 +152,7 @@ export default function ProductsPage() {
                     {/* Specs */}
                     {!p.hideExploreSpecs && p.specs && (
                       <div className="grid grid-cols-2 gap-4 pt-2">
-                        {p.specs.map((s: any, idx: number) => (
+                        {p.specs.map((s: { label: string; value: string }, idx: number) => (
                           <SpecItem key={idx} label={s.label} value={s.value} />
                         ))}
                       </div>
@@ -279,7 +160,7 @@ export default function ProductsPage() {
 
                     {/* CTA Buttons */}
                     <div className="flex flex-wrap gap-3 pt-4">
-                      {p.cta?.map((c: any, idx: number) => (
+                      {p.cta?.map((c: { label: string; href: string; download?: boolean }, idx: number) => (
                         <a
                           key={idx}
                           href={c.href}
@@ -308,37 +189,6 @@ export default function ProductsPage() {
                 </div>
               </article>
             ))}
-
-            {/* Feature Section: NFC-GLU */}
-            <div id="nfc-glu" className="relative overflow-hidden rounded-3xl bg-[#F6F1EC] p-8 sm:p-12 text-stone-900 shadow-sm border border-stone-200/60 scroll-mt-24">
-              <div className="relative z-10 grid gap-8 lg:grid-cols-2 lg:items-center">
-                <div>
-                  <h3 className="font-serif text-3xl md:text-4xl">{t("nfcGlu.title")}</h3>
-                  <p className="mt-4 text-stone-600 leading-relaxed text-lg">
-                    {t("nfcGlu.description")}
-                  </p>
-                  <div className="mt-8 grid grid-cols-2 gap-4">
-                    {t.raw("nfcGlu.features").map((f: string) => (
-                      <div key={f} className="flex items-center gap-3">
-                        <svg className="w-6 h-6 text-teal-600 drop-shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className="text-base font-bold text-stone-800">{f}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="relative h-64 lg:h-full min-h-[350px] flex items-center justify-center">
-                  <img
-                    src="/nfc-glu.png.webp"
-                    alt="NFC GLU"
-                    className="absolute inset-0 w-full h-full object-contain mix-blend-multiply drop-shadow-xl p-4"
-                  />
-                </div>
-              </div>
-            </div>
-
-
           </div>
         </div>
       </div>

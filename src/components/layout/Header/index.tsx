@@ -34,6 +34,7 @@ type NavItem = {
 
 export default function Header() {
   const t = useTranslations('Nav');
+  const tFooter = useTranslations('Footer');
   const [mounted, setMounted] = useState(false);
   const [openTop, setOpenTop] = useState<string | null>(null)
   const [openSub, setOpenSub] = useState<string | null>(null)
@@ -47,9 +48,6 @@ export default function Header() {
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  if (!mounted) return null;
-
 
   const headerSocial = [
     { Icon: Facebook, href: "https://www.facebook.com/indowud" },
@@ -127,18 +125,35 @@ export default function Header() {
       label: t('nfcProducts'),
       path: "/nfc/products",
       dropdown: [
-        { label: t('zerOwudNFC'), path: "/nfc/products#zerowud-nfc" },
-        { label: t('indowudNFC'), path: "/nfc/products#indowud-board" },
-        { label: t('nfcTexturedPanels'), path: "/nfc/products#nfc-textured" },
-        { label: t('nfcFlute'), path: "/nfc/products#nfc-fluted" },
-        { label: t('nfcDoor'), path: "/nfc/products#nfc-door" },
-        { label: t('nfcFrame'), path: "/nfc/products#nfc-frame" },
-        { label: t('nfcSiding'), path: "/nfc/products#nfc-siding" },
-        { label: t('nfcFence'), path: "/nfc/products#nfc-fence" },
-        { label: t('nfcFlooring'), path: "/nfc/products#nfc-flooring" },
-        { label: t('nfcRafters'), path: "/nfc/products#nfc-rafters" },
-        { label: t('nfcJaali'), path: "/nfc/products#nfc-jalli" },
-        { label: t('nfcGlu'), path: "/nfc/products#nfc-glu" },
+        { label: t('zerOwudNFC'), path: "/nfc/products/zerowud-nfc" },
+        { 
+          label: t('indowudNFC'), 
+          path: "#",
+          hasSubmenu: true,
+          submenu: [
+            { label: t('indowudNfcBoard'), path: "/nfc/products/indowud-board" },
+            { label: t('indowudNeoAndCreate'), path: "/nfc/products/indowud-neo-create" },
+            { label: t('indowudBuild'), path: "/nfc/products/indowud-build" }
+          ]
+        },
+        { label: t('nfcTexturedPanels'), path: "/nfc/products/nfc-textured-panels" },
+        { label: t('nfcFlute'), path: "/nfc/products/nfc-flute" },
+        { label: t('nfcDoor'), path: "/nfc/products/nfc-door" },
+        { label: t('nfcFrame'), path: "/nfc/products/nfc-frame" },
+        { label: t('nfcSiding'), path: "/nfc/products/nfc-siding" },
+        { label: t('nfcFence'), path: "/nfc/products/nfc-fence" },
+        { label: t('nfcFlooring'), path: "/nfc/products/nfc-flooring" },
+        { 
+          label: t('nfcRafters'), 
+          path: "#",
+          hasSubmenu: true,
+          submenu: [
+            { label: "NFC Rafters", path: "/nfc/products/nfc-rafters" },
+            { label: "NFC Alu Clad rafters", path: "/nfc/products/nfc-alu-clad-rafters" }
+          ]
+        },
+        { label: t('nfcJaali'), path: "/nfc/products/nfc-jaali" },
+        { label: t('nfcGlu'), path: "/nfc/products/nfc-glu" },
       ],
     },
     {
@@ -187,15 +202,7 @@ export default function Header() {
     exit: { opacity: 0, y: 6, scale: 0.98, transition: { duration: 0.16 } },
   }
 
-  const listItem: Variants = {
-    hidden: { opacity: 0, x: -6 },
-    show: (i: number) => ({
-      opacity: 1,
-      x: 0,
-      transition: { delay: i * 0.02, duration: 0.18 },
-    }),
-    exit: { opacity: 0, x: -4, transition: { duration: 0.1 } },
-  }
+
 
   const submenuPanel: Variants = {
     hidden: { opacity: 0, x: -6, scale: 0.98 },
@@ -208,10 +215,7 @@ export default function Header() {
     exit: { opacity: 0, x: -4, scale: 0.98, transition: { duration: 0.14 } },
   }
 
-  const preventNav = (e: React.MouseEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
-  }
+
 
   const closeAllMenus = () => {
     // Wrap in setTimeout to escape React's startTransition batching
@@ -262,6 +266,8 @@ export default function Header() {
     setMobileOpen(false)
   }
 
+  if (!mounted) return null;
+
   return (
     <>
       {/* ── TOP BAR ── */}
@@ -310,12 +316,12 @@ export default function Header() {
               </div>
               <div className="hidden sm:block">
                 <div className="text-xl font-black text-rose-600 tracking-tighter leading-none group-hover:scale-105 transition-transform origin-left">INDOWUD</div>
-                <div className="text-[9px] text-gray-500 font-bold tracking-[0.2em]">{t('designTechnology')}</div>
+                <div className="text-[9px] text-gray-500 font-bold tracking-[0.2em]">{tFooter('designTechnology')}</div>
               </div>
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
               {navItems.map((item) => {
                 const hasDropdown = !!item.dropdown?.length
                 const isOpen = openTop === item.label
@@ -329,7 +335,7 @@ export default function Header() {
                   >
                     {hasDropdown ? (
                       <button
-                        className={`nav-link-hover px-4 py-2 text-[13px] font-bold tracking-wide transition-all uppercase ${
+                        className={`nav-link-hover px-2 xl:px-4 py-2 text-[13px] xl:text-[14px] font-bold tracking-wide transition-all uppercase whitespace-nowrap ${
                           isOpen ? "text-rose-600" : "text-gray-700 hover:text-rose-600"
                         }`}
                       >
@@ -338,7 +344,7 @@ export default function Header() {
                     ) : (
                       <Link
                         href={item.path}
-                        className="nav-link-hover px-4 py-2 text-[13px] font-bold tracking-wide transition-all uppercase text-gray-700 hover:text-rose-600"
+                        className="nav-link-hover px-2 xl:px-4 py-2 text-[13px] xl:text-[14px] font-bold tracking-wide transition-all uppercase whitespace-nowrap text-gray-700 hover:text-rose-600"
                         onClick={closeAllMenus}
                       >
                         {item.label}
@@ -352,10 +358,10 @@ export default function Header() {
                           initial="hidden"
                           animate="show"
                           exit="exit"
-                          className="glass-dropdown absolute top-full left-0 mt-2 w-72 rounded-2xl z-50 overflow-hidden"
+                          className="glass-dropdown absolute top-full left-0 mt-2 w-72 rounded-2xl z-50"
                         >
                           <div className="p-2 space-y-0.5">
-                            {item.dropdown!.map((d, i) => {
+                            {item.dropdown!.map((d) => {
                               const hasSub = !!(d.hasSubmenu && d.submenu?.length)
                               const subOpen = openSub === d.label
 
@@ -418,10 +424,10 @@ export default function Header() {
             </nav>
 
             {/* CTA Button */}
-            <div className="hidden lg:flex items-center">
+            <div className="hidden lg:flex items-center ml-2 xl:ml-4">
               <button
                 onClick={openBrochure}
-                className="btn-premium px-6 py-3 text-[11px] font-black text-white uppercase tracking-widest rounded-full transition-all"
+                className="btn-premium px-4 xl:px-6 py-3 text-[10px] xl:text-[11px] font-black text-white uppercase tracking-widest rounded-full transition-all whitespace-nowrap"
               >
                 {t('requestBrochure')}
               </button>
@@ -485,7 +491,7 @@ export default function Header() {
               {/* Mobile Nav Links */}
               <div className="flex-1 overflow-y-auto px-6 py-8">
                 <nav className="space-y-1">
-                  {navItems.map((item, idx) => {
+                  {navItems.map((item) => {
                     const hasDropdown = !!item.dropdown?.length
                     const open = mobileOpenTop === item.label
 
@@ -592,6 +598,9 @@ export default function Header() {
 
               {/* Mobile Footer */}
               <div className="p-6 border-t border-gray-100 space-y-6">
+                <div className="w-full">
+                  <LanguageSwitcher />
+                </div>
                 <button
                   onClick={openBrochure}
                   className="w-full btn-premium py-4 text-xs font-black text-white uppercase tracking-widest rounded-xl"

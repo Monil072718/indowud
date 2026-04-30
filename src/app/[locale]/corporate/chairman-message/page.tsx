@@ -48,6 +48,7 @@ export default function ChairmanMessagePage() {
           <p>{t("para1")}</p>
           <p>{t("para2")}</p>
           <p>{t("para3")}</p>
+          <p>{t("para4")}</p>
           <div className="flex flex-col items-end pr-0 sm:pr-1">
             <p className="font-semibold">{t("closing")}</p>
             <p>{t("name")}</p>

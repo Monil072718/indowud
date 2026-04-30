@@ -53,7 +53,7 @@ export default function LanguageSwitcher() {
 
   return (
     <div 
-      className="relative" 
+      className="relative w-full lg:w-auto" 
       ref={dropdownRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -61,13 +61,13 @@ export default function LanguageSwitcher() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         disabled={isPending}
-        className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-[11px] font-bold py-1.5 px-3 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-teal-400 group disabled:opacity-50 uppercase tracking-widest"
+        className="flex items-center justify-between lg:justify-center gap-2.5 bg-white/10 lg:bg-white/10 hover:bg-white/20 border border-black/10 lg:border-white/20 text-gray-700 lg:text-white text-[11px] font-bold py-2 lg:py-1.5 px-4 lg:px-3 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-teal-400 group disabled:opacity-50 uppercase tracking-widest w-full lg:w-max min-w-[120px]"
       >
-        <span>{currentLocaleName}</span>
-        <Globe size={18} className="text-teal-400 group-hover:rotate-12 transition-transform duration-500" />
+        <span className="flex-1 lg:flex-none text-left lg:text-center">{currentLocaleName}</span>
+        <Globe size={18} className="text-teal-500 lg:text-teal-400 group-hover:rotate-12 transition-transform duration-500" />
         <ChevronDown 
           size={16} 
-          className={`text-white/50 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} 
+          className={`text-gray-400 lg:text-white/50 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} 
         />
       </button>
 
@@ -78,7 +78,7 @@ export default function LanguageSwitcher() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
-            className="absolute right-0 mt-3 w-48 bg-white border border-gray-100 rounded-2xl z-[1000] shadow-2xl overflow-hidden p-1.5"
+            className="absolute left-0 lg:left-auto lg:right-0 mt-3 lg:mt-3 w-full lg:w-48 bg-white border border-gray-100 rounded-2xl z-[1000] shadow-2xl overflow-hidden p-1.5"
           >
             <div className="space-y-0.5">
               {routing.locales.map((cur) => {

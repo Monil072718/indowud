@@ -66,7 +66,7 @@ export default function LegalNotePage() {
 
             <p className="text-base sm:text-lg leading-8 text-slate-800">
               {t.rich("para4", {
-                email: (chunks) => (
+                email: () => (
                   <Link href="mailto:info@indowud.com" className="text-emerald-700 underline underline-offset-2">
                     info@indowud.com
                   </Link>

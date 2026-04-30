@@ -29,7 +29,7 @@ export default function Footer() {
     { icon: Linkedin, href: "https://www.linkedin.com/company/indowud/", color: "hover:bg-blue-700" },
   ];
 
-  const isRtl = locale === "ar";
+
 
   return (
     <footer dir="ltr" className="relative bg-gradient-to-b from-gray-100 to-gray-200 pt-20 pb-8 overflow-hidden">

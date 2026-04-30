@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { useTranslations } from "next-intl";
 
 const images = [
@@ -29,8 +29,8 @@ export default function HeroShowcaseWithFounder() {
     accent: accents[i],
   }));
 
-  const next = () => setIndex((i) => (i + 1) % slides.length);
-  const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
+  const next = useCallback(() => setIndex((i) => (i + 1) % 5), []);
+  const prev = useCallback(() => setIndex((i) => (i - 1 + 5) % 5), []);
 
   // Autoplay with reset
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function HeroShowcaseWithFounder() {
     return () => {
       if (timerRef.current) window.clearInterval(timerRef.current);
     };
-  }, [index]);
+  }, [index, next]);
 
   const current = slides[index];
 
