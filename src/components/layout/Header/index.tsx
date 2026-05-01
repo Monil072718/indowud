@@ -148,8 +148,8 @@ export default function Header() {
           path: "#",
           hasSubmenu: true,
           submenu: [
-            { label: "NFC Rafters", path: "/nfc/products/nfc-rafters" },
-            { label: "NFC Alu Clad rafters", path: "/nfc/products/nfc-alu-clad-rafters" }
+            { label: t('nfcRaftersSub'), path: "/nfc/products/nfc-rafters" },
+            { label: t('nfcAluCladRafters'), path: "/nfc/products/nfc-alu-clad-rafters" }
           ]
         },
         { label: t('nfcJaali'), path: "/nfc/products/nfc-jaali" },

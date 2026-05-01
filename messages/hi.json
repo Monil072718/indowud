@@ -16,8 +16,11 @@
     "aboutUs": "हमारे बारे में",
     "certifications": "प्रमाणन",
     "nfcProducts": "NFC उत्पाद",
-    "zerOwudNFC": "zerOwud NFC",
-    "indowudNFC": "Indowud NFC",
+    "zerOwudNFC": "zerOwud एनएफसी",
+    "indowudNFC": "Indowud एनएफसी",
+    "indowudNfcBoard": "Indowud NFC बोर्ड",
+    "indowudNeoAndCreate": "Indowud Neo और Create",
+    "indowudBuild": "Indowud Build",
     "nfcTexturedPanels": "NFC टेक्सचर्ड पैनल",
     "nfcFlute": "NFC फ्लूट",
     "nfcDoor": "NFC दरवाजा",
@@ -26,6 +29,8 @@
     "nfcFence": "NFC फेंस",
     "nfcFlooring": "NFC फ्लोरिंग",
     "nfcRafters": "NFC राफ्टर",
+    "nfcAluCladRafters": "NFC एल्यूमीनियम क्लैड राफ्टर्स",
+    "nfcRaftersSub": "NFC राफ्टर्स",
     "nfcJaali": "NFC जाली",
     "nfcGlu": "NFC GLU",
     "knowledgeCenter": "ज्ञान केंद्र",
@@ -391,7 +396,7 @@
           "patterns": "पैटर्न"
         }
       },
-      "nfc-fluted": {
+      "nfc-flute": {
         "name": "फ्लुटेड प्रोफाइल",
         "tag": "वॉल क्लैडिंग",
         "blurb": "एक्सेन्ट दीवारें जो उभर कर आती हैं — स्थापित करने में तेज़, दोबारा पेंट करने में आसान, और सही लय के लिए सुसंगत खांचे की गहराई।",
@@ -403,7 +408,7 @@
           "explore": "प्रोफ़ाइल देखें"
         }
       },
-      "nfc-textured": {
+      "nfc-textured-panels": {
         "name": "बनावट वाले पैनल",
         "tag": "फिनिश",
         "blurb": "फीचर दीवारों, कैबिनेटरी और अग्रभाग के लिए टिकाऊ एनएफसी आधार पर प्रामाणिक लकड़ी जैसी बनावट।",
@@ -420,6 +425,75 @@
           "कस्टम ऊँचाई और कैप्स",
           "रंग-लेपित करने योग्य"
         ]
+      },
+      "nfc-rafters": {
+        "name": "NFC राफ्टर्स",
+        "tag": "आर्किटेक्चरल",
+        "blurb": "Indowud NFC राफ्टर्स आर्किटेक्चरल फसाड, सीलिंग और परगोला में सुंदरता लाते हैं।",
+        "bullets": [
+          "लकड़ी जैसी सुंदर बनावट",
+          "बेहतरीन मौसम प्रतिरोध",
+          "स्थायी मजबूती"
+        ],
+        "specs": {
+          "length": "8, 12, 16 फीट",
+          "size": "विभिन्न आकार"
+        },
+        "labels": {
+          "length": "लंबाई",
+          "size": "आकार"
+        },
+        "cta": {
+          "details": "विवरण देखें"
+        }
+      },
+      "nfc-alu-clad-rafters": {
+        "name": "NFC एल्युमीनियम क्लैड राफ्टर्स",
+        "tag": "स्ट्रक्चरल",
+        "blurb": "आकार के अनुसार कस्टम-तैयार, जिसमें इंडोवुड एनएफसी में लिपटा एल्युमीनियम कोर है।",
+        "bullets": [
+          "अधिकतम स्पैन और स्थिरता",
+          "सटीक विवरण"
+        ],
+        "cta": {
+          "details": "विवरण देखें"
+        }
+      },
+      "nfc-flooring": {
+        "name": "NFC फ्लोरिंग",
+        "tag": "डेकिंग और पोर्च",
+        "blurb": "बेहतरीन स्लिप रेजिस्टेंस के साथ बाहरी प्रदर्शन के लिए इंजीनियर।",
+        "bullets": [
+          "नमी और सड़ांध मुक्त",
+          "आयामी रूप से स्थिर"
+        ],
+        "cta": {
+          "details": "विवरण देखें"
+        }
+      },
+      "nfc-siding": {
+        "name": "NFC साइडिंग",
+        "tag": "वॉल क्लैडिंग",
+        "blurb": "वॉल पैनलिंग और सीलिंग अनुप्रयोगों के लिए अद्वितीय प्रतिवर्ती पैनल।",
+        "bullets": [
+          "मौसम प्रतिरोधी",
+          "लगाने में आसान"
+        ],
+        "cta": {
+          "details": "विवरण देखें"
+        }
+      },
+      "nfc-jaali": {
+        "name": "NFC जाली",
+        "tag": "स्क्रीन",
+        "blurb": "शानदार जाली स्क्रीन और विभाजन के लिए CNC द्वारा तैयार NFC बोर्ड।",
+        "bullets": [
+          "पूरी तरह से अनुकूलन योग्य",
+          "मौसम प्रूफ"
+        ],
+        "cta": {
+          "details": "विवरण देखें"
+        }
       }
     },
     "nfcGlu": {
@@ -929,6 +1003,86 @@
     }
   },
   "ProductDetails": {
+    "zerowud-nfc": {
+      "title": "zerOwud NFC",
+      "tagline": "zerowud पैनलों के साथ ग्रीन निर्माण करें",
+      "detailsLabel": "विवरण:",
+      "thicknessLabel": "मोटाई:",
+      "thicknessValue": "4mm, 6mm, 8mm, 12mm,<br/>15/16mm, 18mm, 25mm",
+      "sizeLabel": "मानक आकार:",
+      "sizeValue": "8 feet x 4 feet<br/>(2440mm x 1220mm)",
+      "surfaceValue": "दोनों तरफ स्मूथ फिनिश",
+      "description": "zerOwud में अच्छी मजबूती और स्थायित्व है, जो इसे फर्नीचर और कैबिनेटरी से लेकर वॉल पैनल तक विभिन्न अनुप्रयोगों के लिए आदर्श बनाता है।"
+    },
+    "indowud-board": {
+      "title": "Indowud NFC बोर्ड",
+      "tagline": "कृषि अपशिष्ट को टिकाऊ पैनलों में बदलना",
+      "detailsLabel": "विवरण:",
+      "rangeLabel": "रेंज:",
+      "rangeValue": "neo, create और build",
+      "thicknessLabel": "मोटाई:",
+      "thicknessValue": "4mm, 6mm, 8mm,<br/>12mm, 15mm, 16mm,<br/>18mm, 25mm",
+      "sizeLabel": "आकार:",
+      "sizeValue": "8 feet x 4 feet<br/>(2440mm x 1220mm)",
+      "surfaceValue": "दोनों तरफ रफ सतह",
+      "description": "पारंपरिक लकड़ी के उत्पादों के लिए एक टिकाऊ और उच्च प्रदर्शन वाला विकल्प प्रदान करना। टिकाऊ और बहुमुखी, Indowud NFC इंटीरियर और एक्सटीरियर में विभिन्न अनुप्रयोगों के लिए आदर्श है।",
+      "contactText": "कस्टम आकार के लिए हमसे संपर्क करें",
+      "realImageText": "वास्तविक छवि"
+    },
+    "nfc-rafters": {
+      "title": "NFC राफ्टर्स",
+      "tagline": "लाइन्स और विलासिता जो बनी रहती है",
+      "description": "Indowud NFC राफ्टर्स आर्किटेक्चरल फसाड, सीलिंग और परगोला में सुंदरता लाते हैं। ये मौसम प्रतिरोधी और टिकाऊ हैं।",
+      "supportTitle": "सुझाव : हर 600mm (2 फीट) - 900mm (3 फीट) पर मेटल सपोर्ट का सुझाव दिया जाता है",
+      "detailsLabel": "विवरण:",
+      "lengthLabel": "लंबाई:",
+      "lengthValue": "• 8 फीट<br/>• 12 फीट<br/>• 16 फीट (4x2 इंच के लिए)<br/>अन्य आकारों के लिए 8 फीट",
+      "sizeLabel": "आकार:",
+      "sizeValue": "• 98mm x 48mm (4 x 2 इंच)<br/>• 98mm x 28mm (4 x 1 इंच)<br/>• 68mm x 48mm (2.75 x 2 इंच)<br/>• 48mm x 37mm (2 x 1.5 इंच)",
+      "optionsLabel": "विकल्प:",
+      "optionsValue": "सादा रफ, सभी तरफ लकड़ी के दाने (grains)",
+      "contactText": "कस्टम आकार के लिए हमसे संपर्क करें"
+    },
+    "nfc-alu-clad-rafters": {
+      "title": "NFC एल्युमीनियम क्लैड राफ्टर्स",
+      "tagline": "लाइन्स और विलासिता जो बनी रहती है",
+      "description": "Indowud NFC एल्युमीनियम क्लैड राफ्टर्स को आकार के अनुसार कस्टम-तैयार किया जाता है। ये संरचनात्मक स्थिरता और प्राकृतिक सौंदर्य का संगम हैं।",
+      "detailsLabel": "विवरण:",
+      "lengthLabel": "लंबाई:",
+      "lengthValue": "7 फीट 6 इंच,<br/>9 फीट 6 इंच",
+      "sizeLabel": "आकार:",
+      "sizeValue": "कस्टम आकार",
+      "contactText": "कस्टम आकार के लिए हमसे संपर्क करें"
+    },
+    "nfc-flooring": {
+      "title": "NFC फ्लोरिंग",
+      "tagline": "जहाँ मजबूती दिखती है",
+      "description": "Indowud NFC फ्लोरिंग डेकिंग, पोर्च फ्लोरिंग और डेक टाइल्स प्रदान करता है। ये बाहरी प्रदर्शन के लिए इंजीनियर किए गए हैं।",
+      "detailsLabel": "विवरण:",
+      "sizeLabel": "आकार:",
+      "lengthLabel": "लंबाई:",
+      "option1Value": "पोर्च फ्लोरिंग",
+      "length1Value": "8 फीट",
+      "option2Value": "डेकिंग",
+      "length2Value": "8 फीट",
+      "contactText": "कस्टम लंबाई के लिए हमसे संपर्क करें।"
+    },
+    "nfc-siding": {
+      "title": "NFC साइडिंग",
+      "tagline": "प्रभावित करने के लिए इंजीनियर",
+      "description": "Indowud NFC साइडिंग अद्वितीय प्रतिवर्ती पैनल हैं जिनका उपयोग दोनों तरफ किया जा सकता है।",
+      "detailsLabel": "विवरण:",
+      "typeLabel": "प्रकार:",
+      "lengthLabel": "लंबाई:",
+      "sizeLabel": "आकार:",
+      "contactText": "कस्टम लंबाई के लिए हमसे संपर्क करें।"
+    },
+    "nfc-jaali": {
+      "title": "NFC जाली",
+      "tagline": "जटिल पैटर्न के साथ अपने स्थान को बेहतर बनाएं",
+      "description1": "कला, स्थिरता और मजबूती का संगम। हमारे CNC द्वारा तैयार NFC बोर्ड शानदार जाली स्क्रीन बनाते हैं।",
+      "contactText": "अनुकूलित समाधानों के लिए हमसे संपर्क करें।"
+    },
     "nfc-glu": {
       "title": "NFC GLU",
       "tagline": "अंतिम बंधन समाधान",

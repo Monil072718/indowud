@@ -596,7 +596,7 @@
           "patterns": "Patterns"
         }
       },
-      "nfc-fluted": {
+      "nfc-flute": {
         "name": "Fluted Profiles",
         "tag": "Wall Cladding",
         "blurb": "Accent walls that pop — fast to install, easy to repaint, and consistent groove depth for perfect rhythm.",
@@ -608,7 +608,7 @@
           "explore": "Explore Profiles"
         }
       },
-      "nfc-textured": {
+      "nfc-textured-panels": {
         "name": "Textured Panels",
         "tag": "Finishes",
         "blurb": "Authentic wood-like textures on durable NFC base for feature walls, cabinetry and façades.",
@@ -625,6 +625,75 @@
           "Custom heights & caps",
           "Colour-coatable"
         ]
+      },
+      "nfc-rafters": {
+        "name": "NFC Rafters",
+        "tag": "Architectural",
+        "blurb": "Indowud NFC Rafters bring sculpted elegance to architectural facades, ceilings and pergolas.",
+        "bullets": [
+          "Refined wood-like aesthetics",
+          "Superior weather resistance",
+          "Enduring strength"
+        ],
+        "specs": {
+          "length": "8, 12, 16 ft",
+          "size": "Various sizes"
+        },
+        "labels": {
+          "length": "Length",
+          "size": "Size"
+        },
+        "cta": {
+          "details": "View Details"
+        }
+      },
+      "nfc-alu-clad-rafters": {
+        "name": "NFC Alu Clad Rafters",
+        "tag": "Structural",
+        "blurb": "Custom-fabricated to size, featuring an aluminium core wrapped in Indowud NFC.",
+        "bullets": [
+          "Maximum span & stability",
+          "Crisp detailing"
+        ],
+        "cta": {
+          "details": "View Details"
+        }
+      },
+      "nfc-flooring": {
+        "name": "NFC Flooring",
+        "tag": "Decking & Porch",
+        "blurb": "Engineered for outdoor performance with superior slip resistance.",
+        "bullets": [
+          "Moisture & rot proof",
+          "Dimensionally stable"
+        ],
+        "cta": {
+          "details": "View Details"
+        }
+      },
+      "nfc-siding": {
+        "name": "NFC Siding",
+        "tag": "Wall Cladding",
+        "blurb": "Unique reversible panels for wall panelling and ceiling applications.",
+        "bullets": [
+          "Weather resistant",
+          "Easy to install"
+        ],
+        "cta": {
+          "details": "View Details"
+        }
+      },
+      "nfc-jaali": {
+        "name": "NFC Jaali",
+        "tag": "Screens",
+        "blurb": "CNC routed NFC boards for stunning mashrabia screens and partitions.",
+        "bullets": [
+          "Fully customizable",
+          "Weather proof"
+        ],
+        "cta": {
+          "details": "View Details"
+        }
       }
     },
     "nfcGlu": {

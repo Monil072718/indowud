@@ -98,12 +98,12 @@ function SidebarNav({ products }: { products: { id: string; name: string }[] }) 
 function MobileQuickJump({ products }: { products: { id: string; name: string }[] }) {
   return (
     <div className="lg:hidden mb-8 overflow-x-auto -mx-4 px-4">
-      <div className="flex gap-2 pb-2 w-max">
+      <div className="flex gap-3 pb-2 min-w-max">
         {products.map((p) => (
           <a
             key={p.id}
             href={`#${p.id}`}
-            className="whitespace-nowrap shrink-0 px-3 py-1.5 rounded-full border border-stone-200 text-xs text-stone-600 hover:border-teal-500 hover:text-teal-700 transition-colors"
+            className="px-4 py-2 rounded-full border border-stone-200 text-xs font-semibold text-stone-600 hover:bg-stone-50 transition-colors"
           >
             {p.name}
           </a>
@@ -119,11 +119,15 @@ const PRODUCT_IMAGES: Record<string, string> = {
   "indowud-board": "/Indowud-nfc-board.png.webp",
   "nfc-door": "/nfc-door.png.webp",
   "nfc-frame": "/nfc-frame.png.webp",
-  "nfc-jalli": "/jaal1.jpg.webp",
+  "nfc-jaali": "/jaal1.jpg.webp",
   "nfc-decking": "/nfc-decking.png.webp",
-  "nfc-fluted": "/nfc-flute.png.webp",
-  "nfc-textured": "/nfc-textured-panel.png.webp",
+  "nfc-flute": "/nfc-flute.png.webp",
+  "nfc-textured-panels": "/nfc-textured-panel.png.webp",
   "nfc-fence": "/nfc-fence.png.webp",
+  "nfc-rafters": "/nfc-rafters.png.webp",
+  "nfc-alu-clad-rafters": "/nfc-rafters.png.webp",
+  "nfc-flooring": "/nfc-decking.png.webp",
+  "nfc-siding": "/nfc-fence.png.webp",
 };
 
 /* ───────────────────────────────── Product slug → detail page map ───────────────────────────────── */
@@ -132,11 +136,15 @@ const PRODUCT_DETAIL_PAGES: Record<string, string> = {
   "indowud-board": "/nfc/products/indowud-board",
   "nfc-door": "/nfc/products/nfc-door",
   "nfc-frame": "/nfc/products/nfc-frame",
-  "nfc-jalli": "/nfc/products/nfc-jaali",
+  "nfc-jaali": "/nfc/products/nfc-jaali",
   "nfc-decking": "/nfc/products/nfc-flooring",
-  "nfc-fluted": "/nfc/products/nfc-flute",
-  "nfc-textured": "/nfc/products/nfc-textured-panels",
+  "nfc-flute": "/nfc/products/nfc-flute",
+  "nfc-textured-panels": "/nfc/products/nfc-textured-panels",
   "nfc-fence": "/nfc/products/nfc-fence",
+  "nfc-rafters": "/nfc/products/nfc-rafters",
+  "nfc-alu-clad-rafters": "/nfc/products/nfc-alu-clad-rafters",
+  "nfc-flooring": "/nfc/products/nfc-flooring",
+  "nfc-siding": "/nfc/products/nfc-siding",
 };
 
 const PRODUCT_KEYS = [
@@ -144,11 +152,15 @@ const PRODUCT_KEYS = [
   "indowud-board",
   "nfc-door",
   "nfc-frame",
-  "nfc-jalli",
+  "nfc-jaali",
   "nfc-decking",
-  "nfc-fluted",
-  "nfc-textured",
+  "nfc-flute",
+  "nfc-textured-panels",
   "nfc-fence",
+  "nfc-rafters",
+  "nfc-alu-clad-rafters",
+  "nfc-flooring",
+  "nfc-siding",
 ];
 
 /* ───────────────────────────────── Main Page ───────────────────────────────── */
@@ -248,48 +260,61 @@ export default function ProductsPage() {
                       </ul>
                     )}
 
-                    {/* Specs */}
-                    {p.specs.length > 0 && (
-                      <div className="grid grid-cols-2 gap-4 pt-2">
+                    {/* Specs & CTA */}
+                    <div className="flex flex-wrap items-end justify-between gap-6 pt-2">
+                      <div className="flex flex-wrap gap-8">
                         {p.specs.map((s, idx) => (
                           <SpecItem key={idx} label={s.label} value={s.value} />
                         ))}
                       </div>
-                    )}
 
-                    {/* CTA Buttons */}
-                    <div className="flex flex-wrap gap-3 pt-2">
-                      {p.cta?.map((c, idx) => (
-                        <Link
-                          key={idx}
-                          href={c.href}
-                          className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
-                            idx === 0
-                              ? "bg-stone-900 text-white hover:bg-stone-800 hover:shadow-lg"
-                              : "border border-stone-200 text-stone-700 hover:border-stone-900 hover:text-stone-900"
-                          }`}
-                        >
-                          {c.label}
-                        </Link>
-                      ))}
-                      {!p.cta && (
-                        <Link
-                          href={`/${locale}${PRODUCT_DETAIL_PAGES[p.id] ?? "/contact"}`}
-                          className="px-5 py-2.5 rounded-full bg-stone-900 text-white text-sm font-semibold hover:bg-stone-800 hover:shadow-lg transition-all"
-                        >
-                          {t("explore")}
-                        </Link>
+                      {p.cta && (
+                        <div className="flex gap-4">
+                          {p.cta.map((c, idx) => (
+                            <Link
+                              key={idx}
+                              href={c.href}
+                              className={
+                                idx === 0
+                                  ? "bg-stone-900 text-white px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-teal-600 transition-colors shadow-lg shadow-stone-200"
+                                  : "text-stone-900 font-bold text-xs uppercase tracking-widest border-b-2 border-stone-200 hover:border-teal-500 transition-all pb-1"
+                              }
+                            >
+                              {c.label}
+                            </Link>
+                          ))}
+                        </div>
                       )}
                     </div>
                   </div>
                 </div>
-
-                {/* Divider (not after last item) */}
-                {i < products.length - 1 && (
-                  <div className="mt-16 sm:mt-24 border-t border-stone-100" />
-                )}
               </article>
             ))}
+            
+            {/* Adhesive Section */}
+            <div className="mt-32 p-8 sm:p-12 bg-teal-900 rounded-[3rem] text-white relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-20 -mt-20 blur-3xl" />
+              <div className="relative grid lg:grid-cols-[1fr_auto] gap-12 items-center">
+                <div className="space-y-6">
+                  <span className="text-teal-400 font-bold uppercase tracking-[0.2em] text-[10px]">Adhesives</span>
+                  <h2 className="text-3xl sm:text-4xl font-serif">{t('nfcGlu.title')}</h2>
+                  <p className="text-teal-100/80 leading-relaxed text-sm sm:text-base max-w-2xl">
+                    {t('nfcGlu.description')}
+                  </p>
+                  <div className="flex flex-wrap gap-4 pt-4">
+                    {t.raw('nfcGlu.features').map((f: string, i: number) => (
+                      <span key={i} className="flex items-center gap-2 text-xs font-medium bg-white/10 px-4 py-2 rounded-full border border-white/10">
+                        <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+                        {f}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <Link href="/contact" className="bg-white text-teal-900 px-8 py-4 rounded-2xl font-bold uppercase tracking-widest text-xs hover:bg-teal-50 transition-colors shadow-2xl">
+                  {t('explore')}
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
