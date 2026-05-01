@@ -96,7 +96,6 @@ function SidebarNav({ products }: { products: { id: string; name: string }[] }) 
 
 /* ───────────────────────────────── Mobile Quick-jump ───────────────────────────────── */
 function MobileQuickJump({ products }: { products: { id: string; name: string }[] }) {
-  const t = useTranslations("NFCProductsPage");
   return (
     <div className="lg:hidden mb-8 overflow-x-auto -mx-4 px-4">
       <div className="flex gap-2 pb-2 w-max">
@@ -170,7 +169,7 @@ export default function ProductsPage() {
         : [];
 
       const cta = ctaRaw
-        ? Object.entries(ctaRaw).map(([ck, label], idx) => ({
+        ? Object.entries(ctaRaw).map(([_ck, label], idx) => ({
             label: label as string,
             href: idx === 0 && PRODUCT_DETAIL_PAGES[key] ? `/${locale}${PRODUCT_DETAIL_PAGES[key]}` : `/${locale}/contact`,
           }))
@@ -194,10 +193,10 @@ export default function ProductsPage() {
   return (
     <main className="bg-white min-h-screen">
       <PageHeader
-        namespace="NFCProductsPage"
-        titleKey="title"
-        highlightKey="highlight"
-        descriptionKey="description"
+        category={t("category")}
+        title={t("title")}
+        highlight={t("highlight")}
+        description={t("description")}
       />
 
       {/* Main Content Layout */}
