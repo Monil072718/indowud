@@ -488,7 +488,7 @@ export default function Header() {
                 </button>
               </div>
 
-              {/* Mobile Nav Links */}
+              {/* Mobile Nav Links + Language */}
               <div className="flex-1 overflow-y-auto px-6 py-8">
                 <nav className="space-y-1">
                   {navItems.map((item) => {
@@ -599,7 +599,7 @@ export default function Header() {
               {/* Mobile Footer */}
               <div className="p-6 border-t border-gray-100 space-y-6">
                 <div className="w-full">
-                  <LanguageSwitcher />
+                  <LanguageSwitcher mobile={true} />
                 </div>
                 <button
                   onClick={openBrochure}
