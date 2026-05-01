@@ -703,10 +703,10 @@
       "eco": "Eco Friendly"
     },
     "values": {
-      "densityNFC": "700 – 800",
-      "densityPVC": "400 – 600",
-      "densityPlywood": "650 – 750",
-      "densityMDF": "600 – 700",
+      "densityNFC": "700 - 800",
+      "densityPVC": "400 - 600",
+      "densityPlywood": "650 - 750",
+      "densityMDF": "600 - 700",
       "rawNFC": "Natural fibers and thermoplastics",
       "rawPVC": "PVC and filler materials",
       "rawPlywood": "Medium/softwood, Urea/Phenol Formaldehyde",
@@ -724,18 +724,19 @@
     }
   },
   "ChairmanPage": {
-    "category": "Corporate",
-    "title": "Chairman Message",
-    "description": "A message from our Chairman, Mr. B L Bengani.",
-    "intro": "With over 30 years in the ply industry, Mr. Bengani is respected as the founder of Uniply. Today, as the Chairman of Indowud, he is pioneering natural fibre composite wood in India and the world.",
-    "motto": "Quality of the product is determined with performance and customer satisfaction. Customer's accessibility to promoters provides confidence in product and ease to decide. This is the mantra I follow at Indowud NFC.",
-    "eyebrow": "Message",
-    "sectionTitle": "Embracing A Sustainable Future, One NFC Board At A Time",
-    "para1": "In a world grappling with the escalating climate crisis, every responsible citizen and business leader must actively seek solutions. At Indowud NFC, we believe that innovation and sustainability are not mere buzzwords, but the cornerstones of building a better tomorrow.",
-    "para2": "I’m proud to present to you our remarkable range of sustainable products. Crafted from a naturally abundant and renewable resource, our panels are eco-friendly and possess superior qualities that make them a compelling choice for homeowners, architects, designers, builders and contractors.",
-    "para3": "Our meticulous manufacturing processes ensure our products are termite-proof, water-proof and even flame-retardant + smoke suppressant, making them suitable for a wide range of applications for interiors and exteriors.",
-    "closing": "Sincerely,",
-    "name": "B L BENGANI"
+    "category": "Kurumsal",
+    "title": "Yönetim Kurulu Başkanı Mesajı",
+    "description": "Yönetim Kurulu Başkanımız Sayın B L Bengani'den bir mesaj.",
+    "intro": "Ahşap panel sektöründe 30 yılı aşkın deneyimiyle Sayın Bengani, Uniply'nin kurucusu olarak saygınlık kazanmıştır.",
+    "motto": "Ürünün kalitesi, performansı ve müşteri memnuniyeti ile belirlenir. Bu, Indowud NFC'de benim takip ettiğim mantra'dır.",
+    "eyebrow": "Mesaj",
+    "sectionTitle": "Tek bir ağacı kesmeden daha iyi bir yarın inşa edebilir miyiz?\nEvet...! Yapabiliriz.",
+    "para1": "Indowud NFC'ye başladığımızda fikir cesurdu - daha iyi performans gösteren, daha uzun süren ve çevremizi koruyan bir ahşap alternatifi oluşturmak. Bugün bu vizyon tek bir ürünün çok ötesine geçmiştir.",
+    "para2": "Sürdürülebilir tarımsal saplardan yapılan yenilikçi bir levhadan, Indowud NFC kendisini kapsamlı bir eko-akıllı çözümler yelpazesi olarak geliştirmiştir - levhalar, çerçeveler, tavanlar, kaplama, panelleme, döşeme ve zemin döşemesi dahil. Hepsi gururla Hindistan'da yapılmıştır. Hepsi tek bir ağacı kesmeden.",
+    "para3": "Indowud NFC ürün yelpazesi, performansın amaçla buluştuğu Ahimsa Tasarım Felsefesi ile inşa edilmiştir. Bunlar su geçirmez, termit dayanıklı, alev geciktirici, antimikrobiyal ve doğanın en sert elementlerine dayanacak şekilde tasarlanmıştır. Ama her şeyden önce, doğaya derin saygı ve sevgiyle yaratılmışlardır.",
+    "para4": "Indowud NFC'de gezegenimize bir söz veriyoruz - korumak, tüketmemek; korumak, kirletmemek. Aynı zamanda müşterilerimize gezegene mal olmadan en kaliteli ürünleri sunmak. İşte bu bizim sözümüzdür.",
+    "closing": "B L Bengani",
+    "name": "Yönetim Kurulu Başkanı"
   },
   "MissionVisionPage": {
     "category": "Corporate",
@@ -934,6 +935,22 @@
         "High Strength",
         "Multi-Surface"
       ]
+    }
+  },
+  "ProductDetails": {
+    "nfc-glu": {
+      "title": "NFC GLU",
+      "tagline": "Nihai yapıştırma çözümü",
+      "description": "NFC-GLU, kaba veya pürüzsüz, gözenekli veya gözeneksiz neredeyse tüm yüzeylerde güçlü su direnci olan bir bağlantı sağlar. Farklı yüzeyleri birbirine daha hızlı yapıştırmak için NFC-GLU'yu Indowud NFC ile birlikte kullanmanızı şiddetle tavsiye ederiz.",
+      "featuresLabel": "Özellikler",
+      "featureFaster": "Daha Hızlı Pişme Süresi",
+      "featureWater": "Su Geçirmez",
+      "featureStrong": "Güçlü Yapışma",
+      "featurePanels": "Neredeyse tüm panelleri yapabilir",
+      "worksWithLabel": "şunlarla iyi çalışır:",
+      "worksWith1": "Indowud NFC",
+      "worksWith2": "Kaplama",
+      "worksWith3": "Laminatlar"
     }
   }
 }

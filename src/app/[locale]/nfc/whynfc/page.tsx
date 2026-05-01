@@ -63,9 +63,13 @@ export default function ComparativeStudyPage() {
 
       {/* Table Card */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-        <div className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
-          <div className="mt-0 overflow-auto">
-            <table className="min-w-[880px] w-full border-separate border-spacing-0">
+        {/* Scroll hint on mobile */}
+        <p className="text-xs text-zinc-400 mb-2 lg:hidden flex items-center gap-1">
+          <span>←</span> Scroll horizontally to compare <span>→</span>
+        </p>
+        <div className="relative rounded-2xl border border-zinc-200 bg-white shadow-sm">
+          <div className="mt-0 overflow-x-auto">
+            <table className="min-w-[700px] w-full border-separate border-spacing-0">
               <thead>
                 <tr>
                   {head.map((h, i) => (
@@ -73,11 +77,11 @@ export default function ComparativeStudyPage() {
                       key={h}
                       className={[
                         "sticky top-0 z-20 bg-zinc-50/95 backdrop-blur supports-[backdrop-filter]:bg-zinc-50/75",
-                        "text-left text-[13px] font-semibold uppercase tracking-wide text-zinc-700",
+                        "text-left text-[11px] sm:text-[13px] font-semibold uppercase tracking-wide text-zinc-700",
                         "border-b border-zinc-200",
-                        i === 0 ? "sticky left-0 z-30 min-w-[56px]" : "",
-                        i === 1 ? "min-w-[260px]" : "min-w-[180px]",
-                        "px-4 py-3",
+                        i === 0 ? "hidden" : "",
+                        i === 1 ? "sticky left-0 z-30 min-w-[130px] sm:min-w-[200px]" : "min-w-[110px] sm:min-w-[150px]",
+                        "px-3 sm:px-4 py-3",
                       ].join(" ")}
                     >
                       {h}
@@ -88,14 +92,16 @@ export default function ComparativeStudyPage() {
               <tbody>
                 {rows.map((r) => (
                   <tr key={r.no} className="group even:bg-zinc-50 hover:bg-teal-50/60">
-                    <td className="sticky left-0 z-10 bg-inherit border-b border-zinc-200 px-4 py-3 text-sm font-semibold text-zinc-700">
+                    <td className="hidden border-b border-zinc-200 px-3 sm:px-4 py-3 text-sm font-semibold text-zinc-700">
                       {r.no}
                     </td>
-                    <td className="border-b border-zinc-200 px-4 py-3 text-sm font-medium text-zinc-800">{r.prop}</td>
-                    <td className="border-b border-zinc-200 px-4 py-3 text-sm text-zinc-800">{r.nfc}</td>
-                    <td className="border-b border-zinc-200 px-4 py-3 text-sm text-zinc-800">{r.pvcwpc}</td>
-                    <td className="border-b border-zinc-200 px-4 py-3 text-sm text-zinc-800">{r.plywood}</td>
-                    <td className="border-b border-zinc-200 px-4 py-3 text-sm text-zinc-800">{r.mdf}</td>
+                    <td className="sticky left-0 z-10 bg-inherit border-b border-zinc-200 px-3 sm:px-4 py-3 text-xs sm:text-sm font-medium text-zinc-800 min-w-[130px] sm:min-w-[200px]">
+                      {r.prop}
+                    </td>
+                    <td className="border-b border-zinc-200 px-3 sm:px-4 py-3 text-xs sm:text-sm text-zinc-800">{r.nfc}</td>
+                    <td className="border-b border-zinc-200 px-3 sm:px-4 py-3 text-xs sm:text-sm text-zinc-800">{r.pvcwpc}</td>
+                    <td className="border-b border-zinc-200 px-3 sm:px-4 py-3 text-xs sm:text-sm text-zinc-800">{r.plywood}</td>
+                    <td className="border-b border-zinc-200 px-3 sm:px-4 py-3 text-xs sm:text-sm text-zinc-800">{r.mdf}</td>
                   </tr>
                 ))}
               </tbody>

@@ -271,7 +271,7 @@ export default function Header() {
   return (
     <>
       {/* ── TOP BAR ── */}
-      <div className="bg-teal-900 text-white py-1.5 z-[60] relative">
+      <div className="hidden lg:block bg-teal-900 text-white py-1.5 z-[60] relative">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-[11px] font-medium tracking-wider uppercase">
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-4">
@@ -298,7 +298,7 @@ export default function Header() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="glass-nav fixed inset-x-0 top-8 z-50 w-full"
+        className="glass-nav fixed inset-x-0 top-0 lg:top-8 z-50 w-full"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">

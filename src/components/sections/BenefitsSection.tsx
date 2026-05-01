@@ -39,7 +39,10 @@ export default function BenefitsSection() {
               </div>
 
               <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl mb-6 leading-tight">
-                {t("heading")}
+                {t("heading", {
+                  performance: t("performance"),
+                  imagination: t("imagination"),
+                })}
               </h2>
 
               {/* Main Copy */}
@@ -83,7 +86,7 @@ export default function BenefitsSection() {
 
           {/* --- RIGHT COLUMN: COMPACT IMAGE --- */}
           {/* Added 'relative' to parent to contain decor elements better */}
-          <div className="order-1 lg:order-2 relative">
+          <div className="order-1 lg:order-2 relative hidden lg:block">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}

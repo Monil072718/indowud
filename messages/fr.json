@@ -201,15 +201,16 @@
     "category": "Entreprise",
     "title": "Message du Président",
     "description": "Un message de notre Président, M. B L Bengani.",
-    "intro": "Avec plus de 30 ans dans l'industrie du bois, M. Bengani est respecté en tant que fondateur d'Uniply. Aujourd'hui, en tant que Président d'Indowud, il est à l'avant-garde du bois composite à fibres naturelles en Inde et dans le monde.",
-    "motto": "La qualité du produit est déterminée par la performance et la satisfaction du client. L'accessibilité du client aux promoteurs donne confiance dans le produit et facilite la décision. C'est le mantra que je suis chez Indowud NFC.",
+    "intro": "Avec plus de 30 ans dans l'industrie des panneaux de bois, M. Bengani est respecté en tant que fondateur d'Uniply.",
+    "motto": "La qualité du produit est déterminée par ses performances et la satisfaction des clients. C'est le mantra que je suis chez Indowud NFC.",
     "eyebrow": "Message",
-    "sectionTitle": "Embrasser un avenir durable, un panneau NFC à la fois",
-    "para1": "Dans un monde aux prises avec l'escalade de la crise climatique, chaque citoyen responsable et chef d'entreprise doit rechercher activement des solutions. Chez Indowud NFC, nous pensons que l'innovation et la durabilité ne sont pas de simples mots à la mode, mais les pierres angulaires de la construction d'un avenir meilleur.",
-    "para2": "Je suis fier de vous présenter notre remarquable gamme de produits durables. Fabriqués à partir d'une ressource naturelle abondante et renouvelable, nos panneaux sont respectueux de l'environnement et possèdent des qualités supérieures qui en font un choix incontournable pour les propriétaires, les architectes, les designers, les constructeurs et les entrepreneurs.",
-    "para3": "Nos processus de fabrication méticuleux garantent que nos produits sont résistants aux termites, imperméables et même ignifuges + coupe-fumée, ce qui les rend adaptés à une large gamme d'applications intérieures et extérieures.",
-    "closing": "Sincèrement,",
-    "name": "B L BENGANI"
+    "sectionTitle": "Pouvons-nous construire un avenir meilleur sans abattre un seul arbre ?\nOui...! Nous le pouvons.",
+    "para1": "Lorsque nous avons lancé Indowud NFC, l'idée était audacieuse - créer une alternative au bois qui performe mieux, dure plus longtemps et protège notre environnement. Aujourd'hui, cette vision est allée bien au-delà d'un seul produit.",
+    "para2": "À partir d'un panneau innovant fabriqué à partir de balles agricoles durables, Indowud NFC a évolué en une gamme complète de solutions éco-intelligentes - comprenant des panneaux, des cadres, des plafonds, des bardages, des lambris, du bois de terrasse et des revêtements de sol. Tous fabriqués avec fierté en Inde. Tous sans couper un seul arbre.",
+    "para3": "La gamme de produits Indowud NFC est conçue selon la Philosophie de Design Ahimsa - où la performance rencontre la finalité. Ils sont imperméables, résistants aux termites, ignifuges, antimicrobiens et conçus pour résister aux éléments les plus rigoureux de la nature. Mais surtout, ils sont créés avec un profond respect et amour pour la nature.",
+    "para4": "Chez Indowud NFC, nous faisons une promesse à notre planète - conserver, ne pas consommer ; protéger, ne pas polluer. En même temps, livrer des produits de qualité supérieure à nos clients sans en faire payer le prix à la planète. C'est notre promesse.",
+    "closing": "B L Bengani",
+    "name": "Président"
   },
   "MissionVisionPage": {
     "category": "Entreprise",
@@ -903,6 +904,22 @@
       "appPVC": "Preferably indoor",
       "appPlywood": "Indoor",
       "appMDF": "Only indoor"
+    }
+  },
+  "ProductDetails": {
+    "nfc-glu": {
+      "title": "NFC GLU",
+      "tagline": "La solution de collage ultime",
+      "description": "NFC-GLU offre une liaison solide résistante à l'eau avec presque toutes les surfaces, qu'elles soient rugueuses ou lisses, poreuses ou non poreuses. Nous recommandons vivement d'utiliser NFC-GLU avec Indowud NFC pour coller différentes surfaces ensemble plus rapidement.",
+      "featuresLabel": "Caractéristiques",
+      "featureFaster": "Prise plus rapide",
+      "featureWater": "Résistant à l'eau",
+      "featureStrong": "Collage solide",
+      "featurePanels": "Peut coller la plupart des panneaux",
+      "worksWithLabel": "Fonctionne bien avec :",
+      "worksWith1": "Indowud NFC",
+      "worksWith2": "Placage",
+      "worksWith3": "Stratifiés"
     }
   }
 }
