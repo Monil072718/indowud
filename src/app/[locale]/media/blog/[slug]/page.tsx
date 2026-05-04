@@ -7,7 +7,7 @@ import { getPostBySlug } from "@/lib/blog-data";
 
 
 /* ------------------------------- TYPES ------------------------------- */
-type Params = { slug: string };
+type Params = { slug: string; locale: string };
 type PageProps = { params: Promise<Params> };
 
 /* ----------------------- generateMetadata (Next 15) ----------------------- */

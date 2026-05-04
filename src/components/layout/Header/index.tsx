@@ -271,7 +271,7 @@ export default function Header() {
   return (
     <>
       {/* ── TOP BAR ── */}
-      <div className="hidden lg:block bg-teal-900 text-white py-1.5 z-[60] relative">
+      <div dir="ltr" className="hidden lg:block bg-teal-900 text-white py-1.5 z-[60] relative">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-[11px] font-medium tracking-wider uppercase">
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-4">

@@ -181,7 +181,7 @@ export default function ProductsPage() {
         : [];
 
       const cta = ctaRaw
-        ? Object.entries(ctaRaw).map(([_ck, label], idx) => ({
+        ? Object.entries(ctaRaw).map(([ label], idx) => ({
             label: label as string,
             href: idx === 0 && PRODUCT_DETAIL_PAGES[key] ? `/${locale}${PRODUCT_DETAIL_PAGES[key]}` : `/${locale}/contact`,
           }))

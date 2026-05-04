@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { useTranslations, useLocale } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "LegalNotePage" });
   return {
     title: `${t("title")} | Indowud`,
@@ -11,10 +11,10 @@ export async function generateMetadata({ params: { locale } }: { params: { local
   };
 }
 
-export default function LegalNotePage() {
-  const t = useTranslations("LegalNotePage");
-  const locale = useLocale();
-
+export default async function PageComponent({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("LegalNotePage");
   return (
     <main className="min-h-screen bg-white">
       {/* Hero / Breadcrumb */}
@@ -65,13 +65,7 @@ export default function LegalNotePage() {
             </p>
 
             <p className="text-base sm:text-lg leading-8 text-slate-800">
-              {t.rich("para4", {
-                email: () => (
-                  <Link href="mailto:info@indowud.com" className="text-emerald-700 underline underline-offset-2">
-                    info@indowud.com
-                  </Link>
-                ),
-              })}
+              If you have any questions, please contact us at <a href="mailto:info@indowud.com" className="text-emerald-700 underline underline-offset-2">info@indowud.com</a>.
             </p>
           </div>
         </div>

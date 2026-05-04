@@ -1,15 +1,18 @@
+import { getTranslations } from 'next-intl/server';
 import Image from "next/image";
 import PageHeader from "@/components/common/PageHeader";
-import { useTranslations } from "next-intl";
+import { setRequestLocale } from 'next-intl/server';
 import Link from "next/link";
 
-export default function NfcTexturedPanelsPage() {
-  const t = useTranslations("ProductDetails.nfc-textured-panels");
+export default async function PageComponent({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("ProductDetails.nfc-textured-panels");
 
   return (
     <main className="bg-white min-h-screen">
       <PageHeader
-        category="Products"
+        category={t("category")}
         title={t("title")}
         highlight={t("tagline")}
         description=""

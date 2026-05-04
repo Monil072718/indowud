@@ -912,6 +912,24 @@
     }
   },
   "ProductDetails": {
+    "nfc-textured-panels": {
+      "category": "Produits",
+      "title": "Panneaux Texturés NFC",
+      "tagline": "La magie de la nature avec des grains de bois complexes et captivants",
+      "detailsLabel": "Détails :",
+      "optionLabel": "Option :",
+      "thicknessLabel": "Épaisseur :",
+      "sizeLabel": "Taille :",
+      "option1Value": "Texturé",
+      "thickness1Value": "4mm, 6mm, 8mm, 12mm,<br/>15mm, 16mm, 18mm, 25mm",
+      "size1Value": "8 feet x 2 feet<br/>(2440mm x 600mm)",
+      "option2Value": "Grains ouverts à rainures profondes",
+      "thickness2Value": "4mm, 6mm, 10mm,<br/>13mm, 15mm, 23mm",
+      "size2Value": "8 feet x 1 feet<br/>(2440mm x 300mm)",
+      "description": "Indowud présente une gamme révolutionnaire de composites de fibres naturelles avec de superbes textures bois.",
+      "contactText": "Contactez-nous pour des tailles personnalisées",
+      "patternsBtn": "Voir les motifs disponibles"
+    },
     "nfc-glu": {
       "title": "NFC GLU",
       "tagline": "La solution de collage ultime",

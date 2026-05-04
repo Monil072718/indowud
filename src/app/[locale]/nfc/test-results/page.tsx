@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server';
 import PageHeader from "@/components/common/PageHeader"
 
 /* ---------------- data from your screenshot ---------------- */
@@ -42,7 +43,9 @@ const SOUND_ROWS: SoundRow[] = [
 ]
 
 /* ---------------- UI ---------------- */
-export default function TestResultsPage() {
+export default async function PageComponent({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <main className="min-h-screen bg-white">
       {/* Gradient Hero */}

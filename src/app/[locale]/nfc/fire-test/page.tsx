@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server';
 
 import PageHeader from "@/components/common/PageHeader"
 
@@ -10,7 +11,9 @@ const ROWS: Row[] = [
   { test: "SMOKE DEVELOPED INDEX", method: "ASTM E84 : 2020", unit: "450", result: "100" },
 ]
 
-export default function FireTestPage() {
+export default async function PageComponent({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <main className="min-h-screen bg-white">
       {/* Gradient Hero */}

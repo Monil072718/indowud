@@ -1,10 +1,13 @@
+import { getTranslations } from 'next-intl/server';
 import Image from "next/image";
 import PageHeader from "@/components/common/PageHeader";
-import { useTranslations } from "next-intl";
+import { setRequestLocale } from 'next-intl/server';
 import Link from "next/link";
 
-export default function NfcFlooringPage() {
-  const t = useTranslations("ProductDetails.nfc-flooring");
+export default async function PageComponent({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("ProductDetails.nfc-flooring");
 
   return (
     <main className="bg-white min-h-screen">

@@ -912,6 +912,24 @@
     }
   },
   "ProductDetails": {
+    "nfc-textured-panels": {
+      "category": "Produtos",
+      "title": "Painéis Texturizados NFC",
+      "tagline": "A magia da natureza com grãos de madeira intrincados e cativantes",
+      "detailsLabel": "Detalhes:",
+      "optionLabel": "Opção:",
+      "thicknessLabel": "Espessura:",
+      "sizeLabel": "Tamanho:",
+      "option1Value": "Texturizado",
+      "thickness1Value": "4mm, 6mm, 8mm, 12mm,<br/>15mm, 16mm, 18mm, 25mm",
+      "size1Value": "8 feet x 2 feet<br/>(2440mm x 600mm)",
+      "option2Value": "Ranhuras profundas de grão aberto",
+      "thickness2Value": "4mm, 6mm, 10mm,<br/>13mm, 15mm, 23mm",
+      "size2Value": "8 feet x 1 feet<br/>(2440mm x 300mm)",
+      "description": "A Indowud apresenta uma linha revolucionária de compósitos de fibra natural com designs texturizados de madeira impressionantes.",
+      "contactText": "Fale conosco para tamanhos personalizados",
+      "patternsBtn": "Ver padrões disponíveis"
+    },
     "nfc-glu": {
       "title": "NFC GLU",
       "tagline": "A solução definitiva de colagem",

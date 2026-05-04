@@ -74,7 +74,16 @@ const CertificationsSection = dynamic(() => import("@/components/sections/Certif
   ssr: true,
 });
 
-export default function HomePage() {
+import { setRequestLocale } from "next-intl/server";
+
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <>
       <HeroSlider />
@@ -86,3 +95,4 @@ export default function HomePage() {
     </>
   );
 }
+

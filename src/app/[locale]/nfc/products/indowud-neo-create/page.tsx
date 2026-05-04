@@ -1,9 +1,12 @@
+import { getTranslations } from 'next-intl/server';
 import Image from "next/image";
 import PageHeader from "@/components/common/PageHeader";
-import { useTranslations } from "next-intl";
+import { setRequestLocale } from 'next-intl/server';
 
-export default function IndowudNeoCreatePage() {
-  const t = useTranslations("ProductDetails.indowud-neo-create");
+export default async function PageComponent({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("ProductDetails.indowud-neo-create");
 
   // Temporary placeholder images
   const placeholderImages = [

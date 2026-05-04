@@ -943,6 +943,24 @@
     }
   },
   "ProductDetails": {
+    "nfc-textured-panels": {
+      "category": "Ürünler",
+      "title": "NFC Dokulu Paneller",
+      "tagline": "Doğanın büyüsü ve detaylı ahşap damarları",
+      "detailsLabel": "Detaylar:",
+      "optionLabel": "Seçenek:",
+      "thicknessLabel": "Kalınlık:",
+      "sizeLabel": "Boyut:",
+      "option1Value": "Dokulu",
+      "thickness1Value": "4mm, 6mm, 8mm, 12mm,<br/>15mm, 16mm, 18mm, 25mm",
+      "size1Value": "8 feet x 2 feet<br/>(2440mm x 600mm)",
+      "option2Value": "Derin oluklu açık damar",
+      "thickness2Value": "4mm, 6mm, 10mm,<br/>13mm, 15mm, 23mm",
+      "size2Value": "8 feet x 1 feet<br/>(2440mm x 300mm)",
+      "description": "Indowud, etkileyici ahşap dokulu tasarımlara sahip devrim niteliğinde doğal fiber kompozit serisini sunar.",
+      "contactText": "Özel ölçüler için bizimle iletişime geçin",
+      "patternsBtn": "Mevcut Desenleri Görüntüle"
+    },
     "nfc-glu": {
       "title": "NFC GLU",
       "tagline": "Nihai yapıştırma çözümü",

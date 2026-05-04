@@ -934,6 +934,24 @@
     }
   },
   "ProductDetails": {
+    "nfc-textured-panels": {
+      "category": "المنتجات",
+      "title": "ألواح NFC المحببة",
+      "tagline": "سحر الطبيعة مع عروق خشبية دقيقة وجذابة",
+      "detailsLabel": "التفاصيل:",
+      "optionLabel": "الخيار:",
+      "thicknessLabel": "السماكة:",
+      "sizeLabel": "المقاس:",
+      "option1Value": "محبب",
+      "thickness1Value": "4mm, 6mm, 8mm, 12mm,<br/>15mm, 16mm, 18mm, 25mm",
+      "size1Value": "8 feet x 2 feet<br/>(2440mm x 600mm)",
+      "option2Value": "تعاريج عميقة بعروق مفتوحة",
+      "thickness2Value": "4mm, 6mm, 10mm,<br/>13mm, 15mm, 23mm",
+      "size2Value": "8 feet x 1 feet<br/>(2440mm x 300mm)",
+      "description": "تقدم Indowud مجموعة ثورية من مركبات الألياف الطبيعية بتصاميم خشبية محببة مذهلة.",
+      "contactText": "تواصل معنا للمقاسات المخصصة",
+      "patternsBtn": "عرض الأنماط المتاحة"
+    },
     "nfc-glu": {
       "title": "NFC GLU",
       "tagline": "حل الربط النهائي",

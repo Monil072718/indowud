@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server';
 import type React from "react"
 
 import PageHeader from "@/components/common/PageHeader"
@@ -53,7 +54,9 @@ const ROWS: R[] = [
   { no: 12, prop: "ECO FRIENDLY", nfc: <Yes />, pvcwpc: <Yes />, plywood: <No />, mdf: <No /> },
 ]
 
-export default function ComparativeStudyPage() {
+export default async function PageComponent({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
