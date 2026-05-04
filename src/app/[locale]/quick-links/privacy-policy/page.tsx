@@ -1,16 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { useTranslations, useLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
-// Note: In Next.js App Router, you can't use hooks in Metadata export if it's a server component.
-// But this is a server component by default. Let's make it a client component for simplicity of localization if needed,
-// OR use getTranslations for server side.
-// Since the previous ones were "use client", I'll check if this one needs to be.
-// The previous version didn't have "use client" but it had Link and Metadata.
-
-import { getTranslations } from "next-intl/server";
-
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "PrivacyPolicyPage" });
   return {
     title: `${t("title")} | Indowud`,
@@ -18,9 +11,10 @@ export async function generateMetadata({ params: { locale } }: { params: { local
   };
 }
 
-export default function PrivacyPolicyPage() {
-  const t = useTranslations("PrivacyPolicyPage");
-  const locale = useLocale();
+export default async function PrivacyPolicyPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("PrivacyPolicyPage");
 
   return (
     <main className="min-h-screen bg-white">

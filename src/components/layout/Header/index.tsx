@@ -288,8 +288,8 @@ export default function Header() {
               ))}
             </div>
           </div>
-          <div className="flex items-center gap-4">
-            <LanguageSwitcher />
+          <div className="flex items-center gap-6">
+            <span className="text-white/60 tracking-widest">{t('manufacturingProcess')}</span>
           </div>
         </div>
       </div>
@@ -423,11 +423,12 @@ export default function Header() {
               })}
             </nav>
 
-            {/* CTA Button */}
-            <div className="hidden lg:flex items-center ml-2 xl:ml-4">
+            {/* Header Actions */}
+            <div dir="ltr" className="hidden lg:flex items-center gap-3 ml-4">
+              <LanguageSwitcher />
               <button
                 onClick={openBrochure}
-                className="btn-premium px-4 xl:px-6 py-3 text-[10px] xl:text-[11px] font-black text-white uppercase tracking-widest rounded-full transition-all whitespace-nowrap"
+                className="btn-premium px-4 xl:px-6 py-2.5 text-[10px] xl:text-[11px] font-black text-white uppercase tracking-widest rounded-full transition-all whitespace-nowrap shadow-lg shadow-rose-500/20"
               >
                 {t('requestBrochure')}
               </button>
