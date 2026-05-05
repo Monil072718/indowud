@@ -268,7 +268,7 @@
       "zerowud-nfc": {
         "name": "ZeroWud NFC",
         "tag": "Painéis Premium",
-        "blurb": "Painéis densos e robustos projetados para durabilidade e acabamento que podem suportar umidade, cupins e clima severo—mas amigáveis à fabricação.",
+        "blurb": "O zerOwud possui boa resistência e durabilidade, tornando-o ideal para diversas aplicações, desde móveis e armários até painéis de parede.",
         "bullets": [
           "Composto de fibra natural 100% livre de madeira",
           "Zero enchimento — densidade consistente",
@@ -912,6 +912,17 @@
     }
   },
   "ProductDetails": {
+    "zerowud-nfc": {
+      "title": "zerOwud NFC",
+      "tagline": "Construa verde com painéis zerOwud",
+      "detailsLabel": "Detalhes:",
+      "thicknessLabel": "Espessura:",
+      "thicknessValue": "4mm, 6mm, 8mm, 12mm,<br/>15/16mm, 18mm, 25mm",
+      "sizeLabel": "Tamanho Padrão:",
+      "sizeValue": "8 pés x 4 pés<br/>(2440mm x 1220mm)",
+      "surfaceValue": "Acabamento liso em ambos os lados",
+      "description": "O zerOwud possui boa resistência e durabilidade, tornando-o ideal para diversas aplicações, desde móveis e armários até painéis de parede."
+    },
     "nfc-textured-panels": {
       "category": "Produtos",
       "title": "Painéis Texturizados NFC",
@@ -943,6 +954,163 @@
       "worksWith1": "Indowud NFC",
       "worksWith2": "Folheado",
       "worksWith3": "Laminados"
+    },
+    "indowud-board": {
+      "title": "Placa Indowud NFC",
+      "tagline": "Transformando resíduos agrícolas em painéis sustentáveis",
+      "detailsLabel": "Detalhes:",
+      "rangeLabel": "Alcance:",
+      "rangeValue": "neo, create e build",
+      "thicknessLabel": "Espessura:",
+      "thicknessValue": "4mm, 6mm, 8mm,<br/>12mm, 15mm, 16mm,<br/>18mm, 25mm",
+      "sizeLabel": "Tamanho:",
+      "sizeValue": "8 pés x 4 pés<br/>(2440mm x 1220mm)",
+      "surfaceValue": "Superfície áspera em ambos os lados",
+      "description": "Oferecendo uma alternativa sustentável e de alto desempenho aos produtos tradicionais de madeira. Durável e versátil, Indowud NFC é ideal para várias aplicações em interiores e exteriores.",
+      "contactText": "Contate-nos para tamanhos personalizados",
+      "realImageText": "Imagem real"
+    },
+    "indowud-neo-create": {
+      "title": "Indowud neo e create",
+      "tagline": "DESIGN DE INTERIORES",
+      "description": "Indowud NFC é criado para design. Moldável e ainda resistente. É uma alternativa superior à madeira em muitos aspectos. Parece, sente-se e trabalha-se como madeira também.",
+      "footerText": "Imagens reais : desenhado pelos melhores arquitetos"
+    },
+    "indowud-build": {
+      "title": "Indowud build",
+      "tagline": "EXTERIOR PARA QUALQUER CLIMA",
+      "description": "Indowud NFC é construído para condições climáticas extremas. Muito superior a qualquer painel à base de madeira. Pode usá-lo livremente para todos os exteriores e interiores.",
+      "footerText": "Imagens reais do local"
+    },
+    "nfc-flute": {
+      "title": "NFC Flute",
+      "tagline": "A mistura perfeita da elegância da natureza com design moderno",
+      "detailsLabel": "Detalhes:",
+      "thicknessLabel": "Espessura:",
+      "thicknessValue": "18mm, 25mm",
+      "sizeLabel": "Tamanho:",
+      "sizeValue": "8 pés x 1 pé<br/>(2440mm x 300mm)",
+      "description": "Os canelados NFC oferecem soluções de canelamento e ripas para atender à arquitetura ecológica, promovendo uma relação harmoniosa entre a habitação humana e a natureza, abrindo caminho para um painel mais sustentável nos designs de ripas e canelados",
+      "contactText": "Contate-nos para tamanhos e designs personalizados.<br/>As dimensões podem variar em ±3mm.",
+      "patternsBtn": "Ver padrões disponíveis",
+      "applicationsTitle": "Revestir da maneira certa"
+    },
+    "nfc-door": {
+      "title": "Porta NFC",
+      "tagline": "A porta amiga do ambiente",
+      "detailsLabel": "Detalhes:",
+      "thicknessLabel": "Espessura:",
+      "thicknessValue": "30mm",
+      "sizeLabel": "Tamanho:",
+      "sizeValue": "7 pés x 3 pés<br/>(2140mm x 920mm),<br/>8 pés x 3 pés<br/>(2440mm x 900mm)",
+      "description": "Procurando uma alternativa ecológica para a sua entrada? Não procure mais, porta Indowud NFC. Estas portas combinam a beleza intemporal do painel de madeira natural. Pode-se facilmente pintar, polir, envernizar ou revestir com folheado/laminado facilmente",
+      "contactText": "Contate-nos para tamanhos personalizados"
+    },
+    "nfc-frame": {
+      "title": "Moldura NFC",
+      "tagline": "Reimagine portas com molduras nfc",
+      "detailsLabel": "Detalhes:",
+      "thicknessLabel": "Espessura:",
+      "thicknessValue": "3\" x 2\",<br/>4\" x 2\",<br/>4\" x 2.5\",<br/>5\" x 2.5\".",
+      "sizeLabel": "Tamanho:",
+      "sizeValue": "7 pés (2140mm),<br/>8 pés (2440mm),<br/>10 pés (3050mm).",
+      "woodGrainText": "Também disponível em acabamento de grão de madeira",
+      "description": "As molduras NFC Indowud ostentam grãos abertos semelhantes à madeira natural, oferecendo uma tela para o florescimento da sua criatividade. Pode tingir estas molduras de porta perfeitamente para combinar com as suas portas. Seja uma cor de folheado rica e escura ou um tom suave de laminados.",
+      "easyToPaintText": "Fácil de pintar, tingir e envernizar",
+      "contactText": "Contate-nos para tamanhos personalizados"
+    },
+    "nfc-siding": {
+      "title": "Revestimento NFC",
+      "tagline": "Projetado para impressionar",
+      "introText": "Os revestimentos NFC Indowud são painéis reversíveis exclusivos que podem ser usados em ambos os lados. Um lado apresenta uma ranhura regular, enquanto o lado inverso apresenta uma ranhura em V - permitindo funcionalidade de uso duplo com base em aplicações de painéis de parede e teto.",
+      "detailsLabel": "Detalhes:",
+      "typeLabel": "Tipo:",
+      "lengthLabel": "Comprimento:",
+      "sizeLabel": "Tamanho:",
+      "actualLabel": "Atual:",
+      "exposedWidthLabel": "Largura exposta:",
+      "dimensionsLabel": "Dimensões:",
+      "typeHollow": "Oco",
+      "typeSolid": "Sólido",
+      "lengthValue": "8 pés,<br/>até 16 pés",
+      "hollowSize": "20mm x 190mm",
+      "hollowActual": "19mm x 185mm",
+      "hollowExposed": "6 polegadas (150mm)",
+      "solidSize": "20mm x 175mm",
+      "solidActual": "18mm x 170mm",
+      "solidExposed": "6 polegadas (150mm)",
+      "supportBoxTitle": "Suporte : Um metal tubular necessário a cada 450mm (18 polegadas)",
+      "supportBoxText": "Parafusos : para exteriores, parafusos de aço inoxidável são sugeridos, pré-perfure o painel antes de aparafusar<br/>Acabamento : Pode ser tingido, envernizado, polido, pintado. Disponível em padrões de grãos de madeira num ou em ambos os lados<br/>Deixe uma folga de 3mm - 4mm no lado linear para expansão/contração.",
+      "directFixText": "Pode ser fixado diretamente em superfície lisa",
+      "contactText": "Contate-nos para comprimento personalizado."
+    },
+    "nfc-fence": {
+      "title": "Cerca NFC",
+      "tagline": "Beleza e sustentabilidade combinadas",
+      "detailsLabel": "Detalhes:",
+      "lengthLabel": "Comprimento:",
+      "lengthValue": "8 pés, 12 pés,<br/>16 pés<br/>para 4 polegadas x 2 polegadas<br/>8 pés para outros<br/>tamanhos",
+      "sizeLabel": "Tamanho:",
+      "sizeValue": "1220mm x 50mm<br/>(4 pés x 2 polegadas),<br/>1220mm x 75mm<br/>(4 pés x 3 polegadas)",
+      "thicknessLabel": "Espessura:",
+      "thicknessValue": "15/16mm,<br/>18mm, 25mm",
+      "optionsLabel": "Opções:",
+      "optionsValue": "• reto<br/>• torção simples<br/>• torção dupla<br/>com ou sem grãos de<br/>madeira",
+      "description": "As cercas Indowud oferecem uma alternativa bonita e ecológica às cercas tradicionais de madeira. Fortes, duráveis e resistentes às intempéries, são perfeitas para qualquer espaço ao ar livre."
+    },
+    "nfc-flooring": {
+      "title": "Pavimentos NFC",
+      "tagline": "Onde a força se mostra",
+      "detailsLabel": "Detalhes:",
+      "optionLabel": "Opção:",
+      "tileLabel": "Azulejo:",
+      "sizeLabel": "Tamanho:",
+      "lengthLabel": "Comprimento:",
+      "option1Value": "Pavimento de Varanda",
+      "tile1Value": "300mm x 300mm",
+      "size1Value": "1 polegada x 6 polegadas<br/>(24mm x 150mm)",
+      "length1Value": "8 pés",
+      "option2Value": "Deck",
+      "tile2Value": "300mm x 300mm",
+      "size2Value": "1 polegada x 6 polegadas<br/>(24mm x 140mm)",
+      "length2Value": "8 pés",
+      "description": "Os Pavimentos NFC Indowud oferecem decks, pavimentos para varandas e azulejos para decks. Projetados para desempenho ao ar livre, oferecem estética de madeira natural com resistência superior a escorregões, estabilidade dimensional e durabilidade a longo prazo - projetados para integração perfeita em paisagens arquitetônicas contemporâneas",
+      "supportBoxText": "Suporte: Subestrutura metálica tubular necessária a cada 450 mm (18 polegadas) para áreas de baixo tráfego e 300 mm (12 polegadas) para áreas de alto tráfego.<br/>Certifique-se de aplicar selante/primer à base de solvente ou epóxi em ambas as superfícies antes da fixação.<br/>Garanta uma folga de 3-4mm no lado linear do Pavimento NFC",
+      "contactText": "Contate-nos para comprimento personalizado. Peça azulejo de deck de 300mm x 300mm com design personalizado."
+    },
+    "nfc-rafters": {
+      "title": "Vigas NFC",
+      "tagline": "Linhas e luxo que perduram",
+      "description": "As Vigas NFC Indowud trazem elegância esculpida para fachadas arquitetônicas, tetos e pérgulas. Projetados com precisão para uso exposto, eles oferecem estética de madeira refinada com estabilidade superior, resistência às intempéries e força duradoura - criando espaços atemporais onde a estrutura se torna uma declaração de design.",
+      "supportTitle": "Suporte: É sugerido suporte tubular de metal a cada 600 mm (2 pés) - 900 mm (3 pés) dependendo dos fatores externos e do tamanho da viga",
+      "detailsLabel": "Detalhes:",
+      "lengthLabel": "Comprimento:",
+      "lengthValue": "• 8 pés<br/>• 12 pés<br/>• 16 pés para 4 polegadas x 2 polegadas<br/>8 pés para outros tamanhos",
+      "sizeLabel": "Tamanho:",
+      "sizeValue": "• 98mm x 48mm (4 polegadas x 2 polegadas)<br/>• 98mm x 28mm (4 polegadas x 1 polegada)<br/>• 68mm x 48mm (2.75 polegadas x 2 polegadas)<br/>• 48mm x 37mm (2 polegadas x 1.5 polegadas)",
+      "optionsLabel": "Opções:",
+      "optionsValue": "liso simples, grãos de madeira em todos os lados",
+      "contactText": "Contate-nos para tamanhos personalizados"
+    },
+    "nfc-alu-clad-rafters": {
+      "title": "Vigas revestidas de alumínio NFC",
+      "tagline": "Linhas e luxo que perduram",
+      "description": "As Vigas Revestidas de Alumínio NFC Indowud são fabricadas sob medida, apresentando um núcleo de alumínio envolto em Indowud NFC para uma estética de madeira natural. Projetadas para aplicações expostas, oferecem estabilidade estrutural, resistência à umidade e detalhes arquitetônicos precisos.",
+      "detailsLabel": "Detalhes:",
+      "lengthLabel": "Comprimento:",
+      "lengthValue": "7 pés e 6 polegadas,<br/>9 pés e 6 polegadas",
+      "sizeLabel": "Tamanho:",
+      "sizeValue": "Tamanho personalizado",
+      "sizeDetails": "Placa texturizada Indowud NFC de 6mm perfeitamente envolvida em perfis de alumínio disponíveis.",
+      "contactText": "Contate-nos para tamanhos personalizados"
+    },
+    "nfc-jaali": {
+      "title": "Jaali NFC",
+      "tagline": "Eleve seu espaço com padrões complexos",
+      "description1": "Uma fusão de arte, sustentabilidade e resistência. As nossas placas NFC roteadas por CNC criam telas mashrabia impressionantes, melhoram interiores e reduzem o peso dos exteriores dos edifícios.",
+      "description2": "Os jaalis NFC são totalmente personalizáveis em padrão e escala, eles transformam elevações em declarações de assinatura, mantendo-se fiéis à nossa promessa de sustentabilidade impulsionada por ahimsa.",
+      "imageCaption": "Imagem de Indowud NFC Jaali usado em Nagpur",
+      "contactText": "Contate-nos para soluções personalizadas."
     }
   }
 }

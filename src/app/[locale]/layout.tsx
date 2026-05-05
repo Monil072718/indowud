@@ -14,6 +14,7 @@ import {
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 import Header from "@/components/layout/Header";
+import { MotionProvider } from "@/components/common/MotionProvider";
 
 // Lazy load Footer - it's below the fold
 const Footer = dynamic(() => import("@/components/layout/Footer"), {
@@ -73,7 +74,6 @@ export const metadata: Metadata = {
   },
 };
 
-import MotionProvider from "@/components/common/MotionProvider";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));

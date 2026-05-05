@@ -794,7 +794,7 @@
       "zerowud-nfc": {
         "name": "ZeroWud NFC",
         "tag": "Premium Panels",
-        "blurb": "Dense, robust panels engineered for durability and finishing that can withstand moisture, termites and harsh weather—yet friendly to fabrication.",
+        "blurb": "zerOwud, mobilya ve dolaplardan duvar panellerine kadar çeşitli uygulamalar için ideal hale getiren iyi bir güç ve dayanıklılığa sahiptir.",
         "bullets": [
           "100% wood-free natural fibre composite",
           "Zero filler — consistent density",
@@ -943,6 +943,17 @@
     }
   },
   "ProductDetails": {
+    "zerowud-nfc": {
+      "title": "zerOwud NFC",
+      "tagline": "zerOwud panelleriyle yeşil inşa edin",
+      "detailsLabel": "Detaylar:",
+      "thicknessLabel": "Kalınlık:",
+      "thicknessValue": "4mm, 6mm, 8mm, 12mm,<br/>15/16mm, 18mm, 25mm",
+      "sizeLabel": "Standart Boyut:",
+      "sizeValue": "8 feet x 4 feet<br/>(2440mm x 1220mm)",
+      "surfaceValue": "Her iki tarafı pürüzsüz yüzey",
+      "description": "zerOwud, mobilya ve dolaplardan duvar panellerine kadar çeşitli uygulamalar için ideal hale getiren iyi bir güç ve dayanıklılığa sahiptir."
+    },
     "nfc-textured-panels": {
       "category": "Ürünler",
       "title": "NFC Dokulu Paneller",
@@ -974,6 +985,163 @@
       "worksWith1": "Indowud NFC",
       "worksWith2": "Kaplama",
       "worksWith3": "Laminatlar"
+    },
+    "indowud-board": {
+      "title": "Indowud NFC Paneli",
+      "tagline": "Tarımsal atıkları sürdürülebilir panellere dönüştürüyoruz",
+      "detailsLabel": "Detaylar:",
+      "rangeLabel": "Seri:",
+      "rangeValue": "neo, create ve build",
+      "thicknessLabel": "Kalınlık:",
+      "thicknessValue": "4mm, 6mm, 8mm,<br/>12mm, 15mm, 16mm,<br/>18mm, 25mm",
+      "sizeLabel": "Boyut:",
+      "sizeValue": "8 feet x 4 feet<br/>(2440mm x 1220mm)",
+      "surfaceValue": "Her iki tarafı pürüzlü yüzey",
+      "description": "Geleneksel ahşap ürünlerine sürdürülebilir ve yüksek performanslı bir alternatif sunar. Dayanıklı ve çok yönlü olan Indowud NFC, iç ve dış mekanlarda çeşitli uygulamalar için idealdir.",
+      "contactText": "Özel boyutlar için bizimle iletişime geçin",
+      "realImageText": "Gerçek görüntü"
+    },
+    "indowud-neo-create": {
+      "title": "Indowud neo ve create",
+      "tagline": "İÇ MEKAN TASARIMI",
+      "description": "Indowud NFC tasarım için yaratılmıştır. Şekillendirilebilir ve yine de sağlamdır. Birçok yönden ahşaba üstün bir alternatiftir. Ahşap gibi görünür, hissettirir ve işlenir.",
+      "footerText": "Gerçek resimler: en iyi mimarlar tarafından tasarlandı"
+    },
+    "indowud-build": {
+      "title": "Indowud build",
+      "tagline": "TÜM HAVA KOŞULLARINA UYGUN DIŞ MEKAN",
+      "description": "Indowud NFC aşırı hava koşulları için üretilmiştir. Herhangi bir ahşap bazlı panelden çok daha üstündür. Tüm dış ve iç mekanlar için özgürce kullanabilirsiniz.",
+      "footerText": "Gerçek saha görüntüleri"
+    },
+    "nfc-flute": {
+      "title": "NFC Flute",
+      "tagline": "Doğanın zarafeti ile modern tasarımın mükemmel uyumu",
+      "detailsLabel": "Detaylar:",
+      "thicknessLabel": "Kalınlık:",
+      "thicknessValue": "18mm, 25mm",
+      "sizeLabel": "Boyut:",
+      "sizeValue": "8 feet x 1 feet<br/>(2440mm x 300mm)",
+      "description": "NFC flütler, ekolojik mimariye hitap etmek için flütleme ve panjur çözümleri sunarak insan yerleşimi ile doğa arasında uyumlu bir ilişki geliştirir ve panjur ve flüt tasarımlarında daha sürdürülebilir bir panel için zemin hazırlar",
+      "contactText": "Özel boyutlar ve tasarımlar için bizimle iletişime geçin.<br/>Boyutlar ±3mm değişebilir.",
+      "patternsBtn": "Mevcut Desenleri Görüntüle",
+      "applicationsTitle": "Doğru Şekilde Kaplayın"
+    },
+    "nfc-door": {
+      "title": "NFC Kapı",
+      "tagline": "Çevre dostu kapı",
+      "detailsLabel": "Detaylar:",
+      "thicknessLabel": "Kalınlık:",
+      "thicknessValue": "30mm",
+      "sizeLabel": "Boyut:",
+      "sizeValue": "7 feet x 3 feet<br/>(2140mm x 920mm),<br/>8 feet x 3 feet<br/>(2440mm x 900mm)",
+      "description": "Girişiniz için çevre dostu bir alternatif mi arıyorsunuz? Indowud NFC kapıdan başkasına bakmayın. Bu kapılar doğal ahşap panellerin zamansız güzelliğini birleştirir. Kaplama/laminat kolayca boyanabilir, cilalanabilir, verniklenebilir veya kaplanabilir",
+      "contactText": "Özel boyutlar için bizimle iletişime geçin"
+    },
+    "nfc-frame": {
+      "title": "NFC Kasa",
+      "tagline": "nfc-kasalarla kapı pervazlarını yeniden hayal edin",
+      "detailsLabel": "Detaylar:",
+      "thicknessLabel": "Kalınlık:",
+      "thicknessValue": "3\" x 2\",<br/>4\" x 2\",<br/>4\" x 2.5\",<br/>5\" x 2.5\".",
+      "sizeLabel": "Boyut:",
+      "sizeValue": "7 feet (2140mm),<br/>8 feet (2440mm),<br/>10 feet (3050mm).",
+      "woodGrainText": "Ahşap doku bitişi de mevcuttur",
+      "description": "Indowud NFC Kasalar, doğal ahşaba benzeyen açık damarlara sahip olup yaratıcılığınızın gelişmesi için bir tuval sunar. Bu kapı kasalarını kapılarınıza mükemmel şekilde uyacak şekilde boyayabilirsiniz. İster zengin, koyu bir kaplama rengi ister laminatların yumuşak bir tonu olsun.",
+      "easyToPaintText": "Boyaması, lekelenmesi ve verniklenmesi kolay",
+      "contactText": "Özel boyutlar için bizimle iletişime geçin"
+    },
+    "nfc-siding": {
+      "title": "NFC Dış Kaplama",
+      "tagline": "Etkilemek için tasarlandı",
+      "introText": "Indowud NFC dış kaplamalar her iki tarafta da kullanılabilen benzersiz çift taraflı panellerdir. Bir tarafında normal bir oluk bulunurken, diğer tarafında duvar kaplaması ve tavan uygulamalarına dayalı çift kullanım işlevi sağlayan bir V-oluk bulunur.",
+      "detailsLabel": "Detaylar:",
+      "typeLabel": "Tip:",
+      "lengthLabel": "Uzunluk:",
+      "sizeLabel": "Boyut:",
+      "actualLabel": "Gerçek:",
+      "exposedWidthLabel": "Açıkta kalan genişlik:",
+      "dimensionsLabel": "Boyutlar:",
+      "typeHollow": "İçi Boş",
+      "typeSolid": "Katı",
+      "lengthValue": "8 feet,<br/>16 feet'e kadar",
+      "hollowSize": "20mm x 190mm",
+      "hollowActual": "19mm x 185mm",
+      "hollowExposed": "6 inç (150mm)",
+      "solidSize": "20mm x 175mm",
+      "solidActual": "18mm x 170mm",
+      "solidExposed": "6 inç (150mm)",
+      "supportBoxTitle": "Destek: Her 450mm'de (18 inç) bir boru şeklinde metal gereklidir",
+      "supportBoxText": "Vidalar: Dış mekanlar için paslanmaz çelik vidalar önerilir, vidalamadan önce paneli önceden delin<br/>Bitiş: Boyanabilir, verniklenebilir, cilalanabilir, renklendirilebilir. Tek taraflı veya çift taraflı ahşap doku desenlerinde mevcuttur<br/>Genleşme/büzülme için doğrusal tarafta 3mm-4mm boşluk bırakın.",
+      "directFixText": "Pürüzsüz bir yüzeye doğrudan sabitlenebilir",
+      "contactText": "Özel uzunluk için bizimle iletişime geçin."
+    },
+    "nfc-fence": {
+      "title": "NFC Çit",
+      "tagline": "Güzellik ve sürdürülebilirlik bir arada",
+      "detailsLabel": "Detaylar:",
+      "lengthLabel": "Uzunluk:",
+      "lengthValue": "8 feet, 12 feet,<br/>16 feet<br/>4 inç x 2 inç için<br/>diğer boyutlar için 8 feet",
+      "sizeLabel": "Boyut:",
+      "sizeValue": "1220mm x 50mm<br/>(4 feet x 2 inç),<br/>1220mm x 75mm<br/>(4 feet x 3 inç)",
+      "thicknessLabel": "Kalınlık:",
+      "thicknessValue": "15/16mm,<br/>18mm, 25mm",
+      "optionsLabel": "Seçenekler:",
+      "optionsValue": "• düz<br/>• tek büküm<br/>• çift büküm<br/>ahşap damarlı veya ahşap damarsız",
+      "description": "Indowud çitleri, geleneksel ahşap çitlere güzel ve çevre dostu bir alternatif sunar. Güçlü, dayanıklı ve hava koşullarına dayanıklı olup, her türlü açık hava alanı için mükemmeldirler."
+    },
+    "nfc-flooring": {
+      "title": "NFC Zemin Kaplama",
+      "tagline": "Gücün kendini gösterdiği yer",
+      "detailsLabel": "Detaylar:",
+      "optionLabel": "Seçenek:",
+      "tileLabel": "Fayans:",
+      "sizeLabel": "Boyut:",
+      "lengthLabel": "Uzunluk:",
+      "option1Value": "Sundurma Döşemesi",
+      "tile1Value": "300mm x 300mm",
+      "size1Value": "1 inç x 6 inç<br/>(24mm x 150mm)",
+      "length1Value": "8 feet",
+      "option2Value": "Decking",
+      "tile2Value": "300mm x 300mm",
+      "size2Value": "1 inç x 6 inç<br/>(24mm x 140mm)",
+      "length2Value": "8 feet",
+      "description": "Indowud NFC Zemin Kaplama decking, sundurma döşemesi ve güverte karoları sunar. Dış mekan performansı için tasarlanmış olup, çağdaş mimari manzaralara kusursuz entegrasyon için tasarlanmış üstün kayma direnci, boyutsal kararlılık ve uzun vadeli dayanıklılık ile doğal ahşap estetiği sunar.",
+      "supportBoxText": "Destek: Düşük trafikli alanlar için her 450 mm'de (18 inç) ve yüksek trafikli alanlar için 300 mm'de (12 inç) boru şeklinde metal alt yapı gereklidir.<br/>Sabitlemeden önce her iki yüzeye de solvent veya epoksi bazlı sızdırmazlık maddesi/astar uyguladığınızdan emin olun.<br/>NFC Döşemenin doğrusal tarafında 3-4 mm boşluk bıraktığınızdan emin olun",
+      "contactText": "Özel uzunluk için bizimle iletişime geçin. Özel tasarımda 300mm x 300mm güverte karosu isteyin."
+    },
+    "nfc-rafters": {
+      "title": "NFC Mertekler",
+      "tagline": "Uzun Ömürlü Çizgiler ve Lüks",
+      "description": "Indowud NFC Mertekler, mimari cephelere, tavanlara ve pergolalara yontulmuş zarafet getiriyor. Açık kullanım için hassas bir şekilde tasarlanmış olup, üstün stabilite, hava koşullarına dayanıklılık ve kalıcı güç ile rafine ahşap benzeri estetik sunarak yapının bir tasarım ifadesine dönüştüğü zamansız alanlar yaratır.",
+      "supportTitle": "Destek: Dış etkenlere ve merteğin boyutuna bağlı olarak her 600 mm (2 feet) - 900 mm (3 feet) arasında boru şeklinde metal destek önerilir",
+      "detailsLabel": "Detaylar:",
+      "lengthLabel": "Uzunluk:",
+      "lengthValue": "• 8 feet<br/>• 12 feet<br/>• 16 feet 4 inç x 2 inç için<br/>diğer boyutlar için 8 feet",
+      "sizeLabel": "Boyut:",
+      "sizeValue": "• 98mm x 48mm (4 inç x 2 inç)<br/>• 98mm x 28mm (4 inç x 1 inç)<br/>• 68mm x 48mm (2.75 inç x 2 inç)<br/>• 48mm x 37mm (2 inç x 1.5 inç)",
+      "optionsLabel": "Seçenekler:",
+      "optionsValue": "düz pürüzlü, her tarafında ahşap damarlar",
+      "contactText": "Özel boyutlar için bizimle iletişime geçin"
+    },
+    "nfc-alu-clad-rafters": {
+      "title": "NFC Alu Kaplı Mertekler",
+      "tagline": "Uzun Ömürlü Çizgiler ve Lüks",
+      "description": "Indowud NFC Alüminyum Kaplı Mertekler, doğal ahşap estetiği için Indowud NFC'ye sarılmış alüminyum çekirdeğe sahip olup isteğe göre üretilir. Açık uygulamalar için tasarlanmış olup yapısal stabilite, nem direnci ve hassas mimari detaylandırma sağlarlar.",
+      "detailsLabel": "Detaylar:",
+      "lengthLabel": "Uzunluk:",
+      "lengthValue": "7 feet 6 inç,<br/>9 feet 6 inç",
+      "sizeLabel": "Boyut:",
+      "sizeValue": "Özel boyut",
+      "sizeDetails": "Mevcut alüminyum profillere kusursuz şekilde sarılmış Indowud NFC 6mm dokulu levha.",
+      "contactText": "Özel boyutlar için bizimle iletişime geçin"
+    },
+    "nfc-jaali": {
+      "title": "NFC Jaali",
+      "tagline": "Mekanınızı karmaşık desenlerle yüceltin",
+      "description1": "Sanat, sürdürülebilirlik ve gücün birleşimi. CNC ile yönlendirilmiş NFC panellerimiz çarpıcı maşrabiya ekranları oluşturur, iç mekanları geliştirir ve bina dış cephelerinin ağırlığını hafifletir.",
+      "description2": "NFC jaaliler desen ve ölçek olarak tamamen özelleştirilebilir; ahimsa odaklı sürdürülebilirlik sözümüze sadık kalarak cepheleri imza ifadelerine dönüştürürler.",
+      "imageCaption": "Nagpur'da kullanılan Indowud NFC Jaali görseli",
+      "contactText": "Özelleştirilmiş çözümler için bizimle iletişime geçin."
     }
   }
 }
