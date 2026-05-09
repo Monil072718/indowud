@@ -52,14 +52,14 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
           <div className="text-2xl leading-relaxed text-stone-700 font-serif lg:pr-12">
             {t("description")}
           </div>
-          <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-stone-100 group">
-             {/* Note: Using a placeholder image since wardrobe image isn't available in public yet. Replace with actual wardrobe image. */}
+          <div className="relative w-full overflow-hidden">
             <Image 
-              src="/1-8-2048x1152.jpg.webp" 
-              alt="Application"
-              width={800}
-              height={600}
-              className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
+              src="/zerowud-nfc.png" 
+              alt="zerOwud NFC Application"
+              width={1200}
+              height={1600}
+              className="w-full h-auto object-contain"
+              priority
             />
           </div>
         </div>

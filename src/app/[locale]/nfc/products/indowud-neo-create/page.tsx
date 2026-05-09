@@ -8,15 +8,6 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
   setRequestLocale(locale);
   const t = await getTranslations("ProductDetails.indowud-neo-create");
 
-  // Temporary placeholder images
-  const placeholderImages = [
-    "/pattern-2.jpg",
-    "/pattern-3.jpg",
-    "/pattern-4.jpg",
-    "/pattern-5.jpg",
-    "/pattern-6.jpg",
-  ];
-
   return (
     <main className="bg-white min-h-screen">
       <PageHeader
@@ -26,63 +17,115 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
         description=""
       />
       <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 space-y-12">
-        
+
         {/* Top Text Section */}
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <p className="text-xl md:text-2xl leading-relaxed text-stone-700 font-serif">
             {t("description")}
           </p>
-          <div className="w-16 h-[1px] bg-stone-300 mx-auto mt-8"></div>
+          <div className="w-16 h-[1px] bg-stone-300 mx-auto"></div>
         </div>
 
-        {/* Masonry/Grid Collage Section */}
-        <div className="pt-12">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[200px] md:auto-rows-[300px]">
-            {/* Main large image */}
-            <div className="col-span-2 row-span-2 relative rounded-2xl overflow-hidden shadow-sm group">
-              <Image 
-                src={placeholderImages[0]}
-                alt="Interior Design Reference 1"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-            </div>
-            
-            {/* Standard images */}
-            <div className="relative rounded-2xl overflow-hidden shadow-sm group">
-              <Image 
-                src={placeholderImages[1]}
-                alt="Interior Design Reference 2"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-            </div>
-            
-            <div className="relative rounded-2xl overflow-hidden shadow-sm group">
-              <Image 
-                src={placeholderImages[2]}
-                alt="Interior Design Reference 3"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-            </div>
+        {/* ── Mosaic Gallery ──
+            Layout (3 cols × 3 rows):
+            [  img1  |      img2       ]   ← row 1
+            [img3|img4|  img5 (tall)  ]   ← row 2
+            [img6|img7|  img5 (tall)  ]   ← row 3
+        */}
+        <div
+          className="w-full"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "2fr 1.5fr 2fr",
+            gridTemplateRows: "280px 230px 230px",
+            gap: "6px",
+          }}
+        >
+          {/* img1 — top-left, wide */}
+          <div style={{ gridColumn: "1 / 2", gridRow: "1 / 2" }} className="relative overflow-hidden rounded-tl-2xl rounded-bl-none">
+            <Image
+              src="/1-8-2048x1152.jpg.webp"
+              alt="Neo & Create Interior 1"
+              fill
+              className="object-cover"
+              sizes="40vw"
+              priority
+            />
+          </div>
 
-            {/* Bottom wide image */}
-            <div className="col-span-2 md:col-span-3 relative rounded-2xl overflow-hidden shadow-sm group">
-              <Image 
-                src={placeholderImages[3]}
-                alt="Interior Design Reference 4"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-            </div>
+          {/* img2 — top-right, spans cols 2 & 3 */}
+          <div style={{ gridColumn: "2 / 4", gridRow: "1 / 2" }} className="relative overflow-hidden rounded-tr-2xl">
+            <Image
+              src="/2-9-2048x1152.jpg.webp"
+              alt="Neo & Create Interior 2"
+              fill
+              className="object-cover"
+              sizes="60vw"
+              priority
+            />
           </div>
-          
-          <div className="text-right pt-6 pr-4">
-            <span className="text-stone-500 font-serif italic text-sm md:text-base">
-              {t("footerText")}
-            </span>
+
+          {/* img3 — middle-left small */}
+          <div style={{ gridColumn: "1 / 2", gridRow: "2 / 3" }} className="relative overflow-hidden">
+            <Image
+              src="/pattern-2.jpg"
+              alt="Neo & Create Interior 3"
+              fill
+              className="object-cover"
+              sizes="30vw"
+            />
           </div>
+
+          {/* img4 — middle-center */}
+          <div style={{ gridColumn: "2 / 3", gridRow: "2 / 3" }} className="relative overflow-hidden">
+            <Image
+              src="/pattern-3.jpg"
+              alt="Neo & Create Interior 4"
+              fill
+              className="object-cover"
+              sizes="30vw"
+            />
+          </div>
+
+          {/* img5 — right column, spans rows 2 & 3 (tall) */}
+          <div style={{ gridColumn: "3 / 4", gridRow: "2 / 4" }} className="relative overflow-hidden rounded-br-2xl">
+            <Image
+              src="/3-6-2048x1152.jpg.webp"
+              alt="Neo & Create Interior 5"
+              fill
+              className="object-cover"
+              sizes="33vw"
+            />
+          </div>
+
+          {/* img6 — bottom-left */}
+          <div style={{ gridColumn: "1 / 2", gridRow: "3 / 4" }} className="relative overflow-hidden rounded-bl-2xl">
+            <Image
+              src="/pattern-4.jpg"
+              alt="Neo & Create Interior 6"
+              fill
+              className="object-cover"
+              sizes="30vw"
+            />
+          </div>
+
+          {/* img7 — bottom-center */}
+          <div style={{ gridColumn: "2 / 3", gridRow: "3 / 4" }} className="relative overflow-hidden">
+            <Image
+              src="/pattern-5.jpg"
+              alt="Neo & Create Interior 7"
+              fill
+              className="object-cover"
+              sizes="30vw"
+            />
+          </div>
+        </div>
+
+        {/* Footer caption */}
+        <div className="text-right pr-2">
+          <span className="text-stone-500 font-serif italic text-sm md:text-base">
+            {t("footerText")}
+          </span>
         </div>
 
       </div>
