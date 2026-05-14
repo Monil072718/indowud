@@ -353,39 +353,47 @@ const VideoCard = React.memo(function VideoCard({ item, index, onPlay }: { item:
   
   return (
     <motion.article
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
-      className={`group relative overflow-hidden rounded-2xl bg-slate-900 cursor-pointer shadow-md hover:shadow-2xl hover:shadow-teal-900/20 transition-all duration-300 ${
-        isShort ? "aspect-[9/16]" : "aspect-square sm:aspect-[4/5]"
-      }`}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
+      className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 hover:shadow-xl hover:shadow-slate-200/50 hover:-translate-y-1 transition-all duration-300 cursor-pointer h-full"
       onClick={onPlay}
     >
-      <Image
-        src={item.thumb}
-        alt={item.title}
-        fill
-        className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-        sizes="(max-width: 640px) 100vw, 25vw"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent opacity-90" />
-      
-      <div className="absolute inset-0 p-5 flex flex-col justify-between">
-        <div className="flex justify-end">
-          <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/30 shadow-sm">
-            <Play size={14} fill="currentColor" className="ml-0.5" />
-          </span>
-        </div>
+      <div className="relative w-full pt-[56.25%] overflow-hidden bg-slate-900 border-b border-slate-100">
+        <Image
+          src={item.thumb}
+          alt={item.title}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+        />
         
-        <div>
-          <span className="inline-block mb-2 text-[10px] font-bold text-teal-300 uppercase tracking-widest px-2 py-0.5 rounded-sm border border-teal-500/30 bg-teal-500/10 backdrop-blur-sm">
-            {isShort ? 'Short' : 'Video'} • {item.source}
-          </span>
-          <h3 className="text-lg font-serif font-semibold text-white leading-tight group-hover:text-teal-300 transition-colors line-clamp-3">
-            {item.title}
-          </h3>
+        {/* Play Overlay */}
+        <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors group-hover:bg-black/30">
+          <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 border border-white/30">
+            <Play className="h-5 w-5 sm:h-6 sm:w-6 text-white ml-1" fill="currentColor" />
+          </div>
         </div>
+
+        {/* Type Badge */}
+        <div className="absolute bottom-3 right-3">
+          <span className="inline-flex items-center gap-1.5 rounded bg-black/80 px-2.5 py-1 text-[10px] font-bold text-white tracking-widest uppercase shadow-sm">
+            {isShort ? 'Short' : 'Video'}
+          </span>
+        </div>
+      </div>
+
+      <div className="p-5 flex-1 flex flex-col">
+        <div className="flex items-center mb-3">
+          <span className="text-xs font-bold text-teal-700 uppercase tracking-widest">
+            {item.source}
+          </span>
+        </div>
+
+        <h3 className="text-base sm:text-lg font-serif font-bold text-slate-900 leading-snug mb-2 group-hover:text-teal-700 transition-colors line-clamp-3">
+          {item.title}
+        </h3>
       </div>
     </motion.article>
   );
