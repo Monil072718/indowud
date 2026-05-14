@@ -12,26 +12,44 @@ const PRODUCT_PATTERNS: Record<
     name: string;
     hero?: string;
     patterns: string[];
+    parentHref?: string;
   }
 > = {
   "nfc-decking": {
     name: "NFC Decking",
+    parentHref: "/nfc/products/nfc-decking",
     patterns: ["/pattern-2.jpg", "/pattern-3.jpg", "/pattern-4.jpg", "/pattern-5.jpg", "/pattern-6.jpg"],
   },
   "zerowud-nfc": {
     name: "ZeroWud nfc",
+    parentHref: "/nfc/products/zerowud-nfc",
     patterns: ["/pattern-2.jpg", "/pattern-3.jpg", "/pattern-4.jpg", "/pattern-5.jpg", "/pattern-6.jpg"],
   },
   "nfc-textured-panels-patterns": {
     name: "NFC Textured Panels Patterns",
-    patterns: ["/pattern-2.jpg", "/pattern-3.jpg", "/pattern-4.jpg", "/pattern-5.jpg", "/pattern-6.jpg", "/pattern-2.jpg"],
+    parentHref: "/nfc/products/nfc-textured-panels",
+    patterns: [
+      "/NFC textured panel-t1.png",
+      "/NFC textured panel-t2.png",
+      "/NFC textured panel-t3.png",
+      "/NFC textured panel-t4.png",
+      "/NFC textured panel-t5.png",
+      "/NFC textured pannel open grained deep.png"
+    ],
   },
   "nfc-flute-patterns": {
     name: "NFC Flute Patterns",
+    parentHref: "/nfc/products/nfc-flute",
     patterns: [
-      "/nfc-flute.png.webp", "/nfc-flute.png.webp", "/nfc-flute.png.webp",
-      "/nfc-flute.png.webp", "/nfc-flute.png.webp", "/nfc-flute.png.webp",
-      "/nfc-flute.png.webp", "/nfc-flute.png.webp", "/nfc-flute.png.webp"
+      "/NFC flute-1.png",
+      "/NFC flute-2.png",
+      "/NFC flute-3.png",
+      "/NFC flute-4.png",
+      "/NFC flute-5.png",
+      "/NFC flute-6.png",
+      "/NFC flute-7.png",
+      "/NFC flute-8.png",
+      "/NFC flute-9.png"
     ],
   },
 };
@@ -114,10 +132,10 @@ export default async function ProductPatternsPage({
         {/* back link */}
         <div className="mt-10">
           <Link
-            href="/nfc/products"
+            href={product.parentHref || "/nfc/products"}
             className="inline-flex items-center rounded-lg border px-4 py-2 text-sm hover:bg-neutral-50"
           >
-            ← Back to Products
+            ← Back to {product.parentHref ? product.name.replace(" Patterns", "") : "Products"}
           </Link>
         </div>
       </div>
