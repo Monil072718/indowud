@@ -11,10 +11,10 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
 
   // Temporary placeholder images for siding applications
   const placeholderImages = [
-    "/6-1-2048x1152.jpg.webp",
-    "/7-3-2048x1152.jpg.webp",
-    "/nfc-siding.png.webp",
-    "/4-5-2048x1152.jpg.webp",
+    "/NFC siding-4.png",
+    "/NFC siding-5.png",
+    "/NFC siding-6.png",
+    "/NFC siding-7.png",
   ];
 
   return (
@@ -37,13 +37,14 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
 
         {/* Hollow Siding Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-[16/9] md:aspect-[4/3] rounded-3xl bg-stone-50 p-8 flex items-center justify-center border border-stone-100 shadow-sm">
+          <div className="relative aspect-[16/9] md:aspect-[4/3] rounded-3xl flex items-center justify-center">
              {/* Using placeholder for hollow siding, replace when available */}
             <Image 
-              src="/nfc-siding.png.webp"
+              src="/NFC siding-1.png"
               alt="Hollow Siding"
               fill
-              className="object-contain p-8 drop-shadow-xl hover:scale-105 transition-transform duration-700"
+              className="object-contain transition-transform duration-700 hover:scale-110 drop-shadow-2xl"
+              priority
             />
           </div>
           <div className="space-y-8 bg-stone-50/50 p-8 sm:p-12 rounded-3xl border border-stone-100">
@@ -81,13 +82,13 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
 
         {/* Solid Siding Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-[16/9] md:aspect-[4/3] rounded-3xl bg-stone-50 p-8 flex items-center justify-center border border-stone-100 shadow-sm lg:order-2">
+          <div className="relative aspect-[16/9] md:aspect-[4/3] rounded-3xl flex items-center justify-center lg:order-2">
              {/* Using placeholder for solid siding, replace when available */}
             <Image 
-              src="/nfc-siding.png.webp"
+              src="/NFC siding-2.png"
               alt="Solid Siding"
               fill
-              className="object-contain p-8 drop-shadow-xl hover:scale-105 transition-transform duration-700"
+              className="object-contain transition-transform duration-700 hover:scale-110 drop-shadow-2xl"
             />
           </div>
           <div className="space-y-8 bg-stone-50/50 p-8 sm:p-12 rounded-3xl border border-stone-100 lg:order-1">
@@ -129,10 +130,10 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
           <h3 className="text-2xl font-serif text-stone-900 mb-8 border-b border-stone-200 pb-4 inline-block">
             {t("dimensionsLabel") || "Dimensions:"}
           </h3>
-          <div className="relative w-full aspect-[2/1] md:aspect-[3/1] bg-stone-50 rounded-3xl overflow-hidden border border-stone-200 p-8">
-            {/* Note: Using a placeholder image for the dimension drawings. Replace with actual diagram image. */}
+          <div className="relative w-full aspect-[2/1] md:aspect-[3/1] rounded-3xl overflow-hidde">
+      
             <Image 
-              src="/nfc-siding.png.webp"
+              src="/NFC siding-3.png"
               alt="Siding Dimensions Diagram"
               fill
               className="object-contain p-4 mix-blend-multiply"

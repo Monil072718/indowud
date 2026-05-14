@@ -27,7 +27,7 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
           <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-stone-100 group">
              {/* Application image for rafters */}
             <Image 
-              src="/2-9-2048x1152.jpg.webp" 
+              src="/NFC rafters.png" 
               alt="Installed NFC Rafters"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -44,7 +44,7 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-8">
           <div className="relative aspect-[4/3] rounded-3xl bg-stone-50 p-8 flex items-center justify-center border border-stone-100 shadow-sm">
             <Image 
-              src="/nfc-rafters.png.webp"
+              src="/NFC rafter Alu Clad rafters.png"
               alt={t("title")}
               fill
               className="object-contain p-8 drop-shadow-2xl hover:scale-105 transition-transform duration-700"

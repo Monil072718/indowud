@@ -21,24 +21,13 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
         
         {/* Top Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-square md:aspect-[4/3] bg-stone-50 rounded-3xl p-8 border border-stone-100 flex items-center justify-center gap-4">
-             {/* CNC routed patterns placeholder */}
-            <div className="relative w-1/2 h-full rounded-2xl overflow-hidden shadow-sm bg-stone-100 p-4">
-              <Image 
-                src="/nfc-rafters.png.webp" 
-                alt="Jaali Pattern A" 
-                fill 
-                className="object-contain p-4 opacity-50 mix-blend-multiply" 
-              />
-            </div>
-            <div className="relative w-1/2 h-full rounded-2xl overflow-hidden shadow-sm bg-stone-100 p-4">
-              <Image 
-                src="/nfc-siding.png.webp" 
-                alt="Jaali Pattern B" 
-                fill 
-                className="object-contain p-4 opacity-50 mix-blend-multiply" 
-              />
-            </div>
+          <div className="relative aspect-square md:aspect-[4/3] rounded-3xl flex items-center justify-center  group">
+            <Image 
+              src="/NFC Jaali.png" 
+              alt={t("title")} 
+              fill 
+              className="object-contain transition-transform duration-700 hover:scale-110 drop-shadow-2xl" 
+            />
           </div>
           <div className="text-xl md:text-2xl leading-relaxed text-stone-700 font-serif lg:pl-8">
             <p>{t("description1")}</p>
@@ -58,7 +47,7 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
           <div className="space-y-4 lg:order-1">
             <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-xl border border-stone-100 group">
               <Image 
-                src="/2-9-2048x1152.jpg.webp" 
+                src="/NFC Jaali-1.png" 
                 alt="Installed NFC Jaali in Nagpur"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"

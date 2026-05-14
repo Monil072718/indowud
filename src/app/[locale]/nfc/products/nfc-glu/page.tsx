@@ -10,16 +10,16 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
   const t = await getTranslations("ProductDetails.nfc-glu");
 
   const features = [
-    { icon: Clock, text: t("featureFaster") },
-    { icon: Droplets, text: t("featureWater") },
-    { icon: Shield, text: t("featureStrong") },
-    { icon: Layers, text: t("featurePanels") },
+    { icon: "/faster.png", text: t("featureFaster") },
+    { icon: "/water.png", text: t("featureWater") },
+    { icon: "/strong.png", text: t("featureStrong") },
+    { icon: "/bond.png", text: t("featurePanels") },
   ];
 
   const worksWith = [
-    { name: t("worksWith1"), image: "/Indowud-nfc-board.png.webp" },
-    { name: t("worksWith2"), image: "/pattern-2.jpg" },
-    { name: t("worksWith3"), image: "/pattern-5.jpg" },
+    { name: t("worksWith1"), image: "/nfc.png" },
+    { name: t("worksWith2"), image: "/veneer.png" },
+    { name: t("worksWith3"), image: "/laminates.jpg" },
   ];
 
   return (
@@ -53,17 +53,14 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
 
             {/* Features Grid */}
             <div className="grid grid-cols-2 gap-6 pt-6">
-              {features.map((feature, index) => {
-                const Icon = feature.icon;
-                return (
-                  <div key={index} className="flex items-center gap-4 p-4 bg-stone-50 rounded-2xl border border-stone-100 hover:shadow-md transition-shadow">
-                    <div className="p-3 bg-teal-500/10 rounded-xl text-teal-600">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <span className="font-semibold text-stone-800">{feature.text}</span>
+              {features.map((feature, index) => (
+                <div key={index} className="flex items-center gap-4 p-4  rounded-2xl  hover:shadow-md transition-shadow">
+                  <div className="relative w-12 h-12 flex-shrink-0">
+                    <Image src={feature.icon} alt={feature.text} fill className="object-contain" />
                   </div>
-                );
-              })}
+                  <span className="font-semibold text-stone-800">{feature.text}</span>
+                </div>
+              ))}
             </div>
 
             {/* Works Well With */}

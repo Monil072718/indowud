@@ -21,10 +21,10 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
         
         {/* Porch Flooring Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-[16/9] md:aspect-[4/3] rounded-3xl bg-stone-50 p-8 flex items-center justify-center border border-stone-100 shadow-sm">
+          <div className="relative aspect-[16/9] md:aspect-[4/3] rounded-3xl flex items-center justify-center">
              {/* Using placeholder for porch flooring, replace when available */}
             <Image 
-              src="/nfc-decking_1.png.webp"
+              src="/NFC flooring-1.png"
               alt="Porch Flooring"
               fill
               className="object-contain p-8 drop-shadow-xl hover:scale-105 transition-transform duration-700"
@@ -55,7 +55,7 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
 
         {/* Decking Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-[16/9] md:aspect-[4/3] rounded-3xl bg-stone-50 p-8 flex items-center justify-center border border-stone-100 shadow-sm lg:order-2">
+          <div className="relative aspect-[16/9] md:aspect-[4/3] rounded-3xl p-8 flex items-center justify-center lg:order-2">
              {/* Using placeholder for decking, replace when available */}
             <Image 
               src="/nfc-decking_1.png.webp"

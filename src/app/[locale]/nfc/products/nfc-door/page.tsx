@@ -21,9 +21,9 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
         
         {/* Top Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-[4/5] rounded-3xl bg-stone-50 p-8 flex items-center justify-center border border-stone-100 shadow-sm">
+          <div className="relative aspect-[4/5] max-w-md mx-auto w-full flex items-center justify-center">
             <Image 
-              src="/nfc-door.png.webp"
+              src="/Door.png"
               alt={t("title")}
               fill
               className="object-contain p-8 drop-shadow-2xl hover:scale-105 transition-transform duration-700"
@@ -54,10 +54,10 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
               </Link>
             </div>
           </div>
-          <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border border-stone-100 group">
+          <div className="relative aspect-[4/5] max-w-md mx-auto lg:ml-auto w-full rounded-3xl overflow-hidden shadow-xl border border-stone-100 group">
              {/* Note: Using a placeholder image since the installed door image isn't available in public yet. Replace with actual image. */}
             <Image 
-              src="/2-9-2048x1152.jpg.webp" 
+              src="/NFC door-1.png" 
               alt="Installed NFC Door"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"

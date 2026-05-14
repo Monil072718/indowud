@@ -29,10 +29,10 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
                 className="object-contain p-8 drop-shadow-xl hover:scale-105 transition-transform duration-700"
               />
             </div>
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-stone-100 group">
+            <div className="relative aspect-16/9 rounded-3xl overflow-hidden shadow-xl border border-stone-100 group">
                {/* Note: Using a placeholder image for the fence real-world application. Replace with actual image. */}
               <Image 
-                src="/nfc-fence_1.png.webp" 
+                src="/NFC Fence-1.png" 
                 alt="Installed NFC Fence"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
