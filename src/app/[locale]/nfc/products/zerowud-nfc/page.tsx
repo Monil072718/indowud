@@ -17,11 +17,11 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
         description=""
       />
       <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 space-y-24">
-        
+
         {/* Top Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-square md:aspect-[4/3] rounded-3xl bg-stone-50 p-8 flex items-center justify-center border border-stone-100 shadow-sm">
-            <Image 
+          <div className="relative aspect-square md:aspect-[4/3] max-w-md mx-auto w-full rounded-3xl bg-stone-50 p-12 flex items-center justify-center border border-stone-100 shadow-sm">
+            <Image
               src="/zerOwud-nfc-board.png.webp"
               alt={t("title")}
               width={600}
@@ -48,13 +48,13 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
         </div>
 
         {/* Bottom Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[4.5fr_5.5fr] items-center">
           <div className="text-2xl leading-relaxed text-stone-700 font-serif lg:pr-12">
             {t("description")}
           </div>
           <div className="relative w-full overflow-hidden">
-            <Image 
-              src="/zerowud-nfc.png" 
+            <Image
+              src="/3.png"
               alt="zerOwud NFC Application"
               width={1200}
               height={1600}

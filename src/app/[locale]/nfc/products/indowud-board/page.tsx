@@ -23,7 +23,7 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-square md:aspect-[4/3] rounded-3xl bg-stone-50 p-8 flex items-center justify-center border border-stone-100 shadow-sm">
             <Image 
-              src="/Indowud-nfc-board.png.webp"
+              src="/2.png"
               alt={t("title")}
               width={600}
               height={600}

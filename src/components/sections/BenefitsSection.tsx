@@ -15,7 +15,7 @@ export default function BenefitsSection() {
 
   const tags = [t("tags.0"), t("tags.1"), t("tags.2")];
 
-  const img1 = "/factory.png";
+  const img1 = "/1.png";
 
   return (
     <section className="relative overflow-hidden bg-white py-20 lg:py-24">

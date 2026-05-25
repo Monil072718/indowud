@@ -116,7 +116,7 @@ function MobileQuickJump({ products }: { products: { id: string; name: string }[
 /* ───────────────────────────────── Product slug → image map ───────────────────────────────── */
 const PRODUCT_IMAGES: Record<string, string> = {
   "zerowud-nfc": "/zerOwud-nfc-board.png.webp",
-  "indowud-board": "/Indowud-nfc-board.png.webp",
+  "indowud-board": "/2.png",
   "nfc-door": "/nfc-door.png.webp",
   "nfc-frame": "/nfc-frame.png.webp",
   "nfc-jaali": "/jaal1.jpg.webp",
