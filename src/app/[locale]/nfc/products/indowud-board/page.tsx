@@ -3,7 +3,6 @@ import Image from "next/image";
 import PageHeader from "@/components/common/PageHeader";
 import { setRequestLocale } from 'next-intl/server';
 import Link from "next/link";
-import CO2Calculator from "@/components/sections/CO2Calculator";
 
 export default async function PageComponent({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -52,9 +51,6 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
             </div>
           </div>
         </div>
-
-        {/* CO2 Savings Calculator Section */}
-        <CO2Calculator />
 
         {/* Bottom Section */}
         <div className="grid grid-cols-1 lg:grid-cols-[4.5fr_5.5fr] gap-12 items-center">
