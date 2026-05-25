@@ -3,6 +3,7 @@ import Image from "next/image";
 import PageHeader from "@/components/common/PageHeader";
 import { setRequestLocale } from 'next-intl/server';
 import Link from "next/link";
+import CO2Calculator from "@/components/sections/CO2Calculator";
 
 export default async function PageComponent({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -18,12 +19,12 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
         description=""
       />
       <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 space-y-24">
-        
+
         {/* Top Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-square md:aspect-[4/3] rounded-3xl bg-stone-50 p-8 flex items-center justify-center border border-stone-100 shadow-sm">
-            <Image 
-              src="/2.png"
+            <Image
+              src="/1.png"
               alt={t("title")}
               width={600}
               height={600}
@@ -52,8 +53,11 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
           </div>
         </div>
 
+        {/* CO2 Savings Calculator Section */}
+        <CO2Calculator />
+
         {/* Bottom Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[4.5fr_5.5fr] gap-12 items-center">
           <div className="text-2xl leading-relaxed text-stone-700 font-serif lg:pr-12 space-y-8">
             <p>{t("description")}</p>
             <div>
@@ -63,13 +67,13 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
             </div>
           </div>
           <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-stone-100 group">
-             {/* Note: Using a placeholder image since house image isn't available in public yet. Replace with actual house image. */}
-            <Image 
-              src="/7-1.jpg.webp" 
+            {/* Note: Using a placeholder image since house image isn't available in public yet. Replace with actual house image. */}
+            <Image
+              src="/2.png"
               alt="Application"
               width={800}
               height={600}
-              className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
+              className="object-contain w-full h-full scale-[3.5] origin-center transition-transform duration-700 group-hover:scale-[3.7]"
             />
             <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg text-stone-800 font-serif italic text-sm shadow-md">
               {t("realImageText")}

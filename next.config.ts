@@ -40,14 +40,22 @@ const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
 
   // Experimental features for better performance
+  // experimental: {
+  //   optimizePackageImports: [
+  //     "framer-motion",
+  //     "lucide-react",
+  //     "swiper",
+  //     "country-state-city",
+  //   ],
+  //   serverMinification: false,
+  // },
+
   experimental: {
     optimizePackageImports: [
-      "framer-motion",
       "lucide-react",
       "swiper",
       "country-state-city",
     ],
-    serverMinification: false,
   },
 
   // Remove console statements in production
