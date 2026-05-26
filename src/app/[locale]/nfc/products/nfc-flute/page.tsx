@@ -9,13 +9,13 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
   setRequestLocale(locale);
   const t = await getTranslations("ProductDetails.nfc-flute");
 
-  // Temporary placeholder images for flute samples
-  const placeholderImages = [
-    "/6-1-2048x1152.jpg.webp",
-    "/7-3-2048x1152.jpg.webp",
-    "/nfc-flute.png.webp",
-    "/4-5-2048x1152.jpg.webp",
-    "/5-5-2048x1152.jpg.webp",
+  // Premium flute sample images
+  const fluteImages = [
+    "/flute-1.png",
+    "/flute-2.png",
+    "/flute-3.png",
+    "/flute-4.png",
+    "/flute-5.png",
   ];
 
   return (
@@ -82,42 +82,47 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
             {/* Masonry-style grid for application samples */}
             <div className="row-span-2 relative rounded-2xl overflow-hidden shadow-sm group">
               <Image 
-                src={placeholderImages[0]}
+                src={fluteImages[0]}
                 alt="Flute Application 1"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
             <div className="col-span-2 relative rounded-2xl overflow-hidden shadow-sm group">
               <Image 
-                src={placeholderImages[1]}
+                src={fluteImages[1]}
                 alt="Flute Application 2"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, 66vw"
               />
             </div>
             <div className="relative rounded-2xl overflow-hidden shadow-sm group">
               <Image 
-                src={placeholderImages[2]}
+                src={fluteImages[2]}
                 alt="Flute Application 3"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 50vw, 33vw"
               />
             </div>
             <div className="relative rounded-2xl overflow-hidden shadow-sm group">
               <Image 
-                src={placeholderImages[3]}
+                src={fluteImages[3]}
                 alt="Flute Application 4"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 50vw, 33vw"
               />
             </div>
             <div className="col-span-2 md:col-span-3 relative rounded-2xl overflow-hidden shadow-sm group">
               <Image 
-                src={placeholderImages[4]}
+                src={fluteImages[4]}
                 alt="Flute Application 5"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="100vw"
               />
             </div>
           </div>
