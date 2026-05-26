@@ -118,17 +118,8 @@ export default function SuggestionsPage() {
                 </div>
               </motion.div>
             </div>
-            <div className="lg:col-span-3 aspect-video relative group">
+            <div className="lg:col-span-3 aspect-video relative">
               <LazyYouTubeIframe />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition-all duration-700 pointer-events-none flex items-center justify-center">
-                <motion.div 
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ repeat: Infinity, duration: 2 }}
-                  className="w-20 h-20 rounded-full bg-teal-500 flex items-center justify-center shadow-2xl shadow-teal-500/50"
-                >
-                  <Play className="w-8 h-8 text-white fill-current transtone-x-1" />
-                </motion.div>
-              </div>
             </div>
           </div>
         </div>
