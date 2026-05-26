@@ -18,32 +18,11 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
         description=""
       />
       <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 space-y-24">
-        
-        {/* Top Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="text-xl md:text-2xl leading-relaxed text-stone-700 font-serif lg:pr-12">
-            <p>{t("description")}</p>
-          </div>
-          <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-stone-100 group">
-             {/* Application image for rafters */}
-            <Image 
-              src="/NFC rafters.png" 
-              alt="Installed NFC Rafters"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-          </div>
-        </div>
-
-        {/* Support Box */}
-        <div className="bg-teal-50/50 border border-teal-200 rounded-3xl p-8 text-center max-w-5xl mx-auto shadow-sm">
-          <p className="text-base md:text-lg text-teal-800 font-medium italic">{t("supportTitle")}</p>
-        </div>
 
         {/* Details Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-[4/3] rounded-3xl bg-stone-50 p-8 flex items-center justify-center border border-stone-100 shadow-sm">
-            <Image 
+            <Image
               src="/NFC rafter Alu Clad rafters.png"
               alt={t("title")}
               fill
@@ -66,12 +45,33 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
                 <span className="leading-relaxed">{t("optionsValue")}</span>
               </div>
             </div>
-            
+
             <div className="pt-6 border-t border-stone-200">
               <Link href="/contact" className="inline-block text-base font-medium text-teal-600 hover:text-teal-800 underline underline-offset-4 transition-colors">
                 {t("contactText")}
               </Link>
             </div>
+          </div>
+        </div>
+
+        {/* Support Box */}
+        <div className="bg-teal-50/50 border border-teal-200 rounded-3xl p-8 text-center max-w-5xl mx-auto shadow-sm mt-12 mb-12">
+          <p className="text-base md:text-lg text-teal-800 font-medium italic">{t("supportTitle")}</p>
+        </div>
+
+        {/* Description Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="text-xl md:text-2xl leading-relaxed text-stone-700 font-serif lg:pr-12">
+            <p>{t("description")}</p>
+          </div>
+          <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-stone-100 group">
+            {/* Application image for rafters */}
+            <Image
+              src="/nfcrafter.jpg"
+              alt="Installed NFC Rafters"
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-700"
+            />
           </div>
         </div>
 
