@@ -50,7 +50,8 @@
     "blog": "Blog",
     "news": "Haberler",
     "contactUs": "Bize Ulaşın",
-    "requestBrochure": "E-Broşür İsteyin"
+    "requestBrochure": "E-Broşür İsteyin",
+    "coverage": "Print Media"
   },
   "HeroSlider": {
     "slides": [

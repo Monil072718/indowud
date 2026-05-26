@@ -25,7 +25,7 @@ const NEWS_ITEMS: NewsItem[] = [
     kind: "short",
     title: "Nas Daily - Indowud NFC Feature",
     source: "Nas Daily",
-    thumb: "https://img.youtube.com/vi/Jk4pxVx-kWY/maxresdefault.jpg",
+    thumb: "/NAS daily vlog.webp",
     href: "https://youtube.com/shorts/Jk4pxVx-kWY?si=xsD1mcA7Dp1Zxn_K",
   },
   {
@@ -33,7 +33,7 @@ const NEWS_ITEMS: NewsItem[] = [
     kind: "article",
     title: "A Wood Without Wood: Saving Forests with Rice Husk Technology",
     source: "Hindu Business Line",
-    thumb: "/news-thumbnail.png",
+    thumb: "/Hindu baseline.webp",
     href: "https://www.thehindubusinessline.com/news/awoodwithout-wood-to-save-forests/article65553026.ece",
   },
   {
@@ -57,7 +57,7 @@ const NEWS_ITEMS: NewsItem[] = [
     kind: "article",
     title: "The Vision of B L Bengani: Creating Wealth from Agricultural Stubble",
     source: "Navbharath Times",
-    thumb: "/news-thumbnail.png",
+    thumb: "/navbharat time.webp",
     href: "https://navbharattimes.indiatimes.com/business/business-news/story-of-bl-bengani-who-made-plywood-by-using-stubble-and-earning-millions/articleshow/90015448.cms?story=1",
   },
   {
@@ -65,7 +65,7 @@ const NEWS_ITEMS: NewsItem[] = [
     kind: "article",
     title: "Success Story: From Humble Beginnings to Sustainable Industry Leader",
     source: "Dainik Bhaskar",
-    thumb: "/news-thumbnail.png",
+    thumb: "/daily bhaskar.webp",
     href: "https://www.bhaskar.com/db-original/news/once-used-to-work-as-an-office-boy-on-a-salary-of-100-rupees-today-plywood-is-made-from-paddy-straw-turnover-of-more-than-one-crore-128591419.html",
   },
   {
@@ -81,7 +81,7 @@ const NEWS_ITEMS: NewsItem[] = [
     kind: "article",
     title: "Waterproof Wood from Rice Husk: A Sustainable Breakthrough",
     source: "The Better India",
-    thumb: "/news-thumbnail.png",
+    thumb: "/better india.webp",
     href: "https://thebetterindia.com/289539/chennai-entrepreneur-makes-waterproof-wood-from-rice-husk-to-build-furniture/",
   },
   {
@@ -89,7 +89,7 @@ const NEWS_ITEMS: NewsItem[] = [
     kind: "article",
     title: "Circular Economy in Action: Chennai Startup's Green Innovation",
     source: "Hindu Business Line",
-    thumb: "/news-thumbnail.png",
+    thumb: "/Hindu baseline.webp",
     href: "https://www.thehindubusinessline.com/multimedia/video/watch-this-chennai-start-up-creates-boards-from-agricultural-husks/article65556865.ece",
   },
   {
@@ -97,7 +97,7 @@ const NEWS_ITEMS: NewsItem[] = [
     kind: "article",
     title: "Saving Forests: One Indowud NFC Board at a Time",
     source: "Construction World",
-    thumb: "/news-thumbnail.png",
+    thumb: "/construction world.webp",
     href: "https://www.constructionworld.in/policy-updates-and-economic-news/indowud-produces-nfc-board-from-agricultural-husks-to-save-forest/34840",
   },
   {
@@ -105,15 +105,23 @@ const NEWS_ITEMS: NewsItem[] = [
     kind: "article",
     title: "The Future of Wood: Rags to Riches Story of Eco-Innovation",
     source: "The Better India (Hindi)",
-    thumb: "/news-thumbnail.png",
+    thumb: "/better india hindi.webp",
     href: "https://hindi.thebetterindia.com/%E0%A4%AA%E0%A4%B0%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B5%E0%A4%B0%E0%A4%A3/rags-to-riches-story-chennai-businessman-making-eco-friendly-plywood-indowud-nfc-from-agricultural-waste-india/",
+  },
+  {
+    id: "11a",
+    kind: "article",
+    title: "The Future of Wood: Rags to Riches Story of Eco-Innovation",
+    source: "The Better India (Tamil)",
+    thumb: "/better india tamil.webp",
+    href: "https://tamil.thebetterindia.com/",
   },
   {
     id: "12",
     kind: "article",
     title: "Technological Advancement in Paddy Husk Upcycling",
     source: "ETV Bharat",
-    thumb: "/news-thumbnail.png",
+    thumb: "/ETV gujarat.webp",
     href: "https://www.etvbharat.com/gujarati/gujarat/bharat/tamil-nadu-a-private-company-is-now-producing-artificial-wood-from-the-husk-of-paddy/gj20220714221841726726386",
   },
   {
@@ -121,7 +129,7 @@ const NEWS_ITEMS: NewsItem[] = [
     kind: "article",
     title: "Sustainable Furnishing: The Indowud Revolution",
     source: "ETV Bharat",
-    thumb: "/news-thumbnail.png",
+    thumb: "/ETV odisha.webp",
     href: "https://www.etvbharat.com/oriya/odisha/bharat/a-private-company-producing-artificial-wood-from-the-husk-of-paddy-in-chennai/or20220715142225261261476",
   },
   {
@@ -129,7 +137,7 @@ const NEWS_ITEMS: NewsItem[] = [
     kind: "article",
     title: "Green Furniture: Chennai's Answer to Deforestation",
     source: "DT Next",
-    thumb: "/news-thumbnail.png",
+    thumb: "/DT Next.webp",
     href: "https://www.dtnext.in/city/2022/07/12/city-based-company-makes-furniture-out-of-rice-husks-",
   },
   {

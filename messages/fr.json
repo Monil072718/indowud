@@ -50,7 +50,8 @@
     "blog": "Blog",
     "news": "Actualités",
     "contactUs": "Contactez-nous",
-    "requestBrochure": "Demander une E-brochure"
+    "requestBrochure": "Demander une E-brochure",
+    "coverage": "Print Media"
   },
   "HeroSlider": {
     "slides": [

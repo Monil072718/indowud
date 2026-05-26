@@ -126,8 +126,8 @@ export default function Header() {
       path: "/nfc/products",
       dropdown: [
         { label: t('zerOwudNFC'), path: "/nfc/products/zerowud-nfc" },
-        { 
-          label: t('indowudNFC'), 
+        {
+          label: t('indowudNFC'),
           path: "#",
           hasSubmenu: true,
           submenu: [
@@ -143,8 +143,8 @@ export default function Header() {
         { label: t('nfcSiding'), path: "/nfc/products/nfc-siding" },
         { label: t('nfcFence'), path: "/nfc/products/nfc-fence" },
         { label: t('nfcFlooring'), path: "/nfc/products/nfc-flooring" },
-        { 
-          label: t('nfcRafters'), 
+        {
+          label: t('nfcRafters'),
           path: "#",
           hasSubmenu: true,
           submenu: [
@@ -312,9 +312,8 @@ export default function Header() {
                   >
                     {hasDropdown ? (
                       <button
-                        className={`nav-link-hover px-2 xl:px-4 py-2 text-[13px] xl:text-[14px] font-bold tracking-wide transition-all uppercase whitespace-nowrap ${
-                          isOpen ? "text-rose-600" : "text-gray-700 hover:text-rose-600"
-                        }`}
+                        className={`nav-link-hover px-2 xl:px-4 py-2 text-[13px] xl:text-[14px] font-bold tracking-wide transition-all uppercase whitespace-nowrap ${isOpen ? "text-rose-600" : "text-gray-700 hover:text-rose-600"
+                          }`}
                       >
                         {item.label}
                       </button>
@@ -486,9 +485,8 @@ export default function Header() {
                                 closeAllMenus()
                               }
                             }}
-                            className={`text-base font-bold uppercase tracking-wide transition-colors ${
-                              open ? "text-rose-600" : "text-gray-900"
-                            }`}
+                            className={`text-base font-bold uppercase tracking-wide transition-colors ${open ? "text-rose-600" : "text-gray-900"
+                              }`}
                           >
                             {item.label}
                           </Link>

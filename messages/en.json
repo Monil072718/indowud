@@ -50,7 +50,8 @@
     "blog": "Blog",
     "news": "News",
     "contactUs": "Contact Us",
-    "requestBrochure": "Request E-Brochure"
+    "requestBrochure": "Request E-Brochure",
+    "coverage": "Print Media"
   },
   "HeroSlider": {
     "slides": [
@@ -110,7 +111,11 @@
     ],
     "calloutTitle": "Made for Makers",
     "calloutText": "Thermoformable for curves and complex geometries—perfect for architects and factories turning imagination into reality.",
-    "tags": ["Print • Paint • Stain", "Thermoform Ready", "High Screw Holding"],
+    "tags": [
+      "Print • Paint • Stain",
+      "Thermoform Ready",
+      "High Screw Holding"
+    ],
     "imageBadgeTitle": "Wood-like Surface",
     "imageBadgeSubtitle": "Print, Paint, Stain, CNC"
   },
@@ -388,7 +393,14 @@
     "title": "Comparative Study",
     "highlight": "NFC vs Others",
     "description": "Quality the world and time can test. See how Indowud NFC stacks up against PVC, Plywood, and MDF.",
-    "tableHead": ["No", "Properties", "NFC", "PVC/WPC Foam Board", "Plywood", "MDF"],
+    "tableHead": [
+      "No",
+      "Properties",
+      "NFC",
+      "PVC/WPC Foam Board",
+      "Plywood",
+      "MDF"
+    ],
     "properties": {
       "density": "Density (kg/cbm)",
       "rawMaterial": "Raw Material",
@@ -862,22 +874,58 @@
       "noteTitle": "Important Note",
       "proTipTitle": "Pro Tip",
       "proTipText": "Always verify grid square supports before installation to ensure uniform weight distribution.",
-      "cols": ["6", "8", "12", "15", "16", "18", "20", "25"],
+      "cols": [
+        "6",
+        "8",
+        "12",
+        "15",
+        "16",
+        "18",
+        "20",
+        "25"
+      ],
       "rows": [
         {
           "variant": "Neo (in mm)",
           "density": "625+ Kg/CBM",
-          "values": ["150", "200", "250", "300", "300", "350", "400", "500"]
+          "values": [
+            "150",
+            "200",
+            "250",
+            "300",
+            "300",
+            "350",
+            "400",
+            "500"
+          ]
         },
         {
           "variant": "Create (in mm)",
           "density": "700+ Kg/CBM",
-          "values": ["200", "250", "300", "350", "350", "400", "450", "550"]
+          "values": [
+            "200",
+            "250",
+            "300",
+            "350",
+            "350",
+            "400",
+            "450",
+            "550"
+          ]
         },
         {
           "variant": "Build (in mm)",
           "density": "800+ Kg/CBM",
-          "values": ["250", "350", "450", "550", "550", "600", "650", "750"]
+          "values": [
+            "250",
+            "350",
+            "450",
+            "550",
+            "550",
+            "600",
+            "650",
+            "750"
+          ]
         }
       ],
       "note": "For ceiling, use 12mm or higher thickness board with suggested grid square support of 300mm for create or build and 200mm for neo."

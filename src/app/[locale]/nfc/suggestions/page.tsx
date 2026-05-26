@@ -91,8 +91,8 @@ export default function SuggestionsPage() {
 
       {/* Video Section - Redesigned as a "Cinematic Feature" */}
       <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="relative rounded-[2.5rem] overflow-hidden bg-stone-900 shadow-2xl">
-          <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-transparent pointer-events-none" />
+        <div className="relative rounded-[2.5rem] overflow-hidden bg-white shadow-xl border border-stone-200">
+          <div className="absolute inset-0 bg-gradient-to-br from-teal-50/50 to-transparent pointer-events-none" />
           <div className="grid lg:grid-cols-5 items-center">
             <div className="lg:col-span-2 p-10 lg:p-16 z-10">
               <motion.div 
@@ -101,17 +101,17 @@ export default function SuggestionsPage() {
                 viewport={{ once: true }}
                 className="space-y-6"
               >
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-teal-400 text-xs font-bold uppercase tracking-widest">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-xs font-bold uppercase tracking-widest">
                   <Play className="w-4 h-4 fill-current" />
                   {t("videoBadge")}
                 </div>
-                <h2 className="text-3xl lg:text-4xl font-bold text-white leading-tight">
+                <h2 className="text-3xl lg:text-4xl font-bold text-stone-900 leading-tight">
                   {t("videoNote")}
                 </h2>
-                <div className="flex items-center gap-4 text-stone-400">
+                <div className="flex items-center gap-4 text-stone-600">
                   <div className="flex -space-x-2">
                     {[1,2,3].map(i => (
-                      <div key={i} className="w-8 h-8 rounded-full border-2 border-stone-900 bg-stone-700" />
+                      <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-stone-200" />
                     ))}
                   </div>
                   <span className="text-sm">{t("videoTrust")}</span>
@@ -185,19 +185,19 @@ export default function SuggestionsPage() {
                   </div>
                 </div>
               ))}
-              <div className="p-8 bg-stone-900 text-white flex flex-col justify-between">
+              <div className="p-8 bg-teal-50 text-stone-900 flex flex-col justify-between">
                 <div className="space-y-6">
-                  <h4 className="text-xl font-bold">{t("table.noteTitle")}</h4>
-                  <p className="text-stone-400 text-sm leading-relaxed">
+                  <h4 className="text-xl font-bold text-teal-900">{t("table.noteTitle")}</h4>
+                  <p className="text-teal-800 text-sm leading-relaxed">
                     {t("table.note")}
                   </p>
                 </div>
-                <div className="mt-8 p-4 rounded-2xl bg-white/5 border border-white/10">
-                  <div className="flex items-center gap-3 text-teal-400 mb-2">
+                <div className="mt-8 p-4 rounded-2xl bg-white border border-teal-100 shadow-sm">
+                  <div className="flex items-center gap-3 text-teal-600 mb-2">
                     <AlertCircle className="w-5 h-5" />
                     <span className="text-xs font-bold uppercase tracking-widest">{t("table.proTipTitle")}</span>
                   </div>
-                  <p className="text-xs text-stone-500 leading-relaxed">{t("table.proTipText")}</p>
+                  <p className="text-xs text-stone-600 leading-relaxed">{t("table.proTipText")}</p>
                 </div>
               </div>
             </div>
@@ -217,24 +217,24 @@ export default function SuggestionsPage() {
               transition={{ delay: idx * 0.1 }}
               className={`rounded-[2.5rem] p-10 border transition-all duration-500 group flex flex-col justify-between ${
                 idx === 0 || idx === 1 ? "md:col-span-3 bg-white border-stone-100 shadow-xl shadow-stone-200/50 hover:shadow-2xl" : 
-                idx === 2 ? "md:col-span-2 bg-stone-900 border-stone-800 text-white" :
+                idx === 2 ? "md:col-span-2 bg-teal-50 border-teal-100 text-stone-900" :
                 "md:col-span-2 bg-white border-stone-100 shadow-xl shadow-stone-200/50 hover:shadow-2xl"
               }`}
             >
               <div>
                 <div className={`mb-8 p-5 rounded-3xl w-fit group-hover:scale-110 transition-transform duration-500 ${
-                  idx === 2 ? "bg-white/10 text-teal-400" : "bg-stone-50 text-stone-900 group-hover:bg-teal-50 group-hover:text-teal-600"
+                  idx === 2 ? "bg-white text-teal-600 shadow-sm" : "bg-stone-50 text-stone-900 group-hover:bg-teal-50 group-hover:text-teal-600"
                 }`}>
                   {icons[idx]}
                 </div>
                 <h3 className="text-2xl font-bold mb-6 group-hover:text-teal-600 transition-colors">{item.title}</h3>
-                <p className={`text-sm leading-relaxed ${idx === 2 ? "text-stone-400" : "text-stone-600"}`}>
+                <p className={`text-sm leading-relaxed ${idx === 2 ? "text-teal-900/80" : "text-stone-600"}`}>
                   {item.text}
                 </p>
               </div>
               <div className="mt-10 flex items-center gap-2 text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity transtone-y-2 group-hover:transtone-y-0 duration-300">
-                <span className={idx === 2 ? "text-teal-400" : "text-teal-600"}>{t("learnMore")}</span>
-                <ChevronRight className="w-4 h-4" />
+                <span className="text-teal-600">{t("learnMore")}</span>
+                <ChevronRight className="w-4 h-4 text-teal-600" />
               </div>
             </motion.div>
           ))}
@@ -301,11 +301,11 @@ export default function SuggestionsPage() {
       </section>
 
       {/* Final Callout */}
-      <section className="bg-stone-900 py-20">
+      <section className="bg-white py-20">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <div className="p-12 rounded-[3rem] bg-gradient-to-br from-white/5 to-transparent border border-white/10 backdrop-blur-sm">
-            <CheckCircle2 className="w-16 h-16 text-teal-400 mx-auto mb-8" />
-            <p className="text-2xl lg:text-3xl text-white font-light italic leading-relaxed">
+          <div className="p-12 rounded-[3rem] bg-gradient-to-br from-teal-50 to-transparent border border-teal-100 shadow-sm">
+            <CheckCircle2 className="w-16 h-16 text-teal-600 mx-auto mb-8" />
+            <p className="text-2xl lg:text-3xl text-teal-900 font-light italic leading-relaxed">
               &quot;{t("ceiling.closing")}&quot;
             </p>
           </div>
@@ -363,7 +363,7 @@ function LazyYouTubeIframe() {
   }, []);
 
   return (
-    <div ref={iframeRef} className="h-full w-full relative bg-stone-800 flex items-center justify-center">
+    <div ref={iframeRef} className="h-full w-full relative bg-stone-100 flex items-center justify-center">
       {isInView ? (
         <iframe
           className="h-full w-full"
@@ -376,10 +376,10 @@ function LazyYouTubeIframe() {
         />
       ) : (
         <div className="text-center">
-          <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
-            <Play className="w-8 h-8 text-white fill-white" />
+          <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse shadow-sm">
+            <Play className="w-8 h-8 text-teal-600 fill-teal-600" />
           </div>
-          <p className="text-stone-400 text-sm">{t("videoInitializing")}</p>
+          <p className="text-stone-500 text-sm">{t("videoInitializing")}</p>
         </div>
       )}
     </div>
