@@ -18,28 +18,13 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
         description=""
       />
       <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 space-y-24">
-        
-        {/* Top Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="text-xl md:text-2xl leading-relaxed text-stone-700 font-serif lg:pr-12">
-            <p>{t("description")}</p>
-          </div>
-          <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-stone-100 group">
-             {/* Application image for alu clad rafters */}
-            <Image 
-              src="/4-5-2048x1152.jpg.webp" 
-              alt="Installed NFC Alu Clad Rafters"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-          </div>
-        </div>
 
-        {/* Details Section */}
+        {/* Top Section */}
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-8">
           <div className="relative aspect-[4/3] rounded-3xl bg-stone-50 p-8 flex items-center justify-center border border-stone-100 shadow-sm">
-            <Image 
-              src="/nfc-rafters.png.webp"
+            <Image
+              src="/alu.png"
               alt={t("title")}
               fill
               className="object-contain p-8 drop-shadow-2xl hover:scale-105 transition-transform duration-700"
@@ -60,7 +45,7 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
                 {t("sizeDetails")}
               </p>
             </div>
-            
+
             <div className="pt-6 border-t border-stone-200">
               <Link href="/contact" className="inline-block text-base font-medium text-teal-600 hover:text-teal-800 underline underline-offset-4 transition-colors">
                 {t("contactText")}
@@ -68,6 +53,25 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
             </div>
           </div>
         </div>
+
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="text-xl md:text-2xl leading-relaxed text-stone-700 font-serif lg:pr-12">
+            <p>{t("description")}</p>
+          </div>
+          <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-stone-100 group">
+            {/* Application image for alu clad rafters */}
+            <Image
+              src="/clad.png"
+              alt="Installed NFC Alu Clad Rafters"
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+        </div>
+
+        {/* Details Section */}
+
 
       </div>
     </main>
