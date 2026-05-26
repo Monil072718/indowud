@@ -44,7 +44,7 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
           {/* img1 — top-left, wide */}
           <div style={{ gridColumn: "1 / 2", gridRow: "1 / 2" }} className="relative overflow-hidden rounded-tl-2xl rounded-bl-none">
             <Image
-              src="/1-8-2048x1152.jpg.webp"
+              src="/neo-1.png"
               alt="Neo & Create Interior 1"
               fill
               className="object-cover"
@@ -56,7 +56,7 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
           {/* img2 — top-right, spans cols 2 & 3 */}
           <div style={{ gridColumn: "2 / 4", gridRow: "1 / 2" }} className="relative overflow-hidden rounded-tr-2xl">
             <Image
-              src="/2-9-2048x1152.jpg.webp"
+              src="/neo-2.png"
               alt="Neo & Create Interior 2"
               fill
               className="object-cover"
@@ -68,7 +68,7 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
           {/* img3 — middle-left small */}
           <div style={{ gridColumn: "1 / 2", gridRow: "2 / 3" }} className="relative overflow-hidden">
             <Image
-              src="/pattern-2.jpg"
+              src="/neo-3.png"
               alt="Neo & Create Interior 3"
               fill
               className="object-cover"
@@ -79,7 +79,7 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
           {/* img4 — middle-center */}
           <div style={{ gridColumn: "2 / 3", gridRow: "2 / 3" }} className="relative overflow-hidden">
             <Image
-              src="/pattern-3.jpg"
+              src="/neo-4.png"
               alt="Neo & Create Interior 4"
               fill
               className="object-cover"
@@ -90,7 +90,7 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
           {/* img5 — right column, spans rows 2 & 3 (tall) */}
           <div style={{ gridColumn: "3 / 4", gridRow: "2 / 4" }} className="relative overflow-hidden rounded-br-2xl">
             <Image
-              src="/3-6-2048x1152.jpg.webp"
+              src="/neo-5.png"
               alt="Neo & Create Interior 5"
               fill
               className="object-cover"
@@ -101,7 +101,7 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
           {/* img6 — bottom-left */}
           <div style={{ gridColumn: "1 / 2", gridRow: "3 / 4" }} className="relative overflow-hidden rounded-bl-2xl">
             <Image
-              src="/pattern-4.jpg"
+              src="/neo-6.png"
               alt="Neo & Create Interior 6"
               fill
               className="object-cover"
@@ -112,7 +112,7 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
           {/* img7 — bottom-center */}
           <div style={{ gridColumn: "2 / 3", gridRow: "3 / 4" }} className="relative overflow-hidden">
             <Image
-              src="/pattern-5.jpg"
+              src="/neo-7.png"
               alt="Neo & Create Interior 7"
               fill
               className="object-cover"
