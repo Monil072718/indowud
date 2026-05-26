@@ -164,6 +164,14 @@ const NEWS_ITEMS: NewsItem[] = [
     thumb: "https://img.youtube.com/vi/F-0Q7k-mlQk/maxresdefault.jpg",
     href: "https://youtu.be/F-0Q7k-mlQk?si=w-BUAMCfi_XGbp_o",
   },
+  {
+    id: "18",
+    kind: "article",
+    title: "NFC Rafter Installation: Transforming Modern Architecture with Indowud",
+    source: "Indowud NFC",
+    thumb: "/nfcrafter.jpg",
+    href: "https://www.indowud.com/nfc/products/nfc-rafters",
+  },
 ];
 
 /* ----------------------------- Small Utilities ----------------------------- */
