@@ -8,14 +8,17 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
   setRequestLocale(locale);
   const t = await getTranslations("ProductDetails.indowud-build");
 
-  // Temporary placeholder images
-  const placeholderImages = [
-    "/1-8-2048x1152.jpg.webp",
-    "/3-6-2048x1152.jpg.webp",
-    "/2-9-2048x1152.jpg.webp",
-    "/4-5-2048x1152.jpg.webp",
-    "/5-5-2048x1152.jpg.webp",
-    "/6-1-2048x1152.jpg.webp",
+  // Premium build images
+  const buildImages = [
+    "/build-1.png",
+    "/build-2.png",
+    "/build-3.png",
+    "/build-4.png",
+    "/build-5.png",
+    "/build-6.png",
+    "/build-7.png",
+    "/build-8.png",
+    "/build-9.png",
   ];
 
   return (
@@ -38,54 +41,109 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
 
         {/* Masonry/Grid Collage Section */}
         <div className="pt-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px] md:auto-rows-[250px]">
-            {/* Main large image */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px] md:auto-rows-[220px]">
+            
+            {/* 1. Main large featured card */}
             <div className="col-span-2 row-span-2 relative rounded-2xl overflow-hidden shadow-sm group">
               <Image 
-                src={placeholderImages[0]}
-                alt="Exterior Reference 1"
+                src={buildImages[0]}
+                alt="Exterior Build Reference 1"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
             </div>
             
-            {/* Standard images */}
+            {/* 2. Landscape card */}
             <div className="col-span-2 relative rounded-2xl overflow-hidden shadow-sm group">
               <Image 
-                src={placeholderImages[1]}
-                alt="Exterior Reference 2"
+                src={buildImages[1]}
+                alt="Exterior Build Reference 2"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
             </div>
             
-            <div className="col-span-2 relative rounded-2xl overflow-hidden shadow-sm group">
+            {/* 3. Small square card */}
+            <div className="col-span-1 relative rounded-2xl overflow-hidden shadow-sm group">
               <Image 
-                src={placeholderImages[2]}
-                alt="Exterior Reference 3"
+                src={buildImages[2]}
+                alt="Exterior Build Reference 3"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 50vw, 25vw"
               />
             </div>
 
-            {/* Bottom images */}
-            <div className="col-span-2 relative rounded-2xl overflow-hidden shadow-sm group">
+            {/* 4. Tall vertical card */}
+            <div className="col-span-1 row-span-2 relative rounded-2xl overflow-hidden shadow-sm group">
               <Image 
-                src={placeholderImages[3]}
-                alt="Exterior Reference 4"
+                src={buildImages[3]}
+                alt="Exterior Build Reference 4"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 50vw, 25vw"
               />
             </div>
 
+            {/* 5. Landscape card (spans two columns) */}
             <div className="col-span-2 relative rounded-2xl overflow-hidden shadow-sm group">
               <Image 
-                src={placeholderImages[4]}
-                alt="Exterior Reference 5"
+                src={buildImages[4]}
+                alt="Exterior Build Reference 5"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
+
+            {/* 6. Small square card */}
+            <div className="col-span-1 relative rounded-2xl overflow-hidden shadow-sm group">
+              <Image 
+                src={buildImages[5]}
+                alt="Exterior Build Reference 6"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+            </div>
+
+            {/* 7. Small square card */}
+            <div className="col-span-1 relative rounded-2xl overflow-hidden shadow-sm group">
+              <Image 
+                src={buildImages[6]}
+                alt="Exterior Build Reference 7"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+            </div>
+
+            {/* 8. Medium landscape card */}
+            <div className="col-span-2 relative rounded-2xl overflow-hidden shadow-sm group">
+              <Image 
+                src={buildImages[7]}
+                alt="Exterior Build Reference 8"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+
+            {/* 9. Small square card */}
+            <div className="col-span-1 relative rounded-2xl overflow-hidden shadow-sm group">
+              <Image 
+                src={buildImages[8]}
+                alt="Exterior Build Reference 9"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+            </div>
+
           </div>
           
           <div className="text-right pt-6 pr-4">
