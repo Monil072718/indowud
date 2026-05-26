@@ -16,6 +16,7 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
     "/flute-3.png",
     "/flute-4.png",
     "/flute-5.png",
+    "/flute-6.png",
   ];
 
   return (
@@ -27,11 +28,11 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
         description=""
       />
       <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 space-y-24">
-        
+
         {/* Main Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-square md:aspect-[4/3] rounded-3xl bg-stone-50 p-8 flex items-center justify-center border border-stone-100 shadow-sm">
-            <Image 
+            <Image
               src="/nfc-flute.png.webp"
               alt={t("title")}
               width={600}
@@ -60,7 +61,7 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
             {t("description")}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
-            <Link 
+            <Link
               href="/nfc/products/nfc-flute-patterns"
               className="px-8 py-4 rounded-full bg-teal-600 text-white font-semibold hover:bg-teal-700 hover:shadow-lg transition-all"
             >
@@ -68,62 +69,101 @@ export default async function PageComponent({ params }: { params: Promise<{ loca
             </Link>
           </div>
           <div className="pt-8 mt-8 border-t border-stone-200">
-             <p className="text-stone-500 font-medium italic text-sm md:text-base" dangerouslySetInnerHTML={{ __html: t.raw("contactText") }} />
+            <p className="text-stone-500 font-medium italic text-sm md:text-base" dangerouslySetInnerHTML={{ __html: t.raw("contactText") }} />
           </div>
         </div>
 
         {/* Applications / Panel the right way Section */}
         <div className="pt-8">
-          <h3 className="text-3xl md:text-4xl font-serif text-rose-600 italic mb-12 border-b border-stone-100 pb-6">
-            {t("applicationsTitle")}
+          <h3 className="text-3xl md:text-4xl font-serif text-rose-600 italic mb-12 border-b border-stone-100 pb-6 flex justify-between items-center">
+            <span>{t("applicationsTitle")}</span>
           </h3>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[250px]">
-            {/* Masonry-style grid for application samples */}
-            <div className="row-span-2 relative rounded-2xl overflow-hidden shadow-sm group">
-              <Image 
-                src={fluteImages[0]}
-                alt="Flute Application 1"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
+
+          {/* Main Grid: 1 Column on Mobile, 3 Columns on Desktop */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+
+            {/* Column 1 (Left Side) */}
+            <div className="flex flex-col gap-6">
+              <div className="group relative overflow-hidden rounded-2xl border border-stone-200/50 shadow-sm hover:shadow-xl transition-all duration-500 bg-stone-50">
+                <Image
+                  src={fluteImages[0]}
+                  alt="Flute Application 1"
+                  width={800}
+                  height={800}
+                  className="w-full h-auto block group-hover:scale-[1.03] transition-transform duration-700"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="group relative overflow-hidden rounded-2xl border border-stone-200/50 shadow-sm hover:shadow-xl transition-all duration-500 bg-stone-50">
+                <Image
+                  src={fluteImages[3]}
+                  alt="Flute Application 2"
+                  width={800}
+                  height={800}
+                  className="w-full h-auto block group-hover:scale-[1.03] transition-transform duration-700"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
             </div>
-            <div className="col-span-2 relative rounded-2xl overflow-hidden shadow-sm group">
-              <Image 
-                src={fluteImages[1]}
-                alt="Flute Application 2"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 768px) 100vw, 66vw"
-              />
-            </div>
-            <div className="relative rounded-2xl overflow-hidden shadow-sm group">
-              <Image 
-                src={fluteImages[2]}
-                alt="Flute Application 3"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 768px) 50vw, 33vw"
-              />
-            </div>
-            <div className="relative rounded-2xl overflow-hidden shadow-sm group">
-              <Image 
-                src={fluteImages[3]}
-                alt="Flute Application 4"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 768px) 50vw, 33vw"
-              />
-            </div>
-            <div className="col-span-2 md:col-span-3 relative rounded-2xl overflow-hidden shadow-sm group">
-              <Image 
-                src={fluteImages[4]}
-                alt="Flute Application 5"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                sizes="100vw"
-              />
+
+            {/* Column 2 & 3 Wrapper (Right Side) */}
+            <div className="md:col-span-2 flex flex-col gap-6">
+
+              {/* Top Wide Image */}
+              <div className="group relative overflow-hidden rounded-2xl border border-stone-200/50 shadow-sm hover:shadow-xl transition-all duration-500 bg-stone-50">
+                <Image
+                  src={fluteImages[5]}
+                  alt="Flute Application Wide"
+                  width={1600}
+                  height={800}
+                  className="w-full h-auto block group-hover:scale-[1.03] transition-transform duration-700"
+                  sizes="(max-width: 768px) 100vw, 66vw"
+                />
+              </div>
+
+              {/* Bottom Split - Middle and Right Columns */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+
+                {/* Inner Left (Acts as the overall Middle Column) - Now holds TWO images */}
+                <div className="flex flex-col gap-6">
+                  <div className="group relative overflow-hidden rounded-2xl border border-stone-200/50 shadow-sm hover:shadow-xl transition-all duration-500 bg-stone-50">
+                    <Image
+                      src={fluteImages[1]}
+                      alt="Flute Application 3"
+                      width={800}
+                      height={800}
+                      className="w-full h-auto block group-hover:scale-[1.03] transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  {/* MOVED IMAGE: This fills the empty red box from your screenshot */}
+                  <div className="group relative overflow-hidden rounded-2xl border border-stone-200/50 shadow-sm hover:shadow-xl transition-all duration-500 bg-stone-50">
+                    <Image
+                      src={fluteImages[4]} /* Ensure this index matches your "Open grained" image */
+                      alt="Flute Application Open Grained"
+                      width={800}
+                      height={800}
+                      className="w-full h-auto block group-hover:scale-[1.03] transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                </div>
+
+                {/* Inner Right (Acts as the overall Right Column) - Now holds ONE tall image */}
+                <div className="flex flex-col gap-6">
+                  <div className="group relative overflow-hidden rounded-2xl border border-stone-200/50 shadow-sm hover:shadow-xl transition-all duration-500 bg-stone-50 h-full">
+                    <Image
+                      src={fluteImages[2]}
+                      alt="Flute Application 4"
+                      width={800}
+                      height={800}
+                      className="w-full h-auto block group-hover:scale-[1.03] transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>

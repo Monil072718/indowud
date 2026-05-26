@@ -31,6 +31,8 @@ export default function GalleryClient({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open, items.length]);
 
+
+
   // Safety check: if no items, return empty state (after all hooks)
   if (!items || items.length === 0) {
     return (
@@ -40,41 +42,43 @@ export default function GalleryClient({
     );
   }
 
+  const renderCard = (src: string, i: number) => (
+    <button
+      key={i}
+      onClick={() => {
+        setIdx(i);
+        setOpen(true);
+      }}
+      className="group relative overflow-hidden rounded-3xl border border-stone-100 bg-stone-50/50 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 text-left w-full block"
+    >
+      <div className="relative w-full overflow-hidden">
+        <Image
+          src={src}
+          alt={`${name} pattern ${i + 1}`}
+          width={800}
+          height={800}
+          className="w-full h-auto block transition-transform duration-700 ease-out group-hover:scale-105"
+          sizes="(max-width: 640px) 100vw, 50vw"
+          priority={i < 2}
+        />
+      </div>
+
+      <div className="absolute inset-0 bg-gradient-to-t from-stone-900/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+      <span className="absolute bottom-4 right-4 flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-xs font-semibold text-stone-800 shadow-xl opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 backdrop-blur-md border border-stone-100/50">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+        </svg>
+        View Pattern
+      </span>
+    </button>
+  );
+
   return (
     <>
-      {/* grid */}
-      <div className="grid gap-6 sm:grid-cols-2">
-        {items.map((src, i) => (
-          <button
-            key={i}
-            onClick={() => {
-              setIdx(i);
-              setOpen(true);
-            }}
-            className="group relative overflow-hidden rounded-3xl border border-stone-100 bg-stone-50/50 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
-          >
-            <div className="relative aspect-[2/1] w-full">
-              <Image
-                src={src}
-                alt={`${name} pattern ${i + 1}`}
-                fill
-                className="object-contain p-0 transition-transform duration-700 ease-out group-hover:scale-110"
-                sizes="(max-width: 640px) 100vw, 50vw"
-                priority={i < 2}
-              />
-            </div>
-            
-            {/* Elegant hover overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-stone-900/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            
-            <span className="absolute bottom-4 right-4 flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-xs font-semibold text-stone-800 shadow-xl opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 backdrop-blur-md border border-stone-100/50">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-              </svg>
-              View Pattern
-            </span>
-          </button>
-        ))}
+      {/* simple grid gallery */}
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-start">
+        {items.map((src, i) => renderCard(src, i))}
       </div>
 
       {/* lightbox */}

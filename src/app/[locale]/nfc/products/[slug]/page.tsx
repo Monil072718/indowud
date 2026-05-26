@@ -30,11 +30,11 @@ const PRODUCT_PATTERNS: Record<
     parentHref: "/nfc/products/nfc-textured-panels",
     patterns: [
       "/NFC textured panel-t1.png",
-      "/NFC textured panel-t2.png",
       "/NFC textured panel-t3.png",
-      "/NFC textured panel-t4.png",
+      "/NFC textured pannel open grained deep.png",
+      "/NFC textured panel-t2.png",
       "/NFC textured panel-t5.png",
-      "/NFC textured pannel open grained deep.png"
+      "/NFC textured panel-t4.png"
     ],
   },
   "nfc-flute-patterns": {
