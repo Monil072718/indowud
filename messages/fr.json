@@ -464,9 +464,16 @@
   "NewsPage": {
     "category": "Média",
     "title": "Actualités et Médias",
+    "pageTitle": "Salle de presse",
+    "pageDescription": "Découvrez les dernières couvertures, communiqués de presse et médias sur les solutions innovantes d'Indowud NFC.",
     "description": "Mentions dans les médias, vidéos et articles sur Indowud.",
+    "inThePress": "Dans la presse",
+    "multimediaShorts": "Multimédia et Courts",
     "readArticle": "Lire l'article",
     "watchVideo": "Voir la vidéo",
+    "watchFullStory": "Voir l'histoire complète",
+    "readFullArticle": "Lire l'article complet",
+    "featured": "En vedette",
     "openSource": "Source ouverte",
     "noThumbnail": "Pas de miniature",
     "kinds": {

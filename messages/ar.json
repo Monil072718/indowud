@@ -555,9 +555,16 @@
   "NewsPage": {
     "category": "الوسائط",
     "title": "الأخبار والوسائط",
+    "pageTitle": "غرفة الأخبار والصحافة",
+    "pageDescription": "اكتشف آخر التغطيات وبيانات الصحافة والوسائط المتعلقة بحلول Indowud NFC.",
     "description": "إشارات الوسائط ومقاطع الفيديو والمقالات حول Indowud.",
+    "inThePress": "في الصحافة",
+    "multimediaShorts": "الوسائط المتعددة والمقاطع القصيرة",
     "readArticle": "اقرأ المقال",
     "watchVideo": "شاهد الفيديو",
+    "watchFullStory": "شاهد القصة كاملة",
+    "readFullArticle": "اقرأ المقال كاملاً",
+    "featured": "مميز",
     "openSource": "المصدر المفتوح",
     "noThumbnail": "لا يوجد مصغر",
     "kinds": {

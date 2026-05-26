@@ -253,9 +253,16 @@
   "NewsPage": {
     "category": "Medya",
     "title": "Haberler ve Medya",
+    "pageTitle": "Basın Odası",
+    "pageDescription": "Indowud NFC'nin yenilikçi yapı çözümleri hakkındaki en son haberleri, basın bildirimlerini ve medyayı keşfedin.",
     "description": "Indowud hakkında medyada çıkan haberler, videolar ve makaleler.",
+    "inThePress": "Basında",
+    "multimediaShorts": "Multimedya ve Kısalar",
     "readArticle": "Makaleyi oku",
     "watchVideo": "Videoyu izle",
+    "watchFullStory": "Tam hikayeyi izle",
+    "readFullArticle": "Tam makaleyi oku",
+    "featured": "Öne Çıkan",
     "openSource": "Kaynağı aç",
     "noThumbnail": "Küçük Resim Yok",
     "kinds": {

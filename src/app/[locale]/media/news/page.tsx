@@ -205,8 +205,8 @@ export default function NewsPage() {
       {/* Top bar / breadcrumb */}
       <PageHeader
         category={t("category")}
-        title="Newsroom & Press"
-        description="Discover the latest coverage, press releases, and media featuring Indowud NFC's innovative building solutions."
+        title={t("pageTitle")}
+        description={t("pageDescription")}
       />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-20 -mt-10 relative z-10">
@@ -215,6 +215,9 @@ export default function NewsPage() {
         <div className="mb-16 lg:mb-24">
           <HeroCard
             item={featuredHero}
+            labelFeatured={t("featured")}
+            labelWatch={t("watchFullStory")}
+            labelRead={t("readFullArticle")}
             onPlay={() => {
               if (featuredHero.kind === "video" || featuredHero.kind === "short") setVideoOpen(featuredHero);
             }}
@@ -226,13 +229,13 @@ export default function NewsPage() {
           <div className="flex items-center justify-between mb-8 border-b border-slate-200 pb-4">
             <h2 className="text-3xl font-serif font-bold text-slate-900 flex items-center gap-3">
               <FileText className="text-teal-600" size={28} />
-              In the Press
+              {t("inThePress")}
             </h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {articles.map((n, idx) => (
-              <ArticleCard key={n.id} item={n} index={idx} />
+              <ArticleCard key={n.id} item={n} index={idx} labelArticle={t("kinds.article")} labelRead={t("readArticle")} />
             ))}
           </div>
         </div>
@@ -242,7 +245,7 @@ export default function NewsPage() {
           <div className="flex items-center justify-between mb-8 border-b border-slate-200 pb-4">
             <h2 className="text-3xl font-serif font-bold text-slate-900 flex items-center gap-3">
               <Video className="text-teal-600" size={28} />
-              Multimedia & Shorts
+              {t("multimediaShorts")}
             </h2>
           </div>
 
@@ -252,6 +255,8 @@ export default function NewsPage() {
                 key={n.id}
                 item={n}
                 index={idx}
+                labelShort={t("kinds.short")}
+                labelVideo={t("kinds.video")}
                 onPlay={() => setVideoOpen(n)}
               />
             ))}
@@ -267,7 +272,7 @@ export default function NewsPage() {
 }
 
 /* ----------------------------- Hero Card ----------------------------- */
-const HeroCard = React.memo(function HeroCard({ item, onPlay }: { item: NewsItem; onPlay: () => void }) {
+const HeroCard = React.memo(function HeroCard({ item, onPlay, labelFeatured, labelWatch, labelRead }: { item: NewsItem; onPlay: () => void; labelFeatured: string; labelWatch: string; labelRead: string }) {
   const isVideo = item.kind === "video" || item.kind === "short";
 
   return (
@@ -302,7 +307,7 @@ const HeroCard = React.memo(function HeroCard({ item, onPlay }: { item: NewsItem
       <div className="w-full lg:w-2/5 p-8 lg:p-16 flex flex-col justify-center order-2 lg:order-1 relative z-10">
         <div className="mb-6 flex items-center gap-4">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-teal-500/20 px-4 py-1.5 text-xs font-bold text-teal-300 uppercase tracking-widest border border-teal-500/30">
-            Featured {item.kind}
+            {labelFeatured} {item.kind}
           </span>
           <span className="text-slate-400 text-sm font-medium tracking-wide uppercase">{item.source}</span>
         </div>
@@ -311,7 +316,7 @@ const HeroCard = React.memo(function HeroCard({ item, onPlay }: { item: NewsItem
         </h3>
         <div className="mt-auto">
           <span className="inline-flex items-center gap-2 text-white font-semibold tracking-wide border-b border-transparent group-hover:border-teal-400 pb-1 transition-all">
-             {isVideo ? "Watch Full Story" : "Read Full Article"} 
+             {isVideo ? labelWatch : labelRead}
              {isVideo ? <Play size={16} /> : <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />}
           </span>
         </div>
@@ -321,7 +326,8 @@ const HeroCard = React.memo(function HeroCard({ item, onPlay }: { item: NewsItem
 });
 
 /* ----------------------------- Article Card ----------------------------- */
-const ArticleCard = React.memo(function ArticleCard({ item, index }: { item: NewsItem; index: number }) {
+const ArticleCard = React.memo(function ArticleCard({ item, index, labelArticle, labelRead }: { item: NewsItem; index: number; labelArticle: string; labelRead: string }) {
+  const [imgError, setImgError] = React.useState(false);
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
@@ -332,20 +338,28 @@ const ArticleCard = React.memo(function ArticleCard({ item, index }: { item: New
       onClick={() => window.open(item.href, '_blank')}
     >
       <div className="aspect-[16/9] w-full relative overflow-hidden bg-slate-100 border-b border-slate-100">
-        <Image
-          src={item.thumb}
-          alt={item.title}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
+        {!imgError ? (
+          <Image
+            src={item.thumb}
+            alt={item.title}
+            fill
+            unoptimized={item.thumb.startsWith('/')}
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center bg-slate-200">
+            <FileText className="text-slate-400" size={40} />
+          </div>
+        )}
         <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/5 transition-colors duration-300" />
       </div>
 
       <div className="p-6 flex-1 flex flex-col">
         <div className="flex items-center gap-3 mb-4">
           <span className="text-xs font-bold text-teal-700 uppercase tracking-widest bg-teal-50 px-2.5 py-1 rounded-md">
-            Article
+            {labelArticle}
           </span>
           <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">{item.source}</span>
         </div>
@@ -355,7 +369,7 @@ const ArticleCard = React.memo(function ArticleCard({ item, index }: { item: New
         </h3>
 
         <div className="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-sm font-semibold text-slate-600 group-hover:text-teal-700 transition-colors">
-          <span>Read Article</span>
+          <span>{labelRead}</span>
           <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform" />
         </div>
       </div>
@@ -364,7 +378,7 @@ const ArticleCard = React.memo(function ArticleCard({ item, index }: { item: New
 });
 
 /* ----------------------------- Video Card ----------------------------- */
-const VideoCard = React.memo(function VideoCard({ item, index, onPlay }: { item: NewsItem; index: number; onPlay: () => void }) {
+const VideoCard = React.memo(function VideoCard({ item, index, onPlay, labelShort, labelVideo }: { item: NewsItem; index: number; onPlay: () => void; labelShort: string; labelVideo: string }) {
   const isShort = item.kind === "short";
   
   return (
@@ -395,7 +409,7 @@ const VideoCard = React.memo(function VideoCard({ item, index, onPlay }: { item:
         {/* Type Badge */}
         <div className="absolute bottom-3 right-3">
           <span className="inline-flex items-center gap-1.5 rounded bg-black/80 px-2.5 py-1 text-[10px] font-bold text-white tracking-widest uppercase shadow-sm">
-            {isShort ? 'Short' : 'Video'}
+            {isShort ? labelShort : labelVideo}
           </span>
         </div>
       </div>

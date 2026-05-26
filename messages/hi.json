@@ -555,9 +555,16 @@
   "NewsPage": {
     "category": "मीडिया",
     "title": "समाचार और मीडिया",
+    "pageTitle": "न्यूज़रूम और प्रेस",
+    "pageDescription": "Indowud NFC के नवाचारी निर्माण समाधानों की नवीनतम कवरेज, प्रेस विज्ञप्तियाँ और मीडिया खोजें।",
     "description": "इंडोवुड के बारे में मीडिया उल्लेख, वीडियो और लेख।",
+    "inThePress": "प्रेस में",
+    "multimediaShorts": "मल्टीमीडिया और शॉर्ट्स",
     "readArticle": "लेख पढ़ें",
     "watchVideo": "वीडियो देखें",
+    "watchFullStory": "पूरी कहानी देखें",
+    "readFullArticle": "पूरा लेख पढ़ें",
+    "featured": "फ़ीचर्ड",
     "openSource": "ओपन सोर्स",
     "noThumbnail": "थंबनेल नहीं",
     "kinds": {

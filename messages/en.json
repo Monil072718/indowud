@@ -766,9 +766,16 @@
   "NewsPage": {
     "category": "Media",
     "title": "News & Media",
+    "pageTitle": "Newsroom & Press",
+    "pageDescription": "Discover the latest coverage, press releases, and media featuring Indowud NFC's innovative building solutions.",
     "description": "Media mentions, videos, and articles about Indowud.",
+    "inThePress": "In the Press",
+    "multimediaShorts": "Multimedia & Shorts",
     "readArticle": "Read article",
     "watchVideo": "Watch video",
+    "watchFullStory": "Watch Full Story",
+    "readFullArticle": "Read Full Article",
+    "featured": "Featured",
     "openSource": "Open source",
     "noThumbnail": "No Thumbnail",
     "kinds": {
