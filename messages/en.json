@@ -80,7 +80,12 @@
         "title": "Innovation meets tradition",
         "subtitle": "Modern solutions with timeless appeal."
       }
-    ]
+    ],
+    "ecoText": {
+      "line1": "We Do Not Kill To Create",
+      "line2": "We Do Not Destroy To Design",
+      "line3": "We Do Not Cut Down To Build"
+    }
   },
   "FeaturesSection": {
     "heading": "A feature rich Wood That Lets You Breathe Freely",

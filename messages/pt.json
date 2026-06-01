@@ -80,7 +80,12 @@
         "title": "Inovação encontra tradição",
         "subtitle": "Soluções modernas com apelo atemporal."
       }
-    ]
+    ],
+    "ecoText": {
+      "line1": "Não matamos para criar",
+      "line2": "Não destruímos para desenhar",
+      "line3": "Não derrubamos para construir"
+    }
   },
   "FeaturesSection": {
     "heading": "Uma madeira rica em recursos que permite respirar livremente",

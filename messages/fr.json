@@ -80,7 +80,12 @@
         "title": "L'innovation rencontre la tradition",
         "subtitle": "Des solutions modernes au charme intemporel."
       }
-    ]
+    ],
+    "ecoText": {
+      "line1": "Nous ne tuons pas pour créer",
+      "line2": "Nous ne détruisons pas pour concevoir",
+      "line3": "Nous n'abattons pas pour construire"
+    }
   },
   "FeaturesSection": {
     "heading": "Un bois riche en fonctionnalités qui vous permet de respirer librement",

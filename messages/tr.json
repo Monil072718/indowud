@@ -80,7 +80,12 @@
         "title": "İnovasyon Gelenekle Buluşuyor",
         "subtitle": "Zamansız çekiciliğe sahip modern çözümler."
       }
-    ]
+    ],
+    "ecoText": {
+      "line1": "Yaratmak için öldürmüyoruz",
+      "line2": "Tasarım için yok etmiyoruz",
+      "line3": "İnşa etmek için kesmiyoruz"
+    }
   },
   "FeaturesSection": {
     "heading": "Özgürce nefes almanızı sağlayan özelliklerle dolu bir ahşap",

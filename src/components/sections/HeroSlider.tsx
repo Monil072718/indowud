@@ -80,6 +80,15 @@ export default function HeroShowcaseWithFounder() {
                 <p className="mt-6 text-lg text-stone-600 leading-relaxed max-w-md">
                   {current.subtitle}
                 </p>
+
+                {/* Tagline */}
+                <div className="mt-8">
+                  <p className="text-base sm:text-lg font-black italic text-teal-600 leading-relaxed tracking-wide">
+                    {t("ecoText.line1")} <br />
+                    {t("ecoText.line2")} <br />
+                    {t("ecoText.line3")}
+                  </p>
+                </div>
               </div>
 
               {/* Pagination / Progress */}
